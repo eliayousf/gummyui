@@ -1,0 +1,13 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Local dependency caches and the two server-only Vinext prerender manifests"
+paths = [
+  '''^node_modules/''',
+  '''^\.next/''',
+  '''^\.vinext/''',
+  '''^\.wrangler/''',
+  '''^dist/server/vinext-server\.json$''',
+  '''^dist/server/ssr/vinext-server\.json$''',
+]

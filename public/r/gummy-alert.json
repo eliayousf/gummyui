@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-alert",
+  "type": "registry:ui",
+  "title": "Gummy Alert",
+  "description": "Composable static or live Alert with semantic variants and a connected icon reservoir.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyAlert.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyAlertProps = React.HTMLAttributes<HTMLDivElement> & {\n  variant?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\";\n  live?: \"off\" | \"polite\" | \"assertive\";\n  icon?: React.ReactNode;\n};\n\nconst fallbackIcons = {\n  neutral: \"•\",\n  info: \"i\",\n  success: \"✓\",\n  warning: \"!\",\n  danger: \"×\",\n} as const;\n\nexport const GummyAlert = React.forwardRef<HTMLDivElement, GummyAlertProps>(\n  function GummyAlert(\n    {\n      variant = \"neutral\",\n      live = \"off\",\n      icon,\n      className,\n      children,\n      ...alertProps\n    },\n    ref,\n  ) {\n    const role = live === \"assertive\" ? \"alert\" : live === \"polite\" ? \"status\" : undefined;\n    return (\n      <div\n        {...alertProps}\n        ref={ref}\n        className={joinClassNames(\"gummy-alert\", className)}\n        data-variant={variant}\n        role={role}\n      >\n        <span className=\"gummy-alert__reservoir\" aria-hidden=\"true\">\n          {icon ?? fallbackIcons[variant]}\n        </span>\n        <div className=\"gummy-alert__content\">{children}</div>\n      </div>\n    );\n  },\n);\n\nGummyAlert.displayName = \"GummyAlert\";\n\nexport const GummyAlertTitle = React.forwardRef<\n  HTMLHeadingElement,\n  React.HTMLAttributes<HTMLHeadingElement>\n>(function GummyAlertTitle({ className, ...props }, ref) {\n  return (\n    <h3\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-alert__title\", className)}\n    />\n  );\n});\n\nGummyAlertTitle.displayName = \"GummyAlertTitle\";\n\nexport const GummyAlertDescription = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(function GummyAlertDescription({ className, ...props }, ref) {\n  return (\n    <p\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-alert__description\", className)}\n    />\n  );\n});\n\nGummyAlertDescription.displayName = \"GummyAlertDescription\";\n"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gummyui.dev/schemas/localisation-message-bundle.schema.json",
+  "title": "Gummy UI English localisation source bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "sourceLocale",
+    "sourceRevision",
+    "sourceChecksum",
+    "messageCount",
+    "translatableMessageCount",
+    "categoryCounts",
+    "messages"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "sourceLocale": {
+      "const": "en"
+    },
+    "sourceRevision": {
+      "pattern": "^en-[a-f0-9]{12}$"
+    },
+    "sourceChecksum": {
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "generatedFrom": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "messageCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "translatableMessageCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "categoryCounts": {
+      "type": "object"
+    },
+    "messages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "category",
+          "contentType",
+          "source",
+          "description",
+          "translatable",
+          "placeholders",
+          "protectedSpans",
+          "sourceReferences",
+          "checksum"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:\\.[a-z0-9][a-z0-9-]*)+$"
+          },
+          "category": {
+            "enum": [
+              "core",
+              "account",
+              "static",
+              "catalogue",
+              "article",
+              "guide",
+              "changelog"
+            ]
+          },
+          "contentType": {
+            "enum": [
+              "plain",
+              "rich-text",
+              "markdown",
+              "code",
+              "identifier",
+              "date"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "translatable": {
+            "type": "boolean"
+          },
+          "placeholders": {
+            "type": "array"
+          },
+          "protectedSpans": {
+            "type": "array"
+          },
+          "sourceReferences": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    }
+  }
+}

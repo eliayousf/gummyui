@@ -1,0 +1,4453 @@
+{
+  "meta": {
+    "version": "0.0.38",
+    "baseUrl": "http://127.0.0.1:3000",
+    "timestamp": "2026-07-26T23:04:08.969Z",
+    "totalPages": 100
+  },
+  "score": {
+    "overall": 76,
+    "grade": "C",
+    "categories": [
+      {
+        "name": "Security",
+        "score": 72
+      },
+      {
+        "name": "Accessibility",
+        "score": 97
+      },
+      {
+        "name": "Crawlability",
+        "score": 83
+      },
+      {
+        "name": "Performance",
+        "score": 83
+      },
+      {
+        "name": "Core SEO",
+        "score": 91
+      },
+      {
+        "name": "Content",
+        "score": 93
+      },
+      {
+        "name": "E-E-A-T",
+        "score": 86
+      },
+      {
+        "name": "Links",
+        "score": 100
+      },
+      {
+        "name": "Internationalization",
+        "score": 100
+      },
+      {
+        "name": "Images",
+        "score": 100
+      },
+      {
+        "name": "Legal Compliance",
+        "score": 100
+      },
+      {
+        "name": "Mobile",
+        "score": 100
+      },
+      {
+        "name": "Social Media",
+        "score": 100
+      },
+      {
+        "name": "URL Structure",
+        "score": 100
+      }
+    ]
+  },
+  "summary": {
+    "passed": 7996,
+    "warnings": 547,
+    "failed": 108
+  },
+  "issues": [
+    {
+      "ruleId": "crawl/sitemap-domain",
+      "name": "Sitemap Domain",
+      "description": "Checks that all sitemap URLs belong to the expected domain",
+      "solution": "All URLs in your sitemap should point to pages on your own domain. Cross-domain URLs in sitemaps are a configuration error - search engines will ignore URLs that don't match the sitemap's domain. Remove external URLs from your sitemap or fix the domain in URLs if they're incorrectly formatted.",
+      "category": "Crawlability",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "sitemap-domain",
+          "status": "fail",
+          "message": "170 URL(s) point to different domain(s)",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "https://gummyui.dev/",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/nextjs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/vite",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/editor-setup",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/troubleshooting",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/registry",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/themes",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/studio",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/community",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/community/submit",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/rtl",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/mcp",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/locales",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/accessibility",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/security",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/support",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/contact",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/license",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/commercial-license",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/refund",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/changelog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/changelog.xml",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/privacy",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/accordion",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/alert",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/alert-dialog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/aspect-ratio",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/avatar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/badge",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/breadcrumb",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/button",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/button-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/calendar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/card",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/carousel",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/checkbox",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/collapsible",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/combobox",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/command",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/context-menu",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/data-table",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/date-picker",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/dialog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/direction",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/drawer",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/dropdown-menu",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/empty",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/field",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/hover-card",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/input",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/input-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/input-otp",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/item",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/kbd",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/label",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/menubar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/native-select",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/navigation-menu",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/pagination",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/popover",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/progress",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/radio-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/resizable",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/scroll-area",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/select",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/separator",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/sheet",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/sidebar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/skeleton",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/slider",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/sonner",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/spinner",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/switch",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/table",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/tabs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/textarea",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/tooltip",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/typography",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/catalogue.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/accordion.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert-dialog.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/aspect-ratio.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/avatar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/badge.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/breadcrumb.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/calendar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/card.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/carousel.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/checkbox.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/collapsible.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/combobox.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/command.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/context-menu.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/data-table.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/date-picker.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dialog.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/direction.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/drawer.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dropdown-menu.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/empty.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/field.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/hover-card.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-otp.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/item.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/kbd.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/label.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/menubar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/native-select.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/navigation-menu.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/pagination.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/popover.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/progress.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/radio-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/resizable.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/scroll-area.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/select.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/separator.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sheet.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sidebar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/skeleton.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/slider.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sonner.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/spinner.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/switch.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/table.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tabs.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/textarea.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tooltip.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/typography.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/introduction.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/installation.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/nextjs.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/vite.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/theming.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/accessibility.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/rtl.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/localisation.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/editor-setup.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/mcp.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/troubleshooting.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-the-gel-pop-language",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/semantics-before-surface",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/reading-a-gummy-registry-item",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/one-catalogue-fifty-seven-components",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/documenting-meaningful-component-states",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/keyboard-contracts-for-overlays",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/native-forms-with-visible-context",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/rtl-is-behavior-not-a-mirror",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/reduced-motion-without-lost-state",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/building-light-and-dark-from-semantic-tokens",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/responsive-components-start-with-content",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/using-the-component-lab-as-evidence",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/testing-accessibility-in-layers",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/composing-data-interfaces-from-primitives",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/interactive-cards-need-real-elements",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-ai-readable-component-docs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/keeping-public-and-pro-source-separate",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/honest-product-status-by-design",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            }
+          ],
+          "details": {
+            "expectedHost": "127.0.0.1",
+            "foundHosts": [
+              "gummyui.dev"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "crawl/sitemap-coverage",
+      "name": "Sitemap Coverage",
+      "description": "Checks for indexable pages that are not in the sitemap",
+      "solution": "Your sitemap should include all pages you want search engines to index. Pages that are crawlable and indexable (no noindex, not blocked by robots.txt) should generally be in your sitemap. Missing pages may not be discovered or indexed efficiently. Use a sitemap generator that automatically includes all indexable pages, or manually add important pages.",
+      "category": "Crawlability",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "sitemap-coverage",
+          "status": "warn",
+          "message": "97 indexable page(s) not in sitemap (100%)",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog"
+            },
+            {
+              "id": "http://127.0.0.1:3000/support"
+            },
+            {
+              "id": "http://127.0.0.1:3000/contact"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components"
+            },
+            {
+              "id": "http://127.0.0.1:3000/studio"
+            },
+            {
+              "id": "http://127.0.0.1:3000/themes"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry"
+            },
+            {
+              "id": "http://127.0.0.1:3000/pro"
+            },
+            {
+              "id": "http://127.0.0.1:3000/locales"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl"
+            },
+            {
+              "id": "http://127.0.0.1:3000/accessibility"
+            },
+            {
+              "id": "http://127.0.0.1:3000/refund"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security"
+            },
+            {
+              "id": "http://127.0.0.1:3000/commercial-license"
+            },
+            {
+              "id": "http://127.0.0.1:3000/design-kit"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy"
+            },
+            {
+              "id": "http://127.0.0.1:3000/terms"
+            },
+            {
+              "id": "http://127.0.0.1:3000/license"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/editor-setup"
+            },
+            {
+              "id": "http://127.0.0.1:3000/mcp"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/troubleshooting"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/artificial-intelligence"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/bento-grids"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/contact"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/faq"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/features"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/footers"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/forms"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/heroes"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/navbars"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/onboarding"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/pricing"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/profiles"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/sidebars"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/statistics"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/teams"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/testimonials"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/relay-forge"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/current-desk"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/soft-signal-studio"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/field-notes-portfolio"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/boundary-ai"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/orchard-console"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/origin-ribbon"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/working-principles-ledger"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/milestone-current"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/process-field-notes"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/mission-and-method"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/welcome-back-split"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/email-code-entry"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/invite-acceptance"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/passkey-handoff"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/workspace-chooser"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/session-expired-return"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/editorial-current"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/featured-field-note"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/topic-shelf"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/article-river"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/author-dispatch"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/research-digest"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/release-journal"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/reading-queue"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/project-pulse"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/metric-reservoir"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/release-readiness"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/activity-current"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/member-signal"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/integration-status"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/plan-outline"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/article-pocket"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/task-handoff"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/file-preview"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/event-brief"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/contact-route"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/usage-threshold"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/approval-checkpoint"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/empty-collection"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+            }
+          ],
+          "details": {
+            "percentage": 100,
+            "total": 97
+          }
+        },
+        {
+          "name": "sitemap-orphans",
+          "status": "warn",
+          "message": "170 sitemap URL(s) were not crawled",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "https://gummyui.dev/"
+            },
+            {
+              "id": "https://gummyui.dev/components"
+            },
+            {
+              "id": "https://gummyui.dev/docs"
+            },
+            {
+              "id": "https://gummyui.dev/docs/nextjs"
+            },
+            {
+              "id": "https://gummyui.dev/docs/vite"
+            },
+            {
+              "id": "https://gummyui.dev/docs/editor-setup"
+            },
+            {
+              "id": "https://gummyui.dev/docs/troubleshooting"
+            },
+            {
+              "id": "https://gummyui.dev/registry"
+            },
+            {
+              "id": "https://gummyui.dev/themes"
+            },
+            {
+              "id": "https://gummyui.dev/studio"
+            },
+            {
+              "id": "https://gummyui.dev/community"
+            },
+            {
+              "id": "https://gummyui.dev/community/submit"
+            },
+            {
+              "id": "https://gummyui.dev/rtl"
+            },
+            {
+              "id": "https://gummyui.dev/mcp"
+            },
+            {
+              "id": "https://gummyui.dev/locales"
+            },
+            {
+              "id": "https://gummyui.dev/accessibility"
+            },
+            {
+              "id": "https://gummyui.dev/security"
+            },
+            {
+              "id": "https://gummyui.dev/support"
+            },
+            {
+              "id": "https://gummyui.dev/contact"
+            },
+            {
+              "id": "https://gummyui.dev/license"
+            },
+            {
+              "id": "https://gummyui.dev/commercial-license"
+            },
+            {
+              "id": "https://gummyui.dev/refund"
+            },
+            {
+              "id": "https://gummyui.dev/changelog"
+            },
+            {
+              "id": "https://gummyui.dev/changelog.xml"
+            },
+            {
+              "id": "https://gummyui.dev/blog"
+            },
+            {
+              "id": "https://gummyui.dev/privacy"
+            },
+            {
+              "id": "https://gummyui.dev/components/accordion"
+            },
+            {
+              "id": "https://gummyui.dev/components/alert"
+            },
+            {
+              "id": "https://gummyui.dev/components/alert-dialog"
+            },
+            {
+              "id": "https://gummyui.dev/components/aspect-ratio"
+            },
+            {
+              "id": "https://gummyui.dev/components/avatar"
+            },
+            {
+              "id": "https://gummyui.dev/components/badge"
+            },
+            {
+              "id": "https://gummyui.dev/components/breadcrumb"
+            },
+            {
+              "id": "https://gummyui.dev/components/button"
+            },
+            {
+              "id": "https://gummyui.dev/components/button-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/calendar"
+            },
+            {
+              "id": "https://gummyui.dev/components/card"
+            },
+            {
+              "id": "https://gummyui.dev/components/carousel"
+            },
+            {
+              "id": "https://gummyui.dev/components/checkbox"
+            },
+            {
+              "id": "https://gummyui.dev/components/collapsible"
+            },
+            {
+              "id": "https://gummyui.dev/components/combobox"
+            },
+            {
+              "id": "https://gummyui.dev/components/command"
+            },
+            {
+              "id": "https://gummyui.dev/components/context-menu"
+            },
+            {
+              "id": "https://gummyui.dev/components/data-table"
+            },
+            {
+              "id": "https://gummyui.dev/components/date-picker"
+            },
+            {
+              "id": "https://gummyui.dev/components/dialog"
+            },
+            {
+              "id": "https://gummyui.dev/components/direction"
+            },
+            {
+              "id": "https://gummyui.dev/components/drawer"
+            },
+            {
+              "id": "https://gummyui.dev/components/dropdown-menu"
+            },
+            {
+              "id": "https://gummyui.dev/components/empty"
+            },
+            {
+              "id": "https://gummyui.dev/components/field"
+            },
+            {
+              "id": "https://gummyui.dev/components/hover-card"
+            },
+            {
+              "id": "https://gummyui.dev/components/input"
+            },
+            {
+              "id": "https://gummyui.dev/components/input-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/input-otp"
+            },
+            {
+              "id": "https://gummyui.dev/components/item"
+            },
+            {
+              "id": "https://gummyui.dev/components/kbd"
+            },
+            {
+              "id": "https://gummyui.dev/components/label"
+            },
+            {
+              "id": "https://gummyui.dev/components/menubar"
+            },
+            {
+              "id": "https://gummyui.dev/components/native-select"
+            },
+            {
+              "id": "https://gummyui.dev/components/navigation-menu"
+            },
+            {
+              "id": "https://gummyui.dev/components/pagination"
+            },
+            {
+              "id": "https://gummyui.dev/components/popover"
+            },
+            {
+              "id": "https://gummyui.dev/components/progress"
+            },
+            {
+              "id": "https://gummyui.dev/components/radio-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/resizable"
+            },
+            {
+              "id": "https://gummyui.dev/components/scroll-area"
+            },
+            {
+              "id": "https://gummyui.dev/components/select"
+            },
+            {
+              "id": "https://gummyui.dev/components/separator"
+            },
+            {
+              "id": "https://gummyui.dev/components/sheet"
+            },
+            {
+              "id": "https://gummyui.dev/components/sidebar"
+            },
+            {
+              "id": "https://gummyui.dev/components/skeleton"
+            },
+            {
+              "id": "https://gummyui.dev/components/slider"
+            },
+            {
+              "id": "https://gummyui.dev/components/sonner"
+            },
+            {
+              "id": "https://gummyui.dev/components/spinner"
+            },
+            {
+              "id": "https://gummyui.dev/components/switch"
+            },
+            {
+              "id": "https://gummyui.dev/components/table"
+            },
+            {
+              "id": "https://gummyui.dev/components/tabs"
+            },
+            {
+              "id": "https://gummyui.dev/components/textarea"
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle"
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/tooltip"
+            },
+            {
+              "id": "https://gummyui.dev/components/typography"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/catalogue.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/accordion.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert-dialog.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/aspect-ratio.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/avatar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/badge.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/breadcrumb.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/calendar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/card.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/carousel.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/checkbox.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/collapsible.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/combobox.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/command.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/context-menu.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/data-table.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/date-picker.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dialog.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/direction.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/drawer.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dropdown-menu.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/empty.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/field.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/hover-card.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-otp.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/item.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/kbd.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/label.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/menubar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/native-select.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/navigation-menu.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/pagination.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/popover.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/progress.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/radio-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/resizable.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/scroll-area.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/select.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/separator.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sheet.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sidebar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/skeleton.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/slider.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sonner.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/spinner.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/switch.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/table.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tabs.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/textarea.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tooltip.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/typography.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/introduction.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/installation.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/nextjs.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/vite.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/theming.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/accessibility.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/rtl.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/localisation.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/editor-setup.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/mcp.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/troubleshooting.md"
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-the-gel-pop-language"
+            },
+            {
+              "id": "https://gummyui.dev/blog/semantics-before-surface"
+            },
+            {
+              "id": "https://gummyui.dev/blog/reading-a-gummy-registry-item"
+            },
+            {
+              "id": "https://gummyui.dev/blog/one-catalogue-fifty-seven-components"
+            },
+            {
+              "id": "https://gummyui.dev/blog/documenting-meaningful-component-states"
+            },
+            {
+              "id": "https://gummyui.dev/blog/keyboard-contracts-for-overlays"
+            },
+            {
+              "id": "https://gummyui.dev/blog/native-forms-with-visible-context"
+            },
+            {
+              "id": "https://gummyui.dev/blog/rtl-is-behavior-not-a-mirror"
+            },
+            {
+              "id": "https://gummyui.dev/blog/reduced-motion-without-lost-state"
+            },
+            {
+              "id": "https://gummyui.dev/blog/building-light-and-dark-from-semantic-tokens"
+            },
+            {
+              "id": "https://gummyui.dev/blog/responsive-components-start-with-content"
+            },
+            {
+              "id": "https://gummyui.dev/blog/using-the-component-lab-as-evidence"
+            },
+            {
+              "id": "https://gummyui.dev/blog/testing-accessibility-in-layers"
+            },
+            {
+              "id": "https://gummyui.dev/blog/composing-data-interfaces-from-primitives"
+            },
+            {
+              "id": "https://gummyui.dev/blog/interactive-cards-need-real-elements"
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-ai-readable-component-docs"
+            },
+            {
+              "id": "https://gummyui.dev/blog/keeping-public-and-pro-source-separate"
+            },
+            {
+              "id": "https://gummyui.dev/blog/honest-product-status-by-design"
+            }
+          ],
+          "details": {
+            "total": 170
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "crawl/indexability-conflicts",
+      "name": "Indexability Conflicts",
+      "description": "Detects conflicting signals between robots.txt and meta/headers",
+      "solution": "Conflicting signals confuse search engines and indicate configuration errors. Type 1 conflict: robots.txt allows BUT meta/header has noindex (works but confusing - choose one method). Type 2 conflict: robots.txt disallows BUT page crawlable (search engines can't crawl to see noindex anyway - remove unnecessary noindex or allow in robots.txt).",
+      "category": "Crawlability",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "robots-allow-but-noindex",
+          "status": "warn",
+          "message": "74 page(s) allowed in robots.txt but have noindex",
+          "affectedPages": [],
+          "legacyValue": "/pro\n/design-kit\n/terms\n+71 more"
+        }
+      ]
+    },
+    {
+      "ruleId": "core/meta-title",
+      "name": "Meta Title",
+      "description": "Validates page title presence and length",
+      "solution": "Every page needs a unique, descriptive title tag between 30-60 characters. Titles appear in browser tabs, search results, and social shares. Write titles that accurately describe the page content while including your primary keyword near the beginning. If your title is too short, add more descriptive context. If too long, prioritize the most important information first and trim secondary details. Avoid keyword stuffing or duplicate titles across pages.",
+      "category": "Core SEO",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "meta-title",
+          "status": "warn",
+          "message": "Title too short",
+          "affectedPages": [
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/teams"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/blog",
+              "label": "Articles · Gummy UI (19 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/contact",
+              "label": "Contact status · Gummy UI (25 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community",
+              "label": "Community showcase · Gummy UI (29 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "Component registry · Gummy UI (29 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/pro",
+              "label": "Gummy UI Pro status (19 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl",
+              "label": "RTL support · Gummy UI (22 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security",
+              "label": "Security · Gummy UI (19 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy",
+              "label": "Privacy status · Gummy UI (25 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs",
+              "label": "Install Gummy UI in Next.js (27 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite",
+              "label": "Install Gummy UI in Vite (24 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about",
+              "label": "About Pro blocks · Gummy UI (27 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs",
+              "label": "Blogs Pro blocks · Gummy UI (27 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards",
+              "label": "Cards Pro blocks · Gummy UI (27 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers",
+              "label": "Careers Pro blocks · Gummy UI (29 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/contact",
+              "label": "Contact Pro blocks · Gummy UI (29 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/faq",
+              "label": "Faq Pro blocks · Gummy UI (25 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/footers",
+              "label": "Footers Pro blocks · Gummy UI (29 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/forms",
+              "label": "Forms Pro blocks · Gummy UI (27 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/heroes",
+              "label": "Heroes Pro blocks · Gummy UI (28 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/navbars",
+              "label": "Navbars Pro blocks · Gummy UI (29 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/pricing",
+              "label": "Pricing Pro blocks · Gummy UI (29 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/teams",
+              "label": "Teams Pro blocks · Gummy UI (27 chars)"
+            }
+          ],
+          "legacyValue": "Articles · Gummy UI"
+        }
+      ]
+    },
+    {
+      "ruleId": "core/meta-description",
+      "name": "Meta Description",
+      "description": "Validates meta description presence and length",
+      "solution": "Meta descriptions should be 120-160 characters and provide a compelling summary of the page. While not a direct ranking factor, good descriptions improve click-through rates from search results. Write unique descriptions for each page that accurately preview the content. Include a call-to-action when appropriate. If missing, search engines will auto-generate snippets which may not represent your page optimally.",
+      "category": "Core SEO",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "meta-description",
+          "status": "warn",
+          "message": "Description too short",
+          "affectedPages": [
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/design-kit",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/terms",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence",
+            "http://127.0.0.1:3000/blocks/authentication",
+            "http://127.0.0.1:3000/blocks/bento-grids",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/calls-to-action",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/features",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/onboarding",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/profiles",
+            "http://127.0.0.1:3000/blocks/sidebars",
+            "http://127.0.0.1:3000/blocks/statistics",
+            "http://127.0.0.1:3000/blocks/teams",
+            "http://127.0.0.1:3000/blocks/testimonials"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/contact",
+              "label": "Current pre-launch contact and data-collection sta (67 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/studio",
+              "label": "Frame screenshots in Gummy UI gel material and exp (84 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community",
+              "label": "Verified, permissioned products built with Gummy U (52 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "Install 57 editable Gummy UI React components thro (90 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/pro",
+              "label": "Boundary-safe implementation status for Gummy UI P (87 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/locales",
+              "label": "The reviewed language availability and linguistic  (78 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl",
+              "label": "Logical layout and keyboard behavior for right-to- (73 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/refund",
+              "label": "Pre-launch status of Gummy UI commercial refund te (54 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security",
+              "label": "Gummy UI public-source boundary, vulnerability rep (95 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/commercial-license",
+              "label": "Pre-launch status of the unapproved Gummy UI Pro c (68 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/design-kit",
+              "label": "Honest implementation status of the Gummy UI Pro l (79 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy",
+              "label": "Current Gummy UI data-processing status and public (62 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/terms",
+              "label": "Gummy UI service and commercial terms are not yet  (72 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs",
+              "label": "Install editable Gummy UI source into a clean Next (95 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite",
+              "label": "Install editable Gummy UI source into a clean Reac (80 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/editor-setup",
+              "label": "Use Gummy UI's public Markdown, JSON, registry, an (107 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/mcp",
+              "label": "Machine-readable Gummy UI catalogue, registry, and (79 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/troubleshooting",
+              "label": "Resolve registry, styles, Base UI, theme, RTL, mot (81 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks",
+              "label": "Boundary-safe category and implementation status f (94 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates",
+              "label": "Boundary-safe implementation status for the six pr (79 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about",
+              "label": "Boundary-safe catalogue status for 5 original Abou (81 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/artificial-intelligence",
+              "label": "Boundary-safe catalogue status for 1 original Arti (99 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication",
+              "label": "Boundary-safe catalogue status for 7 original Auth (90 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/bento-grids",
+              "label": "Boundary-safe catalogue status for 1 original Bent (87 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs",
+              "label": "Boundary-safe catalogue status for 8 original Blog (81 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action",
+              "label": "Boundary-safe catalogue status for 3 original Call (91 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards",
+              "label": "Boundary-safe catalogue status for 15 original Car (82 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers",
+              "label": "Boundary-safe catalogue status for 3 original Care (83 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/contact",
+              "label": "Boundary-safe catalogue status for 8 original Cont (83 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/faq",
+              "label": "Boundary-safe catalogue status for 10 original Faq (80 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/features",
+              "label": "Boundary-safe catalogue status for 11 original Fea (85 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/footers",
+              "label": "Boundary-safe catalogue status for 6 original Foot (83 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/forms",
+              "label": "Boundary-safe catalogue status for 2 original Form (81 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/heroes",
+              "label": "Boundary-safe catalogue status for 8 original Hero (82 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/navbars",
+              "label": "Boundary-safe catalogue status for 8 original Navb (83 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/onboarding",
+              "label": "Boundary-safe catalogue status for 6 original Onbo (86 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/pricing",
+              "label": "Boundary-safe catalogue status for 11 original Pri (84 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/profiles",
+              "label": "Boundary-safe catalogue status for 9 original Prof (84 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/sidebars",
+              "label": "Boundary-safe catalogue status for 1 original Side (84 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/statistics",
+              "label": "Boundary-safe catalogue status for 9 original Stat (86 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/teams",
+              "label": "Boundary-safe catalogue status for 11 original Tea (82 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/testimonials",
+              "label": "Boundary-safe catalogue status for 15 original Tes (89 chars)"
+            }
+          ],
+          "legacyValue": "Current pre-launch contact and data-collection status for Gummy UI."
+        }
+      ]
+    },
+    {
+      "ruleId": "core/robots-meta",
+      "name": "Robots Meta",
+      "description": "Checks robots meta tag for indexing directives",
+      "solution": "The robots meta tag controls how search engines index and follow links on a page. Common directives include noindex, nofollow, noarchive, and nosnippet. If your page has noindex, it won't appear in search results. Review whether this is intentional. For pages that should be indexed, remove the noindex directive or change to \"index, follow\". Be careful with nofollow as it prevents link equity from flowing to linked pages.",
+      "category": "Core SEO",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "robots-meta",
+          "status": "warn",
+          "message": "Page is set to noindex",
+          "affectedPages": [
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/design-kit",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence",
+            "http://127.0.0.1:3000/blocks/authentication",
+            "http://127.0.0.1:3000/blocks/bento-grids",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/calls-to-action",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/features",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/onboarding",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/profiles",
+            "http://127.0.0.1:3000/blocks/sidebars",
+            "http://127.0.0.1:3000/blocks/statistics",
+            "http://127.0.0.1:3000/blocks/teams",
+            "http://127.0.0.1:3000/blocks/testimonials",
+            "http://127.0.0.1:3000/templates/relay-forge",
+            "http://127.0.0.1:3000/templates/current-desk",
+            "http://127.0.0.1:3000/templates/soft-signal-studio",
+            "http://127.0.0.1:3000/templates/field-notes-portfolio",
+            "http://127.0.0.1:3000/templates/boundary-ai",
+            "http://127.0.0.1:3000/templates/orchard-console",
+            "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+            "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+            "http://127.0.0.1:3000/blocks/about/milestone-current",
+            "http://127.0.0.1:3000/blocks/about/process-field-notes",
+            "http://127.0.0.1:3000/blocks/about/mission-and-method",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+            "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+            "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+            "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+            "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+            "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+            "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+            "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+            "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+            "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+            "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+            "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+            "http://127.0.0.1:3000/blocks/blogs/article-river",
+            "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+            "http://127.0.0.1:3000/blocks/blogs/research-digest",
+            "http://127.0.0.1:3000/blocks/blogs/release-journal",
+            "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+            "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+            "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+            "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+            "http://127.0.0.1:3000/blocks/cards/project-pulse",
+            "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+            "http://127.0.0.1:3000/blocks/cards/release-readiness",
+            "http://127.0.0.1:3000/blocks/cards/activity-current",
+            "http://127.0.0.1:3000/blocks/cards/member-signal",
+            "http://127.0.0.1:3000/blocks/cards/integration-status",
+            "http://127.0.0.1:3000/blocks/cards/plan-outline",
+            "http://127.0.0.1:3000/blocks/cards/article-pocket",
+            "http://127.0.0.1:3000/blocks/cards/task-handoff",
+            "http://127.0.0.1:3000/blocks/cards/file-preview",
+            "http://127.0.0.1:3000/blocks/cards/event-brief",
+            "http://127.0.0.1:3000/blocks/cards/contact-route",
+            "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+            "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+            "http://127.0.0.1:3000/blocks/cards/empty-collection",
+            "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+          ],
+          "legacyValue": "noindex, follow"
+        },
+        {
+          "name": "robots-meta",
+          "status": "warn",
+          "message": "Page is set to noindex and nofollow",
+          "affectedPages": [
+            "http://127.0.0.1:3000/terms"
+          ],
+          "legacyValue": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "ruleId": "security/https",
+      "name": "HTTPS",
+      "description": "Checks for HTTPS usage",
+      "solution": "HTTPS encrypts data between users and your server, protecting sensitive information. It's a ranking signal and required for many modern browser features. Migrate to HTTPS by obtaining an SSL certificate (free from Let's Encrypt). Update internal links to use https://. Set up 301 redirects from HTTP to HTTPS. Update your canonical URLs and sitemap. Check for mixed content warnings after migration.",
+      "category": "Security",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "https",
+          "status": "fail",
+          "message": "Page not served over HTTPS",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/design-kit",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/terms",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence",
+            "http://127.0.0.1:3000/blocks/authentication",
+            "http://127.0.0.1:3000/blocks/bento-grids",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/calls-to-action",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/features",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/onboarding",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/profiles",
+            "http://127.0.0.1:3000/blocks/sidebars",
+            "http://127.0.0.1:3000/blocks/statistics",
+            "http://127.0.0.1:3000/blocks/teams",
+            "http://127.0.0.1:3000/blocks/testimonials",
+            "http://127.0.0.1:3000/templates/relay-forge",
+            "http://127.0.0.1:3000/templates/current-desk",
+            "http://127.0.0.1:3000/templates/soft-signal-studio",
+            "http://127.0.0.1:3000/templates/field-notes-portfolio",
+            "http://127.0.0.1:3000/templates/boundary-ai",
+            "http://127.0.0.1:3000/templates/orchard-console",
+            "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+            "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+            "http://127.0.0.1:3000/blocks/about/milestone-current",
+            "http://127.0.0.1:3000/blocks/about/process-field-notes",
+            "http://127.0.0.1:3000/blocks/about/mission-and-method",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+            "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+            "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+            "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+            "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+            "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+            "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+            "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+            "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+            "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+            "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+            "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+            "http://127.0.0.1:3000/blocks/blogs/article-river",
+            "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+            "http://127.0.0.1:3000/blocks/blogs/research-digest",
+            "http://127.0.0.1:3000/blocks/blogs/release-journal",
+            "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+            "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+            "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+            "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+            "http://127.0.0.1:3000/blocks/cards/project-pulse",
+            "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+            "http://127.0.0.1:3000/blocks/cards/release-readiness",
+            "http://127.0.0.1:3000/blocks/cards/activity-current",
+            "http://127.0.0.1:3000/blocks/cards/member-signal",
+            "http://127.0.0.1:3000/blocks/cards/integration-status",
+            "http://127.0.0.1:3000/blocks/cards/plan-outline",
+            "http://127.0.0.1:3000/blocks/cards/article-pocket",
+            "http://127.0.0.1:3000/blocks/cards/task-handoff",
+            "http://127.0.0.1:3000/blocks/cards/file-preview",
+            "http://127.0.0.1:3000/blocks/cards/event-brief",
+            "http://127.0.0.1:3000/blocks/cards/contact-route",
+            "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+            "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+            "http://127.0.0.1:3000/blocks/cards/empty-collection",
+            "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+          ],
+          "legacyValue": "http:"
+        }
+      ]
+    },
+    {
+      "ruleId": "security/csp",
+      "name": "Content Security Policy",
+      "description": "Checks for Content-Security-Policy header and validates directives",
+      "solution": "CSP prevents XSS attacks by restricting which resources can load. Start with a report-only policy to identify issues. Key directives: default-src 'self', script-src (avoid 'unsafe-inline'), img-src, style-src, frame-ancestors. Use nonces or hashes instead of 'unsafe-inline' for scripts. Test thoroughly as strict CSP can break functionality.",
+      "category": "Security",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "csp-unsafe-scripts",
+          "status": "warn",
+          "message": "CSP allows 'unsafe-inline'",
+          "affectedPages": [],
+          "legacyValue": "Weakens XSS protection significantly"
+        }
+      ]
+    },
+    {
+      "ruleId": "links/internal-links",
+      "name": "Internal Links",
+      "description": "Validates internal link count",
+      "solution": "Internal links help users navigate your site and distribute page authority. Each page should have at least one internal link pointing to it (not counting navigation). Add contextual internal links from related content. Use descriptive anchor text that indicates what the linked page is about. Avoid orphan pages (no internal links) and ensure important pages receive more internal links. Review your site structure to create logical content clusters.",
+      "category": "Links",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "internal-links",
+          "status": "warn",
+          "message": "Too many internal links (155, max 100)",
+          "affectedPages": [
+            "http://127.0.0.1:3000/registry"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "Too many internal links (155, max 100)"
+            }
+          ],
+          "legacyValue": "155"
+        }
+      ]
+    },
+    {
+      "ruleId": "content/keyword-stuffing",
+      "name": "Keyword Stuffing",
+      "description": "Detects excessive keyword repetition in content",
+      "solution": "Keyword stuffing is repeating words unnaturally to manipulate rankings. Search engines penalize this practice. Write naturally for users first. Use keywords where they fit naturally. Aim for 1-2% keyword density at most. Use synonyms and related terms instead of repeating the exact same phrase. Focus on providing value, not gaming algorithms.",
+      "category": "Content",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "keyword-stuffing",
+          "status": "warn",
+          "message": "N word(s) may be overused",
+          "affectedPages": [
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/terms",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates"
+          ],
+          "items": [
+            {
+              "id": "gummy",
+              "label": "\"gummy\" (5.6%)",
+              "meta": {
+                "count": 33,
+                "density": 5.641025641025641
+              }
+            },
+            {
+              "id": "jul",
+              "label": "\"jul\" (3.1%)",
+              "meta": {
+                "count": 18,
+                "density": 3.076923076923077
+              }
+            },
+            {
+              "id": "chart",
+              "label": "\"chart\" (4.2%)",
+              "meta": {
+                "count": 12,
+                "density": 4.225352112676056
+              }
+            },
+            {
+              "id": "fruit",
+              "label": "\"fruit\" (3.9%)",
+              "meta": {
+                "count": 11,
+                "density": 3.873239436619718
+              }
+            },
+            {
+              "id": "core",
+              "label": "\"core\" (3.5%)",
+              "meta": {
+                "count": 10,
+                "density": 3.5211267605633805
+              }
+            },
+            {
+              "id": "linguistic",
+              "label": "\"linguistic\" (10.0%)",
+              "meta": {
+                "count": 21,
+                "density": 9.95260663507109
+              }
+            },
+            {
+              "id": "review",
+              "label": "\"review\" (7.6%)",
+              "meta": {
+                "count": 16,
+                "density": 7.5829383886255926
+              }
+            },
+            {
+              "id": "are",
+              "label": "\"are\" (3.2%)",
+              "meta": {
+                "count": 8,
+                "density": 3.187250996015936
+              }
+            },
+            {
+              "id": "licence",
+              "label": "\"licence\" (5.2%)",
+              "meta": {
+                "count": 7,
+                "density": 5.185185185185185
+              }
+            },
+            {
+              "id": "software",
+              "label": "\"software\" (4.1%)",
+              "meta": {
+                "count": 9,
+                "density": 4.054054054054054
+              }
+            },
+            {
+              "id": "source",
+              "label": "\"source\" (3.3%)",
+              "meta": {
+                "count": 6,
+                "density": 3.296703296703297
+              }
+            },
+            {
+              "id": "category",
+              "label": "\"category\" (11.5%)",
+              "meta": {
+                "count": 44,
+                "density": 11.548556430446194
+              }
+            },
+            {
+              "id": "release",
+              "label": "\"release\" (6.3%)",
+              "meta": {
+                "count": 24,
+                "density": 6.299212598425196
+              }
+            },
+            {
+              "id": "varies",
+              "label": "\"varies\" (5.8%)",
+              "meta": {
+                "count": 22,
+                "density": 5.774278215223097
+              }
+            },
+            {
+              "id": "manifest",
+              "label": "\"manifest\" (5.8%)",
+              "meta": {
+                "count": 22,
+                "density": 5.774278215223097
+              }
+            },
+            {
+              "id": "item",
+              "label": "\"item\" (5.8%)",
+              "meta": {
+                "count": 22,
+                "density": 5.774278215223097
+              }
+            },
+            {
+              "id": "counts",
+              "label": "\"counts\" (5.8%)",
+              "meta": {
+                "count": 22,
+                "density": 5.774278215223097
+              }
+            },
+            {
+              "id": "imply",
+              "label": "\"imply\" (5.8%)",
+              "meta": {
+                "count": 22,
+                "density": 5.774278215223097
+              }
+            },
+            {
+              "id": "readiness",
+              "label": "\"readiness\" (5.8%)",
+              "meta": {
+                "count": 22,
+                "density": 5.774278215223097
+              }
+            },
+            {
+              "id": "implementedreview",
+              "label": "\"implementedreview\" (3.5%)",
+              "meta": {
+                "count": 6,
+                "density": 3.508771929824561
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "content/word-count",
+      "name": "Word Count",
+      "description": "Checks content length for thin content issues",
+      "solution": "Pages with thin content (under 300 words) often struggle to rank well and are actively deindexed by Google since the June 2025 core update. Add more valuable, relevant content to thin pages—aim for at least 500 words for standard pages and 1000+ for in-depth articles. If a page can't be fleshed out, voluntarily noindex it or consolidate it into a more comprehensive resource. Trimming thin pages from your index is better than leaving low-value content for Google to penalize.",
+      "category": "Content",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "word-count",
+          "status": "warn",
+          "message": "Thin content: N words (min N)",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/design-kit",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/terms",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/templates",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence",
+            "http://127.0.0.1:3000/blocks/authentication",
+            "http://127.0.0.1:3000/blocks/bento-grids",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/calls-to-action",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/features",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/onboarding",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/profiles",
+            "http://127.0.0.1:3000/blocks/sidebars",
+            "http://127.0.0.1:3000/blocks/statistics",
+            "http://127.0.0.1:3000/blocks/teams",
+            "http://127.0.0.1:3000/blocks/testimonials",
+            "http://127.0.0.1:3000/templates/relay-forge",
+            "http://127.0.0.1:3000/templates/current-desk",
+            "http://127.0.0.1:3000/templates/soft-signal-studio",
+            "http://127.0.0.1:3000/templates/field-notes-portfolio",
+            "http://127.0.0.1:3000/templates/boundary-ai",
+            "http://127.0.0.1:3000/templates/orchard-console",
+            "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+            "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+            "http://127.0.0.1:3000/blocks/about/milestone-current",
+            "http://127.0.0.1:3000/blocks/about/process-field-notes",
+            "http://127.0.0.1:3000/blocks/about/mission-and-method",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+            "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+            "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+            "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+            "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+            "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+            "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+            "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+            "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+            "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+            "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+            "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+            "http://127.0.0.1:3000/blocks/blogs/article-river",
+            "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+            "http://127.0.0.1:3000/blocks/blogs/research-digest",
+            "http://127.0.0.1:3000/blocks/blogs/release-journal",
+            "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+            "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+            "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+            "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+            "http://127.0.0.1:3000/blocks/cards/project-pulse",
+            "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+            "http://127.0.0.1:3000/blocks/cards/release-readiness",
+            "http://127.0.0.1:3000/blocks/cards/activity-current",
+            "http://127.0.0.1:3000/blocks/cards/member-signal",
+            "http://127.0.0.1:3000/blocks/cards/integration-status",
+            "http://127.0.0.1:3000/blocks/cards/plan-outline",
+            "http://127.0.0.1:3000/blocks/cards/article-pocket",
+            "http://127.0.0.1:3000/blocks/cards/task-handoff",
+            "http://127.0.0.1:3000/blocks/cards/file-preview",
+            "http://127.0.0.1:3000/blocks/cards/event-brief",
+            "http://127.0.0.1:3000/blocks/cards/contact-route",
+            "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+            "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+            "http://127.0.0.1:3000/blocks/cards/empty-collection",
+            "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/",
+              "label": "Thin content: 239 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/support",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/contact",
+              "label": "Thin content: 114 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/studio",
+              "label": "Thin content: 120 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/themes",
+              "label": "Thin content: 238 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community",
+              "label": "Thin content: 131 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "Thin content: 122 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/pro",
+              "label": "Thin content: 167 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/locales",
+              "label": "Thin content: 194 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl",
+              "label": "Thin content: 124 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/accessibility",
+              "label": "Thin content: 194 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/refund",
+              "label": "Thin content: 100 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security",
+              "label": "Thin content: 242 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/commercial-license",
+              "label": "Thin content: 135 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/design-kit",
+              "label": "Thin content: 146 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy",
+              "label": "Thin content: 130 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/terms",
+              "label": "Thin content: 130 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/license",
+              "label": "Thin content: 265 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs",
+              "label": "Thin content: 145 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite",
+              "label": "Thin content: 143 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/editor-setup",
+              "label": "Thin content: 155 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/mcp",
+              "label": "Thin content: 168 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/troubleshooting",
+              "label": "Thin content: 168 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates",
+              "label": "Thin content: 156 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about",
+              "label": "Thin content: 112 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/artificial-intelligence",
+              "label": "Thin content: 108 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication",
+              "label": "Thin content: 114 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/bento-grids",
+              "label": "Thin content: 108 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs",
+              "label": "Thin content: 115 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action",
+              "label": "Thin content: 110 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards",
+              "label": "Thin content: 120 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers",
+              "label": "Thin content: 109 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/contact",
+              "label": "Thin content: 116 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/faq",
+              "label": "Thin content: 121 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/features",
+              "label": "Thin content: 117 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/footers",
+              "label": "Thin content: 113 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/forms",
+              "label": "Thin content: 108 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/heroes",
+              "label": "Thin content: 120 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/navbars",
+              "label": "Thin content: 120 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/onboarding",
+              "label": "Thin content: 114 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/pricing",
+              "label": "Thin content: 121 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/profiles",
+              "label": "Thin content: 118 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/sidebars",
+              "label": "Thin content: 107 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/statistics",
+              "label": "Thin content: 113 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/teams",
+              "label": "Thin content: 114 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/testimonials",
+              "label": "Thin content: 131 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/relay-forge",
+              "label": "Thin content: 139 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/current-desk",
+              "label": "Thin content: 140 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/soft-signal-studio",
+              "label": "Thin content: 141 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/field-notes-portfolio",
+              "label": "Thin content: 139 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/boundary-ai",
+              "label": "Thin content: 139 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/orchard-console",
+              "label": "Thin content: 140 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+              "label": "Thin content: 125 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/milestone-current",
+              "label": "Thin content: 125 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/process-field-notes",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/mission-and-method",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+              "label": "Thin content: 129 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+              "label": "Thin content: 129 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+              "label": "Thin content: 128 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/article-river",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/research-digest",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/release-journal",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+              "label": "Thin content: 129 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+              "label": "Thin content: 129 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+              "label": "Thin content: 128 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/project-pulse",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/release-readiness",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/activity-current",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/member-signal",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/integration-status",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/plan-outline",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/article-pocket",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/task-handoff",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/file-preview",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/event-brief",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/contact-route",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/empty-collection",
+              "label": "Thin content: 126 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers/open-roles-ledger",
+              "label": "Thin content: 126 words (min 300)"
+            }
+          ],
+          "legacyValue": "239"
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/css-file-size",
+      "name": "CSS File Size Too Large",
+      "description": "Checks for CSS files that exceed recommended size limits",
+      "solution": "Large CSS files slow down rendering and increase bandwidth. Split large stylesheets into smaller chunks, remove unused selectors, and minify CSS. Consider critical CSS inlining for above-the-fold styles and lazy-loading non-critical CSS.",
+      "category": "Performance",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "css-file-size-warn",
+          "status": "warn",
+          "message": "1 CSS file(s) exceed 150.0 KB",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/assets/index-Be2IPlkg.css",
+              "sourcePages": [
+                "http://127.0.0.1:3000/",
+                "http://127.0.0.1:3000/docs",
+                "http://127.0.0.1:3000/blog",
+                "http://127.0.0.1:3000/support",
+                "http://127.0.0.1:3000/contact",
+                "http://127.0.0.1:3000/components",
+                "http://127.0.0.1:3000/studio",
+                "http://127.0.0.1:3000/themes",
+                "http://127.0.0.1:3000/community",
+                "http://127.0.0.1:3000/registry",
+                "http://127.0.0.1:3000/pro",
+                "http://127.0.0.1:3000/locales",
+                "http://127.0.0.1:3000/rtl",
+                "http://127.0.0.1:3000/accessibility",
+                "http://127.0.0.1:3000/refund",
+                "http://127.0.0.1:3000/security",
+                "http://127.0.0.1:3000/commercial-license",
+                "http://127.0.0.1:3000/design-kit",
+                "http://127.0.0.1:3000/privacy",
+                "http://127.0.0.1:3000/terms",
+                "http://127.0.0.1:3000/license",
+                "http://127.0.0.1:3000/docs/nextjs",
+                "http://127.0.0.1:3000/docs/vite",
+                "http://127.0.0.1:3000/docs/editor-setup",
+                "http://127.0.0.1:3000/mcp",
+                "http://127.0.0.1:3000/docs/troubleshooting",
+                "http://127.0.0.1:3000/blocks",
+                "http://127.0.0.1:3000/templates",
+                "http://127.0.0.1:3000/blocks/about",
+                "http://127.0.0.1:3000/blocks/artificial-intelligence",
+                "http://127.0.0.1:3000/blocks/authentication",
+                "http://127.0.0.1:3000/blocks/bento-grids",
+                "http://127.0.0.1:3000/blocks/blogs",
+                "http://127.0.0.1:3000/blocks/calls-to-action",
+                "http://127.0.0.1:3000/blocks/cards",
+                "http://127.0.0.1:3000/blocks/careers",
+                "http://127.0.0.1:3000/blocks/contact",
+                "http://127.0.0.1:3000/blocks/faq",
+                "http://127.0.0.1:3000/blocks/features",
+                "http://127.0.0.1:3000/blocks/footers",
+                "http://127.0.0.1:3000/blocks/forms",
+                "http://127.0.0.1:3000/blocks/heroes",
+                "http://127.0.0.1:3000/blocks/navbars",
+                "http://127.0.0.1:3000/blocks/onboarding",
+                "http://127.0.0.1:3000/blocks/pricing",
+                "http://127.0.0.1:3000/blocks/profiles",
+                "http://127.0.0.1:3000/blocks/sidebars",
+                "http://127.0.0.1:3000/blocks/statistics",
+                "http://127.0.0.1:3000/blocks/teams",
+                "http://127.0.0.1:3000/blocks/testimonials",
+                "http://127.0.0.1:3000/templates/relay-forge",
+                "http://127.0.0.1:3000/templates/current-desk",
+                "http://127.0.0.1:3000/templates/soft-signal-studio",
+                "http://127.0.0.1:3000/templates/field-notes-portfolio",
+                "http://127.0.0.1:3000/templates/boundary-ai",
+                "http://127.0.0.1:3000/templates/orchard-console",
+                "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+                "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+                "http://127.0.0.1:3000/blocks/about/milestone-current",
+                "http://127.0.0.1:3000/blocks/about/process-field-notes",
+                "http://127.0.0.1:3000/blocks/about/mission-and-method",
+                "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+                "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+                "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+                "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+                "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+                "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+                "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+                "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+                "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+                "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+                "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+                "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+                "http://127.0.0.1:3000/blocks/blogs/article-river",
+                "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+                "http://127.0.0.1:3000/blocks/blogs/research-digest",
+                "http://127.0.0.1:3000/blocks/blogs/release-journal",
+                "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+                "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+                "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+                "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+                "http://127.0.0.1:3000/blocks/cards/project-pulse",
+                "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+                "http://127.0.0.1:3000/blocks/cards/release-readiness",
+                "http://127.0.0.1:3000/blocks/cards/activity-current",
+                "http://127.0.0.1:3000/blocks/cards/member-signal",
+                "http://127.0.0.1:3000/blocks/cards/integration-status",
+                "http://127.0.0.1:3000/blocks/cards/plan-outline",
+                "http://127.0.0.1:3000/blocks/cards/article-pocket",
+                "http://127.0.0.1:3000/blocks/cards/task-handoff",
+                "http://127.0.0.1:3000/blocks/cards/file-preview",
+                "http://127.0.0.1:3000/blocks/cards/event-brief",
+                "http://127.0.0.1:3000/blocks/cards/contact-route",
+                "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+                "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+                "http://127.0.0.1:3000/blocks/cards/empty-collection",
+                "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+              ],
+              "meta": {
+                "sizeBytes": 202322,
+                "size": "197.6 KB",
+                "status": 200,
+                "contentType": "text/css"
+              }
+            }
+          ],
+          "details": {
+            "thresholdBytes": 153600,
+            "total": 1
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/render-blocking",
+      "name": "Render-Blocking Resources",
+      "description": "Checks for render-blocking CSS and JavaScript",
+      "solution": "Render-blocking resources delay First Contentful Paint (FCP) and LCP. Fix by: 1) Inline critical CSS for above-fold content. 2) Load non-critical CSS with media='print' onload='this.media=all'. 3) Add async or defer to non-critical scripts. 4) Move scripts to end of body when possible. 5) Use <link rel='preload'> for critical resources. Consider tools like Critical to extract critical CSS.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "render-blocking",
+          "status": "warn",
+          "message": "4 render-blocking resources",
+          "affectedPages": [
+            "http://127.0.0.1:3000/components"
+          ],
+          "items": [
+            {
+              "id": "/assets/index-Be2IPlkg.css"
+            },
+            {
+              "id": "/styles/gummy-form-controls.css"
+            },
+            {
+              "id": "/styles/gummy-primitives.css"
+            },
+            {
+              "id": "/styles/component-inspector.css"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/total-byte-weight",
+      "name": "Total Page Weight",
+      "description": "Checks the total byte weight of the page",
+      "solution": "Reduce total page weight for faster loads on slow connections. Optimize images (use modern formats, compress, serve appropriate sizes). Minify and compress CSS/JS. Remove unused code via tree-shaking. Lazy-load non-critical resources. Target under 1.6MB for mobile users.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "total-byte-weight",
+          "status": "warn",
+          "message": "Total tracked resources: 1609KB (heavy page)",
+          "affectedPages": [],
+          "details": {
+            "pagesAnalyzed": 97,
+            "css": "869KB",
+            "cssBreakdown": "inline: 554KB, external: 315KB",
+            "cssFiles": 5,
+            "js": "740KB",
+            "jsFiles": 0
+          },
+          "legacyValue": "1609KB"
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/critical-request-chains",
+      "name": "Critical Request Chains",
+      "description": "Identifies chains of dependent resources that delay rendering",
+      "solution": "Critical request chains are sequences of dependent network requests that must complete before the page can render. Reduce chain depth by: 1) Inlining critical CSS instead of linking external files. 2) Adding async or defer to non-critical scripts. 3) Avoiding CSS @import — use <link> tags instead. 4) Using <link rel='preload'> for critical resources. 5) Reducing the number of render-blocking resources in <head>.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "critical-request-chains",
+          "status": "warn",
+          "message": "N critical request chain(s) found",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/design-kit",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/terms",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence",
+            "http://127.0.0.1:3000/blocks/authentication",
+            "http://127.0.0.1:3000/blocks/bento-grids",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/calls-to-action",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/features",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/onboarding",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/profiles",
+            "http://127.0.0.1:3000/blocks/sidebars",
+            "http://127.0.0.1:3000/blocks/statistics",
+            "http://127.0.0.1:3000/blocks/teams",
+            "http://127.0.0.1:3000/blocks/testimonials",
+            "http://127.0.0.1:3000/templates/relay-forge",
+            "http://127.0.0.1:3000/templates/current-desk",
+            "http://127.0.0.1:3000/templates/soft-signal-studio",
+            "http://127.0.0.1:3000/templates/field-notes-portfolio",
+            "http://127.0.0.1:3000/templates/boundary-ai",
+            "http://127.0.0.1:3000/templates/orchard-console",
+            "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+            "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+            "http://127.0.0.1:3000/blocks/about/milestone-current",
+            "http://127.0.0.1:3000/blocks/about/process-field-notes",
+            "http://127.0.0.1:3000/blocks/about/mission-and-method",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+            "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+            "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+            "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+            "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+            "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+            "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+            "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+            "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+            "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+            "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+            "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+            "http://127.0.0.1:3000/blocks/blogs/article-river",
+            "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+            "http://127.0.0.1:3000/blocks/blogs/research-digest",
+            "http://127.0.0.1:3000/blocks/blogs/release-journal",
+            "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+            "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+            "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+            "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+            "http://127.0.0.1:3000/blocks/cards/project-pulse",
+            "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+            "http://127.0.0.1:3000/blocks/cards/release-readiness",
+            "http://127.0.0.1:3000/blocks/cards/activity-current",
+            "http://127.0.0.1:3000/blocks/cards/member-signal",
+            "http://127.0.0.1:3000/blocks/cards/integration-status",
+            "http://127.0.0.1:3000/blocks/cards/plan-outline",
+            "http://127.0.0.1:3000/blocks/cards/article-pocket",
+            "http://127.0.0.1:3000/blocks/cards/task-handoff",
+            "http://127.0.0.1:3000/blocks/cards/file-preview",
+            "http://127.0.0.1:3000/blocks/cards/event-brief",
+            "http://127.0.0.1:3000/blocks/cards/contact-route",
+            "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+            "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+            "http://127.0.0.1:3000/blocks/cards/empty-collection",
+            "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+          ],
+          "items": [
+            {
+              "id": "CSS: /assets/index-Be2IPlkg.css"
+            },
+            {
+              "id": "CSS: /styles/gummy-form-controls.css"
+            },
+            {
+              "id": "CSS: /styles/gummy-primitives.css"
+            },
+            {
+              "id": "CSS: /styles/component-inspector.css"
+            },
+            {
+              "id": "CSS: /styles/frame-studio.css"
+            }
+          ],
+          "details": {
+            "blockingCss": 1,
+            "blockingJs": 0,
+            "importCount": 0,
+            "preloads": 14
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/unminified-css",
+      "name": "Unminified CSS",
+      "description": "Detects unminified CSS that could be optimized",
+      "solution": "Minify CSS to reduce file size and improve load times. Use build tools like cssnano, clean-css, or PostCSS with cssnano plugin. Most bundlers (Webpack, Vite, esbuild) can minify CSS automatically in production mode. Minification removes whitespace, comments, and optimizes syntax.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "unminified-css",
+          "status": "warn",
+          "message": "1 CSS file(s) appear unminified",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/design-kit",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/terms",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence",
+            "http://127.0.0.1:3000/blocks/authentication",
+            "http://127.0.0.1:3000/blocks/bento-grids",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/calls-to-action",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/features",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/onboarding",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/profiles",
+            "http://127.0.0.1:3000/blocks/sidebars",
+            "http://127.0.0.1:3000/blocks/statistics",
+            "http://127.0.0.1:3000/blocks/teams",
+            "http://127.0.0.1:3000/blocks/testimonials",
+            "http://127.0.0.1:3000/templates/relay-forge",
+            "http://127.0.0.1:3000/templates/current-desk",
+            "http://127.0.0.1:3000/templates/soft-signal-studio",
+            "http://127.0.0.1:3000/templates/field-notes-portfolio",
+            "http://127.0.0.1:3000/templates/boundary-ai",
+            "http://127.0.0.1:3000/templates/orchard-console",
+            "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+            "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+            "http://127.0.0.1:3000/blocks/about/milestone-current",
+            "http://127.0.0.1:3000/blocks/about/process-field-notes",
+            "http://127.0.0.1:3000/blocks/about/mission-and-method",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+            "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+            "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+            "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+            "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+            "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+            "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+            "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+            "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+            "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+            "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+            "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+            "http://127.0.0.1:3000/blocks/blogs/article-river",
+            "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+            "http://127.0.0.1:3000/blocks/blogs/research-digest",
+            "http://127.0.0.1:3000/blocks/blogs/release-journal",
+            "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+            "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+            "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+            "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+            "http://127.0.0.1:3000/blocks/cards/project-pulse",
+            "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+            "http://127.0.0.1:3000/blocks/cards/release-readiness",
+            "http://127.0.0.1:3000/blocks/cards/activity-current",
+            "http://127.0.0.1:3000/blocks/cards/member-signal",
+            "http://127.0.0.1:3000/blocks/cards/integration-status",
+            "http://127.0.0.1:3000/blocks/cards/plan-outline",
+            "http://127.0.0.1:3000/blocks/cards/article-pocket",
+            "http://127.0.0.1:3000/blocks/cards/task-handoff",
+            "http://127.0.0.1:3000/blocks/cards/file-preview",
+            "http://127.0.0.1:3000/blocks/cards/event-brief",
+            "http://127.0.0.1:3000/blocks/cards/contact-route",
+            "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+            "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+            "http://127.0.0.1:3000/blocks/cards/empty-collection",
+            "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+          ],
+          "items": [
+            {
+              "id": "inline style",
+              "label": "5.7KB, ~0.3KB savings",
+              "meta": {
+                "reason": "high newlines (2.4%), 14 comments, formatted code blocks"
+              }
+            }
+          ],
+          "details": {
+            "totalPotentialSavingsKb": "0.3"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/http2",
+      "name": "HTTP/2",
+      "description": "Checks for HTTP/2 protocol support",
+      "solution": "HTTP/2 enables multiplexing, header compression, and server push for faster page loads. Most modern web servers and CDNs support HTTP/2 out of the box. Requires HTTPS. Check your server/CDN documentation to enable it. HTTP/3 (QUIC) provides even better performance.",
+      "category": "Performance",
+      "severity": "info",
+      "checks": [
+        {
+          "name": "http2-https-required",
+          "status": "warn",
+          "message": "HTTP/2 requires HTTPS",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/design-kit",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/terms",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates",
+            "http://127.0.0.1:3000/blocks/about",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence",
+            "http://127.0.0.1:3000/blocks/authentication",
+            "http://127.0.0.1:3000/blocks/bento-grids",
+            "http://127.0.0.1:3000/blocks/blogs",
+            "http://127.0.0.1:3000/blocks/calls-to-action",
+            "http://127.0.0.1:3000/blocks/cards",
+            "http://127.0.0.1:3000/blocks/careers",
+            "http://127.0.0.1:3000/blocks/contact",
+            "http://127.0.0.1:3000/blocks/faq",
+            "http://127.0.0.1:3000/blocks/features",
+            "http://127.0.0.1:3000/blocks/footers",
+            "http://127.0.0.1:3000/blocks/forms",
+            "http://127.0.0.1:3000/blocks/heroes",
+            "http://127.0.0.1:3000/blocks/navbars",
+            "http://127.0.0.1:3000/blocks/onboarding",
+            "http://127.0.0.1:3000/blocks/pricing",
+            "http://127.0.0.1:3000/blocks/profiles",
+            "http://127.0.0.1:3000/blocks/sidebars",
+            "http://127.0.0.1:3000/blocks/statistics",
+            "http://127.0.0.1:3000/blocks/teams",
+            "http://127.0.0.1:3000/blocks/testimonials",
+            "http://127.0.0.1:3000/templates/relay-forge",
+            "http://127.0.0.1:3000/templates/current-desk",
+            "http://127.0.0.1:3000/templates/soft-signal-studio",
+            "http://127.0.0.1:3000/templates/field-notes-portfolio",
+            "http://127.0.0.1:3000/templates/boundary-ai",
+            "http://127.0.0.1:3000/templates/orchard-console",
+            "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+            "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+            "http://127.0.0.1:3000/blocks/about/milestone-current",
+            "http://127.0.0.1:3000/blocks/about/process-field-notes",
+            "http://127.0.0.1:3000/blocks/about/mission-and-method",
+            "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+            "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+            "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+            "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+            "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+            "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+            "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+            "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+            "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+            "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+            "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+            "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+            "http://127.0.0.1:3000/blocks/blogs/article-river",
+            "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+            "http://127.0.0.1:3000/blocks/blogs/research-digest",
+            "http://127.0.0.1:3000/blocks/blogs/release-journal",
+            "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+            "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+            "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+            "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+            "http://127.0.0.1:3000/blocks/cards/project-pulse",
+            "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+            "http://127.0.0.1:3000/blocks/cards/release-readiness",
+            "http://127.0.0.1:3000/blocks/cards/activity-current",
+            "http://127.0.0.1:3000/blocks/cards/member-signal",
+            "http://127.0.0.1:3000/blocks/cards/integration-status",
+            "http://127.0.0.1:3000/blocks/cards/plan-outline",
+            "http://127.0.0.1:3000/blocks/cards/article-pocket",
+            "http://127.0.0.1:3000/blocks/cards/task-handoff",
+            "http://127.0.0.1:3000/blocks/cards/file-preview",
+            "http://127.0.0.1:3000/blocks/cards/event-brief",
+            "http://127.0.0.1:3000/blocks/cards/contact-route",
+            "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+            "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+            "http://127.0.0.1:3000/blocks/cards/empty-collection",
+            "http://127.0.0.1:3000/blocks/careers/open-roles-ledger"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/support",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/contact",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/studio",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/themes",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/pro",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/locales",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/accessibility",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/refund",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/commercial-license",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/design-kit",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/terms",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/license",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/editor-setup",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/mcp",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/troubleshooting",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/artificial-intelligence",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/bento-grids",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/contact",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/faq",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/features",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/footers",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/forms",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/heroes",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/navbars",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/onboarding",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/pricing",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/profiles",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/sidebars",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/statistics",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/teams",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/testimonials",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/relay-forge",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/current-desk",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/soft-signal-studio",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/field-notes-portfolio",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/boundary-ai",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/templates/orchard-console",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/origin-ribbon",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/working-principles-ledger",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/milestone-current",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/process-field-notes",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/about/mission-and-method",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/artificial-intelligence/capability-boundary-map",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/welcome-back-split",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/email-code-entry",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/recovery-checkpoint",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/invite-acceptance",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/passkey-handoff",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/workspace-chooser",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/authentication/session-expired-return",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/bento-grids/signal-orchard",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/editorial-current",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/featured-field-note",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/topic-shelf",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/article-river",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/author-dispatch",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/research-digest",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/release-journal",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/blogs/reading-queue",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/quiet-next-step",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/product-proof-handoff",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/calls-to-action/closing-invitation",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/project-pulse",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/metric-reservoir",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/release-readiness",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/activity-current",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/member-signal",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/integration-status",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/plan-outline",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/article-pocket",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/task-handoff",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/file-preview",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/event-brief",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/contact-route",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/usage-threshold",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/approval-checkpoint",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/cards/empty-collection",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blocks/careers/open-roles-ledger",
+              "label": "HTTP/2 requires HTTPS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/aria-hidden-focus",
+      "name": "ARIA Hidden Focus",
+      "description": "Ensures aria-hidden elements do not contain focusable content",
+      "solution": "Elements with aria-hidden='true' should not contain focusable content. When an element is hidden from assistive technology but still focusable, keyboard users can tab to it but screen reader users won't know what they're interacting with. Either remove aria-hidden or make children non-focusable with tabindex='-1'.",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "aria-hidden-focus",
+          "status": "fail",
+          "message": "1 focusable element(s) inside aria-hidden",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes"
+          ],
+          "items": [
+            {
+              "id": "input (self is focusable)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/aria-input-field-name",
+      "name": "ARIA Input Field Name",
+      "description": "Checks that input fields have accessible names",
+      "solution": "All input fields need accessible names. Best options: 1) Use <label for='inputId'>. 2) Use aria-label or aria-labelledby. 3) Wrap input in <label>. Placeholder alone is not sufficient as it disappears when typing.",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "aria-input-field-name",
+          "status": "fail",
+          "message": "1 input field(s) without accessible names",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/rtl"
+          ],
+          "items": [
+            {
+              "id": "input[type=\"checkbox\"]"
+            },
+            {
+              "id": "input[type=\"range\"]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/aria-toggle-field-name",
+      "name": "ARIA Toggle Field Name",
+      "description": "Checks that toggle fields (checkbox, radio, switch) have accessible names",
+      "solution": "Toggle fields need accessible names to describe what they control. Use <label for='id'>, aria-label, aria-labelledby, or wrap in <label>. Example: <label><input type='checkbox'> Subscribe to newsletter</label>",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "aria-toggle-field-name",
+          "status": "fail",
+          "message": "1 toggle field(s) without accessible names",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes"
+          ],
+          "items": [
+            {
+              "id": "checkbox"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/form-labels",
+      "name": "Form Labels",
+      "description": "Checks that form inputs have associated labels",
+      "solution": "Every form input needs an accessible label for screen readers. Options: 1) Use <label for='inputId'>Label</label> with matching id. 2) Wrap the input inside <label>Label <input></label>. 3) Use aria-label or aria-labelledby for inputs where visible labels aren't feasible. Placeholders are not sufficient substitutes for labels. Hidden inputs, submit buttons, and image buttons don't need labels.",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "form-labels",
+          "status": "fail",
+          "message": "1 form input(s) without labels",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/rtl"
+          ],
+          "items": [
+            {
+              "id": "checkbox"
+            },
+            {
+              "id": "base-ui-_R_an6ed6H2_"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/form-field-multiple-labels",
+      "name": "Multiple Labels",
+      "description": "Checks that form fields don't have multiple labels",
+      "solution": "Form inputs should have only one associated label. Multiple labels can confuse assistive technology. If you need multiple text descriptions, use aria-describedby for supplementary text instead of multiple labels.",
+      "category": "Accessibility",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "form-field-multiple-labels",
+          "status": "warn",
+          "message": "4 input(s) with multiple labels",
+          "affectedPages": [
+            "http://127.0.0.1:3000/docs"
+          ],
+          "items": [
+            {
+              "id": "docs-visibility (2 labels)"
+            },
+            {
+              "id": "docs-visibility (2 labels)"
+            },
+            {
+              "id": "docs-visibility (2 labels)"
+            },
+            {
+              "id": "gummy-checkbox-_R_2omed6_ (2 labels)"
+            }
+          ],
+          "details": {
+            "suggestion": "Use aria-describedby for additional descriptions"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/heading-order",
+      "name": "Heading Order",
+      "description": "Checks that heading levels don't skip",
+      "solution": "Headings should follow a logical hierarchy without skipping levels. Screen reader users navigate by headings, so skipping from H1 to H3 is confusing. Correct order: H1 -> H2 -> H3 (not H1 -> H3). You can have multiple headings at the same level, and you can go back up (H3 -> H2 is fine). Think of headings as an outline - they should make sense when read alone.",
+      "category": "Accessibility",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "heading-order",
+          "status": "warn",
+          "message": "1 heading level skip(s) detected",
+          "affectedPages": [
+            "http://127.0.0.1:3000/"
+          ],
+          "items": [
+            {
+              "id": "H3 after H1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/identical-links-same-purpose",
+      "name": "Identical Links Same Purpose",
+      "description": "Checks that links with identical text go to the same destination",
+      "solution": "Links with the same visible text should go to the same URL. When identical link text leads to different destinations, it confuses screen reader users who navigate by listing links. Make link text unique or more descriptive to differentiate destinations.",
+      "category": "Accessibility",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "identical-links-same-purpose",
+          "status": "warn",
+          "message": "1 link text(s) lead to different destinations",
+          "affectedPages": [
+            "http://127.0.0.1:3000/pro",
+            "http://127.0.0.1:3000/blocks",
+            "http://127.0.0.1:3000/templates"
+          ],
+          "items": [
+            {
+              "id": "\"review status\" → 2 different URLs"
+            },
+            {
+              "id": "\"review category\" → 22 different URLs"
+            },
+            {
+              "id": "\"review template\" → 6 different URLs"
+            }
+          ],
+          "details": {
+            "suggestion": "Make link text unique to differentiate destinations"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/th-has-data-cells",
+      "name": "TH Has Data Cells",
+      "description": "Checks that table headers have associated data cells",
+      "solution": "Each <th> element should be associated with at least one <td> data cell in the same row or column. Orphaned header cells without data cells usually indicate the table is being misused for layout purposes. If the table is for layout, add role='presentation'. Otherwise, ensure every header has corresponding data cells.",
+      "category": "Accessibility",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "th-has-data-cells",
+          "status": "warn",
+          "message": "1 <th> element(s) without associated data cells",
+          "affectedPages": [
+            "http://127.0.0.1:3000/locales"
+          ],
+          "items": [
+            {
+              "id": "Language"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "eeat/author-byline",
+      "name": "Author Bylines",
+      "description": "Checks for visible author names on content pages",
+      "solution": "Author bylines demonstrate experience and accountability. Show author names prominently on articles, blog posts, and expert content. Include author credentials where relevant. Link author names to bio pages. For YMYL content (health, finance), author transparency is especially important for Google's E-E-A-T assessment.",
+      "category": "E-E-A-T",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "author-byline",
+          "status": "warn",
+          "message": "No content pages have author attribution",
+          "affectedPages": [],
+          "legacyValue": "Add author bylines to build E-E-A-T"
+        }
+      ]
+    }
+  ]
+}

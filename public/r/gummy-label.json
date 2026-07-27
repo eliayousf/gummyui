@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-label",
+  "type": "registry:ui",
+  "title": "Gummy Label",
+  "description": "Native Label with required, optional, disabled, and read-only cues.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-form-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyLabel.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport type GummyLabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {\n  /** Shows a visible, non-colour-only required cue. */\n  required?: boolean;\n  /** Shows an optional cue when the field is not required. */\n  optional?: boolean;\n  /** Mirrors the state of the associated control. */\n  disabled?: boolean;\n  /** Mirrors the state of an associated read-only control. */\n  readOnly?: boolean;\n  /** Replaces the generated Required, Optional, or Read only cue. */\n  meta?: React.ReactNode;\n};\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyLabel = React.forwardRef<HTMLLabelElement, GummyLabelProps>(\n  function GummyLabel(\n    {\n      required = false,\n      optional = false,\n      disabled = false,\n      readOnly = false,\n      meta,\n      className,\n      children,\n      ...labelProps\n    },\n    ref,\n  ) {\n    const generatedMeta = readOnly\n      ? \"Read only\"\n      : required\n        ? \"Required\"\n        : optional\n          ? \"Optional\"\n          : null;\n\n    return (\n      <label\n        {...labelProps}\n        ref={ref}\n        className={joinClassNames(\"gummy-label\", className)}\n        data-disabled={disabled || undefined}\n        data-read-only={readOnly || undefined}\n        data-required={required || undefined}\n      >\n        <span className=\"gummy-label__copy\">{children}</span>\n        {meta ?? generatedMeta ? (\n          <span className=\"gummy-label__meta\" aria-hidden=\"true\">\n            {meta ?? generatedMeta}\n          </span>\n        ) : null}\n      </label>\n    );\n  },\n);\n\nGummyLabel.displayName = \"GummyLabel\";\n"
+    }
+  ]
+}

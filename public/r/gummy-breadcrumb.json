@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-breadcrumb",
+  "type": "registry:ui",
+  "title": "Gummy Breadcrumb",
+  "description": "Semantic navigation trail with current-page, separator, and collapsed-path anatomy.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyBreadcrumb.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyBreadcrumbProps = React.HTMLAttributes<HTMLElement> & {\n  label?: string;\n};\n\nexport const GummyBreadcrumb = React.forwardRef<\n  HTMLElement,\n  GummyBreadcrumbProps\n>(function GummyBreadcrumb(\n  { label = \"Breadcrumb\", className, children, ...props },\n  ref,\n) {\n  return (\n    <nav\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-breadcrumb\", className)}\n      aria-label={label}\n    >\n      <ol>{children}</ol>\n    </nav>\n  );\n});\n\nGummyBreadcrumb.displayName = \"GummyBreadcrumb\";\n\nexport const GummyBreadcrumbItem = React.forwardRef<\n  HTMLLIElement,\n  React.LiHTMLAttributes<HTMLLIElement>\n>(function GummyBreadcrumbItem({ className, ...props }, ref) {\n  return (\n    <li\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-breadcrumb__item\", className)}\n    />\n  );\n});\n\nGummyBreadcrumbItem.displayName = \"GummyBreadcrumbItem\";\n\nexport const GummyBreadcrumbLink = React.forwardRef<\n  HTMLAnchorElement,\n  React.AnchorHTMLAttributes<HTMLAnchorElement>\n>(function GummyBreadcrumbLink({ className, ...props }, ref) {\n  return (\n    <a\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-breadcrumb__link\", className)}\n    />\n  );\n});\n\nGummyBreadcrumbLink.displayName = \"GummyBreadcrumbLink\";\n\nexport const GummyBreadcrumbPage = React.forwardRef<\n  HTMLSpanElement,\n  React.HTMLAttributes<HTMLSpanElement>\n>(function GummyBreadcrumbPage({ className, ...props }, ref) {\n  return (\n    <span\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-breadcrumb__page\", className)}\n      aria-current=\"page\"\n    />\n  );\n});\n\nGummyBreadcrumbPage.displayName = \"GummyBreadcrumbPage\";\n\nexport function GummyBreadcrumbSeparator({\n  children = \"›\",\n}: {\n  children?: React.ReactNode;\n}) {\n  return (\n    <li className=\"gummy-breadcrumb__separator\" aria-hidden=\"true\">\n      {children}\n    </li>\n  );\n}\n\nexport function GummyBreadcrumbEllipsis({\n  label = \"More pages\",\n}: {\n  label?: string;\n}) {\n  return (\n    <li className=\"gummy-breadcrumb__ellipsis\">\n      <span aria-hidden=\"true\">•••</span>\n      <span className=\"gummy-visually-hidden\">{label}</span>\n    </li>\n  );\n}\n"
+    }
+  ]
+}

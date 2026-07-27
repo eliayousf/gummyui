@@ -1,0 +1,4204 @@
+{
+  "meta": {
+    "version": "0.0.38",
+    "baseUrl": "http://127.0.0.1:3000",
+    "timestamp": "2026-07-26T23:13:30.052Z",
+    "totalPages": 163
+  },
+  "score": {
+    "overall": 78,
+    "grade": "C",
+    "categories": [
+      {
+        "name": "Security",
+        "score": 72
+      },
+      {
+        "name": "Accessibility",
+        "score": 98
+      },
+      {
+        "name": "Crawlability",
+        "score": 84
+      },
+      {
+        "name": "Performance",
+        "score": 86
+      },
+      {
+        "name": "Content",
+        "score": 78
+      },
+      {
+        "name": "Core SEO",
+        "score": 94
+      },
+      {
+        "name": "E-E-A-T",
+        "score": 88
+      },
+      {
+        "name": "Links",
+        "score": 100
+      },
+      {
+        "name": "Internationalization",
+        "score": 100
+      },
+      {
+        "name": "Images",
+        "score": 100
+      },
+      {
+        "name": "Legal Compliance",
+        "score": 100
+      },
+      {
+        "name": "Mobile",
+        "score": 100
+      },
+      {
+        "name": "Structured Data",
+        "score": 100
+      },
+      {
+        "name": "Social Media",
+        "score": 100
+      },
+      {
+        "name": "URL Structure",
+        "score": 100
+      }
+    ]
+  },
+  "summary": {
+    "passed": 9068,
+    "warnings": 502,
+    "failed": 126
+  },
+  "issues": [
+    {
+      "ruleId": "crawl/sitemap-domain",
+      "name": "Sitemap Domain",
+      "description": "Checks that all sitemap URLs belong to the expected domain",
+      "solution": "All URLs in your sitemap should point to pages on your own domain. Cross-domain URLs in sitemaps are a configuration error - search engines will ignore URLs that don't match the sitemap's domain. Remove external URLs from your sitemap or fix the domain in URLs if they're incorrectly formatted.",
+      "category": "Crawlability",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "sitemap-domain",
+          "status": "fail",
+          "message": "170 URL(s) point to different domain(s)",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "https://gummyui.dev/",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/nextjs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/vite",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/editor-setup",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/troubleshooting",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/registry",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/themes",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/studio",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/community",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/community/submit",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/rtl",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/mcp",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/locales",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/accessibility",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/security",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/support",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/contact",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/license",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/commercial-license",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/refund",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/changelog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/changelog.xml",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/privacy",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/accordion",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/alert",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/alert-dialog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/aspect-ratio",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/avatar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/badge",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/breadcrumb",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/button",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/button-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/calendar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/card",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/carousel",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/checkbox",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/collapsible",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/combobox",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/command",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/context-menu",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/data-table",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/date-picker",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/dialog",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/direction",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/drawer",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/dropdown-menu",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/empty",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/field",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/hover-card",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/input",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/input-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/input-otp",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/item",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/kbd",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/label",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/menubar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/native-select",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/navigation-menu",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/pagination",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/popover",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/progress",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/radio-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/resizable",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/scroll-area",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/select",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/separator",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/sheet",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/sidebar",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/skeleton",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/slider",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/sonner",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/spinner",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/switch",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/table",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/tabs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/textarea",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle-group",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/tooltip",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/components/typography",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/catalogue.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/accordion.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert-dialog.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/aspect-ratio.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/avatar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/badge.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/breadcrumb.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/calendar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/card.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/carousel.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/checkbox.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/collapsible.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/combobox.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/command.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/context-menu.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/data-table.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/date-picker.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dialog.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/direction.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/drawer.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dropdown-menu.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/empty.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/field.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/hover-card.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-otp.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/item.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/kbd.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/label.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/menubar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/native-select.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/navigation-menu.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/pagination.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/popover.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/progress.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/radio-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/resizable.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/scroll-area.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/select.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/separator.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sheet.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sidebar.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/skeleton.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/slider.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sonner.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/spinner.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/switch.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/table.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tabs.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/textarea.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle-group.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tooltip.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/typography.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/introduction.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/installation.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/nextjs.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/vite.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/theming.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/accessibility.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/rtl.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/localisation.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/editor-setup.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/mcp.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/troubleshooting.md",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-the-gel-pop-language",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/semantics-before-surface",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/reading-a-gummy-registry-item",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/one-catalogue-fifty-seven-components",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/documenting-meaningful-component-states",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/keyboard-contracts-for-overlays",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/native-forms-with-visible-context",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/rtl-is-behavior-not-a-mirror",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/reduced-motion-without-lost-state",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/building-light-and-dark-from-semantic-tokens",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/responsive-components-start-with-content",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/using-the-component-lab-as-evidence",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/testing-accessibility-in-layers",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/composing-data-interfaces-from-primitives",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/interactive-cards-need-real-elements",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-ai-readable-component-docs",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/keeping-public-and-pro-source-separate",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            },
+            {
+              "id": "https://gummyui.dev/blog/honest-product-status-by-design",
+              "meta": {
+                "host": "gummyui.dev"
+              }
+            }
+          ],
+          "details": {
+            "expectedHost": "127.0.0.1",
+            "foundHosts": [
+              "gummyui.dev"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "crawl/sitemap-coverage",
+      "name": "Sitemap Coverage",
+      "description": "Checks for indexable pages that are not in the sitemap",
+      "solution": "Your sitemap should include all pages you want search engines to index. Pages that are crawlable and indexable (no noindex, not blocked by robots.txt) should generally be in your sitemap. Missing pages may not be discovered or indexed efficiently. Use a sitemap generator that automatically includes all indexable pages, or manually add important pages.",
+      "category": "Crawlability",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "sitemap-coverage",
+          "status": "warn",
+          "message": "101 indexable page(s) not in sitemap (100%)",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs"
+            },
+            {
+              "id": "http://127.0.0.1:3000/support"
+            },
+            {
+              "id": "http://127.0.0.1:3000/contact"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components"
+            },
+            {
+              "id": "http://127.0.0.1:3000/studio"
+            },
+            {
+              "id": "http://127.0.0.1:3000/themes"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry"
+            },
+            {
+              "id": "http://127.0.0.1:3000/locales"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl"
+            },
+            {
+              "id": "http://127.0.0.1:3000/accessibility"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security"
+            },
+            {
+              "id": "http://127.0.0.1:3000/refund"
+            },
+            {
+              "id": "http://127.0.0.1:3000/commercial-license"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy"
+            },
+            {
+              "id": "http://127.0.0.1:3000/license"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/editor-setup"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/troubleshooting"
+            },
+            {
+              "id": "http://127.0.0.1:3000/mcp"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/designing-the-gel-pop-language"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/semantics-before-surface"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/documenting-meaningful-component-states"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/native-forms-with-visible-context"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/responsive-components-start-with-content"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/testing-accessibility-in-layers"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/honest-product-status-by-design"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/accordion"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/alert"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/alert-dialog"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/aspect-ratio"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/avatar"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/badge"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/breadcrumb"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/button"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/button-group"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/calendar"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/card"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/carousel"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/checkbox"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/collapsible"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/combobox"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/command"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/context-menu"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/date-picker"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/data-table"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/dialog"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/direction"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/drawer"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/dropdown-menu"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/empty"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/field"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/hover-card"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input-group"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input-otp"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/item"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/kbd"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/menubar"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/native-select"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/navigation-menu"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/popover"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/progress"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=1"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=2"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=3"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/radio-group"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/resizable"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/scroll-area"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/select"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/separator"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sheet"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sidebar"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/skeleton"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/slider"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sonner"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/spinner"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/switch"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/table"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/tabs"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/textarea"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/toggle"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/toggle-group"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/tooltip"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/typography"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community/submit"
+            }
+          ],
+          "details": {
+            "percentage": 100,
+            "total": 101
+          }
+        },
+        {
+          "name": "sitemap-orphans",
+          "status": "warn",
+          "message": "170 sitemap URL(s) were not crawled",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "https://gummyui.dev/"
+            },
+            {
+              "id": "https://gummyui.dev/components"
+            },
+            {
+              "id": "https://gummyui.dev/docs"
+            },
+            {
+              "id": "https://gummyui.dev/docs/nextjs"
+            },
+            {
+              "id": "https://gummyui.dev/docs/vite"
+            },
+            {
+              "id": "https://gummyui.dev/docs/editor-setup"
+            },
+            {
+              "id": "https://gummyui.dev/docs/troubleshooting"
+            },
+            {
+              "id": "https://gummyui.dev/registry"
+            },
+            {
+              "id": "https://gummyui.dev/themes"
+            },
+            {
+              "id": "https://gummyui.dev/studio"
+            },
+            {
+              "id": "https://gummyui.dev/community"
+            },
+            {
+              "id": "https://gummyui.dev/community/submit"
+            },
+            {
+              "id": "https://gummyui.dev/rtl"
+            },
+            {
+              "id": "https://gummyui.dev/mcp"
+            },
+            {
+              "id": "https://gummyui.dev/locales"
+            },
+            {
+              "id": "https://gummyui.dev/accessibility"
+            },
+            {
+              "id": "https://gummyui.dev/security"
+            },
+            {
+              "id": "https://gummyui.dev/support"
+            },
+            {
+              "id": "https://gummyui.dev/contact"
+            },
+            {
+              "id": "https://gummyui.dev/license"
+            },
+            {
+              "id": "https://gummyui.dev/commercial-license"
+            },
+            {
+              "id": "https://gummyui.dev/refund"
+            },
+            {
+              "id": "https://gummyui.dev/changelog"
+            },
+            {
+              "id": "https://gummyui.dev/changelog.xml"
+            },
+            {
+              "id": "https://gummyui.dev/blog"
+            },
+            {
+              "id": "https://gummyui.dev/privacy"
+            },
+            {
+              "id": "https://gummyui.dev/components/accordion"
+            },
+            {
+              "id": "https://gummyui.dev/components/alert"
+            },
+            {
+              "id": "https://gummyui.dev/components/alert-dialog"
+            },
+            {
+              "id": "https://gummyui.dev/components/aspect-ratio"
+            },
+            {
+              "id": "https://gummyui.dev/components/avatar"
+            },
+            {
+              "id": "https://gummyui.dev/components/badge"
+            },
+            {
+              "id": "https://gummyui.dev/components/breadcrumb"
+            },
+            {
+              "id": "https://gummyui.dev/components/button"
+            },
+            {
+              "id": "https://gummyui.dev/components/button-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/calendar"
+            },
+            {
+              "id": "https://gummyui.dev/components/card"
+            },
+            {
+              "id": "https://gummyui.dev/components/carousel"
+            },
+            {
+              "id": "https://gummyui.dev/components/checkbox"
+            },
+            {
+              "id": "https://gummyui.dev/components/collapsible"
+            },
+            {
+              "id": "https://gummyui.dev/components/combobox"
+            },
+            {
+              "id": "https://gummyui.dev/components/command"
+            },
+            {
+              "id": "https://gummyui.dev/components/context-menu"
+            },
+            {
+              "id": "https://gummyui.dev/components/data-table"
+            },
+            {
+              "id": "https://gummyui.dev/components/date-picker"
+            },
+            {
+              "id": "https://gummyui.dev/components/dialog"
+            },
+            {
+              "id": "https://gummyui.dev/components/direction"
+            },
+            {
+              "id": "https://gummyui.dev/components/drawer"
+            },
+            {
+              "id": "https://gummyui.dev/components/dropdown-menu"
+            },
+            {
+              "id": "https://gummyui.dev/components/empty"
+            },
+            {
+              "id": "https://gummyui.dev/components/field"
+            },
+            {
+              "id": "https://gummyui.dev/components/hover-card"
+            },
+            {
+              "id": "https://gummyui.dev/components/input"
+            },
+            {
+              "id": "https://gummyui.dev/components/input-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/input-otp"
+            },
+            {
+              "id": "https://gummyui.dev/components/item"
+            },
+            {
+              "id": "https://gummyui.dev/components/kbd"
+            },
+            {
+              "id": "https://gummyui.dev/components/label"
+            },
+            {
+              "id": "https://gummyui.dev/components/menubar"
+            },
+            {
+              "id": "https://gummyui.dev/components/native-select"
+            },
+            {
+              "id": "https://gummyui.dev/components/navigation-menu"
+            },
+            {
+              "id": "https://gummyui.dev/components/pagination"
+            },
+            {
+              "id": "https://gummyui.dev/components/popover"
+            },
+            {
+              "id": "https://gummyui.dev/components/progress"
+            },
+            {
+              "id": "https://gummyui.dev/components/radio-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/resizable"
+            },
+            {
+              "id": "https://gummyui.dev/components/scroll-area"
+            },
+            {
+              "id": "https://gummyui.dev/components/select"
+            },
+            {
+              "id": "https://gummyui.dev/components/separator"
+            },
+            {
+              "id": "https://gummyui.dev/components/sheet"
+            },
+            {
+              "id": "https://gummyui.dev/components/sidebar"
+            },
+            {
+              "id": "https://gummyui.dev/components/skeleton"
+            },
+            {
+              "id": "https://gummyui.dev/components/slider"
+            },
+            {
+              "id": "https://gummyui.dev/components/sonner"
+            },
+            {
+              "id": "https://gummyui.dev/components/spinner"
+            },
+            {
+              "id": "https://gummyui.dev/components/switch"
+            },
+            {
+              "id": "https://gummyui.dev/components/table"
+            },
+            {
+              "id": "https://gummyui.dev/components/tabs"
+            },
+            {
+              "id": "https://gummyui.dev/components/textarea"
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle"
+            },
+            {
+              "id": "https://gummyui.dev/components/toggle-group"
+            },
+            {
+              "id": "https://gummyui.dev/components/tooltip"
+            },
+            {
+              "id": "https://gummyui.dev/components/typography"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/catalogue.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/accordion.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/alert-dialog.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/aspect-ratio.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/avatar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/badge.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/breadcrumb.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/button-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/calendar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/card.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/carousel.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/checkbox.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/collapsible.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/combobox.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/command.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/context-menu.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/data-table.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/date-picker.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dialog.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/direction.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/drawer.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/dropdown-menu.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/empty.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/field.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/hover-card.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/input-otp.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/item.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/kbd.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/label.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/menubar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/native-select.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/navigation-menu.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/pagination.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/popover.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/progress.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/radio-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/resizable.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/scroll-area.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/select.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/separator.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sheet.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sidebar.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/skeleton.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/slider.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/sonner.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/spinner.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/switch.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/table.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tabs.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/textarea.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/toggle-group.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/tooltip.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/components/typography.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/introduction.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/installation.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/nextjs.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/vite.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/theming.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/accessibility.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/rtl.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/localisation.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/editor-setup.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/mcp.md"
+            },
+            {
+              "id": "https://gummyui.dev/docs/markdown/guides/troubleshooting.md"
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-the-gel-pop-language"
+            },
+            {
+              "id": "https://gummyui.dev/blog/semantics-before-surface"
+            },
+            {
+              "id": "https://gummyui.dev/blog/reading-a-gummy-registry-item"
+            },
+            {
+              "id": "https://gummyui.dev/blog/one-catalogue-fifty-seven-components"
+            },
+            {
+              "id": "https://gummyui.dev/blog/documenting-meaningful-component-states"
+            },
+            {
+              "id": "https://gummyui.dev/blog/keyboard-contracts-for-overlays"
+            },
+            {
+              "id": "https://gummyui.dev/blog/native-forms-with-visible-context"
+            },
+            {
+              "id": "https://gummyui.dev/blog/rtl-is-behavior-not-a-mirror"
+            },
+            {
+              "id": "https://gummyui.dev/blog/reduced-motion-without-lost-state"
+            },
+            {
+              "id": "https://gummyui.dev/blog/building-light-and-dark-from-semantic-tokens"
+            },
+            {
+              "id": "https://gummyui.dev/blog/responsive-components-start-with-content"
+            },
+            {
+              "id": "https://gummyui.dev/blog/using-the-component-lab-as-evidence"
+            },
+            {
+              "id": "https://gummyui.dev/blog/testing-accessibility-in-layers"
+            },
+            {
+              "id": "https://gummyui.dev/blog/composing-data-interfaces-from-primitives"
+            },
+            {
+              "id": "https://gummyui.dev/blog/interactive-cards-need-real-elements"
+            },
+            {
+              "id": "https://gummyui.dev/blog/designing-ai-readable-component-docs"
+            },
+            {
+              "id": "https://gummyui.dev/blog/keeping-public-and-pro-source-separate"
+            },
+            {
+              "id": "https://gummyui.dev/blog/honest-product-status-by-design"
+            }
+          ],
+          "details": {
+            "total": 170
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "crawl/pagination",
+      "name": "Pagination",
+      "description": "Checks that paginated pages have proper canonicals",
+      "solution": "Paginated pages should NOT all canonicalize to page 1. Each page should have a self-referencing canonical. Use rel='next' and rel='prev' links to indicate pagination sequence (though Google no longer uses these for indexing, they help users). Consider view-all pages or infinite scroll as alternatives. Ensure each paginated page has unique, valuable content.",
+      "category": "Crawlability",
+      "severity": "info",
+      "checks": [
+        {
+          "name": "pagination-canonical",
+          "status": "warn",
+          "message": "Paginated page canonicalizes to non-paginated URL",
+          "affectedPages": [
+            "http://127.0.0.1:3000/components/pagination?page=1",
+            "http://127.0.0.1:3000/components/pagination?page=2",
+            "http://127.0.0.1:3000/components/pagination?page=3"
+          ],
+          "legacyValue": "Page 1 → https://gummyui.dev/components/pagination"
+        }
+      ]
+    },
+    {
+      "ruleId": "core/meta-description",
+      "name": "Meta Description",
+      "description": "Validates meta description presence and length",
+      "solution": "Meta descriptions should be 120-160 characters and provide a compelling summary of the page. While not a direct ranking factor, good descriptions improve click-through rates from search results. Write unique descriptions for each page that accurately preview the content. Include a call-to-action when appropriate. If missing, search engines will auto-generate snippets which may not represent your page optimally.",
+      "category": "Core SEO",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "meta-description",
+          "status": "warn",
+          "message": "Description too long",
+          "affectedPages": [
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+            "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+            "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+            "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+            "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+            "http://127.0.0.1:3000/components/badge",
+            "http://127.0.0.1:3000/components/card",
+            "http://127.0.0.1:3000/components/carousel",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/native-select",
+            "http://127.0.0.1:3000/components/popover",
+            "http://127.0.0.1:3000/components/separator",
+            "http://127.0.0.1:3000/components/sidebar",
+            "http://127.0.0.1:3000/components/sonner"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/refund",
+              "label": "Review the pre-launch status of Gummy UI refund el (164 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy",
+              "label": "Review current browser-local Gummy UI data behavio (162 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+              "label": "A practical account of how Gummy UI turns transmit (163 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+              "label": "A method for choosing and reviewing default, focus (169 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+              "label": "What Gummy UI’s Component Lab is designed to revea (164 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+              "label": "How semantic assertions, keyboard tests, axe, toke (167 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+              "label": "Why Gummy UI distinguishes specified, implemented, (166 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/badge",
+              "label": "A non-interactive semantic label in solid or trans (161 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/card",
+              "label": "Passive, link, and button surfaces held in one con (164 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/carousel",
+              "label": "Controlled or uncontrolled labelled slides with fi (164 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/checkbox",
+              "label": "A native checkbox with mixed, validation, disabled (162 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/native-select",
+              "label": "The platform single-select picker with Gummy shell (164 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/popover",
+              "label": "A non-modal contextual surface with title, descrip (161 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/separator",
+              "label": "A quiet horizontal or vertical divider with decora (161 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sidebar",
+              "label": "A controlled workspace shell with responsive navig (161 chars)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sonner",
+              "label": "Polite or urgent toast workflows with actions, pro (166 chars)"
+            }
+          ],
+          "legacyValue": "Review the pre-launch status of Gummy UI refund eligibility, statutory rights, access revocation, request handling, and approval requirements before commerce opens."
+        },
+        {
+          "name": "meta-description",
+          "status": "warn",
+          "message": "Description too short",
+          "affectedPages": [
+            "http://127.0.0.1:3000/community/submit"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/community/submit",
+              "label": "Evidence and permission requirements for future Gu (88 chars)"
+            }
+          ],
+          "legacyValue": "Evidence and permission requirements for future Gummy UI community showcase submissions."
+        }
+      ]
+    },
+    {
+      "ruleId": "core/title-unique",
+      "name": "Title Uniqueness",
+      "description": "Checks that page titles are unique across the site",
+      "solution": "Each page should have a unique title that accurately describes its content. Duplicate titles confuse search engines and users about which page to display. Use a pattern like 'Page Topic | Brand Name' to ensure uniqueness. CMS often generate duplicate titles - audit and customize them.",
+      "category": "Core SEO",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "title-unique",
+          "status": "warn",
+          "message": "1 duplicate title(s) affecting 4 pages",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "pagination react component · gummy ui",
+              "label": "\"pagination react component · gummy ui...\" (4 pages)",
+              "sourcePages": [
+                "http://127.0.0.1:3000/components/pagination",
+                "http://127.0.0.1:3000/components/pagination?page=1",
+                "http://127.0.0.1:3000/components/pagination?page=2",
+                "http://127.0.0.1:3000/components/pagination?page=3"
+              ],
+              "meta": {
+                "pageCount": 4
+              }
+            }
+          ],
+          "details": {
+            "totalDuplicates": 1,
+            "totalPages": 4
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "security/https",
+      "name": "HTTPS",
+      "description": "Checks for HTTPS usage",
+      "solution": "HTTPS encrypts data between users and your server, protecting sensitive information. It's a ranking signal and required for many modern browser features. Migrate to HTTPS by obtaining an SSL certificate (free from Let's Encrypt). Update internal links to use https://. Set up 301 redirects from HTTP to HTTPS. Update your canonical URLs and sitemap. Check for mixed content warnings after migration.",
+      "category": "Security",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "https",
+          "status": "fail",
+          "message": "Page not served over HTTPS",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+            "http://127.0.0.1:3000/blog/semantics-before-surface",
+            "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item",
+            "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components",
+            "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+            "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays",
+            "http://127.0.0.1:3000/blog/native-forms-with-visible-context",
+            "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+            "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state",
+            "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens",
+            "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+            "http://127.0.0.1:3000/blog/responsive-components-start-with-content",
+            "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+            "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives",
+            "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements",
+            "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs",
+            "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+            "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+            "http://127.0.0.1:3000/components/accordion",
+            "http://127.0.0.1:3000/components/alert",
+            "http://127.0.0.1:3000/components/alert-dialog",
+            "http://127.0.0.1:3000/components/aspect-ratio",
+            "http://127.0.0.1:3000/components/avatar",
+            "http://127.0.0.1:3000/components/badge",
+            "http://127.0.0.1:3000/components/breadcrumb",
+            "http://127.0.0.1:3000/components/button",
+            "http://127.0.0.1:3000/components/button-group",
+            "http://127.0.0.1:3000/components/calendar",
+            "http://127.0.0.1:3000/components/card",
+            "http://127.0.0.1:3000/components/carousel",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/collapsible",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/command",
+            "http://127.0.0.1:3000/components/context-menu",
+            "http://127.0.0.1:3000/components/date-picker",
+            "http://127.0.0.1:3000/components/data-table",
+            "http://127.0.0.1:3000/components/dialog",
+            "http://127.0.0.1:3000/components/direction",
+            "http://127.0.0.1:3000/components/drawer",
+            "http://127.0.0.1:3000/components/dropdown-menu",
+            "http://127.0.0.1:3000/components/empty",
+            "http://127.0.0.1:3000/components/field",
+            "http://127.0.0.1:3000/components/hover-card",
+            "http://127.0.0.1:3000/components/input",
+            "http://127.0.0.1:3000/components/input-group",
+            "http://127.0.0.1:3000/components/input-otp",
+            "http://127.0.0.1:3000/components/item",
+            "http://127.0.0.1:3000/components/kbd",
+            "http://127.0.0.1:3000/components/menubar",
+            "http://127.0.0.1:3000/components/native-select",
+            "http://127.0.0.1:3000/components/navigation-menu",
+            "http://127.0.0.1:3000/components/pagination",
+            "http://127.0.0.1:3000/components/popover",
+            "http://127.0.0.1:3000/components/progress",
+            "http://127.0.0.1:3000/components/pagination?page=1",
+            "http://127.0.0.1:3000/components/pagination?page=2",
+            "http://127.0.0.1:3000/components/pagination?page=3",
+            "http://127.0.0.1:3000/components/radio-group",
+            "http://127.0.0.1:3000/components/resizable",
+            "http://127.0.0.1:3000/components/scroll-area",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/separator",
+            "http://127.0.0.1:3000/components/sheet",
+            "http://127.0.0.1:3000/components/sidebar",
+            "http://127.0.0.1:3000/components/skeleton",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/sonner",
+            "http://127.0.0.1:3000/components/spinner",
+            "http://127.0.0.1:3000/components/switch",
+            "http://127.0.0.1:3000/components/table",
+            "http://127.0.0.1:3000/components/tabs",
+            "http://127.0.0.1:3000/components/textarea",
+            "http://127.0.0.1:3000/components/toggle",
+            "http://127.0.0.1:3000/components/toggle-group",
+            "http://127.0.0.1:3000/components/tooltip",
+            "http://127.0.0.1:3000/components/typography",
+            "http://127.0.0.1:3000/community/submit"
+          ],
+          "legacyValue": "http:"
+        }
+      ]
+    },
+    {
+      "ruleId": "security/csp",
+      "name": "Content Security Policy",
+      "description": "Checks for Content-Security-Policy header and validates directives",
+      "solution": "CSP prevents XSS attacks by restricting which resources can load. Start with a report-only policy to identify issues. Key directives: default-src 'self', script-src (avoid 'unsafe-inline'), img-src, style-src, frame-ancestors. Use nonces or hashes instead of 'unsafe-inline' for scripts. Test thoroughly as strict CSP can break functionality.",
+      "category": "Security",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "csp-unsafe-scripts",
+          "status": "warn",
+          "message": "CSP allows 'unsafe-inline'",
+          "affectedPages": [],
+          "legacyValue": "Weakens XSS protection significantly"
+        }
+      ]
+    },
+    {
+      "ruleId": "links/internal-links",
+      "name": "Internal Links",
+      "description": "Validates internal link count",
+      "solution": "Internal links help users navigate your site and distribute page authority. Each page should have at least one internal link pointing to it (not counting navigation). Add contextual internal links from related content. Use descriptive anchor text that indicates what the linked page is about. Avoid orphan pages (no internal links) and ensure important pages receive more internal links. Review your site structure to create logical content clusters.",
+      "category": "Links",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "internal-links",
+          "status": "warn",
+          "message": "Too many internal links (155, max 100)",
+          "affectedPages": [
+            "http://127.0.0.1:3000/registry"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "Too many internal links (155, max 100)"
+            }
+          ],
+          "legacyValue": "155"
+        }
+      ]
+    },
+    {
+      "ruleId": "content/duplicate-title",
+      "name": "Duplicate Title",
+      "description": "Checks for duplicate title tags across the site",
+      "solution": "Each page should have a unique title tag that accurately describes its content. Duplicate titles confuse search engines about which page to rank and make your pages less distinguishable in search results. Use unique, descriptive titles that include relevant keywords. For similar pages (e.g., pagination), add differentiating elements like page numbers or category names.",
+      "category": "Content",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "duplicate-title",
+          "status": "warn",
+          "message": "1 duplicate title(s) found across 4 pages",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "pagination react component · gummy ui",
+              "label": "\"pagination react component · gummy ui...\" (4 pages)",
+              "sourcePages": [
+                "http://127.0.0.1:3000/components/pagination",
+                "http://127.0.0.1:3000/components/pagination?page=1",
+                "http://127.0.0.1:3000/components/pagination?page=2",
+                "http://127.0.0.1:3000/components/pagination?page=3"
+              ],
+              "meta": {
+                "pageCount": 4
+              }
+            }
+          ],
+          "details": {
+            "totalDuplicates": 1,
+            "totalPages": 4
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "content/duplicate-description",
+      "name": "Duplicate Description",
+      "description": "Checks for duplicate meta descriptions across the site",
+      "solution": "Each page should have a unique meta description that summarizes its specific content. Duplicate descriptions reduce click-through rates and provide poor user experience in search results. Write unique, compelling descriptions for each page. For pages without unique content (like paginated results), consider using no description rather than a duplicate.",
+      "category": "Content",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "duplicate-description",
+          "status": "warn",
+          "message": "1 duplicate description(s) found across 4 pages",
+          "affectedPages": [],
+          "items": [
+            {
+              "id": "current-page navigation with previous, next, and ellipsis pa",
+              "label": "\"current-page navigation with previous, n...\" (4 pages)",
+              "sourcePages": [
+                "http://127.0.0.1:3000/components/pagination",
+                "http://127.0.0.1:3000/components/pagination?page=1",
+                "http://127.0.0.1:3000/components/pagination?page=2",
+                "http://127.0.0.1:3000/components/pagination?page=3"
+              ],
+              "meta": {
+                "pageCount": 4
+              }
+            }
+          ],
+          "details": {
+            "totalDuplicates": 1,
+            "totalPages": 4
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "content/keyword-stuffing",
+      "name": "Keyword Stuffing",
+      "description": "Detects excessive keyword repetition in content",
+      "solution": "Keyword stuffing is repeating words unnaturally to manipulate rankings. Search engines penalize this practice. Write naturally for users first. Use keywords where they fit naturally. Aim for 1-2% keyword density at most. Use synonyms and related terms instead of repeating the exact same phrase. Focus on providing value, not gaming algorithms.",
+      "category": "Content",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "keyword-stuffing",
+          "status": "warn",
+          "message": "N word(s) may be overused",
+          "affectedPages": [
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+            "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+            "http://127.0.0.1:3000/components/calendar",
+            "http://127.0.0.1:3000/components/date-picker",
+            "http://127.0.0.1:3000/components/direction",
+            "http://127.0.0.1:3000/components/radio-group",
+            "http://127.0.0.1:3000/components/scroll-area"
+          ],
+          "items": [
+            {
+              "id": "gummy",
+              "label": "\"gummy\" (5.6%)",
+              "meta": {
+                "count": 33,
+                "density": 5.641025641025641
+              }
+            },
+            {
+              "id": "jul",
+              "label": "\"jul\" (3.1%)",
+              "meta": {
+                "count": 18,
+                "density": 3.076923076923077
+              }
+            },
+            {
+              "id": "chart",
+              "label": "\"chart\" (4.2%)",
+              "meta": {
+                "count": 12,
+                "density": 4.225352112676056
+              }
+            },
+            {
+              "id": "fruit",
+              "label": "\"fruit\" (3.9%)",
+              "meta": {
+                "count": 11,
+                "density": 3.873239436619718
+              }
+            },
+            {
+              "id": "core",
+              "label": "\"core\" (3.5%)",
+              "meta": {
+                "count": 10,
+                "density": 3.5211267605633805
+              }
+            },
+            {
+              "id": "linguistic",
+              "label": "\"linguistic\" (10.0%)",
+              "meta": {
+                "count": 21,
+                "density": 9.95260663507109
+              }
+            },
+            {
+              "id": "review",
+              "label": "\"review\" (7.6%)",
+              "meta": {
+                "count": 16,
+                "density": 7.5829383886255926
+              }
+            },
+            {
+              "id": "are",
+              "label": "\"are\" (3.2%)",
+              "meta": {
+                "count": 8,
+                "density": 3.187250996015936
+              }
+            },
+            {
+              "id": "software",
+              "label": "\"software\" (4.1%)",
+              "meta": {
+                "count": 9,
+                "density": 4.054054054054054
+              }
+            },
+            {
+              "id": "source",
+              "label": "\"source\" (3.3%)",
+              "meta": {
+                "count": 6,
+                "density": 3.296703296703297
+              }
+            },
+            {
+              "id": "direction",
+              "label": "\"direction\" (3.6%)",
+              "meta": {
+                "count": 16,
+                "density": 3.587443946188341
+              }
+            },
+            {
+              "id": "public",
+              "label": "\"public\" (3.7%)",
+              "meta": {
+                "count": 17,
+                "density": 3.655913978494624
+              }
+            },
+            {
+              "id": "date",
+              "label": "\"date\" (3.1%)",
+              "meta": {
+                "count": 10,
+                "density": 3.125
+              }
+            },
+            {
+              "id": "react",
+              "label": "\"react\" (3.0%)",
+              "meta": {
+                "count": 10,
+                "density": 3.0303030303030303
+              }
+            },
+            {
+              "id": "behavior",
+              "label": "\"behavior\" (3.3%)",
+              "meta": {
+                "count": 12,
+                "density": 3.3426183844011144
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "content/article-links",
+      "name": "Article Link Density",
+      "description": "Articles should have appropriate internal and external links based on length",
+      "solution": "Add relevant internal links to other pages on your site and cite authoritative external sources. Short articles (<800 words) need at least 1 of each, medium (800-1500) need 2 of each, long (>1500) need 3 internal and 2 external.",
+      "category": "Content",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "external-links",
+          "status": "warn",
+          "message": "short article has 0 external links (min 1)",
+          "affectedPages": [
+            "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+            "http://127.0.0.1:3000/blog/semantics-before-surface",
+            "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item",
+            "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components",
+            "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+            "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays",
+            "http://127.0.0.1:3000/blog/native-forms-with-visible-context",
+            "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+            "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state",
+            "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens",
+            "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+            "http://127.0.0.1:3000/blog/responsive-components-start-with-content",
+            "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+            "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives",
+            "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements",
+            "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs",
+            "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+            "http://127.0.0.1:3000/blog/honest-product-status-by-design"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/semantics-before-surface",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/native-forms-with-visible-context",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/responsive-components-start-with-content",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+              "label": "short article has 0 external links (min 1)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+              "label": "short article has 0 external links (min 1)"
+            }
+          ],
+          "legacyValue": "0"
+        }
+      ]
+    },
+    {
+      "ruleId": "content/word-count",
+      "name": "Word Count",
+      "description": "Checks content length for thin content issues",
+      "solution": "Pages with thin content (under 300 words) often struggle to rank well and are actively deindexed by Google since the June 2025 core update. Add more valuable, relevant content to thin pages—aim for at least 500 words for standard pages and 1000+ for in-depth articles. If a page can't be fleshed out, voluntarily noindex it or consolidate it into a more comprehensive resource. Trimming thin pages from your index is better than leaving low-value content for Google to penalize.",
+      "category": "Content",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "word-count",
+          "status": "warn",
+          "message": "Thin content: N words (min N)",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/components/accordion",
+            "http://127.0.0.1:3000/components/alert",
+            "http://127.0.0.1:3000/components/alert-dialog",
+            "http://127.0.0.1:3000/components/aspect-ratio",
+            "http://127.0.0.1:3000/components/avatar",
+            "http://127.0.0.1:3000/components/breadcrumb",
+            "http://127.0.0.1:3000/components/button-group",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/collapsible",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/command",
+            "http://127.0.0.1:3000/components/context-menu",
+            "http://127.0.0.1:3000/components/date-picker",
+            "http://127.0.0.1:3000/components/dialog",
+            "http://127.0.0.1:3000/components/direction",
+            "http://127.0.0.1:3000/components/drawer",
+            "http://127.0.0.1:3000/components/dropdown-menu",
+            "http://127.0.0.1:3000/components/empty",
+            "http://127.0.0.1:3000/components/hover-card",
+            "http://127.0.0.1:3000/components/input-group",
+            "http://127.0.0.1:3000/components/input-otp",
+            "http://127.0.0.1:3000/components/item",
+            "http://127.0.0.1:3000/components/kbd",
+            "http://127.0.0.1:3000/components/menubar",
+            "http://127.0.0.1:3000/components/native-select",
+            "http://127.0.0.1:3000/components/navigation-menu",
+            "http://127.0.0.1:3000/components/pagination",
+            "http://127.0.0.1:3000/components/popover",
+            "http://127.0.0.1:3000/components/progress",
+            "http://127.0.0.1:3000/components/pagination?page=1",
+            "http://127.0.0.1:3000/components/pagination?page=2",
+            "http://127.0.0.1:3000/components/pagination?page=3",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/separator",
+            "http://127.0.0.1:3000/components/sheet",
+            "http://127.0.0.1:3000/components/sidebar",
+            "http://127.0.0.1:3000/components/skeleton",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/sonner",
+            "http://127.0.0.1:3000/components/spinner",
+            "http://127.0.0.1:3000/components/switch",
+            "http://127.0.0.1:3000/components/table",
+            "http://127.0.0.1:3000/components/tabs",
+            "http://127.0.0.1:3000/components/textarea",
+            "http://127.0.0.1:3000/components/toggle",
+            "http://127.0.0.1:3000/components/toggle-group",
+            "http://127.0.0.1:3000/components/tooltip",
+            "http://127.0.0.1:3000/community/submit"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/",
+              "label": "Thin content: 243 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/support",
+              "label": "Thin content: 127 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/contact",
+              "label": "Thin content: 114 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/studio",
+              "label": "Thin content: 120 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/themes",
+              "label": "Thin content: 238 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community",
+              "label": "Thin content: 131 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "Thin content: 122 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/locales",
+              "label": "Thin content: 194 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl",
+              "label": "Thin content: 124 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/accessibility",
+              "label": "Thin content: 194 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security",
+              "label": "Thin content: 242 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/refund",
+              "label": "Thin content: 100 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/commercial-license",
+              "label": "Thin content: 135 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy",
+              "label": "Thin content: 130 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/license",
+              "label": "Thin content: 265 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs",
+              "label": "Thin content: 145 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite",
+              "label": "Thin content: 143 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/editor-setup",
+              "label": "Thin content: 155 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/troubleshooting",
+              "label": "Thin content: 168 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/mcp",
+              "label": "Thin content: 168 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/accordion",
+              "label": "Thin content: 268 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/alert",
+              "label": "Thin content: 278 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/alert-dialog",
+              "label": "Thin content: 275 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/aspect-ratio",
+              "label": "Thin content: 257 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/avatar",
+              "label": "Thin content: 277 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/breadcrumb",
+              "label": "Thin content: 252 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/button-group",
+              "label": "Thin content: 271 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/checkbox",
+              "label": "Thin content: 289 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/collapsible",
+              "label": "Thin content: 266 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/combobox",
+              "label": "Thin content: 274 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/command",
+              "label": "Thin content: 277 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/context-menu",
+              "label": "Thin content: 286 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/date-picker",
+              "label": "Thin content: 278 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/dialog",
+              "label": "Thin content: 266 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/direction",
+              "label": "Thin content: 263 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/drawer",
+              "label": "Thin content: 270 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/dropdown-menu",
+              "label": "Thin content: 278 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/empty",
+              "label": "Thin content: 279 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/hover-card",
+              "label": "Thin content: 252 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input-group",
+              "label": "Thin content: 274 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input-otp",
+              "label": "Thin content: 294 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/item",
+              "label": "Thin content: 298 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/kbd",
+              "label": "Thin content: 246 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/menubar",
+              "label": "Thin content: 267 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/native-select",
+              "label": "Thin content: 291 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/navigation-menu",
+              "label": "Thin content: 261 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination",
+              "label": "Thin content: 259 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/popover",
+              "label": "Thin content: 263 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/progress",
+              "label": "Thin content: 265 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=1",
+              "label": "Thin content: 259 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=2",
+              "label": "Thin content: 259 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=3",
+              "label": "Thin content: 259 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/select",
+              "label": "Thin content: 271 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/separator",
+              "label": "Thin content: 257 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sheet",
+              "label": "Thin content: 259 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sidebar",
+              "label": "Thin content: 280 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/skeleton",
+              "label": "Thin content: 267 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/slider",
+              "label": "Thin content: 255 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sonner",
+              "label": "Thin content: 273 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/spinner",
+              "label": "Thin content: 265 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/switch",
+              "label": "Thin content: 295 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/table",
+              "label": "Thin content: 277 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/tabs",
+              "label": "Thin content: 260 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/textarea",
+              "label": "Thin content: 281 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/toggle",
+              "label": "Thin content: 248 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/toggle-group",
+              "label": "Thin content: 267 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/tooltip",
+              "label": "Thin content: 259 words (min 300)"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community/submit",
+              "label": "Thin content: 192 words (min 300)"
+            }
+          ],
+          "legacyValue": "243"
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/dom-size",
+      "name": "DOM Size",
+      "description": "Detects excessive DOM complexity that impacts performance",
+      "solution": "Large DOMs slow page rendering, increase memory usage, and harm mobile performance. Google recommends keeping total nodes under 1500.\n\nFixes for large DOMs:\n- Use virtualization for long lists (e.g., react-window)\n- Lazy-load off-screen content\n- Reduce unnecessary wrapper elements\n- Use CSS instead of DOM for visual effects\n- Paginate large content sections",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "dom-max-children",
+          "status": "warn",
+          "message": "Element with 61 children found",
+          "affectedPages": [
+            "http://127.0.0.1:3000/components/scroll-area"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/components/scroll-area",
+              "label": "Element with 61 children found"
+            }
+          ],
+          "legacyValue": "61"
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/render-blocking",
+      "name": "Render-Blocking Resources",
+      "description": "Checks for render-blocking CSS and JavaScript",
+      "solution": "Render-blocking resources delay First Contentful Paint (FCP) and LCP. Fix by: 1) Inline critical CSS for above-fold content. 2) Load non-critical CSS with media='print' onload='this.media=all'. 3) Add async or defer to non-critical scripts. 4) Move scripts to end of body when possible. 5) Use <link rel='preload'> for critical resources. Consider tools like Critical to extract critical CSS.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "render-blocking",
+          "status": "warn",
+          "message": "4 render-blocking resources",
+          "affectedPages": [
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/components/accordion",
+            "http://127.0.0.1:3000/components/alert",
+            "http://127.0.0.1:3000/components/alert-dialog",
+            "http://127.0.0.1:3000/components/aspect-ratio",
+            "http://127.0.0.1:3000/components/avatar",
+            "http://127.0.0.1:3000/components/badge",
+            "http://127.0.0.1:3000/components/breadcrumb",
+            "http://127.0.0.1:3000/components/button",
+            "http://127.0.0.1:3000/components/button-group",
+            "http://127.0.0.1:3000/components/calendar",
+            "http://127.0.0.1:3000/components/card",
+            "http://127.0.0.1:3000/components/carousel",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/collapsible",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/command",
+            "http://127.0.0.1:3000/components/context-menu",
+            "http://127.0.0.1:3000/components/date-picker",
+            "http://127.0.0.1:3000/components/data-table",
+            "http://127.0.0.1:3000/components/dialog",
+            "http://127.0.0.1:3000/components/direction",
+            "http://127.0.0.1:3000/components/drawer",
+            "http://127.0.0.1:3000/components/dropdown-menu",
+            "http://127.0.0.1:3000/components/empty",
+            "http://127.0.0.1:3000/components/field",
+            "http://127.0.0.1:3000/components/hover-card",
+            "http://127.0.0.1:3000/components/input",
+            "http://127.0.0.1:3000/components/input-group",
+            "http://127.0.0.1:3000/components/input-otp",
+            "http://127.0.0.1:3000/components/item",
+            "http://127.0.0.1:3000/components/kbd",
+            "http://127.0.0.1:3000/components/menubar",
+            "http://127.0.0.1:3000/components/native-select",
+            "http://127.0.0.1:3000/components/navigation-menu",
+            "http://127.0.0.1:3000/components/pagination",
+            "http://127.0.0.1:3000/components/popover",
+            "http://127.0.0.1:3000/components/progress",
+            "http://127.0.0.1:3000/components/pagination?page=1",
+            "http://127.0.0.1:3000/components/pagination?page=2",
+            "http://127.0.0.1:3000/components/pagination?page=3",
+            "http://127.0.0.1:3000/components/radio-group",
+            "http://127.0.0.1:3000/components/resizable",
+            "http://127.0.0.1:3000/components/scroll-area",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/separator",
+            "http://127.0.0.1:3000/components/sheet",
+            "http://127.0.0.1:3000/components/sidebar",
+            "http://127.0.0.1:3000/components/skeleton",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/sonner",
+            "http://127.0.0.1:3000/components/spinner",
+            "http://127.0.0.1:3000/components/switch",
+            "http://127.0.0.1:3000/components/table",
+            "http://127.0.0.1:3000/components/tabs",
+            "http://127.0.0.1:3000/components/textarea",
+            "http://127.0.0.1:3000/components/toggle",
+            "http://127.0.0.1:3000/components/toggle-group",
+            "http://127.0.0.1:3000/components/tooltip",
+            "http://127.0.0.1:3000/components/typography"
+          ],
+          "items": [
+            {
+              "id": "/assets/index-Cj6x3Ake.css"
+            },
+            {
+              "id": "/styles/gummy-form-controls.css"
+            },
+            {
+              "id": "/styles/gummy-primitives.css"
+            },
+            {
+              "id": "/styles/component-inspector.css"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/total-byte-weight",
+      "name": "Total Page Weight",
+      "description": "Checks the total byte weight of the page",
+      "solution": "Reduce total page weight for faster loads on slow connections. Optimize images (use modern formats, compress, serve appropriate sizes). Minify and compress CSS/JS. Remove unused code via tree-shaking. Lazy-load non-critical resources. Target under 1.6MB for mobile users.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "total-byte-weight",
+          "status": "warn",
+          "message": "Total tracked resources: 2174KB (heavy page)",
+          "affectedPages": [],
+          "details": {
+            "pagesAnalyzed": 101,
+            "css": "842KB",
+            "cssBreakdown": "inline: 577KB, external: 265KB",
+            "cssFiles": 5,
+            "js": "1332KB",
+            "jsFiles": 0
+          },
+          "legacyValue": "2174KB"
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/critical-request-chains",
+      "name": "Critical Request Chains",
+      "description": "Identifies chains of dependent resources that delay rendering",
+      "solution": "Critical request chains are sequences of dependent network requests that must complete before the page can render. Reduce chain depth by: 1) Inlining critical CSS instead of linking external files. 2) Adding async or defer to non-critical scripts. 3) Avoiding CSS @import — use <link> tags instead. 4) Using <link rel='preload'> for critical resources. 5) Reducing the number of render-blocking resources in <head>.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "critical-request-chains",
+          "status": "warn",
+          "message": "N critical request chain(s) found",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+            "http://127.0.0.1:3000/blog/semantics-before-surface",
+            "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item",
+            "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components",
+            "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+            "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays",
+            "http://127.0.0.1:3000/blog/native-forms-with-visible-context",
+            "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+            "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state",
+            "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens",
+            "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+            "http://127.0.0.1:3000/blog/responsive-components-start-with-content",
+            "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+            "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives",
+            "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements",
+            "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs",
+            "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+            "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+            "http://127.0.0.1:3000/components/accordion",
+            "http://127.0.0.1:3000/components/alert",
+            "http://127.0.0.1:3000/components/alert-dialog",
+            "http://127.0.0.1:3000/components/aspect-ratio",
+            "http://127.0.0.1:3000/components/avatar",
+            "http://127.0.0.1:3000/components/badge",
+            "http://127.0.0.1:3000/components/breadcrumb",
+            "http://127.0.0.1:3000/components/button",
+            "http://127.0.0.1:3000/components/button-group",
+            "http://127.0.0.1:3000/components/calendar",
+            "http://127.0.0.1:3000/components/card",
+            "http://127.0.0.1:3000/components/carousel",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/collapsible",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/command",
+            "http://127.0.0.1:3000/components/context-menu",
+            "http://127.0.0.1:3000/components/date-picker",
+            "http://127.0.0.1:3000/components/data-table",
+            "http://127.0.0.1:3000/components/dialog",
+            "http://127.0.0.1:3000/components/direction",
+            "http://127.0.0.1:3000/components/drawer",
+            "http://127.0.0.1:3000/components/dropdown-menu",
+            "http://127.0.0.1:3000/components/empty",
+            "http://127.0.0.1:3000/components/field",
+            "http://127.0.0.1:3000/components/hover-card",
+            "http://127.0.0.1:3000/components/input",
+            "http://127.0.0.1:3000/components/input-group",
+            "http://127.0.0.1:3000/components/input-otp",
+            "http://127.0.0.1:3000/components/item",
+            "http://127.0.0.1:3000/components/kbd",
+            "http://127.0.0.1:3000/components/menubar",
+            "http://127.0.0.1:3000/components/native-select",
+            "http://127.0.0.1:3000/components/navigation-menu",
+            "http://127.0.0.1:3000/components/pagination",
+            "http://127.0.0.1:3000/components/popover",
+            "http://127.0.0.1:3000/components/progress",
+            "http://127.0.0.1:3000/components/pagination?page=1",
+            "http://127.0.0.1:3000/components/pagination?page=2",
+            "http://127.0.0.1:3000/components/pagination?page=3",
+            "http://127.0.0.1:3000/components/radio-group",
+            "http://127.0.0.1:3000/components/resizable",
+            "http://127.0.0.1:3000/components/scroll-area",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/separator",
+            "http://127.0.0.1:3000/components/sheet",
+            "http://127.0.0.1:3000/components/sidebar",
+            "http://127.0.0.1:3000/components/skeleton",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/sonner",
+            "http://127.0.0.1:3000/components/spinner",
+            "http://127.0.0.1:3000/components/switch",
+            "http://127.0.0.1:3000/components/table",
+            "http://127.0.0.1:3000/components/tabs",
+            "http://127.0.0.1:3000/components/textarea",
+            "http://127.0.0.1:3000/components/toggle",
+            "http://127.0.0.1:3000/components/toggle-group",
+            "http://127.0.0.1:3000/components/tooltip",
+            "http://127.0.0.1:3000/components/typography",
+            "http://127.0.0.1:3000/community/submit"
+          ],
+          "items": [
+            {
+              "id": "CSS: /assets/index-Cj6x3Ake.css"
+            },
+            {
+              "id": "CSS: /styles/gummy-form-controls.css"
+            },
+            {
+              "id": "CSS: /styles/gummy-primitives.css"
+            },
+            {
+              "id": "CSS: /styles/component-inspector.css"
+            },
+            {
+              "id": "CSS: /styles/frame-studio.css"
+            }
+          ],
+          "details": {
+            "blockingCss": 1,
+            "blockingJs": 0,
+            "importCount": 0,
+            "preloads": 14
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/unminified-js",
+      "name": "Unminified JavaScript",
+      "description": "Detects unminified JavaScript that could be optimized",
+      "solution": "Minify JavaScript to reduce file size and improve load times. Use build tools like Terser, esbuild, or UglifyJS. Most bundlers (Webpack, Vite, Rollup) minify automatically in production. Minification shortens variable names, removes whitespace, and dead code.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "unminified-js",
+          "status": "warn",
+          "message": "N JavaScript file(s) appear unminified",
+          "affectedPages": [
+            "http://127.0.0.1:3000/components/badge",
+            "http://127.0.0.1:3000/components/button",
+            "http://127.0.0.1:3000/components/field",
+            "http://127.0.0.1:3000/components/input",
+            "http://127.0.0.1:3000/components/switch"
+          ],
+          "items": [
+            {
+              "id": "inline script",
+              "label": "5.3KB, ~4.0KB savings",
+              "meta": {
+                "reason": "7 comments"
+              }
+            }
+          ],
+          "details": {
+            "totalPotentialSavingsKb": "3.9"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/unminified-css",
+      "name": "Unminified CSS",
+      "description": "Detects unminified CSS that could be optimized",
+      "solution": "Minify CSS to reduce file size and improve load times. Use build tools like cssnano, clean-css, or PostCSS with cssnano plugin. Most bundlers (Webpack, Vite, esbuild) can minify CSS automatically in production mode. Minification removes whitespace, comments, and optimizes syntax.",
+      "category": "Performance",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "unminified-css",
+          "status": "warn",
+          "message": "1 CSS file(s) appear unminified",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+            "http://127.0.0.1:3000/blog/semantics-before-surface",
+            "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item",
+            "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components",
+            "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+            "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays",
+            "http://127.0.0.1:3000/blog/native-forms-with-visible-context",
+            "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+            "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state",
+            "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens",
+            "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+            "http://127.0.0.1:3000/blog/responsive-components-start-with-content",
+            "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+            "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives",
+            "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements",
+            "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs",
+            "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+            "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+            "http://127.0.0.1:3000/components/accordion",
+            "http://127.0.0.1:3000/components/alert",
+            "http://127.0.0.1:3000/components/alert-dialog",
+            "http://127.0.0.1:3000/components/aspect-ratio",
+            "http://127.0.0.1:3000/components/avatar",
+            "http://127.0.0.1:3000/components/badge",
+            "http://127.0.0.1:3000/components/breadcrumb",
+            "http://127.0.0.1:3000/components/button",
+            "http://127.0.0.1:3000/components/button-group",
+            "http://127.0.0.1:3000/components/calendar",
+            "http://127.0.0.1:3000/components/card",
+            "http://127.0.0.1:3000/components/carousel",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/collapsible",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/command",
+            "http://127.0.0.1:3000/components/context-menu",
+            "http://127.0.0.1:3000/components/date-picker",
+            "http://127.0.0.1:3000/components/data-table",
+            "http://127.0.0.1:3000/components/dialog",
+            "http://127.0.0.1:3000/components/direction",
+            "http://127.0.0.1:3000/components/drawer",
+            "http://127.0.0.1:3000/components/dropdown-menu",
+            "http://127.0.0.1:3000/components/empty",
+            "http://127.0.0.1:3000/components/field",
+            "http://127.0.0.1:3000/components/hover-card",
+            "http://127.0.0.1:3000/components/input",
+            "http://127.0.0.1:3000/components/input-group",
+            "http://127.0.0.1:3000/components/input-otp",
+            "http://127.0.0.1:3000/components/item",
+            "http://127.0.0.1:3000/components/kbd",
+            "http://127.0.0.1:3000/components/menubar",
+            "http://127.0.0.1:3000/components/native-select",
+            "http://127.0.0.1:3000/components/navigation-menu",
+            "http://127.0.0.1:3000/components/pagination",
+            "http://127.0.0.1:3000/components/popover",
+            "http://127.0.0.1:3000/components/progress",
+            "http://127.0.0.1:3000/components/pagination?page=1",
+            "http://127.0.0.1:3000/components/pagination?page=2",
+            "http://127.0.0.1:3000/components/pagination?page=3",
+            "http://127.0.0.1:3000/components/radio-group",
+            "http://127.0.0.1:3000/components/resizable",
+            "http://127.0.0.1:3000/components/scroll-area",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/separator",
+            "http://127.0.0.1:3000/components/sheet",
+            "http://127.0.0.1:3000/components/sidebar",
+            "http://127.0.0.1:3000/components/skeleton",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/sonner",
+            "http://127.0.0.1:3000/components/spinner",
+            "http://127.0.0.1:3000/components/switch",
+            "http://127.0.0.1:3000/components/table",
+            "http://127.0.0.1:3000/components/tabs",
+            "http://127.0.0.1:3000/components/textarea",
+            "http://127.0.0.1:3000/components/toggle",
+            "http://127.0.0.1:3000/components/toggle-group",
+            "http://127.0.0.1:3000/components/tooltip",
+            "http://127.0.0.1:3000/components/typography",
+            "http://127.0.0.1:3000/community/submit"
+          ],
+          "items": [
+            {
+              "id": "inline style",
+              "label": "5.7KB, ~0.3KB savings",
+              "meta": {
+                "reason": "high newlines (2.4%), 14 comments, formatted code blocks"
+              }
+            }
+          ],
+          "details": {
+            "totalPotentialSavingsKb": "0.3"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "perf/http2",
+      "name": "HTTP/2",
+      "description": "Checks for HTTP/2 protocol support",
+      "solution": "HTTP/2 enables multiplexing, header compression, and server push for faster page loads. Most modern web servers and CDNs support HTTP/2 out of the box. Requires HTTPS. Check your server/CDN documentation to enable it. HTTP/3 (QUIC) provides even better performance.",
+      "category": "Performance",
+      "severity": "info",
+      "checks": [
+        {
+          "name": "http2-https-required",
+          "status": "warn",
+          "message": "HTTP/2 requires HTTPS",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/blog",
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/support",
+            "http://127.0.0.1:3000/contact",
+            "http://127.0.0.1:3000/components",
+            "http://127.0.0.1:3000/studio",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/community",
+            "http://127.0.0.1:3000/registry",
+            "http://127.0.0.1:3000/locales",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/accessibility",
+            "http://127.0.0.1:3000/security",
+            "http://127.0.0.1:3000/refund",
+            "http://127.0.0.1:3000/commercial-license",
+            "http://127.0.0.1:3000/privacy",
+            "http://127.0.0.1:3000/license",
+            "http://127.0.0.1:3000/docs/nextjs",
+            "http://127.0.0.1:3000/docs/vite",
+            "http://127.0.0.1:3000/docs/editor-setup",
+            "http://127.0.0.1:3000/docs/troubleshooting",
+            "http://127.0.0.1:3000/mcp",
+            "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+            "http://127.0.0.1:3000/blog/semantics-before-surface",
+            "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item",
+            "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components",
+            "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+            "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays",
+            "http://127.0.0.1:3000/blog/native-forms-with-visible-context",
+            "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+            "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state",
+            "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens",
+            "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+            "http://127.0.0.1:3000/blog/responsive-components-start-with-content",
+            "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+            "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives",
+            "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements",
+            "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs",
+            "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+            "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+            "http://127.0.0.1:3000/components/accordion",
+            "http://127.0.0.1:3000/components/alert",
+            "http://127.0.0.1:3000/components/alert-dialog",
+            "http://127.0.0.1:3000/components/aspect-ratio",
+            "http://127.0.0.1:3000/components/avatar",
+            "http://127.0.0.1:3000/components/badge",
+            "http://127.0.0.1:3000/components/breadcrumb",
+            "http://127.0.0.1:3000/components/button",
+            "http://127.0.0.1:3000/components/button-group",
+            "http://127.0.0.1:3000/components/calendar",
+            "http://127.0.0.1:3000/components/card",
+            "http://127.0.0.1:3000/components/carousel",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/collapsible",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/command",
+            "http://127.0.0.1:3000/components/context-menu",
+            "http://127.0.0.1:3000/components/date-picker",
+            "http://127.0.0.1:3000/components/data-table",
+            "http://127.0.0.1:3000/components/dialog",
+            "http://127.0.0.1:3000/components/direction",
+            "http://127.0.0.1:3000/components/drawer",
+            "http://127.0.0.1:3000/components/dropdown-menu",
+            "http://127.0.0.1:3000/components/empty",
+            "http://127.0.0.1:3000/components/field",
+            "http://127.0.0.1:3000/components/hover-card",
+            "http://127.0.0.1:3000/components/input",
+            "http://127.0.0.1:3000/components/input-group",
+            "http://127.0.0.1:3000/components/input-otp",
+            "http://127.0.0.1:3000/components/item",
+            "http://127.0.0.1:3000/components/kbd",
+            "http://127.0.0.1:3000/components/menubar",
+            "http://127.0.0.1:3000/components/native-select",
+            "http://127.0.0.1:3000/components/navigation-menu",
+            "http://127.0.0.1:3000/components/pagination",
+            "http://127.0.0.1:3000/components/popover",
+            "http://127.0.0.1:3000/components/progress",
+            "http://127.0.0.1:3000/components/pagination?page=1",
+            "http://127.0.0.1:3000/components/pagination?page=2",
+            "http://127.0.0.1:3000/components/pagination?page=3",
+            "http://127.0.0.1:3000/components/radio-group",
+            "http://127.0.0.1:3000/components/resizable",
+            "http://127.0.0.1:3000/components/scroll-area",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/separator",
+            "http://127.0.0.1:3000/components/sheet",
+            "http://127.0.0.1:3000/components/sidebar",
+            "http://127.0.0.1:3000/components/skeleton",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/sonner",
+            "http://127.0.0.1:3000/components/spinner",
+            "http://127.0.0.1:3000/components/switch",
+            "http://127.0.0.1:3000/components/table",
+            "http://127.0.0.1:3000/components/tabs",
+            "http://127.0.0.1:3000/components/textarea",
+            "http://127.0.0.1:3000/components/toggle",
+            "http://127.0.0.1:3000/components/toggle-group",
+            "http://127.0.0.1:3000/components/tooltip",
+            "http://127.0.0.1:3000/components/typography",
+            "http://127.0.0.1:3000/community/submit"
+          ],
+          "items": [
+            {
+              "id": "http://127.0.0.1:3000/",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/support",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/contact",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/studio",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/themes",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/registry",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/locales",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/rtl",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/accessibility",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/security",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/refund",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/commercial-license",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/privacy",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/license",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/nextjs",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/vite",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/editor-setup",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/docs/troubleshooting",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/mcp",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/designing-the-gel-pop-language",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/semantics-before-surface",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/reading-a-gummy-registry-item",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/one-catalogue-fifty-seven-components",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/documenting-meaningful-component-states",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/keyboard-contracts-for-overlays",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/native-forms-with-visible-context",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/rtl-is-behavior-not-a-mirror",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/reduced-motion-without-lost-state",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/building-light-and-dark-from-semantic-tokens",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/using-the-component-lab-as-evidence",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/responsive-components-start-with-content",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/testing-accessibility-in-layers",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/composing-data-interfaces-from-primitives",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/interactive-cards-need-real-elements",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/designing-ai-readable-component-docs",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/keeping-public-and-pro-source-separate",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/blog/honest-product-status-by-design",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/accordion",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/alert",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/alert-dialog",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/aspect-ratio",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/avatar",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/badge",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/breadcrumb",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/button",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/button-group",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/calendar",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/card",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/carousel",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/checkbox",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/collapsible",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/combobox",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/command",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/context-menu",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/date-picker",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/data-table",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/dialog",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/direction",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/drawer",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/dropdown-menu",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/empty",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/field",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/hover-card",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input-group",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/input-otp",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/item",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/kbd",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/menubar",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/native-select",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/navigation-menu",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/popover",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/progress",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=1",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=2",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/pagination?page=3",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/radio-group",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/resizable",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/scroll-area",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/select",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/separator",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sheet",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sidebar",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/skeleton",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/slider",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/sonner",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/spinner",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/switch",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/table",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/tabs",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/textarea",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/toggle",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/toggle-group",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/tooltip",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/components/typography",
+              "label": "HTTP/2 requires HTTPS"
+            },
+            {
+              "id": "http://127.0.0.1:3000/community/submit",
+              "label": "HTTP/2 requires HTTPS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/aria-hidden-focus",
+      "name": "ARIA Hidden Focus",
+      "description": "Ensures aria-hidden elements do not contain focusable content",
+      "solution": "Elements with aria-hidden='true' should not contain focusable content. When an element is hidden from assistive technology but still focusable, keyboard users can tab to it but screen reader users won't know what they're interacting with. Either remove aria-hidden or make children non-focusable with tabindex='-1'.",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "aria-hidden-focus",
+          "status": "fail",
+          "message": "1 focusable element(s) inside aria-hidden",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/switch"
+          ],
+          "items": [
+            {
+              "id": "input (self is focusable)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/aria-input-field-name",
+      "name": "ARIA Input Field Name",
+      "description": "Checks that input fields have accessible names",
+      "solution": "All input fields need accessible names. Best options: 1) Use <label for='inputId'>. 2) Use aria-label or aria-labelledby. 3) Wrap input in <label>. Placeholder alone is not sufficient as it disappears when typing.",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "aria-input-field-name",
+          "status": "fail",
+          "message": "1 input field(s) without accessible names",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/switch"
+          ],
+          "items": [
+            {
+              "id": "input[type=\"checkbox\"]"
+            },
+            {
+              "id": "input[type=\"range\"]"
+            },
+            {
+              "id": "input[type=\"text\"]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/aria-toggle-field-name",
+      "name": "ARIA Toggle Field Name",
+      "description": "Checks that toggle fields (checkbox, radio, switch) have accessible names",
+      "solution": "Toggle fields need accessible names to describe what they control. Use <label for='id'>, aria-label, aria-labelledby, or wrap in <label>. Example: <label><input type='checkbox'> Subscribe to newsletter</label>",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "aria-toggle-field-name",
+          "status": "fail",
+          "message": "1 toggle field(s) without accessible names",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/components/switch"
+          ],
+          "items": [
+            {
+              "id": "checkbox"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/label-content-name-mismatch",
+      "name": "Label Content Name Mismatch",
+      "description": "Checks that visible label text is part of accessible name",
+      "solution": "For controls with visible labels, the accessible name should contain the visible text. Voice control users say what they see - if the accessible name doesn't include the visible label, voice commands won't work. Example: A button showing 'Search' should not have aria-label='Find products'.",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "label-content-name-mismatch",
+          "status": "fail",
+          "message": "1 element(s) where visible text doesn't match accessible name",
+          "affectedPages": [
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/select"
+          ],
+          "items": [
+            {
+              "id": "button: visible=\"⌄\" vs aria-label=\"show options\""
+            },
+            {
+              "id": "button: visible=\"grape\" vs aria-label=\"accent fruit\""
+            }
+          ],
+          "details": {
+            "issue": "Voice control users may not be able to activate these controls"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/form-labels",
+      "name": "Form Labels",
+      "description": "Checks that form inputs have associated labels",
+      "solution": "Every form input needs an accessible label for screen readers. Options: 1) Use <label for='inputId'>Label</label> with matching id. 2) Wrap the input inside <label>Label <input></label>. 3) Use aria-label or aria-labelledby for inputs where visible labels aren't feasible. Placeholders are not sufficient substitutes for labels. Hidden inputs, submit buttons, and image buttons don't need labels.",
+      "category": "Accessibility",
+      "severity": "error",
+      "checks": [
+        {
+          "name": "form-labels",
+          "status": "fail",
+          "message": "1 form input(s) without labels",
+          "affectedPages": [
+            "http://127.0.0.1:3000/",
+            "http://127.0.0.1:3000/themes",
+            "http://127.0.0.1:3000/rtl",
+            "http://127.0.0.1:3000/components/combobox",
+            "http://127.0.0.1:3000/components/select",
+            "http://127.0.0.1:3000/components/slider",
+            "http://127.0.0.1:3000/components/switch"
+          ],
+          "items": [
+            {
+              "id": "checkbox"
+            },
+            {
+              "id": "base-ui-_R_an6ed6H2_"
+            },
+            {
+              "id": "base-ui-_R_3gsd6_-hidden-input"
+            },
+            {
+              "id": "base-ui-_R_5rgsd6H2_"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/form-field-multiple-labels",
+      "name": "Multiple Labels",
+      "description": "Checks that form fields don't have multiple labels",
+      "solution": "Form inputs should have only one associated label. Multiple labels can confuse assistive technology. If you need multiple text descriptions, use aria-describedby for supplementary text instead of multiple labels.",
+      "category": "Accessibility",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "form-field-multiple-labels",
+          "status": "warn",
+          "message": "N input(s) with multiple labels",
+          "affectedPages": [
+            "http://127.0.0.1:3000/docs",
+            "http://127.0.0.1:3000/components/checkbox",
+            "http://127.0.0.1:3000/components/radio-group"
+          ],
+          "items": [
+            {
+              "id": "docs-visibility (2 labels)"
+            },
+            {
+              "id": "docs-visibility (2 labels)"
+            },
+            {
+              "id": "docs-visibility (2 labels)"
+            },
+            {
+              "id": "gummy-checkbox-_R_2omed6_ (2 labels)"
+            },
+            {
+              "id": "gummy-checkbox-_R_3gsd6_ (2 labels)"
+            },
+            {
+              "id": "inspector-visibility (2 labels)"
+            }
+          ],
+          "details": {
+            "suggestion": "Use aria-describedby for additional descriptions"
+          }
+        }
+      ]
+    },
+    {
+      "ruleId": "a11y/th-has-data-cells",
+      "name": "TH Has Data Cells",
+      "description": "Checks that table headers have associated data cells",
+      "solution": "Each <th> element should be associated with at least one <td> data cell in the same row or column. Orphaned header cells without data cells usually indicate the table is being misused for layout purposes. If the table is for layout, add role='presentation'. Otherwise, ensure every header has corresponding data cells.",
+      "category": "Accessibility",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "th-has-data-cells",
+          "status": "warn",
+          "message": "1 <th> element(s) without associated data cells",
+          "affectedPages": [
+            "http://127.0.0.1:3000/locales"
+          ],
+          "items": [
+            {
+              "id": "Language"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ruleId": "eeat/about-page",
+      "name": "About Page",
+      "description": "Checks for an about/company page with content",
+      "solution": "An About page establishes credibility and trust. Include company history, mission, team overview, and credentials. Link from main navigation or footer. For E-E-A-T, explain your expertise and why visitors should trust you. Include contact information and physical location if applicable.",
+      "category": "E-E-A-T",
+      "severity": "warning",
+      "checks": [
+        {
+          "name": "about-page",
+          "status": "warn",
+          "message": "No About page found",
+          "affectedPages": [],
+          "legacyValue": "Create /about or /about-us page"
+        }
+      ]
+    }
+  ]
+}

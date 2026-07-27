@@ -1,0 +1,17 @@
+const PRIVATE_HEADERS = {
+  "cache-control": "private, no-store",
+  "content-type": "application/json; charset=utf-8",
+  "x-content-type-options": "nosniff",
+  "x-robots-tag": "noindex, nofollow, noarchive",
+} as const;
+
+export async function GET() {
+  return unavailableDownloadResponse();
+}
+
+export function unavailableDownloadResponse(): Response {
+  return Response.json(
+    { error: "not_found_or_forbidden" },
+    { status: 404, headers: PRIVATE_HEADERS },
+  );
+}

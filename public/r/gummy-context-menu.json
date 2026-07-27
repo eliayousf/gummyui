@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-context-menu",
+  "type": "registry:ui",
+  "title": "Gummy Context Menu",
+  "description": "Base UI pointer and long-press Context Menu with roving focus, typeahead, disabled items, and Escape restoration.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyContextMenu.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { ContextMenu } from \"@base-ui/react/context-menu\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyContextMenu = ContextMenu.Root;\nexport const GummyContextMenuPortal = ContextMenu.Portal;\n\nexport const GummyContextMenuTrigger = React.forwardRef<\n  HTMLDivElement,\n  ContextMenu.Trigger.Props\n>(function GummyContextMenuTrigger({ className, ...props }, ref) {\n  return <ContextMenu.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-context-menu__trigger\", className as string)} />;\n});\n\nexport const GummyContextMenuPositioner = React.forwardRef<\n  HTMLDivElement,\n  ContextMenu.Positioner.Props\n>(function GummyContextMenuPositioner({ className, ...props }, ref) {\n  return <ContextMenu.Positioner {...props} ref={ref} className={joinClassNames(\"gummy-menu-positioner\", className as string)} />;\n});\n\nexport const GummyContextMenuPopup = React.forwardRef<\n  HTMLDivElement,\n  ContextMenu.Popup.Props\n>(function GummyContextMenuPopup({ className, ...props }, ref) {\n  return <ContextMenu.Popup {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu\", className as string)} />;\n});\n\nexport const GummyContextMenuItem = React.forwardRef<\n  HTMLDivElement,\n  ContextMenu.Item.Props\n>(function GummyContextMenuItem({ className, ...props }, ref) {\n  return <ContextMenu.Item {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu__item\", className as string)} />;\n});\n\nexport const GummyContextMenuSeparator = React.forwardRef<\n  HTMLDivElement,\n  ContextMenu.Separator.Props\n>(function GummyContextMenuSeparator({ className, ...props }, ref) {\n  return <ContextMenu.Separator {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu__separator\", className as string)} />;\n});\n\nGummyContextMenuTrigger.displayName = \"GummyContextMenuTrigger\";\nGummyContextMenuPositioner.displayName = \"GummyContextMenuPositioner\";\nGummyContextMenuPopup.displayName = \"GummyContextMenuPopup\";\nGummyContextMenuItem.displayName = \"GummyContextMenuItem\";\nGummyContextMenuSeparator.displayName = \"GummyContextMenuSeparator\";\n"
+    }
+  ]
+}

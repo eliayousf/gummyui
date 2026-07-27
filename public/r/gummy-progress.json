@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-progress",
+  "type": "registry:ui",
+  "title": "Gummy Progress",
+  "description": "Native determinate or indeterminate Progress with a visible label and reduced-motion tide.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyProgress.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyProgressProps = Omit<\n  React.ProgressHTMLAttributes<HTMLProgressElement>,\n  \"children\"\n> & {\n  label: React.ReactNode;\n  valueLabel?: React.ReactNode;\n  tone?: \"raspberry\" | \"grape\" | \"lime\" | \"aqua\";\n  showValue?: boolean;\n};\n\nexport const GummyProgress = React.forwardRef<\n  HTMLProgressElement,\n  GummyProgressProps\n>(function GummyProgress(\n  {\n    label,\n    valueLabel,\n    tone = \"raspberry\",\n    showValue = true,\n    value,\n    max = 100,\n    className,\n    id: providedId,\n    ...progressProps\n  },\n  ref,\n) {\n  const generatedId = React.useId().replace(/:/g, \"\");\n  const id = providedId ?? `gummy-progress-${generatedId}`;\n  const numericValue = typeof value === \"number\" ? value : undefined;\n  const numericMax = typeof max === \"number\" && max > 0 ? max : 100;\n  const percentage =\n    numericValue === undefined\n      ? undefined\n      : Math.round(Math.max(0, Math.min(1, numericValue / numericMax)) * 100);\n  return (\n    <div\n      className={joinClassNames(\"gummy-progress\", className)}\n      data-tone={tone}\n      data-indeterminate={numericValue === undefined || undefined}\n    >\n      <div className=\"gummy-progress__header\">\n        <label htmlFor={id}>{label}</label>\n        {showValue ? (\n          <span>\n            {valueLabel ?? (percentage === undefined ? \"In progress\" : `${percentage}%`)}\n          </span>\n        ) : null}\n      </div>\n      <div className=\"gummy-progress__shell\">\n        <progress\n          {...progressProps}\n          ref={ref}\n          id={id}\n          value={numericValue}\n          max={numericMax}\n        />\n        <span className=\"gummy-progress__pool\" aria-hidden=\"true\" />\n      </div>\n    </div>\n  );\n});\n\nGummyProgress.displayName = \"GummyProgress\";\n"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+:root {
+  color-scheme: light;
+  --canvas: oklch(0.985 0.014 79);
+  --canvas-raised: oklch(0.998 0.006 79 / 0.88);
+  --surface: oklch(0.995 0.012 79 / 0.72);
+  --surface-solid: oklch(0.985 0.018 79);
+  --ink: oklch(0.225 0.068 309);
+  --ink-soft: oklch(0.39 0.052 309);
+  --muted: oklch(0.51 0.038 309);
+  --line: oklch(0.88 0.035 327);
+  --line-strong: oklch(0.72 0.075 322);
+  --focus: oklch(0.58 0.27 302);
+  --focus-halo: oklch(0.86 0.13 302 / 0.58);
+  --focus-keyline: oklch(0.225 0.068 309);
+  --focus-glow: oklch(0.76 0.2 8 / 0.2);
+  --page-shadow: oklch(0.46 0.1 325 / 0.1);
+  --grid-line: oklch(0.64 0.06 320 / 0.08);
+  --fruit-raspberry-light: oklch(0.92 0.1 7);
+  --fruit-raspberry-core: oklch(0.76 0.21 8);
+  --fruit-raspberry-rim: oklch(0.63 0.27 8);
+  --fruit-raspberry-depth: oklch(0.48 0.22 9);
+  --fruit-grape-light: oklch(0.9 0.1 303);
+  --fruit-grape-core: oklch(0.76 0.18 302);
+  --fruit-grape-rim: oklch(0.62 0.22 302);
+  --fruit-grape-depth: oklch(0.46 0.18 302);
+  --fruit-lime-light: oklch(0.97 0.11 126);
+  --fruit-lime-core: oklch(0.89 0.22 126);
+  --fruit-lime-rim: oklch(0.76 0.22 126);
+  --fruit-lime-depth: oklch(0.59 0.17 126);
+  --fruit-tangerine-light: oklch(0.96 0.11 70);
+  --fruit-tangerine-core: oklch(0.85 0.2 58);
+  --fruit-tangerine-rim: oklch(0.72 0.2 49);
+  --fruit-tangerine-depth: oklch(0.56 0.18 45);
+  --fruit-aqua-light: oklch(0.96 0.09 205);
+  --fruit-aqua-core: oklch(0.84 0.15 207);
+  --fruit-aqua-rim: oklch(0.7 0.17 218);
+  --fruit-aqua-depth: oklch(0.52 0.14 226);
+  --color-background: var(--canvas);
+  --color-foreground: var(--ink);
+  --page-width: 1240px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: oklch(0.205 0.07 311);
+  --canvas-raised: oklch(0.27 0.066 311 / 0.9);
+  --surface: oklch(0.3 0.058 311 / 0.72);
+  --surface-solid: oklch(0.275 0.061 311);
+  --ink: oklch(0.975 0.018 82);
+  --ink-soft: oklch(0.86 0.026 82);
+  --muted: oklch(0.72 0.038 311);
+  --line: oklch(0.42 0.07 311);
+  --line-strong: oklch(0.61 0.1 311);
+  --focus: oklch(0.84 0.15 303);
+  --focus-halo: oklch(0.68 0.2 303 / 0.4);
+  --focus-keyline: oklch(0.975 0.018 82);
+  --focus-glow: oklch(0.8 0.18 8 / 0.24);
+  --page-shadow: oklch(0.08 0.04 311 / 0.32);
+  --grid-line: oklch(0.8 0.04 310 / 0.06);
+}

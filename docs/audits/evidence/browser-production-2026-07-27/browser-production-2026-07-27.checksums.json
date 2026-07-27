@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "algorithm": "SHA-256",
+  "generatedAt": "2026-07-27T00:19:39.681Z",
+  "entries": [
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/account-fail-closed-mobile.png",
+      "bytes": 115529,
+      "sha256": "46602605adcc5c75bc25a6b927b881a0cb59239ea90a74452f8a26a5c9497fc0"
+    },
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/browser-production-2026-07-27.json",
+      "bytes": 535355,
+      "sha256": "630b683cefb54f7a1df069201a04c3754082f7b8773f1fb54e89e9b4e0faf874"
+    },
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/component-200-percent-equivalent-reflow.png",
+      "bytes": 521587,
+      "sha256": "dd530edaa7bcb91ffa34bb3f4c9e63d3cf2bc06608d2fa224d339cdac44686c5"
+    },
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/component-reduced-motion.png",
+      "bytes": 237480,
+      "sha256": "e017bf1ef8fbdc2f32958f984d1d0de6cf46374ad5e62b9d793a0dee92f4974f"
+    },
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
+      "bytes": 522504,
+      "sha256": "ec96ab402ae8a613fb0860ffdecce9245e71000687c5f42d2c5f5e71559a1727"
+    },
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
+      "bytes": 512658,
+      "sha256": "0a3bc68a6f834b859004a74fa074afb5ab568baa130dcbb5866bb65bc7cab7d2"
+    },
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
+      "bytes": 231446,
+      "sha256": "3bdb11e0982aa17833c88c6079456e63d46e3176d4e1517707ebdd856bac9909"
+    },
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/rtl-mobile.png",
+      "bytes": 137058,
+      "sha256": "cd6265d5819cb23814e40a55a5d4215ea403ba63e5ee94c8e0faf4bedb2c366f"
+    }
+  ]
+}

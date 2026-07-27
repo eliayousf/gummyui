@@ -1,0 +1,1150 @@
+{
+  "schemaVersion": "1.0",
+  "generatedFrom": "app/data/catalogue.ts and canonical component source",
+  "count": 57,
+  "records": [
+    {
+      "slug": "accordion",
+      "source": "app/components/ui/GummyAccordion.tsx",
+      "components": [
+        "GummyAccordion",
+        "GummyAccordionHeader",
+        "GummyAccordionItem",
+        "GummyAccordionPanel",
+        "GummyAccordionTrigger"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyAccordionProps",
+          "extends": [
+            "Accordion.Root.Props"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "alert",
+      "source": "app/components/ui/GummyAlert.tsx",
+      "components": [
+        "GummyAlert",
+        "GummyAlertDescription",
+        "GummyAlertTitle"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyAlertProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { variant?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"; live?: \"off\" | \"polite\" | \"assertive\"; icon?: React.ReactNode; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "alert-dialog",
+      "source": "app/components/ui/GummyAlertDialog.tsx",
+      "components": [
+        "GummyAlertDialogBackdrop",
+        "GummyAlertDialogDescription",
+        "GummyAlertDialogPopup",
+        "GummyAlertDialogTitle",
+        "GummyAlertDialogTrigger",
+        "GummyAlertDialogViewport"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "aspect-ratio",
+      "source": "app/components/ui/GummyAspectRatio.tsx",
+      "components": [
+        "GummyAspectRatio"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyAspectRatioProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { ratio?: number; fit?: \"cover\" | \"contain\" | \"fill\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "avatar",
+      "source": "app/components/ui/GummyAvatar.tsx",
+      "components": [
+        "GummyAvatar",
+        "GummyAvatarGroup"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyAvatarGroupProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { label: string; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyAvatarProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLSpanElement> & { src?: string; alt?: string; fallback: React.ReactNode; size?: \"small\" | \"medium\" | \"large\"; status?: \"online\" | \"busy\" | \"away\" | \"offline\"; statusLabel?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "badge",
+      "source": "app/components/ui/GummyBadge.tsx",
+      "components": [
+        "GummyBadge"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyBadgeProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLSpanElement> & { variant?: GummyBadgeVariant; finish?: GummyBadgeFinish; /** Restrained ambient gel motion, a one-shot settle, or a static badge. */ motion?: GummyBadgeMotion; /** Decorative dot. Visible text must still communicate the badge meaning. */ dot?: boolean; /** Decorative icon. It is hidden from assistive technology by design. */ icon?: React.ReactNode; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "breadcrumb",
+      "source": "app/components/ui/GummyBreadcrumb.tsx",
+      "components": [
+        "GummyBreadcrumb",
+        "GummyBreadcrumbEllipsis",
+        "GummyBreadcrumbItem",
+        "GummyBreadcrumbLink",
+        "GummyBreadcrumbPage",
+        "GummyBreadcrumbSeparator"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyBreadcrumbProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLElement> & { label?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "button",
+      "source": "app/components/ui/GummyButton.tsx",
+      "components": [
+        "GummyButton"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyButtonProps",
+          "extends": [
+            "React.ButtonHTMLAttributes<HTMLButtonElement> & { /** Fruit-colour treatment. The label remains on an optically stable layer. */ variant?: GummyButtonVariant; /** Preserves a 44px minimum touch target at every visual size. */ size?: GummyButtonSize; /** Controls optical transmission without changing semantic colour. */ finish?: GummyButtonFinish; /** Disables activation, exposes busy state, and shows a non-motion-dependent cue. */ loading?: boolean; /** Visible label while loading. */ loadingText?: React.ReactNode; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "button-group",
+      "source": "app/components/ui/GummyButtonGroup.tsx",
+      "components": [
+        "GummyButtonGroup",
+        "GummyButtonGroupSeparator",
+        "GummyButtonGroupText"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyButtonGroupProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { label: string; orientation?: \"horizontal\" | \"vertical\"; attached?: boolean; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyButtonGroupTextProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLSpanElement>"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "calendar",
+      "source": "app/components/ui/GummyCalendar.tsx",
+      "components": [
+        "GummyCalendar"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyCalendarProps",
+          "extends": [
+            "Omit< React.HTMLAttributes<HTMLDivElement>, \"onChange\" | \"defaultValue\" > & { value?: Date; defaultValue?: Date; onValueChange?: (date: Date) => void; month?: Date; defaultMonth?: Date; onMonthChange?: (month: Date) => void; min?: Date; max?: Date; locale?: string; weekStartsOn?: 0 | 1 | 6; label?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "card",
+      "source": "app/components/ui/GummyCard.tsx",
+      "components": [
+        "GummyCard",
+        "GummyCardButton",
+        "GummyCardContent",
+        "GummyCardDescription",
+        "GummyCardFooter",
+        "GummyCardHeader",
+        "GummyCardIcon",
+        "GummyCardLink",
+        "GummyCardTitle"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyCardButtonProps",
+          "extends": [
+            "React.ButtonHTMLAttributes<HTMLButtonElement> & CardVisualProps"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyCardLinkProps",
+          "extends": [
+            "React.AnchorHTMLAttributes<HTMLAnchorElement> & CardVisualProps"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyCardProps",
+          "extends": [
+            "Omit< React.HTMLAttributes<HTMLElement>, \"onClick\" | \"onKeyDown\" | \"onKeyUp\" | \"tabIndex\" | \"role\" > & CardVisualProps"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyCardTitleProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLHeadingElement> & { /** Selects the heading level required by the surrounding document outline. */ level?: 2 | 3 | 4 | 5 | 6; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "carousel",
+      "source": "app/components/ui/GummyCarousel.tsx",
+      "components": [
+        "GummyCarousel",
+        "GummyCarouselContent",
+        "GummyCarouselIndicators",
+        "GummyCarouselItem",
+        "GummyCarouselNext",
+        "GummyCarouselPrevious"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyCarouselItemProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { index: number; label?: string; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyCarouselProps",
+          "extends": [
+            "Omit< React.HTMLAttributes<HTMLDivElement>, \"onChange\" | \"dir\" > & { itemCount: number; index?: number; defaultIndex?: number; onIndexChange?: (index: number) => void; loop?: boolean; orientation?: \"horizontal\" | \"vertical\"; direction?: \"ltr\" | \"rtl\"; label?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "checkbox",
+      "source": "app/components/ui/GummyCheckbox.tsx",
+      "components": [
+        "GummyCheckbox"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyCheckboxProps",
+          "extends": [
+            "Omit< React.InputHTMLAttributes<HTMLInputElement>, \"children\" | \"size\" | \"type\" > & { label: React.ReactNode; description?: React.ReactNode; errorMessage?: React.ReactNode; indeterminate?: boolean; readOnly?: boolean; onCheckedChange?: (checked: boolean | \"indeterminate\") => void; wrapperClassName?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "collapsible",
+      "source": "app/components/ui/GummyCollapsible.tsx",
+      "components": [
+        "GummyCollapsiblePanel",
+        "GummyCollapsibleTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "combobox",
+      "source": "app/components/ui/GummyCombobox.tsx",
+      "components": [
+        "GummyComboboxEmpty",
+        "GummyComboboxInput",
+        "GummyComboboxInputGroup",
+        "GummyComboboxItem",
+        "GummyComboboxLabel",
+        "GummyComboboxPopup",
+        "GummyComboboxPositioner",
+        "GummyComboboxTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "command",
+      "source": "app/components/ui/GummyCommand.tsx",
+      "components": [
+        "GummyCommand",
+        "GummyCommandEmpty",
+        "GummyCommandGroup",
+        "GummyCommandInput",
+        "GummyCommandItem",
+        "GummyCommandList",
+        "GummyCommandSeparator",
+        "GummyCommandShortcut"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyCommandItemProps",
+          "extends": [
+            "Omit<React.HTMLAttributes<HTMLDivElement>, \"onSelect\"> & { value: string; keywords?: string[]; disabled?: boolean; onSelect?: (value: string) => void; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "context-menu",
+      "source": "app/components/ui/GummyContextMenu.tsx",
+      "components": [
+        "GummyContextMenuItem",
+        "GummyContextMenuPopup",
+        "GummyContextMenuPositioner",
+        "GummyContextMenuSeparator",
+        "GummyContextMenuTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "data-table",
+      "source": "app/components/ui/GummyDataTable.tsx",
+      "components": [
+        "GummyDataTable"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyDataTableProps",
+          "extends": [
+            "Omit< React.HTMLAttributes<HTMLDivElement>, \"children\" | \"onSelect\" > & { rows: readonly Row[]; columns: readonly GummyDataTableColumn<Row>[]; getRowId: (row: Row) => string; caption: string; filterLabel?: string; filterPlaceholder?: string; pageSize?: number; initialSort?: GummyDataTableSort; selectable?: boolean; selectedRowIds?: readonly string[]; defaultSelectedRowIds?: readonly string[]; onSelectedRowIdsChange?: (rowIds: string[]) => void; getRowLabel?: (row: Row) => string; emptyMessage?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "date-picker",
+      "source": "app/components/ui/GummyDatePicker.tsx",
+      "components": [
+        "GummyDatePicker"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyDatePickerProps",
+          "extends": [
+            "{ label: string; value?: Date; defaultValue?: Date; onValueChange?: (date: Date) => void; min?: Date; max?: Date; locale?: string; disabled?: boolean; } & Omit<React.HTMLAttributes<HTMLDivElement>, \"defaultValue\" | \"onChange\">"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "dialog",
+      "source": "app/components/ui/GummyDialog.tsx",
+      "components": [
+        "GummyDialogBackdrop",
+        "GummyDialogClose",
+        "GummyDialogDescription",
+        "GummyDialogPopup",
+        "GummyDialogSurface",
+        "GummyDialogTitle",
+        "GummyDialogTrigger",
+        "GummyDialogViewport"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "direction",
+      "source": "app/components/ui/GummyDirection.tsx",
+      "components": [
+        "GummyDirection"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyDirectionProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { direction: \"ltr\" | \"rtl\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "drawer",
+      "source": "app/components/ui/GummyDrawer.tsx",
+      "components": [
+        "GummyDrawerBackdrop",
+        "GummyDrawerDescription",
+        "GummyDrawerPopup",
+        "GummyDrawerTitle",
+        "GummyDrawerTrigger",
+        "GummyDrawerViewport"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "dropdown-menu",
+      "source": "app/components/ui/GummyDropdownMenu.tsx",
+      "components": [
+        "GummyDropdownMenuItem",
+        "GummyDropdownMenuPopup",
+        "GummyDropdownMenuPositioner",
+        "GummyDropdownMenuSeparator",
+        "GummyDropdownMenuTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "empty",
+      "source": "app/components/ui/GummyEmpty.tsx",
+      "components": [
+        "GummyEmpty",
+        "GummyEmptyActions",
+        "GummyEmptyDescription",
+        "GummyEmptyMedia",
+        "GummyEmptyTitle"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "field",
+      "source": "app/components/ui/GummyField.tsx",
+      "components": [
+        "GummyField"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyFieldProps",
+          "extends": [
+            "Omit< React.HTMLAttributes<HTMLDivElement>, \"children\" > & { /** One native or custom form control. Its accessibility props are composed. */ children: React.ReactElement<GummyFieldControlProps>; /** Visible label associated to the child control. */ label: React.ReactNode; description?: React.ReactNode; errorMessage?: React.ReactNode; successMessage?: React.ReactNode; required?: boolean; optional?: boolean; disabled?: boolean; readOnly?: boolean; orientation?: \"vertical\" | \"horizontal\"; density?: \"default\" | \"compact\"; controlId?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "hover-card",
+      "source": "app/components/ui/GummyHoverCard.tsx",
+      "components": [
+        "GummyHoverCard",
+        "GummyHoverCardPopup",
+        "GummyHoverCardPositioner",
+        "GummyHoverCardTrigger"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyHoverCardProps",
+          "extends": [
+            "Tooltip.Root.Props"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "input",
+      "source": "app/components/ui/GummyInput.tsx",
+      "components": [
+        "GummyInput"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyInputProps",
+          "extends": [
+            "Omit< React.InputHTMLAttributes<HTMLInputElement>, \"size\" > & { /** Visible label programmatically associated with the native input. */ label: React.ReactNode; /** Supporting copy associated through aria-describedby. */ description?: React.ReactNode; /** Error feedback; takes precedence over success feedback. */ errorMessage?: React.ReactNode; /** Positive feedback that supplements, rather than replaces, colour. */ successMessage?: React.ReactNode; /** Decorative content placed before the editing surface. */ leadingAdornment?: React.ReactNode; /** Decorative content placed after the editing surface. */ trailingAdornment?: React.ReactNode; /** Class applied to the outer field composition. */ wrapperClassName?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "input-group",
+      "source": "app/components/ui/GummyInputGroup.tsx",
+      "components": [
+        "GummyInputGroup",
+        "GummyInputGroupAddon",
+        "GummyInputGroupButton",
+        "GummyInputGroupControl"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "input-otp",
+      "source": "app/components/ui/GummyInputOTP.tsx",
+      "components": [
+        "GummyInputOTP"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyInputOTPProps",
+          "extends": [
+            "Omit<React.HTMLAttributes<HTMLDivElement>, \"onChange\"> & { label: string; length?: number; value?: string; defaultValue?: string; onValueChange?: (value: string) => void; disabled?: boolean; invalid?: boolean; name?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "item",
+      "source": "app/components/ui/GummyItem.tsx",
+      "components": [
+        "GummyItem",
+        "GummyItemActions",
+        "GummyItemButton",
+        "GummyItemContent",
+        "GummyItemDescription",
+        "GummyItemLink",
+        "GummyItemMedia",
+        "GummyItemTitle"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyItemButtonProps",
+          "extends": [
+            "React.ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean; density?: \"default\" | \"compact\"; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyItemLinkProps",
+          "extends": [
+            "React.AnchorHTMLAttributes<HTMLAnchorElement> & { selected?: boolean; density?: \"default\" | \"compact\"; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyItemProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLElement> & { as?: \"div\" | \"article\" | \"li\"; selected?: boolean; density?: \"default\" | \"compact\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "kbd",
+      "source": "app/components/ui/GummyKbd.tsx",
+      "components": [
+        "GummyKbd",
+        "GummyKbdGroup"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyKbdGroupProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLSpanElement> & { separator?: React.ReactNode; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyKbdProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLElement>"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "label",
+      "source": "app/components/ui/GummyLabel.tsx",
+      "components": [
+        "GummyLabel"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyLabelProps",
+          "extends": [
+            "React.LabelHTMLAttributes<HTMLLabelElement> & { /** Shows a visible, non-colour-only required cue. */ required?: boolean; /** Shows an optional cue when the field is not required. */ optional?: boolean; /** Mirrors the state of the associated control. */ disabled?: boolean; /** Mirrors the state of an associated read-only control. */ readOnly?: boolean; /** Replaces the generated Required, Optional, or Read only cue. */ meta?: React.ReactNode; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "menubar",
+      "source": "app/components/ui/GummyMenubar.tsx",
+      "components": [
+        "GummyMenubar",
+        "GummyMenubarItem",
+        "GummyMenubarPopup",
+        "GummyMenubarPositioner",
+        "GummyMenubarTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "native-select",
+      "source": "app/components/ui/GummyNativeSelect.tsx",
+      "components": [
+        "GummyNativeSelect"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyNativeSelectProps",
+          "extends": [
+            "Omit< React.SelectHTMLAttributes<HTMLSelectElement>, \"children\" | \"multiple\" | \"size\" > & { children: React.ReactNode; label: React.ReactNode; description?: React.ReactNode; errorMessage?: React.ReactNode; successMessage?: React.ReactNode; optional?: boolean; readOnly?: boolean; wrapperClassName?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "navigation-menu",
+      "source": "app/components/ui/GummyNavigationMenu.tsx",
+      "components": [
+        "GummyNavigationMenu",
+        "GummyNavigationMenuLink",
+        "GummyNavigationMenuList",
+        "GummyNavigationMenuPopup",
+        "GummyNavigationMenuPositioner",
+        "GummyNavigationMenuTrigger"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyNavigationMenuProps",
+          "extends": [
+            "NavigationMenu.Root.Props & { label?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "pagination",
+      "source": "app/components/ui/GummyPagination.tsx",
+      "components": [
+        "GummyPagination",
+        "GummyPaginationEllipsis",
+        "GummyPaginationItem",
+        "GummyPaginationLink",
+        "GummyPaginationNext",
+        "GummyPaginationPrevious"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyPaginationLinkProps",
+          "extends": [
+            "React.AnchorHTMLAttributes<HTMLAnchorElement> & { current?: boolean; size?: \"page\" | \"wide\"; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyPaginationProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLElement> & { label?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "popover",
+      "source": "app/components/ui/GummyPopover.tsx",
+      "components": [
+        "GummyPopoverDescription",
+        "GummyPopoverPopup",
+        "GummyPopoverPositioner",
+        "GummyPopoverTitle",
+        "GummyPopoverTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "progress",
+      "source": "app/components/ui/GummyProgress.tsx",
+      "components": [
+        "GummyProgress"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyProgressProps",
+          "extends": [
+            "Omit< React.ProgressHTMLAttributes<HTMLProgressElement>, \"children\" > & { label: React.ReactNode; valueLabel?: React.ReactNode; tone?: \"raspberry\" | \"grape\" | \"lime\" | \"aqua\"; showValue?: boolean; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "radio-group",
+      "source": "app/components/ui/GummyRadioGroup.tsx",
+      "components": [
+        "GummyRadioGroup",
+        "GummyRadioItem"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyRadioGroupProps",
+          "extends": [
+            "Omit< React.FieldsetHTMLAttributes<HTMLFieldSetElement>, \"onChange\" > & { label: React.ReactNode; description?: React.ReactNode; errorMessage?: React.ReactNode; value?: string; defaultValue?: string; onValueChange?: (value: string) => void; orientation?: \"horizontal\" | \"vertical\"; readOnly?: boolean; required?: boolean; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyRadioItemProps",
+          "extends": [
+            "Omit< React.InputHTMLAttributes<HTMLInputElement>, \"checked\" | \"defaultChecked\" | \"name\" | \"type\" > & { value: string; label: React.ReactNode; description?: React.ReactNode; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "resizable",
+      "source": "app/components/ui/GummyResizable.tsx",
+      "components": [
+        "GummyResizableHandle",
+        "GummyResizablePanel",
+        "GummyResizablePanelGroup"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyResizableHandleProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { label?: string; step?: number; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyResizablePanelGroupProps",
+          "extends": [
+            "Omit< React.HTMLAttributes<HTMLDivElement>, \"onChange\" | \"dir\" > & { orientation?: \"horizontal\" | \"vertical\"; direction?: \"ltr\" | \"rtl\"; size?: number; defaultSize?: number; minSize?: number; maxSize?: number; onSizeChange?: (size: number) => void; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyResizablePanelProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { order: \"first\" | \"second\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "scroll-area",
+      "source": "app/components/ui/GummyScrollArea.tsx",
+      "components": [
+        "GummyScrollArea",
+        "GummyScrollAreaContent",
+        "GummyScrollAreaScrollbar",
+        "GummyScrollAreaThumb",
+        "GummyScrollAreaViewport"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "select",
+      "source": "app/components/ui/GummySelect.tsx",
+      "components": [
+        "GummySelectItem",
+        "GummySelectPopup",
+        "GummySelectPositioner",
+        "GummySelectTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "separator",
+      "source": "app/components/ui/GummySeparator.tsx",
+      "components": [
+        "GummySeparator"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummySeparatorProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { orientation?: \"horizontal\" | \"vertical\"; decorative?: boolean; tone?: \"quiet\" | \"fruit\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "sheet",
+      "source": "app/components/ui/GummySheet.tsx",
+      "components": [
+        "GummySheetBackdrop",
+        "GummySheetDescription",
+        "GummySheetPopup",
+        "GummySheetTitle",
+        "GummySheetTrigger",
+        "GummySheetViewport"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummySheetPopupProps",
+          "extends": [
+            "Dialog.Popup.Props & { side?: \"left\" | \"right\" | \"top\" | \"bottom\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "sidebar",
+      "source": "app/components/ui/GummySidebar.tsx",
+      "components": [
+        "GummySidebar",
+        "GummySidebarContent",
+        "GummySidebarFooter",
+        "GummySidebarGroup",
+        "GummySidebarGroupLabel",
+        "GummySidebarHeader",
+        "GummySidebarInset",
+        "GummySidebarMenu",
+        "GummySidebarMenuItem",
+        "GummySidebarMenuLink",
+        "GummySidebarPanel",
+        "GummySidebarTrigger"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummySidebarProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { open?: boolean; defaultOpen?: boolean; onOpenChange?: (open: boolean) => void; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "skeleton",
+      "source": "app/components/ui/GummySkeleton.tsx",
+      "components": [
+        "GummySkeleton",
+        "GummySkeletonGroup"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummySkeletonGroupProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { label?: string; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummySkeletonProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLDivElement> & { shape?: \"line\" | \"text\" | \"circle\" | \"card\"; loadingLabel?: string; lines?: number; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "slider",
+      "source": "app/components/ui/GummySlider.tsx",
+      "components": [
+        "GummySlider",
+        "GummySliderControl",
+        "GummySliderLabel",
+        "GummySliderThumb",
+        "GummySliderValue"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummySliderProps",
+          "extends": [
+            "Slider.Root.Props"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "sonner",
+      "source": "app/components/ui/GummySonner.tsx",
+      "components": [
+        "GummySonnerProvider",
+        "GummyToaster"
+      ],
+      "hooks": [
+        "useGummyToast"
+      ],
+      "types": [
+        {
+          "name": "GummySonnerProviderProps",
+          "extends": [
+            "Toast.Provider.Props"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyToasterProps",
+          "extends": [
+            "Omit<Toast.Viewport.Props, \"children\"> & { position?: \"top-left\" | \"top-right\" | \"bottom-left\" | \"bottom-right\"; closeLabel?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "spinner",
+      "source": "app/components/ui/GummySpinner.tsx",
+      "components": [
+        "GummySpinner"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummySpinnerProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLSpanElement> & { label?: string; size?: \"small\" | \"medium\" | \"large\"; tone?: \"raspberry\" | \"grape\" | \"aqua\" | \"current\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "switch",
+      "source": "app/components/ui/GummySwitch.tsx",
+      "components": [
+        "GummySwitch"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummySwitchProps",
+          "extends": [
+            "Omit< Switch.Root.Props, \"children\" | \"nativeButton\" | \"render\" > & { /** Visible control label. */ label: React.ReactNode; /** Optional supporting copy associated with the switch. */ description?: React.ReactNode; /** Keeps forced states in the Lab visually inspectable without changing semantics. */ previewFocus?: boolean; className?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "table",
+      "source": "app/components/ui/GummyTable.tsx",
+      "components": [
+        "GummyTable",
+        "GummyTableBody",
+        "GummyTableCaption",
+        "GummyTableCell",
+        "GummyTableFooter",
+        "GummyTableHead",
+        "GummyTableHeader",
+        "GummyTableRow"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "tabs",
+      "source": "app/components/ui/GummyTabs.tsx",
+      "components": [
+        "GummyTab",
+        "GummyTabPanel",
+        "GummyTabs",
+        "GummyTabsList"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyTabsProps",
+          "extends": [
+            "Tabs.Root.Props"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "textarea",
+      "source": "app/components/ui/GummyTextarea.tsx",
+      "components": [
+        "GummyTextarea"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyTextareaProps",
+          "extends": [
+            "React.TextareaHTMLAttributes<HTMLTextAreaElement> & { label: React.ReactNode; description?: React.ReactNode; errorMessage?: React.ReactNode; successMessage?: React.ReactNode; optional?: boolean; resize?: \"none\" | \"vertical\" | \"both\"; showCount?: boolean; wrapperClassName?: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "toggle",
+      "source": "app/components/ui/GummyToggle.tsx",
+      "components": [
+        "GummyToggle"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyToggleProps",
+          "extends": [
+            "Toggle.Props & { variant?: \"quiet\" | \"fruit\"; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "toggle-group",
+      "source": "app/components/ui/GummyToggleGroup.tsx",
+      "components": [
+        "GummyToggleGroup",
+        "GummyToggleGroupItem"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyToggleGroupItemProps",
+          "extends": [
+            "GummyToggleProps & { value: string; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyToggleGroupProps",
+          "extends": [
+            "ToggleGroup.Props & { label: string; }"
+          ],
+          "props": []
+        }
+      ]
+    },
+    {
+      "slug": "tooltip",
+      "source": "app/components/ui/GummyTooltip.tsx",
+      "components": [
+        "GummyTooltipPopup",
+        "GummyTooltipPositioner",
+        "GummyTooltipTrigger"
+      ],
+      "hooks": [],
+      "types": []
+    },
+    {
+      "slug": "typography",
+      "source": "app/components/ui/GummyTypography.tsx",
+      "components": [
+        "GummyBlockquote",
+        "GummyEyebrow",
+        "GummyHeading",
+        "GummyInlineCode",
+        "GummyText"
+      ],
+      "hooks": [],
+      "types": [
+        {
+          "name": "GummyBlockquoteProps",
+          "extends": [
+            "React.BlockquoteHTMLAttributes<HTMLQuoteElement> & { citeLabel?: React.ReactNode; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyEyebrowProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLParagraphElement>"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyHeadingProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLHeadingElement> & { level?: HeadingLevel; size?: \"display\" | \"title\" | \"section\" | \"subsection\"; balance?: boolean; }"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyInlineCodeProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLElement>"
+          ],
+          "props": []
+        },
+        {
+          "name": "GummyTextProps",
+          "extends": [
+            "React.HTMLAttributes<HTMLParagraphElement> & { size?: \"small\" | \"body\" | \"large\"; tone?: \"default\" | \"soft\" | \"muted\"; measure?: \"compact\" | \"reading\" | \"wide\" | \"none\"; }"
+          ],
+          "props": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-switch",
+  "type": "registry:ui",
+  "title": "Gummy Switch",
+  "description": "Base UI Switch with visible label, optional description, native form behaviour, disabled state, and connected fruit-glass track and thumb.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-core-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySwitch.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Switch } from \"@base-ui/react/switch\";\nimport * as React from \"react\";\n\nexport type GummySwitchProps = Omit<\n  Switch.Root.Props,\n  \"children\" | \"nativeButton\" | \"render\"\n> & {\n  /** Visible control label. */\n  label: React.ReactNode;\n  /** Optional supporting copy associated with the switch. */\n  description?: React.ReactNode;\n  /** Keeps forced states in the Lab visually inspectable without changing semantics. */\n  previewFocus?: boolean;\n  className?: string;\n};\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummySwitch = React.forwardRef<HTMLElement, GummySwitchProps>(\n  function GummySwitch(\n    {\n      label,\n      description,\n      id: providedId,\n      className,\n      previewFocus = false,\n      disabled,\n      ...rootProps\n    },\n    ref,\n  ) {\n    const generatedId = React.useId();\n    const id = providedId ?? `gummy-switch-${generatedId}`;\n    const labelId = `${id}-label`;\n    const descriptionId = description ? `${id}-description` : undefined;\n\n    return (\n      <div\n        className={joinClassNames(\"gummy-switch-field\", className)}\n        data-disabled={disabled || undefined}\n      >\n        <Switch.Root\n          {...rootProps}\n          ref={ref}\n          id={id}\n          disabled={disabled}\n          nativeButton\n          render={<button type=\"button\" />}\n          className=\"gummy-switch\"\n          aria-label={\n            rootProps[\"aria-label\"] ??\n            (typeof label === \"string\" ? label : undefined)\n          }\n          aria-labelledby={\n            rootProps[\"aria-label\"] || typeof label === \"string\"\n              ? undefined\n              : labelId\n          }\n          aria-describedby={descriptionId}\n          data-preview-focus={previewFocus || undefined}\n        >\n          <span className=\"gummy-switch__pool\" aria-hidden=\"true\" />\n          <Switch.Thumb className=\"gummy-switch__thumb\">\n            <span aria-hidden=\"true\" />\n          </Switch.Thumb>\n        </Switch.Root>\n        <div className=\"gummy-switch-field__copy\">\n          <label id={labelId} htmlFor={id}>{label}</label>\n          {description ? <p id={descriptionId}>{description}</p> : null}\n        </div>\n      </div>\n    );\n  },\n);\n\nGummySwitch.displayName = \"GummySwitch\";\n"
+    }
+  ]
+}

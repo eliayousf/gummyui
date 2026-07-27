@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-avatar",
+  "type": "registry:ui",
+  "title": "Gummy Avatar",
+  "description": "Image and fallback Avatar with size, group, and named presence-state support.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyAvatar.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyAvatarProps = React.HTMLAttributes<HTMLSpanElement> & {\n  src?: string;\n  alt?: string;\n  fallback: React.ReactNode;\n  size?: \"small\" | \"medium\" | \"large\";\n  status?: \"online\" | \"busy\" | \"away\" | \"offline\";\n  statusLabel?: string;\n};\n\nexport const GummyAvatar = React.forwardRef<HTMLSpanElement, GummyAvatarProps>(\n  function GummyAvatar(\n    {\n      src,\n      alt = \"\",\n      fallback,\n      size = \"medium\",\n      status,\n      statusLabel,\n      className,\n      ...avatarProps\n    },\n    ref,\n  ) {\n    const [failed, setFailed] = React.useState(false);\n    const showImage = Boolean(src) && !failed;\n    return (\n      <span\n        {...avatarProps}\n        ref={ref}\n        className={joinClassNames(\"gummy-avatar\", className)}\n        data-size={size}\n        data-status={status}\n      >\n        <span className=\"gummy-avatar__media\">\n          {showImage ? (\n            // The caller owns remote-image policy and dimensions.\n            // eslint-disable-next-line @next/next/no-img-element\n            <img src={src} alt={alt} onError={() => setFailed(true)} />\n          ) : (\n            <span className=\"gummy-avatar__fallback\" aria-hidden={Boolean(alt)}>\n              {fallback}\n            </span>\n          )}\n        </span>\n        {status ? (\n          <span\n            className=\"gummy-avatar__status\"\n            aria-label={statusLabel ?? status}\n            role=\"img\"\n          />\n        ) : null}\n      </span>\n    );\n  },\n);\n\nGummyAvatar.displayName = \"GummyAvatar\";\n\nexport type GummyAvatarGroupProps = React.HTMLAttributes<HTMLDivElement> & {\n  label: string;\n};\n\nexport const GummyAvatarGroup = React.forwardRef<\n  HTMLDivElement,\n  GummyAvatarGroupProps\n>(function GummyAvatarGroup({ label, className, ...props }, ref) {\n  return (\n    <div\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-avatar-group\", className)}\n      role=\"group\"\n      aria-label={label}\n    />\n  );\n});\n\nGummyAvatarGroup.displayName = \"GummyAvatarGroup\";\n"
+    }
+  ]
+}

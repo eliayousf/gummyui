@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-menubar",
+  "type": "registry:ui",
+  "title": "Gummy Menubar",
+  "description": "Base UI application Menubar with coordinated menus, arrow navigation, typeahead, and compact scan-friendly rows.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyMenubar.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Menu } from \"@base-ui/react/menu\";\nimport { Menubar } from \"@base-ui/react/menubar\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyMenubar = React.forwardRef<\n  HTMLDivElement,\n  Menubar.Props\n>(function GummyMenubar({ className, ...props }, ref) {\n  return <Menubar {...props} ref={ref} className={joinClassNames(\"gummy-menubar\", className as string)} />;\n});\n\nexport const GummyMenubarMenu = Menu.Root;\nexport const GummyMenubarPortal = Menu.Portal;\n\nexport const GummyMenubarTrigger = React.forwardRef<\n  HTMLButtonElement,\n  Menu.Trigger.Props\n>(function GummyMenubarTrigger({ className, ...props }, ref) {\n  return <Menu.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-menubar__trigger\", className as string)} />;\n});\n\nexport const GummyMenubarPositioner = React.forwardRef<\n  HTMLDivElement,\n  Menu.Positioner.Props\n>(function GummyMenubarPositioner({ className, sideOffset = 8, ...props }, ref) {\n  return <Menu.Positioner {...props} ref={ref} sideOffset={sideOffset} className={joinClassNames(\"gummy-menu-positioner\", className as string)} />;\n});\n\nexport const GummyMenubarPopup = React.forwardRef<\n  HTMLDivElement,\n  Menu.Popup.Props\n>(function GummyMenubarPopup({ className, ...props }, ref) {\n  return <Menu.Popup {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu\", className as string)} />;\n});\n\nexport const GummyMenubarItem = React.forwardRef<\n  HTMLDivElement,\n  Menu.Item.Props\n>(function GummyMenubarItem({ className, ...props }, ref) {\n  return <Menu.Item {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu__item\", className as string)} />;\n});\n\nGummyMenubar.displayName = \"GummyMenubar\";\nGummyMenubarTrigger.displayName = \"GummyMenubarTrigger\";\nGummyMenubarPositioner.displayName = \"GummyMenubarPositioner\";\nGummyMenubarPopup.displayName = \"GummyMenubarPopup\";\nGummyMenubarItem.displayName = \"GummyMenubarItem\";\n"
+    }
+  ]
+}

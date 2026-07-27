@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-spinner",
+  "type": "registry:ui",
+  "title": "Gummy Spinner",
+  "description": "Named status Spinner with fruit tones, three sizes, and a static reduced-motion state.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySpinner.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummySpinnerProps = React.HTMLAttributes<HTMLSpanElement> & {\n  label?: string;\n  size?: \"small\" | \"medium\" | \"large\";\n  tone?: \"raspberry\" | \"grape\" | \"aqua\" | \"current\";\n};\n\nexport const GummySpinner = React.forwardRef<\n  HTMLSpanElement,\n  GummySpinnerProps\n>(function GummySpinner(\n  {\n    label = \"Loading\",\n    size = \"medium\",\n    tone = \"raspberry\",\n    className,\n    ...spinnerProps\n  },\n  ref,\n) {\n  return (\n    <span\n      {...spinnerProps}\n      ref={ref}\n      className={joinClassNames(\"gummy-spinner\", className)}\n      data-size={size}\n      data-tone={tone}\n      role=\"status\"\n      aria-label={label}\n    >\n      <span className=\"gummy-spinner__track\" aria-hidden=\"true\">\n        <span className=\"gummy-spinner__drop\" />\n      </span>\n    </span>\n  );\n});\n\nGummySpinner.displayName = \"GummySpinner\";\n"
+    }
+  ]
+}

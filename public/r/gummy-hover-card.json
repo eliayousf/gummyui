@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-hover-card",
+  "type": "registry:ui",
+  "title": "Gummy Hover Card",
+  "description": "Hoverable, focus-triggered Base UI preview surface for non-interactive supporting information.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyHoverCard.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Tooltip } from \"@base-ui/react/tooltip\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyHoverCardProps = Tooltip.Root.Props;\n\nexport function GummyHoverCard(props: GummyHoverCardProps) {\n  return <Tooltip.Root {...props} disableHoverablePopup={false} />;\n}\n\nexport const GummyHoverCardTrigger = React.forwardRef<\n  HTMLButtonElement,\n  Tooltip.Trigger.Props\n>(function GummyHoverCardTrigger({ className, ...props }, ref) {\n  return <Tooltip.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-hover-card__trigger\", className as string)} />;\n});\n\nexport const GummyHoverCardPortal = Tooltip.Portal;\n\nexport const GummyHoverCardPositioner = React.forwardRef<\n  HTMLDivElement,\n  Tooltip.Positioner.Props\n>(function GummyHoverCardPositioner({ className, sideOffset = 10, ...props }, ref) {\n  return <Tooltip.Positioner {...props} ref={ref} sideOffset={sideOffset} className={joinClassNames(\"gummy-floating-positioner\", className as string)} />;\n});\n\nexport const GummyHoverCardPopup = React.forwardRef<\n  HTMLDivElement,\n  Tooltip.Popup.Props\n>(function GummyHoverCardPopup({ className, children, ...props }, ref) {\n  return (\n    <Tooltip.Popup {...props} ref={ref} role=\"tooltip\" className={joinClassNames(\"gummy-floating-popup gummy-hover-card__popup\", className as string)}>\n      <Tooltip.Arrow className=\"gummy-floating-popup__arrow\" />\n      {children}\n    </Tooltip.Popup>\n  );\n});\n\nGummyHoverCardTrigger.displayName = \"GummyHoverCardTrigger\";\nGummyHoverCardPositioner.displayName = \"GummyHoverCardPositioner\";\nGummyHoverCardPopup.displayName = \"GummyHoverCardPopup\";\n"
+    }
+  ]
+}

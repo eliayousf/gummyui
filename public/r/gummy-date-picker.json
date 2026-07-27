@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-date-picker",
+  "type": "registry:ui",
+  "title": "Gummy Date Picker",
+  "description": "Labelled Date Picker composing Gummy Popover and Calendar with controlled state, constraints, locale formatting, and focus restoration.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-calendar.json",
+    "https://gummyui.dev/r/gummy-popover.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyDatePicker.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { GummyCalendar } from \"./GummyCalendar\";\nimport {\n  GummyPopover,\n  GummyPopoverClose,\n  GummyPopoverPopup,\n  GummyPopoverPortal,\n  GummyPopoverPositioner,\n  GummyPopoverTrigger,\n} from \"./GummyPopover\";\n\nexport type GummyDatePickerProps = {\n  label: string;\n  value?: Date;\n  defaultValue?: Date;\n  onValueChange?: (date: Date) => void;\n  min?: Date;\n  max?: Date;\n  locale?: string;\n  disabled?: boolean;\n} & Omit<React.HTMLAttributes<HTMLDivElement>, \"defaultValue\" | \"onChange\">;\n\nexport const GummyDatePicker = React.forwardRef<HTMLDivElement, GummyDatePickerProps>(\n  function GummyDatePicker(\n    {\n      label,\n      value,\n      defaultValue,\n      onValueChange,\n      min,\n      max,\n      locale = \"en-US\",\n      disabled,\n      className,\n      ...props\n    },\n    ref,\n  ) {\n  const [internalValue, setInternalValue] = React.useState(defaultValue);\n  const [open, setOpen] = React.useState(false);\n  const selected = value ?? internalValue;\n  const formatted = selected\n    ? new Intl.DateTimeFormat(locale, { dateStyle: \"medium\" }).format(selected)\n    : \"Choose date\";\n  return (\n    <div {...props} ref={ref} className={[\"gummy-date-picker\", className].filter(Boolean).join(\" \")}>\n      <span className=\"gummy-date-picker__label\">{label}</span>\n      <GummyPopover open={open} onOpenChange={setOpen}>\n        <GummyPopoverTrigger disabled={disabled} aria-label={`${label}: ${formatted}`}>\n          <span>{formatted}</span><span aria-hidden=\"true\">▦</span>\n        </GummyPopoverTrigger>\n        <GummyPopoverPortal>\n          <GummyPopoverPositioner>\n            <GummyPopoverPopup aria-label={label}>\n              <GummyCalendar\n                value={selected}\n                onValueChange={(date) => {\n                  if (value === undefined) setInternalValue(date);\n                  onValueChange?.(date);\n                  setOpen(false);\n                }}\n                min={min}\n                max={max}\n                locale={locale}\n                label={label}\n              />\n              <GummyPopoverClose className=\"gummy-date-picker__close\">Close calendar</GummyPopoverClose>\n            </GummyPopoverPopup>\n          </GummyPopoverPositioner>\n        </GummyPopoverPortal>\n      </GummyPopover>\n    </div>\n  );\n  },\n);\n\nGummyDatePicker.displayName = \"GummyDatePicker\";\n"
+    }
+  ]
+}

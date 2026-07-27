@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-select",
+  "type": "registry:ui",
+  "title": "Gummy Select",
+  "description": "Base UI custom Select with labelled value, roving focus, typeahead, grouped options, scroll affordances, form integration, and RTL.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySelect.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Select } from \"@base-ui/react/select\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummySelect = Select.Root;\nexport const GummySelectLabel = Select.Label;\nexport const GummySelectValue = Select.Value;\n\nexport const GummySelectTrigger = React.forwardRef<HTMLButtonElement, Select.Trigger.Props>(\n  function GummySelectTrigger({ className, children, ...props }, ref) {\n    return (\n      <Select.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-select__trigger\", className as string)}>\n        {children ?? <Select.Value />}\n        <Select.Icon className=\"gummy-select__icon\">⌄</Select.Icon>\n      </Select.Trigger>\n    );\n  },\n);\nexport const GummySelectPortal = Select.Portal;\nexport const GummySelectPositioner = React.forwardRef<HTMLDivElement, Select.Positioner.Props>(\n  function GummySelectPositioner({ className, sideOffset = 8, ...props }, ref) {\n    return <Select.Positioner {...props} ref={ref} sideOffset={sideOffset} className={joinClassNames(\"gummy-menu-positioner\", className as string)} />;\n  },\n);\nexport const GummySelectPopup = React.forwardRef<HTMLDivElement, Select.Popup.Props>(\n  function GummySelectPopup({ className, children, ...props }, ref) {\n    return <Select.Popup {...props} ref={ref} className={joinClassNames(\"gummy-select__popup\", className as string)}><Select.ScrollUpArrow className=\"gummy-select__scroll-arrow\">↑</Select.ScrollUpArrow>{children}<Select.ScrollDownArrow className=\"gummy-select__scroll-arrow\">↓</Select.ScrollDownArrow></Select.Popup>;\n  },\n);\nexport const GummySelectList = Select.List;\nexport const GummySelectGroup = Select.Group;\nexport const GummySelectGroupLabel = Select.GroupLabel;\nexport const GummySelectItem = React.forwardRef<HTMLElement, Select.Item.Props>(\n  function GummySelectItem({ className, children, ...props }, ref) {\n    return <Select.Item {...props} ref={ref} className={joinClassNames(\"gummy-select__item\", className as string)}><Select.ItemIndicator className=\"gummy-select__indicator\">✓</Select.ItemIndicator><Select.ItemText>{children}</Select.ItemText></Select.Item>;\n  },\n);\n\nGummySelectTrigger.displayName = \"GummySelectTrigger\";\nGummySelectPositioner.displayName = \"GummySelectPositioner\";\nGummySelectPopup.displayName = \"GummySelectPopup\";\nGummySelectItem.displayName = \"GummySelectItem\";\n"
+    }
+  ]
+}

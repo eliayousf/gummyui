@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-alert-dialog",
+  "type": "registry:ui",
+  "title": "Gummy Alert Dialog",
+  "description": "Base UI modal confirmation for consequential actions with required title, description, and explicit cancel or action controls.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-button.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyAlertDialog.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { AlertDialog } from \"@base-ui/react/alert-dialog\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyAlertDialog = AlertDialog.Root;\nexport const GummyAlertDialogPortal = AlertDialog.Portal;\n\nexport const GummyAlertDialogTrigger = React.forwardRef<\n  HTMLButtonElement,\n  AlertDialog.Trigger.Props\n>(function GummyAlertDialogTrigger({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-trigger\", className as string)}\n    />\n  );\n});\n\nexport const GummyAlertDialogBackdrop = React.forwardRef<\n  HTMLDivElement,\n  AlertDialog.Backdrop.Props\n>(function GummyAlertDialogBackdrop({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Backdrop\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-backdrop\", className as string)}\n    />\n  );\n});\n\nexport const GummyAlertDialogViewport = React.forwardRef<\n  HTMLDivElement,\n  AlertDialog.Viewport.Props\n>(function GummyAlertDialogViewport({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Viewport\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-viewport\", className as string)}\n    />\n  );\n});\n\nexport const GummyAlertDialogPopup = React.forwardRef<\n  HTMLDivElement,\n  AlertDialog.Popup.Props\n>(function GummyAlertDialogPopup({ className, children, ...props }, ref) {\n  return (\n    <AlertDialog.Popup\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-popup gummy-alert-dialog__popup\", className as string)}\n    >\n      <span className=\"gummy-overlay-popup__reservoir\" aria-hidden=\"true\" />\n      {children}\n    </AlertDialog.Popup>\n  );\n});\n\nexport const GummyAlertDialogTitle = React.forwardRef<\n  HTMLHeadingElement,\n  AlertDialog.Title.Props\n>(function GummyAlertDialogTitle({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Title\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-popup__title\", className as string)}\n    />\n  );\n});\n\nexport const GummyAlertDialogDescription = React.forwardRef<\n  HTMLParagraphElement,\n  AlertDialog.Description.Props\n>(function GummyAlertDialogDescription({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Description\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-popup__description\", className as string)}\n    />\n  );\n});\n\nexport const GummyAlertDialogClose = AlertDialog.Close;\n\nGummyAlertDialogTrigger.displayName = \"GummyAlertDialogTrigger\";\nGummyAlertDialogBackdrop.displayName = \"GummyAlertDialogBackdrop\";\nGummyAlertDialogViewport.displayName = \"GummyAlertDialogViewport\";\nGummyAlertDialogPopup.displayName = \"GummyAlertDialogPopup\";\nGummyAlertDialogTitle.displayName = \"GummyAlertDialogTitle\";\nGummyAlertDialogDescription.displayName = \"GummyAlertDialogDescription\";\n"
+    }
+  ]
+}

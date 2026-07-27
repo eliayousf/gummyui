@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-scroll-area",
+  "type": "registry:ui",
+  "title": "Gummy Scroll Area",
+  "description": "Base UI native Scroll Area with focusable viewport, custom vertical and horizontal scrollbars, touch scrolling, RTL, and reduced motion.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyScrollArea.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { ScrollArea } from \"@base-ui/react/scroll-area\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyScrollArea = React.forwardRef<HTMLDivElement, ScrollArea.Root.Props>(\n  function GummyScrollArea({ className, ...props }, ref) {\n    return <ScrollArea.Root {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area\", className as string)} />;\n  },\n);\n\nexport const GummyScrollAreaViewport = React.forwardRef<HTMLDivElement, ScrollArea.Viewport.Props>(\n  function GummyScrollAreaViewport({ className, tabIndex = 0, ...props }, ref) {\n    const hasAccessibleName = Boolean(\n      props[\"aria-label\"] || props[\"aria-labelledby\"],\n    );\n    return <ScrollArea.Viewport {...props} ref={ref} role={props.role ?? (hasAccessibleName ? \"region\" : undefined)} tabIndex={tabIndex} className={joinClassNames(\"gummy-scroll-area__viewport\", className as string)} />;\n  },\n);\n\nexport const GummyScrollAreaContent = React.forwardRef<HTMLDivElement, ScrollArea.Content.Props>(\n  function GummyScrollAreaContent({ className, ...props }, ref) {\n    return <ScrollArea.Content {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area__content\", className as string)} />;\n  },\n);\n\nexport const GummyScrollAreaScrollbar = React.forwardRef<HTMLDivElement, ScrollArea.Scrollbar.Props>(\n  function GummyScrollAreaScrollbar({ className, ...props }, ref) {\n    return <ScrollArea.Scrollbar {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area__scrollbar\", className as string)} />;\n  },\n);\n\nexport const GummyScrollAreaThumb = React.forwardRef<HTMLDivElement, ScrollArea.Thumb.Props>(\n  function GummyScrollAreaThumb({ className, ...props }, ref) {\n    return <ScrollArea.Thumb {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area__thumb\", className as string)} />;\n  },\n);\n\nexport const GummyScrollAreaCorner = ScrollArea.Corner;\n\nGummyScrollArea.displayName = \"GummyScrollArea\";\nGummyScrollAreaViewport.displayName = \"GummyScrollAreaViewport\";\nGummyScrollAreaContent.displayName = \"GummyScrollAreaContent\";\nGummyScrollAreaScrollbar.displayName = \"GummyScrollAreaScrollbar\";\nGummyScrollAreaThumb.displayName = \"GummyScrollAreaThumb\";\n"
+    }
+  ]
+}

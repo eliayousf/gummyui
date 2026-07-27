@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-tabs",
+  "type": "registry:ui",
+  "title": "Gummy Tabs",
+  "description": "Base UI Tabs with one shared selection rail, automatic or manual activation, arrow/Home/End focus, RTL, and panel relationships.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-core-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyTabs.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Tabs } from \"@base-ui/react/tabs\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyTabsProps = Tabs.Root.Props;\n\nexport function GummyTabs({ className, ...props }: GummyTabsProps) {\n  return <Tabs.Root {...props} className={joinClassNames(\"gummy-tabs\", className as string)} />;\n}\n\nexport const GummyTabsList = React.forwardRef<\n  HTMLDivElement,\n  Tabs.List.Props\n>(function GummyTabsList({ className, children, ...props }, ref) {\n  const { activateOnFocus = true, ...listProps } = props;\n  return (\n    <Tabs.List {...listProps} ref={ref} activateOnFocus={activateOnFocus} className={joinClassNames(\"gummy-tabs__list\", className as string)}>\n      <Tabs.Indicator className=\"gummy-tabs__indicator\" />\n      {children}\n    </Tabs.List>\n  );\n});\n\nexport const GummyTab = React.forwardRef<HTMLElement, Tabs.Tab.Props>(\n  function GummyTab({ className, ...props }, ref) {\n    return <Tabs.Tab {...props} ref={ref} className={joinClassNames(\"gummy-tabs__tab\", className as string)} />;\n  },\n);\n\nexport const GummyTabPanel = React.forwardRef<\n  HTMLDivElement,\n  Tabs.Panel.Props\n>(function GummyTabPanel({ className, ...props }, ref) {\n  return <Tabs.Panel {...props} ref={ref} className={joinClassNames(\"gummy-tabs__panel\", className as string)} />;\n});\n\nGummyTabsList.displayName = \"GummyTabsList\";\nGummyTab.displayName = \"GummyTab\";\nGummyTabPanel.displayName = \"GummyTabPanel\";\n"
+    }
+  ]
+}

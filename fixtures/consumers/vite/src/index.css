@@ -1,0 +1,21 @@
+@import "../components/gummy-theme.css";
+@import "../components/gummy-button.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+}
+
+main {
+  display: grid;
+  min-height: 100vh;
+  padding: 32px;
+  place-content: center;
+  gap: 20px;
+}

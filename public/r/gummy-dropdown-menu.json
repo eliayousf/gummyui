@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-dropdown-menu",
+  "type": "registry:ui",
+  "title": "Gummy Dropdown Menu",
+  "description": "Base UI Dropdown Menu with roving focus, typeahead, submenus, checkbox and radio items, collision positioning, and focus restoration.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-core-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyDropdownMenu.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Menu } from \"@base-ui/react/menu\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyDropdownMenu = Menu.Root;\nexport const GummyDropdownMenuPortal = Menu.Portal;\n\nexport const GummyDropdownMenuTrigger = React.forwardRef<\n  HTMLButtonElement,\n  Menu.Trigger.Props\n>(function GummyDropdownMenuTrigger({ className, children, ...props }, ref) {\n  return (\n    <Menu.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-menu__trigger\", className as string)}\n    >\n      <span className=\"gummy-menu__trigger-copy\">{children}</span>\n      <span className=\"gummy-menu__trigger-pool\" aria-hidden=\"true\">\n        <svg className=\"gummy-menu__chevron\" viewBox=\"0 0 14 10\">\n          <path d=\"m2 2.5 5 5 5-5\" />\n        </svg>\n      </span>\n    </Menu.Trigger>\n  );\n});\n\nexport const GummyDropdownMenuPositioner = React.forwardRef<\n  HTMLDivElement,\n  Menu.Positioner.Props\n>(function GummyDropdownMenuPositioner({ className, sideOffset = 0, ...props }, ref) {\n  return (\n    <Menu.Positioner\n      {...props}\n      ref={ref}\n      sideOffset={sideOffset}\n      className={joinClassNames(\"gummy-menu__positioner\", className as string)}\n    />\n  );\n});\n\nexport const GummyDropdownMenuPopup = React.forwardRef<\n  HTMLDivElement,\n  Menu.Popup.Props\n>(function GummyDropdownMenuPopup({ className, children, ...props }, ref) {\n  return (\n    <Menu.Popup {...props} ref={ref} className={joinClassNames(\"gummy-menu__popup\", className as string)}>\n      <span className=\"gummy-menu__bridge\" aria-hidden=\"true\" />\n      <span className=\"gummy-menu__reservoir\" aria-hidden=\"true\" />\n      <div className=\"gummy-menu__reading-plane\">{children}</div>\n    </Menu.Popup>\n  );\n});\n\nexport const GummyDropdownMenuItem = React.forwardRef<\n  HTMLElement,\n  Menu.Item.Props & { icon?: React.ReactNode; selected?: boolean }\n>(function GummyDropdownMenuItem({ className, children, icon, selected = false, ...props }, ref) {\n  return (\n    <Menu.Item\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-menu__item\", className as string)}\n      data-selected={selected || undefined}\n      data-has-icon={Boolean(icon) || undefined}\n    >\n      <span className=\"gummy-menu__item-tide\" aria-hidden=\"true\" />\n      {icon ? <span className=\"gummy-menu__item-icon\" aria-hidden=\"true\">{icon}</span> : null}\n      <span className=\"gummy-menu__item-copy\">{children}</span>\n      {selected ? <span className=\"gummy-menu__item-state\">Selected</span> : null}\n    </Menu.Item>\n  );\n});\n\nexport const GummyDropdownMenuSeparator = React.forwardRef<\n  HTMLDivElement,\n  Menu.Separator.Props\n>(function GummyDropdownMenuSeparator({ className, ...props }, ref) {\n  return <Menu.Separator {...props} ref={ref} className={joinClassNames(\"gummy-menu__separator\", className as string)} />;\n});\n\nGummyDropdownMenuTrigger.displayName = \"GummyDropdownMenuTrigger\";\nGummyDropdownMenuPositioner.displayName = \"GummyDropdownMenuPositioner\";\nGummyDropdownMenuPopup.displayName = \"GummyDropdownMenuPopup\";\nGummyDropdownMenuItem.displayName = \"GummyDropdownMenuItem\";\nGummyDropdownMenuSeparator.displayName = \"GummyDropdownMenuSeparator\";\n"
+    }
+  ]
+}

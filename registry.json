@@ -1,0 +1,815 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "gummyui",
+  "homepage": "https://gummyui.dev",
+  "items": [
+    {
+      "name": "gummy-base",
+      "type": "registry:style",
+      "title": "Gummy UI Base",
+      "description": "Gel Pop semantic tokens and light/dark theme architecture.",
+      "files": [
+        {
+          "path": "app/styles/gummy-theme.css",
+          "type": "registry:style",
+          "target": "app/gummy-theme.css"
+        }
+      ]
+    },
+    {
+      "name": "gummy-button",
+      "type": "registry:ui",
+      "title": "Gummy Button",
+      "description": "Accessible fruit-gel Button with chewy press physics and high-transmission finish.",
+      "files": [
+        {
+          "path": "app/components/ui/GummyButton.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/gummy-button.tsx"
+        },
+        {
+          "path": "app/styles/gummy-button.css",
+          "type": "registry:style",
+          "target": "app/gummy-button.css"
+        }
+      ]
+    },
+    {
+      "name": "gummy-core-styles",
+      "type": "registry:style",
+      "title": "Gummy Core Component Material",
+      "description": "Shared canonical material, responsive states, RTL, dark theme, and reduced-motion styles for the seven approved benchmark components.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-base.json"],
+      "files": [
+        {
+          "path": "app/styles/gummy-core-components.css",
+          "type": "registry:style",
+          "target": "app/gummy-core-components.css"
+        }
+      ]
+    },
+    {
+      "name": "gummy-input",
+      "type": "registry:ui",
+      "title": "Gummy Input",
+      "description": "Native labelled Input with descriptions, validation, adornments, filled state, disabled and read-only behaviour, and stable editing material.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-core-styles.json"],
+      "files": [{"path": "app/components/ui/GummyInput.tsx", "type": "registry:ui", "target": "components/ui/GummyInput.tsx"}]
+    },
+    {
+      "name": "gummy-badge",
+      "type": "registry:ui",
+      "title": "Gummy Badge",
+      "description": "Non-interactive semantic Badge with six variants, solid or translucent finish, restrained gel motion, and decorative dot or icon slots.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-core-styles.json"],
+      "files": [{"path": "app/components/ui/GummyBadge.tsx", "type": "registry:ui", "target": "components/ui/GummyBadge.tsx"}]
+    },
+    {
+      "name": "gummy-card",
+      "type": "registry:ui",
+      "title": "Gummy Card",
+      "description": "Composable passive, link, and button Card roots with a continuous gel-pocket SVG frame, selected state, and responsive content slots.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-core-styles.json"],
+      "files": [{"path": "app/components/ui/GummyCard.tsx", "type": "registry:ui", "target": "components/ui/GummyCard.tsx"}]
+    },
+    {
+      "name": "gummy-switch",
+      "type": "registry:ui",
+      "title": "Gummy Switch",
+      "description": "Base UI Switch with visible label, optional description, native form behaviour, disabled state, and connected fruit-glass track and thumb.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-core-styles.json"],
+      "files": [{"path": "app/components/ui/GummySwitch.tsx", "type": "registry:ui", "target": "components/ui/GummySwitch.tsx"}]
+    },
+    {
+      "name": "gummy-tabs",
+      "type": "registry:ui",
+      "title": "Gummy Tabs",
+      "description": "Base UI Tabs with one shared selection rail, automatic or manual activation, arrow/Home/End focus, RTL, and panel relationships.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-core-styles.json"],
+      "files": [{"path": "app/components/ui/GummyTabs.tsx", "type": "registry:ui", "target": "components/ui/GummyTabs.tsx"}]
+    },
+    {
+      "name": "gummy-dropdown-menu",
+      "type": "registry:ui",
+      "title": "Gummy Dropdown Menu",
+      "description": "Base UI Dropdown Menu with roving focus, typeahead, submenus, checkbox and radio items, collision positioning, and focus restoration.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-core-styles.json"],
+      "files": [{"path": "app/components/ui/GummyDropdownMenu.tsx", "type": "registry:ui", "target": "components/ui/GummyDropdownMenu.tsx"}]
+    },
+    {
+      "name": "gummy-dialog",
+      "type": "registry:ui",
+      "title": "Gummy Dialog",
+      "description": "Base UI modal Dialog with labelled surface, focus containment and restoration, Escape dismissal, backdrop, viewport, and responsive layout.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-core-styles.json"],
+      "files": [{"path": "app/components/ui/GummyDialog.tsx", "type": "registry:ui", "target": "components/ui/GummyDialog.tsx"}]
+    },
+    {
+      "name": "gummy-form-styles",
+      "type": "registry:style",
+      "title": "Gummy Form Material",
+      "description": "Shared connected fruit-gel material, form states, RTL, themes, touch targets, and reduced motion.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-base.json"
+      ],
+      "files": [
+        {
+          "path": "app/styles/gummy-form-controls.css",
+          "type": "registry:style",
+          "target": "app/gummy-form-controls.css"
+        }
+      ]
+    },
+    {
+      "name": "gummy-label",
+      "type": "registry:ui",
+      "title": "Gummy Label",
+      "description": "Native Label with required, optional, disabled, and read-only cues.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-form-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyLabel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyLabel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-field",
+      "type": "registry:ui",
+      "title": "Gummy Field",
+      "description": "Accessible form composition that associates a Label, native or custom control, descriptions, and validation.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-label.json",
+        "https://gummyui.dev/r/gummy-form-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyField.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyField.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-textarea",
+      "type": "registry:ui",
+      "title": "Gummy Textarea",
+      "description": "Native multiline editing surface with connected state material, validation, resizing, and character count.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-label.json",
+        "https://gummyui.dev/r/gummy-form-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyTextarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyTextarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-checkbox",
+      "type": "registry:ui",
+      "title": "Gummy Checkbox",
+      "description": "Native Checkbox with a 44px target, mixed state, validation, and focusable read-only behavior.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-form-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyCheckbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyCheckbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radio-group",
+      "type": "registry:ui",
+      "title": "Gummy Radio Group",
+      "description": "Native fieldset and radio items with controlled state, arrow navigation, RTL, validation, and read-only behavior.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-form-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyRadioGroup.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyRadioGroup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-native-select",
+      "type": "registry:ui",
+      "title": "Gummy Native Select",
+      "description": "Platform-native single Select with an attached chevron reservoir, validation, and focusable read-only behavior.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-label.json",
+        "https://gummyui.dev/r/gummy-form-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyNativeSelect.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyNativeSelect.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-primitives-styles",
+      "type": "registry:style",
+      "title": "Gummy Primitive Material",
+      "description": "Shared layout, feedback, type, keycap, loading, and media-frame material with themes, RTL-safe logical properties, and reduced motion.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-base.json"
+      ],
+      "files": [
+        {
+          "path": "app/styles/gummy-primitives.css",
+          "type": "registry:style",
+          "target": "app/gummy-primitives.css"
+        }
+      ]
+    },
+    {
+      "name": "gummy-separator",
+      "type": "registry:ui",
+      "title": "Gummy Separator",
+      "description": "Horizontal or vertical visual and semantic Separator with a restrained connected gel pool.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummySeparator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySeparator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-typography",
+      "type": "registry:ui",
+      "title": "Gummy Typography",
+      "description": "Semantic heading, body, eyebrow, inline-code, and blockquote foundations for product and documentation reading.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyTypography.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyTypography.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-kbd",
+      "type": "registry:ui",
+      "title": "Gummy Kbd",
+      "description": "Semantic keycap and shortcut-group primitives with compact tactile depth.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyKbd.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyKbd.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-spinner",
+      "type": "registry:ui",
+      "title": "Gummy Spinner",
+      "description": "Named status Spinner with fruit tones, three sizes, and a static reduced-motion state.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummySpinner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySpinner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-skeleton",
+      "type": "registry:ui",
+      "title": "Gummy Skeleton",
+      "description": "Decorative or named loading placeholders for lines, text, avatars, and card surfaces.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummySkeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySkeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-aspect-ratio",
+      "type": "registry:ui",
+      "title": "Gummy Aspect Ratio",
+      "description": "Responsive media frame with a validated CSS aspect ratio and cover, contain, or fill behaviour.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyAspectRatio.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyAspectRatio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-alert",
+      "type": "registry:ui",
+      "title": "Gummy Alert",
+      "description": "Composable static or live Alert with semantic variants and a connected icon reservoir.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyAlert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyAlert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-avatar",
+      "type": "registry:ui",
+      "title": "Gummy Avatar",
+      "description": "Image and fallback Avatar with size, group, and named presence-state support.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyAvatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyAvatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-empty",
+      "type": "registry:ui",
+      "title": "Gummy Empty",
+      "description": "Semantic Empty-state composition with restrained media, title, description, and action slots.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json",
+        "https://gummyui.dev/r/gummy-button.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyEmpty.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyEmpty.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-item",
+      "type": "registry:ui",
+      "title": "Gummy Item",
+      "description": "Passive, link, and button Item anatomy for dense lists without nested interactive containers.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyItem.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyItem.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-progress",
+      "type": "registry:ui",
+      "title": "Gummy Progress",
+      "description": "Native determinate or indeterminate Progress with a visible label and reduced-motion tide.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyProgress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyProgress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-accordion",
+      "type": "registry:ui",
+      "title": "Gummy Accordion",
+      "description": "Base UI Accordion with managed keyboard navigation, animated panels, and connected material indicators.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyAccordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyAccordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-breadcrumb",
+      "type": "registry:ui",
+      "title": "Gummy Breadcrumb",
+      "description": "Semantic navigation trail with current-page, separator, and collapsed-path anatomy.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyBreadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyBreadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-collapsible",
+      "type": "registry:ui",
+      "title": "Gummy Collapsible",
+      "description": "Base UI disclosure with controlled or uncontrolled state and a reduced-motion panel.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyCollapsible.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyCollapsible.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-pagination",
+      "type": "registry:ui",
+      "title": "Gummy Pagination",
+      "description": "Semantic page navigation with 44px targets, current-page state, RTL arrows, and compact ellipsis.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyPagination.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyPagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-button-group",
+      "type": "registry:ui",
+      "title": "Gummy Button Group",
+      "description": "Labelled horizontal or vertical grouping for related canonical Buttons and compact attached text.",
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-button.json",
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyButtonGroup.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyButtonGroup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-slider",
+      "type": "registry:ui",
+      "title": "Gummy Slider",
+      "description": "Base UI single or range Slider with labels, formatted values, keyboard support, RTL, and vertical orientation.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummySlider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySlider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-toggle",
+      "type": "registry:ui",
+      "title": "Gummy Toggle",
+      "description": "Base UI two-state button with visible pressed, focus, disabled, and fruit emphasis states.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyToggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyToggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-toggle-group",
+      "type": "registry:ui",
+      "title": "Gummy Toggle Group",
+      "description": "Labelled Base UI single or multiple Toggle Group with arrow navigation and orientation support.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://gummyui.dev/r/gummy-toggle.json",
+        "https://gummyui.dev/r/gummy-primitives-styles.json"
+      ],
+      "files": [
+        {
+          "path": "app/components/ui/GummyToggleGroup.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyToggleGroup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-alert-dialog",
+      "type": "registry:ui",
+      "title": "Gummy Alert Dialog",
+      "description": "Base UI modal confirmation for consequential actions with required title, description, and explicit cancel or action controls.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-button.json", "https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {
+          "path": "app/components/ui/GummyAlertDialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyAlertDialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-drawer",
+      "type": "registry:ui",
+      "title": "Gummy Drawer",
+      "description": "Base UI bottom Drawer with modal focus, safe-area spacing, drag affordance, and responsive content.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {
+          "path": "app/components/ui/GummyDrawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyDrawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-hover-card",
+      "type": "registry:ui",
+      "title": "Gummy Hover Card",
+      "description": "Hoverable, focus-triggered Base UI preview surface for non-interactive supporting information.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {
+          "path": "app/components/ui/GummyHoverCard.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyHoverCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-popover",
+      "type": "registry:ui",
+      "title": "Gummy Popover",
+      "description": "Base UI non-modal or focus-trapped floating surface with collision positioning, title, description, and close control.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {
+          "path": "app/components/ui/GummyPopover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyPopover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-sheet",
+      "type": "registry:ui",
+      "title": "Gummy Sheet",
+      "description": "Base UI Dialog-based side or edge Sheet with focus containment, dismissal, four sides, and logical RTL positioning.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {
+          "path": "app/components/ui/GummySheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-tooltip",
+      "type": "registry:ui",
+      "title": "Gummy Tooltip",
+      "description": "Base UI descriptive Tooltip with shared delay provider, hover and focus triggers, collision positioning, and Escape dismissal.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {
+          "path": "app/components/ui/GummyTooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyTooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-context-menu",
+      "type": "registry:ui",
+      "title": "Gummy Context Menu",
+      "description": "Base UI pointer and long-press Context Menu with roving focus, typeahead, disabled items, and Escape restoration.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {"path": "app/components/ui/GummyContextMenu.tsx", "type": "registry:ui", "target": "components/ui/GummyContextMenu.tsx"}
+      ]
+    },
+    {
+      "name": "gummy-menubar",
+      "type": "registry:ui",
+      "title": "Gummy Menubar",
+      "description": "Base UI application Menubar with coordinated menus, arrow navigation, typeahead, and compact scan-friendly rows.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {"path": "app/components/ui/GummyMenubar.tsx", "type": "registry:ui", "target": "components/ui/GummyMenubar.tsx"}
+      ]
+    },
+    {
+      "name": "gummy-navigation-menu",
+      "type": "registry:ui",
+      "title": "Gummy Navigation Menu",
+      "description": "Base UI site Navigation Menu with link semantics, keyboard and hover opening, collision positioning, and responsive popup content.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {"path": "app/components/ui/GummyNavigationMenu.tsx", "type": "registry:ui", "target": "components/ui/GummyNavigationMenu.tsx"}
+      ]
+    },
+    {
+      "name": "gummy-sidebar",
+      "type": "registry:ui",
+      "title": "Gummy Sidebar",
+      "description": "Controlled or uncontrolled semantic Sidebar layout with collapsible navigation, current-page state, responsive panel, and content inset.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [
+        {"path": "app/components/ui/GummySidebar.tsx", "type": "registry:ui", "target": "components/ui/GummySidebar.tsx"}
+      ]
+    },
+    {
+      "name": "gummy-calendar",
+      "type": "registry:ui",
+      "title": "Gummy Calendar",
+      "description": "Locale-aware single-date Calendar grid with month navigation, min/max constraints, keyboard grid movement, RTL, and controlled state.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyCalendar.tsx", "type": "registry:ui", "target": "components/ui/GummyCalendar.tsx"}]
+    },
+    {
+      "name": "gummy-combobox",
+      "type": "registry:ui",
+      "title": "Gummy Combobox",
+      "description": "Base UI editable Combobox with filtering, typeahead, keyboard selection, empty state, and collision-aware popup.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyCombobox.tsx", "type": "registry:ui", "target": "components/ui/GummyCombobox.tsx"}]
+    },
+    {
+      "name": "gummy-command",
+      "type": "registry:ui",
+      "title": "Gummy Command",
+      "description": "Filterable command surface with labelled combobox input, grouped options, keyboard focus, activation, disabled state, and shortcuts.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyCommand.tsx", "type": "registry:ui", "target": "components/ui/GummyCommand.tsx"}]
+    },
+    {
+      "name": "gummy-date-picker",
+      "type": "registry:ui",
+      "title": "Gummy Date Picker",
+      "description": "Labelled Date Picker composing Gummy Popover and Calendar with controlled state, constraints, locale formatting, and focus restoration.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-calendar.json", "https://gummyui.dev/r/gummy-popover.json", "https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyDatePicker.tsx", "type": "registry:ui", "target": "components/ui/GummyDatePicker.tsx"}]
+    },
+    {
+      "name": "gummy-input-group",
+      "type": "registry:ui",
+      "title": "Gummy Input Group",
+      "description": "Native input composition with start/end addons and real action Buttons inside one focus-responsive shell.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyInputGroup.tsx", "type": "registry:ui", "target": "components/ui/GummyInputGroup.tsx"}]
+    },
+    {
+      "name": "gummy-input-otp",
+      "type": "registry:ui",
+      "title": "Gummy Input OTP",
+      "description": "Labelled one-time-code group with numeric slots, paste distribution, forward and backward focus, hidden form value, and LTR digit order.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyInputOTP.tsx", "type": "registry:ui", "target": "components/ui/GummyInputOTP.tsx"}]
+    },
+    {
+      "name": "gummy-select",
+      "type": "registry:ui",
+      "title": "Gummy Select",
+      "description": "Base UI custom Select with labelled value, roving focus, typeahead, grouped options, scroll affordances, form integration, and RTL.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummySelect.tsx", "type": "registry:ui", "target": "components/ui/GummySelect.tsx"}]
+    },
+    {
+      "name": "gummy-carousel",
+      "type": "registry:ui",
+      "title": "Gummy Carousel",
+      "description": "Controlled or uncontrolled accessible Carousel with labelled slides, previous/next controls, indicators, keyboard navigation, RTL, and reduced motion.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyCarousel.tsx", "type": "registry:ui", "target": "components/ui/GummyCarousel.tsx"}]
+    },
+    {
+      "name": "gummy-data-table",
+      "type": "registry:ui",
+      "title": "Gummy Data Table",
+      "description": "Generic typed Data Table with native table semantics, filtering, sorting, pagination, row selection, empty state, and controlled selection.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-table.json", "https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyDataTable.tsx", "type": "registry:ui", "target": "components/ui/GummyDataTable.tsx"}]
+    },
+    {
+      "name": "gummy-direction",
+      "type": "registry:ui",
+      "title": "Gummy Direction",
+      "description": "Native dir wrapper and Base UI Direction Provider for scoped LTR or RTL component behaviour.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyDirection.tsx", "type": "registry:ui", "target": "components/ui/GummyDirection.tsx"}]
+    },
+    {
+      "name": "gummy-resizable",
+      "type": "registry:ui",
+      "title": "Gummy Resizable",
+      "description": "Controlled or uncontrolled two-panel layout with pointer resizing, keyboard separator semantics, bounds, horizontal and vertical modes, and RTL.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyResizable.tsx", "type": "registry:ui", "target": "components/ui/GummyResizable.tsx"}]
+    },
+    {
+      "name": "gummy-scroll-area",
+      "type": "registry:ui",
+      "title": "Gummy Scroll Area",
+      "description": "Base UI native Scroll Area with focusable viewport, custom vertical and horizontal scrollbars, touch scrolling, RTL, and reduced motion.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyScrollArea.tsx", "type": "registry:ui", "target": "components/ui/GummyScrollArea.tsx"}]
+    },
+    {
+      "name": "gummy-table",
+      "type": "registry:ui",
+      "title": "Gummy Table",
+      "description": "Composable native Table parts with captions, row and column headers, body and footer sections, logical alignment, and responsive overflow.",
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummyTable.tsx", "type": "registry:ui", "target": "components/ui/GummyTable.tsx"}]
+    },
+    {
+      "name": "gummy-sonner",
+      "type": "registry:ui",
+      "title": "Gummy Sonner",
+      "description": "Base UI toast provider and viewport with polite or urgent announcements, actions, promise updates, timeout pausing, swipe dismissal, and four positions.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://gummyui.dev/r/gummy-primitives-styles.json"],
+      "files": [{"path": "app/components/ui/GummySonner.tsx", "type": "registry:ui", "target": "components/ui/GummySonner.tsx"}]
+    }
+  ]
+}

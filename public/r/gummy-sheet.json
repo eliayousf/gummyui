@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-sheet",
+  "type": "registry:ui",
+  "title": "Gummy Sheet",
+  "description": "Base UI Dialog-based side or edge Sheet with focus containment, dismissal, four sides, and logical RTL positioning.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySheet.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Dialog } from \"@base-ui/react/dialog\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummySheet = Dialog.Root;\nexport const GummySheetPortal = Dialog.Portal;\n\nexport const GummySheetTrigger = React.forwardRef<\n  HTMLButtonElement,\n  Dialog.Trigger.Props\n>(function GummySheetTrigger({ className, ...props }, ref) {\n  return <Dialog.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-overlay-trigger\", className as string)} />;\n});\n\nexport const GummySheetBackdrop = React.forwardRef<\n  HTMLDivElement,\n  Dialog.Backdrop.Props\n>(function GummySheetBackdrop({ className, ...props }, ref) {\n  return <Dialog.Backdrop {...props} ref={ref} className={joinClassNames(\"gummy-overlay-backdrop\", className as string)} />;\n});\n\nexport const GummySheetViewport = React.forwardRef<\n  HTMLDivElement,\n  Dialog.Viewport.Props\n>(function GummySheetViewport({ className, ...props }, ref) {\n  return <Dialog.Viewport {...props} ref={ref} className={joinClassNames(\"gummy-sheet__viewport\", className as string)} />;\n});\n\nexport type GummySheetPopupProps = Dialog.Popup.Props & {\n  side?: \"left\" | \"right\" | \"top\" | \"bottom\";\n};\n\nexport const GummySheetPopup = React.forwardRef<\n  HTMLDivElement,\n  GummySheetPopupProps\n>(function GummySheetPopup({ side = \"right\", className, children, ...props }, ref) {\n  return (\n    <Dialog.Popup\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-sheet__popup\", className as string)}\n      data-side={side}\n    >\n      <span className=\"gummy-sheet__reservoir\" aria-hidden=\"true\" />\n      {children}\n    </Dialog.Popup>\n  );\n});\n\nexport const GummySheetTitle = React.forwardRef<\n  HTMLHeadingElement,\n  Dialog.Title.Props\n>(function GummySheetTitle({ className, ...props }, ref) {\n  return <Dialog.Title {...props} ref={ref} className={joinClassNames(\"gummy-overlay-popup__title\", className as string)} />;\n});\n\nexport const GummySheetDescription = React.forwardRef<\n  HTMLParagraphElement,\n  Dialog.Description.Props\n>(function GummySheetDescription({ className, ...props }, ref) {\n  return <Dialog.Description {...props} ref={ref} className={joinClassNames(\"gummy-overlay-popup__description\", className as string)} />;\n});\n\nexport const GummySheetClose = Dialog.Close;\n\nGummySheetTrigger.displayName = \"GummySheetTrigger\";\nGummySheetBackdrop.displayName = \"GummySheetBackdrop\";\nGummySheetViewport.displayName = \"GummySheetViewport\";\nGummySheetPopup.displayName = \"GummySheetPopup\";\nGummySheetTitle.displayName = \"GummySheetTitle\";\nGummySheetDescription.displayName = \"GummySheetDescription\";\n"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-separator",
+  "type": "registry:ui",
+  "title": "Gummy Separator",
+  "description": "Horizontal or vertical visual and semantic Separator with a restrained connected gel pool.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySeparator.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport type GummySeparatorProps = React.HTMLAttributes<HTMLDivElement> & {\n  orientation?: \"horizontal\" | \"vertical\";\n  decorative?: boolean;\n  tone?: \"quiet\" | \"fruit\";\n};\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummySeparator = React.forwardRef<\n  HTMLDivElement,\n  GummySeparatorProps\n>(function GummySeparator(\n  {\n    orientation = \"horizontal\",\n    decorative = true,\n    tone = \"quiet\",\n    className,\n    ...separatorProps\n  },\n  ref,\n) {\n  return (\n    <div\n      {...separatorProps}\n      ref={ref}\n      className={joinClassNames(\"gummy-separator\", className)}\n      data-orientation={orientation}\n      data-tone={tone}\n      role={decorative ? \"none\" : \"separator\"}\n      aria-orientation={decorative ? undefined : orientation}\n    >\n      <span className=\"gummy-separator__pool\" aria-hidden=\"true\" />\n    </div>\n  );\n});\n\nGummySeparator.displayName = \"GummySeparator\";\n"
+    }
+  ]
+}

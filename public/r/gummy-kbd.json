@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-kbd",
+  "type": "registry:ui",
+  "title": "Gummy Kbd",
+  "description": "Semantic keycap and shortcut-group primitives with compact tactile depth.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyKbd.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyKbdProps = React.HTMLAttributes<HTMLElement>;\n\nexport const GummyKbd = React.forwardRef<HTMLElement, GummyKbdProps>(\n  function GummyKbd({ className, ...kbdProps }, ref) {\n    return (\n      <kbd\n        {...kbdProps}\n        ref={ref}\n        className={joinClassNames(\"gummy-kbd\", className)}\n      />\n    );\n  },\n);\n\nGummyKbd.displayName = \"GummyKbd\";\n\nexport type GummyKbdGroupProps = React.HTMLAttributes<HTMLSpanElement> & {\n  separator?: React.ReactNode;\n};\n\nexport const GummyKbdGroup = React.forwardRef<\n  HTMLSpanElement,\n  GummyKbdGroupProps\n>(function GummyKbdGroup(\n  { separator = \"+\", className, children, ...groupProps },\n  ref,\n) {\n  const keys = React.Children.toArray(children);\n\n  return (\n    <span\n      {...groupProps}\n      ref={ref}\n      className={joinClassNames(\"gummy-kbd-group\", className)}\n    >\n      {keys.map((key, index) => (\n        <React.Fragment key={index}>\n          {index > 0 ? (\n            <span className=\"gummy-kbd-group__separator\" aria-hidden=\"true\">\n              {separator}\n            </span>\n          ) : null}\n          {key}\n        </React.Fragment>\n      ))}\n    </span>\n  );\n});\n\nGummyKbdGroup.displayName = \"GummyKbdGroup\";\n"
+    }
+  ]
+}

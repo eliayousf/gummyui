@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-table",
+  "type": "registry:ui",
+  "title": "Gummy Table",
+  "description": "Composable native Table parts with captions, row and column headers, body and footer sections, logical alignment, and responsive overflow.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyTable.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyTable = React.forwardRef<\n  HTMLTableElement,\n  React.TableHTMLAttributes<HTMLTableElement>\n>(function GummyTable({ className, ...props }, ref) {\n  return <table {...props} ref={ref} className={joinClassNames(\"gummy-table\", className)} />;\n});\n\nexport const GummyTableCaption = React.forwardRef<\n  HTMLTableCaptionElement,\n  React.HTMLAttributes<HTMLTableCaptionElement>\n>(function GummyTableCaption({ className, ...props }, ref) {\n  return <caption {...props} ref={ref} className={joinClassNames(\"gummy-table__caption\", className)} />;\n});\n\nexport const GummyTableHeader = React.forwardRef<\n  HTMLTableSectionElement,\n  React.HTMLAttributes<HTMLTableSectionElement>\n>(function GummyTableHeader({ className, ...props }, ref) {\n  return <thead {...props} ref={ref} className={joinClassNames(\"gummy-table__header\", className)} />;\n});\n\nexport const GummyTableBody = React.forwardRef<\n  HTMLTableSectionElement,\n  React.HTMLAttributes<HTMLTableSectionElement>\n>(function GummyTableBody({ className, ...props }, ref) {\n  return <tbody {...props} ref={ref} className={joinClassNames(\"gummy-table__body\", className)} />;\n});\n\nexport const GummyTableFooter = React.forwardRef<\n  HTMLTableSectionElement,\n  React.HTMLAttributes<HTMLTableSectionElement>\n>(function GummyTableFooter({ className, ...props }, ref) {\n  return <tfoot {...props} ref={ref} className={joinClassNames(\"gummy-table__footer\", className)} />;\n});\n\nexport const GummyTableRow = React.forwardRef<\n  HTMLTableRowElement,\n  React.HTMLAttributes<HTMLTableRowElement>\n>(function GummyTableRow({ className, ...props }, ref) {\n  return <tr {...props} ref={ref} className={joinClassNames(\"gummy-table__row\", className)} />;\n});\n\nexport const GummyTableHead = React.forwardRef<\n  HTMLTableCellElement,\n  React.ThHTMLAttributes<HTMLTableCellElement>\n>(function GummyTableHead({ className, scope = \"col\", ...props }, ref) {\n  return <th {...props} ref={ref} scope={scope} className={joinClassNames(\"gummy-table__head\", className)} />;\n});\n\nexport const GummyTableCell = React.forwardRef<\n  HTMLTableCellElement,\n  React.TdHTMLAttributes<HTMLTableCellElement>\n>(function GummyTableCell({ className, ...props }, ref) {\n  return <td {...props} ref={ref} className={joinClassNames(\"gummy-table__cell\", className)} />;\n});\n\nGummyTable.displayName = \"GummyTable\";\nGummyTableCaption.displayName = \"GummyTableCaption\";\nGummyTableHeader.displayName = \"GummyTableHeader\";\nGummyTableBody.displayName = \"GummyTableBody\";\nGummyTableFooter.displayName = \"GummyTableFooter\";\nGummyTableRow.displayName = \"GummyTableRow\";\nGummyTableHead.displayName = \"GummyTableHead\";\nGummyTableCell.displayName = \"GummyTableCell\";\n"
+    }
+  ]
+}

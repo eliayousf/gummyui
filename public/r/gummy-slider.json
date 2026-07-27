@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-slider",
+  "type": "registry:ui",
+  "title": "Gummy Slider",
+  "description": "Base UI single or range Slider with labels, formatted values, keyboard support, RTL, and vertical orientation.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySlider.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Slider } from \"@base-ui/react/slider\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummySliderProps = Slider.Root.Props;\n\nexport function GummySlider({ className, ...props }: GummySliderProps) {\n  return (\n    <Slider.Root\n      {...props}\n      className={joinClassNames(\"gummy-slider\", className as string)}\n    />\n  );\n}\n\nexport const GummySliderLabel = React.forwardRef<\n  HTMLDivElement,\n  Slider.Label.Props\n>(function GummySliderLabel({ className, ...props }, ref) {\n  return (\n    <Slider.Label\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-slider__label\", className as string)}\n    />\n  );\n});\n\nexport const GummySliderValue = React.forwardRef<\n  HTMLOutputElement,\n  Slider.Value.Props\n>(function GummySliderValue({ className, ...props }, ref) {\n  return (\n    <Slider.Value\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-slider__value\", className as string)}\n    />\n  );\n});\n\nexport const GummySliderControl = React.forwardRef<\n  HTMLDivElement,\n  Slider.Control.Props\n>(function GummySliderControl({ className, children, ...props }, ref) {\n  return (\n    <Slider.Control\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-slider__control\", className as string)}\n    >\n      <Slider.Track className=\"gummy-slider__track\">\n        <Slider.Indicator className=\"gummy-slider__indicator\" />\n      </Slider.Track>\n      {children}\n    </Slider.Control>\n  );\n});\n\nexport const GummySliderThumb = React.forwardRef<\n  HTMLDivElement,\n  Slider.Thumb.Props\n>(function GummySliderThumb({ className, ...props }, ref) {\n  return (\n    <Slider.Thumb\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-slider__thumb\", className as string)}\n    />\n  );\n});\n\nGummySliderLabel.displayName = \"GummySliderLabel\";\nGummySliderValue.displayName = \"GummySliderValue\";\nGummySliderControl.displayName = \"GummySliderControl\";\nGummySliderThumb.displayName = \"GummySliderThumb\";\n"
+    }
+  ]
+}

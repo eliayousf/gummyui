@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gummyui.dev/schemas/localisation-locale-manifest.schema.json",
+  "title": "Gummy UI locale review and publication manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "sourceLocale",
+    "sourceRevision",
+    "sourceChecksum",
+    "expectedMessageCount",
+    "locales",
+    "publicationEligibility"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "sourceLocale": {
+      "const": "en"
+    },
+    "sourceRevision": {
+      "pattern": "^en-[a-f0-9]{12}$"
+    },
+    "sourceChecksum": {
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "expectedMessageCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "locales": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "direction",
+          "runtimePublicationStatus",
+          "translationStatus",
+          "dictionaryPath",
+          "linguisticReviewStatus",
+          "eligibleForRouting",
+          "eligibleForHreflang",
+          "eligibleForSitemap",
+          "publicationGate"
+        ]
+      }
+    },
+    "publicationEligibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "routeableLocaleCodes": {
+          "const": [
+            "en"
+          ]
+        },
+        "hreflangLocaleCodes": {
+          "const": [
+            "en"
+          ]
+        },
+        "sitemapLocaleCodes": {
+          "const": [
+            "en"
+          ]
+        }
+      }
+    }
+  }
+}

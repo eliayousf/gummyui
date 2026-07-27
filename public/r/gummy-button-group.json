@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-button-group",
+  "type": "registry:ui",
+  "title": "Gummy Button Group",
+  "description": "Labelled horizontal or vertical grouping for related canonical Buttons and compact attached text.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-button.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyButtonGroup.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyButtonGroupProps = React.HTMLAttributes<HTMLDivElement> & {\n  label: string;\n  orientation?: \"horizontal\" | \"vertical\";\n  attached?: boolean;\n};\n\nexport const GummyButtonGroup = React.forwardRef<\n  HTMLDivElement,\n  GummyButtonGroupProps\n>(function GummyButtonGroup(\n  {\n    label,\n    orientation = \"horizontal\",\n    attached = true,\n    className,\n    ...props\n  },\n  ref,\n) {\n  return (\n    <div\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-button-group\", className)}\n      role=\"group\"\n      aria-label={label}\n      data-orientation={orientation}\n      data-attached={attached || undefined}\n    />\n  );\n});\n\nGummyButtonGroup.displayName = \"GummyButtonGroup\";\n\nexport function GummyButtonGroupSeparator() {\n  return <span className=\"gummy-button-group__separator\" aria-hidden=\"true\" />;\n}\n\nexport type GummyButtonGroupTextProps = React.HTMLAttributes<HTMLSpanElement>;\n\nexport const GummyButtonGroupText = React.forwardRef<\n  HTMLSpanElement,\n  GummyButtonGroupTextProps\n>(function GummyButtonGroupText({ className, ...props }, ref) {\n  return (\n    <span\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-button-group__text\", className)}\n    />\n  );\n});\n\nGummyButtonGroupText.displayName = \"GummyButtonGroupText\";\n"
+    }
+  ]
+}

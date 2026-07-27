@@ -1,0 +1,3693 @@
+{
+  "schemaVersion": "1.2",
+  "counts": {
+    "blocks": 158,
+    "categories": 22,
+    "templates": 6,
+    "designKitDefinitions": 300
+  },
+  "categories": [
+    {
+      "slug": "about",
+      "name": "About",
+      "count": 5,
+      "purpose": "Original company, product, process, and mission narratives."
+    },
+    {
+      "slug": "artificial-intelligence",
+      "name": "Artificial Intelligence",
+      "count": 1,
+      "purpose": "AI-product explanation with honest capability and limit framing."
+    },
+    {
+      "slug": "authentication",
+      "name": "Authentication",
+      "count": 7,
+      "purpose": "Account entry, recovery, verification, and invitation workflows."
+    },
+    {
+      "slug": "bento-grids",
+      "name": "Bento Grids",
+      "count": 1,
+      "purpose": "Dense capability overview with varied but coherent content spans."
+    },
+    {
+      "slug": "blogs",
+      "name": "Blogs",
+      "count": 8,
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery."
+    },
+    {
+      "slug": "calls-to-action",
+      "name": "Calls To Action",
+      "count": 3,
+      "purpose": "Focused conversion moments without fabricated urgency."
+    },
+    {
+      "slug": "cards",
+      "name": "Cards",
+      "count": 15,
+      "purpose": "Reusable product, project, content, metric, and action compositions."
+    },
+    {
+      "slug": "careers",
+      "name": "Careers",
+      "count": 3,
+      "purpose": "Team culture, open-role discovery, and hiring-process explanation."
+    },
+    {
+      "slug": "contact",
+      "name": "Contact",
+      "count": 8,
+      "purpose": "Contact routing, office context, support triage, and inquiry forms."
+    },
+    {
+      "slug": "faq",
+      "name": "Faq",
+      "count": 10,
+      "purpose": "Question discovery and disclosure layouts for product and policy topics."
+    },
+    {
+      "slug": "features",
+      "name": "Features",
+      "count": 11,
+      "purpose": "Capability explanation through comparisons, workflows, and evidence."
+    },
+    {
+      "slug": "footers",
+      "name": "Footers",
+      "count": 6,
+      "purpose": "Responsive closing navigation for products, docs, and editorial sites."
+    },
+    {
+      "slug": "forms",
+      "name": "Forms",
+      "count": 2,
+      "purpose": "Longer data-entry and request workflows with complete state handling."
+    },
+    {
+      "slug": "heroes",
+      "name": "Heroes",
+      "count": 8,
+      "purpose": "Original opening narratives for products, services, and portfolios."
+    },
+    {
+      "slug": "navbars",
+      "name": "Navbars",
+      "count": 8,
+      "purpose": "Responsive site and product navigation with honest hierarchy."
+    },
+    {
+      "slug": "onboarding",
+      "name": "Onboarding",
+      "count": 6,
+      "purpose": "Progressive first-run setup, preference, import, and invitation flows."
+    },
+    {
+      "slug": "pricing",
+      "name": "Pricing",
+      "count": 11,
+      "purpose": "Plan-comparison structures with placeholder commercial data only."
+    },
+    {
+      "slug": "profiles",
+      "name": "Profiles",
+      "count": 9,
+      "purpose": "People, organisation, account, and public identity compositions."
+    },
+    {
+      "slug": "sidebars",
+      "name": "Sidebars",
+      "count": 1,
+      "purpose": "Product workspace navigation with dense state and responsive collapse."
+    },
+    {
+      "slug": "statistics",
+      "name": "Statistics",
+      "count": 9,
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes."
+    },
+    {
+      "slug": "teams",
+      "name": "Teams",
+      "count": 11,
+      "purpose": "People directories, leadership stories, collaboration, and recruiting."
+    },
+    {
+      "slug": "testimonials",
+      "name": "Testimonials",
+      "count": 15,
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional."
+    }
+  ],
+  "blocks": [
+    {
+      "id": "block-about-01",
+      "name": "Origin ribbon",
+      "slug": "origin-ribbon",
+      "category": "about",
+      "purpose": "Original company, product, process, and mission narratives.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-about-02",
+      "name": "Working principles ledger",
+      "slug": "working-principles-ledger",
+      "category": "about",
+      "purpose": "Original company, product, process, and mission narratives.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-about-03",
+      "name": "Milestone current",
+      "slug": "milestone-current",
+      "category": "about",
+      "purpose": "Original company, product, process, and mission narratives.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-about-04",
+      "name": "Process field notes",
+      "slug": "process-field-notes",
+      "category": "about",
+      "purpose": "Original company, product, process, and mission narratives.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-about-05",
+      "name": "Mission and method",
+      "slug": "mission-and-method",
+      "category": "about",
+      "purpose": "Original company, product, process, and mission narratives.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-artificial-intelligence-01",
+      "name": "Capability boundary map",
+      "slug": "capability-boundary-map",
+      "category": "artificial-intelligence",
+      "purpose": "AI-product explanation with honest capability and limit framing.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-authentication-01",
+      "name": "Welcome back split",
+      "slug": "welcome-back-split",
+      "category": "authentication",
+      "purpose": "Account entry, recovery, verification, and invitation workflows.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-button",
+        "gummy-alert"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-authentication-02",
+      "name": "Email code entry",
+      "slug": "email-code-entry",
+      "category": "authentication",
+      "purpose": "Account entry, recovery, verification, and invitation workflows.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-button",
+        "gummy-alert"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-authentication-03",
+      "name": "Recovery checkpoint",
+      "slug": "recovery-checkpoint",
+      "category": "authentication",
+      "purpose": "Account entry, recovery, verification, and invitation workflows.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-button",
+        "gummy-alert"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-authentication-04",
+      "name": "Invite acceptance",
+      "slug": "invite-acceptance",
+      "category": "authentication",
+      "purpose": "Account entry, recovery, verification, and invitation workflows.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-button",
+        "gummy-alert"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-authentication-05",
+      "name": "Passkey handoff",
+      "slug": "passkey-handoff",
+      "category": "authentication",
+      "purpose": "Account entry, recovery, verification, and invitation workflows.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-button",
+        "gummy-alert"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-authentication-06",
+      "name": "Workspace chooser",
+      "slug": "workspace-chooser",
+      "category": "authentication",
+      "purpose": "Account entry, recovery, verification, and invitation workflows.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-button",
+        "gummy-alert"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-authentication-07",
+      "name": "Session expired return",
+      "slug": "session-expired-return",
+      "category": "authentication",
+      "purpose": "Account entry, recovery, verification, and invitation workflows.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-button",
+        "gummy-alert"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-bento-grids-01",
+      "name": "Signal orchard",
+      "slug": "signal-orchard",
+      "category": "bento-grids",
+      "purpose": "Dense capability overview with varied but coherent content spans.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-01",
+      "name": "Editorial current",
+      "slug": "editorial-current",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-02",
+      "name": "Featured field note",
+      "slug": "featured-field-note",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-03",
+      "name": "Topic shelf",
+      "slug": "topic-shelf",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-04",
+      "name": "Article river",
+      "slug": "article-river",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-05",
+      "name": "Author dispatch",
+      "slug": "author-dispatch",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-06",
+      "name": "Research digest",
+      "slug": "research-digest",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-07",
+      "name": "Release journal",
+      "slug": "release-journal",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-blogs-08",
+      "name": "Reading queue",
+      "slug": "reading-queue",
+      "category": "blogs",
+      "purpose": "Editorial indexes, featured stories, topic browsing, and article discovery.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-pagination"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-calls-to-action-01",
+      "name": "Quiet next step",
+      "slug": "quiet-next-step",
+      "category": "calls-to-action",
+      "purpose": "Focused conversion moments without fabricated urgency.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-calls-to-action-02",
+      "name": "Product proof handoff",
+      "slug": "product-proof-handoff",
+      "category": "calls-to-action",
+      "purpose": "Focused conversion moments without fabricated urgency.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-calls-to-action-03",
+      "name": "Closing invitation",
+      "slug": "closing-invitation",
+      "category": "calls-to-action",
+      "purpose": "Focused conversion moments without fabricated urgency.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-01",
+      "name": "Project pulse",
+      "slug": "project-pulse",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-02",
+      "name": "Metric reservoir",
+      "slug": "metric-reservoir",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-03",
+      "name": "Release readiness",
+      "slug": "release-readiness",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-04",
+      "name": "Activity current",
+      "slug": "activity-current",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-05",
+      "name": "Member signal",
+      "slug": "member-signal",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-06",
+      "name": "Integration status",
+      "slug": "integration-status",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-07",
+      "name": "Plan outline",
+      "slug": "plan-outline",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-08",
+      "name": "Article pocket",
+      "slug": "article-pocket",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-09",
+      "name": "Task handoff",
+      "slug": "task-handoff",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-10",
+      "name": "File preview",
+      "slug": "file-preview",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-11",
+      "name": "Event brief",
+      "slug": "event-brief",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-12",
+      "name": "Contact route",
+      "slug": "contact-route",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-13",
+      "name": "Usage threshold",
+      "slug": "usage-threshold",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-14",
+      "name": "Approval checkpoint",
+      "slug": "approval-checkpoint",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-cards-15",
+      "name": "Empty collection",
+      "slug": "empty-collection",
+      "category": "cards",
+      "purpose": "Reusable product, project, content, metric, and action compositions.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-careers-01",
+      "name": "Open roles ledger",
+      "slug": "open-roles-ledger",
+      "category": "careers",
+      "purpose": "Team culture, open-role discovery, and hiring-process explanation.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-careers-02",
+      "name": "Culture in practice",
+      "slug": "culture-in-practice",
+      "category": "careers",
+      "purpose": "Team culture, open-role discovery, and hiring-process explanation.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-careers-03",
+      "name": "Hiring path",
+      "slug": "hiring-path",
+      "category": "careers",
+      "purpose": "Team culture, open-role discovery, and hiring-process explanation.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-01",
+      "name": "Inquiry router",
+      "slug": "inquiry-router",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-02",
+      "name": "Support triage",
+      "slug": "support-triage",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-03",
+      "name": "Office constellation",
+      "slug": "office-constellation",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-04",
+      "name": "Project brief form",
+      "slug": "project-brief-form",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-05",
+      "name": "Sales context form",
+      "slug": "sales-context-form",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-06",
+      "name": "Press contact",
+      "slug": "press-contact",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-07",
+      "name": "Partnership route",
+      "slug": "partnership-route",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-contact-08",
+      "name": "Availability notice",
+      "slug": "availability-notice",
+      "category": "contact",
+      "purpose": "Contact routing, office context, support triage, and inquiry forms.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-01",
+      "name": "Product essentials",
+      "slug": "product-essentials",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-02",
+      "name": "Installation questions",
+      "slug": "installation-questions",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-03",
+      "name": "Billing placeholders",
+      "slug": "billing-placeholders",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-04",
+      "name": "Security questions",
+      "slug": "security-questions",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-05",
+      "name": "Accessibility questions",
+      "slug": "accessibility-questions",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-06",
+      "name": "Team access questions",
+      "slug": "team-access-questions",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-07",
+      "name": "Design kit questions",
+      "slug": "design-kit-questions",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-08",
+      "name": "Update policy placeholders",
+      "slug": "update-policy-placeholders",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-09",
+      "name": "Support questions",
+      "slug": "support-questions",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-faq-10",
+      "name": "Data handling questions",
+      "slug": "data-handling-questions",
+      "category": "faq",
+      "purpose": "Question discovery and disclosure layouts for product and policy topics.",
+      "dependencies": [
+        "gummy-accordion",
+        "gummy-typography"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-01",
+      "name": "Workflow current",
+      "slug": "workflow-current",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-02",
+      "name": "Before and after",
+      "slug": "before-and-after",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-03",
+      "name": "Capability chapters",
+      "slug": "capability-chapters",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-04",
+      "name": "Integration map",
+      "slug": "integration-map",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-05",
+      "name": "Collaboration loop",
+      "slug": "collaboration-loop",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-06",
+      "name": "Security layers",
+      "slug": "security-layers",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-07",
+      "name": "Automation boundary",
+      "slug": "automation-boundary",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-08",
+      "name": "Responsive product tour",
+      "slug": "responsive-product-tour",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-09",
+      "name": "Role-based outcomes",
+      "slug": "role-based-outcomes",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-10",
+      "name": "Evidence ledger",
+      "slug": "evidence-ledger",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-features-11",
+      "name": "Feature comparison",
+      "slug": "feature-comparison",
+      "category": "features",
+      "purpose": "Capability explanation through comparisons, workflows, and evidence.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-badge",
+        "gummy-typography",
+        "gummy-button",
+        "gummy-table"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-footers-01",
+      "name": "Product atlas",
+      "slug": "product-atlas",
+      "category": "footers",
+      "purpose": "Responsive closing navigation for products, docs, and editorial sites.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-typography",
+        "gummy-separator"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-footers-02",
+      "name": "Documentation close",
+      "slug": "documentation-close",
+      "category": "footers",
+      "purpose": "Responsive closing navigation for products, docs, and editorial sites.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-typography",
+        "gummy-separator"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-footers-03",
+      "name": "Studio colophon",
+      "slug": "studio-colophon",
+      "category": "footers",
+      "purpose": "Responsive closing navigation for products, docs, and editorial sites.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-typography",
+        "gummy-separator"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-footers-04",
+      "name": "Editorial directory",
+      "slug": "editorial-directory",
+      "category": "footers",
+      "purpose": "Responsive closing navigation for products, docs, and editorial sites.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-typography",
+        "gummy-separator"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-footers-05",
+      "name": "Compact utility close",
+      "slug": "compact-utility-close",
+      "category": "footers",
+      "purpose": "Responsive closing navigation for products, docs, and editorial sites.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-typography",
+        "gummy-separator"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-footers-06",
+      "name": "Multilingual close",
+      "slug": "multilingual-close",
+      "category": "footers",
+      "purpose": "Responsive closing navigation for products, docs, and editorial sites.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-typography",
+        "gummy-separator"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-forms-01",
+      "name": "Project intake",
+      "slug": "project-intake",
+      "category": "forms",
+      "purpose": "Longer data-entry and request workflows with complete state handling.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-select",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-forms-02",
+      "name": "Account preferences",
+      "slug": "account-preferences",
+      "category": "forms",
+      "purpose": "Longer data-entry and request workflows with complete state handling.",
+      "dependencies": [
+        "gummy-field",
+        "gummy-input",
+        "gummy-textarea",
+        "gummy-select",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-01",
+      "name": "Deliberate product opening",
+      "slug": "deliberate-product-opening",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-02",
+      "name": "Developer tool signal",
+      "slug": "developer-tool-signal",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-03",
+      "name": "Studio point of view",
+      "slug": "studio-point-of-view",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-04",
+      "name": "Portfolio introduction",
+      "slug": "portfolio-introduction",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-05",
+      "name": "AI capability opening",
+      "slug": "ai-capability-opening",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-06",
+      "name": "SaaS outcome opening",
+      "slug": "saas-outcome-opening",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-07",
+      "name": "Editorial feature opening",
+      "slug": "editorial-feature-opening",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-heroes-08",
+      "name": "Dashboard welcome",
+      "slug": "dashboard-welcome",
+      "category": "heroes",
+      "purpose": "Original opening narratives for products, services, and portfolios.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-01",
+      "name": "Product command bar",
+      "slug": "product-command-bar",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-02",
+      "name": "Marketing disclosure nav",
+      "slug": "marketing-disclosure-nav",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-03",
+      "name": "Documentation rail",
+      "slug": "documentation-rail",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-04",
+      "name": "Studio index nav",
+      "slug": "studio-index-nav",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-05",
+      "name": "Portfolio minimal nav",
+      "slug": "portfolio-minimal-nav",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-06",
+      "name": "AI product nav",
+      "slug": "ai-product-nav",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-07",
+      "name": "Commerce category nav",
+      "slug": "commerce-category-nav",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-navbars-08",
+      "name": "Workspace switcher nav",
+      "slug": "workspace-switcher-nav",
+      "category": "navbars",
+      "purpose": "Responsive site and product navigation with honest hierarchy.",
+      "dependencies": [
+        "gummy-navigation-menu",
+        "gummy-button",
+        "gummy-sheet"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-onboarding-01",
+      "name": "Workspace essentials",
+      "slug": "workspace-essentials",
+      "category": "onboarding",
+      "purpose": "Progressive first-run setup, preference, import, and invitation flows.",
+      "dependencies": [
+        "gummy-progress",
+        "gummy-field",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-onboarding-02",
+      "name": "Role and goals",
+      "slug": "role-and-goals",
+      "category": "onboarding",
+      "purpose": "Progressive first-run setup, preference, import, and invitation flows.",
+      "dependencies": [
+        "gummy-progress",
+        "gummy-field",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-onboarding-03",
+      "name": "Data import checkpoint",
+      "slug": "data-import-checkpoint",
+      "category": "onboarding",
+      "purpose": "Progressive first-run setup, preference, import, and invitation flows.",
+      "dependencies": [
+        "gummy-progress",
+        "gummy-field",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-onboarding-04",
+      "name": "Team invitation",
+      "slug": "team-invitation",
+      "category": "onboarding",
+      "purpose": "Progressive first-run setup, preference, import, and invitation flows.",
+      "dependencies": [
+        "gummy-progress",
+        "gummy-field",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-onboarding-05",
+      "name": "Theme preference",
+      "slug": "theme-preference",
+      "category": "onboarding",
+      "purpose": "Progressive first-run setup, preference, import, and invitation flows.",
+      "dependencies": [
+        "gummy-progress",
+        "gummy-field",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-onboarding-06",
+      "name": "Ready to begin",
+      "slug": "ready-to-begin",
+      "category": "onboarding",
+      "purpose": "Progressive first-run setup, preference, import, and invitation flows.",
+      "dependencies": [
+        "gummy-progress",
+        "gummy-field",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-01",
+      "name": "Plan architecture",
+      "slug": "plan-architecture",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-02",
+      "name": "Seat comparison",
+      "slug": "seat-comparison",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-03",
+      "name": "Feature matrix",
+      "slug": "feature-matrix",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-04",
+      "name": "Usage dimensions",
+      "slug": "usage-dimensions",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-05",
+      "name": "Organisation inquiry",
+      "slug": "organisation-inquiry",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-06",
+      "name": "Update period explainer",
+      "slug": "update-period-explainer",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-07",
+      "name": "Licence scope explainer",
+      "slug": "licence-scope-explainer",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-08",
+      "name": "FAQ with plan context",
+      "slug": "faq-with-plan-context",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-09",
+      "name": "Plan switcher shell",
+      "slug": "plan-switcher-shell",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-10",
+      "name": "Add-on structure",
+      "slug": "add-on-structure",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-pricing-11",
+      "name": "Checkout handoff summary",
+      "slug": "checkout-handoff-summary",
+      "category": "pricing",
+      "purpose": "Plan-comparison structures with placeholder commercial data only.",
+      "dependencies": [
+        "gummy-card",
+        "gummy-table",
+        "gummy-toggle-group",
+        "gummy-button"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-01",
+      "name": "Account overview",
+      "slug": "account-overview",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-02",
+      "name": "Public maker profile",
+      "slug": "public-maker-profile",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-03",
+      "name": "Team member detail",
+      "slug": "team-member-detail",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-04",
+      "name": "Organisation profile",
+      "slug": "organisation-profile",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-05",
+      "name": "Contributor card wall",
+      "slug": "contributor-card-wall",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-06",
+      "name": "Activity and access",
+      "slug": "activity-and-access",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-07",
+      "name": "Billing owner summary",
+      "slug": "billing-owner-summary",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-08",
+      "name": "Security settings",
+      "slug": "security-settings",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-profiles-09",
+      "name": "Profile completion",
+      "slug": "profile-completion",
+      "category": "profiles",
+      "purpose": "People, organisation, account, and public identity compositions.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-badge",
+        "gummy-tabs"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-sidebars-01",
+      "name": "Workspace river",
+      "slug": "workspace-river",
+      "category": "sidebars",
+      "purpose": "Product workspace navigation with dense state and responsive collapse.",
+      "dependencies": [
+        "gummy-sidebar",
+        "gummy-tooltip",
+        "gummy-dropdown-menu"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-01",
+      "name": "Outcome ledger",
+      "slug": "outcome-ledger",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-02",
+      "name": "Trend current",
+      "slug": "trend-current",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-03",
+      "name": "Benchmark bands",
+      "slug": "benchmark-bands",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-04",
+      "name": "Cohort comparison",
+      "slug": "cohort-comparison",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-05",
+      "name": "Milestone totals",
+      "slug": "milestone-totals",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-06",
+      "name": "Regional distribution",
+      "slug": "regional-distribution",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-07",
+      "name": "Usage health",
+      "slug": "usage-health",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-08",
+      "name": "Delivery cadence",
+      "slug": "delivery-cadence",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-statistics-09",
+      "name": "Methodology annotated",
+      "slug": "methodology-annotated",
+      "category": "statistics",
+      "purpose": "Context-rich metrics, trends, comparisons, and methodological notes.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-01",
+      "name": "Leadership field",
+      "slug": "leadership-field",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-02",
+      "name": "People directory",
+      "slug": "people-directory",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-03",
+      "name": "Role clusters",
+      "slug": "role-clusters",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-04",
+      "name": "Collaboration map",
+      "slug": "collaboration-map",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-05",
+      "name": "Advisers",
+      "slug": "advisers",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-06",
+      "name": "Hiring team",
+      "slug": "hiring-team",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-07",
+      "name": "Remote constellation",
+      "slug": "remote-constellation",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-08",
+      "name": "Project crews",
+      "slug": "project-crews",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-09",
+      "name": "Team values",
+      "slug": "team-values",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-10",
+      "name": "Member spotlight",
+      "slug": "member-spotlight",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-teams-11",
+      "name": "Organisation chart",
+      "slug": "organisation-chart",
+      "category": "teams",
+      "purpose": "People directories, leadership stories, collaboration, and recruiting.",
+      "dependencies": [
+        "gummy-typography",
+        "gummy-button",
+        "gummy-card"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-01",
+      "name": "Verified quote feature",
+      "slug": "verified-quote-feature",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-02",
+      "name": "Customer evidence grid",
+      "slug": "customer-evidence-grid",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-03",
+      "name": "Outcome story",
+      "slug": "outcome-story",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-04",
+      "name": "Role-specific voices",
+      "slug": "role-specific-voices",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-05",
+      "name": "Industry perspectives",
+      "slug": "industry-perspectives",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-06",
+      "name": "Video evidence shell",
+      "slug": "video-evidence-shell",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-07",
+      "name": "Long-form case quote",
+      "slug": "long-form-case-quote",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-08",
+      "name": "Compact quote rail",
+      "slug": "compact-quote-rail",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-09",
+      "name": "Metrics with attribution",
+      "slug": "metrics-with-attribution",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-10",
+      "name": "Review source cards",
+      "slug": "review-source-cards",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-11",
+      "name": "Before-and-after account",
+      "slug": "before-and-after-account",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-12",
+      "name": "Implementation story",
+      "slug": "implementation-story",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-13",
+      "name": "Support experience",
+      "slug": "support-experience",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-14",
+      "name": "Team adoption story",
+      "slug": "team-adoption-story",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "block-testimonials-15",
+      "name": "Evidence carousel",
+      "slug": "evidence-carousel",
+      "category": "testimonials",
+      "purpose": "Layouts for verified customer evidence; all bundled copy is explicitly fictional.",
+      "dependencies": [
+        "gummy-avatar",
+        "gummy-card",
+        "gummy-carousel"
+      ],
+      "requirements": [
+        "light",
+        "dark",
+        "responsive",
+        "keyboard-reviewed",
+        "rtl-reviewed",
+        "reduced-motion"
+      ],
+      "status": "implemented"
+    }
+  ],
+  "templates": [
+    {
+      "id": "template-developer-tools",
+      "name": "Relay Forge",
+      "brief": "A developer-tools landing and documentation product for a local workflow runner.",
+      "routes": [
+        "/",
+        "/product",
+        "/integrations",
+        "/docs",
+        "/changelog"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "success",
+        "permission-denied",
+        "offline"
+      ],
+      "requirements": [
+        "responsive",
+        "light",
+        "dark",
+        "rtl-reviewed",
+        "keyboard-reviewed",
+        "seo-ready"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "template-saas-marketing",
+      "name": "Current Desk",
+      "brief": "A multipage SaaS marketing site for calm project review and release decisions.",
+      "routes": [
+        "/",
+        "/features",
+        "/solutions",
+        "/resources",
+        "/contact"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "success",
+        "permission-denied",
+        "offline"
+      ],
+      "requirements": [
+        "responsive",
+        "light",
+        "dark",
+        "rtl-reviewed",
+        "keyboard-reviewed",
+        "seo-ready"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "template-creative-agency",
+      "name": "Soft Signal Studio",
+      "brief": "A creative-agency site centered on selected work, process, people, and project fit.",
+      "routes": [
+        "/",
+        "/work",
+        "/work/[slug]",
+        "/studio",
+        "/contact"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "success",
+        "permission-denied",
+        "offline"
+      ],
+      "requirements": [
+        "responsive",
+        "light",
+        "dark",
+        "rtl-reviewed",
+        "keyboard-reviewed",
+        "seo-ready"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "template-portfolio",
+      "name": "Field Notes Portfolio",
+      "brief": "A designer-developer portfolio with case studies, writing, experiments, and availability.",
+      "routes": [
+        "/",
+        "/work",
+        "/work/[slug]",
+        "/notes",
+        "/about"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "success",
+        "permission-denied",
+        "offline"
+      ],
+      "requirements": [
+        "responsive",
+        "light",
+        "dark",
+        "rtl-reviewed",
+        "keyboard-reviewed",
+        "seo-ready"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "template-ai-product",
+      "name": "Boundary AI",
+      "brief": "An AI-product site that explains capability, evidence, limitations, safety, and integrations.",
+      "routes": [
+        "/",
+        "/product",
+        "/use-cases",
+        "/safety",
+        "/contact"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "success",
+        "permission-denied",
+        "offline"
+      ],
+      "requirements": [
+        "responsive",
+        "light",
+        "dark",
+        "rtl-reviewed",
+        "keyboard-reviewed",
+        "seo-ready"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "template-admin-dashboard",
+      "name": "Orchard Console",
+      "brief": "A SaaS and commerce administration dashboard for workspaces, usage, releases, and access.",
+      "routes": [
+        "/overview",
+        "/workspaces",
+        "/usage",
+        "/releases",
+        "/access",
+        "/settings"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "success",
+        "permission-denied",
+        "offline"
+      ],
+      "requirements": [
+        "responsive",
+        "light",
+        "dark",
+        "rtl-reviewed",
+        "keyboard-reviewed",
+        "seo-ready"
+      ],
+      "status": "implemented"
+    }
+  ],
+  "designKit": {
+    "status": "implemented",
+    "materializerVersion": "0.2.0",
+    "definitionCount": 300,
+    "expectedMaterialization": {
+      "masters": 300,
+      "responsiveInstances": 900
+    },
+    "externalMaterialization": "not-run-founder-approval-required",
+    "manualQa": "pending"
+  }
+}

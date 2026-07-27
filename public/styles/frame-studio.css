@@ -1,0 +1,189 @@
+/* Generated from app/styles/frame-studio.css. Do not edit this public copy. */
+.frame-studio {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.65fr) minmax(320px, 1.35fr);
+  gap: 18px;
+  padding-block: clamp(36px, 6vw, 64px);
+  border-block-end: 1px solid var(--line);
+}
+
+.frame-studio__controls {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.frame-studio__controls > label,
+.frame-studio__controls fieldset {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 13px 18px 15px 16px;
+  background: color-mix(in oklch, var(--surface-solid) 74%, transparent);
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.frame-studio__controls fieldset {
+  grid-template-columns: 1fr;
+}
+
+.frame-studio__controls legend {
+  padding-inline: 4px;
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.frame-studio__controls input[type="range"] {
+  max-width: 130px;
+  accent-color: var(--fruit-raspberry-core);
+}
+
+.frame-studio__controls input[type="color"] {
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: transparent;
+}
+
+.frame-studio__controls code,
+.frame-studio__controls output {
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+}
+
+.frame-studio__file {
+  position: relative;
+  grid-template-columns: 1fr auto !important;
+  min-height: 64px;
+  overflow: hidden;
+}
+
+.frame-studio__file input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.frame-studio__file strong {
+  padding: 9px 12px;
+  border-radius: 10px 14px 11px 13px;
+  background: color-mix(in oklch, var(--fruit-aqua-light) 34%, var(--surface-solid));
+  cursor: pointer;
+}
+
+.frame-studio__finishes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.frame-studio__finishes button {
+  min-height: 42px;
+  border: 1px solid color-mix(in oklch, var(--finish-colour) 42%, var(--line));
+  border-radius: 10px 15px 12px 13px;
+  background: color-mix(in oklch, var(--finish-colour) 20%, var(--surface-solid));
+  color: var(--ink);
+  text-transform: capitalize;
+}
+
+.frame-studio__finishes button[aria-pressed="true"] {
+  box-shadow: inset 0 -4px 0 color-mix(in oklch, var(--finish-colour) 74%, transparent);
+}
+
+.frame-studio__export {
+  min-height: 48px;
+  border: 1px solid color-mix(in oklch, var(--fruit-raspberry-rim) 54%, var(--line));
+  border-radius: 13px 19px 14px 17px;
+  background: var(--fruit-raspberry-core);
+  color: oklch(0.2 0.06 309);
+  font-weight: 760;
+}
+
+.frame-studio__export:disabled {
+  opacity: 0.46;
+}
+
+.frame-studio__controls > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.frame-studio__stage {
+  display: grid;
+  min-height: 540px;
+  place-items: center;
+  padding: var(--studio-padding);
+  border: 1px solid var(--line);
+  border-radius: 22px 31px 25px 28px;
+  background:
+    radial-gradient(circle at 12% 9%, color-mix(in oklch, var(--studio-frame-light) 28%, transparent), transparent 32%),
+    var(--studio-canvas);
+  overflow: auto;
+}
+
+.frame-studio__frame {
+  max-width: 100%;
+  padding: 14px;
+  border-radius: calc(var(--studio-radius) + 14px);
+  background:
+    linear-gradient(145deg, var(--studio-frame-light), var(--studio-frame-core) 52%, var(--studio-frame-depth));
+  box-shadow:
+    inset 3px 4px 5px oklch(1 0 0 / 0.55),
+    inset -6px -8px 12px color-mix(in oklch, var(--studio-frame-depth) 38%, transparent),
+    0 16px 34px color-mix(in oklch, var(--studio-frame-depth) 24%, transparent);
+}
+
+.frame-studio__frame img {
+  display: block;
+  max-width: min(100%, 820px);
+  max-height: 620px;
+  border-radius: var(--studio-radius);
+}
+
+.frame-studio__empty {
+  display: grid;
+  max-width: 32ch;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.frame-studio__empty > span {
+  display: grid;
+  width: 72px;
+  height: 64px;
+  place-items: center;
+  border-radius: 22px 29px 24px 27px;
+  background: linear-gradient(145deg, var(--studio-frame-light), var(--studio-frame-core));
+  box-shadow: inset 3px 4px 5px oklch(1 0 0 / 0.55);
+  color: oklch(0.2 0.06 309);
+  font-size: 28px;
+}
+
+.frame-studio__empty p,
+.frame-studio__empty strong {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .frame-studio {
+    grid-template-columns: 1fr;
+  }
+
+  .frame-studio__stage {
+    min-height: 380px;
+  }
+}

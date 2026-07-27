@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-badge",
+  "type": "registry:ui",
+  "title": "Gummy Badge",
+  "description": "Non-interactive semantic Badge with six variants, solid or translucent finish, restrained gel motion, and decorative dot or icon slots.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-core-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyBadge.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nexport type GummyBadgeVariant =\n  | \"neutral\"\n  | \"primary\"\n  | \"secondary\"\n  | \"success\"\n  | \"warning\"\n  | \"info\";\n\nexport type GummyBadgeFinish = \"solid\" | \"translucent\";\nexport type GummyBadgeMotion = \"alive\" | \"settle\" | \"none\";\n\nexport type GummyBadgeProps = React.HTMLAttributes<HTMLSpanElement> & {\n  variant?: GummyBadgeVariant;\n  finish?: GummyBadgeFinish;\n  /** Restrained ambient gel motion, a one-shot settle, or a static badge. */\n  motion?: GummyBadgeMotion;\n  /** Decorative dot. Visible text must still communicate the badge meaning. */\n  dot?: boolean;\n  /** Decorative icon. It is hidden from assistive technology by design. */\n  icon?: React.ReactNode;\n};\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyBadge = React.forwardRef<HTMLSpanElement, GummyBadgeProps>(\n  function GummyBadge(\n    {\n      variant = \"neutral\",\n      finish = \"solid\",\n      motion = \"alive\",\n      dot = false,\n      icon,\n      className,\n      children,\n      ...badgeProps\n    },\n    ref,\n  ) {\n    return (\n      <span\n        {...badgeProps}\n        ref={ref}\n        className={joinClassNames(\"gummy-badge\", className)}\n        data-variant={variant}\n        data-finish={finish}\n        data-motion={motion}\n      >\n        {dot ? <span className=\"gummy-badge__dot\" aria-hidden=\"true\" /> : null}\n        {icon ? (\n          <span className=\"gummy-badge__icon\" aria-hidden=\"true\">\n            {icon}\n          </span>\n        ) : null}\n        <span className=\"gummy-badge__label\">{children}</span>\n      </span>\n    );\n  },\n);\n\nGummyBadge.displayName = \"GummyBadge\";\n"
+    }
+  ]
+}

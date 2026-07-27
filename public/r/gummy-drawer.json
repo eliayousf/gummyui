@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-drawer",
+  "type": "registry:ui",
+  "title": "Gummy Drawer",
+  "description": "Base UI bottom Drawer with modal focus, safe-area spacing, drag affordance, and responsive content.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyDrawer.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Drawer } from \"@base-ui/react/drawer\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyDrawer = Drawer.Root;\nexport const GummyDrawerPortal = Drawer.Portal;\n\nexport const GummyDrawerTrigger = React.forwardRef<\n  HTMLButtonElement,\n  Drawer.Trigger.Props\n>(function GummyDrawerTrigger({ className, ...props }, ref) {\n  return <Drawer.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-overlay-trigger\", className as string)} />;\n});\n\nexport const GummyDrawerBackdrop = React.forwardRef<\n  HTMLDivElement,\n  Drawer.Backdrop.Props\n>(function GummyDrawerBackdrop({ className, ...props }, ref) {\n  return <Drawer.Backdrop {...props} ref={ref} className={joinClassNames(\"gummy-overlay-backdrop\", className as string)} />;\n});\n\nexport const GummyDrawerViewport = React.forwardRef<\n  HTMLDivElement,\n  Drawer.Viewport.Props\n>(function GummyDrawerViewport({ className, ...props }, ref) {\n  return <Drawer.Viewport {...props} ref={ref} className={joinClassNames(\"gummy-drawer__viewport\", className as string)} />;\n});\n\nexport const GummyDrawerPopup = React.forwardRef<\n  HTMLDivElement,\n  Drawer.Popup.Props\n>(function GummyDrawerPopup({ className, children, ...props }, ref) {\n  return (\n    <Drawer.Popup {...props} ref={ref} className={joinClassNames(\"gummy-drawer__popup\", className as string)}>\n      <div className=\"gummy-drawer__handle\" aria-hidden=\"true\" />\n      {children}\n    </Drawer.Popup>\n  );\n});\n\nexport const GummyDrawerTitle = React.forwardRef<\n  HTMLHeadingElement,\n  Drawer.Title.Props\n>(function GummyDrawerTitle({ className, ...props }, ref) {\n  return <Drawer.Title {...props} ref={ref} className={joinClassNames(\"gummy-overlay-popup__title\", className as string)} />;\n});\n\nexport const GummyDrawerDescription = React.forwardRef<\n  HTMLParagraphElement,\n  Drawer.Description.Props\n>(function GummyDrawerDescription({ className, ...props }, ref) {\n  return <Drawer.Description {...props} ref={ref} className={joinClassNames(\"gummy-overlay-popup__description\", className as string)} />;\n});\n\nexport const GummyDrawerClose = Drawer.Close;\n\nGummyDrawerTrigger.displayName = \"GummyDrawerTrigger\";\nGummyDrawerBackdrop.displayName = \"GummyDrawerBackdrop\";\nGummyDrawerViewport.displayName = \"GummyDrawerViewport\";\nGummyDrawerPopup.displayName = \"GummyDrawerPopup\";\nGummyDrawerTitle.displayName = \"GummyDrawerTitle\";\nGummyDrawerDescription.displayName = \"GummyDrawerDescription\";\n"
+    }
+  ]
+}

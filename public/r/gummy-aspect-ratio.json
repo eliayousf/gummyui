@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-aspect-ratio",
+  "type": "registry:ui",
+  "title": "Gummy Aspect Ratio",
+  "description": "Responsive media frame with a validated CSS aspect ratio and cover, contain, or fill behaviour.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyAspectRatio.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyAspectRatioProps = React.HTMLAttributes<HTMLDivElement> & {\n  ratio?: number;\n  fit?: \"cover\" | \"contain\" | \"fill\";\n};\n\nexport const GummyAspectRatio = React.forwardRef<\n  HTMLDivElement,\n  GummyAspectRatioProps\n>(function GummyAspectRatio(\n  {\n    ratio = 16 / 9,\n    fit = \"cover\",\n    className,\n    style,\n    children,\n    ...ratioProps\n  },\n  ref,\n) {\n  const safeRatio = Number.isFinite(ratio) && ratio > 0 ? ratio : 16 / 9;\n  return (\n    <div\n      {...ratioProps}\n      ref={ref}\n      className={joinClassNames(\"gummy-aspect-ratio\", className)}\n      data-fit={fit}\n      style={{ ...style, aspectRatio: safeRatio }}\n    >\n      <div className=\"gummy-aspect-ratio__content\">{children}</div>\n    </div>\n  );\n});\n\nGummyAspectRatio.displayName = \"GummyAspectRatio\";\n"
+    }
+  ]
+}

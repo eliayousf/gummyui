@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-popover",
+  "type": "registry:ui",
+  "title": "Gummy Popover",
+  "description": "Base UI non-modal or focus-trapped floating surface with collision positioning, title, description, and close control.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyPopover.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Popover } from \"@base-ui/react/popover\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyPopover = Popover.Root;\nexport const GummyPopoverPortal = Popover.Portal;\n\nexport const GummyPopoverTrigger = React.forwardRef<\n  HTMLButtonElement,\n  Popover.Trigger.Props\n>(function GummyPopoverTrigger({ className, ...props }, ref) {\n  return <Popover.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-overlay-trigger\", className as string)} />;\n});\n\nexport const GummyPopoverPositioner = React.forwardRef<\n  HTMLDivElement,\n  Popover.Positioner.Props\n>(function GummyPopoverPositioner({ className, sideOffset = 10, ...props }, ref) {\n  return <Popover.Positioner {...props} ref={ref} sideOffset={sideOffset} className={joinClassNames(\"gummy-floating-positioner\", className as string)} />;\n});\n\nexport const GummyPopoverPopup = React.forwardRef<\n  HTMLDivElement,\n  Popover.Popup.Props\n>(function GummyPopoverPopup({ className, children, ...props }, ref) {\n  return (\n    <Popover.Popup {...props} ref={ref} className={joinClassNames(\"gummy-floating-popup\", className as string)}>\n      <Popover.Arrow className=\"gummy-floating-popup__arrow\" />\n      {children}\n    </Popover.Popup>\n  );\n});\n\nexport const GummyPopoverTitle = React.forwardRef<\n  HTMLHeadingElement,\n  Popover.Title.Props\n>(function GummyPopoverTitle({ className, ...props }, ref) {\n  return <Popover.Title {...props} ref={ref} className={joinClassNames(\"gummy-floating-popup__title\", className as string)} />;\n});\n\nexport const GummyPopoverDescription = React.forwardRef<\n  HTMLParagraphElement,\n  Popover.Description.Props\n>(function GummyPopoverDescription({ className, ...props }, ref) {\n  return <Popover.Description {...props} ref={ref} className={joinClassNames(\"gummy-floating-popup__description\", className as string)} />;\n});\n\nexport const GummyPopoverClose = Popover.Close;\n\nGummyPopoverTrigger.displayName = \"GummyPopoverTrigger\";\nGummyPopoverPositioner.displayName = \"GummyPopoverPositioner\";\nGummyPopoverPopup.displayName = \"GummyPopoverPopup\";\nGummyPopoverTitle.displayName = \"GummyPopoverTitle\";\nGummyPopoverDescription.displayName = \"GummyPopoverDescription\";\n"
+    }
+  ]
+}

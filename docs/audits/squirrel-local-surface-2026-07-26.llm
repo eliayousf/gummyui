@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.38">
+<site url="http://127.0.0.1:3000" crawled="100" date="2026-07-26T23:04:08.969Z"/>
+<score overall="76" grade="C">
+ <cat name="Security" score="72"/>
+ <cat name="Accessibility" score="97"/>
+ <cat name="Crawlability" score="83"/>
+ <cat name="Performance" score="83"/>
+ <cat name="Core SEO" score="91"/>
+ <cat name="Content" score="93"/>
+ <cat name="E-E-A-T" score="86"/>
+ <cat name="Links" score="100"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Images" score="100"/>
+ <cat name="Legal Compliance" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="Social Media" score="100"/>
+ <cat name="URL Structure" score="100"/>
+</score>
+<summary passed="7996" warnings="547" failed="108"/>
+<issues>
+ <category name="Crawlability" errors="1" warnings="3">
+  <rule id="crawl/sitemap-domain" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-domain">
+   170 URL(s) point to different domain(s)
+   Items (5/170):
+    - https://gummyui.dev/ [host: gummyui.dev]
+    - https://gummyui.dev/components [host: gummyui.dev]
+    - https://gummyui.dev/docs [host: gummyui.dev]
+    - https://gummyui.dev/docs/nextjs [host: gummyui.dev]
+    - https://gummyui.dev/docs/vite [host: gummyui.dev]
+  </rule>
+  <rule id="crawl/sitemap-coverage" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-coverage">
+   97 indexable page(s) not in sitemap (100%); 170 sitemap URL(s) were not crawled
+   Items (5/267):
+    - /
+    - /docs
+    - /blog
+    - /support
+    - /contact
+  </rule>
+  <rule id="crawl/indexability-conflicts" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/indexability-conflicts">
+   74 page(s) allowed in robots.txt but have noindex
+  </rule>
+ </category>
+ <category name="Core SEO" errors="0" warnings="138">
+  <rule id="core/meta-title" severity="error" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-title">
+   Title too short
+   Pages (5/22): /blog, /community, /contact, /privacy, /pro
+   Items (5/22):
+    - /blog (Articles · Gummy UI (19 chars))
+    - /contact (Contact status · Gummy UI (25 chars))
+    - /community (Community showcase · Gummy UI (29 chars))
+    - /registry (Component registry · Gummy UI (29 chars))
+    - /pro (Gummy UI Pro status (19 chars))
+  </rule>
+  <rule id="core/meta-description" severity="error" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-description">
+   Description too short
+   Pages (5/42): /blocks, /commercial-license, /community, /contact, /design-kit
+   Items (5/42):
+    - /contact (Current pre-launch contact and data-collection sta (67 chars))
+    - /studio (Frame screenshots in Gummy UI gel material and exp (84 chars))
+    - /community (Verified, permissioned products built with Gummy U (52 chars))
+    - /registry (Install 57 editable Gummy UI React components thro (90 chars))
+    - /pro (Boundary-safe implementation status for Gummy UI P (87 chars))
+  </rule>
+  <rule id="core/robots-meta" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/robots-meta">
+   Page is set to noindex; Page is set to noindex and nofollow
+   Pages (5/74): /blocks, /design-kit, /pro, /templates, /terms
+  </rule>
+ </category>
+ <category name="Security" errors="97" warnings="1">
+  <rule id="security/https" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/security/https">
+   Page not served over HTTPS
+   Pages (5/97): /, /accessibility, /blocks, /blog, /commercial-license
+  </rule>
+  <rule id="security/csp" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+   CSP allows &apos;unsafe-inline&apos;
+  </rule>
+ </category>
+ <category name="Links" errors="0" warnings="1">
+  <rule id="links/internal-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/internal-links">
+   Too many internal links (155, max 100)
+   Pages (1): /registry
+   Items (1):
+    - /registry (Too many internal links (155, max 100))
+  </rule>
+ </category>
+ <category name="Content" errors="0" warnings="103">
+  <rule id="content/keyword-stuffing" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+   N word(s) may be overused
+   Pages (5/10): /blocks, /blog, /license, /locales, /mcp
+   Items (5/20):
+    - gummy (&quot;gummy&quot; (5.6%)) [count: 33, density: 5.641025641025641]
+    - jul (&quot;jul&quot; (3.1%)) [count: 18, density: 3.076923076923077]
+    - chart (&quot;chart&quot; (4.2%)) [count: 12, density: 4.225352112676056]
+    - fruit (&quot;fruit&quot; (3.9%)) [count: 11, density: 3.873239436619718]
+    - core (&quot;core&quot; (3.5%)) [count: 10, density: 3.5211267605633805]
+  </rule>
+  <rule id="content/word-count" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/word-count">
+   Thin content: N words (min N)
+   Pages (5/93): /, /accessibility, /commercial-license, /community, /contact
+   Items (5/93):
+    - / (Thin content: 239 words (min 300))
+    - /support (Thin content: 127 words (min 300))
+    - /contact (Thin content: 114 words (min 300))
+    - /studio (Thin content: 120 words (min 300))
+    - /themes (Thin content: 238 words (min 300))
+  </rule>
+ </category>
+ <category name="Performance" errors="0" warnings="294">
+  <rule id="perf/css-file-size" severity="error" status="warn" docs="https://docs.squirrelscan.com/rules/perf/css-file-size">
+   1 CSS file(s) exceed 150.0 KB
+   Items (1):
+    - /assets/index-Be2IPlkg.css [sizeBytes: 202322, size: 197.6 KB, status: 200, contentType: text/css] (from: /, /docs, /blog, /support, /contact; +92 more)
+  </rule>
+  <rule id="perf/render-blocking" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/render-blocking">
+   4 render-blocking resources
+   Pages (1): /components
+   Items (4):
+    - /assets/index-Be2IPlkg.css
+    - /styles/gummy-form-controls.css
+    - /styles/gummy-primitives.css
+    - /styles/component-inspector.css
+  </rule>
+  <rule id="perf/total-byte-weight" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/total-byte-weight">
+   Total tracked resources: 1609KB (heavy page)
+  </rule>
+  <rule id="perf/critical-request-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/critical-request-chains">
+   N critical request chain(s) found
+   Pages (5/97): /, /accessibility, /blocks, /blog, /commercial-license
+   Items (5):
+    - CSS: /assets/index-Be2IPlkg.css
+    - CSS: /styles/gummy-form-controls.css
+    - CSS: /styles/gummy-primitives.css
+    - CSS: /styles/component-inspector.css
+    - CSS: /styles/frame-studio.css
+  </rule>
+  <rule id="perf/unminified-css" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/unminified-css">
+   1 CSS file(s) appear unminified
+   Pages (5/97): /, /accessibility, /blocks, /blog, /commercial-license
+   Items (1):
+    - inline style (5.7KB, ~0.3KB savings) [reason: high newlines (2.4%), 14 comments, formatted code blocks]
+  </rule>
+  <rule id="perf/http2" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/perf/http2">
+   HTTP/2 requires HTTPS
+   Pages (5/97): /, /accessibility, /blocks, /blog, /commercial-license
+   Items (5/97):
+    - / (HTTP/2 requires HTTPS)
+    - /docs (HTTP/2 requires HTTPS)
+    - /blog (HTTP/2 requires HTTPS)
+    - /support (HTTP/2 requires HTTPS)
+    - /contact (HTTP/2 requires HTTPS)
+  </rule>
+ </category>
+ <category name="Accessibility" errors="10" warnings="6">
+  <rule id="a11y/aria-hidden-focus" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-hidden-focus">
+   1 focusable element(s) inside aria-hidden
+   Pages (2): /, /themes
+   Items (1):
+    - input (self is focusable)
+  </rule>
+  <rule id="a11y/aria-input-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-input-field-name">
+   1 input field(s) without accessible names
+   Pages (3): /, /rtl, /themes
+   Items (2):
+    - input[type=&quot;checkbox&quot;]
+    - input[type=&quot;range&quot;]
+  </rule>
+  <rule id="a11y/aria-toggle-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-toggle-field-name">
+   1 toggle field(s) without accessible names
+   Pages (2): /, /themes
+   Items (1):
+    - checkbox
+  </rule>
+  <rule id="a11y/form-labels" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/form-labels">
+   1 form input(s) without labels
+   Pages (3): /, /rtl, /themes
+   Items (2):
+    - checkbox
+    - base-ui-_R_an6ed6H2_
+  </rule>
+  <rule id="a11y/form-field-multiple-labels" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/form-field-multiple-labels">
+   4 input(s) with multiple labels
+   Pages (1): /docs
+   Items (4):
+    - docs-visibility (2 labels)
+    - docs-visibility (2 labels)
+    - docs-visibility (2 labels)
+    - gummy-checkbox-_R_2omed6_ (2 labels)
+  </rule>
+  <rule id="a11y/heading-order" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/heading-order">
+   1 heading level skip(s) detected
+   Pages (1): /
+   Items (1):
+    - H3 after H1
+  </rule>
+  <rule id="a11y/identical-links-same-purpose" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/identical-links-same-purpose">
+   1 link text(s) lead to different destinations
+   Pages (3): /blocks, /pro, /templates
+   Items (3):
+    - &quot;review status&quot; → 2 different URLs
+    - &quot;review category&quot; → 22 different URLs
+    - &quot;review template&quot; → 6 different URLs
+  </rule>
+  <rule id="a11y/th-has-data-cells" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/th-has-data-cells">
+   1 &lt;th&gt; element(s) without associated data cells
+   Pages (1): /locales
+   Items (1):
+    - Language
+  </rule>
+ </category>
+ <category name="E-E-A-T" errors="0" warnings="1">
+  <rule id="eeat/author-byline" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/eeat/author-byline">
+   No content pages have author attribution
+  </rule>
+ </category>
+</issues>
+</audit>

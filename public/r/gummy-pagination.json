@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-pagination",
+  "type": "registry:ui",
+  "title": "Gummy Pagination",
+  "description": "Semantic page navigation with 44px targets, current-page state, RTL arrows, and compact ellipsis.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyPagination.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyPaginationProps = React.HTMLAttributes<HTMLElement> & {\n  label?: string;\n};\n\nexport const GummyPagination = React.forwardRef<\n  HTMLElement,\n  GummyPaginationProps\n>(function GummyPagination(\n  { label = \"Pagination\", className, children, ...props },\n  ref,\n) {\n  return (\n    <nav\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-pagination\", className)}\n      aria-label={label}\n    >\n      <ol>{children}</ol>\n    </nav>\n  );\n});\n\nGummyPagination.displayName = \"GummyPagination\";\n\nexport const GummyPaginationItem = React.forwardRef<\n  HTMLLIElement,\n  React.LiHTMLAttributes<HTMLLIElement>\n>(function GummyPaginationItem({ className, ...props }, ref) {\n  return (\n    <li\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-pagination__item\", className)}\n    />\n  );\n});\n\nGummyPaginationItem.displayName = \"GummyPaginationItem\";\n\nexport type GummyPaginationLinkProps =\n  React.AnchorHTMLAttributes<HTMLAnchorElement> & {\n    current?: boolean;\n    size?: \"page\" | \"wide\";\n  };\n\nexport const GummyPaginationLink = React.forwardRef<\n  HTMLAnchorElement,\n  GummyPaginationLinkProps\n>(function GummyPaginationLink(\n  { current = false, size = \"page\", className, ...props },\n  ref,\n) {\n  return (\n    <a\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-pagination__link\", className)}\n      data-size={size}\n      aria-current={current ? \"page\" : undefined}\n    />\n  );\n});\n\nGummyPaginationLink.displayName = \"GummyPaginationLink\";\n\nexport function GummyPaginationPrevious(\n  props: Omit<GummyPaginationLinkProps, \"children\" | \"size\">,\n) {\n  return (\n    <GummyPaginationLink {...props} size=\"wide\">\n      <span aria-hidden=\"true\">←</span>\n      <span>Previous</span>\n    </GummyPaginationLink>\n  );\n}\n\nexport function GummyPaginationNext(\n  props: Omit<GummyPaginationLinkProps, \"children\" | \"size\">,\n) {\n  return (\n    <GummyPaginationLink {...props} size=\"wide\">\n      <span>Next</span>\n      <span aria-hidden=\"true\">→</span>\n    </GummyPaginationLink>\n  );\n}\n\nexport function GummyPaginationEllipsis({\n  label = \"More pages\",\n}: {\n  label?: string;\n}) {\n  return (\n    <span className=\"gummy-pagination__ellipsis\">\n      <span aria-hidden=\"true\">•••</span>\n      <span className=\"gummy-visually-hidden\">{label}</span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

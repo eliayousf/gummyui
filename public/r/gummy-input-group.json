@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-input-group",
+  "type": "registry:ui",
+  "title": "Gummy Input Group",
+  "description": "Native input composition with start/end addons and real action Buttons inside one focus-responsive shell.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyInputGroup.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyInputGroup = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(\n  function GummyInputGroup({ className, ...props }, ref) {\n    return <div {...props} ref={ref} className={joinClassNames(\"gummy-input-group\", className)} />;\n  },\n);\nexport const GummyInputGroupAddon = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement> & { position?: \"start\" | \"end\" }>(\n  function GummyInputGroupAddon({ position = \"start\", className, ...props }, ref) {\n    return <span {...props} ref={ref} className={joinClassNames(\"gummy-input-group__addon\", className)} data-position={position} />;\n  },\n);\nexport const GummyInputGroupControl = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(\n  function GummyInputGroupControl({ className, ...props }, ref) {\n    return <input {...props} ref={ref} className={joinClassNames(\"gummy-input-group__control\", className)} />;\n  },\n);\nexport const GummyInputGroupButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(\n  function GummyInputGroupButton({ className, type = \"button\", ...props }, ref) {\n    return <button {...props} ref={ref} type={type} className={joinClassNames(\"gummy-input-group__button\", className)} />;\n  },\n);\n\nGummyInputGroup.displayName = \"GummyInputGroup\";\nGummyInputGroupAddon.displayName = \"GummyInputGroupAddon\";\nGummyInputGroupControl.displayName = \"GummyInputGroupControl\";\nGummyInputGroupButton.displayName = \"GummyInputGroupButton\";\n"
+    }
+  ]
+}

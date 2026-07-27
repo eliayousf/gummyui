@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-empty",
+  "type": "registry:ui",
+  "title": "Gummy Empty",
+  "description": "Semantic Empty-state composition with restrained media, title, description, and action slots.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-button.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyEmpty.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyEmpty = React.forwardRef<\n  HTMLElement,\n  React.HTMLAttributes<HTMLElement>\n>(function GummyEmpty({ className, ...props }, ref) {\n  return (\n    <section\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-empty\", className)}\n    />\n  );\n});\n\nGummyEmpty.displayName = \"GummyEmpty\";\n\nexport const GummyEmptyMedia = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(function GummyEmptyMedia({ className, ...props }, ref) {\n  return (\n    <div\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-empty__media\", className)}\n      aria-hidden=\"true\"\n    />\n  );\n});\n\nGummyEmptyMedia.displayName = \"GummyEmptyMedia\";\n\nexport const GummyEmptyTitle = React.forwardRef<\n  HTMLHeadingElement,\n  React.HTMLAttributes<HTMLHeadingElement>\n>(function GummyEmptyTitle({ className, ...props }, ref) {\n  return (\n    <h3\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-empty__title\", className)}\n    />\n  );\n});\n\nGummyEmptyTitle.displayName = \"GummyEmptyTitle\";\n\nexport const GummyEmptyDescription = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(function GummyEmptyDescription({ className, ...props }, ref) {\n  return (\n    <p\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-empty__description\", className)}\n    />\n  );\n});\n\nGummyEmptyDescription.displayName = \"GummyEmptyDescription\";\n\nexport const GummyEmptyActions = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(function GummyEmptyActions({ className, ...props }, ref) {\n  return (\n    <div\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-empty__actions\", className)}\n    />\n  );\n});\n\nGummyEmptyActions.displayName = \"GummyEmptyActions\";\n"
+    }
+  ]
+}

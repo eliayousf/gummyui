@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-collapsible",
+  "type": "registry:ui",
+  "title": "Gummy Collapsible",
+  "description": "Base UI disclosure with controlled or uncontrolled state and a reduced-motion panel.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyCollapsible.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Collapsible } from \"@base-ui/react/collapsible\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyCollapsible = Collapsible.Root;\n\nexport const GummyCollapsibleTrigger = React.forwardRef<\n  HTMLButtonElement,\n  Collapsible.Trigger.Props\n>(function GummyCollapsibleTrigger({ className, children, ...props }, ref) {\n  return (\n    <Collapsible.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-collapsible__trigger\", className as string)}\n    >\n      <span>{children}</span>\n      <span className=\"gummy-collapsible__indicator\" aria-hidden=\"true\">+</span>\n    </Collapsible.Trigger>\n  );\n});\n\nexport const GummyCollapsiblePanel = React.forwardRef<\n  HTMLDivElement,\n  Collapsible.Panel.Props\n>(function GummyCollapsiblePanel({ className, children, ...props }, ref) {\n  return (\n    <Collapsible.Panel\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-collapsible__panel\", className as string)}\n    >\n      <div className=\"gummy-collapsible__panel-content\">{children}</div>\n    </Collapsible.Panel>\n  );\n});\n\nGummyCollapsibleTrigger.displayName = \"GummyCollapsibleTrigger\";\nGummyCollapsiblePanel.displayName = \"GummyCollapsiblePanel\";\n"
+    }
+  ]
+}

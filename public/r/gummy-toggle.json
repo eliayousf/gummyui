@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-toggle",
+  "type": "registry:ui",
+  "title": "Gummy Toggle",
+  "description": "Base UI two-state button with visible pressed, focus, disabled, and fruit emphasis states.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyToggle.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Toggle } from \"@base-ui/react/toggle\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyToggleProps = Toggle.Props & {\n  variant?: \"quiet\" | \"fruit\";\n};\n\nexport const GummyToggle = React.forwardRef<\n  HTMLButtonElement,\n  GummyToggleProps\n>(function GummyToggle(\n  { variant = \"quiet\", className, children, ...props },\n  ref,\n) {\n  return (\n    <Toggle\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-toggle\", className as string)}\n      data-variant={variant}\n    >\n      <span className=\"gummy-toggle__pool\" aria-hidden=\"true\" />\n      <span className=\"gummy-toggle__content\">{children}</span>\n    </Toggle>\n  );\n});\n\nGummyToggle.displayName = \"GummyToggle\";\n"
+    }
+  ]
+}

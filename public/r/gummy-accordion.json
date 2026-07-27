@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-accordion",
+  "type": "registry:ui",
+  "title": "Gummy Accordion",
+  "description": "Base UI Accordion with managed keyboard navigation, animated panels, and connected material indicators.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyAccordion.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Accordion } from \"@base-ui/react/accordion\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyAccordionProps = Accordion.Root.Props;\n\nexport function GummyAccordion({ className, ...props }: GummyAccordionProps) {\n  return (\n    <Accordion.Root\n      {...props}\n      className={joinClassNames(\"gummy-accordion\", className as string)}\n    />\n  );\n}\n\nexport const GummyAccordionItem = React.forwardRef<\n  HTMLDivElement,\n  Accordion.Item.Props\n>(function GummyAccordionItem({ className, ...props }, ref) {\n  return (\n    <Accordion.Item\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-accordion__item\", className as string)}\n    />\n  );\n});\n\nexport const GummyAccordionHeader = React.forwardRef<\n  HTMLHeadingElement,\n  Accordion.Header.Props\n>(function GummyAccordionHeader({ className, ...props }, ref) {\n  return (\n    <Accordion.Header\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-accordion__header\", className as string)}\n    />\n  );\n});\n\nexport const GummyAccordionTrigger = React.forwardRef<\n  HTMLElement,\n  Accordion.Trigger.Props\n>(function GummyAccordionTrigger({ className, children, ...props }, ref) {\n  return (\n    <Accordion.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-accordion__trigger\", className as string)}\n    >\n      <span>{children}</span>\n      <span className=\"gummy-accordion__indicator\" aria-hidden=\"true\">+</span>\n    </Accordion.Trigger>\n  );\n});\n\nexport const GummyAccordionPanel = React.forwardRef<\n  HTMLDivElement,\n  Accordion.Panel.Props\n>(function GummyAccordionPanel({ className, children, ...props }, ref) {\n  return (\n    <Accordion.Panel\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-accordion__panel\", className as string)}\n    >\n      <div className=\"gummy-accordion__panel-content\">{children}</div>\n    </Accordion.Panel>\n  );\n});\n\nGummyAccordionItem.displayName = \"GummyAccordionItem\";\nGummyAccordionHeader.displayName = \"GummyAccordionHeader\";\nGummyAccordionTrigger.displayName = \"GummyAccordionTrigger\";\nGummyAccordionPanel.displayName = \"GummyAccordionPanel\";\n"
+    }
+  ]
+}

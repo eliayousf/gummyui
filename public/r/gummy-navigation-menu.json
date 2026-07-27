@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-navigation-menu",
+  "type": "registry:ui",
+  "title": "Gummy Navigation Menu",
+  "description": "Base UI site Navigation Menu with link semantics, keyboard and hover opening, collision positioning, and responsive popup content.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyNavigationMenu.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { NavigationMenu } from \"@base-ui/react/navigation-menu\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyNavigationMenuProps = NavigationMenu.Root.Props & {\n  label?: string;\n};\n\nexport function GummyNavigationMenu({\n  label = \"Primary\",\n  className,\n  ...props\n}: GummyNavigationMenuProps) {\n  return <NavigationMenu.Root {...props} aria-label={label} className={joinClassNames(\"gummy-navigation-menu\", className as string)} />;\n}\n\nexport const GummyNavigationMenuList = React.forwardRef<\n  HTMLUListElement,\n  NavigationMenu.List.Props\n>(function GummyNavigationMenuList({ className, ...props }, ref) {\n  return <NavigationMenu.List {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__list\", className as string)} />;\n});\n\nexport const GummyNavigationMenuItem = NavigationMenu.Item;\n\nexport const GummyNavigationMenuTrigger = React.forwardRef<\n  HTMLButtonElement,\n  NavigationMenu.Trigger.Props\n>(function GummyNavigationMenuTrigger({ className, children, ...props }, ref) {\n  return (\n    <NavigationMenu.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__trigger\", className as string)}>\n      {children}<NavigationMenu.Icon className=\"gummy-navigation-menu__icon\">⌄</NavigationMenu.Icon>\n    </NavigationMenu.Trigger>\n  );\n});\n\nexport const GummyNavigationMenuContent = NavigationMenu.Content;\nexport const GummyNavigationMenuPortal = NavigationMenu.Portal;\nexport const GummyNavigationMenuViewport = NavigationMenu.Viewport;\n\nexport const GummyNavigationMenuPositioner = React.forwardRef<\n  HTMLDivElement,\n  NavigationMenu.Positioner.Props\n>(function GummyNavigationMenuPositioner({ className, sideOffset = 10, ...props }, ref) {\n  return <NavigationMenu.Positioner {...props} ref={ref} sideOffset={sideOffset} className={joinClassNames(\"gummy-floating-positioner\", className as string)} />;\n});\n\nexport const GummyNavigationMenuPopup = React.forwardRef<\n  HTMLDivElement,\n  NavigationMenu.Popup.Props\n>(function GummyNavigationMenuPopup({ className, ...props }, ref) {\n  return <NavigationMenu.Popup {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__popup\", className as string)} />;\n});\n\nexport const GummyNavigationMenuLink = React.forwardRef<\n  HTMLAnchorElement,\n  NavigationMenu.Link.Props\n>(function GummyNavigationMenuLink({ className, ...props }, ref) {\n  return <NavigationMenu.Link {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__link\", className as string)} />;\n});\n\nGummyNavigationMenuList.displayName = \"GummyNavigationMenuList\";\nGummyNavigationMenuTrigger.displayName = \"GummyNavigationMenuTrigger\";\nGummyNavigationMenuPositioner.displayName = \"GummyNavigationMenuPositioner\";\nGummyNavigationMenuPopup.displayName = \"GummyNavigationMenuPopup\";\nGummyNavigationMenuLink.displayName = \"GummyNavigationMenuLink\";\n"
+    }
+  ]
+}

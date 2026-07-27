@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-toggle-group",
+  "type": "registry:ui",
+  "title": "Gummy Toggle Group",
+  "description": "Labelled Base UI single or multiple Toggle Group with arrow navigation and orientation support.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-toggle.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyToggleGroup.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { ToggleGroup } from \"@base-ui/react/toggle-group\";\nimport * as React from \"react\";\nimport { GummyToggle, type GummyToggleProps } from \"./GummyToggle\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyToggleGroupProps = ToggleGroup.Props & {\n  label: string;\n};\n\nexport const GummyToggleGroup = React.forwardRef<\n  HTMLDivElement,\n  GummyToggleGroupProps\n>(function GummyToggleGroup({ label, className, ...props }, ref) {\n  return (\n    <ToggleGroup\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-toggle-group\", className as string)}\n      aria-label={label}\n    />\n  );\n});\n\nGummyToggleGroup.displayName = \"GummyToggleGroup\";\n\nexport type GummyToggleGroupItemProps = GummyToggleProps & {\n  value: string;\n};\n\nexport const GummyToggleGroupItem = React.forwardRef<\n  HTMLButtonElement,\n  GummyToggleGroupItemProps\n>(function GummyToggleGroupItem({ className, ...props }, ref) {\n  return (\n    <GummyToggle\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-toggle-group__item\", className as string)}\n    />\n  );\n});\n\nGummyToggleGroupItem.displayName = \"GummyToggleGroupItem\";\n"
+    }
+  ]
+}

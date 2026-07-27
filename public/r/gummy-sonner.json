@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-sonner",
+  "type": "registry:ui",
+  "title": "Gummy Sonner",
+  "description": "Base UI toast provider and viewport with polite or urgent announcements, actions, promise updates, timeout pausing, swipe dismissal, and four positions.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-primitives-styles.json"
+  ],
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySonner.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Toast } from \"@base-ui/react/toast\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummySonnerProviderProps = Toast.Provider.Props;\n\nexport function GummySonnerProvider({\n  timeout = 5000,\n  limit = 3,\n  ...props\n}: GummySonnerProviderProps) {\n  return <Toast.Provider {...props} timeout={timeout} limit={limit} />;\n}\n\nexport function useGummyToast() {\n  return Toast.useToastManager();\n}\n\nexport type GummyToasterProps = Omit<Toast.Viewport.Props, \"children\"> & {\n  position?: \"top-left\" | \"top-right\" | \"bottom-left\" | \"bottom-right\";\n  closeLabel?: string;\n};\n\nexport const GummyToaster = React.forwardRef<HTMLDivElement, GummyToasterProps>(\n  function GummyToaster(\n    {\n      position = \"bottom-right\",\n      closeLabel = \"Dismiss notification\",\n      className,\n      ...props\n    },\n    ref,\n  ) {\n    const { toasts } = Toast.useToastManager();\n    return (\n      <Toast.Portal>\n        <Toast.Viewport\n          {...props}\n          ref={ref}\n          className={joinClassNames(\"gummy-toaster\", className as string)}\n          data-position={position}\n        >\n          {toasts.map((toast) => (\n            <Toast.Root\n              key={toast.id}\n              toast={toast}\n              className=\"gummy-toast\"\n              swipeDirection={position.endsWith(\"right\") ? \"right\" : \"left\"}\n            >\n              <Toast.Content className=\"gummy-toast__content\">\n                <span className=\"gummy-toast__reservoir\" aria-hidden=\"true\" />\n                <div className=\"gummy-toast__copy\">\n                  <Toast.Title className=\"gummy-toast__title\" />\n                  <Toast.Description className=\"gummy-toast__description\" />\n                </div>\n                {toast.actionProps ? (\n                  <Toast.Action {...toast.actionProps} className={joinClassNames(\"gummy-toast__action\", toast.actionProps.className)}>\n                    {toast.actionProps.children}\n                  </Toast.Action>\n                ) : null}\n                <Toast.Close className=\"gummy-toast__close\" aria-label={closeLabel}>\n                  <span aria-hidden=\"true\">×</span>\n                </Toast.Close>\n              </Toast.Content>\n            </Toast.Root>\n          ))}\n        </Toast.Viewport>\n      </Toast.Portal>\n    );\n  },\n);\n\nGummyToaster.displayName = \"GummyToaster\";\n"
+    }
+  ]
+}
