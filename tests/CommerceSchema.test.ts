@@ -56,6 +56,7 @@ describe("commercial Convex schema", () => {
     const source = await read("convex/schema.ts");
     for (const index of [
       'index("by_nonce_hash", ["nonceHash"])',
+      'index("by_release", ["releaseId"])',
       'index("by_provider_event", ["providerKind", "providerEventId"])',
       'index("by_workspace_account", ["workspaceId", "accountId"])',
       'index("by_scope", [',
@@ -79,6 +80,8 @@ describe("commercial Convex schema", () => {
     expect(source).toContain("signatureVerified: true");
     expect(source).toContain("payloadHash !== input.payloadHash");
     expect(source).toContain("downloads.consume");
+    expect(source).toContain("releases.publish");
+    expect(source).toContain("releases.withdraw");
     expect(source).toContain("privacy.deletion.complete");
     expect(source).toContain("email.outbox.claim");
     expect(source).toContain("email.outbox.accepted");

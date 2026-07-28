@@ -5,6 +5,11 @@ import {
   type TableNamesInDataModel,
 } from "convex/server";
 import { v } from "convex/values";
+import {
+  parseProtectedReleasePublication,
+  parseProtectedReleaseWithdrawal,
+  protectedReleaseId,
+} from "../lib/commerce/protected-releases";
 import schema from "./schema";
 
 type DataModel = DataModelFromSchemaDefinition<typeof schema>;
@@ -46,6 +51,10 @@ export const execute = mutationGeneric({
         return findAuthorizedRelease(ctx, input);
       case "downloads.consume":
         return consumeAuthorizedRelease(ctx, input);
+      case "releases.publish":
+        return publishProtectedRelease(ctx, input);
+      case "releases.withdraw":
+        return withdrawProtectedRelease(ctx, input);
       case "billing.customer":
         return findBillingCustomer(ctx, input);
       case "account.section":
@@ -1259,6 +1268,19 @@ async function registerDownloadGrant(
 ): Promise<void> {
   const accountId = text(input, "accountId");
   const createdAt = number(input, "createdAt");
+  const expiresAt = number(input, "expiresAt");
+  const nonceHash = sha256(input, "nonceHash");
+  const fingerprintHash = nullableText(input, "fingerprintHash");
+  if (
+    !Number.isSafeInteger(createdAt)
+    || !Number.isSafeInteger(expiresAt)
+    || expiresAt <= createdAt
+    || expiresAt - createdAt > 15 * 60_000
+    || (fingerprintHash !== null && !/^[a-f0-9]{64}$/u.test(fingerprintHash))
+    || !(await grantRegistrationIsAuthorized(ctx, input, createdAt))
+  ) {
+    throw new Error("Download grant could not be registered");
+  }
   const recent = await ctx.db
     .query("downloadGrants")
     .withIndex("by_account_created", (q) =>
@@ -1270,24 +1292,263 @@ async function registerDownloadGrant(
   const existingNonce = await ctx.db
     .query("downloadGrants")
     .withIndex("by_nonce_hash", (q) =>
-      q.eq("nonceHash", text(input, "nonceHash")))
+      q.eq("nonceHash", nonceHash))
     .unique();
   if (existingNonce) {
     throw new Error("Download grant could not be registered");
   }
   await ctx.db.insert("downloadGrants", {
     id: text(input, "grantId"),
-    nonceHash: text(input, "nonceHash"),
+    nonceHash,
     accountId,
     workspaceId: text(input, "workspaceId"),
     releaseId: text(input, "releaseId"),
     entitlementId: text(input, "entitlementId"),
-    requestFingerprintHash: nullableText(input, "fingerprintHash"),
-    expiresAt: number(input, "expiresAt"),
+    requestFingerprintHash: fingerprintHash,
+    expiresAt,
     consumedAt: null,
     revokedAt: null,
     createdAt,
   });
+}
+
+async function grantRegistrationIsAuthorized(
+  ctx: MutationCtx,
+  input: Input,
+  now: number,
+): Promise<boolean> {
+  const accountId = text(input, "accountId");
+  const workspaceId = text(input, "workspaceId");
+  const [account, workspace, release, entitlement, membership] =
+    await Promise.all([
+      byId(ctx, "accounts", accountId),
+      byId(ctx, "workspaces", workspaceId),
+      byId(ctx, "releaseRecords", text(input, "releaseId")),
+      byId(ctx, "entitlements", text(input, "entitlementId")),
+      ctx.db
+        .query("memberships")
+        .withIndex("by_workspace_account", (q) =>
+          q.eq("workspaceId", workspaceId).eq("accountId", accountId))
+        .unique(),
+    ]);
+  if (
+    !account
+    || account.status !== "active"
+    || !workspace
+    || workspace.status !== "active"
+    || !membership
+    || membership.status !== "active"
+    || !release
+    || release.status !== "published"
+    || release.releasedAt == null
+    || release.releasedAt > now
+    || !entitlement
+    || entitlement.workspaceId !== workspaceId
+    || entitlement.productRef !== release.productRef
+    || entitlement.status !== "active"
+    || (
+      entitlement.accountId !== null
+      && entitlement.accountId !== undefined
+      && entitlement.accountId !== accountId
+    )
+    || entitlement.validFrom > now
+    || (entitlement.validUntil != null && entitlement.validUntil <= now)
+    || (
+      entitlement.updatesUntil != null
+      && release.releasedAt > entitlement.updatesUntil
+    )
+  ) {
+    return false;
+  }
+  const licence = await byId(ctx, "licences", entitlement.licenceId);
+  if (
+    !licence
+    || licence.workspaceId !== workspaceId
+    || licence.productRef !== release.productRef
+    || licence.status !== "active"
+    || licence.startsAt > now
+    || (licence.expiresAt != null && licence.expiresAt <= now)
+    || (
+      licence.updatesUntil != null
+      && release.releasedAt > licence.updatesUntil
+    )
+  ) {
+    return false;
+  }
+  const seat = await ctx.db
+    .query("licenceSeats")
+    .withIndex("by_licence_account", (q) =>
+      q.eq("licenceId", licence.id).eq("accountId", accountId))
+    .unique();
+  return seat?.status === "active";
+}
+
+async function publishProtectedRelease(
+  ctx: MutationCtx,
+  input: Input,
+): Promise<Record<string, unknown>> {
+  const publication = parseProtectedReleasePublication(input);
+  const existingVersion = await ctx.db
+    .query("releaseRecords")
+    .withIndex("by_product_version", (q) =>
+      q
+        .eq("productRef", publication.productRef)
+        .eq("version", publication.version))
+    .unique();
+  const existingObject = await ctx.db
+    .query("releaseRecords")
+    .withIndex("by_storage_key", (q) =>
+      q.eq("storageKey", publication.objectKey))
+    .unique();
+
+  if (existingVersion) {
+    if (
+      existingVersion.storageKey !== publication.objectKey
+      || existingVersion.checksumSha256 !== publication.outerArchiveSha256
+      || existingVersion.sizeBytes !== publication.sizeBytes
+      || (existingObject && existingObject._id !== existingVersion._id)
+    ) {
+      throw new Error("Protected release metadata conflict");
+    }
+    return redactedReleaseResult(
+      existingVersion.id,
+      existingVersion.productRef,
+      existingVersion.version,
+      existingVersion.status,
+      "unchanged",
+    );
+  }
+  if (existingObject) {
+    throw new Error("Protected release object key conflict");
+  }
+
+  const now = Date.now();
+  const releaseId = protectedReleaseId(
+    publication.productRef,
+    publication.version,
+  );
+  await ctx.db.insert("releaseRecords", {
+    id: releaseId,
+    productRef: publication.productRef,
+    version: publication.version,
+    storageKey: publication.objectKey,
+    checksumSha256: publication.outerArchiveSha256,
+    sizeBytes: publication.sizeBytes,
+    status: "published",
+    releasedAt: now,
+    withdrawnAt: null,
+    createdAt: now,
+    updatedAt: now,
+  });
+  await insertAuditOnce(ctx, {
+    id: `audit:${releaseId}:published`,
+    actorAccountId: null,
+    workspaceId: null,
+    action: "release.published",
+    targetType: "release",
+    targetId: releaseId,
+    outcome: "succeeded",
+    metadata: JSON.stringify({
+      productRef: publication.productRef,
+      version: publication.version,
+      status: "published",
+    }),
+    occurredAt: now,
+  });
+  return redactedReleaseResult(
+    releaseId,
+    publication.productRef,
+    publication.version,
+    "published",
+    "published",
+  );
+}
+
+async function withdrawProtectedRelease(
+  ctx: MutationCtx,
+  input: Input,
+): Promise<Record<string, unknown>> {
+  const withdrawal = parseProtectedReleaseWithdrawal(input);
+  const release = await ctx.db
+    .query("releaseRecords")
+    .withIndex("by_product_version", (q) =>
+      q
+        .eq("productRef", withdrawal.productRef)
+        .eq("version", withdrawal.version))
+    .unique();
+  if (!release) {
+    throw new Error("Protected release is unavailable");
+  }
+  if (release.status === "withdrawn") {
+    return redactedReleaseResult(
+      release.id,
+      release.productRef,
+      release.version,
+      "withdrawn",
+      "unchanged",
+    );
+  }
+  if (release.status !== "published") {
+    throw new Error("Protected release state conflict");
+  }
+
+  const now = Date.now();
+  const grants = await ctx.db
+    .query("downloadGrants")
+    .withIndex("by_release", (q) => q.eq("releaseId", release.id))
+    .collect();
+  let revokedGrantCount = 0;
+  for (const grant of grants) {
+    if (grant.consumedAt === null && grant.revokedAt === null) {
+      await ctx.db.patch(grant._id, { revokedAt: now });
+      revokedGrantCount += 1;
+    }
+  }
+
+  await ctx.db.patch(release._id, {
+    status: "withdrawn",
+    withdrawnAt: now,
+    updatedAt: now,
+  });
+  await insertAuditOnce(ctx, {
+    id: `audit:${release.id}:withdrawn`,
+    actorAccountId: null,
+    workspaceId: null,
+    action: "release.withdrawn",
+    targetType: "release",
+    targetId: release.id,
+    outcome: "succeeded",
+    metadata: JSON.stringify({
+      productRef: release.productRef,
+      version: release.version,
+      status: "withdrawn",
+      revokedGrantCount,
+    }),
+    occurredAt: now,
+  });
+
+  // Entitlements are product-level and can authorize other published versions.
+  // The withdrawn release status blocks new grants without erasing that access.
+  return {
+    ...redactedReleaseResult(
+      release.id,
+      release.productRef,
+      release.version,
+      "withdrawn",
+      "withdrawn",
+    ),
+    revokedGrantCount,
+  };
+}
+
+function redactedReleaseResult(
+  releaseId: string,
+  productRef: string,
+  version: string,
+  status: string,
+  outcome: string,
+): Record<string, unknown> {
+  return { releaseId, productRef, version, status, outcome };
 }
 
 async function findAuthorizedRelease(

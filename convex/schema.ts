@@ -329,6 +329,7 @@ export default defineSchema({
   })
     .index("by_custom_id", ["id"])
     .index("by_nonce_hash", ["nonceHash"])
+    .index("by_release", ["releaseId"])
     .index("by_account_created", ["accountId", "createdAt"])
     .index("by_account", ["accountId"])
     .index("by_entitlement", ["entitlementId"])
