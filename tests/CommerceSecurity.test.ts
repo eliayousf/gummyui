@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
   createCsrfToken,
-  FixedWindowRateLimiter,
   requireAllowedOrigin,
   scrubLogValue,
   serializeSecureCookie,
@@ -101,26 +100,6 @@ describe("commerce HTTP security primitives", () => {
         maxAgeSeconds: 3600,
         production: true,
       })).toThrow("Invalid cookie name");
-  });
-
-  it("enforces fixed-window limits and resets deterministically", () => {
-    const limiter = new FixedWindowRateLimiter(2, 1_000);
-    expect(limiter.consume("account:opaque:001", now)).toMatchObject({
-      allowed: true,
-      remaining: 1,
-    });
-    expect(limiter.consume("account:opaque:001", now + 1)).toMatchObject({
-      allowed: true,
-      remaining: 0,
-    });
-    expect(limiter.consume("account:opaque:001", now + 2)).toMatchObject({
-      allowed: false,
-      retryAfterMs: 998,
-    });
-    expect(limiter.consume("account:opaque:001", now + 1_000)).toMatchObject({
-      allowed: true,
-      remaining: 1,
-    });
   });
 
   it("scrubs secrets, personal data and signed download paths", () => {

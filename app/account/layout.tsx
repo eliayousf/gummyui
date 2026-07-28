@@ -5,6 +5,9 @@ import { resolveServerAccountAccess } from "../../lib/commerce/server-access";
 import { AccountShell } from "./_components/AccountShell";
 import "./account.css";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: {
     default: accountPublicCopy.shell.metadataTitle,

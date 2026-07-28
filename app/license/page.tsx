@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PublicTextPage } from "../components/PublicTextPage";
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ SOFTWARE.`}</code></pre>
       </section>
       <section>
         <h2>Pro boundary</h2>
-        <p>No commercial Pro licence terms are published in this baseline. Seat rights, permitted use, update periods, support, refunds, and organisation terms require founder approval and appropriate legal review.</p>
+        <p>Paid blocks, templates and design-kit files are proprietary and use the separate <Link href="/commercial-license">Gummy UI Pro commercial licence</Link>. Buying Pro does not change the MIT terms for public component source.</p>
       </section>
     </PublicTextPage>
   );

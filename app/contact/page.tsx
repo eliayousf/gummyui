@@ -1,26 +1,30 @@
 import type { Metadata } from "next";
 import { PublicTextPage } from "../components/PublicTextPage";
+import { commercialFacts } from "../data/commercial";
 
 export const metadata: Metadata = {
-  title: "Gummy UI contact and support status",
-  description: "Review Gummy UI's current pre-launch contact, support, privacy, and security-channel status, including the monitored operations required before launch.",
+  title: "Contact Gummy UI",
+  description:
+    "Contact Gummy UI support, privacy, security, billing and licensing through the monitored Kreyd Labs address.",
   alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <PublicTextPage
-      eyebrow="Pre-launch contact status"
-      title="No unattended inbox pretending to be support."
-      lede="A monitored contact destination, response owner, and data-handling process must be approved before this site launches."
+      eyebrow="One monitored route"
+      title="Contact Gummy UI."
+      lede={`Email ${commercialFacts.supportEmail} for support, privacy, security, billing, refunds and licensing. Messages are handled by the founder during UK business days.`}
     >
       <section>
-        <h2>Current status</h2>
-        <p>Gummy UI is a local pre-launch project. It does not currently accept sales, support, press, partnership, privacy, or vulnerability-report submissions, and it does not collect contact-form data.</p>
+        <h2>Email</h2>
+        <p><a href={commercialFacts.supportHref}>{commercialFacts.supportEmail}</a></p>
+        <p>Use a clear subject such as <strong>Support</strong>, <strong>Privacy request</strong>, <strong>Security report</strong>, <strong>Refund request</strong> or <strong>Licence question</strong>. Include an order identifier where relevant, but never send a password, recovery code, full card number or private key.</p>
       </section>
       <section>
-        <h2>Launch requirement</h2>
-        <p>The production contact surface will name the actual monitored destination, responsible owner, purpose, retention behavior, and realistic response expectation after those operational facts are approved and verified.</p>
+        <h2>Company</h2>
+        <p>{commercialFacts.legalName}, trading as {commercialFacts.tradingName}. Company number {commercialFacts.companyNumber}. Registered office: {commercialFacts.registeredAddress}.</p>
+        <p>This site does not use a public contact form. Email records are handled under the <a href="/privacy">privacy notice</a>.</p>
       </section>
     </PublicTextPage>
   );

@@ -1,9 +1,17 @@
-# Backup and restore — pre-production runbook
+# Backup and restore runbook
 
-Status: requirements drafted; no production database, object store, backup
-schedule, retention policy, encryption ownership, or restore owner exists yet.
+Status: the application implements encrypted, authenticated backups for all 24
+durable Convex commerce tables, immutable B2 retention settings, latest-backup
+verification, and a fail-closed isolated restore-proof runner. The live schema
+has a 25th table, `rateLimitWindows`, which contains ephemeral HMAC-derived
+abuse-control state and is deliberately excluded from backup and restore.
+The Convex production deployment exists and its server secret is set, but the
+current backup code/schema and runtime environment are not yet deployed or
+verified there. Production B2 resources, key custody, scheduled backup
+evidence, and a completed provider restore drill must still be recorded before
+this control is marked production-proven.
 
-The local provider-neutral foundation implements two separate controls:
+The backup format has two separate cryptographic controls:
 
 - each backup object can be encrypted with an injected, exactly 256-bit
   AES-256-GCM key; its backup ID, object name, schema version, record count,
@@ -12,11 +20,9 @@ The local provider-neutral foundation implements two separate controls:
 - the complete manifest can be authenticated with a separately injected
   HMAC-SHA-256 key and versioned key ID.
 
-Wrong keys, object swaps, metadata/ciphertext tampering, weak keys, and
-plaintext-checksum mismatches fail closed in automated tests. Neither key is
-stored in source, the envelope, or the backup destination. This proves the
-portable cryptographic contract, not production key custody, rotation,
-retention, scheduling, or restore operation.
+Wrong keys, object swaps, metadata/ciphertext tampering, weak keys, incomplete
+table sets, and plaintext-checksum mismatches fail closed. Neither key is
+stored in source, the envelope, or the backup destination.
 
 ## Required backup sets
 
@@ -32,22 +38,74 @@ retention, scheduling, or restore operation.
 Secrets remain in the approved secret manager and follow their own recovery and
 rotation process. They must not be copied into a repository backup.
 
-## Restore test
+## Automated database restore proof
 
-1. Create an isolated non-production destination with least-privilege access.
-2. Select a dated backup, verify the authenticated manifest, resolve approved
-   non-retired keys by key ID, and decrypt each object into isolated storage.
-3. Verify every authenticated object binding, plaintext checksum, manifest
-   checksum, size, schema version, and record count before restore.
-4. Restore structured records and protected objects without enabling outbound
-   customer email, live billing, or public downloads.
-5. Reconcile record counts and referential integrity.
-6. Exercise representative account, team, entitlement, expired-link, access
-   revocation, release-download, and audit-log queries.
-7. Compare every restored release archive with its recorded checksum.
-8. Destroy plaintext staging material and the isolated copy under the approved
-   retention procedure, then record timing, findings, owner, and corrective
-   actions.
+1. Create a new Convex **development** deployment used only for this drill. Do
+   not configure Stripe, WorkOS, Resend, downloads, cron jobs, or public
+   routing. Deploy the same schema and backup functions.
+2. Give the target two distinct random secrets of at least 32 characters and
+   set only:
 
-Launch evidence requires a successful restore in the selected production
-service architecture, not only this runbook or a provider backup setting.
+   ```text
+   CONVEX_SERVER_SECRET=<target export secret>
+   BACKUP_RESTORE_ENABLED=true
+   BACKUP_RESTORE_TARGET_CLASS=isolated-test
+   BACKUP_RESTORE_SECRET=<target restore secret>
+   ```
+
+3. Create a local, ignored, mode-0600 `.env.restore-proof`. Copy the production
+   backup B2 settings and approved backup encryption/authentication keys into
+   it. Add:
+
+   ```text
+   NEXT_PUBLIC_CONVEX_URL=<production Convex URL, isolation comparison only>
+   CONVEX_SERVER_SECRET=<production server secret, isolation comparison only>
+   BACKUP_RESTORE_PROOF_ENABLED=true
+   BACKUP_RESTORE_TARGET_CONVEX_URL=<new development Convex URL>
+   BACKUP_RESTORE_TARGET_SERVER_SECRET=<target export secret>
+   BACKUP_RESTORE_SECRET=<target restore secret>
+   BACKUP_RESTORE_TARGET_CLASS=isolated-test
+   BACKUP_RESTORE_TARGET_CONFIRMATION=RESTORE_TO_EMPTY_ISOLATED_TEST_ONLY
+   ```
+
+4. Run from the repository dev shell:
+
+   ```sh
+   nix develop -c node --conditions=react-server --env-file=.env.restore-proof --import tsx scripts/backup-restore-proof.ts
+   ```
+
+5. Retain the single JSON evidence object. A pass has `verified: true`, exactly
+   24 durable-table entries, the authenticated manifest checksum, a one-way
+   target fingerprint, and per-table counts/checksums. It contains no records,
+   URLs, secrets, email addresses, or provider diagnostics.
+6. Exercise representative account, team, entitlement, expired-link,
+   revocation, download and audit-log queries with every outbound integration
+   still absent.
+7. Verify protected release archives separately against their release
+   manifest; this database runner intentionally handles only the 24 durable
+   Convex tables. It also proves `rateLimitWindows` is empty before restore but
+   never imports or exports ephemeral windows.
+8. Remove the local environment file and destroy the isolated deployment under
+   the approved provider procedure after evidence is retained.
+
+The runner authenticates and decrypts the latest B2 backup, proves the target
+is empty, restores tables in one fixed sequence through
+`backup:restoreTable`, re-exports all 24 durable tables, and reconciles the
+exact original manifest. The emptiness check covers all 25 schema tables,
+including the excluded ephemeral table. The runner never clears or overwrites
+data. A partial failure leaves the target non-empty, so do not retry it:
+investigate using provider-side request logs, create a new empty development
+deployment, and repeat.
+
+The runner refuses:
+
+- missing opt-in or the exact confirmation phrase;
+- targets not classified by both operator and deployment as `isolated-test`;
+- the production Convex URL or either production/target shared secret;
+- HTTP, non-Convex, or production-looking target hostnames;
+- any non-empty or schema-mismatched target;
+- incomplete, unauthenticated, tampered, oversized, or non-v1 backups; and
+- count or checksum differences after the fresh export.
+
+Launch evidence requires a successful drill in the selected provider
+architecture, not only green automated tests or this runbook.

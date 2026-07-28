@@ -52,6 +52,12 @@ export interface CheckoutRequest {
   workspaceId: WorkspaceId;
   commercialOfferRef: string;
   returnPath: string;
+  consent?: {
+    immediateSupplyRequested: boolean;
+    cancellationLossAcknowledged: boolean;
+    policyVersion: string;
+    capturedAt: number;
+  };
 }
 
 export interface BillingPurchase {

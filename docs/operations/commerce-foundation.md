@@ -1,174 +1,123 @@
-# Provider-neutral commerce foundation
+# Convex commerce foundation
 
-**Status:** local implementation only; no live provider, authenticated account,
-credential, product, price, entitlement, checkout, storage bucket, database,
-queue, sender, monitor, or deployment is configured.
+**Status:** implemented locally and uploaded to the EU Convex development
+deployment. Stripe Managed Payments is live-account ready with three products,
+nine prices and `support@kreydlabs.com` configured. A Vercel project, domain
+attachment and part of its environment are configured. A Convex production
+deployment exists and `CONVEX_SERVER_SECRET` is set there. A WorkOS team and
+non-production AuthKit environment are provisioned, configured and proved
+through the staging sign-in, account, team, invitation, export, deletion,
+sign-out and unpaid-download journeys. Current production code/schema,
+production AuthKit, remaining runtime environment, webhooks, email, release
+storage, monitoring, Vercel Pro, DNS, deployment and all production customer
+journeys remain gated; checkout and webhook flags remain fail closed.
 
-This foundation supplies the local data contracts and security rules needed to
-build account, workspace, commerce, entitlement, protected-download, lifecycle,
-and recovery flows without selecting or activating a vendor.
+## Production provider state — 28 July 2026
 
-## What exists
+| Provider                              | Confirmed control-plane state                                                                                                                                                                                                                                                                                                        | Still required before launch                                                                                                                                                    |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stripe Managed Payments               | Live-account ready; three products, nine prices and `support@kreydlabs.com` are configured. The active `gummyui-production` destination listens for the exact 16 required event types at `/api/webhooks/stripe`; its signing secret is installed only in Vercel Production, the ignored local environment and the operator keychain. | Complete the prepared restricted production runtime key, verify signed delivery at the deployed origin, then pass sandbox and authorised live purchase/refund journeys.         |
+| Vercel                                | The project, domain attachment and part of the production environment are configured.                                                                                                                                                                                                                                                | Activate Vercel Pro, finish environment values, preserve disabled commerce flags until dependencies pass, cut over Namecheap DNS, deploy, and verify HTTPS and the real origin. |
+| Convex                                | The EU development deployment exists; a production deployment also exists with `CONVEX_SERVER_SECRET` set.                                                                                                                                                                                                                           | Deploy and verify the current code/schema, remaining application environment, WorkOS JWT integration, data lifecycle, backup, isolated restore and customer journeys.           |
+| WorkOS                                | Team and staging AuthKit environment provisioned; real staging identity, organization, invitation, export, deletion and sign-out journeys passed.                                                                                                                                                                                    | Add the WorkOS billing method, provision/configure production AuthKit and webhooks, then repeat identity, recovery, team and deletion journeys at the production origin.        |
+| Resend, Better Stack and Backblaze B2 | Application adapters and local contracts exist.                                                                                                                                                                                                                                                                                      | Provision each production connection and prove email delivery, monitoring/alerts, protected releases, backup and restore.                                                       |
 
-- `db/schema.ts` defines 24 D1/SQLite tables for account projections, profiles,
-  workspaces, memberships, invitations, provider-event ingestion, billing
-  customers, purchases, subscriptions, invoices, refund/credit/chargeback
-  adjustments, licences, seats, releases, entitlements, one-use download
-  grants, audit and consent events, exports, deletions, outbox work,
-  reconciliation runs, dead letters, and retention actions. Workspace-level
-  and account-level entitlements use separate partial unique indexes so a
-  nullable account cannot bypass scope uniqueness.
-- `drizzle/0000_cool_jimmy_woo.sql` and
-  `drizzle/0001_right_stark_industries.sql` are the generated migrations. They
-  have foreign keys, replay/idempotency uniqueness, lookup indexes, timestamps,
-  uppercase ISO-currency checks, and period/update/status/value constraints.
-- `lib/commerce/providers.ts` defines identity, billing, transactional email,
-  object-storage, queue, and monitoring ports. `fakes.ts` provides deterministic
-  in-memory implementations and simulated provider failures.
-- `authorization.ts` makes access decisions only from explicit current facts.
-  It requires both the current identity-provider membership and reconciled
-  local membership to match account, workspace, active state, and role.
-  Missing providers, missing projections, mismatched opaque identifiers,
-  inactive accounts/workspaces/memberships/licences/seats/entitlements, closed
-  update windows, and unavailable releases all deny access.
-- `grants.ts` creates HMAC-authenticated, short-lived, same-origin download
-  paths. Tokens bind account, workspace, release, entitlement, optional request
-  fingerprint, nonce, issue time, and expiry. `downloads.ts` additionally
-  requires a current request-authenticated caller, binds that caller and
-  request fingerprint to the token, re-fetches every authorization fact at
-  consumption time, and places authorization plus one-use nonce consumption
-  behind an explicitly atomic repository contract. Tampering, replay, expiry,
-  membership/seat/entitlement revocation, and binding changes fail closed with
-  one generic external denial.
-- `webhooks.ts` verifies exact raw bytes through an adapter contract. Its local
-  HMAC adapter is test-only. Projection decisions reject unverified events,
-  deduplicate provider event IDs, and prevent older or same-time events from
-  regressing current state.
-- `security.ts` provides signed session-bound CSRF tokens, unsafe-method origin
-  checks, hardened cookie serialization, deterministic local rate limiting,
-  and recursive PII/secret/log redaction.
-- `lifecycle.ts`, `delivery.ts`, and `backup.ts` provide explicit export,
-  deletion, retention, retry/dead-letter, checksum, restore-verification, and
-  record-reconciliation state machines. Backup objects can be encrypted and
-  authenticated with AES-256-GCM, fresh nonces, and bound object metadata.
-  Backup manifests can separately be authenticated with a keyed, versioned
-  HMAC envelope and key identifier; the unkeyed checksum remains corruption
-  evidence only.
-- `/sign-in`, `/checkout`, and the `/account` overview, purchases, licences,
-  downloads, billing, team, members, invitations, profile, security, privacy,
-  export, and deletion routes now provide a noindex, private-cache information
-  architecture. The production server guard returns an honest unavailable
-  state and never injects a fake customer.
-- `/api/download-grants` and `/downloads/[grant]` are present only as generic
-  fail-closed 404 boundaries. They issue or stream nothing until an approved
-  request-session resolver and transactional repository are connected.
-- `email-intents.ts` defines product-owned release access, invitation
-  follow-up, security, export, deletion, refund-workflow, and access-recovery
-  messages. Authentication, identity recovery, invoices, receipts, billing
-  portal, and provider dunning messages remain outside this layer.
+Control-plane readiness is not runtime readiness. No row above marks a North
+Star step passed; the production-verified revenue loop remains 0 of 8.
 
-No module imports a vendor SDK. Commercial offers, products, plans, terms,
-retention periods, role policies, retry policies, templates, and provider
-references remain opaque caller-supplied configuration.
+## Architecture
+
+- `convex/schema.ts` defines 25 application tables. Twenty-four durable
+  commerce tables cover accounts, workspaces, memberships, provider events,
+  billing, licences, releases, downloads, privacy operations, the email outbox,
+  reconciliation, dead letters and retention. `rateLimitWindows` is an
+  intentionally ephemeral distributed abuse-control table and is not part of
+  the durable backup manifest.
+- `convex/commerce.ts` is the transactional backend. Every server call requires
+  the deployment-only `CONVEX_SERVER_SECRET`. Stripe and WorkOS events are
+  deduplicated by provider event ID and payload hash.
+- `db/index.ts` is the sealed Next.js-to-Convex adapter. It validates the
+  deployment URL and refuses missing or weak server configuration.
+- `convex/auth.config.ts` configures the official WorkOS AuthKit JWT issuers.
+  The development deployment uses the provisioned non-production WorkOS
+  environment; production remains unavailable until its billing method is
+  added and the production environment is provisioned.
+- `stripe-convex-store.ts`, `stripe-convex-lifecycle-store.ts` and
+  `stripe-convex-adjustment-store.ts` project verified Stripe events into one
+  atomic Convex mutation.
+- `workos-identity.ts` and `workos-webhook.ts` store opaque WorkOS identifiers,
+  a one-way email hash and minimal profile fields. They do not store the email
+  address.
+- `convex-downloads.ts` rechecks account, workspace, membership, licence, seat,
+  entitlement, release and update-window state before issuing or consuming a
+  short-lived one-use grant.
+- `privacy-operations.ts` creates audited data exports and deletion requests.
+  The final WorkOS deletion happens only after the final outbox notice is
+  recorded as delivered.
+- `rate-limit.ts` applies atomic multi-bucket limits through Convex. It stores
+  only HMAC-derived scope and key hashes, fails closed in production without a
+  strong `RATE_LIMIT_KEY_SECRET`, and opportunistically prunes expired windows.
+- `resend-outbox.ts` claims bounded batches in Convex, resolves the current
+  WorkOS email only at delivery time, uses Resend idempotency keys, retries
+  transient failures and records permanent failures without retaining provider
+  response bodies.
+
+Private paid archives remain in Backblaze B2. Convex stores release metadata,
+checksums and access state, never the archive credential or a permanent public
+download URL.
 
 ## Security invariants
 
-1. Browser checkout success is never entitlement evidence.
-2. A verified provider event is applied at most once and may not regress a
-   projection with an earlier or equal provider occurrence time. Equal-time
-   conflicts require provider reconciliation.
-3. Authorization requires a current request session, current provider
-   membership, and current local projection. Provider errors, removed provider
-   membership, and provider/local role mismatch are denial conditions.
-4. Workspace, account, membership, licence, seat, entitlement, release, and
-   token bindings must all agree. Identifier mismatches return the same
-   not-found-or-forbidden decision.
-5. Download tokens are not sufficient bearer authorization and are not raw
-   object-storage URLs. A current caller session and current authorization
-   transaction are required; the one-use same-origin grant never exposes
-   object keys or storage credentials.
-6. State-machine transitions are explicit and timestamps are monotonic. Active
-   retention and legal holds block deletion/purge.
-7. Backup completion is not evidence of recoverability. Object size, schema
-   version, record count, object checksum, manifest checksum, authenticated
-   manifest tag, and restored record reconciliation must all pass. A checksum
-   alone does not authenticate an off-provider backup.
-8. Logs must use scrubbed structured values. Raw provider bodies, credentials,
-   signed URLs, licence data, email addresses, cookies, and authorization
-   headers must not be exported.
+1. A checkout return URL is never proof of payment or access.
+2. Only signature-verified Stripe and WorkOS projections enter the database.
+3. Reusing an event ID with a different payload hash fails closed.
+4. Authorization rechecks the current WorkOS session and the current Convex
+   projection.
+5. Download grants are HMAC-authenticated, short-lived, single-use and bound to
+   account, workspace, release and entitlement.
+6. Refunds, disputes, subscription failures and identity revocations update
+   licences, seats, entitlements and unused grants atomically.
+7. Email recipient addresses are fetched from WorkOS at send time and are not
+   stored in Convex.
+8. Secrets remain server-only runtime values and are never committed, included
+   in registry packages or sent to browser code.
+9. Database backups include exactly the 24 durable commerce tables. Restore
+   refuses any target whose durable tables or ephemeral rate-limit table contain
+   data, and never imports rate-limit windows.
 
-The in-memory rate limiter, protected-download repository, provider-event
-inbox, and provider fakes are deterministic test implementations. Production
-adapters must supply distributed semantics and make the protected-download
-current-state read, authorization decision, and nonce consumption one database
-transaction.
+## Local and development verification
 
-## Local verification
-
-Run all commands inside the repository dev shell:
+Run inside the repository dev shell:
 
 ```sh
-nix develop path:. -c npm run db:generate
 nix develop path:. -c npm run typecheck
 nix develop path:. -c npm run lint
 nix develop path:. -c npm run test:unit
+nix develop path:. -c npm run convex:check
 ```
 
-To verify that the generated migration executes in SQLite without installing a
-tool globally:
+`tests/ConvexCommerce.test.ts` runs the real Convex mutation code against
+`convex-test`. It checks paid checkout projection, replay rejection,
+subscription renewal, refund revocation, safe restoration after overlapping
+chargebacks and WorkOS identity minimisation.
+`npm run convex:check` typechecks and uploads the same functions to the selected
+development deployment.
 
-```sh
-commerce_check_dir="$(mktemp -d)"
-nix shell nixpkgs#sqlite -c sqlite3 \
-  "$commerce_check_dir/schema.sqlite" \
-  ".read drizzle/0000_cool_jimmy_woo.sql" \
-  ".read drizzle/0001_right_stark_industries.sql" \
-  "PRAGMA foreign_key_check;" \
-  "PRAGMA integrity_check;"
-```
+## Still required before paid launch
 
-The command uses a new temporary database. Do not point this check at a
-production or user database.
-
-## Remaining founder, vendor, and account gates
-
-Nothing in this module authorizes the following actions:
-
-1. Approve the selling entity, launch countries, commercial model, product and
-   offer references, currencies, billing intervals, price presentation, seat
-   rules, licence/update rights, cancellation/refund terms, tax treatment,
-   invoice wording, or support commitments.
-2. Select identity, billing/merchant-of-record, email, object-storage, queue,
-   monitoring, analytics, backup, secrets, support-mailbox, hosting, DNS, or
-   registrar vendors.
-3. Create any vendor or cloud account; accept terms or data-processing terms;
-   provide identity/KYB, company, tax, payout, billing, or beneficial-owner
-   information; or purchase a plan.
-4. Approve the production owner, backup owner, least-privilege roles, recovery
-   process, credential rotation, incident commander, privacy owner, security
-   contact, support owner, and monitored alert destinations. Approve separate
-   backup authentication and AES-256-GCM encryption keys stored outside backup
-   objects, their key identifiers, nonce monitoring, rotation/retirement
-   procedures, and restore access for the backup owner.
-5. Create or supply OAuth clients, API keys, HMAC secrets, webhook endpoints,
-   sender/domain verifications, database/storage/queue bindings, runtime
-   secrets, status pages, custom domains, or DNS records.
-6. Approve role-to-action policy, commercial offer mapping, entitlement
-   projection rules, retention durations, deletion blockers, legal holds,
-   export expiry, rate limits, retry/backoff/dead-letter policy, monitoring
-   thresholds, and cost/spend limits.
-7. Approve privacy notices, consent purposes, data inventory, lawful bases,
-   processor register, international transfers, audit retention, deletion
-   exceptions, customer exports, licence text, or any other legal/public copy.
-8. Wire provider-specific adapters only after official signature, retry,
-   ordering, idempotency, session, organisation, refund, email-state, and
-   object-access behavior has been mapped and tested against the approved
-   vendor's current documentation.
-   The production download adapter must prove its current caller lookup and
-   authorization-plus-consumption transaction under concurrency and revocation.
-9. Provision staging or production infrastructure, apply the migration to a
-   non-local database, attach a domain, send an email, create a checkout, upload
-   a release, publish account/commerce routes, or deploy.
-10. Perform sandbox journeys and recovery tests under separately approved test
-    accounts, then obtain a final production approval before any low-risk live
-    purchase/refund, customer-facing message, or public launch claim.
+1. Add the WorkOS billing method, provision the production AuthKit environment
+   from `convex.json`, and install its production-only client ID and key.
+2. Deploy and verify the current code/schema against the existing Convex
+   production deployment, then finish and verify its application environment
+   linkage without exposing or replacing the already-set
+   `CONVEX_SERVER_SECRET`.
+3. Connect Resend, Backblaze B2 and Better Stack; verify sender DNS, protected
+   release delivery, alerts and restore evidence.
+4. Complete and install the prepared restricted Stripe runtime key, verify all
+   nine runtime price mappings and signed delivery through the active
+   16-event production destination, then prove the sandbox journeys while
+   checkout and webhook flags remain disabled for customers.
+5. Activate Vercel Pro, finish the production environment, cut over Namecheap
+   DNS, deploy, and verify HTTPS and the real production origin.
+6. Run founder browser and translation review, then the authorised production
+   purchase followed by the approved full refund.

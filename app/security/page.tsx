@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PublicTextPage } from "../components/PublicTextPage";
+import { commercialFacts } from "../data/commercial";
 
 export const metadata: Metadata = {
   title: "Gummy UI security and disclosure status",
@@ -27,11 +28,12 @@ export default function SecurityPage() {
       </section>
       <section>
         <h2>Vulnerability reporting</h2>
-        <p>A monitored private disclosure channel must be approved before production launch. Do not submit sensitive vulnerability details through a public issue. This local baseline deliberately does not invent an unattended security address.</p>
+        <p>Email <a href={commercialFacts.supportHref}>{commercialFacts.supportEmail}</a> with <strong>Security report</strong> in the subject. Do not submit sensitive vulnerability details through a public issue. Include affected URLs, impact and reproducible steps, but never include another person&apos;s data or a destructive proof.</p>
+        <p>We aim to acknowledge a valid report within two UK business days. This is a target, not an SLA or a bug-bounty promise. Do not access unnecessary data, disrupt service, use social engineering or demand payment.</p>
       </section>
       <section>
         <h2>Commercial infrastructure</h2>
-        <p>Provider-neutral schemas, authorization rules, email intents, audit records, and backup-verification contracts are implemented and tested locally. Authentication, billing, transactional email, private storage, production entitlement adapters, monitored backups, and named incident ownership remain founder approval gates. Local contracts are not evidence that those production controls are active.</p>
+        <p>Provider-neutral schemas, authorization rules, email intents, audit records, and backup-verification contracts are implemented and tested locally. Convex is connected to an EU development deployment; WorkOS, Stripe Managed Payments, Resend, Better Stack, Backblaze and Vercel are approved but not yet fully production-connected. Local and development contracts are not evidence that every production control is active.</p>
       </section>
     </PublicTextPage>
   );

@@ -26,6 +26,7 @@ export default function SignInPage() {
       <section>
         <h2>{copy.sections[0].title}</h2>
         <p>{copy.sections[0].body}</p>
+        <Link href="/auth/sign-in">{copy.sections[0].action}</Link>
       </section>
       <section>
         <h2>{copy.sections[1].title}</h2>

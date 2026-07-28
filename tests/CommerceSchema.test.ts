@@ -1,6 +1,8 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+
+import { COMMERCE_BACKUP_TABLES } from "../lib/commerce/backup-tables";
 
 const requiredTables = [
   "accounts",
@@ -8,85 +10,84 @@ const requiredTables = [
   "workspaces",
   "memberships",
   "invitations",
-  "provider_events",
+  "providerEvents",
   "purchases",
   "subscriptions",
   "invoices",
   "licences",
-  "licence_seats",
-  "release_records",
+  "licenceSeats",
+  "releaseRecords",
   "entitlements",
-  "download_grants",
-  "audit_events",
-  "billing_adjustments",
-  "billing_customers",
-  "consent_records",
-  "data_exports",
-  "data_deletions",
-  "outbox_messages",
-  "reconciliation_runs",
-  "dead_letters",
-  "retention_actions",
+  "downloadGrants",
+  "auditEvents",
+  "billingAdjustments",
+  "billingCustomers",
+  "consentRecords",
+  "dataExports",
+  "dataDeletions",
+  "outboxMessages",
+  "reconciliationRuns",
+  "deadLetters",
+  "retentionActions",
+  "rateLimitWindows",
 ] as const;
 
-describe("commercial D1 migration", () => {
-  it("contains the complete provider-neutral foundation", async () => {
-    const migration = await readMigrations();
+describe("commercial Convex schema", () => {
+  it("defines the complete commerce and abuse-control foundation", async () => {
+    const source = await read("convex/schema.ts");
     for (const table of requiredTables) {
-      expect(migration).toContain(`CREATE TABLE \`${table}\``);
+      expect(source).toContain(`${table}: defineTable({`);
     }
-    expect(
-      [...migration.matchAll(/CREATE TABLE `(?!__new_)/gu)],
-    ).toHaveLength(requiredTables.length);
+    expect([...source.matchAll(/: defineTable\(\{/gu)]).toHaveLength(
+      requiredTables.length,
+    );
   });
 
-  it("enforces replay, provider-event and membership uniqueness", async () => {
-    const migration = await readMigrations();
-    expect(migration).toContain(
-      "CREATE UNIQUE INDEX `download_grants_nonce_hash_unique`",
+  it("backs up the 24 durable tables and excludes ephemeral rate limits", () => {
+    expect(requiredTables).toHaveLength(25);
+    expect(COMMERCE_BACKUP_TABLES).toHaveLength(24);
+    expect(COMMERCE_BACKUP_TABLES).not.toContain("rateLimitWindows");
+    expect([...COMMERCE_BACKUP_TABLES, "rateLimitWindows"].sort()).toEqual(
+      [...requiredTables].sort(),
     );
-    expect(migration).toContain(
-      "CREATE UNIQUE INDEX `provider_events_provider_event_unique`",
-    );
-    expect(migration).toContain(
-      "CREATE UNIQUE INDEX `memberships_workspace_account_unique`",
-    );
-    expect(migration).toContain(
-      "CREATE UNIQUE INDEX `entitlements_account_scope_unique`",
-    );
-    expect(migration).toContain(
-      "CREATE UNIQUE INDEX `entitlements_workspace_scope_unique`",
-    );
-    expect(migration).toContain('WHERE "entitlements"."account_id" is null');
-    expect(migration).toContain(
-      "CREATE UNIQUE INDEX `billing_customers_provider_customer_unique`",
-    );
-    expect(migration).toContain(
-      "CREATE UNIQUE INDEX `billing_adjustments_provider_adjustment_unique`",
-    );
-    expect(migration).toContain("CONSTRAINT \"accounts_status_check\"");
-    expect(migration).toContain("CONSTRAINT \"entitlements_status_check\"");
-    expect(migration).toContain("CONSTRAINT \"subscriptions_period_check\"");
-    expect(migration).toContain("CONSTRAINT \"licences_updates_check\"");
-    expect(migration).toContain("CONSTRAINT \"entitlements_updates_check\"");
-    expect(migration).toContain(
-      "glob '[A-Z][A-Z][A-Z]'",
-    );
-    expect(migration).toContain(
-      "CONSTRAINT \"billing_adjustments_reference_check\"",
-    );
-    expect(migration).toContain("FOREIGN KEY (`entitlement_id`)");
+  });
+
+  it("defines indexed replay, provider-event and membership identities", async () => {
+    const source = await read("convex/schema.ts");
+    for (const index of [
+      'index("by_nonce_hash", ["nonceHash"])',
+      'index("by_provider_event", ["providerKind", "providerEventId"])',
+      'index("by_workspace_account", ["workspaceId", "accountId"])',
+      'index("by_scope", [',
+      'index("by_provider_customer", [',
+      'index("by_provider_adjustment", [',
+      'index("by_provider_payment_intent", [',
+      'index("by_account_status", ["accountId", "status"])',
+      'index("by_provider_message_id", ["providerMessageId"])',
+      'index("by_scope_key", ["scopeHash", "keyHash"])',
+      'index("by_expiry", ["expiresAt"])',
+    ]) {
+      expect(source).toContain(index);
+    }
+  });
+
+  it("keeps all vendor writes behind one authenticated mutation", async () => {
+    const source = await read("convex/commerce.ts");
+    expect(source).toContain("assertServerSecret(args.serverSecret)");
+    expect(source).toContain("CONVEX_SERVER_SECRET");
+    expect(source).toContain("acceptProviderEvent");
+    expect(source).toContain("signatureVerified: true");
+    expect(source).toContain("payloadHash !== input.payloadHash");
+    expect(source).toContain("downloads.consume");
+    expect(source).toContain("privacy.deletion.complete");
+    expect(source).toContain("email.outbox.claim");
+    expect(source).toContain("email.outbox.accepted");
+    expect(source).toContain("email.outbox.provider-event");
+    expect(source).toContain("health.readiness");
+    expect(source).toContain("rate-limit.consume");
   });
 });
 
-async function readMigrations(): Promise<string> {
-  const directory = path.join(process.cwd(), "drizzle");
-  const files = (await readdir(directory))
-    .filter((file) => /^\d+_.+\.sql$/u.test(file))
-    .sort();
-  return (
-    await Promise.all(
-      files.map((file) => readFile(path.join(directory, file), "utf8")),
-    )
-  ).join("\n");
+function read(relativePath: string): Promise<string> {
+  return readFile(path.join(process.cwd(), relativePath), "utf8");
 }

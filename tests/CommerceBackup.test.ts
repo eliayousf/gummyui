@@ -212,8 +212,12 @@ describe("backup integrity and restore reconciliation", () => {
       name: object.name,
     };
     const tamperedCiphertext = structuredClone(envelope);
+    const firstCiphertextCharacter =
+      tamperedCiphertext.ciphertextBase64Url.slice(0, 1);
     tamperedCiphertext.ciphertextBase64Url =
-      `${tamperedCiphertext.ciphertextBase64Url.slice(0, -1)}A`;
+      `${firstCiphertextCharacter === "A" ? "B" : "A"}${
+        tamperedCiphertext.ciphertextBase64Url.slice(1)
+      }`;
     const tamperedMetadata = structuredClone(envelope);
     tamperedMetadata.encryption.associatedData.recordCount = 2;
 

@@ -1,13 +1,24 @@
 [extend]
 useDefault = true
 
-[allowlist]
+[[allowlists]]
 description = "Local dependency caches and the two server-only Vinext prerender manifests"
 paths = [
   '''^node_modules/''',
   '''^\.next/''',
   '''^\.vinext/''',
   '''^\.wrangler/''',
-  '''^dist/server/vinext-server\.json$''',
-  '''^dist/server/ssr/vinext-server\.json$''',
+  '''(^|/)dist/server/vinext-server\.json$''',
+  '''(^|/)dist/server/ssr/vinext-server\.json$''',
+]
+
+[[allowlists]]
+description = "Exact non-secret GitHub OAuth example bundled from the WorkOS SDK documentation"
+condition = "AND"
+paths = [
+  '''(^|/)dist/server/index\.js$''',
+]
+regexTarget = "match"
+regexes = [
+  '''^gho_16C7e42F292c6912E7710c838347Ae178B4a$''',
 ]

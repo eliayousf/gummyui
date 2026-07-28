@@ -1,7 +1,10 @@
 # Monitoring and alerting — approval requirements
 
-Status: monitoring contract drafted; providers, destinations, thresholds,
-on-call owner, and costs are not approved or active.
+Status: redacted structured application logging and the optional Better Stack
+transport are implemented locally; the monitoring contract below is drafted.
+Production providers, destinations, thresholds and alert delivery are not
+configured or proven. The distributed rate limiter is implemented locally, but
+suspicious-decision logging and a controlled alert receipt remain launch gates.
 
 ## Required signals
 

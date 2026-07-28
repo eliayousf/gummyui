@@ -28,6 +28,7 @@ export type ServerAccountAccess =
       workspaceId: WorkspaceId;
       workspaceLabel: string;
       role: WorkspaceRole;
+      sessionExpiresAt: number;
     };
 
 export interface AccountStatusItem {
@@ -37,6 +38,8 @@ export interface AccountStatusItem {
   detail?: string;
   status?: "neutral" | "active" | "attention" | "revoked";
   href?: string;
+  downloadReleaseId?: string;
+  cancelDeletionId?: string;
 }
 
 export interface AccountSectionView {
@@ -49,6 +52,12 @@ export interface AccountSectionView {
   action?: {
     href: string;
     label: string;
+    kind?:
+      | "link"
+      | "create-export"
+      | "request-deletion"
+      | "create-workspace"
+      | "invite-member";
   };
   aside?: ReactNode;
 }
@@ -113,18 +122,19 @@ export const accountPublicCopy = {
     supportAction: "Open support guidance",
   },
   signIn: {
-    metadataTitle: "Account sign-in status · Gummy UI",
+    metadataTitle: "Secure account sign-in · Gummy UI",
     metadataDescription:
-      "Gummy UI account sign-in is unavailable until approved identity services and server-side session verification are connected.",
+      "Sign in to Gummy UI through the server-verified customer account flow.",
     eyebrow: "Account access",
-    title: "Sign-in is not connected.",
+    title: "Secure customer sign-in.",
     lede:
-      "No customer identity provider or production session verifier is active. This page does not create an account or simulate an authenticated customer.",
+      "Continue through the protected sign-in flow to reach your purchases, licences, billing and downloads.",
     sections: [
       {
-        title: "Current state",
+        title: "Continue securely",
         body:
-          "Account, checkout, billing, licence, team, and protected-download routes remain server-gated and unavailable.",
+          "Your account is verified on the server. If production account services are unavailable, the sign-in route stays safely closed.",
+        action: "Continue to secure sign-in",
       },
       {
         title: "Public product",
@@ -137,21 +147,21 @@ export const accountPublicCopy = {
   checkout: {
     metadataTitle: "Checkout status · Gummy UI",
     metadataDescription:
-      "Gummy UI checkout is unavailable until commercial terms, billing services, and entitlement operations are approved.",
+      "Gummy UI monthly, yearly and lifetime USD prices and commercial terms are approved; checkout remains unavailable until Stripe and entitlement operations are production-verified.",
     eyebrow: "Checkout unavailable",
     title: "No purchase can be started.",
     lede:
-      "No live offer, price, billing customer, checkout, or payment collection is active. A browser redirect will never be treated as proof of access.",
+      "The Individual, Team and Organization monthly, yearly and lifetime prices are approved, but no production billing customer, checkout or payment collection is active. A browser redirect will never be treated as proof of access.",
     sections: [
       {
         title: "Why this route is closed",
         body:
-          "Checkout remains unavailable until the selling entity, commercial terms, billing provider, verified webhook projection, licence rules, and support operations are approved together.",
+          "Checkout remains unavailable until Stripe Managed Payments eligibility, the verified webhook projection, immediate-digital-supply consent, licence entitlements, release delivery, email, refunds and support operations pass together.",
       },
       {
         title: "Current public status",
-        body: "Pro specifications are not a purchase offer.",
-        action: "View Pro status",
+        body: "The price book is approved. Paid files are not release-ready or purchasable yet.",
+        action: "View approved pricing",
       },
     ],
   },
@@ -187,7 +197,7 @@ export const accountSectionDefinitions: Record<
     eyebrow: "Access",
     title: "Licences",
     description:
-      "Current licence state, update windows, and assigned seats are derived on the server.",
+      "Current licence state, subscription or lifetime update window, and assigned seats are derived on the server.",
     emptyMessage: "No current licence projection is available.",
   },
   downloads: {

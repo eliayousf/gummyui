@@ -1,4 +1,4 @@
-const CONTENT_SECURITY_POLICY = [
+export const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "base-uri 'self'",
   "object-src 'none'",
@@ -13,13 +13,19 @@ const CONTENT_SECURITY_POLICY = [
   "manifest-src 'self'",
 ].join("; ");
 
-const SECURITY_HEADERS = {
+export const SECURITY_HEADERS = {
   "Content-Security-Policy": CONTENT_SECURITY_POLICY,
   "Permissions-Policy": "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "X-Content-Type-Options": "nosniff",
   "X-Frame-Options": "DENY",
 } as const;
+
+export const STRICT_TRANSPORT_SECURITY =
+  "max-age=63072000; includeSubDomains; preload";
+
+export const SENSITIVE_PATH_PATTERN =
+  /^\/(?:api|auth|sign-in|account|checkout|downloads)(?:\/|$)/;
 
 export function withSecurityHeaders(requestUrl: string, response: Response): Response {
   const hardened = new Response(response.body, response);
@@ -29,18 +35,17 @@ export function withSecurityHeaders(requestUrl: string, response: Response): Res
     hardened.headers.set(name, value);
   }
 
-  const sensitivePath = /^\/(?:api|sign-in|account|checkout|downloads)(?:\/|$)/.test(
-    url.pathname,
-  );
+  const sensitivePath = SENSITIVE_PATH_PATTERN.test(url.pathname);
   if (sensitivePath) {
     hardened.headers.set(
       "X-Robots-Tag",
       "noindex, nofollow, noarchive",
     );
+    hardened.headers.set("Cache-Control", "private, no-store");
   }
 
-  if (!hardened.headers.has("Cache-Control")) {
-    if (sensitivePath || hardened.headers.has("Set-Cookie")) {
+  if (!sensitivePath && !hardened.headers.has("Cache-Control")) {
+    if (hardened.headers.has("Set-Cookie")) {
       hardened.headers.set("Cache-Control", "private, no-store");
     } else if (url.pathname.startsWith("/assets/")) {
       hardened.headers.set(
@@ -68,7 +73,7 @@ export function withSecurityHeaders(requestUrl: string, response: Response): Res
   if (url.protocol === "https:") {
     hardened.headers.set(
       "Strict-Transport-Security",
-      "max-age=63072000; includeSubDomains; preload",
+      STRICT_TRANSPORT_SECURITY,
     );
   }
 

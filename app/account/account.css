@@ -156,6 +156,87 @@
   font-size: 11px;
 }
 
+.account-download-action {
+  justify-items: end;
+  gap: 6px;
+}
+
+.account-download-action button {
+  min-height: 40px;
+  padding: 8px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px 15px 11px 14px;
+  background: color-mix(
+    in oklch,
+    var(--fruit-aqua-light) 34%,
+    var(--surface-solid)
+  );
+  color: var(--ink);
+  font: 720 11px/1 var(--font-mono), monospace;
+  cursor: pointer;
+}
+
+.account-download-action button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.account-download-action small {
+  max-width: 28ch;
+  text-align: end;
+}
+
+.account-privacy-action,
+.account-team-action {
+  display: grid;
+  gap: 9px;
+  justify-items: start;
+  margin-top: 22px;
+}
+
+.account-privacy-action label,
+.account-privacy-action small,
+.account-team-action label,
+.account-team-action small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.account-privacy-action input,
+.account-team-action input {
+  width: min(100%, 320px);
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px 15px 11px 14px;
+  background: var(--surface-solid);
+  color: var(--ink);
+  font: 720 13px/1 var(--font-mono), monospace;
+}
+
+.account-privacy-action button,
+.account-team-action button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 15px 19px 14px 18px;
+  background: color-mix(
+    in oklch,
+    var(--fruit-raspberry-light) 34%,
+    transparent
+  );
+  color: var(--ink);
+  font: inherit;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.account-privacy-action button:disabled,
+.account-team-action button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
 .account-status-list li[data-status="active"] strong {
   color: var(--fruit-lime-depth);
 }
@@ -199,5 +280,13 @@
   .account-status-list li {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .account-download-action {
+    justify-items: start;
+  }
+
+  .account-download-action small {
+    text-align: start;
   }
 }

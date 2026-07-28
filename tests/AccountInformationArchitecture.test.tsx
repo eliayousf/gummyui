@@ -142,6 +142,7 @@ describe("account and commerce information architecture", () => {
           workspaceId: opaqueId("workspace:test:authenticated", "workspace"),
           workspaceLabel: "Test workspace",
           role: "member",
+          sessionExpiresAt: 1_900_000_000_000,
         }}
       >
         <p>Server-authorized child</p>

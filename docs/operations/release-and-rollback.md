@@ -1,7 +1,10 @@
 # Release and rollback — pre-production runbook
 
-Status: local procedure drafted; no production project, repository remote,
-domain, deployment, or release owner is active.
+Status: local procedure drafted. A Vercel project, domain attachment and part
+of the production environment are configured, with commerce flags fail closed.
+Vercel Pro activation, remaining environment values, Namecheap DNS cutover,
+the first production deployment, real-origin verification, release ownership
+and a controlled rollback proof remain pending.
 
 ## Public release gate
 
