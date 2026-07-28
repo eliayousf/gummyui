@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "evidenceType": "automated-local-production-browser-qa",
-  "generatedAt": "2026-07-28T16:58:04.103Z",
+  "generatedAt": "2026-07-28T18:04:37.910Z",
   "limitations": [
     "This is automated local production-build evidence, not a deployed-origin test.",
     "The 200% check uses an equivalent 320 CSS-pixel reflow at devicePixelRatio 2 (640 physical pixels), not a manual browser-zoom inspection.",
@@ -9,7 +9,7 @@
     "Firefox, WebKit, touch hardware, and manual painted-contrast review remain outside this run."
   ],
   "runtime": {
-    "baseUrl": "http://127.0.0.1:58284",
+    "baseUrl": "http://127.0.0.1:51082",
     "chromeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     "chromeProduct": "Chrome/150.0.7871.187",
     "chromeRevision": "537.36 (@30f6543ae91e6a860e73b76e3216b663b050f4e5)",
@@ -24,7 +24,7 @@
     },
     "productionBuild": {
       "fileCount": 260,
-      "sha256": "cee7ae3e0fe7bcaddc7ce1166b7b99dfeb08fe6f5730aed6ab2769accedfa02c"
+      "sha256": "9a3f71d5aad7c8a95725e46957f76a45bbcfbd81d6b4daece55c26b40f6dbf1f"
     }
   },
   "routes": [
@@ -39,10 +39,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 44153,
-        "bodySha256": "fcf7ef7f499546cdc6ca86a966ef7a3cb4241cb0b46458b426a1375f175be706"
+        "bodySha256": "441dfd8afc73eef7bef7b247c81de246fe3456f8f9a8cf502690127d4deee718"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/",
+        "url": "http://127.0.0.1:51082/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -228,10 +228,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 33517,
-        "bodySha256": "ce2059b86b364b7c4b42e42cd3bd3c32a1754ff53d363f7d4065014c5ecd3dc8"
+        "bodySha256": "0b0b5547e30c7b776a24153c4dcf089dc7f1a6b2afe9c2c23cdd3168d879ac92"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/docs",
+        "url": "http://127.0.0.1:51082/docs",
         "title": "Gummy UI documentation · Install editable React source",
         "h1": "Install source you can understand.",
         "canonical": "https://gummyui.dev/docs",
@@ -317,10 +317,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 21011,
-        "bodySha256": "7f86223509045634b149638fb3898c653ca1a7861ccdb15fbd00352941ea1b58"
+        "bodySha256": "6283b087a1b6208ca7051ad2ab3f5ddc4a4ee0c679c2c9be0ccd91ec8d28e6d9"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/docs/nextjs",
+        "url": "http://127.0.0.1:51082/docs/nextjs",
         "title": "Install Gummy UI in Next.js App Router",
         "h1": "Next.js: editable source, clean boundaries.",
         "canonical": "https://gummyui.dev/docs/nextjs",
@@ -415,10 +415,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 20938,
-        "bodySha256": "8b521c95e42cb1180e728f2efcfe6fb816b5790c9dd107d9fedb96105041afa3"
+        "bodySha256": "97f8e3891616d1bb1f46bc18f92e029d85ed74a029b9e370777f2cebb8ff9b37"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/docs/vite",
+        "url": "http://127.0.0.1:51082/docs/vite",
         "title": "Install Gummy UI in React and Vite",
         "h1": "Vite: source that belongs to your app.",
         "canonical": "https://gummyui.dev/docs/vite",
@@ -513,10 +513,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 80058,
-        "bodySha256": "4e4cfb287bbb353cfc03f7d4a899152ea2617f2315c4f0efcf267705481fbc6c"
+        "bodySha256": "a0452ff4df8083fc5d2c3b0cdaa12b073c12c2a25e17ff3afdb8d80c191cd822"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/components",
+        "url": "http://127.0.0.1:51082/components",
         "title": "React component catalogue · Gummy UI",
         "h1": "57 deliberate foundations.",
         "canonical": "https://gummyui.dev/components",
@@ -643,10 +643,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 34543,
-        "bodySha256": "a74391effe510ef23bb7eb62f0588ae6b0216c7ce8a7ffa4ee4878f5a9a57cc8"
+        "bodySha256": "156a78a37bdfd0d1dd913ad128884f8aa98780713650a7007a28f857a9c6153f"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/components/accordion",
+        "url": "http://127.0.0.1:51082/components/accordion",
         "title": "Accordion React component · Gummy UI",
         "h1": "Accordion",
         "canonical": "https://gummyui.dev/components/accordion",
@@ -732,10 +732,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 31169,
-        "bodySha256": "68727789326e4a00ccd09c79f5b5617dcfdb9a885e6edb1506a89427f5686182"
+        "bodySha256": "04cff4c193c28ef44dd39893a9fd5c8a1f971f9594fa3e8b96a18c35a7fd544f"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/themes",
+        "url": "http://127.0.0.1:51082/themes",
         "title": "Gummy UI theme builder · Light, dark, type, shape and charts",
         "h1": "Shape the whole system.",
         "canonical": "https://gummyui.dev/themes",
@@ -849,10 +849,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 21051,
-        "bodySha256": "41a18f6647280284910e1a4e2c97cddba16a141328493abfe32ecde1426e41b5"
+        "bodySha256": "c4a3910ad538a8414aec8505c741c65b3110ce506b0bb2ea0c9675a17f2fbdcc"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/studio",
+        "url": "http://127.0.0.1:51082/studio",
         "title": "Gummy frame studio · Browser-local screenshot tool",
         "h1": "Give the screenshot a little pressure.",
         "canonical": "https://gummyui.dev/studio",
@@ -938,10 +938,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 19603,
-        "bodySha256": "b1a30c3b30e761cfacb4a16d6b23253ab39ca31faed7408b4aebea55f4ea49e0"
+        "bodySha256": "aaffa8afcd8707e9e9c05cc392484950b166112b1a43ca4570816842781f557f"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/community",
+        "url": "http://127.0.0.1:51082/community",
         "title": "Gummy UI community showcase and submission status",
         "h1": "Real work, when there is real work.",
         "canonical": "https://gummyui.dev/community",
@@ -1027,10 +1027,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 24915,
-        "bodySha256": "49fe9a95fb49e7cca020d239a93a37377bb95415d23c1c1c03116d7dea7d1f29"
+        "bodySha256": "5c8d0c7cc5980369a0ae1ff929d40564396283edd0e265254c105e06fc8b4d68"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/rtl",
+        "url": "http://127.0.0.1:51082/rtl",
         "title": "Gummy UI RTL support · Direction and keyboard behavior",
         "h1": "RTL is part of the component contract.",
         "canonical": "https://gummyui.dev/rtl",
@@ -1124,10 +1124,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 53170,
-        "bodySha256": "b6d8c4d2315578bb4d95a4a7331b99ea3d85bdd27aaaade965a01a7a2ad7ddb6"
+        "bodySha256": "f848218b1ec8f27202b4a57e14fce57622102183657887a2f57e373064445f49"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/registry",
+        "url": "http://127.0.0.1:51082/registry",
         "title": "Gummy UI component registry · Editable React source",
         "h1": "Install source. Keep control.",
         "canonical": "https://gummyui.dev/registry",
@@ -1222,10 +1222,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 41107,
-        "bodySha256": "e469805f7893459620eea0378a963c9965d6055517b885dc498193e2b8f36b11"
+        "bodySha256": "0f98e829c8869b57fcfba1fa5d6e7b25eba24d2eb04155e610dfa2403c537410"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/blog",
+        "url": "http://127.0.0.1:51082/blog",
         "title": "Gummy UI articles · Accessible React and design systems",
         "h1": "Design decisions, in the open.",
         "canonical": "https://gummyui.dev/blog",
@@ -1311,10 +1311,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 24317,
-        "bodySha256": "a076321575ad104b24138155551254839b99c350fd47966f32de9891126babfe"
+        "bodySha256": "605a32f94a5b4bd43ae1d6ef1db855f3c137d0f7706bf5bdaf958f746f4fb76b"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/changelog",
+        "url": "http://127.0.0.1:51082/changelog",
         "title": "Changelog for Gummy UI components and releases",
         "h1": "Built in dependency order.",
         "canonical": "https://gummyui.dev/changelog",
@@ -1400,10 +1400,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 22459,
-        "bodySha256": "789b0eab399e0b6619d9329065324c8f702618dc493a75e36855c37a2a647842"
+        "bodySha256": "dd2f72b18dc7a8e6c9e746c96f9a5f3a55a0402e82259103a106de4bfaaacae0"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/pro",
+        "url": "http://127.0.0.1:51082/pro",
         "title": "Gummy UI Pro implementation and release status",
         "h1": "Pro is implemented and awaiting release review.",
         "canonical": "https://gummyui.dev/pro",
@@ -1489,10 +1489,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 32646,
-        "bodySha256": "cefc6a62bc69c73b1809b9de0b63d5999043026c532ad5460ce62a1649c9e89e"
+        "bodySha256": "9b68047bbb71aa9830f56e0cd722640ca017fa6e3adef78dc29ebbfd8b97019e"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/blocks",
+        "url": "http://127.0.0.1:51082/blocks",
         "title": "Pro block catalogue specification · Gummy UI",
         "h1": "158 original blocks in a gated private catalogue.",
         "canonical": "https://gummyui.dev/blocks",
@@ -1597,10 +1597,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 21157,
-        "bodySha256": "a2b984a8531519816229ef0587269eaff27db6e4ac623c3fb64b747a38a65427"
+        "bodySha256": "071146f449bd57095dfcf207f25f4835eb80ed235fb7e0aa726c544a59503a28"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/blocks/about",
+        "url": "http://127.0.0.1:51082/blocks/about",
         "title": "About React UI Pro blocks · Gummy UI",
         "h1": "About",
         "canonical": "https://gummyui.dev/blocks/about",
@@ -1686,10 +1686,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 20844,
-        "bodySha256": "86b6b32f64255bed7e8b5b3cda41606054d8bc8a7fa2779f83fc103109ab0c4b"
+        "bodySha256": "ca0082b129b8166524debb714e7dac636ac9b6e9c9453ee7d8e5f937dd478721"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/blocks/about/origin-ribbon",
+        "url": "http://127.0.0.1:51082/blocks/about/origin-ribbon",
         "title": "Origin ribbon Pro block status · Gummy UI",
         "h1": "Origin ribbon",
         "canonical": "https://gummyui.dev/blocks/about/origin-ribbon",
@@ -1775,10 +1775,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 23123,
-        "bodySha256": "8e6d793fc27a4f2559e3e6b6505d5cc5969dfc852c514b45d0b84b2c5cc854f4"
+        "bodySha256": "5063093ed15a30e07e198335ad7d80a4d6451275e427e305fd628a72a06b36de"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/templates",
+        "url": "http://127.0.0.1:51082/templates",
         "title": "Pro template implementation status · Gummy UI",
         "h1": "6 original product implementations.",
         "canonical": "https://gummyui.dev/templates",
@@ -1864,10 +1864,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 21498,
-        "bodySha256": "577746a84a20c727862d117d3d053b97bb4328117ff828a46b0d5812369895ab"
+        "bodySha256": "bcae5b3d93cfee7e9dfb85116a4407b517ad1d524bbe9848a132b4b86b1a7afb"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/templates/relay-forge",
+        "url": "http://127.0.0.1:51082/templates/relay-forge",
         "title": "Relay Forge Pro template status · Gummy UI",
         "h1": "Relay Forge",
         "canonical": "https://gummyui.dev/templates/relay-forge",
@@ -1953,10 +1953,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 20232,
-        "bodySha256": "924418ca9c7ad75ef4a31116025f307ef6d53cfc90987d6112f76c8b082bf5db"
+        "bodySha256": "0f963f2b89d1fe9e11033af2f61c153338b0af352dbb57991a3d6b1ccfa958d7"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/design-kit",
+        "url": "http://127.0.0.1:51082/design-kit",
         "title": "Gummy UI Pro design kit status",
         "h1": "The code-aligned local materializer is implemented, not released.",
         "canonical": "https://gummyui.dev/design-kit",
@@ -2042,10 +2042,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 40277,
-        "bodySha256": "2683b7298fb5a0f86ff3402d0d3dd7010201e8e2173c072d7070712da2061fff"
+        "bodySha256": "95d3a4af61e5b638607fdfd2de4184194001a21d85dac41b365befc1cd611f84"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/pricing",
+        "url": "http://127.0.0.1:51082/pricing",
         "title": "Pricing plans and licences for Gummy UI Pro",
         "h1": "All-access pricing for every team size.",
         "canonical": "https://gummyui.dev/pricing",
@@ -2131,10 +2131,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 21297,
-        "bodySha256": "4c4ef1dfded61418af32107495e9d670425cf41376d2da2517a0b698249f05a6"
+        "bodySha256": "f1febf56c26aa7178365a99c987d4e1180a645b47569fd110bef238578fe141d"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/accessibility",
+        "url": "http://127.0.0.1:51082/accessibility",
         "title": "Gummy UI accessibility contract and verification status",
         "h1": "A visible, testable contract.",
         "canonical": "https://gummyui.dev/accessibility",
@@ -2220,10 +2220,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 22714,
-        "bodySha256": "465131d365938a6f486b5b76c4dcceae26baa5429cd5a8e5d616cddd1deb60a1"
+        "bodySha256": "51b76abb08c9e9cf125b628647cd3db5c4ea8ccdba438db1e036df89d80c9027"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/security",
+        "url": "http://127.0.0.1:51082/security",
         "title": "Gummy UI security and disclosure status",
         "h1": "Small surface. Explicit boundary.",
         "canonical": "https://gummyui.dev/security",
@@ -2309,10 +2309,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 22123,
-        "bodySha256": "c6d26c783500cee5b571ea79bdd202230192d312ec5f71516265495311a0a026"
+        "bodySha256": "119b467b24cd7777cb4925e2924e771ae08ebb10b3bf9709b138901fbf4605ba"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/support",
+        "url": "http://127.0.0.1:51082/support",
         "title": "Gummy UI support and issue-routing guidance",
         "h1": "Start with evidence.",
         "canonical": "https://gummyui.dev/support",
@@ -2398,10 +2398,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 20033,
-        "bodySha256": "daad199bae875fed1dcf04aee9a417d08150f2d64a553576f3ef4eb52c277b7b"
+        "bodySha256": "93806c41e8c3622e678539cf0bca13401531b56c73c5ba8786595b2c54fd93c5"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/contact",
+        "url": "http://127.0.0.1:51082/contact",
         "title": "Contact Gummy UI support and licensing",
         "h1": "Contact Gummy UI.",
         "canonical": "https://gummyui.dev/contact",
@@ -2487,10 +2487,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 29709,
-        "bodySha256": "149718aa5f0ee710b912db2c4f5058cd28cd7bf07080e4609e879b53ed6772a1"
+        "bodySha256": "acfa9d5723b2c656d9235aa4461383a5c23618bb04501f5b87676296cfa02aee"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/privacy",
+        "url": "http://127.0.0.1:51082/privacy",
         "title": "Privacy notice for Gummy UI customers",
         "h1": "Your data is for access, delivery and support.",
         "canonical": "https://gummyui.dev/privacy",
@@ -2576,10 +2576,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 31872,
-        "bodySha256": "f54b8bbb1e8f3726a5c4352e31c97d723eff2093e681b7e3621037697f02f0ef"
+        "bodySha256": "70f9cb7ea8288231c27fa7ae4f285b4d045d2cba06157ecda0ba7459fd4196e7"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/terms",
+        "url": "http://127.0.0.1:51082/terms",
         "title": "Gummy UI terms of sale and website use",
         "h1": "Terms for the website and paid product.",
         "canonical": "https://gummyui.dev/terms",
@@ -2665,10 +2665,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 21378,
-        "bodySha256": "5890dd4e9e5d871d92179dc4d6bc59f051915bf2fcb3e22339e1a9450567d2e1"
+        "bodySha256": "cc7a212e8c3ce0c3dff3b3b4be1aff9ad4e3f6e4a35c7b45e50f1ebfa0ffa019"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/license",
+        "url": "http://127.0.0.1:51082/license",
         "title": "MIT licence for the public Gummy UI component source",
         "h1": "The public component source is MIT licensed.",
         "canonical": "https://gummyui.dev/license",
@@ -2763,10 +2763,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 31913,
-        "bodySha256": "25d5be9011ef5a1ca3de25e668b48d6d20140a577eaeca34f96ae6cee4e82868"
+        "bodySha256": "45806b1e15c17b75ff740cb4b89e007709033ff8260cfa6c7c77a132c3c1e4e7"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/commercial-license",
+        "url": "http://127.0.0.1:51082/commercial-license",
         "title": "Gummy UI Pro commercial licence",
         "h1": "Build products. Do not redistribute the kit.",
         "canonical": "https://gummyui.dev/commercial-license",
@@ -2852,10 +2852,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 24845,
-        "bodySha256": "c7bc4093295e49cf124544b23523a8424528008eb0b913a659f08d5b219b4eae"
+        "bodySha256": "e258f7b00d9ad31a7447e58dddf731de08af769afc7af27d0d30d4900b5acf39"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/refund",
+        "url": "http://127.0.0.1:51082/refund",
         "title": "Gummy UI refund and access revocation policy",
         "h1": "Fourteen days, before paid files are accessed.",
         "canonical": "https://gummyui.dev/refund",
@@ -2941,10 +2941,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 39662,
-        "bodySha256": "b150a9d47613acae1c2b8d025f4beaddb1c67612723dc8729f4511a1c1e13e5b"
+        "bodySha256": "c2e5c2eed23e65404826e547b052f1cac3c850c0705b04cb9240983957cde306"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/locales",
+        "url": "http://127.0.0.1:51082/locales",
         "title": "Language availability · Gummy UI",
         "h1": "English is the only published language today.",
         "canonical": "https://gummyui.dev/locales",
@@ -3149,10 +3149,10 @@
         "xRobotsTag": null,
         "location": null,
         "bytes": 21729,
-        "bodySha256": "14afeab25b2a6e2c97d34019ae522f3c4ac6e114b3c872d321425b59802b25a1"
+        "bodySha256": "96599e21803c9ac8d423b0c831c9d71558103634b6a763f9c0be1a0e5e8ad100"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/mcp",
+        "url": "http://127.0.0.1:51082/mcp",
         "title": "AI and MCP discovery · Gummy UI",
         "h1": "A catalogue agents can inspect safely.",
         "canonical": "https://gummyui.dev/mcp",
@@ -3240,10 +3240,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 18882,
-        "bodySha256": "2e26bb3e07839443aae0cc700bc0326ed48ed4c5978acf2f77b33656a1f5b827"
+        "bodySha256": "483e808dfafcf9671bf7d037fd20c00f60b23c65039ec6c998e273cb20a3aa91"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/sign-in",
+        "url": "http://127.0.0.1:51082/sign-in",
         "title": "Secure account sign-in · Gummy UI",
         "h1": "Secure customer sign-in.",
         "canonical": null,
@@ -3329,10 +3329,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 19452,
-        "bodySha256": "30a509f0352861a0eae4c5e81dd60383403797de480b5ad1317b660d7a5fd79b"
+        "bodySha256": "52d6801a6d9f78096aacab32cd78ccbceaa0ce6f9fdf6dc642b1ec50daa3dd5c"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/checkout",
+        "url": "http://127.0.0.1:51082/checkout",
         "title": "Checkout status · Gummy UI",
         "h1": "No purchase can be started.",
         "canonical": null,
@@ -3418,10 +3418,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22248,
-        "bodySha256": "8786fa5ac87c014a9ca381522eb4b505ff959078a07205c4e32b5d4e98fcd07b"
+        "bodySha256": "08d73bee4db904367cf2c3675b2779eb5cf355f56234599a80b80283a0bf9a27"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account",
+        "url": "http://127.0.0.1:51082/account",
         "title": "Workspace overview · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3507,10 +3507,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22275,
-        "bodySha256": "79b8ec58628accf58ed7151e7d124241309a60cd1431f1e9ca1ec7d8df09a3ba"
+        "bodySha256": "70fe52b52a989c6b5dd5ca42ca6bd50a390575f0350a562ce8425e299a2c6b25"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/purchases",
+        "url": "http://127.0.0.1:51082/account/purchases",
         "title": "Purchases · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3596,10 +3596,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22273,
-        "bodySha256": "18b8114a663f68e1e90328ad30aeb2d30e6df5b13276c56377fbed2ba0cb0c83"
+        "bodySha256": "cfbc3e6cbebe4cd2f7852b0a4478c73aabcfcd21c00ca0dbf3487cfa5397d9f0"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/licences",
+        "url": "http://127.0.0.1:51082/account/licences",
         "title": "Licences · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3685,10 +3685,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22280,
-        "bodySha256": "7f310dca2102fe1b83fb396df9c492242d2ccfd29db28780bee9c91efdb32b5d"
+        "bodySha256": "06fe1f12954c0c8b1292b23624264b35730d2253da550c529edc00f21f4cd3ed"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/downloads",
+        "url": "http://127.0.0.1:51082/account/downloads",
         "title": "Downloads · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3774,10 +3774,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22250,
-        "bodySha256": "7f3e1ff7aa87313510d3f181f43c4c8599d59c8e3c7f01525b9532c7ed624bc6"
+        "bodySha256": "0aa3be398eced134a933beb3b0062720941e7fdd8c20cf914a5720e06d1a3388"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/billing",
+        "url": "http://127.0.0.1:51082/account/billing",
         "title": "Billing · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3863,10 +3863,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22207,
-        "bodySha256": "a2e220643399dffe8d6fb982f9c0b829e472ee8880236cafda126b331aecc899"
+        "bodySha256": "d31e6fb76cd4eabba12593e2e5d339d0342ff48a27d2b845f672eb91bdd0cfa3"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/team",
+        "url": "http://127.0.0.1:51082/account/team",
         "title": "Team · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3952,10 +3952,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22279,
-        "bodySha256": "4ba161b20f4cd4a0698175e8850ac958f4979ccadf09429d207af81519038c95"
+        "bodySha256": "a683460c2f0ece086821f1212f3dc4deaf7c69813d18058eef25f1fc7a9140e3"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/team/members",
+        "url": "http://127.0.0.1:51082/account/team/members",
         "title": "Members · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4041,10 +4041,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22330,
-        "bodySha256": "2e92a6e86f22cf010c979e0b2c1642a81f51e081e500f33d99093b01fda5c257"
+        "bodySha256": "35dd3d4a6c12e241f8b82652f017d8836ef10eb7d95727756b98e495d9ae967a"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/team/invitations",
+        "url": "http://127.0.0.1:51082/account/team/invitations",
         "title": "Invitations · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4130,10 +4130,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22256,
-        "bodySha256": "1316e8b780b7e6310b44826683ad35d444a83a113676c98c152baec6d9dd5ae3"
+        "bodySha256": "a10e9605168a21169b54463455abbe32d703113f3a04184a314db68c9ac4cf2a"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/profile",
+        "url": "http://127.0.0.1:51082/account/profile",
         "title": "Profile · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4219,10 +4219,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22265,
-        "bodySha256": "c4bc4eb168459a9ca6a339bb7c60e987a74c0dc3a7772f3b3f6a7cf972907944"
+        "bodySha256": "7b989587a15d8e03a7cdd7c39bcdd7052561b263880c8b892784034e3216face"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/security",
+        "url": "http://127.0.0.1:51082/account/security",
         "title": "Security · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4308,10 +4308,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22243,
-        "bodySha256": "00937b653ff0f5465d07608d49b39129312019b93a634c93267b843228866630"
+        "bodySha256": "71e1ede3abac942b825ff868551d4e0f2d7f13cd0ba34d028eec4be8c0d81691"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/privacy",
+        "url": "http://127.0.0.1:51082/account/privacy",
         "title": "Privacy · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4397,10 +4397,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22335,
-        "bodySha256": "6d28c5d5e008f811b69a56aa1e23a3e1068b08c8af60a3aaf5f2e64b243e0aa1"
+        "bodySha256": "17801a45067e1b9007dcf0b39a97874f0ffacdcacfd5df1fe162862d75516ea5"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/privacy/export",
+        "url": "http://127.0.0.1:51082/account/privacy/export",
         "title": "Data export · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4486,10 +4486,10 @@
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
         "bytes": 22323,
-        "bodySha256": "a6ba78a4949aa61e1ba23aa144f93a063d9884793f580ee1016a5392221fd4ff"
+        "bodySha256": "09b5974b37ba9ab2a0664fdea1c7d94c1fd9e0850d325657a0d7c6e23b62d4f8"
       },
       "page": {
-        "url": "http://127.0.0.1:58284/account/privacy/deletion",
+        "url": "http://127.0.0.1:51082/account/privacy/deletion",
         "title": "Deletion · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4609,7 +4609,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:58284/",
+        "url": "http://127.0.0.1:51082/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -4876,8 +4876,8 @@
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
-        "bytes": 514294,
-        "sha256": "683b388f1f0aca3ac030d64b5d41adf3073a9cf089b1decf142fe294eb6fc03c"
+        "bytes": 515090,
+        "sha256": "a291c0be979df732ef83f02fd460958c86fef6de9fd452b25f33e9d210a7764a"
       }
     },
     {
@@ -4889,7 +4889,7 @@
       "colourScheme": "dark",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:58284/",
+        "url": "http://127.0.0.1:51082/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -5156,8 +5156,8 @@
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
-        "bytes": 522454,
-        "sha256": "3555e2cbd71285c1e9a9f2939bbffff5cc605466607ed7bc9046ba515e1313a2"
+        "bytes": 525418,
+        "sha256": "042a07b8a23f847921e77523f689ba22986b937fca17b0f720711d15dd7a03f9"
       }
     },
     {
@@ -5169,7 +5169,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:58284/",
+        "url": "http://127.0.0.1:51082/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -5436,8 +5436,8 @@
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
-        "bytes": 231583,
-        "sha256": "dd47d9cbcab811b4138164e80aa7d239b40ddb7da731d1daf7ffead9690b2f48"
+        "bytes": 233347,
+        "sha256": "cb7e9cb7518d791c2a85dc2ff11bc4b31c2a7b7bea2986b3dbed68d55e38466c"
       }
     },
     {
@@ -5449,7 +5449,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:58284/components/accordion",
+        "url": "http://127.0.0.1:51082/components/accordion",
         "title": "Accordion React component · Gummy UI",
         "h1": "Accordion",
         "canonical": "https://gummyui.dev/components/accordion",
@@ -5552,7 +5552,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:58284/rtl",
+        "url": "http://127.0.0.1:51082/rtl",
         "title": "Gummy UI RTL support · Direction and keyboard behavior",
         "h1": "RTL is part of the component contract.",
         "canonical": "https://gummyui.dev/rtl",
@@ -5663,7 +5663,7 @@
       "colourScheme": "light",
       "reducedMotion": "reduce",
       "page": {
-        "url": "http://127.0.0.1:58284/components/accordion",
+        "url": "http://127.0.0.1:51082/components/accordion",
         "title": "Accordion React component · Gummy UI",
         "h1": "Accordion",
         "canonical": "https://gummyui.dev/components/accordion",
@@ -5758,7 +5758,7 @@
       "colourScheme": "light",
       "reducedMotion": "reduce",
       "page": {
-        "url": "http://127.0.0.1:58284/account",
+        "url": "http://127.0.0.1:51082/account",
         "title": "Workspace overview · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -12593,11 +12593,11 @@
             "outlineWidth": "3px",
             "boxShadow": "none",
             "textDecorationLine": "underline",
-            "transform": "matrix(1, 0, 0, 1, 0, -10.6239)"
+            "transform": "matrix(1, 0, 0, 1, 0, -14.0753)"
           },
           "rectangle": {
             "left": 16,
-            "top": 1.38,
+            "top": -2.08,
             "width": 143.78,
             "height": 44
           }
@@ -13048,7 +13048,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1428.22,
+            "top": 1427.22,
             "width": 172,
             "height": 41.5
           }
@@ -13074,7 +13074,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1473.72,
+            "top": 1472.72,
             "width": 172,
             "height": 41.5
           }
@@ -13100,7 +13100,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1520.22,
+            "top": 1516.22,
             "width": 172,
             "height": 41.5
           }
@@ -13126,7 +13126,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1566.72,
+            "top": 1562.72,
             "width": 172,
             "height": 41.5
           }
@@ -13153,7 +13153,7 @@
           },
           "rectangle": {
             "left": 1052.81,
-            "top": 1401.41,
+            "top": 1397.41,
             "width": 152,
             "height": 42
           }
@@ -13181,10 +13181,10 @@
             "transform": "none"
           },
           "rectangle": {
-            "left": 314.54,
-            "top": 1527.76,
-            "width": 481.29,
-            "height": 54.86
+            "left": 315.19,
+            "top": 1526.41,
+            "width": 480,
+            "height": 54
           }
         },
         {
@@ -13209,179 +13209,8 @@
           },
           "rectangle": {
             "left": 1094.09,
-            "top": 1539.41,
+            "top": 1538.41,
             "width": 110.72,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": "gummy-switch-_R_2dbkjl6_",
-          "className": "gummy-switch",
-          "role": "switch",
-          "name": "Weekly digest",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".gummy-card",
-            ".gummy-switch",
-            ".gummy-switch:focus-visible",
-            ".gummy-switch:focus-visible .gummy-switch__pool"
-          ],
-          "style": {
-            "outlineStyle": "none",
-            "outlineWidth": "3px",
-            "boxShadow": "oklab(1 0 0 / 0.9) 0px 1px 0px 0px inset, oklab(0.59 -0.0999235 0.137533 / 0.28) 0px -5px 10px 0px inset, oklab(0.76 -0.129313 0.177984 / 0.45) 0px 0px 0px 1px inset",
-            "textDecorationLine": "none",
-            "transform": "matrix(0.78, 0, 0, 0.78, 0, 0)"
-          },
-          "rectangle": {
-            "left": 1108.97,
-            "top": 1756.75,
-            "width": 60.84,
-            "height": 34.32
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "gummy-button",
-          "role": null,
-          "name": "Read installation",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            ".gummy-button:focus-visible",
-            ".gummy-button:focus-visible .gummy-button__body",
-            ".gummy-card"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "none",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 146,
-            "top": 2974.47,
-            "width": 140.02,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "gummy-button",
-          "role": null,
-          "name": "See Pro pricing",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            ".gummy-button:focus-visible",
-            ".gummy-button:focus-visible .gummy-button__body",
-            ".gummy-card"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "none",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 690.26,
-            "top": 2969.66,
-            "width": 129.42,
-            "height": 44.27
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "gummy-button",
-          "role": null,
-          "name": "Open the docs",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            ".gummy-button:focus-visible",
-            ".gummy-button:focus-visible .gummy-button__body"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "none",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 763.5,
-            "top": 3468.47,
-            "width": 177.02,
-            "height": 56
-          }
-        }
-      ],
-      "backward": [
-        {
-          "tag": "button",
-          "id": null,
-          "className": "gummy-button",
-          "role": null,
-          "name": "See Pro pricing",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            ".gummy-button:focus-visible",
-            ".gummy-button:focus-visible .gummy-button__body",
-            ".gummy-card"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "none",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 690.26,
-            "top": 2968.66,
-            "width": 129.42,
-            "height": 44.27
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "gummy-button",
-          "role": null,
-          "name": "Read installation",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            ".gummy-button:focus-visible",
-            ".gummy-button:focus-visible .gummy-button__body",
-            ".gummy-card"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "none",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 146,
-            "top": 2973.47,
-            "width": 140.02,
             "height": 44
           }
         },
@@ -13420,6 +13249,177 @@
           "id": null,
           "className": "gummy-button",
           "role": null,
+          "name": "Read installation",
+          "href": null,
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            ".gummy-button:focus-visible",
+            ".gummy-button:focus-visible .gummy-button__body",
+            ".gummy-card"
+          ],
+          "style": {
+            "outlineStyle": "solid",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "none",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 146,
+            "top": 2973.47,
+            "width": 140.02,
+            "height": 44
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "className": "gummy-button",
+          "role": null,
+          "name": "See Pro pricing",
+          "href": null,
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            ".gummy-button:focus-visible",
+            ".gummy-button:focus-visible .gummy-button__body",
+            ".gummy-card"
+          ],
+          "style": {
+            "outlineStyle": "solid",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "none",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 690.26,
+            "top": 2967.66,
+            "width": 129.42,
+            "height": 44.27
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "className": "gummy-button",
+          "role": null,
+          "name": "Open the docs",
+          "href": null,
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            ".gummy-button:focus-visible",
+            ".gummy-button:focus-visible .gummy-button__body"
+          ],
+          "style": {
+            "outlineStyle": "solid",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "none",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 763.5,
+            "top": 3466.47,
+            "width": 177.02,
+            "height": 56
+          }
+        }
+      ],
+      "backward": [
+        {
+          "tag": "button",
+          "id": null,
+          "className": "gummy-button",
+          "role": null,
+          "name": "See Pro pricing",
+          "href": null,
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            ".gummy-button:focus-visible",
+            ".gummy-button:focus-visible .gummy-button__body",
+            ".gummy-card"
+          ],
+          "style": {
+            "outlineStyle": "solid",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "none",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 690.26,
+            "top": 2967.66,
+            "width": 129.42,
+            "height": 44.27
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "className": "gummy-button",
+          "role": null,
+          "name": "Read installation",
+          "href": null,
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            ".gummy-button:focus-visible",
+            ".gummy-button:focus-visible .gummy-button__body",
+            ".gummy-card"
+          ],
+          "style": {
+            "outlineStyle": "solid",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "none",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 146,
+            "top": 2972.47,
+            "width": 140.02,
+            "height": 44
+          }
+        },
+        {
+          "tag": "button",
+          "id": "gummy-switch-_R_2dbkjl6_",
+          "className": "gummy-switch",
+          "role": "switch",
+          "name": "Weekly digest",
+          "href": null,
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "button:focus-visible:not(.gummy-button",
+            ".gummy-card",
+            ".gummy-switch",
+            ".gummy-switch:focus-visible",
+            ".gummy-switch:focus-visible .gummy-switch__pool"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "oklab(1 0 0 / 0.9) 0px 1px 0px 0px inset, oklab(0.59 -0.0999235 0.137533 / 0.28) 0px -5px 10px 0px inset, oklab(0.76 -0.129313 0.177984 / 0.45) 0px 0px 0px 1px inset",
+            "textDecorationLine": "none",
+            "transform": "matrix(0.78, 0, 0, 0.78, 0, 0)"
+          },
+          "rectangle": {
+            "left": 1108.97,
+            "top": 1754.75,
+            "width": 60.84,
+            "height": 34.32
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "className": "gummy-button",
+          "role": null,
           "name": "New project",
           "href": null,
           "focusVisible": true,
@@ -13437,7 +13437,7 @@
           },
           "rectangle": {
             "left": 1094.09,
-            "top": 1538.41,
+            "top": 1537.41,
             "width": 110.72,
             "height": 44
           }
@@ -13466,7 +13466,7 @@
           },
           "rectangle": {
             "left": 315.19,
-            "top": 1526.41,
+            "top": 1525.41,
             "width": 480,
             "height": 54
           }
@@ -13493,7 +13493,7 @@
           },
           "rectangle": {
             "left": 1052.81,
-            "top": 1397.41,
+            "top": 1396.41,
             "width": 152,
             "height": 42
           }
@@ -13519,7 +13519,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1562.72,
+            "top": 1561.72,
             "width": 172,
             "height": 41.5
           }
@@ -13545,7 +13545,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1516.22,
+            "top": 1515.22,
             "width": 172,
             "height": 41.5
           }
@@ -13574,11 +13574,11 @@
             "outlineWidth": "3px",
             "boxShadow": "none",
             "textDecorationLine": "underline",
-            "transform": "matrix(1, 0, 0, 1, 0, -79.2)"
+            "transform": "matrix(1, 0, 0, 1, 0, -76.4116)"
           },
           "rectangle": {
             "left": 16,
-            "top": -67.2,
+            "top": -64.41,
             "width": 283.94,
             "height": 44
           }
@@ -14043,7 +14043,7 @@
           },
           "rectangle": {
             "left": 20,
-            "top": 2345.75,
+            "top": 2344.75,
             "width": 248.19,
             "height": 24
           }
@@ -14069,7 +14069,7 @@
           },
           "rectangle": {
             "left": 72.19,
-            "top": 2607.38,
+            "top": 2603.38,
             "width": 194.13,
             "height": 30
           }
@@ -14095,7 +14095,7 @@
           },
           "rectangle": {
             "left": 72.19,
-            "top": 2878.88,
+            "top": 2873.88,
             "width": 158.41,
             "height": 30
           }
@@ -14121,7 +14121,7 @@
           },
           "rectangle": {
             "left": 45,
-            "top": 3320.89,
+            "top": 3314.89,
             "width": 168.16,
             "height": 30
           }
@@ -14147,7 +14147,7 @@
           },
           "rectangle": {
             "left": 45,
-            "top": 3613.41,
+            "top": 3607.41,
             "width": 168.16,
             "height": 30
           }
@@ -14173,7 +14173,7 @@
           },
           "rectangle": {
             "left": 20,
-            "top": 3804.41,
+            "top": 3797.41,
             "width": 165.73,
             "height": 19.5
           }
@@ -14199,7 +14199,7 @@
           },
           "rectangle": {
             "left": 597.61,
-            "top": 3802.41,
+            "top": 3792.41,
             "width": 107.56,
             "height": 19.5
           }
@@ -14225,7 +14225,7 @@
           },
           "rectangle": {
             "left": 1117.03,
-            "top": 3795.41,
+            "top": 3775.41,
             "width": 142.97,
             "height": 19.5
           }
@@ -14251,7 +14251,7 @@
           },
           "rectangle": {
             "left": 194.2,
-            "top": 4042.91,
+            "top": 4016.91,
             "width": 27.94,
             "height": 18
           }
@@ -14277,7 +14277,7 @@
           },
           "rectangle": {
             "left": 242.14,
-            "top": 4024.91,
+            "top": 3988.91,
             "width": 38.09,
             "height": 18
           }
@@ -14303,7 +14303,7 @@
           },
           "rectangle": {
             "left": 300.23,
-            "top": 3995.91,
+            "top": 3926.91,
             "width": 21.44,
             "height": 18
           }
@@ -14329,7 +14329,7 @@
           },
           "rectangle": {
             "left": 341.67,
-            "top": 3957.91,
+            "top": 3868.91,
             "width": 66.33,
             "height": 18
           }
@@ -14355,7 +14355,7 @@
           },
           "rectangle": {
             "left": 428,
-            "top": 3935.91,
+            "top": 3792.91,
             "width": 88.09,
             "height": 18
           }
@@ -14381,7 +14381,7 @@
           },
           "rectangle": {
             "left": 536.09,
-            "top": 3906.91,
+            "top": 3691.91,
             "width": 69.84,
             "height": 18
           }
@@ -14407,7 +14407,7 @@
           },
           "rectangle": {
             "left": 625.94,
-            "top": 3840.91,
+            "top": 3559.91,
             "width": 45.63,
             "height": 18
           }
@@ -14433,7 +14433,7 @@
           },
           "rectangle": {
             "left": 691.56,
-            "top": 3752.91,
+            "top": 3386.91,
             "width": 42.94,
             "height": 18
           }
@@ -14451,7 +14451,7 @@
       "kind": "log",
       "source": "security",
       "text": "Loading the image 'https://gummyui.dev/favicon.svg' violates the following Content Security Policy directive: \"img-src 'self' data: blob:\". The action has been blocked.",
-      "exampleUrl": "http://127.0.0.1:58284/"
+      "exampleUrl": "http://127.0.0.1:51082/"
     }
   ],
   "checks": {

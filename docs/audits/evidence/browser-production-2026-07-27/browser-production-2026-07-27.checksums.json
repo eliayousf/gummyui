@@ -1,8 +1,13 @@
 {
   "schemaVersion": "1.0",
   "algorithm": "SHA-256",
-  "generatedAt": "2026-07-28T16:58:04.103Z",
+  "generatedAt": "2026-07-28T18:04:37.910Z",
   "entries": [
+    {
+      "file": "docs/audits/evidence/browser-production-2026-07-27/README.md",
+      "bytes": 655,
+      "sha256": "d43eb0d5b54528057ca616ea728ad456656a48114645e3dba83360ecf8922ab3"
+    },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/account-fail-closed-mobile.png",
       "bytes": 112143,
@@ -10,8 +15,8 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/browser-production-2026-07-27.json",
-      "bytes": 531560,
-      "sha256": "e1c1f70c25105388dae130b543a5ef1ac75b4f59ae5e57d455c9f998dbfac5fa"
+      "bytes": 531559,
+      "sha256": "78f5a8beeb5b34368c7e9eba5eaf184271db1f36846d03de73892d658dade817"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/component-200-percent-equivalent-reflow.png",
@@ -25,18 +30,18 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
-      "bytes": 522454,
-      "sha256": "3555e2cbd71285c1e9a9f2939bbffff5cc605466607ed7bc9046ba515e1313a2"
+      "bytes": 525418,
+      "sha256": "042a07b8a23f847921e77523f689ba22986b937fca17b0f720711d15dd7a03f9"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
-      "bytes": 514294,
-      "sha256": "683b388f1f0aca3ac030d64b5d41adf3073a9cf089b1decf142fe294eb6fc03c"
+      "bytes": 515090,
+      "sha256": "a291c0be979df732ef83f02fd460958c86fef6de9fd452b25f33e9d210a7764a"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
-      "bytes": 231583,
-      "sha256": "dd47d9cbcab811b4138164e80aa7d239b40ddb7da731d1daf7ffead9690b2f48"
+      "bytes": 233347,
+      "sha256": "cb7e9cb7518d791c2a85dc2ff11bc4b31c2a7b7bea2986b3dbed68d55e38466c"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/rtl-mobile.png",

@@ -892,11 +892,14 @@ restoration remain pending. The actual paid-release builder therefore refuses
 to package the catalogue, and the public boundary and deployment contain no
 paid editable source.
 
-The production-origin homepage Lighthouse check completed on three cold mobile
-and three desktop runs. Median scores are 98 mobile performance and 100 desktop
-performance, with accessibility, best practices and SEO at 100 in both modes;
-one mobile run scored 93 performance. This satisfies the homepage-median check,
-not the separate full-coverage greater-than-95 gate. After the source
+The original production-origin homepage Lighthouse check completed on three
+cold mobile and three desktop runs. Its median scores were 98 mobile
+performance and 100 desktop performance, with accessibility, best practices
+and SEO at 100 in both modes. A fresh sequential check of the current release
+recorded mobile performance scores of 94, 92 and 94 (median 94), while a current
+desktop run scored 100; accessibility, best practices and SEO remained 100 and
+CLS remained zero. The current mobile median and the separate full-coverage
+greater-than-95 gate are both open. After the source
 corrections and safe payload-deferment tranche were deployed, SquirrelScan
 0.0.80 completed a fresh full crawl and scored 83/B, with 27,929 passed checks,
 1,195 warnings and 41 failures across 375 crawled URLs. This improves on the

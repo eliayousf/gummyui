@@ -91,9 +91,23 @@ homepage.
 
 The homepage-median performance check exceeds 95 on both mobile and desktop,
 and the other three Lighthouse categories score 100. One mobile run scored 93.
-This is lab evidence for the homepage rather than a full-coverage site score or
-a claim about field INP. The separate full-coverage greater-than-95 gate remains
-open.
+This was lab evidence for the earlier audited release rather than a
+full-coverage site score or a claim about field INP.
+
+### Current-release Lighthouse recheck
+
+After the final functional release reached production, Lighthouse 13.4.0 ran
+three additional sequential mobile checks and one desktop check. Mobile
+performance scored 94, 92 and 94 (median **94**); accessibility, best practices
+and SEO scored 100 on every run. Mobile CLS was zero; LCP was 2.580 s,
+2.719 s and 2.717 s, and TBT was 92 ms, 151 ms and 87 ms. The desktop check
+scored 100 in all four categories with 0.506 s LCP, 0 ms TBT and zero CLS.
+
+The current mobile median therefore does not satisfy the homepage performance
+target above 95. Lighthouse attributes most remaining loss to H1 render delay,
+with 26 KiB estimated unused JavaScript and measurable style/layout work. This
+result and the separate 83/B full-site diagnostic gate both remain open; the
+earlier 98 mobile median is retained as historical evidence only.
 
 ## Full-site diagnostic crawl
 
