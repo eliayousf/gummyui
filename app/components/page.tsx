@@ -5,7 +5,7 @@ import { catalogueGroups, componentCount, components } from "../data/catalogue";
 
 export const metadata: Metadata = {
   title: "React component catalogue · Gummy UI",
-  description: `${componentCount} open-source React component categories with editable native, Base UI, and Radix UI source, RTL, and dark mode.`,
+  description: `Explore ${componentCount} open-source React component categories with editable native, Base UI and Radix UI source, documented accessibility, RTL and dark mode.`,
   alternates: { canonical: "/components" },
 };
 

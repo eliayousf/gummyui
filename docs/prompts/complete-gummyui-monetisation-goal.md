@@ -117,20 +117,20 @@ scratch.
 - A Convex commerce foundation with 24 durable commerce tables and one
   intentionally ephemeral distributed-rate-limit table, Stripe
   checkout/webhook lifecycle, durable email, privacy, refund and chargeback
-  handling pass locally. A Convex production deployment exists and
-  `CONVEX_SERVER_SECRET` is set there, but the current code/schema, remaining
-  application environment and production journeys are not deployed or
-  verified.
+  handling pass locally. The current 25-table schema/functions are deployed to
+  production, and a real encrypted 24-table backup plus latest-backup
+  verification succeeded. Customer journeys and isolated restore remain
+  unverified.
 - Stripe Managed Payments is live-account ready with three products, nine
   prices and `support@kreydlabs.com` configured. The application runtime still
   lacks its restricted production key and verified production webhook, and no
   sandbox or live revenue-loop journey has been completed; checkout and webhook
   flags remain fail closed.
 - The Vercel-targeted production build passes across 320 generated and dynamic
-  routes. A Vercel project, domain attachment and part of the production
-  environment are configured, but Vercel Pro activation, Namecheap DNS
-  cutover, production deployment and real-origin verification remain pending.
-- English revision `en-72e701f4add4` contains 2,921 records. All 19 private AI
+  routes. Vercel Pro is active, Namecheap DNS has converged, HTTPS and custom
+  domains are valid, and `gummyui.dev` serves the pushed public commit with
+  commerce still fail closed.
+- English revision `en-752ecc5b2364` contains 2,922 records. All 19 private AI
   drafts pass structural and automated quality checks with zero high-severity
   flags and have checksum-bound founder-review screens; every locale remains
   fail closed pending rendered QA and founder review.

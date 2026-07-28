@@ -10,9 +10,26 @@ deploy-time credentials. The current 25-table schema, indexes and functions are
 deployed, and a post-deploy inspection confirmed all 25 tables are present and
 empty. A separate private encrypted EU B2 backup bucket and scoped backup key
 are provisioned, and the corresponding Vercel Production values are installed.
-No scheduled production backup or provider restore drill has completed.
-Key-custody evidence, a real committed backup and an isolated restore proof must
-still be recorded before this control is marked production-proven.
+On 28 July 2026 the production backup route completed successfully: it exported
+all 24 durable tables, encrypted and authenticated every object, uploaded the
+objects to the private B2 backup bucket, read every object back successfully and
+sent the matching Better Stack success heartbeat. The production
+backup-verification route then completed successfully against the latest
+backup. Redacted Vercel function logs retain the 200 responses and structured
+completion records; object names, provider tokens and cryptographic material are
+not copied into this repository.
+
+An isolated Convex development restore target has the current schema and backup
+functions with only distinct restore/export secrets and the `isolated-test`
+classification. On 28 July 2026 the scoped B2 backup credential, both backup
+cryptographic keys and the cron credential were rotated. The replacement values
+are installed for the next Vercel production deployment and a mode-0600
+operator recovery bundle exists outside both repositories. The superseded
+values remain usable only by the currently deployed immutable runtime until the
+replacement deployment and fresh-backup proof pass. A fresh backup under the
+rotated keys, the isolated restore proof, old-key revocation and founder
+password-manager custody evidence remain required before this control is marked
+fully production-proven.
 
 The backup format has two separate cryptographic controls:
 

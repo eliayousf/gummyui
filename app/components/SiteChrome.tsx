@@ -65,6 +65,7 @@ export function SiteFooter() {
         <Link href="/studio">Frame studio</Link>
         <Link href="/community">Community</Link>
         <Link href="/blog">Articles</Link>
+        <Link href="/changelog">Changelog</Link>
         <a href="/rss.xml">RSS</a>
         <a href="/changelog.xml">Changelog RSS</a>
         <Link href="/rtl">RTL</Link>

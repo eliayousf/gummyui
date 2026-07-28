@@ -1,4 +1,12 @@
 /*
+ * Generated from app/styles/gummy-core-components.css for routes that render
+ * the full canonical component family. The layer preserves page-level
+ * composition overrides regardless of stylesheet discovery order.
+ * Do not edit this public copy.
+ */
+
+@layer gummy-core-components {
+/*
  * Canonical shared styles for Input, Badge, Card, Switch, Tabs, Dropdown
  * Menu, and Dialog. Page, Lab, documentation, and marketing selectors are
  * deliberately omitted. Run npm run styles:routes after editing this file.
@@ -2173,4 +2181,5 @@ button.gummy-card {
     animation: none !important;
     transform: none;
   }
+}
 }

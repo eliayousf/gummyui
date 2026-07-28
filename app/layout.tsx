@@ -4,16 +4,20 @@ import "./globals.css";
 import "./styles/compositions.css";
 
 const display = Bricolage_Grotesque({
+  display: "optional",
   variable: "--font-display",
   subsets: ["latin"],
 });
 
 const sans = Geist({
+  display: "optional",
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const mono = Geist_Mono({
+  display: "optional",
+  preload: false,
   variable: "--font-mono",
   subsets: ["latin"],
 });

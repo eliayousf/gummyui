@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "sourceLocale": "en",
-  "sourceRevision": "en-72e701f4add4",
-  "sourceChecksum": "72e701f4add4e8fcc6d8eb1cac2eaed12afda73926ffac0d38ad846297638608",
+  "sourceRevision": "en-752ecc5b2364",
+  "sourceChecksum": "752ecc5b2364a44691dbb204ebc3817b84cfefeea181c65cb783ed78762b6451",
   "generatedFrom": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -152,12 +152,12 @@
     "app/themes/page.tsx",
     "lib/commerce/account.ts"
   ],
-  "messageCount": 2921,
-  "translatableMessageCount": 2650,
+  "messageCount": 2922,
+  "translatableMessageCount": 2651,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 1881,
+    "static": 1882,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -891,7 +891,7 @@
       "id": "account.public.unavailable.description",
       "category": "account",
       "contentType": "plain",
-      "source": "Identity, checkout, billing, licences, and protected downloads are not active. No account or customer access is implied by this route.",
+      "source": "Production sign-in infrastructure is connected for verification, but billing, licences and protected downloads are not yet available to customers. No paid access is implied by this route.",
       "description": "Public and gated account-interface copy.",
       "translatable": true,
       "placeholders": [],
@@ -899,7 +899,7 @@
       "sourceReferences": [
         "lib/commerce/account.ts"
       ],
-      "checksum": "7050bd27bdf6593495aa99eec2e3a68ba2d1e13d51eadd1675de435bdc277e43"
+      "checksum": "9e59d4e8a8b5482f5a441106afb27ef3e5c75f349df10086a2881433300bb0b2"
     },
     {
       "id": "account.public.unavailable.eyebrow",
@@ -13300,9 +13300,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:72"
+        "app/components/SiteChrome.tsx:73"
       ],
-      "checksum": "9cfe19595588835ee7b74ebd88ed93f6fb9436a5e594238135d00685352d6904"
+      "checksum": "57a19181f39a5220953b08646bd4c11f09787029c818a758ce4eb9697a5b4e94"
     },
     {
       "id": "core.footer.changelog-rss",
@@ -13315,9 +13315,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:69"
+        "app/components/SiteChrome.tsx:70"
       ],
-      "checksum": "c0a7af9d5a97d2ea95f7a305a20216a440418b432479f7d478cd642028e9162e"
+      "checksum": "7009becb731c05554c3c1eac70e4f0474b02d869410c893f5d15e4d4baf619a3"
     },
     {
       "id": "core.footer.contact-status",
@@ -13359,9 +13359,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:80"
+        "app/components/SiteChrome.tsx:81"
       ],
-      "checksum": "bb386ff11d41d48ec844848a4df835dbeb7cff6c61c055ee6376183ba4ec3ff9"
+      "checksum": "fa0c1bb26b3eed77b9565428f184fbed19b9a6be94006afe00d97cede2926b03"
     },
     {
       "id": "core.footer.editor-setup",
@@ -13405,9 +13405,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:73"
+        "app/components/SiteChrome.tsx:74"
       ],
-      "checksum": "458d04604e1cf74b8670da7b3a54d6e2be64809ab19ef3a47a72b4a4b4991987"
+      "checksum": "f402c6a3e60382de8a43ea69c27804a5feb817ffea18f8556d3247503858e4c5"
     },
     {
       "id": "core.footer.mit-licence",
@@ -13420,9 +13420,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:83"
+        "app/components/SiteChrome.tsx:84"
       ],
-      "checksum": "09b23e1dcd97a7f2bd81982433c61f641884e75a1c3b64a345aad4f4386fb892"
+      "checksum": "c97e3875e765f8ff28b28433029d947d0a3756ff83a0c4012da30c7f948f1110"
     },
     {
       "id": "core.footer.navigation-label",
@@ -13465,9 +13465,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:81"
+        "app/components/SiteChrome.tsx:82"
       ],
-      "checksum": "25d413ed3a092397dbb9e50868577387c9f51b7428330902bc28e29a27af03dd"
+      "checksum": "314adee26854edce2dd2873de2667aec6e2fcfca3b5f2ff3324ca472f5b1f6c0"
     },
     {
       "id": "core.footer.pro-licence-status",
@@ -13494,9 +13494,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:71"
+        "app/components/SiteChrome.tsx:72"
       ],
-      "checksum": "b8b6610e388b2d53eea0f28a084bbc7e7bce2764443750397aef8c3a62ce1b60"
+      "checksum": "738da61720ff47610122be783ce56554e6305176ebc84e161dab1922a40eced4"
     },
     {
       "id": "core.footer.refund-status",
@@ -13552,9 +13552,9 @@
       "sourceReferences": [
         "app/components/ComponentLab.tsx:1082",
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:74"
+        "app/components/SiteChrome.tsx:75"
       ],
-      "checksum": "e61ed0531dd2ce1e6e07ce33a72fbefd3df2c482886fafff08d0bc151a083c10"
+      "checksum": "0613dacca961488d4606bcfc5158f2866ca9ae7252f4e30f38cbaffac2ecf879"
     },
     {
       "id": "core.footer.support",
@@ -13567,9 +13567,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:75"
+        "app/components/SiteChrome.tsx:76"
       ],
-      "checksum": "46ea57d508b1178fd0108243b84bcea7db1d90343cce309e7bec8289d95347a4"
+      "checksum": "54dc7946d368c2ebf54862dfb61b3684d17a36bacaaf3bd0fcec2c610b090d4e"
     },
     {
       "id": "core.footer.terms-status",
@@ -13719,9 +13719,9 @@
       "sourceReferences": [
         "app/blog/[slug]/page.tsx:47",
         "app/layout.tsx",
-        "app/layout.tsx:34"
+        "app/layout.tsx:38"
       ],
-      "checksum": "9b53efdacd17a8a8500afde0ba2d4297b73104cfdcc1130c037c50bc2ff4d0f2"
+      "checksum": "7934a22e189c7ef7ed3114b8e5bb009a790bc64edbdf31defb856981b248d722"
     },
     {
       "id": "core.metadata.site-description",
@@ -13734,9 +13734,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/layout.tsx",
-        "app/layout.tsx:25"
+        "app/layout.tsx:29"
       ],
-      "checksum": "e91ea978b914c51a13345fe3c8ecee76085829b34f5e769c942aced5245265fc"
+      "checksum": "25a3d18d324f8fdfce252eabf0dc3a03e87ed1d57a110abbd2af9bc140192de6"
     },
     {
       "id": "core.metadata.site-title",
@@ -13754,10 +13754,10 @@
       ],
       "sourceReferences": [
         "app/layout.tsx",
-        "app/layout.tsx:23",
-        "app/page.tsx:5"
+        "app/layout.tsx:27",
+        "app/page.tsx:7"
       ],
-      "checksum": "be257e42d2d2f22d8a98ac55d40a35ada2f74c37db25a22964402d753a7e4cb3"
+      "checksum": "9549ce7bf11215fbc675521c8b645c0bdd376310c7d184ea9df687e0ca029cc2"
     },
     {
       "id": "core.metadata.social-description",
@@ -13770,10 +13770,10 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/layout.tsx",
-        "app/layout.tsx:32",
-        "app/layout.tsx:39"
+        "app/layout.tsx:36",
+        "app/layout.tsx:43"
       ],
-      "checksum": "9036477de354c62156e46e42a7d8c53078ce68e9e20c26e8559180aeeedf47f0"
+      "checksum": "b949622c173c1d5c52301bd809431e428374eefac62be5e85ab5a02cc30a9a7c"
     },
     {
       "id": "core.navigation.articles",
@@ -17150,7 +17150,7 @@
       "id": "static.blocks.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Review boundary-safe category counts plus implementation, manual verification, protected release, entitlement, and purchase status for the private Gummy UI Pro block catalogue.",
+      "source": "Review boundary-safe category counts, implementation, manual verification, protected release and purchase status for the private Gummy UI Pro block catalogue.",
       "description": "Static property description copy in app/blocks/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -17163,7 +17163,7 @@
       "sourceReferences": [
         "app/blocks/page.tsx:14"
       ],
-      "checksum": "3b3579627c1d3590b14de90cebdcf0afd5c7de4292e40a2e859a23152a9fcead"
+      "checksum": "83b266ba5b347b2d5a449dcfa694e299c2868ee0ed68b60a862efd2181a73418"
     },
     {
       "id": "static.blocks.page.module.property-title.01",
@@ -17469,10 +17469,10 @@
         "app/components/[slug]/page.tsx:58",
         "app/components/GelPopProof.tsx:561",
         "app/components/SiteChrome.tsx:53",
-        "app/layout.tsx:31",
-        "app/layout.tsx:38"
+        "app/layout.tsx:35",
+        "app/layout.tsx:42"
       ],
-      "checksum": "75d2fb5a9743bc0dafe2ec0ef147044ec54082b8ea6c414651eb262aebd79f7c"
+      "checksum": "ffaeff8a3f243f25d7fbe8d38b2e384f1236d5c596b3408ee188f910518e6479"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.property-name.02",
@@ -17559,9 +17559,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/changelog/page.tsx:13"
+        "app/changelog/page.tsx:15"
       ],
-      "checksum": "f415a7e2c2ba975fef29e7a1370aa49bd49a9420920bda400602ce92887ac2bb"
+      "checksum": "572e19687eecaa84afed39d2b290123259e2cd3e6fa079d4ac3bda4dd13cc458"
     },
     {
       "id": "static.changelog.page.changelog-page.attribute-lede.01",
@@ -17573,9 +17573,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/changelog/page.tsx:15"
+        "app/changelog/page.tsx:17"
       ],
-      "checksum": "3021827be853804dc59d72fbbb0052454c61f8b188125de2346a7536e7417068"
+      "checksum": "36d577002489d241cfe80bcb996db4f263c25468aa23f91b984753096e26dadc"
     },
     {
       "id": "static.changelog.page.changelog-page.attribute-title.01",
@@ -17587,9 +17587,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/changelog/page.tsx:14"
+        "app/changelog/page.tsx:16"
       ],
-      "checksum": "5913e48d128357e4db038151d290503c7b52293ee28c666d255b0d9f636e9434"
+      "checksum": "4db55e622b259628782346c2bb3f23f630716f2575c709a55cda82f311069b07"
     },
     {
       "id": "static.changelog.page.changelog-page.jsx-h2.01",
@@ -17601,9 +17601,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/changelog/page.tsx:34"
+        "app/changelog/page.tsx:36"
       ],
-      "checksum": "992336de3ab567de1c5317eb5e33ed4de5be63d92440eaf0d00800cb7a1320a1"
+      "checksum": "070e05f8970d3821d8ad903853b5061969f64ebc57e447196d34a781f7d3297b"
     },
     {
       "id": "static.changelog.page.changelog-page.rich-p.01",
@@ -17632,15 +17632,15 @@
         }
       ],
       "sourceReferences": [
-        "app/changelog/page.tsx:35"
+        "app/changelog/page.tsx:37"
       ],
-      "checksum": "6be04157b8ad6954793d8bf5f324be76658a727c63842f99228b4cbbbefba923"
+      "checksum": "5c6089153e280c0c84d100805e39618b63f250859ef680446acbf1c5727d1159"
     },
     {
       "id": "static.changelog.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Public Gummy UI component, registry, and product-foundation changes.",
+      "source": "Follow verified Gummy UI component, registry, documentation and product-foundation changes, with dated public release notes and catalogue counts.",
       "description": "Static property description copy in app/changelog/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -17651,15 +17651,15 @@
         }
       ],
       "sourceReferences": [
-        "app/changelog/page.tsx:7"
+        "app/changelog/page.tsx:8"
       ],
-      "checksum": "5842989c1d7b046fe7d88d2e343d36b412045cbf3fc65ced242d187cf5c035ca"
+      "checksum": "5eb878a58652debd42b343678eb3619042063ee7d37e2e76866954d185826214"
     },
     {
       "id": "static.changelog.page.module.property-title.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Changelog · Gummy UI",
+      "source": "Changelog for Gummy UI components and releases",
       "description": "Static property title copy in app/changelog/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -17672,7 +17672,7 @@
       "sourceReferences": [
         "app/changelog/page.tsx:6"
       ],
-      "checksum": "0f07fe420388536effcb5a74d6ba5186a7f3bb87476849e59b883a3f7e7af174"
+      "checksum": "5ef9ec2dfd8da552a057102a03b43f5940d85ac8369026ffdc96ebca050be4fe"
     },
     {
       "id": "static.commercial-license.page.commercial-license-page.attribute-eyebrow.01",
@@ -24487,9 +24487,9 @@
         "app/components/ComponentLab.tsx:1049",
         "app/components/ComponentLab.tsx:911",
         "app/components/ComponentLab.tsx:949",
-        "app/components/SiteChrome.tsx:70"
+        "app/components/SiteChrome.tsx:71"
       ],
-      "checksum": "cdad7b5a3ec1fbbe609063762072dcb73ab2770527b34c8411e60b64057b2c30"
+      "checksum": "9257ea80d6a934b5348ccb2fdb03d43864088b503371b0ab3f75c216867ea6f2"
     },
     {
       "id": "static.components.component-lab.component-lab.attribute-title.101",
@@ -33712,9 +33712,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/lab/page.tsx:6"
+        "app/components/lab/page.tsx:8"
       ],
-      "checksum": "aaf17786c001743d90b46bc764d465e8334224145c660bc34524fde0cb6012ae"
+      "checksum": "eefbfcbd30d6ae6839a4007c0c615de0147b7f69c8f07f87f53b9945945729c7"
     },
     {
       "id": "static.components.lab.page.module.property-title.01",
@@ -33731,9 +33731,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/lab/page.tsx:5"
+        "app/components/lab/page.tsx:7"
       ],
-      "checksum": "6f48b610790a4e3444666436ee9b349f00af844568f015dbc3ff1415d4ddbcc3"
+      "checksum": "22a7e322e3899721ac93fd7d3ea65a640a7342a662492a31a644637101860cdd"
     },
     {
       "id": "static.components.locale-switcher.locale-switcher.attribute-aria-label.01",
@@ -33913,7 +33913,7 @@
       "id": "static.components.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "{componentcount} open-source React component categories with editable native, Base UI, and Radix UI source, RTL, and dark mode.",
+      "source": "Explore {componentcount} open-source React component categories with editable native, Base UI and Radix UI source, documented accessibility, RTL and dark mode.",
       "description": "Static property description copy in app/components/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [
@@ -33932,7 +33932,7 @@
       "sourceReferences": [
         "app/components/page.tsx:8"
       ],
-      "checksum": "af321242649c8c62f767ca7acfcae55a757cbe641e7a2ee9cf1a1e8cf5cceebe"
+      "checksum": "fe8d1552f31f20bf0b20c5bb12cb3615157c2b6c983f5ca678a22cf0203f9143"
     },
     {
       "id": "static.components.page.module.property-title.01",
@@ -34571,12 +34571,26 @@
         }
       ],
       "sourceReferences": [
-        "app/components/SiteChrome.tsx:68"
+        "app/components/SiteChrome.tsx:69"
       ],
-      "checksum": "efe65b7560f63455e2d252773f22696cc4975fab1daf1b7886b6e6bd3d6a518b"
+      "checksum": "6f593faf636173437b9ed6a9406abc419f32d4a03794cd4c319e8371fc0d0f69"
     },
     {
-      "id": "static.components.site-chrome.site-footer.jsx-link.18",
+      "id": "static.components.site-chrome.site-footer.jsx-link.12",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Changelog",
+      "description": "Static jsx Link copy in app/components/SiteChrome.tsx, site-footer scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/components/SiteChrome.tsx:68"
+      ],
+      "checksum": "bd5fe806b97a66e0bcaaa8fe202e346aa04d7e9d54e9b31c2f65f7a37635e094"
+    },
+    {
+      "id": "static.components.site-chrome.site-footer.jsx-link.19",
       "category": "static",
       "contentType": "plain",
       "source": "Contact",
@@ -34585,13 +34599,13 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/SiteChrome.tsx:77",
+        "app/components/SiteChrome.tsx:78",
         "app/data/pro-catalogue.public.json#/categories/contact/name"
       ],
-      "checksum": "cc3f08f9191b856d53a1cac6e15bbc2f94cb87ef0d95b9b1c4fc49a795026c38"
+      "checksum": "f1c01bc4588d2426afaa16a8a2203c64ff34238acacc2261f16093a34984e17a"
     },
     {
-      "id": "static.components.site-chrome.site-footer.jsx-link.19",
+      "id": "static.components.site-chrome.site-footer.jsx-link.20",
       "category": "static",
       "contentType": "plain",
       "source": "Refund policy",
@@ -34600,12 +34614,12 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/SiteChrome.tsx:78"
+        "app/components/SiteChrome.tsx:79"
       ],
-      "checksum": "29697d63f58a764cf7a7d3882211bf1ce307a1de32990f4c7e8dceddc14a3461"
+      "checksum": "e7c336a29933a7c9aede1521b618c9814d758878c2324805e1a8fb2e9a780543"
     },
     {
-      "id": "static.components.site-chrome.site-footer.jsx-link.20",
+      "id": "static.components.site-chrome.site-footer.jsx-link.21",
       "category": "static",
       "contentType": "plain",
       "source": "Pro licence",
@@ -34614,12 +34628,12 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/SiteChrome.tsx:79"
+        "app/components/SiteChrome.tsx:80"
       ],
-      "checksum": "e37ce73b183f18969d1619978ee5e300a66975cb285e23785fe2dd0275e90cf6"
+      "checksum": "109362592bf316cff9d362d0106ae3aaba5968a21572ecf161c317d8ead9fd58"
     },
     {
-      "id": "static.components.site-chrome.site-footer.jsx-link.23",
+      "id": "static.components.site-chrome.site-footer.jsx-link.24",
       "category": "static",
       "contentType": "plain",
       "source": "Terms",
@@ -34628,9 +34642,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/SiteChrome.tsx:82"
+        "app/components/SiteChrome.tsx:83"
       ],
-      "checksum": "1576d5cf30b41cfb095071777ccf0372dfd789418c5df99632d2da8e35145676"
+      "checksum": "6eb1e02519eef077c0822df47914d63cb45ea8be677a4a00eca56eb89a9cc60a"
     },
     {
       "id": "static.components.site-chrome.site-footer.jsx-span.01",
@@ -36706,7 +36720,7 @@
       "id": "static.contact.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Contact Gummy UI support, privacy, security, billing and licensing through the monitored Kreyd Labs address.",
+      "source": "Contact the monitored Kreyd Labs address for Gummy UI support, privacy, security, billing, refund and licensing questions during UK business days.",
       "description": "Static property description copy in app/contact/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -36719,13 +36733,13 @@
       "sourceReferences": [
         "app/contact/page.tsx:8"
       ],
-      "checksum": "c91aaf451c4d08070bdd8886eec1143784603d57f5d02bcd9df685ca21deda5f"
+      "checksum": "d759b98e884b007e307fdb6e417ebfb5a9897fa49d3c8b50d75d355230514495"
     },
     {
       "id": "static.contact.page.module.property-title.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Contact Gummy UI",
+      "source": "Contact Gummy UI support and licensing",
       "description": "Static property title copy in app/contact/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -36738,7 +36752,7 @@
       "sourceReferences": [
         "app/contact/page.tsx:6"
       ],
-      "checksum": "cfc38d0b4d524a07e19088737e6d379bead24d57f374302337f54bca8e08c537"
+      "checksum": "c1e0cade508b63045460414818b8c98a632e8c86c939323d67c0de6cd747c571"
     },
     {
       "id": "static.design-kit.page.design-kit-page.attribute-eyebrow.01",
@@ -37728,9 +37742,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/page.tsx:6"
+        "app/page.tsx:8"
       ],
-      "checksum": "c01bc8e2cdd3cdb83694311c8395856b50a6cefdc195d1501f2fbaa61d502f84"
+      "checksum": "f10451c2dcfbf81e3be12c2881699952770359b2c9dd0f5e42376caa6a54f7cb"
     },
     {
       "id": "static.license.page.license-page.attribute-eyebrow.01",
@@ -38106,7 +38120,7 @@
       "id": "static.locales.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Review Gummy UI language availability, fail-closed routing, AI-generation provenance, founder review, RTL verification, metadata, hreflang, sitemap, and publication gates.",
+      "source": "Review Gummy UI language availability, fail-closed routing, AI provenance, founder review, RTL verification, metadata and publication gates.",
       "description": "Static property description copy in app/locales/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -38119,7 +38133,7 @@
       "sourceReferences": [
         "app/locales/page.tsx:13"
       ],
-      "checksum": "4326d29dd8cfe1fbba8a3a8044cfd8e9aa282d5d462f45029827ad27a95c282f"
+      "checksum": "6c5e2f86ffd811fe9aa634963440e1f492351ec7f80513653ef01680086bef94"
     },
     {
       "id": "static.locales.page.module.property-title.01",
@@ -38542,7 +38556,7 @@
       "id": "static.pricing.page.module.property-title.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Gummy UI Pro pricing",
+      "source": "Pricing plans and licences for Gummy UI Pro",
       "description": "Static property title copy in app/pricing/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -38555,7 +38569,7 @@
       "sourceReferences": [
         "app/pricing/page.tsx:16"
       ],
-      "checksum": "f6ceeefa66d370aef80ce1f563b923fc299f12d95eeb8d9eede17bf8881909e7"
+      "checksum": "6838d06cd11ea257e2c8386845c79efa647a5e4676f876986b93639e1e9f3aca"
     },
     {
       "id": "static.pricing.page.pricing-page.attribute-eyebrow.01",
@@ -38884,7 +38898,7 @@
       "id": "static.privacy.page.module.property-title.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Gummy UI privacy notice",
+      "source": "Privacy notice for Gummy UI customers",
       "description": "Static property title copy in app/privacy/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -38897,7 +38911,7 @@
       "sourceReferences": [
         "app/privacy/page.tsx:7"
       ],
-      "checksum": "782b41d0dcf443080470e767cf68892e193193da8a3da87f3777d97bfc205024"
+      "checksum": "12e7a8a3606fb3581556bedd3afaba85ccecf3e71fc80ba012b3aeaa562ab54b"
     },
     {
       "id": "static.privacy.page.privacy-page.attribute-eyebrow.01",
@@ -39181,15 +39195,20 @@
       "id": "static.privacy.page.privacy-page.jsx-p.03",
       "category": "static",
       "contentType": "plain",
-      "source": "The approved production design uses Vercel for hosting, WorkOS for sign-in and organisation access, Stripe Managed Payments for checkout/payment/tax support, Convex for the application database and backend transactions, Resend for product email, Better Stack for monitoring and Backblaze B2 for encrypted off-provider backups. Provider use must be rechecked against the real production configuration before this notice is published.",
+      "source": "Gummy UI uses Vercel for hosting, WorkOS for sign-in and organisation access, Stripe Managed Payments for checkout, payment and tax support, Convex for application data and backend transactions, Resend for product email, Better Stack for monitoring, and Backblaze B2 for encrypted off-provider backups. Customer-facing payment and paid-download features remain unavailable until their complete production journeys pass.",
       "description": "Static jsx p copy in app/privacy/page.tsx, privacy-page scope.",
       "translatable": true,
       "placeholders": [],
-      "protectedSpans": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
       "sourceReferences": [
         "app/privacy/page.tsx:39"
       ],
-      "checksum": "ea7d16385bf52f1986764500a47bca73e05d9277cdd2ddf6df7d9aaf6ec68c32"
+      "checksum": "e9f1af81141bf776cda563a53deee83fa6d40b2c17cc922a550436a144e16af1"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-p.04",
@@ -45849,7 +45868,7 @@
       "id": "static.refund.page.module.property-title.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Gummy UI refund policy",
+      "source": "Gummy UI refund and access revocation policy",
       "description": "Static property title copy in app/refund/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -45862,7 +45881,7 @@
       "sourceReferences": [
         "app/refund/page.tsx:7"
       ],
-      "checksum": "8ac34ab205d9892c07d3242a5077031b592a4289c0074b10325dd90537c04b96"
+      "checksum": "7d35d1c03c0c39adec6dd91ef989ded47fbe3e2ed05253cc3bc9b5c0ca662c31"
     },
     {
       "id": "static.refund.page.refund-page.attribute-eyebrow.01",
@@ -46875,7 +46894,7 @@
       "id": "static.security.page.security-page.attribute-lede.01",
       "category": "static",
       "contentType": "plain",
-      "source": "The open-source catalogue needs no customer database, account backend, or payment runtime. Provider-neutral account and commerce contracts are implemented locally, but production services, paid source, credentials, and customer data remain outside this public application baseline.",
+      "source": "The open-source catalogue needs no customer database or payment runtime. Production hosting, identity, database, email, monitoring and backup adapters are connected behind server-only controls; paid source, credentials and customer data remain outside the public repository and build.",
       "description": "Static attribute lede copy in app/security/page.tsx, security-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -46883,7 +46902,7 @@
       "sourceReferences": [
         "app/security/page.tsx:16"
       ],
-      "checksum": "593d05940108f419baa33cddbd036239a282e1c143db166dbaa176348bb6263c"
+      "checksum": "4bd0270b2ec7d652362eb219e99052bbb26d75f4fcbb2f9ca67129e908e1f494"
     },
     {
       "id": "static.security.page.security-page.attribute-title.01",
@@ -47001,7 +47020,7 @@
       "id": "static.security.page.security-page.jsx-li.05",
       "category": "static",
       "contentType": "plain",
-      "source": "Account and checkout information architecture is present but fails closed while no approved identity, billing, storage, or email adapter is configured.",
+      "source": "Production identity, database, email, monitoring and backup adapters are server-only. Checkout remains disabled until the restricted Stripe runtime key, release archive and complete customer journey pass.",
       "description": "Static jsx li copy in app/security/page.tsx, security-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -47009,13 +47028,13 @@
       "sourceReferences": [
         "app/security/page.tsx:25"
       ],
-      "checksum": "333334793ebf04fde3e250721767b05dd3e819370acbb92629e2e5484df3f0a3"
+      "checksum": "2d94f8145d23621c4e24a3de58f7f9e217fec7f385c9df2cee02f81fbb6aecdf"
     },
     {
       "id": "static.security.page.security-page.jsx-li.06",
       "category": "static",
       "contentType": "plain",
-      "source": "Protected-download and webhook contracts require current server authorization, signed and replay-resistant evidence, and verified provider events; their public routes return indistinguishable unavailable responses until production adapters are approved and connected.",
+      "source": "Protected-download and webhook contracts require current server authorization, signed and replay-resistant evidence, and verified provider events; their public routes return indistinguishable unavailable responses until paid launch gates pass.",
       "description": "Static jsx li copy in app/security/page.tsx, security-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -47023,7 +47042,7 @@
       "sourceReferences": [
         "app/security/page.tsx:26"
       ],
-      "checksum": "b8b547b55a7e663f5be5a9b1e71ff7265888c13bb7ad127c0f1f257c71a23e70"
+      "checksum": "b12f2bc329c9bc6767f0652a4d50629db0934581ca25f3c3a6f44daec8297306"
     },
     {
       "id": "static.security.page.security-page.jsx-p.01",
@@ -47043,7 +47062,7 @@
       "id": "static.security.page.security-page.jsx-p.02",
       "category": "static",
       "contentType": "plain",
-      "source": "Provider-neutral schemas, authorization rules, email intents, audit records, and backup-verification contracts are implemented and tested locally. Convex is connected to an EU development deployment; WorkOS, Stripe Managed Payments, Resend, Better Stack, Backblaze and Vercel are approved but not yet fully production-connected. Local and development contracts are not evidence that every production control is active.",
+      "source": "Vercel serves the production origin; WorkOS, Convex, Resend, Better Stack and Backblaze B2 are configured behind it. Stripe products, prices and signed webhooks exist, but checkout stays disabled while its least-privilege runtime key and the protected paid release remain gated. Configuration alone is not treated as evidence of a complete customer journey.",
       "description": "Static jsx p copy in app/security/page.tsx, security-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -47051,7 +47070,7 @@
       "sourceReferences": [
         "app/security/page.tsx:36"
       ],
-      "checksum": "6f8b128049c67f6bc61a2678ae5dfc4d51193b14451dc53cfb06648800fafc13"
+      "checksum": "8c18520ffaa047bd5d731de35a470972d9e84cc193d52b29048042fd50809f19"
     },
     {
       "id": "static.security.page.security-page.rich-p.01",

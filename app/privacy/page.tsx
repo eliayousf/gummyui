@@ -4,7 +4,7 @@ import { PublicTextPage } from "../components/PublicTextPage";
 import { commercialFacts } from "../data/commercial";
 
 export const metadata: Metadata = {
-  title: "Gummy UI privacy notice",
+  title: "Privacy notice for Gummy UI customers",
   description:
     "Read how Kreyd Labs handles Gummy UI account, purchase, download, support, security and website data, including providers, retention and rights.",
   alternates: { canonical: "/privacy" },
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
       </section>
       <section>
         <h2>3. Providers</h2>
-        <p>The approved production design uses Vercel for hosting, WorkOS for sign-in and organisation access, Stripe Managed Payments for checkout/payment/tax support, Convex for the application database and backend transactions, Resend for product email, Better Stack for monitoring and Backblaze B2 for encrypted off-provider backups. Provider use must be rechecked against the real production configuration before this notice is published.</p>
+        <p>Gummy UI uses Vercel for hosting, WorkOS for sign-in and organisation access, Stripe Managed Payments for checkout, payment and tax support, Convex for application data and backend transactions, Resend for product email, Better Stack for monitoring, and Backblaze B2 for encrypted off-provider backups. Customer-facing payment and paid-download features remain unavailable until their complete production journeys pass.</p>
         <p>Providers may process data outside the United Kingdom. Where required, we rely on an adequacy regulation or recognised contractual safeguards supplied by the provider. You may request more information using the privacy contact above.</p>
       </section>
       <section>

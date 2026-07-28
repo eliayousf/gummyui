@@ -854,11 +854,11 @@ backup manifest contains exactly the 24 durable tables and deliberately
 excludes the ephemeral rate-limit table, while a restore target must have all
 25 tables empty before import. These local journeys do not exercise any
 production credential, customer, live checkout or production entitlement; the
-separately configured Stripe catalogue and partial Vercel control plane remain
-fail closed.
+separately configured Stripe catalogue and live Vercel control plane remain
+fail closed for commerce.
 
 The localisation source is frozen reproducibly at revision
-`en-72e701f4add4`: 2,921 records, of which 2,650 are translatable and 271 are
+`en-752ecc5b2364`: 2,922 records, of which 2,651 are translatable and 271 are
 protected. English is the only published language. All 19 private AI drafts
 pass checksum, ordering, completeness, placeholder and protected-span
 verification. Model replacement and provenance-recorded fallback repair
@@ -892,24 +892,28 @@ restoration remain pending. The actual paid-release builder therefore refuses
 to package the catalogue, and the public boundary and deployment contain no
 paid editable source.
 
-The last completed 163-page full local website audit scored 78: Accessibility
-98, Crawlability 84, Performance 86, Content 78, Core SEO 94 and Security 72.
-Most failed checks are expected loopback HTTP and production-domain sitemap
-artifacts; real metadata, accessibility, reflow, contrast, heading, link and
-CSS findings were corrected. Both the bundled and current checksum-verified
-auditor completed a repeat crawl but stalled in rule analysis while ignoring
-disabled external-link checks, so no replacement score is fabricated. The
-required score above 95 remains a production-origin launch gate with surviving
-warnings documented and owned.
+The first canonical production-origin Squirrel 0.0.38 surface crawl completed
+against `gummyui.dev`: 120 pages scored 87/B, with 25 failures and 512
+warnings. It did not satisfy full coverage because 243 sitemap URLs were not
+crawled. Its failures were 24 auditor-reported accessibility findings plus one
+TTFB finding; the existing axe and real-browser gates remain green, so each
+surviving discrepancy still needs source correction or explicit
+evidence-backed reconciliation. A checksum-verified current auditor surface
+crawl also completed and adds new agent-experience and cache-freshness rules;
+it is diagnostic, not a launch pass. The required full-coverage production
+score above 95 remains a launch gate, and no score is fabricated from partial
+coverage.
 
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
-The four public launch commits are backed up on the public
-`prelaunch-2026-07-28` tag while public `main` is deliberately held at its
-baseline: pushing `main` would trigger the linked Vercel project before its
-commercial Pro billing gate. Vercel currently has no Gummy UI deployment. The
-single North Star remains at 0 of 8 production-verified steps because no
-production customer journey is live.
+The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag,
+and public `main` is pushed at responsive-fix commit `359a96d`. Vercel
+deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` for that commit is Ready.
+Namecheap points the apex to `216.150.1.1` and `www` to
+`4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
+and public resolvers return the new records. HTTPS plus basic route and
+fail-closed probes pass at `gummyui.dev`. The single North Star remains at 0 of
+8 production-verified steps because no production customer journey is live.
 
 Stripe Managed Payments is live-account ready with three products, nine prices
 and `support@kreydlabs.com` configured. Its active `gummyui-production`
@@ -921,42 +925,62 @@ Dashboard error. Deployed-origin signed delivery and sandbox/live journeys
 remain unproved; checkout and webhook flags remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
-environment value except the Stripe runtime key is installed. The
-founder-controlled card and Pro activation, Stripe key, Namecheap DNS cutover,
-first production deployment and origin verification remain pending. A Convex
-production deployment has `CONVEX_SERVER_SECRET` and the production WorkOS
-deploy-time credentials set there. The current 25-table schema, indexes and
-functions are deployed; a post-deploy inspection confirmed all 25 tables are
-present and empty. Customer journeys and backup/restore behavior are not yet
-verified.
+environment value except the Stripe runtime key is installed. Vercel Pro is
+active; spend management is set to $1 with notifications and Pause Projects
+enabled. Deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` is Ready at
+`359a96d`; both custom domains are Valid, public DNS has converged, and basic
+HTTPS, route and fail-closed probes pass. The Stripe key and every commerce
+journey remain pending. A Convex production deployment has
+`CONVEX_SERVER_SECRET` and the production WorkOS deploy-time credentials set
+there. The current 25-table schema, indexes and functions are deployed; a
+post-deploy inspection confirmed all 25 tables are present and empty. Customer
+journeys are not yet verified. The first production backup exported all 24
+durable tables, encrypted and authenticated every object, uploaded and read
+them back from B2, returned 200 and sent its success heartbeat; the subsequent
+latest-backup verification also returned 200. An isolated short-lived Convex
+restore target has the current schema and drill-only secrets. The restore proof
+is no longer blocked on obtaining write-only credentials: the scoped B2 backup
+credential, both backup cryptographic keys and the cron credential were rotated
+on 28 July 2026, installed for the next deployment and placed in a mode-0600
+operator recovery bundle outside both repositories. A deployment, fresh backup,
+isolated restore proof, superseded-key revocation and founder
+password-manager custody evidence remain required.
 
 WorkOS production AuthKit is enabled and its redirect, application, branding and
 webhook are configured; its production credentials are installed in Vercel.
+The real-origin `/auth/sign-in` route returns a 307 to WorkOS with the canonical
+`https://gummyui.dev/auth/callback` redirect URI, proving production
+authentication initiation without proving account creation or callback/JWT
+completion.
 Real staging journeys continue to pass for Google sign-in, account projection,
 organization creation/recovery, a controlled invitation, export/download,
 deletion/cancellation, sign-out and unpaid protected-download denial. Production
-origin and deployed Convex JWT-integration evidence remain pending.
+callback, account/recovery and deployed Convex JWT-integration evidence remain
+pending.
 
 Resend has a verified `send.kreydlabs.com` domain, and its production API key,
 webhook and current sender/reply-to settings are installed in Vercel. Better
 Stack's free service has an uptime monitor, status page, log source and four
 scheduled-job heartbeats configured, with the corresponding Vercel values
-installed. Backblaze B2 has two private encrypted EU buckets for releases and
-backups with separate scoped runtime and backup keys installed in Vercel. None
-of these control-plane facts proves deployed email, alerts, paid delivery,
-backup or restore.
+installed. A two-label EU ingestion-host allowlist defect was found and fixed
+locally; both obsolete ingestion-only sources were removed and a replacement
+source is configured for the next deployment. Backblaze B2 has two private
+encrypted EU buckets for releases and backups with separate scoped runtime and
+backup keys installed in Vercel. The first production backup and latest-backup
+verification succeeded, including B2 object readback and the backup success
+heartbeat. Better Stack live ingestion/UI receipts, alert delivery, paid
+delivery and isolated restore remain unproved.
 
 Current product gates also include running and visually reviewing the v0.5.0
 Figma materialisation of 138 sets and 2,588 variants, reviewing its 72 editable
 pattern sets against the 72 raster comparison references, completing founder
 rendered/localisation review, and promoting actual paid releases.
 
-The remaining work is implementation plus external execution: activate Vercel
-Pro, verify the deployed Convex/WorkOS integration at the production origin,
-resolve the Stripe restricted-key error, complete test-provider
-journeys, finish the exact sellable product and reviews, create immutable
-protected releases and backups, cut over DNS and deploy `gummyui.dev`, run
-production security/performance/discovery checks, complete the authorised real
-purchase and full refund, verify monitoring/restore/rollback, and close the
+The remaining work is implementation plus external execution: verify the
+deployed Convex/WorkOS integration at the real origin, resolve the Stripe
+restricted-key error, complete test-provider journeys, finish the exact sellable
+product and reviews, create immutable protected releases and backups, run the
+full production security/performance/discovery checks, complete the authorised
+real purchase and full refund, verify monitoring/restore/rollback, and close the
 greater-than-95 production audit gate. The project is not commercially launched
 until all eight North Star steps have evidence.

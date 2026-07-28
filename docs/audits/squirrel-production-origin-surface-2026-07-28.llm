@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.38">
+<site url="https://gummyui.dev" crawled="120" date="2026-07-28T12:07:25.404Z"/>
+<score overall="87" grade="B">
+ <cat name="Accessibility" score="95"/>
+ <cat name="Performance" score="93"/>
+ <cat name="Content" score="92"/>
+ <cat name="Core SEO" score="98"/>
+ <cat name="Links" score="91"/>
+ <cat name="Security" score="94"/>
+ <cat name="Crawlability" score="98"/>
+ <cat name="E-E-A-T" score="100"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Images" score="100"/>
+ <cat name="Legal Compliance" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="Structured Data" score="100"/>
+ <cat name="Social Media" score="100"/>
+ <cat name="URL Structure" score="100"/>
+</score>
+<summary passed="10851" warnings="512" failed="25"/>
+<issues>
+ <category name="Crawlability" errors="0" warnings="1">
+  <rule id="crawl/sitemap-coverage" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-coverage">
+   243 sitemap URL(s) were not crawled
+   Items (5/243):
+    - /changelog.xml
+    - /components/label
+    - /blocks/about/origin-ribbon
+    - /blocks/about/working-principles-ledger
+    - /blocks/about/milestone-current
+  </rule>
+ </category>
+ <category name="Core SEO" errors="0" warnings="36">
+  <rule id="core/meta-title" severity="error" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-title">
+   Title too short; Title too long
+   Pages (5/6): /changelog, /contact, /pricing, /privacy, /refund
+   Items (5/6):
+    - /contact (Contact Gummy UI (16 chars))
+    - /pricing (Gummy UI Pro pricing (20 chars))
+    - /refund (Gummy UI refund policy (22 chars))
+    - /changelog (Changelog · Gummy UI (20 chars))
+    - /privacy (Gummy UI privacy notice (23 chars))
+  </rule>
+  <rule id="core/meta-description" severity="error" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-description">
+   Description too short; Description too long
+   Pages (5/29): /blocks, /changelog, /components, /contact, /design-kit
+   Items (5/29):
+    - /components (57 open-source React component categories with edi (113 chars))
+    - /contact (Contact Gummy UI support, privacy, security, billi (108 chars))
+    - /changelog (Public Gummy UI component, registry, and product-f (68 chars))
+    - /locales (Review Gummy UI language availability, fail-closed (171 chars))
+    - /blocks (Review boundary-safe category counts plus implemen (176 chars))
+  </rule>
+  <rule id="core/canonical" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/canonical">
+   Missing canonical URL
+   Pages (1): /changelog
+  </rule>
+ </category>
+ <category name="Security" errors="0" warnings="2">
+  <rule id="security/csp" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+   CSP allows &apos;unsafe-inline&apos;
+  </rule>
+  <rule id="security/http-to-https" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/http-to-https">
+   20 HTTP URL(s) redirect to HTTPS
+   Items (5/20):
+    - http://gummyui.dev/ (http://gummyui.dev/ → https://gummyui.dev/ (308)) [statusCode: 308, chain: {&quot;sourceUrl&quot;:&quot;http://gummyui.dev/&quot;,&quot;finalUrl&quot;:&quot;https://gummyui.dev/&quot;,&quot;hops&quot;:[{&quot;url&quot;:&quot;http://gummyui.dev/&quot;,&quot;statusCode&quot;:308,&quot;type&quot;:&quot;http&quot;},{&quot;url&quot;:&quot;https://gummyui.dev/&quot;,&quot;statusCode&quot;:200,&quot;type&quot;:&quot;http&quot;}…]
+    - http://gummyui.dev/components (http://gummyui.dev/components → https://gummyui.dev/components (308)) [statusCode: 308, chain: {&quot;sourceUrl&quot;:&quot;http://gummyui.dev/components&quot;,&quot;finalUrl&quot;:&quot;https://gummyui.dev/components&quot;,&quot;hops&quot;:[{&quot;url&quot;:&quot;http://gummyui.dev/components&quot;,&quot;statusCode&quot;:308,&quot;type&quot;:&quot;http&quot;},{&quot;url&quot;:&quot;https://gummyui.dev/com…]
+    - http://gummyui.dev/docs (http://gummyui.dev/docs → https://gummyui.dev/docs (308)) [statusCode: 308, chain: {&quot;sourceUrl&quot;:&quot;http://gummyui.dev/docs&quot;,&quot;finalUrl&quot;:&quot;https://gummyui.dev/docs&quot;,&quot;hops&quot;:[{&quot;url&quot;:&quot;http://gummyui.dev/docs&quot;,&quot;statusCode&quot;:308,&quot;type&quot;:&quot;http&quot;},{&quot;url&quot;:&quot;https://gummyui.dev/docs&quot;,&quot;statusCode&quot;:20…]
+    - http://gummyui.dev/support (http://gummyui.dev/support → https://gummyui.dev/support (308)) [statusCode: 308, chain: {&quot;sourceUrl&quot;:&quot;http://gummyui.dev/support&quot;,&quot;finalUrl&quot;:&quot;https://gummyui.dev/support&quot;,&quot;hops&quot;:[{&quot;url&quot;:&quot;http://gummyui.dev/support&quot;,&quot;statusCode&quot;:308,&quot;type&quot;:&quot;http&quot;},{&quot;url&quot;:&quot;https://gummyui.dev/support&quot;,&quot;st…]
+    - http://gummyui.dev/contact (http://gummyui.dev/contact → https://gummyui.dev/contact (308)) [statusCode: 308, chain: {&quot;sourceUrl&quot;:&quot;http://gummyui.dev/contact&quot;,&quot;finalUrl&quot;:&quot;https://gummyui.dev/contact&quot;,&quot;hops&quot;:[{&quot;url&quot;:&quot;http://gummyui.dev/contact&quot;,&quot;statusCode&quot;:308,&quot;type&quot;:&quot;http&quot;},{&quot;url&quot;:&quot;https://gummyui.dev/contact&quot;,&quot;st…]
+  </rule>
+ </category>
+ <category name="Links" errors="0" warnings="3">
+  <rule id="links/orphan-pages" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/orphan-pages">
+   1 orphan page(s) with &lt;2 incoming links
+   Items (1):
+    - /changelog
+  </rule>
+  <rule id="links/internal-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/internal-links">
+   Too many internal links (177, max 100)
+   Pages (1): /registry
+   Items (1):
+    - /registry (Too many internal links (177, max 100))
+  </rule>
+  <rule id="links/weak-internal-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/weak-internal-links">
+   1 page(s) have only 1 internal link
+   Items (1):
+    - /changelog
+  </rule>
+ </category>
+ <category name="Content" errors="0" warnings="99">
+  <rule id="content/keyword-stuffing" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+   N word(s) may be overused
+   Pages (5/23): /blocks, /blog, /changelog, /license, /locales
+   Items (5/30):
+    - released (&quot;released&quot; (4.4%)) [count: 29, density: 4.407294832826747]
+    - gummy (&quot;gummy&quot; (5.7%)) [count: 33, density: 5.729166666666666]
+    - jul (&quot;jul&quot; (3.1%)) [count: 18, density: 3.125]
+    - date (&quot;date&quot; (3.1%)) [count: 10, density: 3.1055900621118013]
+    - radix (&quot;radix&quot; (3.0%)) [count: 10, density: 3.003003003003003]
+  </rule>
+  <rule id="content/article-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/article-links">
+   short article has 0 external links (min 1)
+   Pages (4): /blog/designing-the-gel-pop-language, /blog/one-catalogue-fifty-seven-components, /blog/reading-a-gummy-registry-item, /blog/semantics-before-surface
+   Items (4):
+    - /blog/designing-the-gel-pop-language (short article has 0 external links (min 1))
+    - /blog/semantics-before-surface (short article has 0 external links (min 1))
+    - /blog/reading-a-gummy-registry-item (short article has 0 external links (min 1))
+    - /blog/one-catalogue-fifty-seven-components (short article has 0 external links (min 1))
+  </rule>
+  <rule id="content/word-count" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/word-count">
+   Thin content: N words (min N)
+   Pages (5/72): /, /accessibility, /changelog, /community, /contact
+   Items (5/72):
+    - / (Thin content: 249 words (min 300))
+    - /support (Thin content: 195 words (min 300))
+    - /contact (Thin content: 127 words (min 300))
+    - /components/alert (Thin content: 284 words (min 300))
+    - /components/aspect-ratio (Thin content: 263 words (min 300))
+  </rule>
+ </category>
+ <category name="Performance" errors="1" warnings="244">
+  <rule id="perf/ttfb" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/ttfb">
+   Slow server response (Nms); Very slow server response (1070ms)
+   Pages (5/7): /components/alert, /components/date-picker, /components/dialog, /components/direction, /components/drawer
+   Items (5/7):
+    - /components/alert (Slow server response (874ms))
+    - /components/dialog (Slow server response (655ms))
+    - /components/date-picker (Slow server response (740ms))
+    - /components/drawer (Slow server response (911ms))
+    - /components/separator (Slow server response (600ms))
+  </rule>
+  <rule id="perf/render-blocking" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/render-blocking">
+   N render-blocking resources
+   Pages (5/119): /, /accessibility, /blocks, /blog, /changelog
+   Items (5/9):
+    - /_next/static/chunks/10g7iefz7ra4x.css?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - /_next/static/chunks/2yte9_v3-cn49.css?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - /_next/static/chunks/0i6nf77b9u-rl.css?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - /_next/static/chunks/0cz1d0mv5g_q7.js?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - /styles/gummy-form-controls.css
+  </rule>
+  <rule id="perf/critical-request-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/critical-request-chains">
+   N critical request chain(s) found
+   Pages (5/119): /, /accessibility, /blocks, /blog, /changelog
+   Items (5/9):
+    - CSS: /_next/static/chunks/10g7iefz7ra4x.css?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - CSS: /_next/static/chunks/2yte9_v3-cn49.css?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - CSS: /_next/static/chunks/0i6nf77b9u-rl.css?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - JS: /_next/static/chunks/0cz1d0mv5g_q7.js?dpl=dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52
+    - CSS: /styles/gummy-form-controls.css
+  </rule>
+ </category>
+ <category name="Accessibility" errors="24" warnings="127">
+  <rule id="a11y/select-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/select-name">
+   1 select element(s) without accessible names
+   Pages (1): /components/select
+   Items (1):
+    - select
+  </rule>
+  <rule id="a11y/aria-hidden-focus" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-hidden-focus">
+   N focusable element(s) inside aria-hidden
+   Pages (5): /, /themes, /components/combobox, /components/select, /components/switch
+   Items (2):
+    - input (self is focusable)
+    - select (self is focusable)
+  </rule>
+  <rule id="a11y/aria-input-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-input-field-name">
+   N input field(s) without accessible names
+   Pages (5/7): /, /themes, /components/combobox, /components/select, /components/slider
+   Items (5):
+    - input[type=&quot;checkbox&quot;]
+    - input[type=&quot;text&quot;]
+    - select
+    - input[type=&quot;range&quot;]
+    - button[role=&quot;radio&quot;]
+  </rule>
+  <rule id="a11y/aria-required-attr" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-required-attr">
+   1 element(s) missing required ARIA attributes
+   Pages (1): /components/slider
+   Items (1):
+    - span[role=&quot;slider&quot;]: missing aria-valuenow
+  </rule>
+  <rule id="a11y/aria-toggle-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-toggle-field-name">
+   N toggle field(s) without accessible names
+   Pages (3): /, /themes, /components/switch
+   Items (1):
+    - checkbox
+  </rule>
+  <rule id="a11y/label-content-name-mismatch" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/label-content-name-mismatch">
+   1 element(s) where visible text doesn&apos;t match accessible name
+   Pages (1): /components/select
+   Items (1):
+    - button: visible=&quot;grape&quot; vs aria-label=&quot;accent fruit&quot;
+  </rule>
+  <rule id="a11y/form-labels" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/form-labels">
+   N form input(s) without labels
+   Pages (5/6): /, /themes, /components/combobox, /components/select, /components/slider
+   Items (5):
+    - checkbox
+    - base-ui-_R_3gqnpfmbtb_-hidden-input
+    - select
+    - base-ui-_R_5rgqnpfmbtbH2_
+    - input
+  </rule>
+  <rule id="a11y/color-contrast" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/color-contrast">
+   2 potential color contrast issue(s)
+   Pages (5/119): /, /accessibility, /blocks, /blog, /changelog
+   Items (2):
+    - White text (verify background): 1 instance(s)
+    - Very light text color: 1 instance(s)
+  </rule>
+  <rule id="a11y/focus-visible" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/focus-visible">
+   outline:none found - ensure alternative focus styles exist
+   Pages (3): /components/menubar, /components/tabs, /components/toggle-group
+  </rule>
+  <rule id="a11y/form-field-multiple-labels" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/form-field-multiple-labels">
+   N input(s) with multiple labels
+   Pages (3): /docs, /components/checkbox, /components/radio-group
+   Items (5/6):
+    - docs-visibility (2 labels)
+    - docs-visibility (2 labels)
+    - docs-visibility (2 labels)
+    - gummy-checkbox-_R_5hcqnqbtb_ (2 labels)
+    - gummy-checkbox-_R_3gqnpfmbtb_ (2 labels)
+  </rule>
+  <rule id="a11y/identical-links-same-purpose" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/identical-links-same-purpose">
+   2 link text(s) lead to different destinations
+   Pages (1): /registry
+   Items (2):
+    - &quot;base&quot; → 57 different URLs
+    - &quot;radix&quot; → 22 different URLs
+  </rule>
+  <rule id="a11y/th-has-data-cells" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/th-has-data-cells">
+   1 &lt;th&gt; element(s) without associated data cells
+   Pages (1): /locales
+   Items (1):
+    - Language
+  </rule>
+ </category>
+</issues>
+</audit>

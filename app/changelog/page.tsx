@@ -3,8 +3,10 @@ import { PublicTextPage } from "../components/PublicTextPage";
 import { publicReleases } from "../data/changelog";
 
 export const metadata: Metadata = {
-  title: "Changelog · Gummy UI",
-  description: "Public Gummy UI component, registry, and product-foundation changes.",
+  title: "Changelog for Gummy UI components and releases",
+  description:
+    "Follow verified Gummy UI component, registry, documentation and product-foundation changes, with dated public release notes and catalogue counts.",
+  alternates: { canonical: "/changelog" },
 };
 
 export default function ChangelogPage() {

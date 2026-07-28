@@ -24,6 +24,23 @@ export async function GET(request: NextRequest) {
   if (!rateLimit.allowed) {
     return distributedRateLimitResponse(rateLimit);
   }
+  const hasState = Boolean(request.nextUrl.searchParams.get("state")?.trim());
+  const hasAuthorizationResult =
+    hasState
+    && Boolean(request.nextUrl.searchParams.get("code")?.trim());
+  if (!hasAuthorizationResult) {
+    return Response.json(
+      { error: "invalid_auth_callback" },
+      {
+        status: 400,
+        headers: {
+          "cache-control": "private, no-store",
+          "x-content-type-options": "nosniff",
+          "x-robots-tag": "noindex, nofollow, noarchive",
+        },
+      },
+    );
+  }
   let config;
   try {
     config = readWorkOSIdentityConfig();

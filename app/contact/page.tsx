@@ -3,9 +3,9 @@ import { PublicTextPage } from "../components/PublicTextPage";
 import { commercialFacts } from "../data/commercial";
 
 export const metadata: Metadata = {
-  title: "Contact Gummy UI",
+  title: "Contact Gummy UI support and licensing",
   description:
-    "Contact Gummy UI support, privacy, security, billing and licensing through the monitored Kreyd Labs address.",
+    "Contact the monitored Kreyd Labs address for Gummy UI support, privacy, security, billing, refund and licensing questions during UK business days.",
   alternates: { canonical: "/contact" },
 };
 

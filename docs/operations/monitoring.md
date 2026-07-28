@@ -4,11 +4,29 @@ Status: redacted structured application logging, the optional Better Stack log
 transport and four scheduled-job heartbeat adapters are implemented locally.
 Better Stack's free service is configured with an uptime monitor, status page,
 log source and four independent heartbeat monitors, and the corresponding
-Vercel Production values are installed. No production deployment exists, so
-real-origin checks, log ingestion, heartbeat receipt, thresholds and controlled
-alert delivery are not proven. The distributed rate limiter is implemented
-locally, but suspicious-decision logging and controlled alert receipts remain
-launch gates.
+Vercel Production values are installed. Deployment
+`dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` is Ready at `359a96d`. Both custom
+domains are Valid, public DNS returns the new records, and basic external HTTPS,
+route and fail-closed probes pass at `gummyui.dev`. Better Stack log ingestion,
+heartbeat receipt, thresholds and controlled alert delivery are not yet fully
+proven. The production encrypted-backup route and its integrity-verification
+route both returned 200 on 28 July 2026; backup execution uploaded and read back
+all 24 durable-table objects and the backup success heartbeat returned 200. A
+scheduled email-outbox execution also emitted a redacted structured success
+record. Better Stack's UI now shows the backup, backup-verification and email
+outbox heartbeats as Up; the privacy heartbeat remains Pending because its
+controlled run has not occurred. A production investigation on 28 July 2026
+found that the EU ingestion host has two subdomain labels while the runtime
+allowlist accepted only one.
+The allowlist and regression tests are corrected locally, the obsolete
+ingestion-only source tokens were retired, and a replacement source credential
+is installed for the next Vercel deployment. The contained token-rotation
+record is in
+`docs/operations/incident-record-2026-07-28-better-stack-token.md`. Live
+ingestion, the pending privacy receipt, missing-heartbeat behavior and
+controlled alert delivery remain launch gates. The distributed rate limiter is
+implemented locally, but
+suspicious-decision logging and controlled alert receipts remain launch gates.
 
 ## Required signals
 

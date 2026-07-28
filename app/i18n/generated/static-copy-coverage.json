@@ -162,8 +162,8 @@
     "app/themes/layout.tsx",
     "app/themes/page.tsx"
   ],
-  "candidateCount": 4198,
-  "coveredCandidateCount": 4198,
+  "candidateCount": 4199,
+  "coveredCandidateCount": 4199,
   "uncapturedCandidateCount": 0,
   "uncaptured": [],
   "fileCandidateCounts": {
@@ -216,7 +216,7 @@
     "app/components/radix/GummyTooltip.tsx": 0,
     "app/components/RadixComponentInspector.tsx": 67,
     "app/components/RegistrySourceViewer.tsx": 3,
-    "app/components/SiteChrome.tsx": 43,
+    "app/components/SiteChrome.tsx": 44,
     "app/components/ThemeBuilder.tsx": 41,
     "app/components/ui/GummyAccordion.tsx": 0,
     "app/components/ui/GummyAlert.tsx": 0,
@@ -308,5 +308,5 @@
     "app/themes/layout.tsx": 0,
     "app/themes/page.tsx": 7
   },
-  "candidateChecksum": "81097f3e1a3e115512d73294738e0f4bdf8f83fdef8cad5fd5d8a9a64e5ef5e4"
+  "candidateChecksum": "2d89e8971e3295d1c452ceb3cc23855dd1be853f5a7607c9fd8459248c18ac0c"
 }

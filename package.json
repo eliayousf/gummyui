@@ -33,7 +33,7 @@
     "localisation:check": "node scripts/localisation-build.mjs --check && node scripts/localisation-validate.mjs",
     "localisation:validate": "node scripts/localisation-validate.mjs",
     "localisation:private-review": "nix shell nixpkgs#python312 -c python3 scripts/localisation_review.py",
-    "styles:build": "node scripts/extract-core-component-styles.mjs && npm run styles:routes",
+    "styles:build": "npm run styles:routes",
     "styles:routes": "node scripts/build-route-styles.mjs",
     "styles:routes:check": "node scripts/build-route-styles.mjs --check",
     "registry:build": "npm run docs:api && npm run styles:build && node scripts/build-registry.mjs",

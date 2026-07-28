@@ -5,9 +5,15 @@ and every planned Production environment value except the Stripe runtime key is
 installed, including provisioned WorkOS, Resend, Better Stack and Backblaze
 connections. Commerce flags remain fail closed. The current Convex production
 schema, indexes and functions are deployed and its 25 tables are confirmed
-empty. The founder-controlled Vercel card and Pro activation, Stripe key,
-Namecheap DNS cutover, first Vercel production deployment, real-origin
-verification, release ownership and a controlled rollback proof remain pending.
+empty. Vercel Pro is active with spend management set to $1, notifications and
+Pause Projects enabled. Deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` is
+Ready at public commit `359a96d`. Vercel marks both custom domains Valid,
+public DNS returns the new Namecheap records, and HTTPS plus basic route and
+fail-closed probes pass at `gummyui.dev`. The Stripe key, full real-origin
+acceptance gate, release ownership and a controlled rollback proof remain
+pending. The first production database backup and latest-backup verification
+both completed successfully, but isolated restore and saved-version rollback
+are not yet proven.
 
 ## Public release gate
 

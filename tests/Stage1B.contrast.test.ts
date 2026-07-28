@@ -49,7 +49,10 @@ function directToken(css: string, selector: string, token: string) {
 
 describe("Stage 1B readable-layer contrast", () => {
   it("keeps Input and Card text above WCAG AA on their stable cores", async () => {
-    const css = await readFile(resolve(process.cwd(), "app/globals.css"), "utf8");
+    const css = await readFile(
+      resolve(process.cwd(), "app/styles/gummy-core-components.css"),
+      "utf8",
+    );
     const pairs = [
       [directToken(css, ".gummy-input", "--input-label"), directToken(css, ".gummy-input", "--input-core"), "Input"],
       [directToken(css, ".gummy-card", "--card-label"), directToken(css, ".gummy-card", "--card-core"), "Card"],
@@ -63,7 +66,10 @@ describe("Stage 1B readable-layer contrast", () => {
   it("keeps Badge labels above WCAG AA across all fruit cores", async () => {
     const css = [
       await readFile(resolve(process.cwd(), "app/styles/gummy-theme.css"), "utf8"),
-      await readFile(resolve(process.cwd(), "app/globals.css"), "utf8"),
+      await readFile(
+        resolve(process.cwd(), "app/styles/gummy-core-components.css"),
+        "utf8",
+      ),
     ].join("\n");
     const label = directToken(css, ".gummy-badge", "--badge-label");
     const cores = [

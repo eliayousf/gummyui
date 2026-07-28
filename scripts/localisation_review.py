@@ -22,7 +22,7 @@ from typing import Any, Iterable
 
 
 SCHEMA_VERSION = "1.0"
-EXPECTED_SOURCE_REVISION = "en-72e701f4add4"
+EXPECTED_SOURCE_REVISION = "en-752ecc5b2364"
 DEFAULT_SOURCE = Path("app/i18n/generated/en.source.json")
 DEFAULT_OUTPUT_ROOT = Path("work/localisation-reviews")
 TARGET_LOCALES = [

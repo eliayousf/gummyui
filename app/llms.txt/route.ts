@@ -24,6 +24,7 @@ export function GET() {
     "- MCP and agent guidance: https://gummyui.dev/mcp",
     "- Language publication status: https://gummyui.dev/locales",
     "- Localisation review guide: https://gummyui.dev/docs/markdown/guides/localisation.md",
+    "- Coding-agent guide: https://gummyui.dev/AGENTS.md",
     "- Original articles: https://gummyui.dev/blog",
     "- Article RSS: https://gummyui.dev/rss.xml",
     "- Public changelog RSS: https://gummyui.dev/changelog.xml",

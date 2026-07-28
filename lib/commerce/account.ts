@@ -117,7 +117,7 @@ export const accountPublicCopy = {
     eyebrow: "Not connected",
     title: "Account services are unavailable.",
     description:
-      "Identity, checkout, billing, licences, and protected downloads are not active. No account or customer access is implied by this route.",
+      "Production sign-in infrastructure is connected for verification, but billing, licences and protected downloads are not yet available to customers. No paid access is implied by this route.",
     proAction: "View Pro status",
     supportAction: "Open support guidance",
   },

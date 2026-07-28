@@ -10,7 +10,7 @@ import { localeAlternatesForPath } from "../i18n/routing";
 export const metadata: Metadata = {
   title: "Language availability · Gummy UI",
   description:
-    "Review Gummy UI language availability, fail-closed routing, AI-generation provenance, founder review, RTL verification, metadata, hreflang, sitemap, and publication gates.",
+    "Review Gummy UI language availability, fail-closed routing, AI provenance, founder review, RTL verification, metadata and publication gates.",
   alternates: {
     canonical: "/locales",
     languages: localeAlternatesForPath("/locales"),

@@ -164,11 +164,13 @@ test("keeps all canonical components independent from the composition and Lab pa
 });
 
 test("encodes required state, theme, touch, focus, motion, RTL, and responsive rules", async () => {
-  const [lab, globals, buttonCss, themeCss, formCss, compositionCss, card, switchSource, tabs, menu, dialog] = await Promise.all([
+  const [lab, globals, buttonCss, themeCss, coreCss, labCss, formCss, compositionCss, card, switchSource, tabs, menu, dialog] = await Promise.all([
     readFile(new URL("../app/components/ComponentLab.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../app/styles/gummy-button.css", import.meta.url), "utf8"),
     readFile(new URL("../app/styles/gummy-theme.css", import.meta.url), "utf8"),
+    readFile(new URL("../app/styles/gummy-core-components.css", import.meta.url), "utf8"),
+    readFile(new URL("../app/styles/component-lab.css", import.meta.url), "utf8"),
     readFile(new URL("../app/styles/gummy-form-controls.css", import.meta.url), "utf8"),
     readFile(new URL("../app/styles/compositions.css", import.meta.url), "utf8"),
     readFile(new URL("../app/components/ui/GummyCard.tsx", import.meta.url), "utf8"),
@@ -177,7 +179,7 @@ test("encodes required state, theme, touch, focus, motion, RTL, and responsive r
     readFile(new URL("../app/components/ui/GummyDropdownMenu.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/ui/GummyDialog.tsx", import.meta.url), "utf8"),
   ]);
-  const css = [themeCss, globals, buttonCss, formCss, compositionCss].join("\n");
+  const css = [themeCss, globals, buttonCss, coreCss, labCss, formCss, compositionCss].join("\n");
 
   for (const state of ["Empty", "Placeholder", "Filled", "Hover", "Keyboard focus", "Error", "Success", "Disabled", "Read only"]) {
     assert.match(lab, new RegExp(state));
@@ -299,6 +301,7 @@ test("loads large component styles only on routes that render them", async () =>
   const [
     homeResponse,
     componentsResponse,
+    labResponse,
     docsResponse,
     rtlResponse,
     studioResponse,
@@ -306,14 +309,16 @@ test("loads large component styles only on routes that render them", async () =>
   ] = await Promise.all([
     render("/"),
     render("/components"),
+    render("/components/lab"),
     render("/docs"),
     render("/rtl"),
     render("/studio"),
     render("/themes"),
   ]);
-  const [home, components, docs, rtl, studio, themes] = await Promise.all([
+  const [home, components, lab, docs, rtl, studio, themes] = await Promise.all([
     homeResponse.text(),
     componentsResponse.text(),
+    labResponse.text(),
     docsResponse.text(),
     rtlResponse.text(),
     studioResponse.text(),
@@ -321,12 +326,19 @@ test("loads large component styles only on routes that render them", async () =>
   ]);
 
   assert.doesNotMatch(home, /\/styles\/gummy-(?:form-controls|primitives)\.css/);
+  assert.match(home, /\/styles\/showcase-components\.css/);
+  assert.doesNotMatch(home, /\/styles\/(?:gummy-core-components|component-lab)\.css/);
+  assert.match(components, /\/styles\/gummy-core-components\.css/);
   assert.match(components, /\/styles\/gummy-form-controls\.css/);
   assert.match(components, /\/styles\/gummy-primitives\.css/);
   assert.match(components, /\/styles\/component-inspector\.css/);
+  assert.doesNotMatch(components, /\/styles\/component-lab\.css/);
+  assert.match(lab, /\/styles\/gummy-core-components\.css/);
+  assert.match(lab, /\/styles\/component-lab\.css/);
   assert.match(docs, /\/styles\/gummy-form-controls\.css/);
   assert.doesNotMatch(docs, /\/styles\/gummy-primitives\.css/);
   assert.match(rtl, /\/styles\/gummy-primitives\.css/);
+  assert.match(themes, /\/styles\/gummy-core-components\.css/);
   assert.match(themes, /\/styles\/gummy-primitives\.css/);
   assert.match(studio, /\/styles\/frame-studio\.css/);
 });

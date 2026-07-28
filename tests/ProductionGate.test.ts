@@ -85,6 +85,26 @@ describe("native Next production headers", () => {
       expect(SENSITIVE_PATH_PATTERN.test(pathname)).toBe(true);
     }
   });
+
+  it("redirects every alternate production host to the canonical HTTPS apex", async () => {
+    expect(typeof nextConfig.redirects).toBe("function");
+    const redirects = await nextConfig.redirects?.();
+    for (const hostPattern of [
+      "www\\.gummyui\\.dev",
+      "gummyui\\.vercel\\.app",
+    ]) {
+      expect(redirects).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            source: "/:path*",
+            destination: "https://gummyui.dev/:path*",
+            permanent: true,
+            has: [{ type: "host", value: hostPattern }],
+          }),
+        ]),
+      );
+    }
+  });
 });
 
 describe("commercial and Pro discovery contract", () => {

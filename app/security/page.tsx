@@ -13,7 +13,7 @@ export default function SecurityPage() {
     <PublicTextPage
       eyebrow="Public-source security"
       title="Small surface. Explicit boundary."
-      lede="The open-source catalogue needs no customer database, account backend, or payment runtime. Provider-neutral account and commerce contracts are implemented locally, but production services, paid source, credentials, and customer data remain outside this public application baseline."
+      lede="The open-source catalogue needs no customer database or payment runtime. Production hosting, identity, database, email, monitoring and backup adapters are connected behind server-only controls; paid source, credentials and customer data remain outside the public repository and build."
     >
       <section>
         <h2>Current controls</h2>
@@ -22,8 +22,8 @@ export default function SecurityPage() {
           <li>Paid Pro source must never enter the public repository or build output.</li>
           <li>Health output contains no secrets or private diagnostics.</li>
           <li>Type checking, dependency locking, lint, tests, and production builds are release gates.</li>
-          <li>Account and checkout information architecture is present but fails closed while no approved identity, billing, storage, or email adapter is configured.</li>
-          <li>Protected-download and webhook contracts require current server authorization, signed and replay-resistant evidence, and verified provider events; their public routes return indistinguishable unavailable responses until production adapters are approved and connected.</li>
+          <li>Production identity, database, email, monitoring and backup adapters are server-only. Checkout remains disabled until the restricted Stripe runtime key, release archive and complete customer journey pass.</li>
+          <li>Protected-download and webhook contracts require current server authorization, signed and replay-resistant evidence, and verified provider events; their public routes return indistinguishable unavailable responses until paid launch gates pass.</li>
         </ul>
       </section>
       <section>
@@ -33,7 +33,7 @@ export default function SecurityPage() {
       </section>
       <section>
         <h2>Commercial infrastructure</h2>
-        <p>Provider-neutral schemas, authorization rules, email intents, audit records, and backup-verification contracts are implemented and tested locally. Convex is connected to an EU development deployment; WorkOS, Stripe Managed Payments, Resend, Better Stack, Backblaze and Vercel are approved but not yet fully production-connected. Local and development contracts are not evidence that every production control is active.</p>
+        <p>Vercel serves the production origin; WorkOS, Convex, Resend, Better Stack and Backblaze B2 are configured behind it. Stripe products, prices and signed webhooks exist, but checkout stays disabled while its least-privilege runtime key and the protected paid release remain gated. Configuration alone is not treated as evidence of a complete customer journey.</p>
       </section>
     </PublicTextPage>
   );

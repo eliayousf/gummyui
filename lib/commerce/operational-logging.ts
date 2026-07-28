@@ -4,7 +4,7 @@ import { scrubLogValue } from "./security";
 const MAX_LOG_BYTES = 32_000;
 const EVENT_NAME = /^[a-z][a-z0-9_.-]{2,95}$/u;
 const BETTER_STACK_HOST =
-  /^(?:in\.logs\.betterstack\.com|[a-z0-9-]+\.betterstackdata\.com)$/u;
+  /^(?:in\.logs\.betterstack\.com|s[0-9]+\.[a-z0-9-]+\.betterstackdata\.com)$/u;
 
 export type OperationalLogSeverity =
   | "debug"

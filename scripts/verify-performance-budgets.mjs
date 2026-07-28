@@ -69,11 +69,14 @@ for (const filename of await readdir(assetsDirectory)) {
 }
 
 const routeStyleBudgets = {
+  "component-lab.css": 35_000,
   "component-inspector.css": 12_000,
   "frame-studio.css": 6_000,
+  "gummy-core-components.css": 80_000,
   "gummy-form-controls.css": 40_000,
   "gummy-primitives.css": 80_000,
   "gummy-radix-compat.css": 6_000,
+  "showcase-components.css": 55_000,
 };
 const routeStyleDirectory = path.join(clientRoot, "styles");
 const routeStyleEvidence = [];

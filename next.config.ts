@@ -35,9 +35,22 @@ const sensitiveNextPaths = [
   "/downloads/:path*",
 ] as const;
 
+const alternateProductionHostPatterns = [
+  "www\\.gummyui\\.dev",
+  "gummyui\\.vercel\\.app",
+] as const;
+
 const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
+  },
+  async redirects() {
+    return alternateProductionHostPatterns.map((hostPattern) => ({
+      source: "/:path*",
+      has: [{ type: "host" as const, value: hostPattern }],
+      destination: "https://gummyui.dev/:path*",
+      permanent: true,
+    }));
   },
   async headers() {
     return [

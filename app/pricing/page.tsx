@@ -13,7 +13,7 @@ const checkoutEnabled =
   process.env.STRIPE_CHECKOUT_ENABLED === "true";
 
 export const metadata: Metadata = {
-  title: "Gummy UI Pro pricing",
+  title: "Pricing plans and licences for Gummy UI Pro",
   description:
     "Compare Gummy UI Pro Individual, Team and Organization monthly, yearly and lifetime prices, seats, support, licence and refund terms.",
   alternates: { canonical: "/pricing" },

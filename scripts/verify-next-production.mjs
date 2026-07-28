@@ -1,5 +1,6 @@
 import { spawn } from "node:child_process";
 import { access } from "node:fs/promises";
+import { request } from "node:http";
 import { createServer } from "node:net";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -121,6 +122,29 @@ async function terminate(child) {
   clearTimeout(timer);
 }
 
+async function requestWithHost(url, host) {
+  const target = new URL(url);
+  return await new Promise((resolve, reject) => {
+    const clientRequest = request({
+      hostname: target.hostname,
+      port: target.port,
+      path: `${target.pathname}${target.search}`,
+      method: "GET",
+      headers: { host },
+    }, (response) => {
+      response.resume();
+      response.once("end", () => {
+        resolve({
+          status: response.statusCode,
+          location: response.headers.location ?? null,
+        });
+      });
+    });
+    clientRequest.once("error", reject);
+    clientRequest.end();
+  });
+}
+
 function verifySecurityHeaders(route, response) {
   for (const [name, expected] of Object.entries(expectedSecurityHeaders)) {
     invariant(
@@ -190,6 +214,29 @@ try {
     );
   }
 
+  for (const host of ["www.gummyui.dev", "gummyui.vercel.app"]) {
+    const response = await requestWithHost(
+      `${origin}/pricing?from=alternate`,
+      host,
+    );
+    invariant(
+      response.status === 308,
+      `${host} did not return the permanent canonical-host redirect.`,
+    );
+    invariant(
+      response.location === "https://gummyui.dev/pricing?from=alternate",
+      `${host} did not preserve the path and query on the canonical redirect.`,
+    );
+  }
+
+  for (const host of ["wwwXgummyuiYdev", "gummyuiXvercelYapp"]) {
+    const response = await requestWithHost(`${origin}/pricing`, host);
+    invariant(
+      response.status === 200,
+      `${host} incorrectly matched a canonical-host redirect pattern.`,
+    );
+  }
+
   for (const route of [
     "/pricing",
     "/commercial-license",
@@ -241,6 +288,8 @@ try {
     sensitiveRoutes: sensitiveRoutes.length,
     securityHeaders: Object.keys(expectedSecurityHeaders).length,
     sitemapRequiredPaths: requiredSitemapPaths.length,
+    alternateHostRedirects: 2,
+    lookalikeHostRejections: 2,
   }, null, 2));
 } finally {
   await terminate(child);

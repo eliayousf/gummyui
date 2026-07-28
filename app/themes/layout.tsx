@@ -6,6 +6,7 @@ export default function ThemesLayout({
 }>) {
   return (
     <>
+      <link rel="stylesheet" href="/styles/gummy-core-components.css" precedence="gummy-themes" />
       <link rel="stylesheet" href="/styles/gummy-primitives.css" precedence="gummy-themes" />
       {children}
     </>

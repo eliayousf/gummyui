@@ -406,3 +406,20 @@
   to { transform: rotate(360deg); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .gummy-button:not(:disabled):active .gummy-button__body,
+  .gummy-button:not(:disabled):hover .gummy-button__body,
+  .gummy-button--preview-hover .gummy-button__body,
+  .gummy-button[data-finish="translucent"]:not(:disabled):hover .gummy-button__body::after,
+  .gummy-button[data-finish="translucent"]:focus-visible .gummy-button__body::after,
+  .gummy-button[data-finish="translucent"]:not(:disabled):active .gummy-button__body::before,
+  .gummy-button[data-finish="translucent"]:not(:disabled):active .gummy-button__body::after,
+  .gummy-button[data-finish="translucent"]:not(:disabled):active .gummy-button__content {
+    transform: none;
+  }
+
+  .gummy-button__spinner {
+    animation: none;
+    border-style: dotted;
+  }
+}

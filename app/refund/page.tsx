@@ -4,7 +4,7 @@ import { PublicTextPage } from "../components/PublicTextPage";
 import { commercialFacts, commercialPolicy } from "../data/commercial";
 
 export const metadata: Metadata = {
-  title: "Gummy UI refund policy",
+  title: "Gummy UI refund and access revocation policy",
   description:
     "Read the 14-day unopened-digital-files refund policy, statutory-rights protection, request process, access revocation and payment-provider handling.",
   alternates: { canonical: "/refund" },

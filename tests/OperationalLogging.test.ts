@@ -26,6 +26,21 @@ describe("operational logging", () => {
       sourceToken: "x".repeat(24),
       ingestUrl: "https://in.logs.betterstack.com/",
     });
+    expect(readBetterStackLogConfig({
+      BETTER_STACK_SOURCE_TOKEN: "x".repeat(24),
+      BETTER_STACK_INGESTING_HOST:
+        "s1234567.eu-central-1a.betterstackdata.com",
+    })).toEqual({
+      sourceToken: "x".repeat(24),
+      ingestUrl:
+        "https://s1234567.eu-central-1a.betterstackdata.com/",
+    });
+    expect(() =>
+      readBetterStackLogConfig({
+        BETTER_STACK_SOURCE_TOKEN: "x".repeat(24),
+        BETTER_STACK_INGESTING_HOST:
+          "attacker.eu-central-1a.betterstackdata.com",
+      })).toThrow("Invalid Better Stack log configuration");
   });
 
   it("redacts PII and credentials before local and remote output", async () => {
