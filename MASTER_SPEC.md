@@ -827,7 +827,7 @@ canonical edition. The complete 22-counterpart Radix edition additionally
 passes clean shadcn installation, type checking and production builds in
 independent Next.js and Vite npm consumers. Component detail pages expose both
 install commands, both editable sources and real interactive Radix previews.
-The public gate includes 460 Vitest tests, all 57 canonical preview axe checks,
+The public gate includes 474 Vitest tests, all 57 canonical preview axe checks,
 22 Radix counterpart axe checks, Radix overlay/menu behavior, localisation and
 boundary tests, production rendering, artifact leakage, dependency/licence and
 secret scans, and enforced gzip/image/style budgets. A production-build Chrome
@@ -896,19 +896,26 @@ The original production-origin homepage Lighthouse check completed on three
 cold mobile and three desktop runs. Its median scores were 98 mobile
 performance and 100 desktop performance, with accessibility, best practices
 and SEO at 100 in both modes. A fresh sequential check of the current release
-recorded mobile performance scores of 94, 92 and 94 (median 94), while a current
-desktop run scored 100; accessibility, best practices and SEO remained 100 and
-CLS remained zero. The current mobile median and the separate full-coverage
-greater-than-95 gate are both open. After the source
-corrections and safe payload-deferment tranche were deployed, SquirrelScan
-0.0.80 completed a fresh full crawl and scored 83/B, with 27,929 passed checks,
-1,195 warnings and 41 failures across 375 crawled URLs. This improves on the
-81/B post-fix crawl; SEO scored 90 and security 98. Eight accessibility errors
-are the same hidden Base UI switch proxy reported across two pages while the
-hydrated axe and accessibility-tree gates pass. The other failures are
-scanner-observed TTFB/aggregate-byte/cache rules plus one sitemap URL not
-visited by the crawler. The full-coverage 95+ gate remains open. The detailed
-evidence and exact reconciliation are in
+first recorded mobile performance scores of 94, 92 and 94 (median 94). After
+the managed-credential redeployment, three new storage-isolated mobile checks
+scored 93, 99 and 99 (median 99); accessibility, best practices and SEO stayed
+at 100 and CLS stayed zero. The homepage mobile target above 95 is therefore
+met, while the slower 93 tail remains recorded and no field-performance claim
+is made. The separate full-coverage greater-than-95 gate remains open. After
+the source corrections and safe payload-deferment tranche were deployed,
+SquirrelScan
+0.0.80 completed an initial 83/B full crawl. A fresh uncapped full refresh
+against managed-credential deployment
+`dpl_HmDWC8MZomdq3ZMB2MtK2VJHGdCL` then scored 84/B across 375 discovered
+URLs, with 28,005 passed checks, 1,150 warnings and 10 failures. SEO scored 90,
+security 98, and the audit ID is `86fcae87`. Eight failures are the same hidden
+Base UI switch proxy reported across two pages while the hydrated axe and
+accessibility-tree gates pass. The remaining two are scanner-wide aggregate
+site-weight and HTML-cache models that do not match per-route payload or Vercel
+CDN evidence. CSP inline allowances, the raw component documentation
+stylesheet, `/themes` render-blocking resources, article sourcing and explicit
+subprocessor disclosure remain genuine improvement work. The full-coverage
+95+ gate remains open. The detailed evidence and exact reconciliation are in
 `docs/audits/production-launch-verification-2026-07-28.md`.
 
 The deployed safe audit tranche avoids treating crawler false positives as
@@ -918,8 +925,9 @@ reader requests source, and generate their five route-scoped stylesheets as one
 ordered documentation bundle. Pagination specimens use fragment-only targets;
 non-HTML RSS/Markdown resources remain public but leave the SEO sitemap; all
 block-category metadata meets meaningful length bounds; and the Open Graph
-image is losslessly reduced by 21.7%. The fresh crawl records the resulting
-81/B to 83/B improvement without misrepresenting it as the required 95+ result.
+image is losslessly reduced by 21.7%. The managed-credential refresh improves
+the authoritative result to 84/B without misrepresenting it as the required
+95+ result.
 
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
@@ -949,20 +957,29 @@ Stripe Managed Payments is live-account ready with three products, nine prices
 and `support@kreydlabs.com` configured. Its active `gummyui-production`
 destination listens for the exact 16 required event types at
 `https://gummyui.dev/api/webhooks/stripe`, and the signing secret is installed
-only in secure runtime/operator stores. The restricted-key form now has the
-required least-privilege permissions selected and stops at Stripe's explicit
-founder identity-verification dialog before issuance. Deployed-origin signed
-delivery and sandbox/live journeys remain unproved; checkout and webhook flags
-remain fail closed.
+only in secure runtime/operator stores. Vercel's Stripe Marketplace integration
+now imports the existing live account as managed resource
+`stripe-live-gummy-ui`; it is connected only to the `gummyui` Production
+environment, the resource-level environment policy is Production-only, and the
+initial credentials were rotated after that restriction was applied. Stripe
+labels the resulting runtime credential as a managed Standard secret key with
+no access policy, so it has full account API scope rather than the intended
+least-privilege scope. It is installed as a protected Vercel Production value
+but has not yet been exercised by a deployed commerce route. The separately
+prepared restricted-key form has the required least-privilege permissions
+selected and still stops at Stripe's explicit founder identity-verification
+dialog before issuance. Deployed-origin signed delivery and sandbox/live
+journeys remain unproved; checkout and webhook flags remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
-environment value except the Stripe runtime key is installed. Vercel Pro is
-active; spend management is set to $1 with notifications and Pause Projects
-enabled. Runtime-proof deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready at
-`7211e363092a014a86ca45f3fa8f0b6f5814f4e2` on Node 22; both custom
-domains are Valid, public DNS has converged,
-and the complete public-origin probe passes. The Stripe key and every commerce
-journey remain pending. A current-production browser matrix passes Chrome 150,
+environment value is installed. Vercel Pro is active; spend management is set
+to $1 with notifications and Pause Projects enabled. After the managed Stripe
+resource was restricted and rotated, Ready deployment
+`dpl_HmDWC8MZomdq3ZMB2MtK2VJHGdCL` rebuilt exact public head
+`1401963129eb9236c0b973451a20fcc1f2d81cf9` on Node 22 with the protected
+credential and serves both custom-domain aliases. Public health remains 200 and
+reports commerce disabled. Credential validity, least-privilege replacement
+and every commerce journey remain pending. A current-production browser matrix passes Chrome 150,
 Firefox 144 and WebKit 2311 at mobile and desktop viewports across the homepage,
 Button detail, pricing and RTL routes with no overflow, console or page errors.
 All three engines also load the deferred interactive Button preview and editable
@@ -1026,9 +1043,15 @@ minutes with a five-minute grace period, a controlled recovery heartbeat
 returned 200, and the monitor returned Up.
 Backblaze B2 has two private encrypted EU buckets for releases and backups with
 separate scoped runtime and backup keys installed in Vercel. Fresh backup,
-independent operator-key verification and isolated restore now pass. Paid
-delivery, superseded B2-key revocation and recovery-copy custody remain
-unproved.
+independent operator-key verification and isolated restore now pass. The
+private repository now builds deterministic product-specific ZIPs outside both
+repositories and includes a fail-closed B2 publisher that proves Object Lock,
+conditional creation, retention, metadata and complete read-back bytes. The
+public runtime now includes secret-protected, idempotent Convex publication and
+withdrawal operations with exact archive-path validation, redacted audits and
+atomic unused-grant revocation. No real paid archive, B2 object or production
+release record has been created. Paid delivery, superseded B2-key revocation
+and recovery-copy custody remain unproved.
 
 Current product gates also include running and visually reviewing the v0.5.0
 Figma materialisation of 138 sets and 2,588 variants, reviewing its 72 editable
@@ -1037,9 +1060,10 @@ rendered/localisation review, and promoting actual paid releases.
 
 The remaining work is dominated by founder-controlled gates: complete the
 WorkOS CAPTCHA/account/recovery/JWT journey, complete Stripe identity
-verification so the selected restricted key can be issued, run the private
-Figma materializer and visual reviews, approve localisation, revoke the
-superseded B2 key after reauthentication, and move the recovery bundle into the
-founder password manager. Then paid releases, signed webhook/email/customer
-journeys and the authorised real purchase/full refund can proceed. The project
-is not commercially launched until all eight North Star steps have evidence.
+verification so the installed full-scope managed key can be replaced by the
+selected restricted key, run the private Figma materializer and visual reviews,
+approve localisation, revoke the superseded B2 key after reauthentication, and
+move the recovery bundle into the founder password manager. Then paid releases,
+signed webhook/email/customer journeys and the authorised real purchase/full
+refund can proceed. The project is not commercially launched until all eight
+North Star steps have evidence.

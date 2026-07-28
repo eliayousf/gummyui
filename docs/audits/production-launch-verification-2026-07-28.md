@@ -107,11 +107,28 @@ and SEO scored 100 on every run. Mobile CLS was zero; LCP was 2.580 s,
 2.719 s and 2.717 s, and TBT was 92 ms, 151 ms and 87 ms. The desktop check
 scored 100 in all four categories with 0.506 s LCP, 0 ms TBT and zero CLS.
 
-The current mobile median therefore does not satisfy the homepage performance
-target above 95. Lighthouse attributes most remaining loss to H1 render delay,
+That release's mobile median therefore did not satisfy the homepage performance
+target above 95. Lighthouse attributed most remaining loss to H1 render delay,
 with 26 KiB estimated unused JavaScript and measurable style/layout work. This
-result and the separate 83/B full-site diagnostic gate both remain open; the
+result remained open until the managed-credential recheck below; the separate
+full-site diagnostic gate remains open. The
 earlier 98 mobile median is retained as historical evidence only.
+
+### Managed-credential release Lighthouse recheck
+
+After the managed-credential deployment became canonical, Lighthouse 13.4.1
+ran three more sequential, storage-isolated mobile checks against the real
+production origin. Performance scored 93, 99 and 99 (median **99**);
+accessibility, best practices and SEO scored 100 in all three runs. Median FCP
+was 1.066 s, LCP 2.266 s, Speed Index 1.066 s, TBT 34 ms and CLS zero.
+
+This restores the homepage mobile median above 95 without replacing the slower
+93 tail or claiming field performance. No performance experiment was deployed:
+a homepage prefetch candidate reduced requests but regressed its focused local
+median and was reverted. The separate full-site greater-than-95 diagnostic
+gate remains open. The run table, raw working paths and SHA-256 hashes are
+recorded in
+[`evidence/lighthouse-production-2026-07-28/mobile-recheck-summary.md`](evidence/lighthouse-production-2026-07-28/mobile-recheck-summary.md).
 
 ## Full-site diagnostic crawl
 
@@ -197,7 +214,8 @@ repeated the full crawl with the same 500-page limit:
 - aggregate diagnostic score 83/B;
 - group scores: SEO 90, performance 61, security 98 and agents 50.
 
-This is the current authoritative full-site diagnostic result. It improves the
+This was the authoritative full-site diagnostic result before the
+managed-credential redeployment. It improves the
 aggregate from 81/B to 83/B and reduces warnings by 93, but it does not satisfy
 the separate required score above 95. The eight accessibility errors are the
 same hidden Base UI switch input reported across `/` and `/themes` under four
@@ -209,6 +227,43 @@ that the crawler did not visit. The tracked redacted report is
 SHA-256 is
 `071f9609d5d69e806a8c57172e9519e18f1c70b6ec6ad5c3086f1879919e31c3`.
 The raw report was deleted after redaction and a sensitive-pattern scan.
+
+### Managed-credential production crawl
+
+After Vercel restricted the imported Stripe resource to Production, rotated its
+initial credentials and rebuilt exact public head
+`1401963129eb9236c0b973451a20fcc1f2d81cf9`, Ready deployment
+`dpl_HmDWC8MZomdq3ZMB2MtK2VJHGdCL` became the canonical origin. Commerce
+remained disabled. SquirrelScan 0.0.80 then completed two fresh refreshes:
+
+- surface audit `7e4b8798`: 120 pages, 85/B, 11,640 checks passed, 464 warned
+  and 9 failed;
+- uncapped full audit `86fcae87`: 375 discovered URLs, 84/B, 28,005 checks
+  passed, 1,150 warned and 10 failed;
+- full group scores: SEO 90, performance 67, security 98 and agents 50; and
+- the full LLM report SHA-256 is
+  `d40cd28c26a74dfd20f57ba2a83aed6d4693d34ff46bc02466c66b02e7061885`.
+
+This is the current authoritative full-site diagnostic result. The eight
+accessibility failures are four rules reporting the same hidden
+`tabindex="-1"` Base UI form-participation mirror on `/` and `/themes`.
+Hydrated axe, accessibility-tree, keyboard and focus-visible gates pass. The
+other two failures are scanner-wide aggregate site-weight and HTML-cache
+models: the former has no affected page and sums shared resources across the
+crawl, while the latter does not recognise the observed Vercel CDN cache
+evidence. The scanner also skipped `/components/label`, but direct sitemap
+parsing finds 292 entries and the route returns 200.
+
+The current crawl still identifies genuine work that is not dismissed as a
+scanner limitation: CSP retains constrained inline allowances;
+`component-docs.css` is 190,596 raw bytes (30,229 compressed); `/themes`
+reports four render-blocking resources; the 18 technical articles have no
+external source links; and the public privacy notice names every provider but
+does not publish an explicit subprocessor directory. TTFB warnings were
+transient: six immediate repeats of the flagged article returned in
+46–176 ms. The raw reports remain in the protected operator workspace; a
+targeted sensitive-pattern scan found no secrets, authentication query values
+or email addresses.
 
 ### Rule reconciliation and ownership
 

@@ -103,7 +103,7 @@ live manifests and evidence before acting; do not rebuild verified work from
 scratch.
 
 - The public catalogue has 57 canonical components, 61 registry payloads and
-  460 passing Vitest tests. Clean Next.js/Vite installs and the npm, pnpm, Yarn
+  474 passing Vitest tests. Clean Next.js/Vite installs and the npm, pnpm, Yarn
   and Bun package-manager matrix pass.
 - The private catalogue has 158 blocks, six templates, 474 block tests, 142
   template tests, 948 Chrome captures and 132 contact sheets. Clean paid

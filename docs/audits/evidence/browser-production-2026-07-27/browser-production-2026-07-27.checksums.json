@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "algorithm": "SHA-256",
-  "generatedAt": "2026-07-28T18:04:37.910Z",
+  "generatedAt": "2026-07-28T23:15:17.196Z",
   "entries": [
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/README.md",
@@ -15,8 +15,8 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/browser-production-2026-07-27.json",
-      "bytes": 531559,
-      "sha256": "78f5a8beeb5b34368c7e9eba5eaf184271db1f36846d03de73892d658dade817"
+      "bytes": 531556,
+      "sha256": "f341c983e1f0159714d4d579d19c9ad6676029e694921a433d71697961b47b46"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/component-200-percent-equivalent-reflow.png",
@@ -30,18 +30,18 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
-      "bytes": 525418,
-      "sha256": "042a07b8a23f847921e77523f689ba22986b937fca17b0f720711d15dd7a03f9"
+      "bytes": 525329,
+      "sha256": "046732a19c08caec9f4e812a6f3d921bf03be4ee25b6d31672cc9beb04104ff3"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
-      "bytes": 515090,
-      "sha256": "a291c0be979df732ef83f02fd460958c86fef6de9fd452b25f33e9d210a7764a"
+      "bytes": 515105,
+      "sha256": "84b8f82e04ab23e2d641757c063e6ebfa8417ca16c99d50a14a9d590d0ad292a"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
-      "bytes": 233347,
-      "sha256": "cb7e9cb7518d791c2a85dc2ff11bc4b31c2a7b7bea2986b3dbed68d55e38466c"
+      "bytes": 233309,
+      "sha256": "111f2241c7c8fa8c2ac4185cd83e341f5f8a9c7aaeef842d84029c0f4a9f0044"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/rtl-mobile.png",

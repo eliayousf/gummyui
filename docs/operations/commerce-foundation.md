@@ -4,21 +4,23 @@
 deployment. Stripe Managed Payments is live-account ready with three products,
 nine prices and `support@kreydlabs.com` configured. Production control-plane
 resources now exist for WorkOS, Resend, Better Stack, Backblaze B2, Convex and
-Vercel, and every planned Vercel Production environment value except the Stripe
-runtime key is installed. The current Convex production code/schema is deployed,
-and Vercel Pro is active with $1 spend management, notifications and Pause
-Projects enabled. This is not customer-journey evidence: production-origin
-WorkOS callback/JWT integration, the Stripe restricted runtime key and every
-complete production customer journey remain gated. The current Vercel
-deployment is Ready, both custom domains are Valid, the full public-origin
-probe passes, and checkout and webhook flags remain fail closed.
+Vercel, and every planned Vercel Production environment value is installed.
+The Stripe runtime value is supplied by Vercel's managed Marketplace resource,
+restricted to Production and rotated after that restriction was applied. The
+current Convex production code/schema is deployed, and Vercel Pro is active
+with $1 spend management, notifications and Pause Projects enabled. This is not
+customer-journey evidence: production-origin WorkOS callback/JWT integration,
+a least-privilege Stripe runtime key and every complete production customer
+journey remain gated. The current Vercel deployment is Ready, both custom
+domains are Valid, the full public-origin probe passes, and checkout and webhook
+flags remain fail closed.
 
 ## Production provider state — 28 July 2026
 
 | Provider                | Confirmed control-plane state | Still required before launch |
 | ----------------------- | ----------------------------- | ---------------------------- |
-| Stripe Managed Payments | Live-account ready; three products, nine prices and `support@kreydlabs.com` are configured. The active `gummyui-production` destination listens for the exact 16 required event types at `/api/webhooks/stripe`; its signing secret is installed only in secure runtime/operator stores. The restricted-key form has the required least-privilege permissions selected and is stopped at Stripe's founder identity-verification dialog. | Complete founder verification, securely install the issued key, verify signed delivery at the deployed origin, then pass sandbox and authorised live purchase/refund journeys. |
-| Vercel                  | Pro is active, with spend management set to $1, notifications enabled and Pause Projects on. Every planned Production environment value except the Stripe runtime key is installed. Runtime-proof deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready at public head `7211e363092a014a86ca45f3fa8f0b6f5814f4e2` on Node 22, and GitHub Quality run `30386937076` passes; Vercel marks the apex and `www` domains Valid, public DNS returns the new records, and the full HTTPS/route/security probe passes at `gummyui.dev`. Later documentation-only releases preserve this application runtime. Controlled rollback and re-promotion were proved for the preceding audited release. Commerce remains disabled. | Install the Stripe key, preserve fail-closed flags until dependencies pass, then verify every provider and customer journey at the real origin. |
+| Stripe Managed Payments | Live-account ready; three products, nine prices and `support@kreydlabs.com` are configured. The active `gummyui-production` destination listens for the exact 16 required event types at `/api/webhooks/stripe`; its signing secret is installed only in secure runtime/operator stores. Vercel resource `stripe-live-gummy-ui` supplies a managed Standard secret key to Production only, and its initial credentials were rotated. Stripe shows no access policy on that key, so it has full API scope and is not the intended least-privilege launch credential. The separately prepared restricted-key form still stops at founder identity verification. | Complete founder verification and replace the full-scope managed key with the issued restricted key, verify signed delivery at the deployed origin, then pass sandbox and authorised live purchase/refund journeys. |
+| Vercel                  | Pro is active, with spend management set to $1, notifications enabled and Pause Projects on. Every planned Production environment value is installed. The Stripe resource is globally restricted to Production, propagates protected values and was rotated before Ready deployment `dpl_HmDWC8MZomdq3ZMB2MtK2VJHGdCL` rebuilt exact public head `1401963129eb9236c0b973451a20fcc1f2d81cf9` on Node 22. Vercel marks the apex and `www` domains Valid, public DNS returns the current records, and the HTTPS health probe passes at `gummyui.dev` with commerce disabled. Controlled rollback and re-promotion were proved for the preceding audited release. | Preserve fail-closed flags, replace or explicitly accept the full-scope managed key only after security review, then verify every provider and customer journey at the real origin. |
 | Convex                  | The EU development deployment exists; production has `CONVEX_SERVER_SECRET` and the canonical WorkOS deploy-time credentials. The current 25-table schema, indexes and functions are deployed; post-deploy inspection confirmed all 25 tables are present and empty. An isolated development restore target has the same schema/functions and only drill-specific secrets. The latest backup restored and reconciled all 24 durable tables there with zero records; a subsequent synthetic drill proved representative account, team, licence, entitlement, one-use/expired download, refund-revocation and audit queries without invoking outbound providers. | Verify WorkOS identity at the production origin, complete the data-lifecycle journeys, then remove the synthetic drill target after founder dashboard authentication. |
 | WorkOS                  | Staging journeys passed. Production AuthKit is enabled and its redirect, application, branding and webhook are configured; production credentials are installed in Vercel and Convex production. Email + Password with the strong policy and six-digit Magic Auth are enabled. The real-origin sign-in route returns 307 with the canonical callback, and the production sign-up form is reached. | Complete the human CAPTCHA, callback and JWT integration, then repeat account creation, recovery, team, invitation, export and deletion journeys at the production origin. |
 | Resend                  | `send.kreydlabs.com` is verified. Its production API key and webhook plus the current sender/reply-to settings are installed in Vercel. A domain-scoped, sending-only one-use key sent a controlled message from `updates@send.kreydlabs.com` to `support@kreydlabs.com`; Resend recorded sent and delivered, and the one-use key was deleted. | Verify the deployed application outbox, signed webhook receipt and access/status email from a real production account event. |
@@ -75,8 +77,15 @@ Star step passed; the production-verified revenue loop remains 0 of 8.
 
 Private paid archives are designed to reside in the provisioned release B2
 bucket. Convex stores release metadata, checksums and access state, never the
-archive credential or a permanent public download URL. No paid release or
-production download journey is yet verified.
+archive credential or a permanent public download URL. Deterministic
+product-specific archive creation and an immutable B2 upload/read-back prover
+now exist in the private repository. Secret-protected Convex publication and
+withdrawal operations now exist in the public runtime; they validate the exact
+private archive-key contract, preserve product-level entitlements, revoke
+unused grants on withdrawal and emit only redacted results. These are
+fail-closed foundations, not release evidence: no paid archive, B2 release
+object, production release record or production download journey is yet
+verified.
 
 ## Security invariants
 
@@ -123,16 +132,17 @@ development deployment.
 
 ## Still required before paid launch
 
-1. Close the current full-site crawler gap from 83/B to the required 95+ while
+1. Close the current full-site crawler gap from 84/B to the required 95+ while
    preserving the passing responsive, hydrated accessibility, browser,
    security, performance and SEO evidence, with commerce flags still disabled.
 2. Complete the founder CAPTCHA and verify the deployed Convex/WorkOS
    integration at the production origin,
    preserving the already-set `CONVEX_SERVER_SECRET`.
 3. Complete Stripe's founder identity-verification dialog, create and install
-   the already-scoped restricted runtime key, verify all nine price mappings
-   and signed delivery through the active 16-event destination, then pass the
-   sandbox payment journeys.
+   the already-scoped restricted runtime key in place of the installed
+   full-scope managed key, verify all nine price mappings and signed delivery
+   through the active 16-event destination, then pass the sandbox payment
+   journeys.
 4. Build and upload an immutable protected release, prove unpaid denial and paid
    delivery, revoke the superseded B2 key after dashboard reauthentication and
    move the current recovery bundle into approved operator custody.
