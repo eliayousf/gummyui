@@ -17,7 +17,7 @@ import {
 
 const baseEnvironment = {
   WORKOS_CLIENT_ID: "client_123456789",
-  WORKOS_API_KEY: "sk_test_aaaaaaaa",
+  WORKOS_API_KEY: `sk_${"a".repeat(24)}`,
   WORKOS_COOKIE_PASSWORD: "a".repeat(32),
   WORKOS_REDIRECT_URI:
     "https://gummyui.dev/auth/callback",
@@ -64,6 +64,12 @@ describe("WorkOS identity boundary", () => {
           "https://www.gummyui.dev/auth/callback",
       }),
     ).toThrow("Invalid WorkOS redirect URI");
+    expect(() =>
+      readWorkOSIdentityConfig({
+        ...baseEnvironment,
+        WORKOS_API_KEY: "sk_short",
+      }),
+    ).toThrow("Invalid WorkOS server configuration");
     expect(() =>
       readWorkOSIdentityConfig({
         ...baseEnvironment,

@@ -16,6 +16,9 @@ import { ProviderUnavailableError } from "./providers";
 export const STRIPE_MANAGED_PAYMENTS_API_VERSION =
   "2026-03-04.preview" as const;
 
+const STRIPE_SERVER_API_KEY =
+  /^(?:sk|rk)_(?:test|live)_[A-Za-z0-9][A-Za-z0-9_-]{5,}$/u;
+
 export type { CommercialPlanId } from "../../app/data/commercial";
 
 const priceEnvironmentKeys: Readonly<
@@ -53,6 +56,10 @@ export interface StripeCheckoutWebhookConfig
 export interface StripeHostedCheckout {
   checkoutRef: string;
   checkoutUrl: string;
+}
+
+export function isValidStripeServerApiKey(value: string): boolean {
+  return STRIPE_SERVER_API_KEY.test(value);
 }
 
 interface StripeSessionCreator {
@@ -120,8 +127,8 @@ export function readStripeManagedPaymentsConfig(
   if (!secretKey || !applicationOrigin) {
     return null;
   }
-  if (!/^sk_(?:test|live)_/.test(secretKey)) {
-    throw new Error("Invalid Stripe secret-key format");
+  if (!isValidStripeServerApiKey(secretKey)) {
+    throw new Error("Invalid Stripe server-key format");
   }
 
   const priceIds = Object.fromEntries(

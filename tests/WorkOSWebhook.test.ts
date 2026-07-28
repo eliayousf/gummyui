@@ -17,6 +17,7 @@ import { POST as workOSWebhookPost } from "../app/api/webhooks/workos/route";
 const hash = "a".repeat(64);
 const createdAt = "2027-01-15T12:00:00.000Z";
 const receivedAt = Date.parse("2027-01-15T12:00:01.000Z");
+const workosApiKey = `sk_${"a".repeat(24)}`;
 
 describe("WorkOS webhook boundary", () => {
   beforeEach(() => {
@@ -27,18 +28,24 @@ describe("WorkOS webhook boundary", () => {
     expect(readWorkOSWebhookConfig({})).toBeNull();
     expect(() =>
       readWorkOSWebhookConfig({
-        WORKOS_API_KEY: "sk_test_aaaaaaaa",
+        WORKOS_API_KEY: workosApiKey,
       }),
     ).toThrow("Invalid WorkOS webhook configuration");
     expect(
       readWorkOSWebhookConfig({
-        WORKOS_API_KEY: "sk_test_aaaaaaaa",
+        WORKOS_API_KEY: workosApiKey,
         WORKOS_WEBHOOK_SECRET: "s".repeat(24),
       }),
     ).toEqual({
-      apiKey: "sk_test_aaaaaaaa",
+      apiKey: workosApiKey,
       secret: "s".repeat(24),
     });
+    expect(() =>
+      readWorkOSWebhookConfig({
+        WORKOS_API_KEY: "sk_short",
+        WORKOS_WEBHOOK_SECRET: "s".repeat(24),
+      }),
+    ).toThrow("Invalid WorkOS webhook configuration");
   });
 
   it("normalizes user updates without retaining the email address", async () => {
@@ -187,7 +194,7 @@ describe("WorkOS webhook boundary", () => {
 
   it("fails closed without a signature and while the route is disabled", async () => {
     const adapter = new WorkOSWebhookAdapter({
-      apiKey: "sk_test_aaaaaaaa",
+      apiKey: workosApiKey,
       secret: "s".repeat(24),
     });
     await expect(

@@ -12,6 +12,7 @@ import {
   buildStripeFulfillmentProjection,
 } from "../lib/commerce/stripe-fulfillment";
 import {
+  isValidStripeServerApiKey,
   normalizeStripeCheckoutEvent,
   readStripeManagedPaymentsConfig,
   STRIPE_MANAGED_PAYMENTS_API_VERSION,
@@ -29,6 +30,7 @@ import { POST as stripeWebhookPost } from "../app/api/webhooks/stripe/route";
 
 const accountId = opaqueId("account:stripe:test:001", "account");
 const workspaceId = opaqueId("workspace:stripe:test:001", "workspace");
+const restrictedStripeKey = `rk_live_${"a".repeat(24)}`;
 const config: StripeManagedPaymentsConfig = {
   secretKey: "sk_test_not-a-real-key",
   applicationOrigin: "https://gummyui.dev",
@@ -210,7 +212,7 @@ describe("Stripe Managed Payments checkout boundary", () => {
 
     expect(
       readStripeManagedPaymentsConfig({
-        STRIPE_SECRET_KEY: "sk_test_present",
+        STRIPE_SECRET_KEY: restrictedStripeKey,
         GUMMYUI_ORIGIN: "https://gummyui.dev",
         STRIPE_PRICE_INDIVIDUAL_MONTHLY: "price_IndividualMonthly",
         STRIPE_PRICE_INDIVIDUAL_YEARLY: "price_IndividualYearly",
@@ -224,8 +226,30 @@ describe("Stripe Managed Payments checkout boundary", () => {
       }),
     ).toEqual({
       ...config,
-      secretKey: "sk_test_present",
+      secretKey: restrictedStripeKey,
     });
+  });
+
+  it("accepts secret and least-privilege restricted server-key shapes", () => {
+    for (const prefix of [
+      "sk_test_",
+      "sk_live_",
+      "rk_test_",
+      "rk_live_",
+    ]) {
+      expect(
+        isValidStripeServerApiKey(`${prefix}${"a".repeat(24)}`),
+      ).toBe(true);
+    }
+    for (const value of [
+      `pk_live_${"a".repeat(24)}`,
+      `sk_${"a".repeat(24)}`,
+      `rk_live_${"a".repeat(4)}`,
+      `rk_live_${"a".repeat(12)} value`,
+      `rk_live_${"a".repeat(12)}\nvalue`,
+    ]) {
+      expect(isValidStripeServerApiKey(value)).toBe(false);
+    }
   });
 
   it("keeps the HTTP checkout route closed until identity is configured", async () => {

@@ -14,8 +14,8 @@ import { GET as emailCronGet } from "../app/api/cron/email-outbox/route";
 
 const config: ResendOutboxConfig = {
   resendApiKey: "re_test_not_real",
-  workosApiKey: "sk_test_notreal",
-  from: "Gummy UI <support@kreydlabs.com>",
+  workosApiKey: `sk_${"a".repeat(24)}`,
+  from: "Gummy UI <updates@send.kreydlabs.com>",
   replyTo: "support@kreydlabs.com",
   applicationOrigin: "https://gummyui.dev",
 };
@@ -46,8 +46,8 @@ describe("Resend transactional outbox", () => {
     expect(() =>
       readResendOutboxConfig({
         RESEND_API_KEY: "browser-value",
-        WORKOS_API_KEY: "sk_test_notreal",
-        RESEND_FROM_EMAIL: "Gummy UI <support@kreydlabs.com>",
+        WORKOS_API_KEY: config.workosApiKey,
+        RESEND_FROM_EMAIL: config.from,
         RESEND_REPLY_TO_EMAIL: "support@kreydlabs.com",
         GUMMYUI_ORIGIN: "https://gummyui.dev",
       })).toThrow("Invalid transactional email configuration");
@@ -60,6 +60,15 @@ describe("Resend transactional outbox", () => {
         GUMMYUI_ORIGIN: config.applicationOrigin,
       }),
     ).toEqual(config);
+    expect(() =>
+      readResendOutboxConfig({
+        RESEND_API_KEY: config.resendApiKey,
+        WORKOS_API_KEY: "sk_short",
+        RESEND_FROM_EMAIL: config.from,
+        RESEND_REPLY_TO_EMAIL: config.replyTo,
+        GUMMYUI_ORIGIN: config.applicationOrigin,
+      }),
+    ).toThrow("Invalid transactional email configuration");
   });
 
   it("claims once, resolves the WorkOS email and sends idempotently", async () => {

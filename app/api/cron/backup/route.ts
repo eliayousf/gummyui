@@ -4,6 +4,9 @@ import {
   createAndVerifyOperationalBackup,
   readOperationalBackupConfig,
 } from "../../../../lib/commerce/backup-runtime";
+import {
+  pingBetterStackHeartbeat,
+} from "../../../../lib/commerce/better-stack-heartbeats";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -31,6 +34,7 @@ export async function GET(request: Request) {
       source: new ConvexBackupSnapshotSource(),
       store: new BackblazeBackupArchiveStore(config),
     });
+    await pingBetterStackHeartbeat("backup");
     return Response.json(
       {
         ok: true,

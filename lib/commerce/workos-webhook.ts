@@ -6,6 +6,7 @@ import {
   workOSAccountId,
   workOSOrganizationWorkspaceId,
 } from "./workos-identity";
+import { isValidWorkOSApiKey } from "./workos-api-key";
 import type {
   AccountId,
   WorkspaceId,
@@ -91,7 +92,7 @@ export function readWorkOSWebhookConfig(
   if (
     !apiKey
     || !secret
-    || !/^sk_(?:test|live)_[A-Za-z0-9]+$/u.test(apiKey)
+    || !isValidWorkOSApiKey(apiKey)
     || secret.length < 24
     || /[\u0000-\u0020]/u.test(secret)
   ) {

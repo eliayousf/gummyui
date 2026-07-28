@@ -54,14 +54,14 @@ function readyEnvironment(): Record<string, string> {
     NEXT_PUBLIC_CONVEX_URL: "https://test.convex.cloud",
     CONVEX_SERVER_SECRET: "c".repeat(32),
     WORKOS_CLIENT_ID: "client_notreal",
-    WORKOS_API_KEY: "sk_test_notreal",
+    WORKOS_API_KEY: `sk_${"a".repeat(24)}`,
     WORKOS_COOKIE_PASSWORD: "w".repeat(32),
     WORKOS_WEBHOOK_SECRET: "workos_webhook_secret_not_real",
     WORKOS_REDIRECT_URI:
       "https://gummyui.dev/auth/callback",
     NEXT_PUBLIC_WORKOS_REDIRECT_URI:
       "https://gummyui.dev/auth/callback",
-    STRIPE_SECRET_KEY: "sk_test_notreal",
+    STRIPE_SECRET_KEY: `rk_live_${"a".repeat(24)}`,
     STRIPE_WEBHOOK_SECRET: "whsec_not_real",
     DOWNLOAD_GRANT_SECRET: "d".repeat(32),
     DOWNLOAD_GRANT_TTL_SECONDS: "300",
@@ -72,7 +72,7 @@ function readyEnvironment(): Record<string, string> {
     BACKBLAZE_B2_KEY_ID: "key_id_not_real",
     BACKBLAZE_B2_APPLICATION_KEY: "a".repeat(24),
     RESEND_API_KEY: "re_test_not_real",
-    RESEND_FROM_EMAIL: "Gummy UI <support@kreydlabs.com>",
+    RESEND_FROM_EMAIL: "Gummy UI <updates@send.kreydlabs.com>",
     RESEND_REPLY_TO_EMAIL: "support@kreydlabs.com",
     RESEND_WEBHOOK_SECRET:
       `whsec_${btoa("not-a-real-resend-webhook-secret")}`,

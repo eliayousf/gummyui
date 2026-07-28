@@ -15,6 +15,7 @@ import {
   requestDataExport,
 } from "../lib/commerce/privacy-operations";
 
+const workosApiKey = `sk_${"a".repeat(24)}`;
 const access = {
   status: "authenticated",
   accountId: opaqueId(
@@ -40,18 +41,24 @@ describe("account privacy operations", () => {
     expect(readPrivacyDeletionJobConfig({})).toBeNull();
     expect(() =>
       readPrivacyDeletionJobConfig({
-        WORKOS_API_KEY: "sk_test_notreal",
+        WORKOS_API_KEY: workosApiKey,
         ACCOUNT_DELETION_PEPPER: "short",
       })).toThrow("Invalid privacy job configuration");
     expect(
       readPrivacyDeletionJobConfig({
-        WORKOS_API_KEY: "sk_test_notreal",
+        WORKOS_API_KEY: workosApiKey,
         ACCOUNT_DELETION_PEPPER: "x".repeat(32),
       }),
     ).toEqual({
-      workosApiKey: "sk_test_notreal",
+      workosApiKey,
       deletionPepper: "x".repeat(32),
     });
+    expect(() =>
+      readPrivacyDeletionJobConfig({
+        WORKOS_API_KEY: "sk_short",
+        ACCOUNT_DELETION_PEPPER: "x".repeat(32),
+      }),
+    ).toThrow("Invalid privacy job configuration");
   });
 
   it("creates a rate-limited audited export with a seven-day expiry", async () => {
@@ -159,7 +166,7 @@ describe("account privacy operations", () => {
     };
     const job = new PrivacyDeletionJob(
       {
-        workosApiKey: "sk_test_notreal",
+        workosApiKey,
         deletionPepper: "x".repeat(32),
       },
       workos as never,

@@ -2,6 +2,9 @@ import {
   readResendOutboxConfig,
   ResendOutboxWorker,
 } from "../../../../lib/commerce/resend-outbox";
+import {
+  pingBetterStackHeartbeat,
+} from "../../../../lib/commerce/better-stack-heartbeats";
 import { emitOperationalEvent } from "../../../../lib/commerce/operational-logging";
 
 export const runtime = "nodejs";
@@ -51,6 +54,7 @@ export async function GET(request: Request) {
       outcome: result.deadLettered > 0 ? "degraded" : "success",
       attributes: result,
     });
+    await pingBetterStackHeartbeat("email-outbox");
     return Response.json(
       { ok: true, ...result },
       { status: 200, headers: PRIVATE_HEADERS },

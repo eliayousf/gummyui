@@ -2,6 +2,7 @@ import "server-only";
 import { WorkOS } from "@workos-inc/node";
 import { executeConvex } from "../../db";
 import type { ServerAccountAccess } from "./account";
+import { isValidWorkOSApiKey } from "./workos-api-key";
 
 type AuthenticatedAccess = Extract<
   ServerAccountAccess,
@@ -48,7 +49,7 @@ export function readPrivacyDeletionJobConfig(
   if (
     !workosApiKey
     || !deletionPepper
-    || !/^sk_(?:test|live)_[A-Za-z0-9]+$/u.test(workosApiKey)
+    || !isValidWorkOSApiKey(workosApiKey)
     || deletionPepper.length < 32
   ) {
     throw new Error("Invalid privacy job configuration");

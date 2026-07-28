@@ -2,6 +2,9 @@ import {
   PrivacyDeletionJob,
   readPrivacyDeletionJobConfig,
 } from "../../../../lib/commerce/privacy-operations";
+import {
+  pingBetterStackHeartbeat,
+} from "../../../../lib/commerce/better-stack-heartbeats";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -42,6 +45,7 @@ export async function GET(request: Request) {
   }
   try {
     const result = await new PrivacyDeletionJob(config).run();
+    await pingBetterStackHeartbeat("privacy-jobs");
     return Response.json(
       { ok: true, ...result },
       { status: 200, headers: PRIVATE_HEADERS },

@@ -8,6 +8,7 @@ import {
   type WorkspaceId,
   type WorkspaceRole,
 } from "./model";
+import { isValidWorkOSApiKey } from "./workos-api-key";
 
 export interface WorkOSIdentityConfig {
   clientId: string;
@@ -53,7 +54,7 @@ export function readWorkOSIdentityConfig(
   }
   if (
     !/^client_[A-Za-z0-9]+$/.test(clientId)
-    || !/^sk_(?:test|live)_[A-Za-z0-9]+$/.test(apiKey)
+    || !isValidWorkOSApiKey(apiKey)
     || cookiePassword.length < 32
   ) {
     throw new Error("Invalid WorkOS server configuration");

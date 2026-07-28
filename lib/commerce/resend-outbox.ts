@@ -1,6 +1,7 @@
 import "server-only";
 import { WorkOS } from "@workos-inc/node";
 import { executeConvex } from "../../db";
+import { isValidWorkOSApiKey } from "./workos-api-key";
 
 const MAX_ATTEMPTS = 8;
 const INITIAL_BACKOFF_MS = 60 * 1_000;
@@ -61,7 +62,7 @@ export function readResendOutboxConfig(
     || !replyTo
     || !originValue
     || !/^re_[A-Za-z0-9_]+$/.test(resendApiKey)
-    || !/^sk_(?:test|live)_[A-Za-z0-9]+$/.test(workosApiKey)
+    || !isValidWorkOSApiKey(workosApiKey)
     || !validMailbox(from, true)
     || !validMailbox(replyTo, false)
   ) {

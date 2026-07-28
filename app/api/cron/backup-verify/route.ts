@@ -3,6 +3,9 @@ import {
   readOperationalBackupConfig,
   verifyLatestOperationalBackup,
 } from "../../../../lib/commerce/backup-runtime";
+import {
+  pingBetterStackHeartbeat,
+} from "../../../../lib/commerce/better-stack-heartbeats";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -30,6 +33,7 @@ export async function GET(request: Request) {
       store: new BackblazeBackupArchiveStore(config),
     });
     if (!evidence) throw new Error("No committed backup is available");
+    await pingBetterStackHeartbeat("backup-verify");
     return Response.json(
       {
         ok: true,
