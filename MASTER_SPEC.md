@@ -924,10 +924,12 @@ image is losslessly reduced by 21.7%. The fresh crawl records the resulting
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
-The current runtime-bearing public commit is
-`14dab3225f3d26f3d2d500c761ff88b8e6b5c593`; Vercel deployment
-`dpl_2mKL17pLwZgPnoiFJGoeRPjUFPJ1` is Ready and its build log proves that
-exact commit on Node 22. GitHub Quality run `30382855800` passes the complete
+The current deployed public head is
+`7211e363092a014a86ca45f3fa8f0b6f5814f4e2`; Vercel deployment
+`dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready and its build log proves that
+exact commit on Node 22. Its runtime-bearing authentication hardening was
+introduced in `e7859e261b4ddaa11dc77e92d3d77aa98cd5dfea`. GitHub Quality
+run `30386937076` passes the complete
 exact-commit launch gate. This supersedes `c4d0d78`, whose only CI failure was
 the stale generated English localisation corpus after legitimate copy changes;
 the current `en-ebd18dc4a542` corpus is regenerated and reproducible.
@@ -955,8 +957,8 @@ remain fail closed.
 The Vercel project and domain attachment exist, and every planned Production
 environment value except the Stripe runtime key is installed. Vercel Pro is
 active; spend management is set to $1 with notifications and Pause Projects
-enabled. Deployment `dpl_2mKL17pLwZgPnoiFJGoeRPjUFPJ1` is Ready at
-`14dab3225f3d26f3d2d500c761ff88b8e6b5c593` on Node 22; both custom
+enabled. Deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready at
+`7211e363092a014a86ca45f3fa8f0b6f5814f4e2` on Node 22; both custom
 domains are Valid, public DNS has converged,
 and the complete public-origin probe passes. The Stripe key and every commerce
 journey remain pending. A current-production browser matrix passes Chrome 150,

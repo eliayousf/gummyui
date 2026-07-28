@@ -5,11 +5,13 @@ This record begins with public commit
 production corrections in `52fe463df5c37dc6767c23c75a3d1d49e30de1b8`
 plus the Node 22 runtime pin in
 `977012c3500e5293ec711407f736c567289b022f`, the payload-deferment release
-`c4d0d7847ef1701392bf430f96cc8fccf0eb000e`, and the reconciled launch
-candidate `14dab3225f3d26f3d2d500c761ff88b8e6b5c593`. The current
-runtime-bearing deployment is `dpl_2mKL17pLwZgPnoiFJGoeRPjUFPJ1`; its build
-log proves the exact `14dab32` commit and a Node 22 build. GitHub Quality run
-`30382855800` passes the complete exact-commit launch gate. This supersedes
+`c4d0d7847ef1701392bf430f96cc8fccf0eb000e`, the reconciled launch candidate
+`14dab3225f3d26f3d2d500c761ff88b8e6b5c593`, and the callback-hardening
+release `e7859e261b4ddaa11dc77e92d3d77aa98cd5dfea`. The current deployed
+head is `7211e363092a014a86ca45f3fa8f0b6f5814f4e2` in Vercel deployment
+`dpl_DFpZ86uTmF8842A8nakhdCWnoP8z`; its build log proves the exact commit and
+a Node 22 build. GitHub Quality run `30386937076` passes the complete
+exact-commit launch gate. This supersedes
 `c4d0d78`, whose only CI failure was the generated English localisation corpus
 being stale after legitimate copy changes. This is production evidence for
 the public application, not evidence that commerce is enabled or that a
@@ -43,23 +45,24 @@ GitHub Quality runs `30371961881` and `30373015318` completed successfully for
 the deployed audit-correction commit `52fe463` and exact Node 22 runtime-pin
 commit `977012c` respectively.
 
-GitHub Quality run `30382855800` completed successfully for the exact current
-runtime-bearing commit `14dab32`, including reproducible localisation, native
-Next and Vinext production builds, 460 Vitest tests, clean consumer installs,
+GitHub Quality run `30386937076` completed successfully for the exact current
+deployed head `7211e36`, including reproducible localisation, native Next and
+Vinext production builds, 462 Vitest tests, clean consumer installs,
 browser/accessibility evidence, dependency, licence, secret and repository
 boundary gates.
 
 ## Current release origin and browser matrix
 
-Vercel deployment `dpl_2mKL17pLwZgPnoiFJGoeRPjUFPJ1` is Ready and owns the
+Vercel deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready and owns the
 apex, `www`, Vercel alias and canonical project aliases. Its build log records
-commit `14dab32`, Node 22, zero dependency vulnerabilities, 322 generated
+commit `7211e36`, Node 22, zero dependency vulnerabilities, 322 generated
 static pages and a completed deployment.
 
 A fresh real-origin probe found all 292 current HTML sitemap URLs at HTTP 200.
 The homepage and health route returned 200; HSTS, CSP, MIME-sniffing,
 referrer-policy and permissions-policy headers were present. The empty
-authentication callback returned private/no-store/noindex 400, an anonymous
+authentication callback, including a structurally complete callback rejected
+by AuthKit, returned private/no-store/noindex 400; an anonymous
 invalid download returned private/no-store/noindex 404, and `www` returned a
 canonical 308 while preserving path and query.
 
