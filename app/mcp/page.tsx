@@ -29,7 +29,7 @@ export default function McpPage() {
           <li>Read the component detail and behavior contract.</li>
           <li>Install through the canonical registry URL.</li>
           <li>Keep the copied source editable in the consuming repository.</li>
-          <li>Preserve native or Base UI semantics while changing visual tokens.</li>
+          <li>Preserve native, Base UI, or Radix UI semantics while changing visual tokens.</li>
           <li>Never infer or request paid source from public preview metadata.</li>
         </ol>
       </section>

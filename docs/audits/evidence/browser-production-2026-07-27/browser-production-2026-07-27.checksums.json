@@ -1,42 +1,42 @@
 {
   "schemaVersion": "1.0",
   "algorithm": "SHA-256",
-  "generatedAt": "2026-07-27T00:19:39.681Z",
+  "generatedAt": "2026-07-28T02:07:14.727Z",
   "entries": [
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/account-fail-closed-mobile.png",
-      "bytes": 115529,
-      "sha256": "46602605adcc5c75bc25a6b927b881a0cb59239ea90a74452f8a26a5c9497fc0"
+      "bytes": 112143,
+      "sha256": "1780b2f380452ef12ef969a8546f33de0931c2fe8b94e070d3cfc65c559c94f6"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/browser-production-2026-07-27.json",
-      "bytes": 535355,
-      "sha256": "630b683cefb54f7a1df069201a04c3754082f7b8773f1fb54e89e9b4e0faf874"
+      "bytes": 538991,
+      "sha256": "05af8d82fe6a2a32a809d8787acc1004515f21277e2ded97057a6462e90ff17a"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/component-200-percent-equivalent-reflow.png",
-      "bytes": 521587,
-      "sha256": "dd530edaa7bcb91ffa34bb3f4c9e63d3cf2bc06608d2fa224d339cdac44686c5"
+      "bytes": 442474,
+      "sha256": "1df0662059ec3f8e3f1bc0102018d9973ef822ea29fb59ef5c30c797a461ca21"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/component-reduced-motion.png",
-      "bytes": 237480,
-      "sha256": "e017bf1ef8fbdc2f32958f984d1d0de6cf46374ad5e62b9d793a0dee92f4974f"
+      "bytes": 251862,
+      "sha256": "fe8095f8a86c5cbebf40a6e23d4abe63b05ff94a6afe818a535c4293ee3727e1"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
-      "bytes": 522504,
-      "sha256": "ec96ab402ae8a613fb0860ffdecce9245e71000687c5f42d2c5f5e71559a1727"
+      "bytes": 524866,
+      "sha256": "dd61ff2f523ec041d7a384068c5fac201a7ef3a631c251b6371b8d6bdfe15774"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
-      "bytes": 512658,
-      "sha256": "0a3bc68a6f834b859004a74fa074afb5ab568baa130dcbb5866bb65bc7cab7d2"
+      "bytes": 514838,
+      "sha256": "3aa21929f2d71052483939e7a21ca7b93d306c07ef75ae7dda2795ccda4039d9"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
-      "bytes": 231446,
-      "sha256": "3bdb11e0982aa17833c88c6079456e63d46e3176d4e1517707ebdd856bac9909"
+      "bytes": 233254,
+      "sha256": "2cd6f736e1a07587f11e426b747a926eb43459347d5d285f1e86c8ded88f4ced"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/rtl-mobile.png",

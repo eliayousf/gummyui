@@ -3,15 +3,16 @@
 ## Outcome
 
 The automated local production-build gate passes in system Chrome
-150.0.7871.182. It ran against an isolated `vinext start` server and a fresh
+150.0.7871.187. It ran against an isolated `vinext start` server and a fresh
 temporary Chrome profile over the Chrome DevTools Protocol.
 
 This is automated browser evidence. It is not a production-origin test, a
 human screen-reader walkthrough, or manual visual/contrast approval.
 
-The checked production build fingerprint is:
-
-`70ca983a3dbe12a41c668cab875e04feb5ddc78ba37936b2504baca6a6609a48`
+The exact checked source and production-build SHA-256 fingerprints are recorded
+in the machine-readable evidence JSON and bound by its checksum manifest. The
+production-build fingerprint is intentionally not duplicated in this prose
+because each fresh production build has a distinct generated artifact identity.
 
 ## Automated coverage
 

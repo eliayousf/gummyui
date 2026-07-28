@@ -1,12 +1,13 @@
-# Goal prompt — complete Gummy UI to monetisation-ready parity
+# One persistent goal prompt — launch and operate Gummy UI
 
 Copy the prompt below into a new Codex goal.
 
 ---
 
-Complete Gummy UI end to end from its current local baseline into an original,
-production-quality, monetisation-ready React component ecosystem that matches or
-exceeds the complete RetroUI product envelope recorded on 26 July 2026.
+Take Gummy UI from its current verified local state to a fully operational
+commercial production launch. Continue autonomously until a real customer can
+complete the whole revenue and support journey safely, and until the founder
+can operate and recover the service.
 
 Treat `/Users/eliayousf/dev/gummyui/MASTER_SPEC.md` as the authoritative product
 and execution contract. Read it in full before making changes. Then read:
@@ -16,21 +17,45 @@ and execution contract. Read it in full before making changes. Then read:
 - `/Users/eliayousf/dev/gummyui/docs/component-quality-standard.md`
 - `/Users/eliayousf/dev/gummyui/docs/repository-boundary.md`
 - `/Users/eliayousf/dev/gummyui/docs/design-direction.md`
+- `../gummyui-pro/docs/operations/launch-requirement-audit-2026-07-27.md`
+- `../gummyui-pro/docs/operations/founder-approval-packet-2026-07-27.md`
+- `../gummyui-pro/docs/operations/provider-provisioning-register-2026-07-27.md`
 
 Do not stop at a plan or a partial implementation. Work persistently through all
 remaining stages, keep the master spec and manifests accurate as the product
 changes, validate every milestone, and finish every safe in-scope task that does
-not require a reserved founder decision.
+not require a remaining founder-only action.
 
-## Non-negotiable outcome
+## The one North Star
+
+The only completion metric is the **production-verified revenue loop**. It
+starts at 0 of 8 and increases only when the matching journey has evidence on
+the real production service:
+
+1. a customer discovers and understands the real offer;
+2. the customer creates or recovers an account;
+3. the customer completes an eligible worldwide checkout;
+4. the correct purchase, licence and entitlement are created;
+5. only the paid releases that customer owns can be downloaded;
+6. transactional email arrives and the support route works;
+7. cancellation or refund produces the correct access result; and
+8. monitoring, backup/restore, incident response and rollback work in
+   production.
+
+Local code, passing tests, catalogue counts, Figma materialisation, sandbox
+payments and audit scores are supporting evidence. They never count as a
+production step by themselves. Keep unfinished customer-facing paths fail
+closed and never replace this metric with a subjective percentage.
+
+## Required product envelope
 
 The finished system must include:
 
 1. The full free catalogue of 57 original component categories, with canonical
-   React/TypeScript source, Base UI or native accessibility foundations,
-   Tailwind styling, light/dark themes, RTL, reduced motion, responsive
-   behaviour, complete states, examples, anatomy/API docs, registry payloads
-   and clean-install verification.
+   React/TypeScript source, native accessibility foundations and the required
+   Base UI/Radix variants, Tailwind styling, light/dark themes, RTL, reduced
+   motion, responsive behaviour, complete states, examples, anatomy/API docs,
+   registry payloads and clean-install verification.
 2. The full paid catalogue of 158 original blocks across the exact 22
    categories and counts in `docs/catalogue-plan.md`.
 3. Six complete original templates: developer tools, multipage SaaS, creative
@@ -71,32 +96,46 @@ The finished system must include:
     observability, release and support operations that exceed RetroUI's audited
     quality rather than reproducing its defects.
 
-## Starting state
+## Current starting state — 28 July 2026
 
-Preserve the approved Button interaction and the Gel Pop design decisions.
-Stage 0, Stage 1 and Stage 2 are complete. Stage 3 Group 1 is complete. The
-current verified baseline has:
+Preserve the approved Gel Pop design direction and all completed work. Read the
+live manifests and evidence before acting; do not rebuild verified work from
+scratch.
 
-- 14 canonical source components;
-- 9 public registry items;
-- 3 public routes;
-- 54 passing unit/accessibility tests;
-- passing typecheck, lint, registry fixture, production build and
-  rendered-output tests; and
-- known launch gaps documented at the end of `MASTER_SPEC.md`.
-
-Begin with Stage 3 Group 2:
-
-- Separator
-- Typography
-- Kbd
-- Spinner
-- Skeleton
-- Aspect Ratio
-
-Then implement Stage 3 Groups 3 through 9 in the exact dependency order in the
-master spec. Do not build page-local imitations; the website, examples, blocks
-and templates must import the canonical Gummy components.
+- The public catalogue has 57 canonical components, 61 registry payloads and
+  414 passing Vitest tests. Clean Next.js/Vite installs and the npm, pnpm, Yarn
+  and Bun package-manager matrix pass.
+- The private catalogue has 158 blocks, six templates, 474 block tests, 142
+  template tests, 948 Chrome captures and 132 contact sheets. Clean paid
+  download packaging passes but real releases remain fail closed pending human
+  review.
+- The current Figma file contains the successful v0.4.0 materialisation. The
+  v0.5.0 local materialiser expects 138 editable component sets and 2,588
+  editable variants, including 72 editable pattern sets and 1,728 pattern
+  variants. Its live Figma Desktop run, founder review, export and archive
+  restore remain pending.
+- A Convex commerce foundation with 24 durable commerce tables and one
+  intentionally ephemeral distributed-rate-limit table, Stripe
+  checkout/webhook lifecycle, durable email, privacy, refund and chargeback
+  handling pass locally. A Convex production deployment exists and
+  `CONVEX_SERVER_SECRET` is set there, but the current code/schema, remaining
+  application environment and production journeys are not deployed or
+  verified.
+- Stripe Managed Payments is live-account ready with three products, nine
+  prices and `support@kreydlabs.com` configured. The application runtime still
+  lacks its restricted production key and verified production webhook, and no
+  sandbox or live revenue-loop journey has been completed; checkout and webhook
+  flags remain fail closed.
+- The Vercel-targeted production build passes across 320 generated and dynamic
+  routes. A Vercel project, domain attachment and part of the production
+  environment are configured, but Vercel Pro activation, Namecheap DNS
+  cutover, production deployment and real-origin verification remain pending.
+- English revision `en-72e701f4add4` contains 2,921 records. All 19 private AI
+  drafts pass structural and automated quality checks with zero high-severity
+  flags and have checksum-bound founder-review screens; every locale remains
+  fail closed pending rendered QA and founder review.
+- The cross-repository local readiness check passes 18 of 18 evidence groups.
+  The North Star remains 0 of 8 because no production journey has been proved.
 
 ## Execution rules
 
@@ -106,9 +145,9 @@ and templates must import the canonical Gummy components.
 - Use only original Gummy UI design, code, examples, copy, template structures,
   product names and assets. Do not reverse-engineer or copy RetroUI paid source
   or visual compositions.
-- Keep Base UI as the only headless component engine at launch. Use native HTML
-  where it provides the correct semantics. Do not add Radix parity unless the
-  founder later changes the master spec.
+- Follow the current headless-engine contract in `MASTER_SPEC.md`: use native
+  HTML where it provides the correct semantics and preserve the implemented
+  Base UI/Radix variants required by the canonical catalogue.
 - Use the repository's Nix devShell and npm workflow. Keep `flake.nix` and
   `.envrc` working; source temporary tools with `nix shell` rather than global
   installation.
@@ -140,15 +179,16 @@ and templates must import the canonical Gummy components.
   applicable, signature-verified idempotent webhooks, rate limits, least
   privilege, secrets scanning and dependency maintenance.
 - Ensure privacy, terms, licence, refund and support text describes the real
-  implementation and approved business. Treat legal/accounting review as a
-  release requirement, not a source of boilerplate to invent.
+  implementation and approved business. The founder declined professional
+  legal/accounting review and will approve the pages personally; never claim
+  that they were professionally reviewed.
 - Record material product and architecture decisions in the master spec or its
   linked documents as they are made.
 
 ## Commercial product requirements
 
-Design and implement the commercial system so that a founder-approved plan
-matrix can support Free, Solo, Team and Organisation offers across:
+Implement the approved worldwide commercial system for Free, Individual, Team
+and Organisation offers across:
 
 - seats and workspace membership;
 - personal, commercial and client-project rights;
@@ -158,10 +198,20 @@ matrix can support Free, Solo, Team and Organisation offers across:
 - monthly, annual and/or lifetime billing if approved; and
 - tax, invoice, refund and renewal behaviour.
 
-Do not copy RetroUI prices or licence restrictions. Recommend Gummy-specific
-prices and terms using current market evidence and unit economics, but pause for
-founder approval before publishing prices, accepting a real payment or
-finalising licence terms.
+The approved prices are Individual at $49 monthly, $389 yearly and $899
+lifetime; Team at $99 monthly, $789 yearly and $1,899 lifetime for up to five
+named users; and Organisation at $199 monthly, $1,589 yearly and $3,899
+lifetime for unlimited named users in one purchasing organisation. These
+figures match RetroUI's public price grid, but Gummy UI's product, copy, code,
+design and legal terms must remain original.
+
+Monthly and yearly subscriptions require active payment for future downloads,
+updates and paid support. Lifetime includes those benefits for Gummy UI Pro's
+commercial lifetime. Paid source cannot be resold, publicly shared or used to
+create a competing UI kit. The approved 14-day goodwill refund applies only
+before paid files are accessed, in addition to rights required by law and
+corrections for duplicate, fraudulent or provider-error charges. The support
+reply target is two UK business days and is not a service-level guarantee.
 
 Use hosted checkout and a self-service billing portal. Payment events must be
 signature verified and idempotent. Entitlements must be enforced on the server.
@@ -232,32 +282,42 @@ The goal is complete only when:
 - no paid asset is exposed publicly;
 - the full website audit exceeds 95, all errors are fixed, and every remaining
   warning has evidence, rationale and an owner;
-- clean-session free install and test-mode purchase/download journeys pass;
+- clean-session free install, sandbox purchase/download and the authorised
+  cheapest real purchase/full-refund journey pass;
 - manifest-derived public claims match the real catalogues;
 - monitoring, backups, restore, rollback, support and incident processes are
-  proven; and
-- the only remaining steps are explicit founder gates for price/licence/legal
-  approval, external account ownership, making repositories public, accepting
-  real payments and production deployment.
+  proven in production; and
+- all eight North Star steps have direct evidence.
 
 Do not declare success because a stage builds, a route renders or a checklist
 was written. Return a concise evidence report mapping every master-spec exit
 criterion to its implementation, test result and any founder-gated final action.
 
-## Reserved founder gates
+## Captured authority and remaining founder actions
 
-Do not do any of the following without explicit founder approval at the time of
-the action:
+The founder has approved the commercial terms above, Stripe Managed Payments
+where eligible, Vercel production hosting after all tests and reviews pass,
+production resources, the real cheapest-plan purchase/full refund, the public
+`eliayousf/gummyui` repository, the private `eliayousf/gummyui-pro` repository,
+and the `gummyui.dev` DNS change. The fixed-service hard limit is $30/month,
+excluding Stripe transaction fees and the existing domain renewal. Never
+enable a purchase or annual commitment above that limit without fresh
+approval.
 
-- publish paid prices or final commercial licence/refund terms;
-- purchase services, complete identity checks, sign contracts or choose account
-  ownership on the founder's behalf;
-- make either repository public;
-- accept live payments;
-- deploy to production; or
-- materially change the agreed catalogue or product scope.
+Use WorkOS AuthKit, Convex, Resend, Better Stack, Backblaze B2 and
+founder-owned Bitwarden recovery storage at their free tiers where available.
+Vercel Pro may use $20/month of the approved limit. The founder owns
+`gummyui.dev` at Namecheap and controls `support@kreydlabs.com`.
 
-Prepare each gate fully, recommend a default in plain language, and continue all
-independent work while approval is pending.
+The founder alone must enter bank details, identity documents, recovery
+material and accept provider terms in provider dashboards. Never request or
+store those secrets in chat or Git. The founder will also complete subjective
+browser/device/accessibility QA, approve AI translations, and approve the
+finished Figma design kit. Ask only for the smallest concrete human action
+when it becomes the next real blocker, and continue every independent task
+while waiting.
+
+Do not materially change the approved catalogue, prices, licence, spending
+limit, ownership or publication boundary without fresh founder approval.
 
 ---

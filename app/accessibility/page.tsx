@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PublicTextPage } from "../components/PublicTextPage";
+import { commercialFacts } from "../data/commercial";
 
 export const metadata: Metadata = {
   title: "Gummy UI accessibility contract and verification status",
@@ -30,7 +31,7 @@ export default function AccessibilityPage() {
       </section>
       <section>
         <h2>Report a barrier</h2>
-        <p>The production accessibility contact channel is not yet published. Before launch, this page must identify a monitored owner, expected response time, and an alternative contact method.</p>
+        <p>Email <a href={commercialFacts.supportHref}>{commercialFacts.supportEmail}</a> with the page, component or task, what happened, and the browser or assistive technology involved. We aim to send a first reply within two UK business days. This is a target, not an SLA.</p>
       </section>
     </PublicTextPage>
   );

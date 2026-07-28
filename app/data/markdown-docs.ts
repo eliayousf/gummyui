@@ -84,6 +84,21 @@ export function renderComponentMarkdown(component: ComponentDefinition) {
     "```sh",
     component.installCommand,
     "```",
+    ...(component.radixInstallCommand
+      ? [
+          "",
+          "Radix UI counterpart:",
+          "",
+          "```sh",
+          component.radixInstallCommand,
+          "```",
+        ]
+      : component.slug === "combobox"
+        ? [
+            "",
+            "Combobox is Base-only because Radix does not publish a Combobox primitive.",
+          ]
+        : []),
     "",
     "The shadcn-compatible registry copies editable React, TypeScript, and CSS",
     "into the consuming application; it is not a black-box component runtime.",
@@ -128,7 +143,7 @@ export function renderComponentMarkdown(component: ComponentDefinition) {
                 "",
               ])
             : [
-                "Each exported part accepts its underlying native or Base UI",
+                "Each exported part accepts its underlying native, Base UI, or Radix UI",
                 "prop contract. Inspect the canonical source for exact generics.",
                 "",
               ]),
@@ -148,6 +163,9 @@ export function renderComponentMarkdown(component: ComponentDefinition) {
     `- [Source viewer](${sourceViewerUrl})`,
     `- Public source path: \`${component.source}\``,
     `- [Registry payload](${component.registryUrl})`,
+    ...(component.radixRegistryUrl
+      ? [`- [Radix registry payload](${component.radixRegistryUrl})`]
+      : []),
     `- [HTML documentation](https://gummyui.dev/components/${component.slug})`,
     documentFooter(componentMarkdownUrl(component.slug)),
   ].join("\n");
@@ -183,6 +201,9 @@ export function renderCatalogueMarkdown() {
       lines.push(
         `- [${component.name}](${componentMarkdownUrl(component.slug)}): ${component.description}`,
         `  Registry: ${component.registryUrl}`,
+        ...(component.radixRegistryUrl
+          ? [`  Radix registry: ${component.radixRegistryUrl}`]
+          : []),
       );
     }
     lines.push("");
@@ -205,8 +226,8 @@ const guideBodies: Record<MarkdownGuideSlug, () => string[]> = {
     "# Introduction to Gummy UI",
     "",
     `Gummy UI is a public catalogue of ${componentCount} stable React and TypeScript`,
-    "component categories. Native HTML behavior is preferred; Base UI supplies",
-    "managed focus and composite interaction where those behaviors are needed.",
+    "component categories. Native HTML behavior is preferred; Base UI is the",
+    "canonical headless engine and 22 applicable families also ship Radix UI counterparts.",
     "Gummy UI owns the editable Gel Pop material, semantic tokens, and restrained",
     "motion layered on top.",
     "",
@@ -240,13 +261,15 @@ const guideBodies: Record<MarkdownGuideSlug, () => string[]> = {
     "1. Import the generated theme and component style files once from the",
     "   application's global stylesheet or root layout.",
     "2. Keep the copied source editable in the consuming application.",
-    "3. Preserve native or Base UI semantics when changing visual tokens.",
+    "3. Preserve native, Base UI, or Radix UI semantics when changing visual tokens.",
     "4. Run the consuming application's type, lint, behavior, and accessibility checks.",
     "",
     "The release verifier creates independent Next.js and Vite projects, installs",
     "their own dependencies without linking this repository, runs the real shadcn",
     "command against a local HTTP registry, then type-checks and production-builds",
-    "each consumer. The complete matrix has passed with npm, pnpm, Yarn, and Bun.",
+    "each consumer. The canonical edition passes npm, pnpm, Yarn, and Bun; the",
+    "full Radix counterpart set is additionally installed and built in clean",
+    "Next.js and Vite npm consumers.",
   ],
   nextjs: () => [
     "# Next.js installation",
@@ -420,7 +443,7 @@ const guideBodies: Record<MarkdownGuideSlug, () => string[]> = {
     "```",
     "",
     "The generated CSS and TypeScript belong in the consumer repository. Review",
-    "the diff, preserve native or Base UI behavior, and run the application's own",
+    "the diff, preserve native, Base UI, or Radix UI behavior, and run the application's own",
     "type, lint, behavior, accessibility, and build checks.",
     "",
     "A hosted MCP transport is not currently advertised as live. Until its",

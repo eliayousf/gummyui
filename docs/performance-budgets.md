@@ -18,8 +18,9 @@ Additional gates:
 
 - no individual client JavaScript chunk above 450 KB uncompressed;
 - no shared compiled CSS file above 220 KB uncompressed;
-- route-scoped CSS remains below 12 KB for the inspector, 6 KB for frame
-  studio, 40 KB for form controls, and 80 KB for the complete primitive set;
+- route-scoped CSS remains below 12 KB for the inspector, 6 KB each for frame
+  studio and Radix state compatibility, 40 KB for form controls, and 80 KB for
+  the complete primitive set;
 - Component Lab art-direction studies total no more than 800 KB and no single
   study exceeds 220 KB;
 - the 1200 × 630 social image remains below 1 MB; and

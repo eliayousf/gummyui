@@ -1,6 +1,7 @@
 # RetroUI product benchmark
 
 Research date: 26 July 2026
+Latest commercial/component recheck: 27 July 2026
 
 ## Purpose and boundary
 
@@ -29,6 +30,25 @@ The review covered:
 
 RetroUI is a moving target. Re-run this benchmark before final pricing and
 launch, then record material changes without silently expanding scope.
+
+## 27 July 2026 material recheck
+
+The current public product changed or clarified two launch-critical points:
+
+- the component documentation and catalogue now present both Radix UI and Base
+  UI versions; Gummy UI has since closed that local parity gap with 22
+  official-primitive Radix counterparts while accurately keeping Combobox
+  Base-only;
+- the current public pricing page presents Free at $0; Individual at $49
+  monthly, $389 yearly or $899 lifetime; Team at $99 monthly, $789 yearly or
+  $1,899 lifetime; and Organization at $199 monthly, $1,589 yearly or $3,899
+  lifetime.
+
+RetroUI's home and pricing pages still use inconsistent block totals (158
+catalogued blocks versus broader “200+” marketing language), so Gummy UI keeps
+manifest-derived counts and never inflates the 158 implemented block catalogue.
+The current pricing and dual-engine facts supersede the older observations
+below where they conflict.
 
 ## Verified RetroUI envelope
 
@@ -63,11 +83,10 @@ verified 26 July 2026 catalogue exactly.
 - A `.well-known/api-catalog`, registry indexes and public health endpoint.
 - [Changelog](https://retroui.dev/docs/changelog) with an RSS feed.
 
-There is a public contradiction to avoid: the home and documentation currently
-claim both Radix UI and Base UI variants, while the May 2026 changelog says
-RetroUI is abandoning Radix and using Base UI only. Gummy UI's existing
-Base UI-only launch decision is therefore consistent with the direction of the
-benchmark and avoids double implementation/testing.
+The current customer-facing documentation and component catalogue present both
+Radix UI and Base UI variants. An older changelog direction conflicts with that
+live offer; parity is measured against what customers can obtain now. Gummy UI
+now implements and tests both where an official Radix counterpart exists.
 
 ### Theme and design products
 
@@ -107,11 +126,13 @@ evidence it can verify and has permission to use.
 
 ### Commerce and accounts
 
-The [pricing page](https://retroui.dev/pricing) observed on the research date
+The [pricing page](https://retroui.dev/pricing) observed on the latest recheck
 contains:
 
-- Free, Individual, Team and Organisation comparisons;
-- yearly, monthly and lifetime billing selectors;
+- Free ($0), Individual, Team and Organization;
+- monthly, yearly and lifetime billing, with current prices of $49/$389/$899
+  for Individual, $99/$789/$1,899 for Team, and $199/$1,589/$3,899 for
+  Organization;
 - seat, commercial-use, support, catalogue, templates, Figma, updates, theme
   and RTL comparison dimensions;
 - Stripe checkout positioning;
@@ -124,10 +145,9 @@ that accounts unlock Pro blocks, templates and the Figma kit. Public policies
 refer to purchases/licences, workspaces, membership/collaboration data,
 transactional email, analytics and account data rights.
 
-Gummy UI should use the same useful plan and account dimensions but set original
-prices, permissions and copy. In particular, its Solo plan should be evaluated
-against the actual target customer—an indie commercial developer—rather than
-copying RetroUI's observed personal-only Individual restriction.
+Gummy UI uses the same current price points and cadence under its own seller,
+licence, permissions, copy and design. Customer rights must come from Gummy
+UI's approved commercial licence, not from copied RetroUI terms.
 
 ### Legal, privacy and operations
 
@@ -216,7 +236,8 @@ development server, but the following are genuine implementation gaps:
 
 ## Decisions carried into the master spec
 
-1. Preserve Base UI-only launch support.
+1. Deliver both Base UI and Radix UI versions where a headless engine is
+   required, while keeping native HTML first.
 2. Treat 57/158/22/six as minimum catalogue breadth, not the complete product.
 3. Add machine-readable docs and registry discovery as first-class deliverables.
 4. Add the theme builder, design kit and local screenshot/frame studio.

@@ -10,6 +10,38 @@ Gummy UI is a public React component system and a paid library of production
 blocks, templates, and design assets. It applies a fresh, tactile visual style
 to genuine SaaS products without sacrificing accessibility or usability.
 
+## North Star
+
+The one governing outcome is:
+
+> A new customer in an eligible country can discover Gummy UI, choose the
+> correct plan, sign in, pay, receive the correct licence and protected
+> download, get support, and receive a valid refund; the founder can monitor,
+> restore, and roll back the service without exposing paid source or exceeding
+> the approved fixed-cost limit.
+
+The North Star metric is **production-verified revenue loop: 0 of 8 steps
+passing**. It is deliberately binary at each step and is never replaced with a
+subjective completion percentage:
+
+1. discover and understand the real offer;
+2. create or recover an account;
+3. complete an eligible worldwide checkout;
+4. receive the correct purchase, licence and entitlement;
+5. download only the paid releases the customer owns;
+6. receive transactional email and obtain support;
+7. complete cancellation/refund handling with the correct access result; and
+8. prove monitoring, backup/restore, incident response and rollback in
+   production.
+
+Local code, sandbox tests, Figma materialisation, catalogue counts and audit
+scores are supporting evidence. None can mark a North Star step passed without
+the matching production journey. Codex continues this single goal
+autonomously, requests founder input only for material cost/legal/identity or
+subjective review decisions, and must keep every unfinished step fail closed.
+The reusable continuation prompt is
+[`docs/prompts/complete-gummyui-monetisation-goal.md`](docs/prompts/complete-gummyui-monetisation-goal.md).
+
 ## Founder role and operating model
 
 The founder is non-technical and acts as product and creative director. Codex
@@ -38,19 +70,23 @@ following changes are authoritative:
   licensor, IP owner and privacy controller.
 - The intended paid market is worldwide, with each country remaining disabled
   until the approved payment/tax model supports it.
-- Customers keep licensed use of versions acquired while entitled; renewal is
-  required for future releases and support.
-- The founder chose Stripe, Vercel, the sole role address
-  `support@cratelabs.com`, AI-generated/founder-reviewed translation, personal
+- The paid model tracks RetroUI's current public price grid: Free at $0;
+  Individual at $49 monthly, $389 yearly or $899 lifetime; Team at $99 monthly,
+  $789 yearly or $1,899 lifetime; and Organisation at $199 monthly, $1,589
+  yearly or $3,899 lifetime. Gummy UI retains its own seller, copy, design,
+  code and legal terms.
+- The founder chose Stripe Managed Payments for worldwide sales when eligible,
+  Vercel, the sole role address `support@kreydlabs.com`,
+  AI-generated/founder-reviewed translation, personal
   manual QA and a free Figma workflow.
 - AI translation may be used for the 19 pending locales. It is not final until
   automated integrity/layout/accessibility/RTL gates pass and the founder
   manually approves it. It must never be described as professional human
   translation.
-- Final price cadence, VAT status, worldwide Stripe merchant-of-record
-  acceptance, the support-address spelling/control check, a numeric spend
-  ceiling and private-repository access are the only remaining founder answers
-  in the packet dated 27 July 2026.
+- KREYD LABS LTD is not VAT registered. The founder approved a $30/month hard
+  fixed-service limit excluding Stripe transaction fees and the existing
+  domain renewal. The private repository remains founder/approved-developer
+  only; customers receive entitlement-protected downloads.
 
 ## Product promise
 
@@ -81,7 +117,8 @@ distribution. The paid product sells speed and assembled outcomes.
 - 57 documented component categories
 - MIT licence, including commercial use
 - React and TypeScript source
-- Base UI accessibility foundations
+- native elements plus both Base UI and Radix UI versions where a headless
+  interaction engine is required
 - Tailwind CSS styling
 - shadcn CLI-compatible public registry
 - light and dark themes
@@ -120,34 +157,33 @@ UI's users or quality standard.
 Counts are only one part of parity. Gummy UI is not parity-complete until all
 of the following product surfaces exist and work together:
 
-| Surface | Gummy UI launch requirement |
-|---|---|
-| Public foundation | 57 original, documented, installable component categories with Base UI where a headless engine is needed |
-| Source distribution | Editable React and TypeScript source through a valid shadcn registry, direct source viewing, copy actions, registry indexes, and clean-project install verification |
-| Developer documentation | Searchable docs with introduction, installation, Next.js, Vite, theming, RTL, accessibility, MCP, changelog, per-component examples, anatomy, API, states, dependencies, and troubleshooting |
-| AI discovery | `llms.txt`, markdown versions of docs, copy-page/open-in-AI actions, a machine-readable API catalogue, registry indexes, MCP setup for major editors, and a public health endpoint |
-| Component discovery | Searchable component index and detail pages with working live examples, source, CLI commands, light/dark and RTL inspection, responsive preview, and accessible keyboard interaction |
-| Theme system | A shareable theme builder covering colour, type, shape, borders, shadows, patterns, charts, light/dark tokens, live component preview, reset, copy, and one-command installation |
-| Paid blocks | 158 original blocks across the 22 categories and counts in `docs/catalogue-plan.md`, with public responsive previews and protected source |
-| Paid templates | Six complete original products: developer tools, multipage SaaS, creative agency, portfolio, AI product, and SaaS/commerce administration |
-| Design kit | A versioned Figma-ready system with at least equivalent breadth to the code catalogue, variants and states, auto layout, light/dark variables, component properties, and Tailwind/token annotations |
-| Utility tool | An original browser-only Gummy screenshot/frame studio with local processing, configurable material frame, canvas, padding and export; uploaded images must not leave the device |
-| Marketing site | A product-specific home page, clear navigation, interactive real-component proof, benefits, catalogue previews, authentic evidence, calls to action, and complete footer navigation |
-| Content and community | At least 18 substantial original launch articles, changelog with RSS, community showcase and submission flow, support/community destination, and contribution governance |
-| Localisation | Internationalisation architecture, locale selector, translated metadata and content, hreflang and locale sitemaps, plus correct RTL behaviour for Arabic, Persian and Hebrew |
-| Commerce | Honest Free/Solo/Team/Organisation comparison, approved billing periods and prices, secure checkout, tax/invoice handling, cancellation and refund paths, and no misleading scarcity or savings claims |
-| Accounts and entitlements | Google, GitHub and email-link sign-in or an approved equivalent; account, purchases, licences, downloads, billing and team/workspace access; expiring signed downloads and auditable entitlement changes |
-| Trust and legal | Public privacy, terms, commercial licence, refund, support and contact information; consent and data-rights flows; no fabricated testimonials, customers, usage counts, discounts, or performance claims |
-| Growth and discovery | Crawlable semantic pages, unique metadata, canonicals, structured data, Open Graph/X images, robots and segmented sitemaps, useful internal links, authorship, dates, analytics and consent-aware funnel measurement |
-| Partnerships | Optional, clearly labelled direct sponsorship/partner inventory with evidence, disclosure and no third-party advertising network or cross-site tracking; this is not a launch blocker |
-| Operations | Error monitoring, uptime/health monitoring, transactional email, backups, restore testing, support ownership, incident handling, dependency/security maintenance, and documented release/rollback procedures |
+| Surface                   | Gummy UI launch requirement                                                                                                                                                                                          |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Public foundation         | 57 original, documented, installable component categories, with native elements plus both Base UI and Radix UI versions where a headless engine is needed                                                            |
+| Source distribution       | Editable React and TypeScript source through a valid shadcn registry, direct source viewing, copy actions, registry indexes, and clean-project install verification                                                  |
+| Developer documentation   | Searchable docs with introduction, installation, Next.js, Vite, theming, RTL, accessibility, MCP, changelog, per-component examples, anatomy, API, states, dependencies, and troubleshooting                         |
+| AI discovery              | `llms.txt`, markdown versions of docs, copy-page/open-in-AI actions, a machine-readable API catalogue, registry indexes, MCP setup for major editors, and a public health endpoint                                   |
+| Component discovery       | Searchable component index and detail pages with working live examples, source, CLI commands, light/dark and RTL inspection, responsive preview, and accessible keyboard interaction                                 |
+| Theme system              | A shareable theme builder covering colour, type, shape, borders, shadows, patterns, charts, light/dark tokens, live component preview, reset, copy, and one-command installation                                     |
+| Paid blocks               | 158 original blocks across the 22 categories and counts in `docs/catalogue-plan.md`, with public responsive previews and protected source                                                                            |
+| Paid templates            | Six complete original products: developer tools, multipage SaaS, creative agency, portfolio, AI product, and SaaS/commerce administration                                                                            |
+| Design kit                | A versioned Figma-ready system with at least equivalent breadth to the code catalogue, variants and states, auto layout, light/dark variables, component properties, and Tailwind/token annotations                  |
+| Utility tool              | An original browser-only Gummy screenshot/frame studio with local processing, configurable material frame, canvas, padding and export; uploaded images must not leave the device                                     |
+| Marketing site            | A product-specific home page, clear navigation, interactive real-component proof, benefits, catalogue previews, authentic evidence, calls to action, and complete footer navigation                                  |
+| Content and community     | At least 18 substantial original launch articles, changelog with RSS, community showcase and submission flow, support/community destination, and contribution governance                                             |
+| Localisation              | Internationalisation architecture, locale selector, translated metadata and content, hreflang and locale sitemaps, plus correct RTL behaviour for Arabic, Persian and Hebrew                                         |
+| Commerce                  | Honest Free/Solo/Team/Organisation comparison, approved billing periods and prices, secure checkout, tax/invoice handling, cancellation and refund paths, and no misleading scarcity or savings claims               |
+| Accounts and entitlements | Google, GitHub and email-link sign-in or an approved equivalent; account, purchases, licences, downloads, billing and team/workspace access; expiring signed downloads and auditable entitlement changes             |
+| Trust and legal           | Public privacy, terms, commercial licence, refund, support and contact information; consent and data-rights flows; no fabricated testimonials, customers, usage counts, discounts, or performance claims             |
+| Growth and discovery      | Crawlable semantic pages, unique metadata, canonicals, structured data, Open Graph/X images, robots and segmented sitemaps, useful internal links, authorship, dates, analytics and consent-aware funnel measurement |
+| Partnerships              | Optional, clearly labelled direct sponsorship/partner inventory with evidence, disclosure and no third-party advertising network or cross-site tracking; this is not a launch blocker                                |
+| Operations                | Error monitoring, uptime/health monitoring, transactional email, backups, restore testing, support ownership, incident handling, dependency/security maintenance, and documented release/rollback procedures         |
 
 RetroUI's public site contains inconsistencies and quality defects, so parity is
-not permission to repeat them. Its public messaging still refers to both Radix
-and Base UI while its May 2026 changelog says Base UI only. Its site audit also
-reported accessibility, image, performance, metadata, and security-header
-failures. Gummy UI keeps its Base UI-only launch decision and must exceed the
-benchmark in correctness, accessibility, performance, security, and honesty.
+not permission to repeat them. Its current component catalogue publicly offers
+both Radix UI and Base UI versions. Gummy UI therefore treats dual-engine
+delivery as a parity requirement while still exceeding the benchmark in
+correctness, accessibility, performance, security, and honesty.
 
 ## Public information architecture
 
@@ -211,16 +247,21 @@ Detailed visual rules are maintained in
 
 - React and TypeScript
 - Tailwind CSS
-- Base UI as the only component engine at launch
+- native HTML first, with Base UI and Radix UI versions for applicable
+  interactive components
 - shadcn-compatible source-code registry
 - Next.js-compatible documentation and marketing application
-- Cloudflare-compatible deployment
+- native Next.js deployment on Vercel; the obsolete Sites deployment manifest
+  and packaging plugin are removed so production has one authoritative host
+  preserved until the hosting control-plane conflict is resolved
 - npm as the repository package manager
 - Nix devShell as the reproducible local development environment
 
 Customers receive editable component source rather than depending on a black
-box package. Radix support is deferred until demonstrated customer demand
-justifies building and testing each interactive component twice.
+box package. The current Base UI implementation remains canonical until each
+Radix counterpart passes the same behaviour, accessibility, registry and
+clean-install gates; parity cannot be claimed before that dual-engine work is
+complete.
 
 ## Component-first execution workflow
 
@@ -244,10 +285,10 @@ canonical Component Lab remains available as the editable source catalogue.
 
 Gummy UI uses two separate Git repositories:
 
-| Repository | Intended visibility | Contents |
-|---|---|---|
-| `gummyui` | Public | MIT components, registry, docs, site, free blocks, examples |
-| `gummyui-pro` | Private | Pro blocks, templates, design source, releases, internal QA |
+| Repository    | Intended visibility | Contents                                                    |
+| ------------- | ------------------- | ----------------------------------------------------------- |
+| `gummyui`     | Public              | MIT components, registry, docs, site, free blocks, examples |
+| `gummyui-pro` | Private             | Pro blocks, templates, design source, releases, internal QA |
 
 Paid editable source must never enter the public repository, even temporarily.
 Credentials and customer data must never be committed to either repository.
@@ -279,12 +320,13 @@ while providing:
 - account export, account deletion, marketing opt-out, data retention and
   support processes that match the published policies.
 
-Convex remains an acceptable candidate for entitlement metadata, but it is not
-a committed dependency. The payment provider, merchant-of-record choice,
-authentication system, database, email service and storage must be selected
-together to avoid duplicated customer truth. Pricing, licence text, refund
-terms, selling-entity details and production purchases remain founder approval
-gates and must receive appropriate legal/accounting review.
+The approved production direction is Vercel, WorkOS AuthKit, Stripe Managed
+Payments when eligible, Convex in its EU region, Resend, Better Stack and
+encrypted Backblaze B2 backups. The $30/month fixed-service ceiling excludes Stripe
+transaction fees and the existing domain renewal. Pricing, licence, refund,
+support and entity decisions are approved; production provider reality and the
+founder-approved, non-professionally-reviewed legal pages must still be tested
+as one system.
 
 ## Delivery stages
 
@@ -334,9 +376,9 @@ Exit criteria:
 
 - [x] The Button reads as gummy in isolation without relying on the wordmark.
 - [x] The component source is independent from the Lab page and suitable for
-  reuse by the future public website.
+      reuse by the future public website.
 - [x] Every variant and required state can be inspected and interacted with in
-  the Component Lab.
+      the Component Lab.
 - [x] The founder approves, rejects, or requests specific revisions.
 
 Founder review note — July 2026:
@@ -492,9 +534,10 @@ other marketing and product examples. These examples must import the real
 Gummy UI components rather than reproducing their visuals locally.
 
 The local composition proof includes the public SaaS hero, a compact dense
-dashboard, and a plan comparison assembled from canonical components. Paid Pro
-pricing remains unset pending founder review, and production deployment remains
-a separate founder approval gate.
+dashboard, and a plan comparison assembled from canonical components. The
+approved Pro price book starts at $49 monthly and also offers yearly and
+lifetime options; production deployment remains a separate test and review
+gate.
 
 ### Stage 2 — Open-source system foundation
 
@@ -589,18 +632,18 @@ Exit criteria:
 
 - [ ] All 57 catalogue entries meet the quality bar.
 - [ ] Every component has live examples, source viewing/copying, Base UI or
-  native semantics, complete states, responsive behaviour, light/dark themes,
-  RTL, reduced motion, API/anatomy docs, and an install command.
+      native semantics, complete states, responsive behaviour, light/dark themes,
+      RTL, reduced motion, API/anatomy docs, and an install command.
 - [ ] Theme builder, RTL, CLI installation, registry indexes, markdown docs,
-  `llms.txt`, API catalogue, health endpoint, and MCP documentation work.
+      `llms.txt`, API catalogue, health endpoint, and MCP documentation work.
 - [ ] Next.js and Vite clean fixtures can install the base and representative
-  components with npm, pnpm, yarn, and Bun command examples.
+      components with npm, pnpm, yarn, and Bun command examples.
 - [ ] Search, keyboard navigation, route metadata, robots, sitemaps, social
-  cards, structured data and internal linking work.
+      cards, structured data and internal linking work.
 - [ ] Public launch documentation, MIT licence, contribution guide, security
-  policy, changelog and support route are complete.
+      policy, changelog and support route are complete.
 - [ ] A clean external project can install and use the system without importing
-  anything from the Gummy UI website application.
+      anything from the Gummy UI website application.
 
 ### Stage 4 — Pro commerce foundation
 
@@ -628,17 +671,17 @@ Outputs:
 Exit criteria:
 
 - [ ] Test-mode journeys pass for new purchase, existing account, magic-link or
-  social sign-in, failed payment, duplicate webhook, cancellation, renewal,
-  refund, access revocation, expired link, recovery and account deletion.
+      social sign-in, failed payment, duplicate webhook, cancellation, renewal,
+      refund, access revocation, expired link, recovery and account deletion.
 - [ ] A test customer can purchase, sign in, see the correct invoice/licence,
-  invite an allowed teammate, and download only entitled releases.
+      invite an allowed teammate, and download only entitled releases.
 - [ ] Paid source cannot be retrieved through the public repository or preview.
 - [ ] Direct object URLs, guessed IDs, stale links, unauthorised workspace
-  access and client-side entitlement bypasses fail closed.
-- [ ] Tax, invoicing, privacy, retention, consent, refund, access-expiry,
-  update-period and recovery behaviour match the approved published terms.
+      access and client-side entitlement bypasses fail closed.
+- [ ] Tax, invoicing, privacy, retention, immediate-supply consent, refunds,
+      lifetime-product access and recovery behaviour match the approved terms.
 - [ ] No live price, discount, savings claim, testimonial or customer logo is
-  published without founder approval and evidence.
+      published without founder approval and evidence.
 
 ### Stage 5 — Pro catalogue
 
@@ -649,19 +692,19 @@ original and useful beyond decorative demos.
 Exit criteria:
 
 - [ ] Published block counts are manifest-derived and match the 22-category
-  catalogue plan exactly.
+      catalogue plan exactly.
 - [ ] Every block has a public responsive preview, dependency manifest, source
-  metadata, light/dark and RTL support where applicable, and protected download.
+      metadata, light/dark and RTL support where applicable, and protected download.
 - [ ] All six templates work as complete products with realistic original copy,
-  navigation, responsive layouts, forms, empty/loading/error states, SEO and
-  setup documentation.
+      navigation, responsive layouts, forms, empty/loading/error states, SEO and
+      setup documentation.
 - [ ] The design kit contains at least 300 useful component/variant definitions
-  across the free and paid system, with auto layout, light/dark variables,
-  states, properties, Tailwind/token annotations, usage guidance and release
-  notes.
+      across the free and paid system, with auto layout, light/dark variables,
+      states, properties, Tailwind/token annotations, usage guidance and release
+      notes.
 - [ ] Code and design assets use matching tokens, anatomy, variants and naming.
 - [ ] Every private release is versioned, checksummed, documented, backed up,
-  tested from a clean download, and delivered only through entitlement checks.
+      tested from a clean download, and delivered only through entitlement checks.
 
 ### Stage 6 — Launch and iteration
 
@@ -684,23 +727,23 @@ Exit criteria:
 - [ ] Free and paid products are publicly accessible as intended.
 - [ ] Purchase and installation journeys work from a clean session.
 - [ ] Public catalogue, block and template claims match the manifests and
-  entitlement catalogue.
+      entitlement catalogue.
 - [ ] Search engines and AI agents can discover the intended public pages and
-  cannot index previews, account routes, APIs or paid source.
+      cannot index previews, account routes, APIs or paid source.
 - [ ] Every locale passes functional, metadata, overflow and RTL checks; no
-  unreviewed AI translation is represented as final.
+      unreviewed AI translation is represented as final.
 - [ ] Full-coverage website audit score exceeds 95, with all errors fixed and
-  every remaining warning documented with evidence and an owner.
+      every remaining warning documented with evidence and an owner.
 - [ ] Core user journeys pass automated end-to-end checks on desktop and mobile;
-  accessibility checks have no critical or serious violations; manual keyboard
-  and screen-reader smoke tests are recorded.
+      accessibility checks have no critical or serious violations; manual keyboard
+      and screen-reader smoke tests are recorded.
 - [ ] Production security headers, HTTPS, rate limits, webhook verification,
-  dependency scanning and secret checks pass.
+      dependency scanning and secret checks pass.
 - [ ] Page weight, images, CSS/DOM size and Core Web Vitals meet the recorded
-  budgets on representative marketing, docs, component, catalogue and account
-  pages.
+      budgets on representative marketing, docs, component, catalogue and account
+      pages.
 - [ ] Monitoring, backups, restore testing, rollback, incident response,
-  customer-support ownership and post-purchase service levels are established.
+      customer-support ownership and post-purchase service levels are established.
 
 ## Quality rules for every implementation task
 
@@ -761,8 +804,11 @@ documented semantics and keyboard contracts, forwarded refs, touch/reflow,
 light/dark, RTL and reduced-motion treatment, source-derived anatomy/API
 records, embedded responsive/theme/RTL inspection, and automated behavior and
 accessibility checks. The generated shadcn-compatible registry contains 57
-component items plus four shared material payloads. Integrity and public/private
-boundary checks cover every item.
+canonical component items plus four shared material payloads, alongside 22
+separately installable official Radix UI counterparts and one Radix
+state-compatibility payload. Combobox remains explicitly Base-only because
+Radix publishes no Combobox primitive. Integrity and public/private boundary
+checks cover every item.
 
 The public application implements the complete pre-production information
 architecture: marketing and discovery, components, boundary-safe Pro
@@ -776,41 +822,58 @@ routes. Public claims are generated from the current private boundary-safe
 export.
 
 Independent clean consumers pass real shadcn installation, type checking and
-production builds for Next.js and Vite across npm, pnpm, Yarn and Bun. The
-public gate includes 269 unit tests, all 57 canonical preview axe checks with no
-serious or critical violations, localisation and boundary tests, production
-rendering, artifact leakage, dependency/licence and secret scans, and enforced
-gzip/image/style budgets. A production-build Chrome harness passes 32 public
-routes, 15 sensitive routes, two protected endpoints, 320-pixel reflow,
-dark/light, RTL, reduced motion, keyboard traversal, four accessibility trees,
-and seven axe scenarios with zero violations, overflow, unnamed interactive
-nodes, runtime errors or failed resources. Manual screen readers, painted
-contrast, actual 200%/400% browser zoom, Firefox/WebKit, touch devices and long
-translated RTL remain external QA gates.
+production builds for Next.js and Vite across npm, pnpm, Yarn and Bun for the
+canonical edition. The complete 22-counterpart Radix edition additionally
+passes clean shadcn installation, type checking and production builds in
+independent Next.js and Vite npm consumers. Component detail pages expose both
+install commands, both editable sources and real interactive Radix previews.
+The public gate includes 414 Vitest tests, all 57 canonical preview axe checks,
+22 Radix counterpart axe checks, Radix overlay/menu behavior, localisation and
+boundary tests, production rendering, artifact leakage, dependency/licence and
+secret scans, and enforced gzip/image/style budgets. A production-build Chrome
+harness passes 32 public routes, 15 sensitive routes, two protected endpoints,
+320-pixel reflow, dark/light, RTL, reduced motion, keyboard traversal, four
+accessibility trees, and seven axe scenarios with zero violations, overflow,
+unnamed interactive nodes, runtime errors or failed resources. Manual screen
+readers, painted contrast, actual 200%/400% browser zoom, Firefox/WebKit, touch
+devices and long translated RTL remain external QA gates.
 
 The provider-neutral commerce and account foundation is implemented and tested
-behind a fail-closed production configuration. Its 24-table relational model
-covers identities, accounts, workspaces, memberships, invitations, purchases,
-subscriptions, invoices, licences, seats, releases, entitlements, download
-grants, webhook idempotency, email intents and audit events. Fake-provider
+behind a fail-closed production configuration. Its Convex schema has 25 tables:
+24 durable commerce tables cover identities, accounts, workspaces, memberships,
+invitations, purchases, subscriptions, invoices, licences, seats, releases,
+entitlements, download grants, webhook idempotency, email intents, privacy
+operations, billing adjustments and audit events; `rateLimitWindows` contains
+only ephemeral, HMAC-derived distributed abuse-control state. Fake-provider
 journeys exercise signature verification, replay resistance, authorization,
-atomic one-use short-lived grants, access revocation, account views, data
-export/deletion controls, email intents, encrypted database backups and restore
-verification. No provider, credential, customer, live price, live checkout or
-production entitlement is implied.
+atomic one-use short-lived grants, access revocation, subscription lifecycle,
+full and partial refunds, chargeback suspension/restoration, account views,
+rate-limited data export, grace-period deletion, durable transactional-email
+delivery, encrypted database backups and restore verification. The fixed
+backup manifest contains exactly the 24 durable tables and deliberately
+excludes the ephemeral rate-limit table, while a restore target must have all
+25 tables empty before import. These local journeys do not exercise any
+production credential, customer, live checkout or production entitlement; the
+separately configured Stripe catalogue and partial Vercel control plane remain
+fail closed.
 
 The localisation source is frozen reproducibly at revision
-`en-d246b29af625`: 2,754 records, of which 2,483 are translatable and 271 are
-protected, covering 151,207 characters and 21,288 words. English is the only
-published language. All 19 target locales fail closed pending approved AI
-translation, automated integrity and rendered QA, and founder review; no
-unreviewed AI translation is represented as final or as professionally
-translated.
+`en-72e701f4add4`: 2,921 records, of which 2,650 are translatable and 271 are
+protected. English is the only published language. All 19 private AI drafts
+pass checksum, ordering, completeness, placeholder and protected-span
+verification. Model replacement and provenance-recorded fallback repair
+reduced every automated quality report to zero high-severity flags, and all 19
+checksum-bound founder-review screens exist. Every locale remains fail closed
+pending rendered QA and founder review; no unreviewed AI translation is
+represented as final or as professionally translated.
 
 The private `gummyui-pro` repository contains exactly 158 original implemented
 blocks across 22 categories, six original implemented templates, and 300
-source-aligned design-kit definitions with 900 responsive-instance
-instructions and the current 38 public tokens. The blocks have 474
+source-aligned design-kit definitions. The v0.5.0 materialisation contract
+expects 300 masters, 900 responsive instances, 138 editable component sets and
+2,588 editable variants, including 72 editable pattern sets and 1,728 pattern
+variants, alongside 72 raster comparison references and the current 38 public
+tokens. The blocks have 474
 Testing Library/axe contracts, 948 actual Chrome renders over the controlled
 six-state/responsive/theme/direction matrix, and 132 checksummed contact sheets.
 All six templates pass 142 tests, production builds and a real Chrome audit of
@@ -820,8 +883,12 @@ install, typecheck, test and build all 158 blocks and six template packages.
 Versioned release and backup code passes synthetic fail-closed fixtures.
 
 Every paid item remains honestly `implemented`, with manual QA `pending`; none
-is promoted to `verified` or `release-ready`. The design-kit materializer has
-not been executed in Figma. The actual paid-release builder therefore refuses
+is promoted to `verified` or `release-ready`. The previous v0.4.0 no-network
+design-kit materializer ran successfully in the founder-owned Figma Starter
+file and reported 300 masters plus 900 responsive instances. The current v0.5.0
+payload expands the expected editable result to 138 sets and 2,588 variants,
+but its live Figma Desktop run, founder/manual design review, export and archive
+restoration remain pending. The actual paid-release builder therefore refuses
 to package the catalogue, and the public boundary and deployment contain no
 paid editable source.
 
@@ -835,19 +902,40 @@ disabled external-link checks, so no replacement score is fabricated. The
 required score above 95 remains a production-origin launch gate with surviving
 warnings documented and owned.
 
-All currently available ungated implementation and local automated
-verification is complete. A private cross-repository launch-readiness verifier
-now re-derives the brief's invariant counts, browser-evidence integrity,
-public/private boundary, fail-closed external states, and approval-packet
-coverage; all 18 local evidence groups pass while seven external gate groups
-remain explicit. The next action is one consolidated founder
-approval covering commercial/legal facts, provider accounts and recurring
-spend, credentials, operating owners and destinations, translation
-procurement, Figma materialization, human cross-browser/assistive-technology
-QA, repository publication, domain/DNS, and production deployment. After
-approval, the remaining work is external execution and production evidence:
-activate services and test mode, complete human/legal/linguistic reviews,
-promote only approved paid items, create immutable releases and backups,
-publish the public repository, deploy, exercise test and authorized low-risk
-live payment/refund journeys, verify monitoring/restore/rollback, and close the
-95+ production audit gate.
+The consolidated founder decisions are captured and the public/private GitHub
+repositories exist. The single North Star remains at 0 of 8 production-verified
+steps because no production customer journey is live. Stripe Managed Payments
+is live-account ready with three products, nine prices and
+`support@kreydlabs.com` configured. Its active `gummyui-production` destination
+listens for the exact 16 required event types at
+`https://gummyui.dev/api/webhooks/stripe`, and the signing secret is installed
+only in secure runtime/operator stores. The application runtime still lacks
+its restricted production key, deployed-origin signed-delivery evidence and
+completed sandbox or live journeys; checkout and webhook flags remain fail
+closed. A Vercel
+project, domain attachment and part of the production environment are
+configured, but Vercel Pro activation, Namecheap DNS cutover, the production
+deployment and origin verification remain pending. A Convex production
+deployment exists and `CONVEX_SERVER_SECRET` is set there, but the current
+code/schema, remaining application environment and production journeys are not
+deployed or verified. A WorkOS team and non-production AuthKit environment are
+now provisioned; real staging journeys pass for Google sign-in, account
+projection, organization creation/recovery, a controlled invitation,
+export/download, deletion/cancellation, sign-out and unpaid protected-download
+denial. Production AuthKit still requires a founder-entered billing method, so
+this staging evidence does not advance the production North Star. Current
+product gates also include running and visually
+reviewing the v0.5.0 Figma materialisation of 138 sets and 2,588 variants,
+reviewing its 72 editable pattern sets against the 72 raster comparison
+references, completing founder rendered/localisation review, and promoting
+actual paid releases.
+
+The remaining work is implementation plus external execution: finish the
+fail-closed production runtime and provider connections within the approved
+limit, complete test-provider journeys, finish the exact sellable product and
+reviews, create immutable protected releases and backups, cut over DNS and
+deploy `gummyui.dev`, run production security/performance/discovery checks,
+complete the authorised real purchase and full refund, verify
+monitoring/restore/rollback, and close the greater-than-95 production audit
+gate. The project is not commercially launched until all eight North Star steps
+have evidence.

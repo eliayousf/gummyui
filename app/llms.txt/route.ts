@@ -5,7 +5,7 @@ export function GET() {
   const lines = [
     "# Gummy UI",
     "",
-    "> Open-source React and TypeScript component source with tactile Gel Pop material, native or Base UI behavior, RTL, dark mode, and reduced motion.",
+    "> Open-source React and TypeScript component source with tactile Gel Pop material, native, Base UI, and Radix UI behavior, RTL, dark mode, and reduced motion.",
     "",
     "## Canonical public resources",
     "",
@@ -32,7 +32,7 @@ export function GET() {
     `## Components (${components.length})`,
     "",
     ...components.map((component) =>
-      `- [${component.name}](https://gummyui.dev/docs/markdown/components/${component.slug}.md): ${component.description} HTML: https://gummyui.dev/components/${component.slug} Registry: ${component.registryUrl}`,
+      `- [${component.name}](https://gummyui.dev/docs/markdown/components/${component.slug}.md): ${component.description} HTML: https://gummyui.dev/components/${component.slug} Base registry: ${component.registryUrl}${component.radixRegistryUrl ? ` Radix registry: ${component.radixRegistryUrl}` : ""}`,
     ),
     "",
     `## Original articles (${articles.length})`,

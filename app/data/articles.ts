@@ -195,7 +195,7 @@ export const articles = [
         heading: "Status still needs evidence",
         paragraphs: [
           "A manifest entry proves identity and intended contract, not production quality on its own. The source, meaningful states, keyboard behavior, responsive layout, theme treatment, RTL logic, reduced motion, documentation, and installation path each need evidence. Gummy UI’s launch specification separates those requirements so a catalogue count cannot substitute for verification.",
-          "The same honesty applies to Pro. All 158 private blocks and six templates now have responsive source and automated implementation evidence, and the 300-definition design-kit catalogue has a versioned local materializer. They remain below verified and release-ready: human review of the generated browser renders, Figma materialization, protected release archives, entitlement delivery, and commercial approval are still open. Counts are useful only when their state is as explicit as their source.",
+          "The same honesty applies to Pro. All 158 private blocks and six templates now have responsive source and automated implementation evidence, and the 300-definition design-kit catalogue has a versioned local materializer. The no-network Figma Starter materialization passed, but the products remain below verified and release-ready: founder review of generated browser and design evidence, Figma export and restore, protected release archives and entitlement delivery are still open. Counts are useful only when their state is as explicit as their source.",
         ],
       },
     ],
@@ -780,7 +780,7 @@ export const articles = [
         heading: "Verify both repositories and artifacts",
         paragraphs: [
           "Boundary checks should inspect current files, Git history, generated registry JSON, client and server bundles, source maps, public metadata, preview artifacts, and release archives. A public manifest path should be constrained to the public source root so an accidental parent-directory reference cannot copy private material.",
-          "Secret scanning and ignore rules are supporting controls, not permission to stage sensitive files. The final publication review needs an explicit inventory of what is reachable from public Git and deployment URLs. Until that evidence exists and founder approval is given, both repositories and the site remain local.",
+          "Secret scanning and ignore rules are supporting controls, not permission to stage sensitive files. The public and private repositories were published only after boundary and secret scans, with paid source kept in the private repository. Deployment still needs a separate inventory of what is reachable from production URLs.",
         ],
       },
     ],
@@ -810,15 +810,15 @@ export const articles = [
       {
         heading: "Keep commercial facts behind approval",
         paragraphs: [
-          "Plan names, prices, billing intervals, seats, commercial rights, update periods, refunds, tax handling, support promises, and the selling entity require founder decisions and legal review. The current pricing and terms pages are status pages rather than invented offers. No live checkout or entitlement route is active.",
+          "The founder has now approved Individual, Team and Organization monthly, yearly and lifetime prices, named-seat rules, subscription and lifetime update access, commercial rights, a 14-day unopened-file goodwill refund, a two-business-day support target, Stripe Managed Payments and the selling entity. The pricing and terms pages record those facts, while checkout and entitlement routes remain closed until the real provider-backed system passes.",
           "The same discipline applies to social proof. Sample names and rows used in component demonstrations are fictional interface content, not customers or testimonials. Editorial material should explain implemented design and engineering choices without manufacturing adoption, time savings, performance scores, or compatibility claims.",
         ],
       },
       {
         heading: "Publish privacy and security as current state",
         paragraphs: [
-          "The privacy page describes the present local behavior: theme preferences and builder state stay in the browser, while accounts, checkout, analytics, and support intake are inactive. It also lists the facts that a production notice will need once services and legal roles are known.",
-          "The security page similarly distinguishes tested local, provider-neutral contracts from active production controls and records the missing disclosure channel. It does not invent an unattended security address or response time. A monitored channel, accountable owner, incident process, and production controls must exist before the language can change.",
+          "The privacy notice now names KREYD LABS LTD, the approved providers, purposes, lawful bases, retention periods, rights and the founder-controlled contact address. It still says that provider use must be rechecked against the real production configuration before publication.",
+          "The security page similarly distinguishes tested local, provider-neutral contracts from active production controls and now routes private reports to the confirmed monitored address. Production controls and test evidence must exist before the implementation status can change.",
         ],
       },
       {
@@ -830,8 +830,8 @@ export const articles = [
       },
     ],
     links: [
-      { href: "/pricing", label: "Read the pricing approval status" },
-      { href: "/privacy", label: "Read the current privacy status" },
+      { href: "/pricing", label: "Read approved Pro pricing" },
+      { href: "/privacy", label: "Read the privacy notice" },
       { href: "/security", label: "Read the current security status" },
     ],
   },
