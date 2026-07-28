@@ -37,6 +37,10 @@ test("defines both clean frameworks and all four real package-manager command pa
   assert.equal(packageManagerPaths.pnpm.corepackVersion, "pnpm@11.17.0");
   assert.equal(packageManagerPaths.yarn.nixPackage, "nodejs_22");
   assert.equal(packageManagerPaths.yarn.corepackVersion, "yarn@4.14.1");
+  assert.deepEqual(
+    packageManagerPaths.yarn.reconcileAfterRegistry,
+    ["yarn", "install"],
+  );
   assert.equal(packageManagerPaths.bun.nixPackage, "bun");
 });
 

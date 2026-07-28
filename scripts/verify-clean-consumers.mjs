@@ -48,6 +48,10 @@ export const packageManagerPaths = Object.freeze({
     nixPackage: "nodejs_22",
     corepackVersion: "yarn@4.14.1",
     install: ["yarn", "install"],
+    // shadcn writes newly discovered registry dependencies to package.json,
+    // but Yarn Berry does not always refresh yarn.lock from a dlx process.
+    // Reconcile the generated consumer before invoking any workspace script.
+    reconcileAfterRegistry: ["yarn", "install"],
     registry: ["yarn", "dlx", `shadcn@${shadcnVersion}`, "add"],
     typecheck: ["yarn", "run", "typecheck"],
     build: ["yarn", "run", "build"],
@@ -287,6 +291,14 @@ async function verifyConsumerCase({
     cwd: projectDirectory,
     env,
   });
+  if (packageManagerPath.reconcileAfterRegistry) {
+    await runNixCommand({
+      nixPackage: packageManagerPath.nixPackage,
+      command: packageManagerPath.reconcileAfterRegistry,
+      cwd: projectDirectory,
+      env,
+    });
+  }
   await assertInstalledConsumer(projectDirectory, engine);
   await runNixCommand({
     nixPackage: packageManagerPath.nixPackage,
