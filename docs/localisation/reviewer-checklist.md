@@ -1,4 +1,4 @@
-# Linguistic and rendered reviewer checklist
+# Founder linguistic and rendered reviewer checklist
 
 ## Corpus integrity
 
@@ -7,7 +7,7 @@
 - Confirm every translatable ID appears exactly once and no unknown IDs exist.
 - Confirm protected non-translatable records remain unchanged.
 - Confirm placeholders retain their name, type, count, and required context.
-- Resolve every translator question or record an explicit release blocker.
+- Resolve every generation question or record an explicit release blocker.
 
 ## Linguistic review
 
@@ -50,7 +50,9 @@
 
 ## Approval evidence
 
-Record real translator and reviewer identity, source revision, dictionary
-checksum, completed checkpoints, exceptions, and the approval or rejection in
-the approved private release system. This repository intentionally contains no
-prefilled identity, approval, or review date.
+Record the AI model/version, generation date/settings, founder reviewer
+identity, source revision, dictionary checksum, completed checkpoints,
+exceptions, and the approval or rejection in the approved private release
+system. Do not describe the result as professional, native-speaker or
+independent linguistic review. This repository intentionally contains no
+prefilled approval or review date.

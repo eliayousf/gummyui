@@ -181,7 +181,7 @@ const coreMessages = [
   ["core.theme.short-label", "Theme", "Visible compact theme-control label.", "app/components/SiteChrome.tsx"],
   ["core.locale.current-label", "Language: {language}", "Accessible name for the current-language control.", "app/components/LocaleSwitcher.tsx", [{ name: "language", type: "string", example: "English" }]],
   ["core.locale.published-heading", "Published language", "Heading above routeable locale links.", "app/components/LocaleSwitcher.tsx"],
-  ["core.locale.pending-count", "{count} more locales are awaiting human linguistic review.", "Status explaining unavailable target locales.", "app/components/LocaleSwitcher.tsx", [{ name: "count", type: "number", example: 19 }]],
+  ["core.locale.pending-count", "{count} more locales are awaiting founder review and publication.", "Status explaining unavailable target locales.", "app/components/LocaleSwitcher.tsx", [{ name: "count", type: "number", example: 19 }]],
   ["core.locale.translation-status", "Translation status", "Link to the public language status page.", "app/components/LocaleSwitcher.tsx"],
   ["core.footer.navigation-label", "Footer navigation", "Accessible name for footer links.", "app/components/SiteChrome.tsx"],
   ["core.footer.description", "Open-source React components with tactile material, accessible behavior, and editable source.", "Public footer product description.", "app/components/SiteChrome.tsx"],
@@ -655,7 +655,9 @@ const localeManifest = {
       runtimePublicationStatus: locale.status,
       targetSourceRevision: sourceRevision,
       expectedMessageCount: messages.length,
-      translationStatus: sourceLocale ? "source-locale" : "not-started",
+      translationStatus: sourceLocale
+        ? "source-locale"
+        : "ai-draft-generated-private",
       dictionaryPath: sourceLocale
         ? "app/i18n/generated/en.source.json"
         : null,
@@ -699,7 +701,7 @@ const reviewHandoff = {
     nativeName: locale.nativeName,
     direction: locale.direction,
     isRightToLeft: locale.direction === "rtl",
-    status: "awaiting-human-translation-and-review",
+    status: "ai-draft-generated-awaiting-founder-review",
     targetSourceRevision: sourceRevision,
     dictionaryPath: null,
     reviewer: null,
@@ -742,14 +744,14 @@ const reviewHandoff = {
       "Review mixed Arabic/Persian/Hebrew and Latin strings for bidirectional punctuation and ordering.",
       "Check numbers, dates, percentages, list markers, tables, breadcrumbs, pagination, sliders, carousels, and drawers.",
       "Repeat keyboard, zoom, reflow, screen-reader, dark-mode, reduced-motion, and focus review in genuine RTL content.",
-      "Review Arabic shaping, Persian character choices, Hebrew punctuation, and fallback-font coverage with fluent reviewers.",
+      "Review Arabic shaping, Persian character choices, Hebrew punctuation, and fallback-font coverage during founder review.",
     ],
   },
   publicationGate: [
     "A complete dictionary exists for every translatable message at the current English source revision.",
     "Every protected identifier, placeholder, code span, URL, and product name passes automated validation.",
-    "A fluent human translator and a fluent human reviewer are recorded in the private release evidence.",
-    "Linguistic review records approval for meaning, terminology, grammar, tone, formatting, and cultural fit.",
+    "The AI model, version, run date, settings and source checksum are recorded in the private release evidence.",
+    "Founder review records approval for meaning, terminology, grammar, tone, formatting, and cultural fit without claiming professional translation.",
     "Rendered keyboard, zoom, reflow, contrast, screen-reader, responsive, dark-mode, and reduced-motion review passes.",
     "Arabic, Persian, and Hebrew additionally pass the complete RTL and bidirectional checkpoint set.",
     "Canonical, hreflang, sitemap, search, route, and locale-switcher behavior pass without English fallback.",
@@ -903,7 +905,7 @@ const sourceManifest = {
   sourceLocale: "en",
   sourceRevision,
   sourceChecksum,
-  status: "english-source-ready-target-locales-pending",
+  status: "english-source-ready-private-ai-drafts-unpublished",
   messageCount: messages.length,
   translatableMessageCount: sourceBundle.translatableMessageCount,
   categoryCounts,
@@ -938,28 +940,28 @@ const sourceManifest = {
   },
   blockers: [
     {
-      id: "human-translation",
-      status: "pending-human-or-external-review",
+      id: "ai-translation-generation",
+      status: "complete-private-draft-unpublished",
       appliesTo: localeData.locales.slice(1).map(({ code }) => code),
     },
     {
-      id: "fluent-linguistic-review",
-      status: "pending-human-or-external-review",
+      id: "founder-linguistic-review",
+      status: "pending-founder-review-or-validation",
       appliesTo: localeData.locales.slice(1).map(({ code }) => code),
     },
     {
       id: "rendered-accessibility-and-responsive-review",
-      status: "pending-human-or-external-review",
+      status: "pending-founder-review-or-validation",
       appliesTo: localeData.locales.slice(1).map(({ code }) => code),
     },
     {
       id: "rtl-review",
-      status: "pending-human-or-external-review",
+      status: "pending-founder-review-or-validation",
       appliesTo: ["fa", "he", "ar"],
     },
     {
       id: "route-discovery-and-rollback-review",
-      status: "pending-human-or-external-review",
+      status: "pending-founder-review-or-validation",
       appliesTo: localeData.locales.slice(1).map(({ code }) => code),
     },
   ],
@@ -1000,5 +1002,5 @@ for (const [filename, content] of Object.entries(outputs)) {
 }
 
 console.log(
-  `${checkOnly ? "Verified" : "Generated"} ${messages.length} English localisation-source records (${sourceBundle.translatableMessageCount} translatable) at ${sourceRevision}; English remains the only published locale and 19 targets remain pending human review.`,
+  `${checkOnly ? "Verified" : "Generated"} ${messages.length} English localisation-source records (${sourceBundle.translatableMessageCount} translatable) at ${sourceRevision}; English remains the only published locale and 19 generated targets remain pending founder review and publication.`,
 );

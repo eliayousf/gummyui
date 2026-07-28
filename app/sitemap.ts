@@ -2,6 +2,11 @@ import type { MetadataRoute } from "next";
 import { articles } from "./data/articles";
 import { components } from "./data/catalogue";
 import { markdownGuideSlugs } from "./data/markdown-docs";
+import {
+  proBlockCategories,
+  proBlocks,
+  proTemplates,
+} from "./data/pro-catalogue";
 import { absoluteLocaleAlternatesForPath } from "./i18n/routing";
 
 const baseUrl = "https://gummyui.dev";
@@ -30,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/license",
     "/commercial-license",
     "/refund",
+    "/terms",
+    "/pro",
+    "/blocks",
+    "/templates",
+    "/design-kit",
+    "/pricing",
     "/changelog",
     "/changelog.xml",
     "/blog",
@@ -53,6 +64,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: absoluteLocaleAlternatesForPath(
           `/components/${component.slug}`,
+        ),
+      },
+    })),
+    ...proBlockCategories.map((category) => ({
+      url: `${baseUrl}/blocks/${category.slug}`,
+      lastModified: new Date("2026-07-28"),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: {
+        languages: absoluteLocaleAlternatesForPath(
+          `/blocks/${category.slug}`,
+        ),
+      },
+    })),
+    ...proBlocks.map((block) => ({
+      url: `${baseUrl}/blocks/${block.category}/${block.slug}`,
+      lastModified: new Date("2026-07-28"),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      alternates: {
+        languages: absoluteLocaleAlternatesForPath(
+          `/blocks/${block.category}/${block.slug}`,
+        ),
+      },
+    })),
+    ...proTemplates.map((template) => ({
+      url: `${baseUrl}/templates/${template.slug}`,
+      lastModified: new Date("2026-07-28"),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: {
+        languages: absoluteLocaleAlternatesForPath(
+          `/templates/${template.slug}`,
         ),
       },
     })),

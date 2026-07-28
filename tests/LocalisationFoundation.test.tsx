@@ -215,7 +215,7 @@ describe("locale discoverability", () => {
       localeLinks.filter((link) => link.hasAttribute("hreflang")),
     ).toHaveLength(1);
     expect(
-      screen.getByText("19 more locales are awaiting human linguistic review."),
+      screen.getByText("19 more locales are awaiting founder review and publication."),
     ).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /Français/ })).not.toBeInTheDocument();
   });

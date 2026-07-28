@@ -36,12 +36,9 @@ The deterministic source builder extracts stable records from:
 - an AST coverage audit for every in-scope TSX source plus the public Pro
   metadata and future structured showcase entries.
 
-The generated English source contains 2,755 records, of which 2,484 are
-translatable: 44 core, 104 account, 1,716 public/static, 356 catalogue, 360
-article, 139 guide, and 36 changelog records. The static audit scans 115 files
-and maps all 4,007 detected candidates, with zero uncaptured candidates. These
-figures are generated and checksum-pinned rather than maintained as product
-claims.
+The generated English source contains 2,921 records, of which 2,650 are
+translatable. Exact category and static-audit counts are generated and
+checksum-pinned rather than maintained as product claims.
 
 Generated public-safe artifacts live in `app/i18n/generated`:
 
@@ -84,20 +81,36 @@ runtime computation, returned by a future remote provider, or injected outside
 the audited source surfaces. The separately structured account, sign-in, and
 checkout routes remain covered by the `account.*` source records.
 
-This is source and procurement evidence only. The application still publishes
-English alone; no runtime target dictionary, human linguistic approval,
-rendered target-locale QA, or target-locale route has been created.
+This is source and production-contract evidence only. The application still
+publishes English alone; no runtime target dictionary, completed founder
+approval, rendered target-locale QA, or target-locale route has been created.
 
-## Human work remains external
+## Private AI-draft workflow and public handoff
 
-The repository contains no machine translations or fabricated review evidence.
-Before any target locale can publish, people still need to:
+The private `gummyui-pro` repository is the sole source of truth for
+checksum-bound model selection, incremental exact-source reuse, AI drafts,
+quality reports and founder-review evidence. This public repository tracks no
+unreviewed target dictionary or competing model registry.
 
-1. translate every translatable record at the current English revision;
+The public repository contains only a current-source validator and local
+noindex review renderer for canonical private draft input. It writes into the
+gitignored `work/localisation-reviews` directory and cannot promote a locale or
+fabricate approval.
+
+See [Private offline AI drafts and public review handoff](./localisation/offline-draft-workflow.md)
+for the canonical private Nix-only incremental generation commands and the
+complementary public-safe review command.
+
+Founder review and publication work remain before any target locale can
+publish. The approved workflow must:
+
+1. generate every translatable record at the current English revision and
+   record the AI model, version, date, settings and source checksum;
 2. preserve all protected code, URLs, commands, product names, identifiers,
    placeholders, and structured relationships;
-3. complete fluent linguistic review with real identity and approval evidence
-   in the approved private release record;
+3. complete Elia Samir Yousf's founder review with real identity and approval
+   evidence in the approved private release record, without claiming
+   professional or independent translation;
 4. complete rendered responsive, long-text, keyboard, zoom, reflow, contrast,
    dark-mode, screen-reader, reduced-motion, and formatting review;
 5. complete the additional Arabic, Persian, or Hebrew RTL and bidirectional
@@ -110,7 +123,8 @@ Before any target locale can publish, people still need to:
 ## Detailed handoff
 
 - [Message contract](./localisation/message-contract.md)
-- [Translator handoff](./localisation/translator-handoff.md)
-- [Reviewer checklist](./localisation/reviewer-checklist.md)
+- [AI translation handoff](./localisation/translator-handoff.md)
+- [Founder reviewer checklist](./localisation/reviewer-checklist.md)
 - [Arabic, Persian, and Hebrew RTL checklist](./localisation/rtl-checklist.md)
 - [Publication and rollback gate](./localisation/publication-gate.md)
+- [Offline draft and founder-review workflow](./localisation/offline-draft-workflow.md)

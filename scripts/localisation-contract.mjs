@@ -170,7 +170,7 @@ export function validateLocaleManifest(manifest, bundle) {
       locale.runtimePublicationStatus,
       "pending-linguistic-review",
     );
-    assert.equal(locale.translationStatus, "not-started");
+    assert.equal(locale.translationStatus, "ai-draft-generated-private");
     assert.equal(locale.dictionaryPath, null);
     assert.equal(locale.dictionaryChecksum, null);
     assert.equal(locale.linguisticReviewStatus, "not-started");
@@ -213,7 +213,10 @@ export function validateReviewHandoff(handoff, bundle, localeManifest) {
   assert.ok(handoff.publicationGate.length >= 8);
 
   for (const target of handoff.targetLocales) {
-    assert.equal(target.status, "awaiting-human-translation-and-review");
+    assert.equal(
+      target.status,
+      "ai-draft-generated-awaiting-founder-review",
+    );
     assert.equal(target.dictionaryPath, null);
     assert.equal(target.reviewer, null);
     assert.equal(target.approval, null);
@@ -235,7 +238,10 @@ export function validateSourceManifest(
   },
 ) {
   assert.equal(manifest.schemaVersion, localisationSchemaVersion);
-  assert.equal(manifest.status, "english-source-ready-target-locales-pending");
+  assert.equal(
+    manifest.status,
+    "english-source-ready-private-ai-drafts-unpublished",
+  );
   const expected = {
     englishSource: sourceBundleContent,
     localeManifest: localeManifestContent,
@@ -254,7 +260,15 @@ export function validateSourceManifest(
   }
   assert.deepEqual(manifest.publishedLocaleCodes, ["en"]);
   assert.equal(manifest.pendingLocaleCount, 19);
-  assert.ok(manifest.blockers.every((blocker) =>
-    blocker.status === "pending-human-or-external-review"));
+  assert.equal(
+    manifest.blockers.find(({ id }) => id === "ai-translation-generation")
+      ?.status,
+    "complete-private-draft-unpublished",
+  );
+  assert.ok(
+    manifest.blockers
+      .filter(({ id }) => id !== "ai-translation-generation")
+      .every(({ status }) => status === "pending-founder-review-or-validation"),
+  );
   return manifest;
 }

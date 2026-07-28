@@ -10,6 +10,11 @@ An AI translation run begins with:
 - this message contract and the relevant reviewer checklists; and
 - rendered English context for the pages and states in scope.
 
+For the repository-owned offline generation path, follow
+[the checksum-pinned draft workflow](./offline-draft-workflow.md). It is the
+authoritative command and artifact contract; this document remains the
+linguistic handoff.
+
 Do not begin from an earlier email attachment or an unpinned export. Run the
 source check immediately before preparing the handoff.
 

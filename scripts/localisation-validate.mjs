@@ -49,5 +49,5 @@ validateSourceManifest(JSON.parse(sourceManifestContent), {
 assertStaticCopyCoverage(JSON.parse(staticCoverageAuditContent));
 
 console.log(
-  `Validated ${sourceBundle.messageCount} English localisation-source records at ${sourceBundle.sourceRevision}; 19 target locales remain fail-closed pending human review.`,
+  `Validated ${sourceBundle.messageCount} English localisation-source records at ${sourceBundle.sourceRevision}; 19 generated target locales remain fail-closed pending founder review and publication.`,
 );

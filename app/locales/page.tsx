@@ -10,7 +10,7 @@ import { localeAlternatesForPath } from "../i18n/routing";
 export const metadata: Metadata = {
   title: "Language availability · Gummy UI",
   description:
-    "Review Gummy UI language availability, fail-closed routing, human linguistic review, RTL verification, metadata, hreflang, sitemap, and publication gates.",
+    "Review Gummy UI language availability, fail-closed routing, AI-generation provenance, founder review, RTL verification, metadata, hreflang, sitemap, and publication gates.",
   alternates: {
     canonical: "/locales",
     languages: localeAlternatesForPath("/locales"),
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 function statusLabel(status: (typeof locales)[number]["status"]): string {
   return status === "published"
     ? "Published"
-    : "Pending linguistic review";
+    : "Pending founder review and publication";
 }
 
 export default function LocalesPage() {
@@ -28,7 +28,7 @@ export default function LocalesPage() {
     <PublicTextPage
       eyebrow={`${publishedLocales.length} published · ${pendingLocales.length} awaiting review`}
       title="English is the only published language today."
-      lede="Gummy UI has the routing, direction, and review foundations for the complete language roadmap. A locale is not linked, indexed, or described as available until its interface copy and rendered product have passed human linguistic review."
+      lede="Gummy UI has the routing, direction, and review foundations for the complete language roadmap. A locale is not linked, indexed, or described as available until AI-generated copy passes automated integrity checks, rendered QA and founder review."
     >
       <section>
         <h2>Language status</h2>
@@ -69,7 +69,7 @@ export default function LocalesPage() {
         <h2>What publication requires</h2>
         <ol>
           <li>A complete source dictionary with stable message identifiers and no untranslated fallbacks.</li>
-          <li>Review by a fluent human for terminology, tone, grammar, truncation, and culturally appropriate examples.</li>
+          <li>Recorded AI model/version provenance followed by founder review for terminology, tone, grammar, truncation, and culturally appropriate examples.</li>
           <li>Keyboard, zoom, responsive, dark-mode, and assistive-technology review of representative pages.</li>
           <li>Additional bidirectional and logical-layout review for Persian, Hebrew, and Arabic.</li>
           <li>Only then: route activation, switcher link, sitemap alternate, and public availability claim.</li>
