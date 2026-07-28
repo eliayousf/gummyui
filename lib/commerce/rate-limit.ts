@@ -2,6 +2,10 @@ import "server-only";
 import { isIP } from "node:net";
 import { executeConvex } from "../../db";
 import { ownedArrayBuffer } from "./crypto";
+import {
+  emitOperationalEvent,
+  type OperationalLogEvent,
+} from "./operational-logging";
 
 export type DistributedRateLimitPolicy =
   | "auth.callback"
@@ -150,6 +154,7 @@ export async function enforceDistributedRateLimit(input: {
   providerSubject?: string;
   now?: number;
   environment?: Readonly<Record<string, string | undefined>>;
+  logger?: (event: OperationalLogEvent) => Promise<void>;
 }): Promise<DistributedRateLimitDecision> {
   const environment = input.environment ?? process.env;
   const secret = environment.RATE_LIMIT_KEY_SECRET?.trim();
@@ -160,7 +165,7 @@ export async function enforceDistributedRateLimit(input: {
     || secret.length < 32
     || !Number.isSafeInteger(now)
   ) {
-    return { allowed: false, reason: "unavailable" };
+    return unavailableDecision(input, environment, "configuration");
   }
   const principals = principalBindings(input);
   const hasPrimaryPrincipal = Boolean(
@@ -171,7 +176,7 @@ export async function enforceDistributedRateLimit(input: {
     (policy.requirePrincipal && !hasPrimaryPrincipal)
     || (policy.requireIp && !ip)
   ) {
-    return { allowed: false, reason: "unavailable" };
+    return unavailableDecision(input, environment, "request_binding", ip);
   }
 
   try {
@@ -199,15 +204,89 @@ export async function enforceDistributedRateLimit(input: {
       }));
     }
     if (buckets.length === 0) {
-      return { allowed: false, reason: "unavailable" };
+      return unavailableDecision(input, environment, "empty_bucket_set", ip);
     }
     const result = await executeConvex<unknown>("rate-limit.consume", {
       buckets,
       now,
     });
-    return parseDecision(result);
+    const decision = parseDecision(result);
+    if (!decision.allowed) {
+      await recordRateLimitDecision(
+        input,
+        environment,
+        decision,
+        "capacity_exhausted",
+        ip,
+      );
+    }
+    return decision;
   } catch {
-    return { allowed: false, reason: "unavailable" };
+    return unavailableDecision(input, environment, "backend_error", ip);
+  }
+}
+
+async function unavailableDecision(
+  input: Parameters<typeof enforceDistributedRateLimit>[0],
+  environment: Readonly<Record<string, string | undefined>>,
+  reasonCode:
+    | "backend_error"
+    | "configuration"
+    | "empty_bucket_set"
+    | "request_binding",
+  trustedIp?: string | null,
+): Promise<DistributedRateLimitDecision> {
+  const decision = { allowed: false, reason: "unavailable" } as const;
+  await recordRateLimitDecision(
+    input,
+    environment,
+    decision,
+    reasonCode,
+    trustedIp,
+  );
+  return decision;
+}
+
+async function recordRateLimitDecision(
+  input: Parameters<typeof enforceDistributedRateLimit>[0],
+  environment: Readonly<Record<string, string | undefined>>,
+  decision: Exclude<DistributedRateLimitDecision, { allowed: true }>,
+  reasonCode:
+    | "backend_error"
+    | "capacity_exhausted"
+    | "configuration"
+    | "empty_bucket_set"
+    | "request_binding",
+  trustedIp?: string | null,
+): Promise<void> {
+  const event: OperationalLogEvent = {
+    name: "security.rate_limit.decision",
+    severity: decision.reason === "limited" ? "warning" : "error",
+    outcome: decision.reason === "limited" ? "ignored" : "degraded",
+    attributes: {
+      policy: input.policy,
+      decision: decision.reason,
+      reasonCode,
+      accountBound: Boolean(input.accountId),
+      workspaceBound: Boolean(input.workspaceId),
+      providerBound: Boolean(input.providerSubject),
+      trustedIpPresent: Boolean(trustedIp),
+      ...(decision.reason === "limited"
+        ? {
+            retryAfterMs: decision.retryAfterMs,
+            resetAt: decision.resetAt,
+          }
+        : {}),
+    },
+  };
+  try {
+    if (input.logger) {
+      await input.logger(event);
+    } else {
+      await emitOperationalEvent(event, { environment });
+    }
+  } catch {
+    // Observability must never change the fail-closed access decision.
   }
 }
 

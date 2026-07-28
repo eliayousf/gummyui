@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "evidenceType": "automated-local-production-browser-qa",
-  "generatedAt": "2026-07-28T02:07:14.727Z",
+  "generatedAt": "2026-07-28T16:58:04.103Z",
   "limitations": [
     "This is automated local production-build evidence, not a deployed-origin test.",
     "The 200% check uses an equivalent 320 CSS-pixel reflow at devicePixelRatio 2 (640 physical pixels), not a manual browser-zoom inspection.",
@@ -9,7 +9,7 @@
     "Firefox, WebKit, touch hardware, and manual painted-contrast review remain outside this run."
   ],
   "runtime": {
-    "baseUrl": "http://127.0.0.1:59950",
+    "baseUrl": "http://127.0.0.1:58284",
     "chromeExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     "chromeProduct": "Chrome/150.0.7871.187",
     "chromeRevision": "537.36 (@30f6543ae91e6a860e73b76e3216b663b050f4e5)",
@@ -19,12 +19,12 @@
   },
   "fingerprints": {
     "source": {
-      "fileCount": 285,
-      "sha256": "11303c94f5ed5665bda2ca348c2b9bd602ce5072f20485363e3471da5647076f"
+      "fileCount": 292,
+      "sha256": "a2917a6732f36c125eb649acbd638f0ad1afacb69953787343fde051b87b6768"
     },
     "productionBuild": {
-      "fileCount": 238,
-      "sha256": "60516eb13772e750f04a343dcbfa9bbbb2b76ec1cb8e979e275222972245e2f2"
+      "fileCount": 260,
+      "sha256": "cee7ae3e0fe7bcaddc7ce1166b7b99dfeb08fe6f5730aed6ab2769accedfa02c"
     }
   },
   "routes": [
@@ -38,11 +38,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 43756,
-        "bodySha256": "4236dd280b31e3383eca1e78642e9633098342db255a213d233fc7b335be70b4"
+        "bytes": 44153,
+        "bodySha256": "fcf7ef7f499546cdc6ca86a966ef7a3cb4241cb0b46458b426a1375f175be706"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/",
+        "url": "http://127.0.0.1:58284/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -91,7 +91,7 @@
             },
             {
               "tag": "div",
-              "id": "base-ui-_R_l2t6_",
+              "id": "base-ui-_R_2kbl6_",
               "className": "gummy-tabs__panel",
               "clientWidth": 256,
               "scrollWidth": 264,
@@ -214,7 +214,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2407
+        "bodyTextCharacters": 2417
       }
     },
     {
@@ -227,11 +227,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 33427,
-        "bodySha256": "bc45978b5af3eae0999c7a7c5930ab42aeeca9a77136029b41ebf391f4bade08"
+        "bytes": 33517,
+        "bodySha256": "ce2059b86b364b7c4b42e42cd3bd3c32a1754ff53d363f7d4065014c5ecd3dc8"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/docs",
+        "url": "http://127.0.0.1:58284/docs",
         "title": "Gummy UI documentation · Install editable React source",
         "h1": "Install source you can understand.",
         "canonical": "https://gummyui.dev/docs",
@@ -303,7 +303,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 5806
+        "bodyTextCharacters": 5816
       }
     },
     {
@@ -316,11 +316,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 20921,
-        "bodySha256": "c6855342a9e9dac28a59e36e8dea6515f539da03587eb07b0a337444872f390b"
+        "bytes": 21011,
+        "bodySha256": "7f86223509045634b149638fb3898c653ca1a7861ccdb15fbd00352941ea1b58"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/docs/nextjs",
+        "url": "http://127.0.0.1:58284/docs/nextjs",
         "title": "Install Gummy UI in Next.js App Router",
         "h1": "Next.js: editable source, clean boundaries.",
         "canonical": "https://gummyui.dev/docs/nextjs",
@@ -353,8 +353,8 @@
               "id": null,
               "className": "",
               "left": 35,
-              "right": 595.86,
-              "width": 560.86
+              "right": 690.64,
+              "width": 655.64
             }
           ],
           "intrinsicOverflow": [],
@@ -401,7 +401,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1375
+        "bodyTextCharacters": 1385
       }
     },
     {
@@ -414,11 +414,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 20848,
-        "bodySha256": "7220ba784d50f73b48547e185b91b6078e02a43d3bbe25ab946a34cf5691a644"
+        "bytes": 20938,
+        "bodySha256": "8b521c95e42cb1180e728f2efcfe6fb816b5790c9dd107d9fedb96105041afa3"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/docs/vite",
+        "url": "http://127.0.0.1:58284/docs/vite",
         "title": "Install Gummy UI in React and Vite",
         "h1": "Vite: source that belongs to your app.",
         "canonical": "https://gummyui.dev/docs/vite",
@@ -451,8 +451,8 @@
               "id": null,
               "className": "",
               "left": 35,
-              "right": 595.86,
-              "width": 560.86
+              "right": 690.64,
+              "width": 655.64
             }
           ],
           "intrinsicOverflow": [],
@@ -499,7 +499,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1298
+        "bodyTextCharacters": 1308
       }
     },
     {
@@ -512,11 +512,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 80741,
-        "bodySha256": "6a241b9c14fa3ba7e85b9b3ce6fff01f54c39042a62c4f4280d4d1cd8f392339"
+        "bytes": 80058,
+        "bodySha256": "4e4cfb287bbb353cfc03f7d4a899152ea2617f2315c4f0efcf267705481fbc6c"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/components",
+        "url": "http://127.0.0.1:58284/components",
         "title": "React component catalogue · Gummy UI",
         "h1": "57 deliberate foundations.",
         "canonical": "https://gummyui.dev/components",
@@ -629,7 +629,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 6499
+        "bodyTextCharacters": 6509
       }
     },
     {
@@ -642,11 +642,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 40089,
-        "bodySha256": "5412d4843b4d73b2fcfbde66cb6dfd93cc2b74f90ecb60835b5153d2ca9012ec"
+        "bytes": 34543,
+        "bodySha256": "a74391effe510ef23bb7eb62f0588ae6b0216c7ce8a7ffa4ee4878f5a9a57cc8"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/components/accordion",
+        "url": "http://127.0.0.1:58284/components/accordion",
         "title": "Accordion React component · Gummy UI",
         "h1": "Accordion",
         "canonical": "https://gummyui.dev/components/accordion",
@@ -673,40 +673,7 @@
           "scrollWidth": 320,
           "bodyScrollWidth": 320,
           "hasHorizontalOverflow": false,
-          "beyondViewport": [
-            {
-              "tag": "pre",
-              "id": null,
-              "className": "",
-              "left": 17,
-              "right": 591.61,
-              "width": 574.61
-            },
-            {
-              "tag": "code",
-              "id": null,
-              "className": "",
-              "left": 37,
-              "right": 571.61,
-              "width": 534.61
-            },
-            {
-              "tag": "pre",
-              "id": null,
-              "className": "",
-              "left": 17,
-              "right": 571.81,
-              "width": 554.81
-            },
-            {
-              "tag": "code",
-              "id": null,
-              "className": "",
-              "left": 37,
-              "right": 551.81,
-              "width": 514.81
-            }
-          ],
+          "beyondViewport": [],
           "intrinsicOverflow": [],
           "overflowIsolation": null
         },
@@ -751,7 +718,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 8012
+        "bodyTextCharacters": 3073
       }
     },
     {
@@ -764,11 +731,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 30803,
-        "bodySha256": "7a4a58abefbc68892dd2dc84b44419dee3727a232fb9bc0bd4073383e941cc4c"
+        "bytes": 31169,
+        "bodySha256": "68727789326e4a00ccd09c79f5b5617dcfdb9a885e6edb1506a89427f5686182"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/themes",
+        "url": "http://127.0.0.1:58284/themes",
         "title": "Gummy UI theme builder · Light, dark, type, shape and charts",
         "h1": "Shape the whole system.",
         "canonical": "https://gummyui.dev/themes",
@@ -801,8 +768,8 @@
               "id": null,
               "className": "",
               "left": 35,
-              "right": 644.84,
-              "width": 609.84
+              "right": 763.48,
+              "width": 728.48
             }
           ],
           "intrinsicOverflow": [
@@ -814,6 +781,15 @@
               "scrollWidth": 249,
               "overflowX": "visible",
               "text": null
+            },
+            {
+              "tag": "code",
+              "id": null,
+              "className": "",
+              "clientWidth": 0,
+              "scrollWidth": 6,
+              "overflowX": "visible",
+              "text": "npx shadcn@latest add https://gummyui.dev/r/gummy-base.json"
             }
           ],
           "overflowIsolation": null
@@ -859,7 +835,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2727
+        "bodyTextCharacters": 2737
       }
     },
     {
@@ -872,11 +848,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 20961,
-        "bodySha256": "94224fc26031ee123e6f75b0a60350ce788d3b66291a5a5ef7440dfc88f6ce71"
+        "bytes": 21051,
+        "bodySha256": "41a18f6647280284910e1a4e2c97cddba16a141328493abfe32ecde1426e41b5"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/studio",
+        "url": "http://127.0.0.1:58284/studio",
         "title": "Gummy frame studio · Browser-local screenshot tool",
         "h1": "Give the screenshot a little pressure.",
         "canonical": "https://gummyui.dev/studio",
@@ -948,7 +924,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1075
+        "bodyTextCharacters": 1085
       }
     },
     {
@@ -961,11 +937,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 19513,
-        "bodySha256": "59b42b75b77ee6dc8cbe7eed7dabce7a77598f4a68c4468fab17f90c92ff5bce"
+        "bytes": 19603,
+        "bodySha256": "b1a30c3b30e761cfacb4a16d6b23253ab39ca31faed7408b4aebea55f4ea49e0"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/community",
+        "url": "http://127.0.0.1:58284/community",
         "title": "Gummy UI community showcase and submission status",
         "h1": "Real work, when there is real work.",
         "canonical": "https://gummyui.dev/community",
@@ -1037,7 +1013,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1119
+        "bodyTextCharacters": 1129
       }
     },
     {
@@ -1050,11 +1026,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 24825,
-        "bodySha256": "f58551c4636d1d9b00a01fbc326b89f0fa842aa620a932d849338c07ba8f1a28"
+        "bytes": 24915,
+        "bodySha256": "49fe9a95fb49e7cca020d239a93a37377bb95415d23c1c1c03116d7dea7d1f29"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/rtl",
+        "url": "http://127.0.0.1:58284/rtl",
         "title": "Gummy UI RTL support · Direction and keyboard behavior",
         "h1": "RTL is part of the component contract.",
         "canonical": "https://gummyui.dev/rtl",
@@ -1134,7 +1110,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1109
+        "bodyTextCharacters": 1119
       }
     },
     {
@@ -1147,11 +1123,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 45959,
-        "bodySha256": "67bf0f3b91132df55e9876eb80e0cd79546c05fb5dece1361918cbcfb40ca3b4"
+        "bytes": 53170,
+        "bodySha256": "b6d8c4d2315578bb4d95a4a7331b99ea3d85bdd27aaaade965a01a7a2ad7ddb6"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/registry",
+        "url": "http://127.0.0.1:58284/registry",
         "title": "Gummy UI component registry · Editable React source",
         "h1": "Install source. Keep control.",
         "canonical": "https://gummyui.dev/registry",
@@ -1184,8 +1160,8 @@
               "id": null,
               "className": "",
               "left": 35,
-              "right": 374.11,
-              "width": 339.11
+              "right": 425.73,
+              "width": 390.73
             }
           ],
           "intrinsicOverflow": [],
@@ -1232,7 +1208,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2229
+        "bodyTextCharacters": 2239
       }
     },
     {
@@ -1245,11 +1221,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 41017,
-        "bodySha256": "50794092fdf78e958ac10466341c374e59b11a120cd57612e6b71d7398ad6ed5"
+        "bytes": 41107,
+        "bodySha256": "e469805f7893459620eea0378a963c9965d6055517b885dc498193e2b8f36b11"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/blog",
+        "url": "http://127.0.0.1:58284/blog",
         "title": "Gummy UI articles · Accessible React and design systems",
         "h1": "Design decisions, in the open.",
         "canonical": "https://gummyui.dev/blog",
@@ -1321,7 +1297,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 5278
+        "bodyTextCharacters": 5288
       }
     },
     {
@@ -1334,14 +1310,14 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 23872,
-        "bodySha256": "8de603f395b66680cb7eda77ea2b65b519adbefcaffad2d9cd7c80849575f0be"
+        "bytes": 24317,
+        "bodySha256": "a076321575ad104b24138155551254839b99c350fd47966f32de9891126babfe"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/changelog",
-        "title": "Changelog · Gummy UI",
+        "url": "http://127.0.0.1:58284/changelog",
+        "title": "Changelog for Gummy UI components and releases",
         "h1": "Built in dependency order.",
-        "canonical": null,
+        "canonical": "https://gummyui.dev/changelog",
         "robots": null,
         "lang": "en",
         "rootDirectionAttribute": null,
@@ -1410,7 +1386,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1717
+        "bodyTextCharacters": 1727
       }
     },
     {
@@ -1423,11 +1399,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 22369,
-        "bodySha256": "376352c90de239efff09a795f4168861a4610ad1b342c2f54f69143deaf23c91"
+        "bytes": 22459,
+        "bodySha256": "789b0eab399e0b6619d9329065324c8f702618dc493a75e36855c37a2a647842"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/pro",
+        "url": "http://127.0.0.1:58284/pro",
         "title": "Gummy UI Pro implementation and release status",
         "h1": "Pro is implemented and awaiting release review.",
         "canonical": "https://gummyui.dev/pro",
@@ -1499,7 +1475,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1882
+        "bodyTextCharacters": 1892
       }
     },
     {
@@ -1512,11 +1488,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 32592,
-        "bodySha256": "0974b9dd4b4970a6dd214a820318bc5a135577e95deb09e8e5bea92b37b84329"
+        "bytes": 32646,
+        "bodySha256": "cefc6a62bc69c73b1809b9de0b63d5999043026c532ad5460ce62a1649c9e89e"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/blocks",
+        "url": "http://127.0.0.1:58284/blocks",
         "title": "Pro block catalogue specification · Gummy UI",
         "h1": "158 original blocks in a gated private catalogue.",
         "canonical": "https://gummyui.dev/blocks",
@@ -1607,7 +1583,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 3711
+        "bodyTextCharacters": 3721
       }
     },
     {
@@ -1620,12 +1596,12 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 21161,
-        "bodySha256": "46ecfe6f19a1dcedb6b5c09876961553f9cec7db038cc41249252ca52d24e903"
+        "bytes": 21157,
+        "bodySha256": "a2b984a8531519816229ef0587269eaff27db6e4ac623c3fb64b747a38a65427"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/blocks/about",
-        "title": "About Gummy UI Pro blocks · Implementation status",
+        "url": "http://127.0.0.1:58284/blocks/about",
+        "title": "About React UI Pro blocks · Gummy UI",
         "h1": "About",
         "canonical": "https://gummyui.dev/blocks/about",
         "robots": "index, follow",
@@ -1696,7 +1672,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1143
+        "bodyTextCharacters": 1153
       }
     },
     {
@@ -1709,11 +1685,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 20754,
-        "bodySha256": "971be3c83c536531c9aeaffdff59767a5f66f6f0b8b87df6f339930e4a682f6e"
+        "bytes": 20844,
+        "bodySha256": "86b6b32f64255bed7e8b5b3cda41606054d8bc8a7fa2779f83fc103109ab0c4b"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/blocks/about/origin-ribbon",
+        "url": "http://127.0.0.1:58284/blocks/about/origin-ribbon",
         "title": "Origin ribbon Pro block status · Gummy UI",
         "h1": "Origin ribbon",
         "canonical": "https://gummyui.dev/blocks/about/origin-ribbon",
@@ -1785,7 +1761,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1238
+        "bodyTextCharacters": 1248
       }
     },
     {
@@ -1798,11 +1774,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 23101,
-        "bodySha256": "c03e19726ed83dc9453662b050283820a0bc17745da4e0ab20006dc8cac8a696"
+        "bytes": 23123,
+        "bodySha256": "8e6d793fc27a4f2559e3e6b6505d5cc5969dfc852c514b45d0b84b2c5cc854f4"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/templates",
+        "url": "http://127.0.0.1:58284/templates",
         "title": "Pro template implementation status · Gummy UI",
         "h1": "6 original product implementations.",
         "canonical": "https://gummyui.dev/templates",
@@ -1874,7 +1850,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1673
+        "bodyTextCharacters": 1683
       }
     },
     {
@@ -1887,11 +1863,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 21408,
-        "bodySha256": "af0fa78caa83ffdfd9ef2ddda6eeaa1ff911a7a65484a97cd34cf73e696af737"
+        "bytes": 21498,
+        "bodySha256": "577746a84a20c727862d117d3d053b97bb4328117ff828a46b0d5812369895ab"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/templates/relay-forge",
+        "url": "http://127.0.0.1:58284/templates/relay-forge",
         "title": "Relay Forge Pro template status · Gummy UI",
         "h1": "Relay Forge",
         "canonical": "https://gummyui.dev/templates/relay-forge",
@@ -1963,7 +1939,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1385
+        "bodyTextCharacters": 1395
       }
     },
     {
@@ -1976,11 +1952,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 20194,
-        "bodySha256": "a550c48f24a6daca6e196832f3cf7c4afcbea496d1a2a77a9071c67432733e3e"
+        "bytes": 20232,
+        "bodySha256": "924418ca9c7ad75ef4a31116025f307ef6d53cfc90987d6112f76c8b082bf5db"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/design-kit",
+        "url": "http://127.0.0.1:58284/design-kit",
         "title": "Gummy UI Pro design kit status",
         "h1": "The code-aligned local materializer is implemented, not released.",
         "canonical": "https://gummyui.dev/design-kit",
@@ -2052,7 +2028,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1437
+        "bodyTextCharacters": 1447
       }
     },
     {
@@ -2065,12 +2041,12 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 40141,
-        "bodySha256": "f1ff23eb1f61d1da7c6ae7ef3d68323f381b77c150fdff8b18e162e0b44c94c1"
+        "bytes": 40277,
+        "bodySha256": "2683b7298fb5a0f86ff3402d0d3dd7010201e8e2173c072d7070712da2061fff"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/pricing",
-        "title": "Gummy UI Pro pricing",
+        "url": "http://127.0.0.1:58284/pricing",
+        "title": "Pricing plans and licences for Gummy UI Pro",
         "h1": "All-access pricing for every team size.",
         "canonical": "https://gummyui.dev/pricing",
         "robots": "index, follow",
@@ -2141,7 +2117,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 5638
+        "bodyTextCharacters": 5648
       }
     },
     {
@@ -2154,11 +2130,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 21207,
-        "bodySha256": "476da478b7406c652f2465f5c4b79720a13935f8b441e71dff6c47d6ec4825e4"
+        "bytes": 21297,
+        "bodySha256": "4c4ef1dfded61418af32107495e9d670425cf41376d2da2517a0b698249f05a6"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/accessibility",
+        "url": "http://127.0.0.1:58284/accessibility",
         "title": "Gummy UI accessibility contract and verification status",
         "h1": "A visible, testable contract.",
         "canonical": "https://gummyui.dev/accessibility",
@@ -2230,7 +2206,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1715
+        "bodyTextCharacters": 1725
       }
     },
     {
@@ -2243,11 +2219,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 22682,
-        "bodySha256": "19a7c5fa726524ba7c869c4e30c71a333703b53345410dfa27a9805806ff6159"
+        "bytes": 22714,
+        "bodySha256": "465131d365938a6f486b5b76c4dcceae26baa5429cd5a8e5d616cddd1deb60a1"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/security",
+        "url": "http://127.0.0.1:58284/security",
         "title": "Gummy UI security and disclosure status",
         "h1": "Small surface. Explicit boundary.",
         "canonical": "https://gummyui.dev/security",
@@ -2319,7 +2295,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2426
+        "bodyTextCharacters": 2407
       }
     },
     {
@@ -2332,11 +2308,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 22033,
-        "bodySha256": "382c91de34736ed076cad0d321510587cacdcc7bdc8ec17265bce5593ae8980b"
+        "bytes": 22123,
+        "bodySha256": "c6d26c783500cee5b571ea79bdd202230192d312ec5f71516265495311a0a026"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/support",
+        "url": "http://127.0.0.1:58284/support",
         "title": "Gummy UI support and issue-routing guidance",
         "h1": "Start with evidence.",
         "canonical": "https://gummyui.dev/support",
@@ -2408,7 +2384,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1780
+        "bodyTextCharacters": 1790
       }
     },
     {
@@ -2421,12 +2397,12 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 19823,
-        "bodySha256": "0c971ec49adfce39aadd8de72610d470dde278e36ec602f76f7a3885c9f17b1e"
+        "bytes": 20033,
+        "bodySha256": "daad199bae875fed1dcf04aee9a417d08150f2d64a553576f3ef4eb52c277b7b"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/contact",
-        "title": "Contact Gummy UI",
+        "url": "http://127.0.0.1:58284/contact",
+        "title": "Contact Gummy UI support and licensing",
         "h1": "Contact Gummy UI.",
         "canonical": "https://gummyui.dev/contact",
         "robots": null,
@@ -2497,7 +2473,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1101
+        "bodyTextCharacters": 1111
       }
     },
     {
@@ -2510,12 +2486,12 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 29617,
-        "bodySha256": "c1f43f7921f5676b6874b789c9bd774a858aa213fe44ad348a3cbbfb9cc763de"
+        "bytes": 29709,
+        "bodySha256": "149718aa5f0ee710b912db2c4f5058cd28cd7bf07080e4609e879b53ed6772a1"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/privacy",
-        "title": "Gummy UI privacy notice",
+        "url": "http://127.0.0.1:58284/privacy",
+        "title": "Privacy notice for Gummy UI customers",
         "h1": "Your data is for access, delivery and support.",
         "canonical": "https://gummyui.dev/privacy",
         "robots": "index, follow",
@@ -2586,7 +2562,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 4887
+        "bodyTextCharacters": 4884
       }
     },
     {
@@ -2599,11 +2575,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 31782,
-        "bodySha256": "042f3266fbc390b6cc3d87a865f17211cbb29a5014ece5d857865f0d1e654d53"
+        "bytes": 31872,
+        "bodySha256": "f54b8bbb1e8f3726a5c4352e31c97d723eff2093e681b7e3621037697f02f0ef"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/terms",
+        "url": "http://127.0.0.1:58284/terms",
         "title": "Gummy UI terms of sale and website use",
         "h1": "Terms for the website and paid product.",
         "canonical": "https://gummyui.dev/terms",
@@ -2675,7 +2651,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 6004
+        "bodyTextCharacters": 6014
       }
     },
     {
@@ -2688,11 +2664,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 21288,
-        "bodySha256": "75576f2e12e84f7d67b510b2bf6d6f01aa3c180ede1f0680de1258792684c86e"
+        "bytes": 21378,
+        "bodySha256": "5890dd4e9e5d871d92179dc4d6bc59f051915bf2fcb3e22339e1a9450567d2e1"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/license",
+        "url": "http://127.0.0.1:58284/license",
         "title": "MIT licence for the public Gummy UI component source",
         "h1": "The public component source is MIT licensed.",
         "canonical": "https://gummyui.dev/license",
@@ -2725,8 +2701,8 @@
               "id": null,
               "className": "",
               "left": 35,
-              "right": 467.44,
-              "width": 432.44
+              "right": 551.56,
+              "width": 516.56
             }
           ],
           "intrinsicOverflow": [],
@@ -2773,7 +2749,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1921
+        "bodyTextCharacters": 1931
       }
     },
     {
@@ -2786,11 +2762,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 31823,
-        "bodySha256": "cbd4d803da7de528b54645d3575fd329b29acae8d2765f89b559ac36b673e556"
+        "bytes": 31913,
+        "bodySha256": "25d5be9011ef5a1ca3de25e668b48d6d20140a577eaeca34f96ae6cee4e82868"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/commercial-license",
+        "url": "http://127.0.0.1:58284/commercial-license",
         "title": "Gummy UI Pro commercial licence",
         "h1": "Build products. Do not redistribute the kit.",
         "canonical": "https://gummyui.dev/commercial-license",
@@ -2862,7 +2838,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 6125
+        "bodyTextCharacters": 6135
       }
     },
     {
@@ -2875,12 +2851,12 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 24711,
-        "bodySha256": "07a6553408af6f179a75b9ee7a32bb71d69ba5566af34d0d6798d07d6eff47e5"
+        "bytes": 24845,
+        "bodySha256": "c7bc4093295e49cf124544b23523a8424528008eb0b913a659f08d5b219b4eae"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/refund",
-        "title": "Gummy UI refund policy",
+        "url": "http://127.0.0.1:58284/refund",
+        "title": "Gummy UI refund and access revocation policy",
         "h1": "Fourteen days, before paid files are accessed.",
         "canonical": "https://gummyui.dev/refund",
         "robots": "index, follow",
@@ -2951,7 +2927,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 3109
+        "bodyTextCharacters": 3119
       }
     },
     {
@@ -2964,11 +2940,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 39634,
-        "bodySha256": "d8801a7522449ccc1c94a82f656b1ee5e3dc55711d01b3530845b66a75ff8ce9"
+        "bytes": 39662,
+        "bodySha256": "b150a9d47613acae1c2b8d025f4beaddb1c67612723dc8729f4511a1c1e13e5b"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/locales",
+        "url": "http://127.0.0.1:58284/locales",
         "title": "Language availability · Gummy UI",
         "h1": "English is the only published language today.",
         "canonical": "https://gummyui.dev/locales",
@@ -3046,17 +3022,17 @@
               "tag": "th",
               "id": null,
               "className": "",
-              "left": 306.91,
-              "right": 406.31,
-              "width": 99.41
+              "left": 306.28,
+              "right": 405.84,
+              "width": 99.56
             },
             {
               "tag": "th",
               "id": null,
               "className": "",
-              "left": 406.31,
+              "left": 405.84,
               "right": 676,
-              "width": 269.69
+              "width": 270.16
             },
             {
               "tag": "tbody",
@@ -3078,32 +3054,32 @@
               "tag": "td",
               "id": null,
               "className": "",
-              "left": 306.91,
-              "right": 406.31,
-              "width": 99.41
+              "left": 306.28,
+              "right": 405.84,
+              "width": 99.56
             },
             {
               "tag": "code",
               "id": null,
               "className": "",
-              "left": 322.91,
-              "right": 359.11,
-              "width": 36.2
+              "left": 322.28,
+              "right": 351.19,
+              "width": 28.91
             },
             {
               "tag": "td",
               "id": null,
               "className": "",
-              "left": 406.31,
+              "left": 405.84,
               "right": 676,
-              "width": 269.69
+              "width": 270.16
             },
             {
               "tag": "span",
               "id": null,
               "className": "locale-status-table__status",
-              "left": 422.31,
-              "right": 491.69,
+              "left": 421.84,
+              "right": 491.22,
               "width": 69.38
             },
             {
@@ -3159,7 +3135,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2708
+        "bodyTextCharacters": 2718
       }
     },
     {
@@ -3172,11 +3148,11 @@
         "cacheControl": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
         "xRobotsTag": null,
         "location": null,
-        "bytes": 21639,
-        "bodySha256": "91dd91c9c3437532649b771fa93fc2b6ee356f9bb3b817390eb7abfecd6149a6"
+        "bytes": 21729,
+        "bodySha256": "14afeab25b2a6e2c97d34019ae522f3c4ac6e114b3c872d321425b59802b25a1"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/mcp",
+        "url": "http://127.0.0.1:58284/mcp",
         "title": "AI and MCP discovery · Gummy UI",
         "h1": "A catalogue agents can inspect safely.",
         "canonical": "https://gummyui.dev/mcp",
@@ -3248,7 +3224,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1582
+        "bodyTextCharacters": 1592
       }
     }
   ],
@@ -3263,11 +3239,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 18792,
-        "bodySha256": "67bc71a441c4ea608858b8da019cefbeb832d14439193772fe42e8ae18dea96a"
+        "bytes": 18882,
+        "bodySha256": "2e26bb3e07839443aae0cc700bc0326ed48ed4c5978acf2f77b33656a1f5b827"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/sign-in",
+        "url": "http://127.0.0.1:58284/sign-in",
         "title": "Secure account sign-in · Gummy UI",
         "h1": "Secure customer sign-in.",
         "canonical": null,
@@ -3339,7 +3315,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 841
+        "bodyTextCharacters": 851
       }
     },
     {
@@ -3352,11 +3328,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 19362,
-        "bodySha256": "2909e0f1fa7e8d59497fe722266ee0a4ada56bd7d7d6e66424494120cfdf1c18"
+        "bytes": 19452,
+        "bodySha256": "30a509f0352861a0eae4c5e81dd60383403797de480b5ad1317b660d7a5fd79b"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/checkout",
+        "url": "http://127.0.0.1:58284/checkout",
         "title": "Checkout status · Gummy UI",
         "h1": "No purchase can be started.",
         "canonical": null,
@@ -3428,7 +3404,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1073
+        "bodyTextCharacters": 1083
       }
     },
     {
@@ -3441,11 +3417,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22158,
-        "bodySha256": "4ca7c7c11304a5f906722dd339fb7dd2d162dcf8db0d9a47095b4f454881947a"
+        "bytes": 22248,
+        "bodySha256": "8786fa5ac87c014a9ca381522eb4b505ff959078a07205c4e32b5d4e98fcd07b"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account",
+        "url": "http://127.0.0.1:58284/account",
         "title": "Workspace overview · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3517,7 +3493,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -3530,11 +3506,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22185,
-        "bodySha256": "a595ed4e0f457964581df471faa0ed6cd86232bee4702df38e5181467835108f"
+        "bytes": 22275,
+        "bodySha256": "79b8ec58628accf58ed7151e7d124241309a60cd1431f1e9ca1ec7d8df09a3ba"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/purchases",
+        "url": "http://127.0.0.1:58284/account/purchases",
         "title": "Purchases · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3606,7 +3582,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -3619,11 +3595,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22183,
-        "bodySha256": "efdbf150d2193da3b0db1b419d590ab3f7f1e0085bb649a2b2343afdafdb42b9"
+        "bytes": 22273,
+        "bodySha256": "18b8114a663f68e1e90328ad30aeb2d30e6df5b13276c56377fbed2ba0cb0c83"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/licences",
+        "url": "http://127.0.0.1:58284/account/licences",
         "title": "Licences · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3695,7 +3671,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -3708,11 +3684,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22190,
-        "bodySha256": "0cb2486bd3d4121e1ec24caf5682a951c5bab5c22b8e32479fbe60df7c23c863"
+        "bytes": 22280,
+        "bodySha256": "7f310dca2102fe1b83fb396df9c492242d2ccfd29db28780bee9c91efdb32b5d"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/downloads",
+        "url": "http://127.0.0.1:58284/account/downloads",
         "title": "Downloads · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3784,7 +3760,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -3797,11 +3773,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22160,
-        "bodySha256": "d1a4ce575dcd491052b7a2b426fcd937cff4028da85a6b271fa1c00ee34908f4"
+        "bytes": 22250,
+        "bodySha256": "7f3e1ff7aa87313510d3f181f43c4c8599d59c8e3c7f01525b9532c7ed624bc6"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/billing",
+        "url": "http://127.0.0.1:58284/account/billing",
         "title": "Billing · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3873,7 +3849,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -3886,11 +3862,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22117,
-        "bodySha256": "3e2760a3754c43b45112f6e391f1d1e758f463be2b7aedcc1a0e62604e7b32c1"
+        "bytes": 22207,
+        "bodySha256": "a2e220643399dffe8d6fb982f9c0b829e472ee8880236cafda126b331aecc899"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/team",
+        "url": "http://127.0.0.1:58284/account/team",
         "title": "Team · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -3962,7 +3938,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -3975,11 +3951,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22189,
-        "bodySha256": "8e8f7363c2dd64c41393348a8371a1332e8196c3a89f46c86f04fe4399fd7153"
+        "bytes": 22279,
+        "bodySha256": "4ba161b20f4cd4a0698175e8850ac958f4979ccadf09429d207af81519038c95"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/team/members",
+        "url": "http://127.0.0.1:58284/account/team/members",
         "title": "Members · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4051,7 +4027,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -4064,11 +4040,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22240,
-        "bodySha256": "db12ef1c408cd86640723fb914a8b6a31aae95f0546386fcf97301b84fea3e83"
+        "bytes": 22330,
+        "bodySha256": "2e92a6e86f22cf010c979e0b2c1642a81f51e081e500f33d99093b01fda5c257"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/team/invitations",
+        "url": "http://127.0.0.1:58284/account/team/invitations",
         "title": "Invitations · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4140,7 +4116,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -4153,11 +4129,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22166,
-        "bodySha256": "382cfb8ca93182ea883021bd05986ed68641c0cffeff84fd7b839005aa46c4fa"
+        "bytes": 22256,
+        "bodySha256": "1316e8b780b7e6310b44826683ad35d444a83a113676c98c152baec6d9dd5ae3"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/profile",
+        "url": "http://127.0.0.1:58284/account/profile",
         "title": "Profile · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4229,7 +4205,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -4242,11 +4218,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22175,
-        "bodySha256": "8b4911b3182a92325e865a01536899b28e52c1bbe39b3d1b7951fc142bfdfb54"
+        "bytes": 22265,
+        "bodySha256": "c4bc4eb168459a9ca6a339bb7c60e987a74c0dc3a7772f3b3f6a7cf972907944"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/security",
+        "url": "http://127.0.0.1:58284/account/security",
         "title": "Security · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4318,7 +4294,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -4331,11 +4307,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22153,
-        "bodySha256": "afbea7c55e5b7dc57966d5f45235b5587a8530f8e0e373edb27ad0a55892af30"
+        "bytes": 22243,
+        "bodySha256": "00937b653ff0f5465d07608d49b39129312019b93a634c93267b843228866630"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/privacy",
+        "url": "http://127.0.0.1:58284/account/privacy",
         "title": "Privacy · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4407,7 +4383,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -4420,11 +4396,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22245,
-        "bodySha256": "9e7cfa424b7bb595e4c935e513b3feafb7c3cb9c806c3815846e9787dfb55bac"
+        "bytes": 22335,
+        "bodySha256": "6d28c5d5e008f811b69a56aa1e23a3e1068b08c8af60a3aaf5f2e64b243e0aa1"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/privacy/export",
+        "url": "http://127.0.0.1:58284/account/privacy/export",
         "title": "Data export · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4496,7 +4472,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     },
     {
@@ -4509,11 +4485,11 @@
         "cacheControl": "private, no-store",
         "xRobotsTag": "noindex, nofollow, noarchive",
         "location": null,
-        "bytes": 22233,
-        "bodySha256": "6d59ed1f81e5c84456c0bc73cb8cd9d44ec8d8dc79b839d99c3bba5bdb387e84"
+        "bytes": 22323,
+        "bodySha256": "a6ba78a4949aa61e1ba23aa144f93a063d9884793f580ee1016a5392221fd4ff"
       },
       "page": {
-        "url": "http://127.0.0.1:59950/account/privacy/deletion",
+        "url": "http://127.0.0.1:58284/account/privacy/deletion",
         "title": "Deletion · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -4585,7 +4561,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       }
     }
   ],
@@ -4633,7 +4609,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:59950/",
+        "url": "http://127.0.0.1:58284/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -4682,7 +4658,7 @@
             },
             {
               "tag": "div",
-              "id": "base-ui-_R_l2t6_",
+              "id": "base-ui-_R_2kbl6_",
               "className": "gummy-tabs__panel",
               "clientWidth": 551,
               "scrollWidth": 560,
@@ -4805,7 +4781,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2550
+        "bodyTextCharacters": 2560
       },
       "reducedMotionEvidence": {
         "mediaMatches": false,
@@ -4870,28 +4846,28 @@
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_cd2t6_",
+            "id": "base-ui-_R_1hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_kd2t6_",
+            "id": "base-ui-_R_2hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_sd2t6_",
+            "id": "base-ui-_R_3hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "div",
-            "id": "base-ui-_R_l2t6_",
+            "id": "base-ui-_R_2kbl6_",
             "className": "gummy-tabs__panel",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 200
@@ -4900,8 +4876,8 @@
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
-        "bytes": 514838,
-        "sha256": "3aa21929f2d71052483939e7a21ca7b93d306c07ef75ae7dda2795ccda4039d9"
+        "bytes": 514294,
+        "sha256": "683b388f1f0aca3ac030d64b5d41adf3073a9cf089b1decf142fe294eb6fc03c"
       }
     },
     {
@@ -4913,7 +4889,7 @@
       "colourScheme": "dark",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:59950/",
+        "url": "http://127.0.0.1:58284/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -4962,7 +4938,7 @@
             },
             {
               "tag": "div",
-              "id": "base-ui-_R_l2t6_",
+              "id": "base-ui-_R_2kbl6_",
               "className": "gummy-tabs__panel",
               "clientWidth": 551,
               "scrollWidth": 560,
@@ -5085,7 +5061,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2550
+        "bodyTextCharacters": 2560
       },
       "reducedMotionEvidence": {
         "mediaMatches": false,
@@ -5150,28 +5126,28 @@
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_cd2t6_",
+            "id": "base-ui-_R_1hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_kd2t6_",
+            "id": "base-ui-_R_2hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_sd2t6_",
+            "id": "base-ui-_R_3hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "div",
-            "id": "base-ui-_R_l2t6_",
+            "id": "base-ui-_R_2kbl6_",
             "className": "gummy-tabs__panel",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 200
@@ -5180,8 +5156,8 @@
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
-        "bytes": 524866,
-        "sha256": "dd61ff2f523ec041d7a384068c5fac201a7ef3a631c251b6371b8d6bdfe15774"
+        "bytes": 522454,
+        "sha256": "3555e2cbd71285c1e9a9f2939bbffff5cc605466607ed7bc9046ba515e1313a2"
       }
     },
     {
@@ -5193,7 +5169,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:59950/",
+        "url": "http://127.0.0.1:58284/",
         "title": "Gummy UI · Deliberately designed React components",
         "h1": "Make vibe-coded products feel deliberately designed.",
         "canonical": "https://gummyui.dev/",
@@ -5242,7 +5218,7 @@
             },
             {
               "tag": "div",
-              "id": "base-ui-_R_l2t6_",
+              "id": "base-ui-_R_2kbl6_",
               "className": "gummy-tabs__panel",
               "clientWidth": 256,
               "scrollWidth": 264,
@@ -5365,7 +5341,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 2407
+        "bodyTextCharacters": 2417
       },
       "reducedMotionEvidence": {
         "mediaMatches": false,
@@ -5430,28 +5406,28 @@
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_cd2t6_",
+            "id": "base-ui-_R_1hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_kd2t6_",
+            "id": "base-ui-_R_2hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "button",
-            "id": "base-ui-_R_sd2t6_",
+            "id": "base-ui-_R_3hkbl6_",
             "className": "gummy-tabs__tab",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 190
           },
           {
             "tag": "div",
-            "id": "base-ui-_R_l2t6_",
+            "id": "base-ui-_R_2kbl6_",
             "className": "gummy-tabs__panel",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 200
@@ -5460,8 +5436,8 @@
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
-        "bytes": 233254,
-        "sha256": "2cd6f736e1a07587f11e426b747a926eb43459347d5d285f1e86c8ded88f4ced"
+        "bytes": 231583,
+        "sha256": "dd47d9cbcab811b4138164e80aa7d239b40ddb7da731d1daf7ffead9690b2f48"
       }
     },
     {
@@ -5473,7 +5449,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:59950/components/accordion",
+        "url": "http://127.0.0.1:58284/components/accordion",
         "title": "Accordion React component · Gummy UI",
         "h1": "Accordion",
         "canonical": "https://gummyui.dev/components/accordion",
@@ -5500,40 +5476,7 @@
           "scrollWidth": 320,
           "bodyScrollWidth": 320,
           "hasHorizontalOverflow": false,
-          "beyondViewport": [
-            {
-              "tag": "pre",
-              "id": null,
-              "className": "",
-              "left": 17,
-              "right": 591.61,
-              "width": 574.61
-            },
-            {
-              "tag": "code",
-              "id": null,
-              "className": "",
-              "left": 37,
-              "right": 571.61,
-              "width": 534.61
-            },
-            {
-              "tag": "pre",
-              "id": null,
-              "className": "",
-              "left": 17,
-              "right": 571.81,
-              "width": 554.81
-            },
-            {
-              "tag": "code",
-              "id": null,
-              "className": "",
-              "left": 37,
-              "right": 551.81,
-              "width": 514.81
-            }
-          ],
+          "beyondViewport": [],
           "intrinsicOverflow": [],
           "overflowIsolation": null
         },
@@ -5578,12 +5521,12 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 8012
+        "bodyTextCharacters": 3073
       },
       "reducedMotionEvidence": {
         "mediaMatches": false,
         "maximumAnimationMilliseconds": 0,
-        "maximumTransitionMilliseconds": 220,
+        "maximumTransitionMilliseconds": 160,
         "offenders": [
           {
             "tag": "a",
@@ -5591,90 +5534,13 @@
             "className": "skip-link",
             "animationMilliseconds": 0,
             "transitionMilliseconds": 160
-          },
-          {
-            "tag": "button",
-            "id": null,
-            "className": "",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 150
-          },
-          {
-            "tag": "button",
-            "id": null,
-            "className": "",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 150
-          },
-          {
-            "tag": "button",
-            "id": null,
-            "className": "",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 150
-          },
-          {
-            "tag": "button",
-            "id": null,
-            "className": "",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 150
-          },
-          {
-            "tag": "button",
-            "id": null,
-            "className": "",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 150
-          },
-          {
-            "tag": "button",
-            "id": null,
-            "className": "",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 150
-          },
-          {
-            "tag": "button",
-            "id": null,
-            "className": "",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 150
-          },
-          {
-            "tag": "div",
-            "id": null,
-            "className": "component-inspector__viewport",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 220
-          },
-          {
-            "tag": "span",
-            "id": null,
-            "className": "gummy-accordion__indicator",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 180
-          },
-          {
-            "tag": "div",
-            "id": "base-ui-_R_bgtd6H1_",
-            "className": "gummy-accordion__panel",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 180
-          },
-          {
-            "tag": "span",
-            "id": null,
-            "className": "gummy-accordion__indicator",
-            "animationMilliseconds": 0,
-            "transitionMilliseconds": 180
           }
         ]
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/component-200-percent-equivalent-reflow.png",
-        "bytes": 442474,
-        "sha256": "1df0662059ec3f8e3f1bc0102018d9973ef822ea29fb59ef5c30c797a461ca21"
+        "bytes": 471139,
+        "sha256": "5883471e8fd202aab9061057427d3199e8c694aca432f41484295ed5ca6f69e6"
       }
     },
     {
@@ -5686,7 +5552,7 @@
       "colourScheme": "light",
       "reducedMotion": "no-preference",
       "page": {
-        "url": "http://127.0.0.1:59950/rtl",
+        "url": "http://127.0.0.1:58284/rtl",
         "title": "Gummy UI RTL support · Direction and keyboard behavior",
         "h1": "RTL is part of the component contract.",
         "canonical": "https://gummyui.dev/rtl",
@@ -5766,7 +5632,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 1109
+        "bodyTextCharacters": 1119
       },
       "reducedMotionEvidence": {
         "mediaMatches": false,
@@ -5797,7 +5663,7 @@
       "colourScheme": "light",
       "reducedMotion": "reduce",
       "page": {
-        "url": "http://127.0.0.1:59950/components/accordion",
+        "url": "http://127.0.0.1:58284/components/accordion",
         "title": "Accordion React component · Gummy UI",
         "h1": "Accordion",
         "canonical": "https://gummyui.dev/components/accordion",
@@ -5869,7 +5735,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 8048
+        "bodyTextCharacters": 3109
       },
       "reducedMotionEvidence": {
         "mediaMatches": true,
@@ -5879,8 +5745,8 @@
       },
       "screenshot": {
         "file": "docs/audits/evidence/browser-production-2026-07-27/component-reduced-motion.png",
-        "bytes": 251862,
-        "sha256": "fe8095f8a86c5cbebf40a6e23d4abe63b05ff94a6afe818a535c4293ee3727e1"
+        "bytes": 311891,
+        "sha256": "8e2aac628dd97bc912e405e4d6cac696a7b8cb9dc2da7750c61bb9b497bfa70e"
       }
     },
     {
@@ -5892,7 +5758,7 @@
       "colourScheme": "light",
       "reducedMotion": "reduce",
       "page": {
-        "url": "http://127.0.0.1:59950/account",
+        "url": "http://127.0.0.1:58284/account",
         "title": "Workspace overview · Gummy UI account",
         "h1": "Sign in to continue.",
         "canonical": null,
@@ -5964,7 +5830,7 @@
           ],
           "collisions": []
         },
-        "bodyTextCharacters": 749
+        "bodyTextCharacters": 759
       },
       "reducedMotionEvidence": {
         "mediaMatches": true,
@@ -6246,25 +6112,25 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_cd2t6_"
+                  "#base-ui-_R_1hkbl6_"
                 ],
-                "html": "<button type=\"button\" data-active=\"\" data-orientation=\"horizontal\" data-activation-direction=\"none\" aria-disabled=\"false\" tabindex=\"0\" role=\"tab\" aria-selected=\"true\" id=\"base-ui-_R_cd2t6_\" data-composite-item-active=\"\" class=\"gummy-tabs__tab\" aria-controls=\"base-ui-_R_l2t6_\">Overview</button>",
+                "html": "<button type=\"button\" data-active=\"\" data-orientation=\"horizontal\" data-activation-direction=\"none\" aria-disabled=\"false\" tabindex=\"0\" role=\"tab\" aria-selected=\"true\" id=\"base-ui-_R_1hkbl6_\" data-composite-item-active=\"\" class=\"gummy-tabs__tab\" aria-controls=\"base-ui-_R_2kbl6_\">Overview</button>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
               },
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_kd2t6_"
+                  "#base-ui-_R_2hkbl6_"
                 ],
-                "html": "<button type=\"button\" data-orientation=\"horizontal\" data-activation-direction=\"none\" aria-disabled=\"false\" tabindex=\"-1\" role=\"tab\" aria-selected=\"false\" id=\"base-ui-_R_kd2t6_\" class=\"gummy-tabs__tab\">Activity</button>",
+                "html": "<button type=\"button\" data-orientation=\"horizontal\" data-activation-direction=\"none\" aria-disabled=\"false\" tabindex=\"-1\" role=\"tab\" aria-selected=\"false\" id=\"base-ui-_R_2hkbl6_\" class=\"gummy-tabs__tab\">Activity</button>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
               },
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_sd2t6_"
+                  "#base-ui-_R_3hkbl6_"
                 ],
-                "html": "<button type=\"button\" data-orientation=\"horizontal\" data-activation-direction=\"none\" aria-disabled=\"false\" tabindex=\"-1\" role=\"tab\" aria-selected=\"false\" id=\"base-ui-_R_sd2t6_\" class=\"gummy-tabs__tab\">Team</button>",
+                "html": "<button type=\"button\" data-orientation=\"horizontal\" data-activation-direction=\"none\" aria-disabled=\"false\" tabindex=\"-1\" role=\"tab\" aria-selected=\"false\" id=\"base-ui-_R_3hkbl6_\" class=\"gummy-tabs__tab\">Team</button>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
               },
               {
@@ -6326,7 +6192,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__header > div:nth-child(2) > .gummy-card__description"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__header > div:nth-child(2) > .gummy-card__description"
                 ],
                 "html": "<p class=\"gummy-card__description\">Weekly delivery is on track.</p>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
@@ -6334,7 +6200,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(1) > dt"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(1) > dt"
                 ],
                 "html": "<dt>Shipped</dt>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
@@ -6342,7 +6208,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(1) > dd"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(1) > dd"
                 ],
                 "html": "<dd>24</dd>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
@@ -6350,7 +6216,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(2) > dt"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(2) > dt"
                 ],
                 "html": "<dt>In review</dt>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
@@ -6358,7 +6224,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(2) > dd"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(2) > dd"
                 ],
                 "html": "<dd>6</dd>",
                 "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
@@ -6366,7 +6232,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(3) > dt"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(3) > dt"
                 ],
                 "html": "<dt>At risk</dt>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
@@ -6374,7 +6240,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(3) > dd"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__content > .composition-metrics > div:nth-child(3) > dd"
                 ],
                 "html": "<dd>2</dd>",
                 "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
@@ -6382,7 +6248,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__footer > span"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__footer > span"
                 ],
                 "html": "<span>Updated 12 min ago</span>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
@@ -6390,7 +6256,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#base-ui-_R_l2t6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__footer > strong"
+                  "#base-ui-_R_2kbl6_ > .composition-project-card[data-elevation=\"elevated\"][data-selected=\"true\"] > .gummy-card__footer > strong"
                 ],
                 "html": "<strong>Healthy cadence</strong>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
@@ -6496,15 +6362,15 @@
                 "target": [
                   ".gummy-input__label"
                 ],
-                "html": "<label class=\"gummy-input__label\" for=\"gummy-input-_R_1l4t6_\">Search projects</label>",
+                "html": "<label class=\"gummy-input__label\" for=\"gummy-input-_R_6kjl6_\">Search projects</label>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
               },
               {
                 "impact": "serious",
                 "target": [
-                  "#gummy-input-_R_1l4t6_"
+                  "#gummy-input-_R_6kjl6_"
                 ],
-                "html": "<input placeholder=\"Search by name\" id=\"gummy-input-_R_1l4t6_\" class=\"gummy-input__field\" name=\"dashboard-search\">",
+                "html": "<input placeholder=\"Search by name\" id=\"gummy-input-_R_6kjl6_\" class=\"gummy-input__field\" name=\"dashboard-search\">",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
               },
               {
@@ -6982,6 +6848,14 @@
               {
                 "impact": "serious",
                 "target": [
+                  "a[href$=\"changelog\"]"
+                ],
+                "html": "<a href=\"/changelog\">Changelog</a>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "a[href$=\"rss.xml\"]"
                 ],
                 "html": "<a href=\"/rss.xml\">RSS</a>",
@@ -7102,7 +6976,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "a[href$=\"license\"]:nth-child(27)"
+                  "a[href$=\"license\"]:nth-child(28)"
                 ],
                 "html": "<a href=\"/license\">MIT licence</a>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
@@ -8499,6 +8373,14 @@
               {
                 "impact": "serious",
                 "target": [
+                  "a[href$=\"changelog\"]"
+                ],
+                "html": "<a href=\"/changelog\">Changelog</a>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "a[href$=\"rss.xml\"]"
                 ],
                 "html": "<a href=\"/rss.xml\">RSS</a>",
@@ -8619,7 +8501,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "a[href$=\"license\"]:nth-child(27)"
+                  "a[href$=\"license\"]:nth-child(28)"
                 ],
                 "html": "<a href=\"/license\">MIT licence</a>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
@@ -9138,111 +9020,7 @@
                 "target": [
                   ".component-inspector__heading > p"
                 ],
-                "html": "<p>Resize the canvas, switch its theme, or reverse its reading direction without changing the rest of the page.</p>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview width\"] > span"
-                ],
-                "html": "<span>Width</span>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview width\"] > button:nth-child(2)"
-                ],
-                "html": "<button type=\"button\" aria-pressed=\"false\">320px</button>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview width\"] > button:nth-child(3)"
-                ],
-                "html": "<button type=\"button\" aria-pressed=\"false\">768px</button>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "button:nth-child(4)"
-                ],
-                "html": "<button type=\"button\" aria-pressed=\"true\">Fluid</button>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview theme\"] > span"
-                ],
-                "html": "<span>Theme</span>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview theme\"] > button:nth-child(2)"
-                ],
-                "html": "<button type=\"button\" aria-pressed=\"true\">Light</button>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview theme\"] > button:nth-child(3)"
-                ],
-                "html": "<button type=\"button\" aria-pressed=\"false\">Dark</button>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview direction\"] > span"
-                ],
-                "html": "<span>Direction</span>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview direction\"] > button:nth-child(2)"
-                ],
-                "html": "<button type=\"button\" aria-pressed=\"true\">LTR</button>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "div[aria-label=\"Preview direction\"] > button:nth-child(3)"
-                ],
-                "html": "<button type=\"button\" aria-pressed=\"false\">RTL</button>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "#base-ui-_R_bgtd6H2_ > span:nth-child(1)"
-                ],
-                "html": "<span>What ships with the component?</span>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "#base-ui-_R_bgtd6H1_ > .gummy-accordion__panel-content"
-                ],
-                "html": "<div class=\"gummy-accordion__panel-content\">Editable source, documented behavior, and shared Gel Pop material.</div>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "#base-ui-_R_jgtd6H2_ > span:nth-child(1)"
-                ],
-                "html": "<span>How is it delivered?</span>",
+                "html": "<p>Load the real component preview when you are ready to interact with its responsive, theme, and direction controls.</p>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
               },
               {
@@ -9266,23 +9044,7 @@
                 "target": [
                   "section[aria-labelledby=\"radix-preview-title\"] > p"
                 ],
-                "html": "<p>This is the real separately installable Radix source using the same Gummy material and behavior contract.</p>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "#radix-_R_3itd6_ > span:nth-child(1)"
-                ],
-                "html": "<span>What ships?</span>",
-                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-              },
-              {
-                "impact": "serious",
-                "target": [
-                  "#radix-_R_7itd6_ > .gummy-accordion__panel-content"
-                ],
-                "html": "<div class=\"gummy-accordion__panel-content\">Editable React source and shared material styles.</div>",
+                "html": "<p>Load the separately installable Radix counterpart when you are ready to interact with its real behavior.</p>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
               },
               {
@@ -9312,9 +9074,25 @@
               {
                 "impact": "serious",
                 "target": [
+                  ".source-viewer__loading:nth-child(3) > p"
+                ],
+                "html": "<p>The registry payload stays off the initial page request.</p>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "h3:nth-child(4)"
                 ],
                 "html": "<h3>Radix UI counterpart</h3>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
+                  ".source-viewer__loading:nth-child(5) > p"
+                ],
+                "html": "<p>The registry payload stays off the initial page request.</p>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
               },
               {
@@ -9456,6 +9234,14 @@
               {
                 "impact": "serious",
                 "target": [
+                  "a[href$=\"changelog\"]"
+                ],
+                "html": "<a href=\"/changelog\">Changelog</a>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "a[href$=\"rss.xml\"]"
                 ],
                 "html": "<a href=\"/rss.xml\">RSS</a>",
@@ -9576,7 +9362,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "a[href$=\"license\"]:nth-child(27)"
+                  "a[href$=\"license\"]:nth-child(28)"
                 ],
                 "html": "<a href=\"/license\">MIT licence</a>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
@@ -10053,9 +9839,9 @@
               {
                 "impact": "serious",
                 "target": [
-                  "#gummy-switch-_R_1n6ed6_-label"
+                  "#gummy-switch-_R_1n6fd6_-label"
                 ],
-                "html": "<label id=\"gummy-switch-_R_1n6ed6_-label\" for=\"gummy-switch-_R_1n6ed6_\">Weekly digest</label>",
+                "html": "<label id=\"gummy-switch-_R_1n6fd6_-label\" for=\"gummy-switch-_R_1n6fd6_\">Weekly digest</label>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
               },
               {
@@ -10077,9 +9863,9 @@
               {
                 "impact": "serious",
                 "target": [
-                  "label[for=\"gummy-progress-_R_d96ed6_\"]"
+                  "label[for=\"gummy-progress-_R_d96fd6_\"]"
                 ],
-                "html": "<label for=\"gummy-progress-_R_d96ed6_\">Verification progress</label>",
+                "html": "<label for=\"gummy-progress-_R_d96fd6_\">Verification progress</label>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
               },
               {
@@ -10261,6 +10047,14 @@
               {
                 "impact": "serious",
                 "target": [
+                  "a[href$=\"changelog\"]"
+                ],
+                "html": "<a href=\"/changelog\">Changelog</a>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "a[href$=\"rss.xml\"]"
                 ],
                 "html": "<a href=\"/rss.xml\">RSS</a>",
@@ -10381,7 +10175,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "a[href$=\"license\"]:nth-child(27)"
+                  "a[href$=\"license\"]:nth-child(28)"
                 ],
                 "html": "<a href=\"/license\">MIT licence</a>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
@@ -10746,6 +10540,14 @@
               {
                 "impact": "serious",
                 "target": [
+                  "a[href$=\"changelog\"]"
+                ],
+                "html": "<a href=\"/changelog\">Changelog</a>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "a[href$=\"rss.xml\"]"
                 ],
                 "html": "<a href=\"/rss.xml\">RSS</a>",
@@ -10866,7 +10668,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "a[href$=\"license\"]:nth-child(27)"
+                  "a[href$=\"license\"]:nth-child(28)"
                 ],
                 "html": "<a href=\"/license\">MIT licence</a>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
@@ -11207,6 +11009,14 @@
               {
                 "impact": "serious",
                 "target": [
+                  "a[href$=\"changelog\"]"
+                ],
+                "html": "<a href=\"/changelog\">Changelog</a>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "a[href$=\"rss.xml\"]"
                 ],
                 "html": "<a href=\"/rss.xml\">RSS</a>",
@@ -11327,7 +11137,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "a[href$=\"license\"]:nth-child(27)"
+                  "a[href$=\"license\"]:nth-child(28)"
                 ],
                 "html": "<a href=\"/license\">MIT licence</a>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
@@ -11660,6 +11470,14 @@
               {
                 "impact": "serious",
                 "target": [
+                  "a[href$=\"changelog\"]"
+                ],
+                "html": "<a href=\"/changelog\">Changelog</a>",
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+              },
+              {
+                "impact": "serious",
+                "target": [
                   "a[href$=\"rss.xml\"]"
                 ],
                 "html": "<a href=\"/rss.xml\">RSS</a>",
@@ -11780,7 +11598,7 @@
               {
                 "impact": "serious",
                 "target": [
-                  "a[href$=\"license\"]:nth-child(27)"
+                  "a[href$=\"license\"]:nth-child(28)"
                 ],
                 "html": "<a href=\"/license\">MIT licence</a>",
                 "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
@@ -11796,19 +11614,19 @@
     {
       "route": "/",
       "tree": {
-        "nodeCount": 488,
+        "nodeCount": 491,
         "roles": {
           "RootWebArea": 1,
-          "link": 42,
+          "link": 43,
           "banner": 1,
           "main": 1,
           "contentinfo": 1,
-          "StaticText": 137,
+          "StaticText": 138,
           "navigation": 3,
           "generic": 37,
           "strong": 9,
           "paragraph": 14,
-          "InlineTextBox": 170,
+          "InlineTextBox": 171,
           "group": 2,
           "button": 8,
           "heading": 10,
@@ -11972,6 +11790,11 @@
           },
           {
             "role": "link",
+            "name": "Changelog",
+            "focusable": true
+          },
+          {
+            "role": "link",
             "name": "RSS",
             "focusable": true
           },
@@ -12034,11 +11857,6 @@
             "role": "link",
             "name": "Design kit status",
             "focusable": true
-          },
-          {
-            "role": "link",
-            "name": "Privacy",
-            "focusable": true
           }
         ]
       }
@@ -12046,32 +11864,29 @@
     {
       "route": "/components/accordion",
       "tree": {
-        "nodeCount": 787,
+        "nodeCount": 404,
         "roles": {
           "RootWebArea": 1,
-          "link": 43,
+          "link": 44,
           "banner": 1,
           "main": 1,
           "contentinfo": 1,
-          "StaticText": 142,
+          "StaticText": 120,
           "navigation": 4,
-          "generic": 5,
+          "generic": 1,
           "sectionheader": 2,
-          "region": 10,
+          "region": 8,
           "strong": 1,
-          "paragraph": 21,
-          "InlineTextBox": 469,
-          "group": 5,
-          "button": 15,
+          "paragraph": 22,
+          "InlineTextBox": 135,
+          "group": 1,
+          "button": 7,
           "list": 3,
-          "heading": 20,
-          "code": 11,
+          "heading": 17,
+          "code": 9,
           "article": 5,
-          "tablist": 2,
-          "tabpanel": 2,
           "DisclosureTriangle": 1,
           "listitem": 11,
-          "tab": 2,
           "ListMarker": 9
         },
         "unnamedInteractiveNodes": [],
@@ -12159,12 +11974,22 @@
           },
           {
             "role": "button",
-            "name": "Copy source",
+            "name": "Load interactive preview",
             "focusable": true
           },
           {
             "role": "button",
-            "name": "Copy source",
+            "name": "Load Radix preview",
+            "focusable": true
+          },
+          {
+            "role": "button",
+            "name": "Load editable source",
+            "focusable": true
+          },
+          {
+            "role": "button",
+            "name": "Load editable source",
             "focusable": true
           },
           {
@@ -12239,6 +12064,11 @@
           },
           {
             "role": "link",
+            "name": "Changelog",
+            "focusable": true
+          },
+          {
+            "role": "link",
             "name": "RSS",
             "focusable": true
           },
@@ -12266,21 +12096,6 @@
             "role": "link",
             "name": "Languages",
             "focusable": true
-          },
-          {
-            "role": "link",
-            "name": "Security",
-            "focusable": true
-          },
-          {
-            "role": "link",
-            "name": "Support",
-            "focusable": true
-          },
-          {
-            "role": "link",
-            "name": "Account status",
-            "focusable": true
           }
         ]
       }
@@ -12288,20 +12103,20 @@
     {
       "route": "/rtl",
       "tree": {
-        "nodeCount": 219,
+        "nodeCount": 222,
         "roles": {
           "RootWebArea": 1,
-          "link": 42,
+          "link": 43,
           "banner": 1,
           "main": 1,
           "contentinfo": 1,
-          "StaticText": 59,
+          "StaticText": 60,
           "navigation": 3,
           "generic": 8,
           "sectionheader": 1,
           "strong": 1,
           "paragraph": 4,
-          "InlineTextBox": 73,
+          "InlineTextBox": 74,
           "group": 2,
           "button": 1,
           "heading": 4,
@@ -12437,6 +12252,11 @@
           },
           {
             "role": "link",
+            "name": "Changelog",
+            "focusable": true
+          },
+          {
+            "role": "link",
             "name": "RSS",
             "focusable": true
           },
@@ -12514,11 +12334,6 @@
             "role": "link",
             "name": "MIT licence",
             "focusable": true
-          },
-          {
-            "role": "slider",
-            "name": "حجم الفريق",
-            "focusable": true
           }
         ]
       }
@@ -12526,21 +12341,21 @@
     {
       "route": "/account",
       "tree": {
-        "nodeCount": 171,
+        "nodeCount": 174,
         "roles": {
           "RootWebArea": 1,
-          "link": 44,
+          "link": 45,
           "banner": 1,
           "complementary": 1,
           "main": 1,
           "contentinfo": 1,
-          "StaticText": 51,
+          "StaticText": 52,
           "navigation": 3,
           "generic": 2,
           "strong": 2,
           "region": 1,
           "paragraph": 3,
-          "InlineTextBox": 56,
+          "InlineTextBox": 57,
           "group": 1,
           "button": 1,
           "heading": 1,
@@ -12701,6 +12516,11 @@
           },
           {
             "role": "link",
+            "name": "Changelog",
+            "focusable": true
+          },
+          {
+            "role": "link",
             "name": "RSS",
             "focusable": true
           },
@@ -12748,11 +12568,6 @@
             "role": "link",
             "name": "Contact",
             "focusable": true
-          },
-          {
-            "role": "link",
-            "name": "Refund policy",
-            "focusable": true
           }
         ]
       }
@@ -12778,11 +12593,11 @@
             "outlineWidth": "3px",
             "boxShadow": "none",
             "textDecorationLine": "underline",
-            "transform": "matrix(1, 0, 0, 1, 0, -79.2)"
+            "transform": "matrix(1, 0, 0, 1, 0, -10.6239)"
           },
           "rectangle": {
             "left": 16,
-            "top": -67.2,
+            "top": 1.38,
             "width": 143.78,
             "height": 44
           }
@@ -13158,7 +12973,7 @@
         },
         {
           "tag": "button",
-          "id": "base-ui-_R_cd2t6_",
+          "id": "base-ui-_R_1hkbl6_",
           "className": "gummy-tabs__tab",
           "role": "tab",
           "name": "Overview",
@@ -13187,7 +13002,7 @@
         },
         {
           "tag": "div",
-          "id": "base-ui-_R_l2t6_",
+          "id": "base-ui-_R_2kbl6_",
           "className": "gummy-tabs__panel",
           "role": "tabpanel",
           "name": "Momentum+18%this weekOn track92%of work↗Project pulseWeekly delivery is on track.Shipped24In review6At risk2Updated 12 min agoHealthy cadence",
@@ -13259,7 +13074,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1474.72,
+            "top": 1473.72,
             "width": 172,
             "height": 41.5
           }
@@ -13285,7 +13100,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1521.22,
+            "top": 1520.22,
             "width": 172,
             "height": 41.5
           }
@@ -13311,7 +13126,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1567.72,
+            "top": 1566.72,
             "width": 172,
             "height": 41.5
           }
@@ -13338,14 +13153,14 @@
           },
           "rectangle": {
             "left": 1052.81,
-            "top": 1402.41,
+            "top": 1401.41,
             "width": 152,
             "height": 42
           }
         },
         {
           "tag": "input",
-          "id": "gummy-input-_R_1l4t6_",
+          "id": "gummy-input-_R_6kjl6_",
           "className": "gummy-input__field",
           "role": null,
           "name": null,
@@ -13366,10 +13181,10 @@
             "transform": "none"
           },
           "rectangle": {
-            "left": 315.19,
-            "top": 1531.41,
-            "width": 480,
-            "height": 54
+            "left": 314.54,
+            "top": 1527.76,
+            "width": 481.29,
+            "height": 54.86
           }
         },
         {
@@ -13394,14 +13209,14 @@
           },
           "rectangle": {
             "left": 1094.09,
-            "top": 1543.41,
+            "top": 1539.41,
             "width": 110.72,
             "height": 44
           }
         },
         {
           "tag": "button",
-          "id": "gummy-switch-_R_jat4t6_",
+          "id": "gummy-switch-_R_2dbkjl6_",
           "className": "gummy-switch",
           "role": "switch",
           "name": "Weekly digest",
@@ -13424,7 +13239,7 @@
           },
           "rectangle": {
             "left": 1108.97,
-            "top": 1760.75,
+            "top": 1756.75,
             "width": 60.84,
             "height": 34.32
           }
@@ -13452,7 +13267,7 @@
           },
           "rectangle": {
             "left": 146,
-            "top": 2978.47,
+            "top": 2974.47,
             "width": 140.02,
             "height": 44
           }
@@ -13480,7 +13295,7 @@
           },
           "rectangle": {
             "left": 690.26,
-            "top": 2973.66,
+            "top": 2969.66,
             "width": 129.42,
             "height": 44.27
           }
@@ -13507,7 +13322,7 @@
           },
           "rectangle": {
             "left": 763.5,
-            "top": 3472.47,
+            "top": 3468.47,
             "width": 177.02,
             "height": 56
           }
@@ -13537,7 +13352,7 @@
           },
           "rectangle": {
             "left": 690.26,
-            "top": 2973.66,
+            "top": 2968.66,
             "width": 129.42,
             "height": 44.27
           }
@@ -13565,14 +13380,14 @@
           },
           "rectangle": {
             "left": 146,
-            "top": 2978.47,
+            "top": 2973.47,
             "width": 140.02,
             "height": 44
           }
         },
         {
           "tag": "button",
-          "id": "gummy-switch-_R_jat4t6_",
+          "id": "gummy-switch-_R_2dbkjl6_",
           "className": "gummy-switch",
           "role": "switch",
           "name": "Weekly digest",
@@ -13595,7 +13410,7 @@
           },
           "rectangle": {
             "left": 1108.97,
-            "top": 1760.75,
+            "top": 1755.75,
             "width": 60.84,
             "height": 34.32
           }
@@ -13622,14 +13437,14 @@
           },
           "rectangle": {
             "left": 1094.09,
-            "top": 1543.41,
+            "top": 1538.41,
             "width": 110.72,
             "height": 44
           }
         },
         {
           "tag": "input",
-          "id": "gummy-input-_R_1l4t6_",
+          "id": "gummy-input-_R_6kjl6_",
           "className": "gummy-input__field",
           "role": null,
           "name": null,
@@ -13651,7 +13466,7 @@
           },
           "rectangle": {
             "left": 315.19,
-            "top": 1531.41,
+            "top": 1526.41,
             "width": 480,
             "height": 54
           }
@@ -13678,7 +13493,7 @@
           },
           "rectangle": {
             "left": 1052.81,
-            "top": 1402.41,
+            "top": 1397.41,
             "width": 152,
             "height": 42
           }
@@ -13704,7 +13519,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1567.72,
+            "top": 1562.72,
             "width": 172,
             "height": 41.5
           }
@@ -13730,7 +13545,7 @@
           },
           "rectangle": {
             "left": 48,
-            "top": 1521.22,
+            "top": 1516.22,
             "width": 172,
             "height": 41.5
           }
@@ -14125,10 +13940,10 @@
             "transform": "none"
           },
           "rectangle": {
-            "left": 669.39,
-            "top": 609.75,
-            "width": 434.41,
-            "height": 22.5
+            "left": 675.39,
+            "top": 612.75,
+            "width": 422.41,
+            "height": 16.5
           }
         },
         {
@@ -14175,10 +13990,10 @@
             "transform": "none"
           },
           "rectangle": {
-            "left": 643.56,
-            "top": 689.75,
-            "width": 457.8,
-            "height": 22.5
+            "left": 646.5,
+            "top": 692.75,
+            "width": 454.86,
+            "height": 16.5
           }
         },
         {
@@ -14238,277 +14053,7 @@
           "id": null,
           "className": "",
           "role": null,
-          "name": "320px",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".component-inspector__control-group button:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 138.73,
-            "top": 2647.38,
-            "width": 72.2,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": null,
-          "name": "768px",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".component-inspector__control-group button:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 216.94,
-            "top": 2647.38,
-            "width": 70.09,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": null,
-          "name": "Fluid",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".component-inspector__control-group button:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.46 0.18 302 / 0.16) 0px -3px 5px 0px inset, oklch(0.46 0.18 302 / 0.1) 0px 5px 14px 0px",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 293.03,
-            "top": 2647.38,
-            "width": 61.41,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": null,
-          "name": "Light",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".component-inspector__control-group button:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.46 0.18 302 / 0.16) 0px -3px 5px 0px inset, oklch(0.46 0.18 302 / 0.1) 0px 5px 14px 0px",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 434.98,
-            "top": 2647.38,
-            "width": 62.47,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": null,
-          "name": "Dark",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".component-inspector__control-group button:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 503.45,
-            "top": 2647.38,
-            "width": 60.97,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": null,
-          "name": "LTR",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".component-inspector__control-group button:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.46 0.18 302 / 0.16) 0px -3px 5px 0px inset, oklch(0.46 0.18 302 / 0.1) 0px 5px 14px 0px",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 675,
-            "top": 2647.38,
-            "width": 52.83,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": null,
-          "name": "RTL",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".component-inspector__control-group button:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "solid",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 733.83,
-            "top": 2646.38,
-            "width": 54.16,
-            "height": 44
-          }
-        },
-        {
-          "tag": "button",
-          "id": "base-ui-_R_bgtd6H2_",
-          "className": "gummy-accordion__trigger",
-          "role": null,
-          "name": "What ships with the component?+",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".gummy-accordion__trigger:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "none",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 301,
-            "top": 2860.38,
-            "width": 678,
-            "height": 52
-          }
-        },
-        {
-          "tag": "button",
-          "id": "base-ui-_R_jgtd6H2_",
-          "className": "gummy-accordion__trigger",
-          "role": null,
-          "name": "How is it delivered?+",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".gummy-accordion__trigger:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "none",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 301,
-            "top": 2960.38,
-            "width": 678,
-            "height": 52
-          }
-        },
-        {
-          "tag": "button",
-          "id": "radix-_R_3itd6_",
-          "className": "gummy-accordion__trigger",
-          "role": null,
-          "name": "What ships?+",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button",
-            ".gummy-accordion__trigger:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "none",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 73.19,
-            "top": 3396.88,
-            "width": 1133.63,
-            "height": 52
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": "tab",
-          "name": "GummyAccordion.tsx",
+          "name": "Load interactive preview",
           "href": null,
           "focusVisible": true,
           "visualIndicator": true,
@@ -14523,10 +14068,10 @@
             "transform": "none"
           },
           "rectangle": {
-            "left": 31,
-            "top": 3816.89,
-            "width": 130.39,
-            "height": 36
+            "left": 72.19,
+            "top": 2607.38,
+            "width": 194.13,
+            "height": 30
           }
         },
         {
@@ -14534,7 +14079,7 @@
           "id": null,
           "className": "",
           "role": null,
-          "name": "Copy source",
+          "name": "Load Radix preview",
           "href": null,
           "focusVisible": true,
           "visualIndicator": true,
@@ -14549,62 +14094,10 @@
             "transform": "none"
           },
           "rectangle": {
-            "left": 1162.3,
-            "top": 3816.89,
-            "width": 86.7,
-            "height": 36
-          }
-        },
-        {
-          "tag": "div",
-          "id": null,
-          "className": "",
-          "role": "tabpanel",
-          "name": "components/ui/GummyAccordion.tsx",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            ".source-viewer [role=\"tabpanel\"]:focus-visible"
-          ],
-          "style": {
-            "outlineStyle": "none",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.7 0.17 218) 0px 0px 0px 2px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 21,
-            "top": 3863.89,
-            "width": 1238,
-            "height": 560
-          }
-        },
-        {
-          "tag": "button",
-          "id": null,
-          "className": "",
-          "role": "tab",
-          "name": "GummyAccordion.tsx",
-          "href": null,
-          "focusVisible": true,
-          "visualIndicator": true,
-          "matchingFocusRules": [
-            "button:focus-visible:not(.gummy-button"
-          ],
-          "style": {
-            "outlineStyle": "none",
-            "outlineWidth": "3px",
-            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
-            "textDecorationLine": "none",
-            "transform": "none"
-          },
-          "rectangle": {
-            "left": 31,
-            "top": 4549.41,
-            "width": 130.39,
-            "height": 36
+            "left": 72.19,
+            "top": 2878.88,
+            "width": 158.41,
+            "height": 30
           }
         },
         {
@@ -14612,7 +14105,7 @@
           "id": null,
           "className": "",
           "role": null,
-          "name": "Copy source",
+          "name": "Load editable source",
           "href": null,
           "focusVisible": true,
           "visualIndicator": true,
@@ -14627,14 +14120,326 @@
             "transform": "none"
           },
           "rectangle": {
-            "left": 1162.3,
-            "top": 4549.41,
-            "width": 86.7,
-            "height": 36
+            "left": 45,
+            "top": 3320.89,
+            "width": 168.16,
+            "height": 30
+          }
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Load editable source",
+          "href": null,
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "button:focus-visible:not(.gummy-button"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "oklch(0.225 0.068 309) 0px -3px 0px 0px inset",
+            "textDecorationLine": "none",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 45,
+            "top": 3613.41,
+            "width": 168.16,
+            "height": 30
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "← Back to all components",
+          "href": "/components",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 20,
+            "top": 3804.41,
+            "width": 165.73,
+            "height": 19.5
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Registry JSON ↗",
+          "href": "/r/gummy-accordion.json",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 597.61,
+            "top": 3802.41,
+            "width": 107.56,
+            "height": 19.5
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Radix registry JSON ↗",
+          "href": "/r/gummy-radix-accordion.json",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 1117.03,
+            "top": 3795.41,
+            "width": 142.97,
+            "height": 19.5
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Docs",
+          "href": "/docs",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 194.2,
+            "top": 4042.91,
+            "width": 27.94,
+            "height": 18
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Next.js",
+          "href": "/docs/nextjs",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 242.14,
+            "top": 4024.91,
+            "width": 38.09,
+            "height": 18
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Vite",
+          "href": "/docs/vite",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 300.23,
+            "top": 3995.91,
+            "width": 21.44,
+            "height": 18
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Editor setup",
+          "href": "/docs/editor-setup",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 341.67,
+            "top": 3957.91,
+            "width": 66.33,
+            "height": 18
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Troubleshooting",
+          "href": "/docs/troubleshooting",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 428,
+            "top": 3935.91,
+            "width": 88.09,
+            "height": 18
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Components",
+          "href": "/components",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 536.09,
+            "top": 3906.91,
+            "width": 69.84,
+            "height": 18
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Registry",
+          "href": "/registry",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 625.94,
+            "top": 3840.91,
+            "width": 45.63,
+            "height": 18
+          }
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "className": "",
+          "role": null,
+          "name": "Themes",
+          "href": "/themes",
+          "focusVisible": true,
+          "visualIndicator": true,
+          "matchingFocusRules": [
+            "a:focus-visible:not(.gummy-card)"
+          ],
+          "style": {
+            "outlineStyle": "none",
+            "outlineWidth": "3px",
+            "boxShadow": "none",
+            "textDecorationLine": "underline",
+            "transform": "none"
+          },
+          "rectangle": {
+            "left": 691.56,
+            "top": 3752.91,
+            "width": 42.94,
+            "height": 18
           }
         }
       ],
-      "forwardUnique": 31
+      "forwardUnique": 28
     },
     "focusVisibleFailures": [],
     "noTrap": true
@@ -14646,7 +14451,7 @@
       "kind": "log",
       "source": "security",
       "text": "Loading the image 'https://gummyui.dev/favicon.svg' violates the following Content Security Policy directive: \"img-src 'self' data: blob:\". The action has been blocked.",
-      "exampleUrl": "http://127.0.0.1:59950/"
+      "exampleUrl": "http://127.0.0.1:58284/"
     }
   ],
   "checks": {

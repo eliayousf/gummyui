@@ -328,12 +328,13 @@ test("loads large component styles only on routes that render them", async () =>
   assert.doesNotMatch(home, /\/styles\/gummy-(?:form-controls|primitives)\.css/);
   assert.match(home, /\/styles\/showcase-components\.css/);
   assert.doesNotMatch(home, /\/styles\/(?:gummy-core-components|component-lab)\.css/);
-  assert.match(components, /\/styles\/gummy-core-components\.css/);
-  assert.match(components, /\/styles\/gummy-form-controls\.css/);
-  assert.match(components, /\/styles\/gummy-primitives\.css/);
-  assert.match(components, /\/styles\/component-inspector\.css/);
+  assert.match(components, /\/styles\/component-docs\.css/);
+  assert.doesNotMatch(
+    components,
+    /\/styles\/(?:gummy-core-components|gummy-form-controls|gummy-primitives|component-inspector)\.css/,
+  );
   assert.doesNotMatch(components, /\/styles\/component-lab\.css/);
-  assert.match(lab, /\/styles\/gummy-core-components\.css/);
+  assert.match(lab, /\/styles\/component-docs\.css/);
   assert.match(lab, /\/styles\/component-lab\.css/);
   assert.match(docs, /\/styles\/gummy-form-controls\.css/);
   assert.doesNotMatch(docs, /\/styles\/gummy-primitives\.css/);

@@ -112,20 +112,64 @@ describe("distributed rate-limit boundary", () => {
   });
 
   it("fails closed when configuration or Convex is unavailable", async () => {
+    const logger = vi.fn(async () => undefined);
     await expect(enforceDistributedRateLimit({
       policy: "auth.sign_in",
       request: request(),
       environment: {},
+      logger,
     })).resolves.toEqual({ allowed: false, reason: "unavailable" });
     expect(executeConvex).not.toHaveBeenCalled();
+    expect(logger).toHaveBeenCalledWith(expect.objectContaining({
+      name: "security.rate_limit.decision",
+      severity: "error",
+      outcome: "degraded",
+      attributes: expect.objectContaining({
+        policy: "auth.sign_in",
+        decision: "unavailable",
+        reasonCode: "configuration",
+      }),
+    }));
 
     executeConvex.mockResolvedValue(null);
     const result = await enforceDistributedRateLimit({
       policy: "auth.sign_in",
       request: request(),
       environment,
+      logger,
     });
     expect(result).toEqual({ allowed: false, reason: "unavailable" });
+  });
+
+  it("logs a redacted suspicious decision without identity or IP material", async () => {
+    const logger = vi.fn(async () => undefined);
+    executeConvex.mockResolvedValue({
+      allowed: false,
+      retryAfterMs: 60_000,
+      resetAt: 1_800_000_060_000,
+    });
+    await expect(enforceDistributedRateLimit({
+      policy: "checkout.create",
+      request: request(),
+      accountId: "account:private",
+      workspaceId: "workspace:private",
+      now: 1_800_000_000_000,
+      environment,
+      logger,
+    })).resolves.toEqual({
+      allowed: false,
+      reason: "limited",
+      retryAfterMs: 60_000,
+      resetAt: 1_800_000_060_000,
+    });
+
+    const serialized = JSON.stringify(logger.mock.calls);
+    expect(serialized).toContain("security.rate_limit.decision");
+    expect(serialized).toContain("capacity_exhausted");
+    expect(serialized).not.toContain("account:private");
+    expect(serialized).not.toContain("workspace:private");
+    expect(serialized).not.toContain("203.0.113.8");
+    expect(serialized).not.toContain(environment.RATE_LIMIT_KEY_SECRET);
   });
 
   it("uses a fixed loopback bucket only for the explicit development runtime", async () => {

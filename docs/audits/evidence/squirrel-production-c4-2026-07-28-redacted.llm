@@ -1,0 +1,217 @@
+New crawl: https://gummyui.dev
+Found 291 URLs in sitemap
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.80">
+<site url="https://gummyui.dev" crawled="375" date="2026-07-28T15:53:50.326Z"/>
+<score overall="83" grade="B">
+ <group name="SEO" score="90" errors="8" warnings="562"/>
+ <group name="Performance" score="61" errors="33" warnings="343"/>
+ <group name="Security" score="98" errors="0" warnings="1"/>
+ <group name="Agents" score="50" errors="0" warnings="287"/>
+ <cat name="Performance" score="61"/>
+ <cat name="Accessibility" score="87"/>
+ <cat name="Agent Experience" score="50"/>
+ <cat name="Content" score="51"/>
+ <cat name="Security" score="97"/>
+ <cat name="Crawlability" score="98"/>
+ <cat name="Links" score="100"/>
+ <cat name="Core SEO" score="100"/>
+ <cat name="E-E-A-T" score="100"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Images" score="100"/>
+ <cat name="Site Integrity" score="100"/>
+ <cat name="Legal Compliance" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="Structured Data" score="100"/>
+ <cat name="Social Media" score="100"/>
+ <cat name="URL Structure" score="100"/>
+</score>
+<summary passed="27929" warnings="1195" failed="41"/>
+<scan-scope origin="cli" crawled="375" max-pages="500" capped="false"/>
+<technologies first-scan="false" added="0" removed="0">
+ <tech name="React" cat="framework"/>
+ <tech name="Next.js" cat="framework"/>
+ <tech name="Vercel Edge Network" cat="cdn"/>
+ <tech name="Vercel" cat="hosting"/>
+</technologies>
+<issues>
+ <category name="Accessibility" group="seo" errors="8" warnings="294">
+  <rule id="a11y/aria-hidden-focus" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-hidden-focus">
+   1 focusable element(s) inside aria-hidden
+   Pages (2): /, /themes
+   Items (1):
+    - input (self is focusable)
+  </rule>
+  <rule id="a11y/aria-input-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-input-field-name">
+   1 input field(s) without accessible names
+   Pages (2): /, /themes
+   Items (1):
+    - input[type=&quot;checkbox&quot;]
+  </rule>
+  <rule id="a11y/aria-toggle-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-toggle-field-name">
+   1 toggle field(s) without accessible names
+   Pages (2): /, /themes
+   Items (1):
+    - checkbox
+  </rule>
+  <rule id="a11y/form-labels" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/form-labels">
+   1 form input(s) without labels
+   Pages (2): /, /themes
+   Items (1):
+    - checkbox
+  </rule>
+  <rule id="a11y/color-contrast" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/color-contrast">
+   2 potential color contrast issue(s)
+   Pages (5/291): /, /accessibility, /blocks, /blog, /changelog
+   Items (2):
+    - Very light text color: 1 instance(s)
+    - White text (verify background): 1 instance(s)
+  </rule>
+  <rule id="a11y/form-field-multiple-labels" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/form-field-multiple-labels">
+   4 input(s) with multiple labels
+   Pages (1): /docs
+   Items (4):
+    - docs-visibility (2 labels)
+    - docs-visibility (2 labels)
+    - docs-visibility (2 labels)
+    - gummy-checkbox-_R_5hcqnqbtb_ (2 labels)
+  </rule>
+  <rule id="a11y/identical-links-same-purpose" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/identical-links-same-purpose">
+   2 link text(s) lead to different destinations
+   Pages (1): /registry
+   Items (2):
+    - &quot;base&quot; → 57 different URLs
+    - &quot;radix&quot; → 22 different URLs
+  </rule>
+  <rule id="a11y/th-has-data-cells" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/th-has-data-cells">
+   1 &lt;th&gt; element(s) without associated data cells
+   Pages (1): /locales
+   Items (1):
+    - Language
+  </rule>
+ </category>
+ <category name="Legal Compliance" group="security" errors="0" warnings="1">
+  <rule id="legal/subprocessor-disclosure" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/legal/subprocessor-disclosure">
+   No sub-processor / data-processing (DPA) disclosure found
+  </rule>
+ </category>
+ <category name="Agent Experience" group="ai" errors="0" warnings="288">
+  <rule id="ax/markdown-response" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/ax/markdown-response">
+   No Markdown response — consider honoring Accept: text/markdown or publishing a .md variant so agents get clean content
+  </rule>
+  <rule id="ax/token-weight" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/ax/token-weight">
+   Visible text is under 15% of the page HTML — agents pay token cost mostly for markup, scripts, and styles
+   Pages (5/287): /, /accessibility, /blocks, /blog, /changelog
+   Items (5/287):
+    - / (~6% of HTML is visible text (~10,329 est. tokens))
+    - /accessibility (~10% of HTML is visible text (~4,716 est. tokens))
+    - /blocks (~12% of HTML is visible text (~7,607 est. tokens))
+    - /blocks/about (~7% of HTML is visible text (~4,855 est. tokens))
+    - /blocks/about/milestone-current (~7% of HTML is visible text (~4,882 est. tokens))
+  </rule>
+ </category>
+ <category name="Crawlability" group="seo" errors="0" warnings="1">
+  <rule id="crawl/sitemap-coverage" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-coverage">
+   1 sitemap URL(s) were not crawled
+   Pages (1): /components/label
+   Items (1):
+    - /components/label
+  </rule>
+ </category>
+ <category name="Security" group="security" errors="0" warnings="1">
+  <rule id="security/csp" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+   CSP allows &apos;unsafe-inline&apos;
+  </rule>
+ </category>
+ <category name="Links" group="seo" errors="0" warnings="1">
+  <rule id="links/internal-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/internal-links">
+   Too many internal links (178, max 100)
+   Pages (1): /registry
+   Items (1):
+    - /registry (Too many internal links (178, max 100))
+  </rule>
+ </category>
+ <category name="Content" group="seo" errors="0" warnings="266">
+  <rule id="content/keyword-stuffing" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+   N word(s) may be overused
+   Pages (5/18): /blocks, /blog, /changelog, /license, /locales
+   Items (5/26):
+    - blocks (&quot;blocks&quot; (5.4%)) [count: 22, density: 5.35279805352798]
+    - category (&quot;category&quot; (5.6%)) [count: 23, density: 5.59610705596107]
+    - chart (&quot;chart&quot; (4.3%)) [count: 12, density: 4.25531914893617]
+    - core (&quot;core&quot; (3.5%)) [count: 10, density: 3.546099290780142]
+    - counts (&quot;counts&quot; (5.4%)) [count: 22, density: 5.35279805352798]
+  </rule>
+  <rule id="content/article-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/article-links">
+   short article has 0 external links (min 1)
+   Pages (5/18): /blog/building-light-and-dark-from-semantic-tokens, /blog/composing-data-interfaces-from-primitives, /blog/designing-ai-readable-component-docs, /blog/designing-the-gel-pop-language, /blog/documenting-meaningful-component-states
+   Items (5/18):
+    - /blog/building-light-and-dark-from-semantic-tokens (short article has 0 external links (min 1))
+    - /blog/composing-data-interfaces-from-primitives (short article has 0 external links (min 1))
+    - /blog/designing-ai-readable-component-docs (short article has 0 external links (min 1))
+    - /blog/designing-the-gel-pop-language (short article has 0 external links (min 1))
+    - /blog/documenting-meaningful-component-states (short article has 0 external links (min 1))
+  </rule>
+  <rule id="content/word-count" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/word-count">
+   Thin content: N words (min N)
+   Pages (5/230): /, /accessibility, /changelog, /community, /contact
+   Items (5/230):
+    - / (Thin content: 249 words (min 300))
+    - /accessibility (Thin content: 202 words (min 300))
+    - /blocks/about (Thin content: 110 words (min 300))
+    - /blocks/about/milestone-current (Thin content: 123 words (min 300))
+    - /blocks/about/mission-and-method (Thin content: 124 words (min 300))
+  </rule>
+ </category>
+ <category name="Performance" group="performance" errors="33" warnings="343">
+  <rule id="perf/ttfb" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/ttfb">
+   Very slow server response (Nms); Slow server response (Nms)
+   Pages (5/77): /, /accessibility, /blocks, /blog, /changelog
+   Items (5/77):
+    - /blocks/blogs (Very slow server response (1063ms))
+    - /blocks/cards (Very slow server response (1031ms))
+    - /blocks/footers (Very slow server response (2741ms))
+    - /blocks/statistics (Very slow server response (1555ms))
+    - /blog (Very slow server response (1847ms))
+  </rule>
+  <rule id="perf/css-file-size" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/css-file-size">
+   1 CSS file(s) exceed 150.0 KB
+   Pages (5/57): /components, /components/accordion, /components/alert, /components/alert-dialog, /components/aspect-ratio
+   Items (1):
+    - /styles/component-docs.css [sizeBytes: 190596, size: 186.1 KB, status: 206, contentType: text/css; charset=utf-8] (from: /components, /components/accordion, /components/alert, /components/alert-dialog, /components/aspect-ratio; +52 more)
+  </rule>
+  <rule id="perf/render-blocking" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/render-blocking">
+   4 render-blocking resources
+   Pages (1): /themes
+   Items (4):
+    - /_next/static/chunks/0cz1d0mv5g_q7.js?dpl=dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7
+    - /_next/static/chunks/1t7iyfpu_fdei.css?dpl=dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7
+    - /styles/gummy-core-components.css
+    - /styles/gummy-primitives.css
+  </rule>
+  <rule id="perf/total-byte-weight" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/total-byte-weight">
+   Total tracked resources: 5724KB (very heavy)
+  </rule>
+  <rule id="perf/bad-caching" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/bad-caching">
+   291/291 pages lack a caching freshness lifetime
+   Pages (5): /, /accessibility, /blocks, /blocks/about, /blocks/about/milestone-current
+  </rule>
+  <rule id="perf/critical-request-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/critical-request-chains">
+   N critical request chain(s) found
+   Pages (5/291): /, /accessibility, /blocks, /blog, /changelog
+   Items (5/8):
+    - CSS: /_next/static/chunks/1t7iyfpu_fdei.css?dpl=dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7
+    - CSS: /styles/component-docs.css
+    - CSS: /styles/frame-studio.css
+    - CSS: /styles/gummy-core-components.css
+    - CSS: /styles/gummy-form-controls.css
+  </rule>
+  <rule id="perf/unminified-js" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/unminified-js">
+   N JavaScript file(s) appear unminified
+   Pages (4): /components/badge, /components/button, /components/input, /components/switch
+   Items (1):
+    - inline script (5.4KB, ~4.0KB savings) [reason: 7 comments]
+  </rule>
+ </category>
+</issues>
+</audit>

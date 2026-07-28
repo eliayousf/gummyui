@@ -4,11 +4,15 @@ This record begins with public commit
 `aaea08413afd9c3a015217e380a1418a5bc528a3` and records the subsequent
 production corrections in `52fe463df5c37dc6767c23c75a3d1d49e30de1b8`
 plus the Node 22 runtime pin in
-`977012c3500e5293ec711407f736c567289b022f`. The latest runtime-bearing
-deployment is `dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf`; its build log proves the
-exact `977012c` commit and a Node 22 build. This is production evidence for the
-public application, not evidence that commerce is enabled or that a customer
-purchase has completed.
+`977012c3500e5293ec711407f736c567289b022f` and the payload-deferment
+release `c4d0d7847ef1701392bf430f96cc8fccf0eb000e`. The current
+runtime-bearing deployment is `dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7`; its build
+log proves the exact `c4d0d78` commit and a Node 22 build. This is production
+evidence for the public application, not evidence that commerce is enabled or
+that a customer purchase has completed. GitHub Quality run `30375378972` for
+`c4d0d78` failed only because the generated English localisation corpus was
+stale after legitimate copy changes; the corrected revision is locally
+regenerated and requires a superseding green pushed commit.
 
 ## Origin and discovery
 
@@ -21,7 +25,9 @@ purchase has completed.
 - `/AGENTS.md`, `/llms.txt`, `/robots.txt`, `/sitemap.xml`, the catalogue API
   and the MCP-status guidance page were available. The page correctly says
   that hosted MCP transport is not yet advertised as live.
-- All 362 sitemap URLs returned HTTP 200 in the controlled crawl.
+- All 362 sitemap URLs in the initial audited deployment returned HTTP 200.
+  The current HTML sitemap contains 292 URLs after intentional non-HTML
+  discovery-resource removal, and its complete controlled probe passes.
 - No public page in that crawl exposed a non-approved support address.
 - Pricing, commercial licence, refund, terms, privacy, support and contact
   surfaces matched the approved model and `support@kreydlabs.com`.
@@ -129,8 +135,32 @@ the 81/B report:
 - `og.png` remains 1200×630 while lossless optimization reduces it from
   854,293 to 668,843 bytes.
 
-These source changes do not overwrite the authoritative 81/B production result.
-A new deployed full crawl must establish their effect.
+These source changes did not overwrite the then-authoritative 81/B production
+result. The following deployed crawl establishes their effect.
+
+### Payload-deferment production crawl
+
+After the safe remediation tranche reached production at runtime-bearing commit
+`c4d0d7847ef1701392bf430f96cc8fccf0eb000e`, SquirrelScan 0.0.80
+repeated the full crawl with the same 500-page limit:
+
+- 375 URLs crawled;
+- 27,929 checks passed, 1,195 warned and 41 failed;
+- aggregate diagnostic score 83/B;
+- group scores: SEO 90, performance 61, security 98 and agents 50.
+
+This is the current authoritative full-site diagnostic result. It improves the
+aggregate from 81/B to 83/B and reduces warnings by 93, but it does not satisfy
+the separate required score above 95. The eight accessibility errors are the
+same hidden Base UI switch input reported across `/` and `/themes` under four
+scanner rules; independent hydrated axe and accessibility-tree suites pass.
+The remaining 33 failures are scanner-observed TTFB variance, aggregate byte
+weight and cache-lifetime modelling, plus one sitemap URL (`/components/label`)
+that the crawler did not visit. The tracked redacted report is
+`docs/audits/evidence/squirrel-production-c4-2026-07-28-redacted.llm`; its
+SHA-256 is
+`071f9609d5d69e806a8c57172e9519e18f1c70b6ec6ad5c3086f1879919e31c3`.
+The raw report was deleted after redaction and a sensitive-pattern scan.
 
 ### Rule reconciliation and ownership
 

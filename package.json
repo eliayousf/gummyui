@@ -48,6 +48,7 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "verify:launch": "node scripts/verify-launch.mjs",
     "backup:restore:proof": "node --conditions=react-server --import tsx scripts/backup-restore-proof.ts",
+    "backup:restore:query-proof": "node --conditions=react-server --import tsx scripts/isolated-restore-query-proof.ts",
     "convex:dev": "convex dev",
     "convex:check": "convex dev --once"
   },

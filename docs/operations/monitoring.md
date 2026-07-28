@@ -5,8 +5,9 @@ Better Stack transport and controlled email alert delivery are proved.
 Four scheduled-job heartbeat adapters are deployed. Better Stack's free service
 has an uptime monitor, status page, one active production log source and four
 independent heartbeat monitors. The corresponding Vercel Production values are
-installed in Ready deployment `dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` at public
-runtime-bearing commit `977012c` on Node 22. Both custom domains are Valid and the full external
+installed in Ready deployment `dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7` at public
+runtime-bearing commit `c4d0d7847ef1701392bf430f96cc8fccf0eb000e` on
+Node 22. Both custom domains are Valid and the full external
 HTTPS/route/fail-closed probe passes at `gummyui.dev`.
 
 On 28 July 2026 the backup, backup-verification, privacy and email-outbox
@@ -27,8 +28,12 @@ ingestion-only sources were retired. The contained token-rotation record is in
 `docs/operations/incident-record-2026-07-28-better-stack-token.md`; the cron
 and recovery-copy containment record is in
 `docs/operations/incident-record-2026-07-28-recovery-credentials.md`. The
-distributed rate limiter is implemented, but suspicious-decision logging
-remains a launch gate.
+current source implements bounded structured events for every denied or
+unavailable distributed-rate-limit decision. Those events contain only the
+policy, decision, reason code, binding-presence booleans and bounded retry
+timing; raw account, workspace, provider, IP, secret and bucket-hash material
+is excluded. Deployed Better Stack transport and retention proof for a real
+limited decision remains pending.
 
 ## Required signals
 

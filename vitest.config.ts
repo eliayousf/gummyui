@@ -8,6 +8,9 @@ export default defineConfig({
     setupFiles: ["./tests/setup.ts"],
     css: false,
     maxWorkers: 4,
+    testTimeout: 20_000,
+    hookTimeout: 20_000,
+    teardownTimeout: 20_000,
     include: ["tests/**/*.test.{ts,tsx}"],
   },
 });

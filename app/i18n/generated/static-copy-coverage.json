@@ -19,7 +19,7 @@
       "Coverage is an English source contract; it does not provide runtime translation, linguistic review, rendered locale QA, or publication evidence."
     ]
   },
-  "scannedFileCount": 140,
+  "scannedFileCount": 142,
   "scannedFiles": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -36,6 +36,7 @@
     "app/components/CheckoutButton.tsx",
     "app/components/CheckoutForm.tsx",
     "app/components/ComponentInspector.tsx",
+    "app/components/ComponentInspectorRuntime.tsx",
     "app/components/ComponentLab.tsx",
     "app/components/CompositionShowcase.tsx",
     "app/components/DocsShell.tsx",
@@ -69,6 +70,7 @@
     "app/components/radix/GummyToggleGroup.tsx",
     "app/components/radix/GummyTooltip.tsx",
     "app/components/RadixComponentInspector.tsx",
+    "app/components/RadixComponentInspectorRuntime.tsx",
     "app/components/RegistrySourceViewer.tsx",
     "app/components/SiteChrome.tsx",
     "app/components/ThemeBuilder.tsx",
@@ -162,8 +164,8 @@
     "app/themes/layout.tsx",
     "app/themes/page.tsx"
   ],
-  "candidateCount": 4201,
-  "coveredCandidateCount": 4201,
+  "candidateCount": 4213,
+  "coveredCandidateCount": 4213,
   "uncapturedCandidateCount": 0,
   "uncaptured": [],
   "fileCandidateCounts": {
@@ -181,7 +183,8 @@
     "app/components/CatalogueSearch.tsx": 10,
     "app/components/CheckoutButton.tsx": 3,
     "app/components/CheckoutForm.tsx": 7,
-    "app/components/ComponentInspector.tsx": 204,
+    "app/components/ComponentInspector.tsx": 5,
+    "app/components/ComponentInspectorRuntime.tsx": 204,
     "app/components/ComponentLab.tsx": 667,
     "app/components/CompositionShowcase.tsx": 77,
     "app/components/DocsShell.tsx": 85,
@@ -214,8 +217,9 @@
     "app/components/radix/GummyToggle.tsx": 0,
     "app/components/radix/GummyToggleGroup.tsx": 0,
     "app/components/radix/GummyTooltip.tsx": 0,
-    "app/components/RadixComponentInspector.tsx": 67,
-    "app/components/RegistrySourceViewer.tsx": 3,
+    "app/components/RadixComponentInspector.tsx": 5,
+    "app/components/RadixComponentInspectorRuntime.tsx": 67,
+    "app/components/RegistrySourceViewer.tsx": 5,
     "app/components/SiteChrome.tsx": 44,
     "app/components/ThemeBuilder.tsx": 41,
     "app/components/ui/GummyAccordion.tsx": 0,
@@ -308,5 +312,5 @@
     "app/themes/layout.tsx": 0,
     "app/themes/page.tsx": 7
   },
-  "candidateChecksum": "d104d0046c65642f767175e1d6567d78c61421bf32dd83bc0262faf340367c91"
+  "candidateChecksum": "00a27182f948bb33bb461800bd6f6c3811e51c8827a98562eda2ed963c3bd2d5"
 }

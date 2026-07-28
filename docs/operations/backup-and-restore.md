@@ -31,10 +31,13 @@ A fresh production backup under the current keys exported, encrypted,
 authenticated, uploaded, read back and verified all 24 durable tables. The
 operator-held copy independently authenticated and decrypted that exact latest
 backup. The isolated target then restored all 24 tables in the fixed sequence,
-re-exported them and reconciled the manifest successfully; production was empty,
-so this proves the crypto, storage and restore sequence rather than
-representative account, team, entitlement or query semantics. Superseded
-B2-key revocation after dashboard
+re-exported them and reconciled the manifest successfully. A subsequent
+fail-closed synthetic drill on the still-empty target proved account, team,
+licence, entitlement, release, one-use and expired download, full-refund
+revocation and audit-query semantics without invoking any outbound provider.
+Its redacted evidence is recorded in
+`docs/operations/isolated-restore-query-proof-2026-07-28.md`. Superseded B2-key
+revocation after dashboard
 reauthentication and founder password-manager custody/removal of the local
 recovery copy remain required before this control is marked fully complete.
 
@@ -107,7 +110,19 @@ rotation process. They must not be copied into a repository backup.
    URLs, secrets, email addresses, or provider diagnostics.
 6. Exercise representative account, team, entitlement, expired-link,
    revocation, download and audit-log queries with every outbound integration
-   still absent.
+   still absent. The fail-closed operator command is:
+
+   ```sh
+   nix develop -c node --conditions=react-server \
+     --env-file=.env.restore-proof --import tsx \
+     scripts/isolated-restore-query-proof.ts
+   ```
+
+   It refuses a non-empty or non-isolated target, restores one synthetic
+   release record through the fixed 24-table sequence, provisions only
+   synthetic identity and purchase projections, proves account/team/licence
+   queries, one-use and expired grants, refund revocation and audit output, and
+   emits counts and booleans rather than records or provider identifiers.
 7. Verify protected release archives separately against their release
    manifest; this database runner intentionally handles only the 24 durable
    Convex tables. It also proves `rateLimitWindows` is empty before restore but

@@ -827,7 +827,7 @@ canonical edition. The complete 22-counterpart Radix edition additionally
 passes clean shadcn installation, type checking and production builds in
 independent Next.js and Vite npm consumers. Component detail pages expose both
 install commands, both editable sources and real interactive Radix previews.
-The public gate includes 414 Vitest tests, all 57 canonical preview axe checks,
+The public gate includes 460 Vitest tests, all 57 canonical preview axe checks,
 22 Radix counterpart axe checks, Radix overlay/menu behavior, localisation and
 boundary tests, production rendering, artifact leakage, dependency/licence and
 secret scans, and enforced gzip/image/style budgets. A production-build Chrome
@@ -858,7 +858,7 @@ separately configured Stripe catalogue and live Vercel control plane remain
 fail closed for commerce.
 
 The localisation source is frozen reproducibly at revision
-`en-a7f7748278cf`: 2,925 records, of which 2,654 are translatable and 271 are
+`en-ebd18dc4a542`: 2,933 records, of which 2,662 are translatable and 271 are
 protected. English is the only published language. All 19 private AI drafts
 pass checksum, ordering, completeness, placeholder and protected-span
 verification. Model replacement and provenance-recorded fallback repair
@@ -897,41 +897,43 @@ and three desktop runs. Median scores are 98 mobile performance and 100 desktop
 performance, with accessibility, best practices and SEO at 100 in both modes;
 one mobile run scored 93 performance. This satisfies the homepage-median check,
 not the separate full-coverage greater-than-95 gate. After the source
-corrections were deployed, SquirrelScan 0.0.80 completed a fresh full 445-URL
-crawl and scored 81/B, with 28,466 passed checks, 1,288 warnings and 25
-failures. This improves on the 79/C baseline; security scored 98 with no
-security errors. Remaining loss is concentrated in hidden form-proxy modelling,
-aggregate site-wide byte weight/cache rules, thin-content heuristics and agent
-rules that do not recognise the live agent resources. Hydrated axe and
-accessibility-tree gates continue to pass. The large inspector chunk, CSP
-`unsafe-inline` and full-coverage 95+ gate remain explicit optimization,
-hardening and audit work. The detailed evidence is in
+corrections and safe payload-deferment tranche were deployed, SquirrelScan
+0.0.80 completed a fresh full crawl and scored 83/B, with 27,929 passed checks,
+1,195 warnings and 41 failures across 375 crawled URLs. This improves on the
+81/B post-fix crawl; SEO scored 90 and security 98. Eight accessibility errors
+are the same hidden Base UI switch proxy reported across two pages while the
+hydrated axe and accessibility-tree gates pass. The other failures are
+scanner-observed TTFB/aggregate-byte/cache rules plus one sitemap URL not
+visited by the crawler. The full-coverage 95+ gate remains open. The detailed
+evidence and exact reconciliation are in
 `docs/audits/production-launch-verification-2026-07-28.md`.
 
-The next safe audit tranche is implemented in source without treating crawler
-false positives as product defects: component pages defer the all-family Base
-and Radix preview runtimes until the reader requests interaction, defer
-registry JSON until the reader requests source, and generate their five
-route-scoped stylesheets as one ordered documentation bundle. Pagination
-specimens use fragment-only targets; non-HTML RSS/Markdown resources remain
-public but leave the SEO sitemap; all block-category metadata meets meaningful
-length bounds; and the Open Graph image is losslessly reduced by 21.7%.
-Production re-crawl evidence is required before assigning those changes a new
-aggregate score.
+The deployed safe audit tranche avoids treating crawler false positives as
+product defects: component pages defer the all-family Base and Radix preview
+runtimes until the reader requests interaction, defer registry JSON until the
+reader requests source, and generate their five route-scoped stylesheets as one
+ordered documentation bundle. Pagination specimens use fragment-only targets;
+non-HTML RSS/Markdown resources remain public but leave the SEO sitemap; all
+block-category metadata meets meaningful length bounds; and the Open Graph
+image is losslessly reduced by 21.7%. The fresh crawl records the resulting
+81/B to 83/B improvement without misrepresenting it as the required 95+ result.
 
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
-The latest runtime-bearing public commit is `977012c`: source/audit corrections
-landed in `52fe463`, and `977012c` pins Vercel to Node 22. Vercel deployment
-`dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` for `977012c` is Ready; its build log proves
-the exact commit and the Node 24-to-22 runtime transition.
+The current runtime-bearing public commit is
+`c4d0d7847ef1701392bf430f96cc8fccf0eb000e`; Vercel deployment
+`dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7` is Ready and its build log proves that
+exact commit on Node 22. Its GitHub Quality run `30375378972` failed only
+because the generated English localisation corpus was stale after legitimate
+copy changes. The corrected source revision is now regenerated and locally
+verified; a superseding pushed commit and green exact-commit CI remain required.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
 and public resolvers return the new records. HTTPS, all 292 current HTML
 sitemap URLs,
 canonical-host redirects, route/security headers, malformed authentication
-callbacks and fail-closed probes pass at `gummyui.dev`. GitHub Quality runs
+callbacks and fail-closed probes pass at `gummyui.dev`. Earlier GitHub Quality runs
 `30371961881` and `30373015318` pass for the deployed correction and exact
 Node 22 runtime-pin commits respectively. The single North Star remains at 0
 of 8 production-verified steps because no complete production customer journey
@@ -950,8 +952,9 @@ remain fail closed.
 The Vercel project and domain attachment exist, and every planned Production
 environment value except the Stripe runtime key is installed. Vercel Pro is
 active; spend management is set to $1 with notifications and Pause Projects
-enabled. Deployment `dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` is Ready at
-`977012c` on Node 22; both custom domains are Valid, public DNS has converged,
+enabled. Deployment `dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7` is Ready at
+`c4d0d7847ef1701392bf430f96cc8fccf0eb000e` on Node 22; both custom
+domains are Valid, public DNS has converged,
 and the complete public-origin probe passes. The Stripe key and every commerce
 journey remain pending. A Convex production deployment has
 `CONVEX_SERVER_SECRET` and the production WorkOS deploy-time credentials set
@@ -963,10 +966,15 @@ them back from B2, returned 200 and sent its success heartbeat. The subsequent
 latest-backup verification returned 200. The mode-0600 operator recovery copy
 then independently authenticated and decrypted that exact latest backup. An
 isolated Convex target restored and reconciled all 24 tables successfully with
-zero production records. A controlled Vercel rollback switched the real origin
+zero production records. A subsequent isolated synthetic drill proved
+representative account, team, licence, entitlement, one-use and expired
+download, full-refund revocation and audit queries without calling external
+providers. A controlled Vercel rollback of the then-current audited
+`977012c` release switched the real origin
 to known-good deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, passed public
-health and authentication probes, and promoted the current deployment back
-successfully. Superseded B2-key revocation and founder password-manager custody
+health and authentication probes, and promoted deployment
+`dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` back successfully. Superseded B2-key
+revocation and founder password-manager custody
 remain required.
 
 WorkOS production AuthKit is enabled and its redirect, application, branding and

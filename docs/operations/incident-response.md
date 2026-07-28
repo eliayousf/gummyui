@@ -5,9 +5,10 @@ and backup-recovery credential events. Production provider credentials,
 `support@kreydlabs.com`, uptime monitoring, structured logs, backup/restore and
 release rollback are operational. A controlled support-path message has been
 sent through Gmail, and a separate controlled production-sender message was
-recorded sent and delivered by Resend, both without customer data. The named
-incident commander, backup owner,
-and customer-update decision owner remain founder approvals before launch.
+recorded sent and delivered by Resend, both without customer data. Elia Samir
+Yousf is the approved operational owner and therefore the primary incident
+commander, backup operator and customer-update decision owner. Independent
+absence coverage remains unassigned.
 Better Stack's controlled sample incident records email delivery to and opening
 by the approved support address. A separate genuine missing-heartbeat drill on
 the email-outbox monitor opened an incident, sent the configured email alert,
@@ -28,8 +29,8 @@ heartbeat passed.
 1. Record detection time, reporter, affected environment, observable symptoms,
    and the evidence source without copying secrets or customer data into public
    systems.
-2. Assign the founder-approved incident commander. No durable named owner is
-   recorded yet.
+2. Assign Elia Samir Yousf as the primary incident commander and record any
+   delegated responder in the incident log.
 3. Contain the affected surface: disable the narrow route or integration,
    revoke exposed credentials, invalidate signed links or sessions, and stop
    unsafe releases. Do not destroy logs or evidence.
@@ -40,12 +41,13 @@ heartbeat passed.
 
 ## Communication
 
-No response-time promise or public security contact is approved. Before
-launch, the founder must approve:
+No response-time promise is approved. `support@kreydlabs.com` is the sole
+approved public support, privacy and security intake. Before launch, the
+founder must still approve:
 
-- the incident commander and backup owner;
-- the private vulnerability and customer-support destinations;
-- legal/privacy escalation and notification decision owners;
+- independent absence coverage for the named operational owner;
+- any private vulnerability destination beyond the approved support address;
+- external legal/privacy escalation contacts;
 - provider escalation contacts; and
 - an accurate customer-update process.
 

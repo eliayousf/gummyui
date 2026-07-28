@@ -7,15 +7,17 @@ Backblaze connections. Commerce flags remain fail closed. The current Convex
 production schema, indexes and functions are deployed and its 25 tables are
 confirmed empty. Vercel Pro is active with spend management set to $1,
 notifications and Pause Projects enabled. Deployment
-`dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` is Ready at public runtime-bearing commit
-`977012c` on Node 22. Vercel marks both custom domains Valid, public DNS
+`dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7` is Ready at public runtime-bearing commit
+`c4d0d7847ef1701392bf430f96cc8fccf0eb000e` on Node 22. Vercel marks both
+custom domains Valid, public DNS
 returns the Namecheap records, and the complete origin probe passes at
 `gummyui.dev`.
 
 The controlled rollback switched production to recorded known-good deployment
 `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, verified the homepage, LLM index, health
-contract and authentication initiation, and promoted the current deployment
-back. Post-promotion homepage, agent guide and health probes passed. A fresh
+contract and authentication initiation, and promoted the then-current audited
+deployment `dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` (`977012c`) back.
+Post-promotion homepage, agent guide and health probes passed. A fresh
 backup, independent operator-key verification and isolated restore also pass.
 The Stripe key, paid-release ownership and complete customer acceptance gate
 remain pending.

@@ -103,7 +103,7 @@ live manifests and evidence before acting; do not rebuild verified work from
 scratch.
 
 - The public catalogue has 57 canonical components, 61 registry payloads and
-  414 passing Vitest tests. Clean Next.js/Vite installs and the npm, pnpm, Yarn
+  460 passing Vitest tests. Clean Next.js/Vite installs and the npm, pnpm, Yarn
   and Bun package-manager matrix pass.
 - The private catalogue has 158 blocks, six templates, 474 block tests, 142
   template tests, 948 Chrome captures and 132 contact sheets. Clean paid
@@ -132,7 +132,7 @@ scratch.
   routes. Vercel Pro is active, Namecheap DNS has converged, HTTPS and custom
   domains are valid, and `gummyui.dev` serves the pushed public commit with
   commerce still fail closed.
-- English revision `en-a7f7748278cf` contains 2,925 records. All 19 private AI
+- English revision `en-ebd18dc4a542` contains 2,933 records. All 19 private AI
   drafts pass structural and automated quality checks with zero high-severity
   flags and have checksum-bound founder-review screens; every locale remains
   fail closed pending rendered QA and founder review.
