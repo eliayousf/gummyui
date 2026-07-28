@@ -523,6 +523,10 @@
   color: var(--muted);
 }
 
+.source-viewer__loading button {
+  margin-block-start: 12px;
+}
+
 .component-detail__next {
   display: flex;
   justify-content: space-between;

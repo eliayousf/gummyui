@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import {
   componentPreviewRenderers,
   componentPreviewSlugs,
-} from "../app/components/ComponentInspector";
+} from "../app/components/ComponentInspectorRuntime";
 
 afterEach(cleanup);
 

@@ -12,7 +12,10 @@ const entryBudgets = {
   "app/components/SiteChrome.tsx": 95_000,
   "app/components/CompositionShowcase.tsx": 165_000,
   "app/components/DocsShell.tsx": 155_000,
-  "app/components/ComponentInspector.tsx": 220_000,
+  "app/components/ComponentInspector.tsx": 100_000,
+  "app/components/ComponentInspectorRuntime.tsx": 220_000,
+  "app/components/RadixComponentInspector.tsx": 100_000,
+  "app/components/RadixComponentInspectorRuntime.tsx": 220_000,
   "app/components/ComponentLab.tsx": 250_000,
   "app/components/ThemeBuilder.tsx": 185_000,
   "app/components/GummyFrameStudio.tsx": 130_000,
@@ -69,6 +72,7 @@ for (const filename of await readdir(assetsDirectory)) {
 }
 
 const routeStyleBudgets = {
+  "component-docs.css": 200_000,
   "component-lab.css": 35_000,
   "component-inspector.css": 12_000,
   "frame-studio.css": 6_000,

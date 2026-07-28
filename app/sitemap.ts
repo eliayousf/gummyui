@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { articles } from "./data/articles";
 import { components } from "./data/catalogue";
-import { markdownGuideSlugs } from "./data/markdown-docs";
 import {
   proBlockCategories,
   proBlocks,
@@ -42,7 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/design-kit",
     "/pricing",
     "/changelog",
-    "/changelog.xml",
     "/blog",
     "/privacy",
   ];
@@ -97,39 +95,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: absoluteLocaleAlternatesForPath(
           `/templates/${template.slug}`,
-        ),
-      },
-    })),
-    {
-      url: `${baseUrl}/docs/markdown/catalogue.md`,
-      lastModified: new Date("2026-07-26"),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-      alternates: {
-        languages: absoluteLocaleAlternatesForPath(
-          "/docs/markdown/catalogue.md",
-        ),
-      },
-    },
-    ...components.map((component) => ({
-      url: `${baseUrl}/docs/markdown/components/${component.slug}.md`,
-      lastModified: new Date("2026-07-26"),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-      alternates: {
-        languages: absoluteLocaleAlternatesForPath(
-          `/docs/markdown/components/${component.slug}.md`,
-        ),
-      },
-    })),
-    ...markdownGuideSlugs.map((guide) => ({
-      url: `${baseUrl}/docs/markdown/guides/${guide}.md`,
-      lastModified: new Date("2026-07-26"),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-      alternates: {
-        languages: absoluteLocaleAlternatesForPath(
-          `/docs/markdown/guides/${guide}.md`,
         ),
       },
     })),

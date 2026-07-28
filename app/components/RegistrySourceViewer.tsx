@@ -42,10 +42,12 @@ export function RegistrySourceViewer({
 }: {
   registryName: string;
 }) {
+  const [requested, setRequested] = React.useState(false);
   const [payload, setPayload] = React.useState<RegistryPayload | null>(null);
   const [error, setError] = React.useState("");
   const [activePath, setActivePath] = React.useState("");
   React.useEffect(() => {
+    if (!requested) return;
     const controller = new AbortController();
     fetch(`/r/${registryName}.json`, { signal: controller.signal })
       .then((response) => {
@@ -61,7 +63,17 @@ export function RegistrySourceViewer({
         setError("Source could not be loaded from the local registry payload.");
       });
     return () => controller.abort();
-  }, [registryName]);
+  }, [registryName, requested]);
+  if (!requested) {
+    return (
+      <div className="source-viewer__loading">
+        <p>The registry payload stays off the initial page request.</p>
+        <button type="button" onClick={() => setRequested(true)}>
+          Load editable source
+        </button>
+      </div>
+    );
+  }
   if (error) return <p className="source-viewer__error" role="alert">{error}</p>;
   if (!payload) return <div className="source-viewer__loading" aria-live="polite">Loading editable source…</div>;
   const activeFile = payload.files.find(({ path }) => path === activePath) ?? payload.files[0];

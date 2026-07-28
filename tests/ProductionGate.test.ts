@@ -159,6 +159,20 @@ describe("commercial and Pro discovery contract", () => {
     );
   });
 
+  it("publishes substantive, bounded metadata for every Pro block category", async () => {
+    for (const category of proBlockCategories) {
+      const metadata = await generateBlockCategoryMetadata({
+        params: Promise.resolve({ category: category.slug }),
+      });
+      expect(metadata.title).toBeTypeOf("string");
+      expect(metadata.description).toBeTypeOf("string");
+      expect(String(metadata.title).length).toBeGreaterThanOrEqual(30);
+      expect(String(metadata.title).length).toBeLessThanOrEqual(60);
+      expect(String(metadata.description).length).toBeGreaterThanOrEqual(120);
+      expect(String(metadata.description).length).toBeLessThanOrEqual(160);
+    }
+  });
+
   it("aligns robots and sitemap with indexable canonicals", () => {
     const robotRules = robots().rules;
     expect(Array.isArray(robotRules)).toBe(false);
@@ -192,6 +206,14 @@ describe("commercial and Pro discovery contract", () => {
     const sitemapPaths = new Set(
       sitemap().map(({ url }) => new URL(url).pathname),
     );
+    for (const nonHtmlResource of [
+      "/changelog.xml",
+      "/docs/markdown/catalogue.md",
+      "/docs/markdown/components/button.md",
+      "/docs/markdown/guides/installation.md",
+    ]) {
+      expect(sitemapPaths.has(nonHtmlResource)).toBe(false);
+    }
     for (const route of [
       "/pro",
       "/blocks",

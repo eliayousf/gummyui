@@ -107,6 +107,31 @@ other two failures are aggregate page-weight and cache-freshness rules.
 Security has no errors. The redacted post-fix report SHA-256 is
 `603929c3d9d43de4d994bac62d6e1c3c87072e1834b6378bdf827eaf20ef7c4a`.
 
+### Next safe remediation tranche
+
+The current source applies the next non-gaming improvements identified from
+the 81/B report:
+
+- component detail pages fetch registry JSON only after an explicit
+  `Load editable source` action;
+- the complete Base/native and Radix preview runtimes load only after their
+  explicit interaction actions, while their hydrated axe suites continue to
+  exercise every documented resting state;
+- the five ordered component-documentation stylesheets are generated as one
+  route-scoped request while their individual registry-consumer files remain
+  available;
+- the pagination specimen uses fragment-only destinations rather than fake
+  crawlable query pages;
+- RSS and Markdown resources remain public and linked from their dedicated
+  discovery surfaces but are excluded from the HTML SEO sitemap;
+- every Pro block-category title and description meets tested, substantive
+  length bounds; and
+- `og.png` remains 1200×630 while lossless optimization reduces it from
+  854,293 to 668,843 bytes.
+
+These source changes do not overwrite the authoritative 81/B production result.
+A new deployed full crawl must establish their effect.
+
 ### Rule reconciliation and ownership
 
 | Rule(s) | Disposition | Owner and next evidence |

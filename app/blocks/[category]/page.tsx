@@ -21,8 +21,8 @@ export async function generateMetadata({
   const category = getProBlockCategory(categorySlug);
   if (!category) return {};
   return {
-    title: `${category.name} Pro blocks · Gummy UI`,
-    description: `Review implementation and release status for ${category.count} original ${category.name} compositions in the private Gummy UI Pro catalogue.`,
+    title: `${category.name} React UI Pro blocks · Gummy UI`,
+    description: `Explore ${category.count} original ${category.name} React UI compositions, their implementation status, and the source-free review and release boundary for Gummy UI Pro.`,
     alternates: { canonical: `/blocks/${category.slug}` },
     robots: { index: true, follow: true },
   };

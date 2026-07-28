@@ -13,6 +13,13 @@ const stylesheetNames = [
   "frame-studio.css",
   "component-lab.css",
 ];
+const componentDocsStylesheetNames = [
+  "gummy-core-components.css",
+  "gummy-form-controls.css",
+  "gummy-primitives.css",
+  "gummy-radix-compat.css",
+  "component-inspector.css",
+];
 
 const showcaseComponentSelectors = [
   ".gummy-input",
@@ -152,6 +159,28 @@ ${showcaseRoot.toString().trim()}
 `,
 );
 
+const componentDocsSections = await Promise.all(
+  componentDocsStylesheetNames.map(async (name) => {
+    const source = await readFile(
+      path.join(repositoryRoot, "app", "styles", name),
+      "utf8",
+    );
+    return `/* app/styles/${name} */\n${source.trim()}`;
+  }),
+);
+await syncPublicStylesheet(
+  "component-docs.css",
+  `/*
+ * Generated component-documentation bundle.
+ * Source order matches the previous route-scoped stylesheet links.
+ * Individual public stylesheets remain available to registry consumers.
+ * Do not edit this public copy.
+ */
+
+${componentDocsSections.join("\n\n")}
+`,
+);
+
 console.log(
-  `${checkOnly ? "Verified" : "Built"} ${stylesheetNames.length + 2} route-scoped public stylesheets.`,
+  `${checkOnly ? "Verified" : "Built"} ${stylesheetNames.length + 3} route-scoped public stylesheets.`,
 );

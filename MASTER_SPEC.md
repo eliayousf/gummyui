@@ -908,6 +908,17 @@ accessibility-tree gates continue to pass. The large inspector chunk, CSP
 hardening and audit work. The detailed evidence is in
 `docs/audits/production-launch-verification-2026-07-28.md`.
 
+The next safe audit tranche is implemented in source without treating crawler
+false positives as product defects: component pages defer the all-family Base
+and Radix preview runtimes until the reader requests interaction, defer
+registry JSON until the reader requests source, and generate their five
+route-scoped stylesheets as one ordered documentation bundle. Pagination
+specimens use fragment-only targets; non-HTML RSS/Markdown resources remain
+public but leave the SEO sitemap; all block-category metadata meets meaningful
+length bounds; and the Open Graph image is losslessly reduced by 21.7%.
+Production re-crawl evidence is required before assigning those changes a new
+aggregate score.
+
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
@@ -917,7 +928,8 @@ landed in `52fe463`, and `977012c` pins Vercel to Node 22. Vercel deployment
 the exact commit and the Node 24-to-22 runtime transition.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
-and public resolvers return the new records. HTTPS, all 362 sitemap URLs,
+and public resolvers return the new records. HTTPS, all 292 current HTML
+sitemap URLs,
 canonical-host redirects, route/security headers, malformed authentication
 callbacks and fail-closed probes pass at `gummyui.dev`. GitHub Quality runs
 `30371961881` and `30373015318` pass for the deployed correction and exact

@@ -1,7 +1,7 @@
 import { cleanup, render } from "@testing-library/react";
 import axe from "axe-core";
 import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
-import { RadixComponentInspector } from "../app/components/RadixComponentInspector";
+import { RadixComponentInspector } from "../app/components/RadixComponentInspectorRuntime";
 
 afterEach(cleanup);
 

@@ -7,7 +7,7 @@ import {
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
-import { RadixComponentInspector } from "../app/components/RadixComponentInspector";
+import { RadixComponentInspector } from "../app/components/RadixComponentInspectorRuntime";
 
 afterEach(cleanup);
 

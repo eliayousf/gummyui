@@ -7,7 +7,13 @@ import {
   ComponentInspector,
   componentPreviewRenderers,
   componentPreviewSlugs,
+} from "../app/components/ComponentInspectorRuntime";
+import {
+  ComponentInspector as DeferredComponentInspector,
 } from "../app/components/ComponentInspector";
+import {
+  RadixComponentInspector as DeferredRadixComponentInspector,
+} from "../app/components/RadixComponentInspector";
 import { components } from "../app/data/catalogue";
 
 afterEach(() => {
@@ -24,8 +30,49 @@ describe("component detail inspector", () => {
     ]);
 
     expect(detailRoute).toMatch(/<ComponentInspector slug=\{component\.slug\} componentName=\{component\.name\} \/>/);
-    expect(layout).toContain('href="/styles/component-inspector.css"');
+    expect(layout).toContain('href="/styles/component-docs.css"');
     expect(rootLayout).not.toContain("component-inspector.css");
+  });
+
+  it("defers the all-family preview runtime until the reader asks for it", async () => {
+    const user = userEvent.setup();
+    render(
+      <DeferredComponentInspector slug="button" componentName="Button" />,
+    );
+
+    expect(
+      screen.getByRole("button", { name: "Load interactive preview" }),
+    ).toBeInTheDocument();
+    expect(screen.queryByRole("group", { name: "Preview width" })).toBeNull();
+
+    await user.click(
+      screen.getByRole("button", { name: "Load interactive preview" }),
+    );
+    expect(
+      await screen.findByRole("group", { name: "Preview width" }),
+    ).toBeInTheDocument();
+  });
+
+  it("defers the all-family Radix runtime until the reader asks for it", async () => {
+    const user = userEvent.setup();
+    render(
+      <DeferredRadixComponentInspector
+        slug="toggle"
+        componentName="Toggle"
+      />,
+    );
+
+    expect(
+      screen.getByRole("button", { name: "Load Radix preview" }),
+    ).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Pin release" })).toBeNull();
+
+    await user.click(
+      screen.getByRole("button", { name: "Load Radix preview" }),
+    );
+    expect(
+      await screen.findByRole("button", { name: "Pin release" }),
+    ).toBeInTheDocument();
   });
 
   it("provides a real canonical preview renderer for every catalogue slug", () => {
@@ -76,5 +123,20 @@ describe("component detail inspector", () => {
     expect(
       screen.getByRole("combobox", { name: "Grape, accent fruit" }),
     ).toHaveTextContent("Grape");
+  });
+
+  it("keeps the pagination specimen out of the crawlable query namespace", () => {
+    render(<ComponentInspector slug="pagination" componentName="Pagination" />);
+
+    const previewLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(
+        '[data-component-preview="pagination"] a',
+      ),
+    );
+    expect(previewLinks).toHaveLength(4);
+    for (const link of previewLinks) {
+      expect(link.getAttribute("href")).toMatch(/^#component-preview-page-/);
+      expect(link.getAttribute("href")).not.toContain("?");
+    }
   });
 });
