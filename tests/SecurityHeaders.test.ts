@@ -52,6 +52,10 @@ describe("production response security headers", () => {
         headers: { "Content-Type": "text/html; charset=utf-8" },
       }),
     );
+    const authCallback = withSecurityHeaders(
+      "https://gummyui.dev/auth/callback",
+      new Response(null, { status: 302 }),
+    );
     const checkout = withSecurityHeaders(
       "https://gummyui.dev/checkout",
       new Response("<!doctype html>", {
@@ -79,6 +83,8 @@ describe("production response security headers", () => {
     );
     expect(signIn.headers.get("Cache-Control")).toBe("private, no-store");
     expect(signIn.headers.get("X-Robots-Tag")).toContain("noindex");
+    expect(authCallback.headers.get("Cache-Control")).toBe("private, no-store");
+    expect(authCallback.headers.get("X-Robots-Tag")).toContain("noindex");
     expect(checkout.headers.get("Cache-Control")).toBe("private, no-store");
     expect(checkout.headers.get("X-Robots-Tag")).toContain("noindex");
     expect(download.headers.get("Cache-Control")).toBe("private, no-store");

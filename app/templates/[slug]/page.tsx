@@ -23,7 +23,7 @@ export async function generateMetadata({
     title: `${template.name} Pro template status · Gummy UI`,
     description: `${template.brief} Boundary-safe implementation and release status.`,
     alternates: { canonical: `/templates/${template.slug}` },
-    robots: { index: false, follow: true },
+    robots: { index: true, follow: true },
   };
 }
 

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-alert-dialog",
+  "type": "registry:ui",
+  "title": "Gummy Alert Dialog · Radix UI",
+  "description": "Gummy Alert Dialog behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-alert-dialog@1.1.23"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyAlertDialog.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as AlertDialog from \"@radix-ui/react-alert-dialog\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyAlertDialog = AlertDialog.Root;\n\nexport type GummyAlertDialogPortalProps = React.ComponentPropsWithoutRef<\n  typeof AlertDialog.Portal\n> & { keepMounted?: boolean };\n\nexport function GummyAlertDialogPortal({\n  keepMounted,\n  ...props\n}: GummyAlertDialogPortalProps) {\n  void keepMounted;\n  return <AlertDialog.Portal {...props} />;\n}\n\nexport const GummyAlertDialogTrigger = React.forwardRef<\n  React.ElementRef<typeof AlertDialog.Trigger>,\n  React.ComponentPropsWithoutRef<typeof AlertDialog.Trigger>\n>(function GummyAlertDialogTrigger({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-trigger\", className)}\n    />\n  );\n});\n\nexport const GummyAlertDialogBackdrop = React.forwardRef<\n  React.ElementRef<typeof AlertDialog.Overlay>,\n  React.ComponentPropsWithoutRef<typeof AlertDialog.Overlay>\n>(function GummyAlertDialogBackdrop({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Overlay\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-backdrop\", className)}\n    />\n  );\n});\n\nexport const GummyAlertDialogViewport = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(function GummyAlertDialogViewport({ className, ...props }, ref) {\n  return (\n    <div\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-viewport\", className)}\n    />\n  );\n});\n\nexport const GummyAlertDialogPopup = React.forwardRef<\n  React.ElementRef<typeof AlertDialog.Content>,\n  React.ComponentPropsWithoutRef<typeof AlertDialog.Content>\n>(function GummyAlertDialogPopup({ className, children, ...props }, ref) {\n  return (\n    <AlertDialog.Content\n      {...props}\n      ref={ref}\n      className={joinClassNames(\n        \"gummy-overlay-popup gummy-alert-dialog__popup\",\n        className,\n      )}\n    >\n      <span className=\"gummy-overlay-popup__reservoir\" aria-hidden=\"true\" />\n      {children}\n    </AlertDialog.Content>\n  );\n});\n\nexport const GummyAlertDialogTitle = React.forwardRef<\n  React.ElementRef<typeof AlertDialog.Title>,\n  React.ComponentPropsWithoutRef<typeof AlertDialog.Title>\n>(function GummyAlertDialogTitle({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Title\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-popup__title\", className)}\n    />\n  );\n});\n\nexport const GummyAlertDialogDescription = React.forwardRef<\n  React.ElementRef<typeof AlertDialog.Description>,\n  React.ComponentPropsWithoutRef<typeof AlertDialog.Description>\n>(function GummyAlertDialogDescription({ className, ...props }, ref) {\n  return (\n    <AlertDialog.Description\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-overlay-popup__description\", className)}\n    />\n  );\n});\n\nexport const GummyAlertDialogClose = AlertDialog.Cancel;\nexport const GummyAlertDialogAction = AlertDialog.Action;\n\nGummyAlertDialogTrigger.displayName = \"GummyAlertDialogTrigger\";\nGummyAlertDialogBackdrop.displayName = \"GummyAlertDialogBackdrop\";\nGummyAlertDialogViewport.displayName = \"GummyAlertDialogViewport\";\nGummyAlertDialogPopup.displayName = \"GummyAlertDialogPopup\";\nGummyAlertDialogTitle.displayName = \"GummyAlertDialogTitle\";\nGummyAlertDialogDescription.displayName = \"GummyAlertDialogDescription\";\n"
+    }
+  ]
+}

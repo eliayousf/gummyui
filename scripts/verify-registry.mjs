@@ -8,6 +8,9 @@ import {
 
 const projectRoot = process.cwd();
 const registry = JSON.parse(await readFile(path.join(projectRoot, "registry.json"), "utf8"));
+const radixRegistry = JSON.parse(
+  await readFile(path.join(projectRoot, "registry-radix.json"), "utf8"),
+);
 const names = new Set();
 const targets = new Set();
 const expectedStage3Items = [
@@ -105,4 +108,89 @@ for (const item of registry.items) {
   }
 }
 
-console.log("Registry integrity passed: 57 component items and four shared material payloads are safe, readable, and generated.");
+const expectedRadixComponents = [
+  "accordion",
+  "alert-dialog",
+  "collapsible",
+  "context-menu",
+  "dialog",
+  "direction",
+  "drawer",
+  "dropdown-menu",
+  "hover-card",
+  "menubar",
+  "navigation-menu",
+  "popover",
+  "scroll-area",
+  "select",
+  "sheet",
+  "slider",
+  "sonner",
+  "switch",
+  "tabs",
+  "toggle",
+  "toggle-group",
+  "tooltip",
+].map((slug) => `gummy-radix-${slug}`);
+
+if (radixRegistry.$schema !== "https://ui.shadcn.com/schema/registry.json") {
+  throw new Error("Radix registry schema is missing.");
+}
+if (radixRegistry.items.length !== expectedRadixComponents.length + 1) {
+  throw new Error("Radix registry must contain 22 component counterparts and one compatibility style.");
+}
+
+const radixNames = new Set();
+const radixTargets = new Set();
+for (const item of radixRegistry.items) {
+  assertSafeRegistryItemName(item.name);
+  if (radixNames.has(item.name) || names.has(item.name)) {
+    throw new Error(`Duplicate Radix registry item: ${item.name}`);
+  }
+  radixNames.add(item.name);
+  if (!item.title || !item.description || !Array.isArray(item.files) || item.files.length === 0) {
+    throw new Error(`Incomplete Radix registry item: ${item.name}`);
+  }
+  for (const file of item.files) {
+    if (radixTargets.has(file.target)) {
+      throw new Error(`Duplicate Radix install target: ${file.target}`);
+    }
+    radixTargets.add(file.target);
+    await resolvePublicRegistrySource(projectRoot, file.path);
+    resolveRegistryTarget(projectRoot, file.target);
+  }
+  if (item.type === "registry:ui") {
+    if (
+      item.dependencies?.length !== 1 ||
+      !item.dependencies[0].startsWith("@radix-ui/react-")
+    ) {
+      throw new Error(`Radix component must pin one official primitive dependency: ${item.name}`);
+    }
+  }
+  const payloadPath = path.join(projectRoot, "public", "r", `${item.name}.json`);
+  const payload = JSON.parse(await readFile(payloadPath, "utf8"));
+  if (payload.name !== item.name || payload.type !== item.type) {
+    throw new Error(`Generated Radix payload metadata does not match: ${item.name}`);
+  }
+  if (
+    item.type === "registry:ui" &&
+    !payload.registryDependencies?.includes(
+      "https://gummyui.dev/r/gummy-radix-compat.json",
+    )
+  ) {
+    throw new Error(`Radix payload is missing its state compatibility styles: ${item.name}`);
+  }
+}
+
+for (const itemName of expectedRadixComponents) {
+  if (!radixNames.has(itemName)) {
+    throw new Error(`Missing Radix counterpart: ${itemName}`);
+  }
+}
+if (radixNames.has("gummy-radix-combobox")) {
+  throw new Error("Combobox must remain explicitly Base-only; Radix has no Combobox primitive.");
+}
+
+console.log(
+  "Registry integrity passed: 57 component categories, four shared material payloads, and 22 official Radix counterparts are safe, readable, and generated.",
+);

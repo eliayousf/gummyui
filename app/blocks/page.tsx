@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Pro block catalogue specification · Gummy UI",
   description: "Review boundary-safe category counts plus implementation, manual verification, protected release, entitlement, and purchase status for the private Gummy UI Pro block catalogue.",
   alternates: { canonical: "/blocks" },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export default function BlocksPage() {

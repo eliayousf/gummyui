@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-navigation-menu",
+  "type": "registry:ui",
+  "title": "Gummy Navigation Menu · Radix UI",
+  "description": "Gummy Navigation Menu behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-navigation-menu@1.2.22"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyNavigationMenu.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as NavigationMenu from \"@radix-ui/react-navigation-menu\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyNavigationMenuProps =\n  React.ComponentPropsWithoutRef<typeof NavigationMenu.Root> & {\n    label?: string;\n  };\n\nexport function GummyNavigationMenu({\n  label = \"Primary\",\n  className,\n  ...props\n}: GummyNavigationMenuProps) {\n  return (\n    <NavigationMenu.Root\n      {...props}\n      aria-label={label}\n      className={joinClassNames(\"gummy-navigation-menu\", className)}\n    />\n  );\n}\n\nexport const GummyNavigationMenuList = React.forwardRef<\n  React.ElementRef<typeof NavigationMenu.List>,\n  React.ComponentPropsWithoutRef<typeof NavigationMenu.List>\n>(function GummyNavigationMenuList({ className, ...props }, ref) {\n  return <NavigationMenu.List {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__list\", className)} />;\n});\n\nexport const GummyNavigationMenuItem = NavigationMenu.Item;\n\nexport const GummyNavigationMenuTrigger = React.forwardRef<\n  React.ElementRef<typeof NavigationMenu.Trigger>,\n  React.ComponentPropsWithoutRef<typeof NavigationMenu.Trigger>\n>(function GummyNavigationMenuTrigger({ className, children, ...props }, ref) {\n  return (\n    <NavigationMenu.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-navigation-menu__trigger\", className)}\n    >\n      {children}<span className=\"gummy-navigation-menu__icon\" aria-hidden=\"true\">⌄</span>\n    </NavigationMenu.Trigger>\n  );\n});\n\nexport const GummyNavigationMenuContent = NavigationMenu.Content;\n\nexport function GummyNavigationMenuPortal({\n  children,\n}: React.PropsWithChildren) {\n  return <>{children}</>;\n}\n\nexport function GummyNavigationMenuPositioner({\n  children,\n  className,\n}: React.PropsWithChildren<{ className?: string }>) {\n  return <div className={joinClassNames(\"gummy-floating-positioner\", className)}>{children}</div>;\n}\n\nexport const GummyNavigationMenuPopup = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(function GummyNavigationMenuPopup({ className, ...props }, ref) {\n  return <div {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__popup\", className)} />;\n});\n\nexport const GummyNavigationMenuViewport = React.forwardRef<\n  React.ElementRef<typeof NavigationMenu.Viewport>,\n  React.ComponentPropsWithoutRef<typeof NavigationMenu.Viewport>\n>(function GummyNavigationMenuViewport({ className, ...props }, ref) {\n  return <NavigationMenu.Viewport {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__viewport\", className)} />;\n});\n\nexport const GummyNavigationMenuLink = React.forwardRef<\n  React.ElementRef<typeof NavigationMenu.Link>,\n  React.ComponentPropsWithoutRef<typeof NavigationMenu.Link>\n>(function GummyNavigationMenuLink({ className, ...props }, ref) {\n  return <NavigationMenu.Link {...props} ref={ref} className={joinClassNames(\"gummy-navigation-menu__link\", className)} />;\n});\n\nGummyNavigationMenuList.displayName = \"GummyNavigationMenuList\";\nGummyNavigationMenuTrigger.displayName = \"GummyNavigationMenuTrigger\";\nGummyNavigationMenuPopup.displayName = \"GummyNavigationMenuPopup\";\nGummyNavigationMenuViewport.displayName = \"GummyNavigationMenuViewport\";\nGummyNavigationMenuLink.displayName = \"GummyNavigationMenuLink\";\n"
+    }
+  ]
+}

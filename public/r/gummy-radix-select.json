@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-select",
+  "type": "registry:ui",
+  "title": "Gummy Select · Radix UI",
+  "description": "Gummy Select behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-select@2.3.7"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySelect.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as Select from \"@radix-ui/react-select\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\ntype ContentProps = React.ComponentPropsWithoutRef<typeof Select.Content>;\ntype PositioningProps = Pick<\n  ContentProps,\n  \"align\" | \"side\" | \"sideOffset\" | \"collisionPadding\" | \"position\"\n>;\nconst PositioningContext = React.createContext<PositioningProps>({});\n\nexport const GummySelect = Select.Root;\nexport const GummySelectLabel = Select.Label;\nexport const GummySelectValue = Select.Value;\n\nexport const GummySelectTrigger = React.forwardRef<\n  React.ElementRef<typeof Select.Trigger>,\n  React.ComponentPropsWithoutRef<typeof Select.Trigger>\n>(function GummySelectTrigger({ className, children, ...props }, ref) {\n  return (\n    <Select.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-select__trigger\", className)}\n    >\n      {children ?? <Select.Value />}\n      <Select.Icon className=\"gummy-select__icon\">⌄</Select.Icon>\n    </Select.Trigger>\n  );\n});\n\nexport const GummySelectPortal = Select.Portal;\n\nexport type GummySelectPositionerProps =\n  React.PropsWithChildren<PositioningProps & { className?: string }>;\n\nexport function GummySelectPositioner({\n  className,\n  children,\n  sideOffset = 8,\n  position = \"popper\",\n  ...positioning\n}: GummySelectPositionerProps) {\n  return (\n    <PositioningContext.Provider value={{ ...positioning, sideOffset, position }}>\n      <div className={joinClassNames(\"gummy-menu-positioner\", className)}>\n        {children}\n      </div>\n    </PositioningContext.Provider>\n  );\n}\n\nexport const GummySelectPopup = React.forwardRef<\n  React.ElementRef<typeof Select.Content>,\n  ContentProps\n>(function GummySelectPopup({ className, children, ...props }, ref) {\n  const positioning = React.useContext(PositioningContext);\n  return (\n    <Select.Content\n      {...positioning}\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-select__popup\", className)}\n    >\n      <Select.ScrollUpButton className=\"gummy-select__scroll-arrow\">↑</Select.ScrollUpButton>\n      {children}\n      <Select.ScrollDownButton className=\"gummy-select__scroll-arrow\">↓</Select.ScrollDownButton>\n    </Select.Content>\n  );\n});\n\nexport const GummySelectList = Select.Viewport;\nexport const GummySelectGroup = Select.Group;\nexport const GummySelectGroupLabel = Select.Label;\n\nexport const GummySelectItem = React.forwardRef<\n  React.ElementRef<typeof Select.Item>,\n  React.ComponentPropsWithoutRef<typeof Select.Item>\n>(function GummySelectItem({ className, children, ...props }, ref) {\n  return (\n    <Select.Item\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-select__item\", className)}\n    >\n      <Select.ItemIndicator className=\"gummy-select__indicator\">✓</Select.ItemIndicator>\n      <Select.ItemText>{children}</Select.ItemText>\n    </Select.Item>\n  );\n});\n\nGummySelectTrigger.displayName = \"GummySelectTrigger\";\nGummySelectPopup.displayName = \"GummySelectPopup\";\nGummySelectItem.displayName = \"GummySelectItem\";\n"
+    }
+  ]
+}

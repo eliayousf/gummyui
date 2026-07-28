@@ -1,0 +1,372 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "gummyui-radix",
+  "homepage": "https://gummyui.dev",
+  "items": [
+    {
+      "name": "gummy-radix-compat",
+      "type": "registry:style",
+      "title": "Gummy UI Radix state compatibility",
+      "description": "Radix state and motion aliases for the shared Gummy material styles.",
+      "files": [
+        {
+          "path": "app/styles/gummy-radix-compat.css",
+          "type": "registry:style",
+          "target": "app/gummy-radix-compat.css"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-accordion",
+      "type": "registry:ui",
+      "title": "Gummy Accordion · Radix UI",
+      "description": "Gummy Accordion behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-accordion@1.2.20"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyAccordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyAccordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-alert-dialog",
+      "type": "registry:ui",
+      "title": "Gummy Alert Dialog · Radix UI",
+      "description": "Gummy Alert Dialog behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-alert-dialog@1.1.23"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyAlertDialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyAlertDialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-collapsible",
+      "type": "registry:ui",
+      "title": "Gummy Collapsible · Radix UI",
+      "description": "Gummy Collapsible behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-collapsible@1.1.20"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyCollapsible.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyCollapsible.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-context-menu",
+      "type": "registry:ui",
+      "title": "Gummy Context Menu · Radix UI",
+      "description": "Gummy Context Menu behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-context-menu@2.3.7"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyContextMenu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyContextMenu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-dialog",
+      "type": "registry:ui",
+      "title": "Gummy Dialog · Radix UI",
+      "description": "Gummy Dialog behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-dialog@1.1.23"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyDialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyDialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-direction",
+      "type": "registry:ui",
+      "title": "Gummy Direction · Radix UI",
+      "description": "Gummy Direction behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-direction@1.1.4"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyDirection.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyDirection.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-drawer",
+      "type": "registry:ui",
+      "title": "Gummy Drawer · Radix UI",
+      "description": "Gummy Drawer behavior implemented with Radix Dialog.",
+      "dependencies": [
+        "@radix-ui/react-dialog@1.1.23"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyDrawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyDrawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-dropdown-menu",
+      "type": "registry:ui",
+      "title": "Gummy Dropdown Menu · Radix UI",
+      "description": "Gummy Dropdown Menu behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu@2.1.24"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyDropdownMenu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyDropdownMenu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-hover-card",
+      "type": "registry:ui",
+      "title": "Gummy Hover Card · Radix UI",
+      "description": "Gummy Hover Card behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-hover-card@1.1.23"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyHoverCard.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyHoverCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-menubar",
+      "type": "registry:ui",
+      "title": "Gummy Menubar · Radix UI",
+      "description": "Gummy Menubar behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-menubar@1.1.24"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyMenubar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyMenubar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-navigation-menu",
+      "type": "registry:ui",
+      "title": "Gummy Navigation Menu · Radix UI",
+      "description": "Gummy Navigation Menu behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-navigation-menu@1.2.22"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyNavigationMenu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyNavigationMenu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-popover",
+      "type": "registry:ui",
+      "title": "Gummy Popover · Radix UI",
+      "description": "Gummy Popover behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-popover@1.1.23"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyPopover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyPopover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-scroll-area",
+      "type": "registry:ui",
+      "title": "Gummy Scroll Area · Radix UI",
+      "description": "Gummy Scroll Area behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-scroll-area@1.2.18"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyScrollArea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyScrollArea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-select",
+      "type": "registry:ui",
+      "title": "Gummy Select · Radix UI",
+      "description": "Gummy Select behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-select@2.3.7"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummySelect.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySelect.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-sheet",
+      "type": "registry:ui",
+      "title": "Gummy Sheet · Radix UI",
+      "description": "Gummy Sheet behavior implemented with Radix Dialog.",
+      "dependencies": [
+        "@radix-ui/react-dialog@1.1.23"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummySheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-slider",
+      "type": "registry:ui",
+      "title": "Gummy Slider · Radix UI",
+      "description": "Gummy Slider behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-slider@1.4.7"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummySlider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySlider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-sonner",
+      "type": "registry:ui",
+      "title": "Gummy Sonner · Radix UI",
+      "description": "Gummy toast workflows implemented with Radix Toast.",
+      "dependencies": [
+        "@radix-ui/react-toast@1.2.23"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummySonner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySonner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-switch",
+      "type": "registry:ui",
+      "title": "Gummy Switch · Radix UI",
+      "description": "Gummy Switch behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-switch@1.3.7"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummySwitch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummySwitch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-tabs",
+      "type": "registry:ui",
+      "title": "Gummy Tabs · Radix UI",
+      "description": "Gummy Tabs behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-tabs@1.1.21"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyTabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyTabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-toggle",
+      "type": "registry:ui",
+      "title": "Gummy Toggle · Radix UI",
+      "description": "Gummy Toggle behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-toggle@1.1.18"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyToggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyToggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-toggle-group",
+      "type": "registry:ui",
+      "title": "Gummy Toggle Group · Radix UI",
+      "description": "Gummy Toggle Group behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-toggle-group@1.1.19"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyToggleGroup.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyToggleGroup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gummy-radix-tooltip",
+      "type": "registry:ui",
+      "title": "Gummy Tooltip · Radix UI",
+      "description": "Gummy Tooltip behavior implemented with Radix UI.",
+      "dependencies": [
+        "@radix-ui/react-tooltip@1.2.16"
+      ],
+      "files": [
+        {
+          "path": "app/components/radix/GummyTooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/GummyTooltip.tsx"
+        }
+      ]
+    }
+  ]
+}

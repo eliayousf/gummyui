@@ -7,11 +7,20 @@ import {
 
 const projectRoot = process.cwd();
 const registry = JSON.parse(await readFile(path.join(projectRoot, "registry.json"), "utf8"));
+const radixRegistry = JSON.parse(
+  await readFile(path.join(projectRoot, "registry-radix.json"), "utf8"),
+);
 const outputDirectory = path.join(projectRoot, "public", "r");
+const radixRegistryDependencies = [
+  "https://gummyui.dev/r/gummy-base.json",
+  "https://gummyui.dev/r/gummy-core-styles.json",
+  "https://gummyui.dev/r/gummy-primitives-styles.json",
+  "https://gummyui.dev/r/gummy-radix-compat.json",
+];
 
 await mkdir(outputDirectory, { recursive: true });
 
-for (const item of registry.items) {
+for (const item of [...registry.items, ...radixRegistry.items]) {
   assertSafeRegistryItemName(item.name);
   const files = await Promise.all(item.files.map(async (file) => {
     const source = await resolvePublicRegistrySource(projectRoot, file.path);
@@ -28,8 +37,12 @@ for (const item of registry.items) {
     type: item.type,
     title: item.title,
     description: item.description,
-    ...(item.registryDependencies
-      ? { registryDependencies: item.registryDependencies }
+    ...((item.registryDependencies || item.name.startsWith("gummy-radix-")) &&
+      item.name !== "gummy-radix-compat"
+      ? {
+          registryDependencies:
+            item.registryDependencies ?? radixRegistryDependencies,
+        }
       : {}),
     ...(item.dependencies ? { dependencies: item.dependencies } : {}),
     files,
@@ -42,4 +55,12 @@ for (const item of registry.items) {
   );
 }
 
-console.log(`Built ${registry.items.length} registry items in public/r.`);
+await writeFile(
+  path.join(outputDirectory, "radix.json"),
+  `${JSON.stringify(radixRegistry, null, 2)}\n`,
+  "utf8",
+);
+
+console.log(
+  `Built ${registry.items.length} canonical items and ${radixRegistry.items.length} Radix items in public/r.`,
+);

@@ -7,6 +7,7 @@ const checkOnly = process.argv.includes("--check");
 const stylesheetNames = [
   "gummy-form-controls.css",
   "gummy-primitives.css",
+  "gummy-radix-compat.css",
   "component-inspector.css",
   "frame-studio.css",
 ];

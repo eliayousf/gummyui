@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-tabs",
+  "type": "registry:ui",
+  "title": "Gummy Tabs · Radix UI",
+  "description": "Gummy Tabs behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-tabs@1.1.21"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyTabs.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as Tabs from \"@radix-ui/react-tabs\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyTabsProps = React.ComponentPropsWithoutRef<typeof Tabs.Root>;\n\nexport function GummyTabs({ className, ...props }: GummyTabsProps) {\n  return <Tabs.Root {...props} className={joinClassNames(\"gummy-tabs\", className)} />;\n}\n\nexport const GummyTabsList = React.forwardRef<\n  React.ElementRef<typeof Tabs.List>,\n  React.ComponentPropsWithoutRef<typeof Tabs.List>\n>(function GummyTabsList({ className, children, ...props }, ref) {\n  return (\n    <Tabs.List\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-tabs__list\", className)}\n    >\n      <span className=\"gummy-tabs__indicator\" aria-hidden=\"true\" />\n      {children}\n    </Tabs.List>\n  );\n});\n\nexport const GummyTab = React.forwardRef<\n  React.ElementRef<typeof Tabs.Trigger>,\n  React.ComponentPropsWithoutRef<typeof Tabs.Trigger>\n>(function GummyTab({ className, ...props }, ref) {\n  return (\n    <Tabs.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-tabs__tab\", className)}\n    />\n  );\n});\n\nexport const GummyTabPanel = React.forwardRef<\n  React.ElementRef<typeof Tabs.Content>,\n  React.ComponentPropsWithoutRef<typeof Tabs.Content>\n>(function GummyTabPanel({ className, ...props }, ref) {\n  return (\n    <Tabs.Content\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-tabs__panel\", className)}\n    />\n  );\n});\n\nGummyTabsList.displayName = \"GummyTabsList\";\nGummyTab.displayName = \"GummyTab\";\nGummyTabPanel.displayName = \"GummyTabPanel\";\n"
+    }
+  ]
+}

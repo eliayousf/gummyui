@@ -21,6 +21,10 @@ const projectRoot = path.resolve(
 );
 const fixturesRoot = path.join(projectRoot, "fixtures", "consumers");
 const registryRoot = path.join(projectRoot, "public", "r");
+const radixRegistry = JSON.parse(
+  await readFile(path.join(projectRoot, "registry-radix.json"), "utf8"),
+);
+const consumerEngines = Object.freeze(["base", "radix"]);
 
 export const shadcnVersion = "4.15.0";
 export const consumerFrameworks = Object.freeze(["next", "vite"]);
@@ -126,7 +130,14 @@ async function startRegistryServer() {
         response.end("Not found\n");
         return;
       }
-      const payload = await readFile(path.join(registryRoot, match[1]), "utf8");
+      const address = server.address();
+      if (!address || typeof address === "string") {
+        throw new Error("Local registry server address is unavailable.");
+      }
+      const localRegistryBaseUrl = `http://127.0.0.1:${address.port}`;
+      const payload = (
+        await readFile(path.join(registryRoot, match[1]), "utf8")
+      ).replaceAll("https://gummyui.dev", localRegistryBaseUrl);
       response.writeHead(200, {
         "access-control-allow-origin": "*",
         "cache-control": "no-store",
@@ -155,12 +166,22 @@ async function startRegistryServer() {
   };
 }
 
-async function assertInstalledConsumer(projectDirectory) {
-  const requiredFiles = [
-    "components/gummy-theme.css",
-    "components/gummy-button.css",
-    "components/ui/gummy-button.tsx",
-  ];
+async function assertInstalledConsumer(projectDirectory, engine) {
+  const requiredFiles = engine === "radix"
+    ? [
+        "components/gummy-theme.css",
+        "components/gummy-button.css",
+        "components/gummy-radix-compat.css",
+        "components/ui/gummy-button.tsx",
+        ...radixRegistry.items
+          .filter(({ type }) => type === "registry:ui")
+          .flatMap(({ files }) => files.map(({ target }) => target)),
+      ]
+    : [
+        "components/gummy-theme.css",
+        "components/gummy-button.css",
+        "components/ui/gummy-button.tsx",
+      ];
   for (const relativePath of requiredFiles) {
     await access(path.join(projectDirectory, relativePath));
   }
@@ -168,14 +189,29 @@ async function assertInstalledConsumer(projectDirectory) {
   if (nodeModules.isSymbolicLink()) {
     throw new Error("Clean consumer node_modules must not be symlinked from the Gummy UI repository.");
   }
-  const buttonSource = await readFile(
-    path.join(projectDirectory, "components", "ui", "gummy-button.tsx"),
+  const representativePath = engine === "radix"
+    ? path.join(projectDirectory, "components", "ui", "GummyDialog.tsx")
+    : path.join(projectDirectory, "components", "ui", "gummy-button.tsx");
+  const representativeSource = await readFile(
+    representativePath,
     "utf8",
   );
-  if (!buttonSource.includes("export const GummyButton")) {
+  if (
+    engine === "base" &&
+    !representativeSource.includes("export const GummyButton")
+  ) {
     throw new Error("The shadcn command did not install the canonical Gummy Button source.");
   }
-  if (buttonSource.includes(projectRoot) || buttonSource.includes("app/components/ui/GummyButton")) {
+  if (
+    engine === "radix" &&
+    !representativeSource.includes("@radix-ui/react-dialog")
+  ) {
+    throw new Error("The shadcn command did not install the Radix Dialog source.");
+  }
+  if (
+    representativeSource.includes(projectRoot) ||
+    representativeSource.includes("app/components/radix/")
+  ) {
     throw new Error("Installed source imports from the Gummy UI website repository.");
   }
 }
@@ -204,6 +240,7 @@ async function verifyConsumerCase({
   packageManager,
   runRoot,
   registryBaseUrl,
+  engine,
 }) {
   const packageManagerPath = packageManagerPaths[packageManager];
   const projectDirectory = path.join(runRoot, `${framework}-${packageManager}`);
@@ -225,12 +262,19 @@ async function verifyConsumerCase({
     BUN_INSTALL_CACHE_DIR: path.join(isolatedCacheRoot, "bun"),
   };
   env = await prepareCommandShim({ packageManagerPath, runRoot, env });
-  const registryUrls = [
-    `${registryBaseUrl}/r/gummy-base.json`,
-    `${registryBaseUrl}/r/gummy-button.json`,
-  ];
+  const registryUrls = engine === "radix"
+    ? [
+        `${registryBaseUrl}/r/gummy-button.json`,
+        ...radixRegistry.items
+          .filter(({ type }) => type === "registry:ui")
+          .map(({ name }) => `${registryBaseUrl}/r/${name}.json`),
+      ]
+    : [
+        `${registryBaseUrl}/r/gummy-base.json`,
+        `${registryBaseUrl}/r/gummy-button.json`,
+      ];
 
-  process.stdout.write(`\n${framework} with ${packageManager}\n`);
+  process.stdout.write(`\n${framework} with ${packageManager} · ${engine}\n`);
   await runNixCommand({
     nixPackage: packageManagerPath.nixPackage,
     command: packageManagerPath.install,
@@ -243,7 +287,7 @@ async function verifyConsumerCase({
     cwd: projectDirectory,
     env,
   });
-  await assertInstalledConsumer(projectDirectory);
+  await assertInstalledConsumer(projectDirectory, engine);
   await runNixCommand({
     nixPackage: packageManagerPath.nixPackage,
     command: packageManagerPath.typecheck,
@@ -262,11 +306,18 @@ export async function verifyCleanConsumers({
   frameworks = consumerFrameworks,
   packageManagers = ["npm"],
   keepTemporaryProjects = false,
+  engine = "base",
 } = {}) {
   validateSelection(frameworks, consumerFrameworks, "framework");
   validateSelection(packageManagers, Object.keys(packageManagerPaths), "package manager");
+  validateSelection([engine], consumerEngines, "component engine");
   await access(path.join(registryRoot, "gummy-base.json"));
-  await access(path.join(registryRoot, "gummy-button.json"));
+  await access(
+    path.join(
+      registryRoot,
+      engine === "radix" ? "gummy-radix-dialog.json" : "gummy-button.json",
+    ),
+  );
 
   const temporaryParent = process.env.GUMMYUI_CONSUMER_TMPDIR || os.tmpdir();
   const runRoot = await mkdtemp(path.join(temporaryParent, "gummyui-clean-consumers-"));
@@ -278,6 +329,7 @@ export async function verifyCleanConsumers({
         ...consumerCase,
         runRoot,
         registryBaseUrl: registryServer.baseUrl,
+        engine,
       });
     }
   } finally {
@@ -290,7 +342,7 @@ export async function verifyCleanConsumers({
   }
   const elapsedSeconds = ((performance.now() - startedAt) / 1000).toFixed(1);
   process.stdout.write(
-    `\nClean consumer verification passed for ${frameworks.length} framework(s) and ${packageManagers.length} package-manager path(s) in ${elapsedSeconds}s.\n`,
+    `\nClean ${engine} consumer verification passed for ${frameworks.length} framework(s) and ${packageManagers.length} package-manager path(s) in ${elapsedSeconds}s.\n`,
   );
 }
 
@@ -298,15 +350,17 @@ async function main() {
   const argv = process.argv.slice(2);
   if (argv.includes("--help")) {
     process.stdout.write(
-      "Usage: node scripts/verify-clean-consumers.mjs [--frameworks next,vite] [--package-managers npm,pnpm,yarn,bun] [--keep-temp]\n",
+      "Usage: node scripts/verify-clean-consumers.mjs [--frameworks next,vite] [--package-managers npm,pnpm,yarn,bun] [--engine base|radix] [--keep-temp]\n",
     );
     return;
   }
   const frameworks = parseListArgument(argv, "frameworks", consumerFrameworks);
   const packageManagers = parseListArgument(argv, "package-managers", ["npm"]);
+  const engine = parseListArgument(argv, "engine", ["base"])[0];
   await verifyCleanConsumers({
     frameworks,
     packageManagers,
+    engine,
     keepTemporaryProjects: argv.includes("--keep-temp"),
   });
 }

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-scroll-area",
+  "type": "registry:ui",
+  "title": "Gummy Scroll Area · Radix UI",
+  "description": "Gummy Scroll Area behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-scroll-area@1.2.18"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyScrollArea.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as ScrollArea from \"@radix-ui/react-scroll-area\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyScrollArea = React.forwardRef<\n  React.ElementRef<typeof ScrollArea.Root>,\n  React.ComponentPropsWithoutRef<typeof ScrollArea.Root>\n>(function GummyScrollArea({ className, ...props }, ref) {\n  return <ScrollArea.Root {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area\", className)} />;\n});\n\nexport const GummyScrollAreaViewport = React.forwardRef<\n  React.ElementRef<typeof ScrollArea.Viewport>,\n  React.ComponentPropsWithoutRef<typeof ScrollArea.Viewport>\n>(function GummyScrollAreaViewport(\n  { className, tabIndex = 0, ...props },\n  ref,\n) {\n  const hasAccessibleName = Boolean(\n    props[\"aria-label\"] || props[\"aria-labelledby\"],\n  );\n  return (\n    <ScrollArea.Viewport\n      {...props}\n      ref={ref}\n      role={props.role ?? (hasAccessibleName ? \"region\" : undefined)}\n      tabIndex={tabIndex}\n      className={joinClassNames(\"gummy-scroll-area__viewport\", className)}\n    />\n  );\n});\n\nexport const GummyScrollAreaContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(function GummyScrollAreaContent({ className, ...props }, ref) {\n  return <div {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area__content\", className)} />;\n});\n\nexport const GummyScrollAreaScrollbar = React.forwardRef<\n  React.ElementRef<typeof ScrollArea.Scrollbar>,\n  React.ComponentPropsWithoutRef<typeof ScrollArea.Scrollbar>\n>(function GummyScrollAreaScrollbar({ className, ...props }, ref) {\n  return <ScrollArea.Scrollbar {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area__scrollbar\", className)} />;\n});\n\nexport const GummyScrollAreaThumb = React.forwardRef<\n  React.ElementRef<typeof ScrollArea.Thumb>,\n  React.ComponentPropsWithoutRef<typeof ScrollArea.Thumb>\n>(function GummyScrollAreaThumb({ className, ...props }, ref) {\n  return <ScrollArea.Thumb {...props} ref={ref} className={joinClassNames(\"gummy-scroll-area__thumb\", className)} />;\n});\n\nexport const GummyScrollAreaCorner = ScrollArea.Corner;\n\nGummyScrollArea.displayName = \"GummyScrollArea\";\nGummyScrollAreaViewport.displayName = \"GummyScrollAreaViewport\";\nGummyScrollAreaContent.displayName = \"GummyScrollAreaContent\";\nGummyScrollAreaScrollbar.displayName = \"GummyScrollAreaScrollbar\";\nGummyScrollAreaThumb.displayName = \"GummyScrollAreaThumb\";\n"
+    }
+  ]
+}

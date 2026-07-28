@@ -27,7 +27,7 @@ test("server-renders the Stage 1C product composition", async () => {
   assert.match(html, /Distinctive at product density/);
   assert.match(html, /Open source/);
   assert.match(html, /Gummy UI Pro/);
-  assert.match(html, /pricing follows founder review/i);
+  assert.match(html, /From \$49/i);
   assert.match(html, /Start building/);
   assert.match(html, /57/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
@@ -356,4 +356,35 @@ test("routes static assets through the security-header worker", async () => {
   );
   assert.equal(workerConfig.assets?.binding, "ASSETS");
   assert.equal(workerConfig.assets?.run_worker_first, true);
+});
+
+test("serves static assets through the worker with security headers", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  let assetRequests = 0;
+
+  const response = await worker.fetch(
+    new Request("https://gummyui.dev/styles/gummy-primitives.css"),
+    {
+      ASSETS: {
+        fetch: async () => {
+          assetRequests += 1;
+          return new Response("body { color: rebeccapurple; }", {
+            headers: { "content-type": "text/css" },
+          });
+        },
+      },
+    },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  assert.equal(assetRequests, 1);
+  assert.equal(response.status, 200);
+  assert.equal(await response.text(), "body { color: rebeccapurple; }");
+  assert.match(
+    response.headers.get("content-security-policy") ?? "",
+    /default-src 'self'/,
+  );
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
 });

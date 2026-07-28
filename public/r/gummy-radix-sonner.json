@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-sonner",
+  "type": "registry:ui",
+  "title": "Gummy Sonner · Radix UI",
+  "description": "Gummy toast workflows implemented with Radix Toast.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-toast@1.2.23"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySonner.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as Toast from \"@radix-ui/react-toast\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyToastInput = {\n  title: React.ReactNode;\n  description?: React.ReactNode;\n  type?: \"default\" | \"success\" | \"warning\" | \"error\";\n  duration?: number;\n};\n\ntype GummyToastRecord = GummyToastInput & { id: number; open: boolean };\ntype ToastManager = {\n  add: (toast: GummyToastInput) => number;\n  dismiss: (id: number) => void;\n  toasts: readonly GummyToastRecord[];\n};\n\nconst ToastManagerContext = React.createContext<ToastManager | null>(null);\n\nexport type GummySonnerProviderProps = React.PropsWithChildren<{\n  timeout?: number;\n  limit?: number;\n  swipeDirection?: React.ComponentPropsWithoutRef<typeof Toast.Provider>[\"swipeDirection\"];\n}>;\n\nexport function GummySonnerProvider({\n  timeout = 5000,\n  limit = 3,\n  children,\n  ...props\n}: GummySonnerProviderProps) {\n  const nextId = React.useRef(0);\n  const [toasts, setToasts] = React.useState<GummyToastRecord[]>([]);\n  const manager = React.useMemo<ToastManager>(() => ({\n    add(input) {\n      const id = ++nextId.current;\n      setToasts((current) => [\n        ...current.slice(-(Math.max(1, limit) - 1)),\n        { ...input, id, open: true },\n      ]);\n      return id;\n    },\n    dismiss(id) {\n      setToasts((current) =>\n        current.map((toast) =>\n          toast.id === id ? { ...toast, open: false } : toast,\n        ),\n      );\n    },\n    toasts,\n  }), [limit, toasts]);\n  return (\n    <ToastManagerContext.Provider value={manager}>\n      <Toast.Provider {...props} duration={timeout}>{children}</Toast.Provider>\n    </ToastManagerContext.Provider>\n  );\n}\n\nexport function useGummyToast() {\n  const manager = React.useContext(ToastManagerContext);\n  if (!manager) {\n    throw new Error(\"useGummyToast must be used inside GummySonnerProvider.\");\n  }\n  return manager;\n}\n\nexport type GummyToasterProps =\n  React.ComponentPropsWithoutRef<typeof Toast.Viewport> & {\n    position?: \"top-left\" | \"top-right\" | \"bottom-left\" | \"bottom-right\";\n    closeLabel?: string;\n  };\n\nexport const GummyToaster = React.forwardRef<\n  React.ElementRef<typeof Toast.Viewport>,\n  GummyToasterProps\n>(function GummyToaster(\n  {\n    position = \"bottom-right\",\n    closeLabel = \"Dismiss notification\",\n    className,\n    ...props\n  },\n  ref,\n) {\n  const manager = useGummyToast();\n  return (\n    <>\n      {manager.toasts.map((toast) => (\n        <Toast.Root\n          key={toast.id}\n          open={toast.open}\n          onOpenChange={(open) => {\n            if (!open) manager.dismiss(toast.id);\n          }}\n          duration={toast.duration}\n          className=\"gummy-toast\"\n          data-type={toast.type}\n        >\n          <div className=\"gummy-toast__content\">\n            <span className=\"gummy-toast__reservoir\" aria-hidden=\"true\" />\n            <div className=\"gummy-toast__copy\">\n              <Toast.Title className=\"gummy-toast__title\">{toast.title}</Toast.Title>\n              {toast.description ? (\n                <Toast.Description className=\"gummy-toast__description\">\n                  {toast.description}\n                </Toast.Description>\n              ) : null}\n            </div>\n            <Toast.Close className=\"gummy-toast__close\" aria-label={closeLabel}>\n              <span aria-hidden=\"true\">×</span>\n            </Toast.Close>\n          </div>\n        </Toast.Root>\n      ))}\n      <Toast.Viewport\n        {...props}\n        ref={ref}\n        className={joinClassNames(\"gummy-toaster\", className)}\n        data-position={position}\n      />\n    </>\n  );\n});\n\nGummyToaster.displayName = \"GummyToaster\";\n"
+    }
+  ]
+}

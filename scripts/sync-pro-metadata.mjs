@@ -66,18 +66,27 @@ export function validatePublicProMetadata(metadata) {
     "definitionCount",
     "expectedMaterialization",
     "externalMaterialization",
+    "lastObservedMaterializerVersion",
     "manualQa",
     "materializerVersion",
     "status",
   ]);
   assert.ok(allowedStatuses.has(metadata.designKit.status));
   assert.equal(metadata.designKit.definitionCount, metadata.counts.designKitDefinitions);
-  assert.equal(typeof metadata.designKit.materializerVersion, "string");
-  assert.equal(metadata.designKit.expectedMaterialization.masters, 300);
-  assert.equal(metadata.designKit.expectedMaterialization.responsiveInstances, 900);
+  assert.equal(metadata.designKit.materializerVersion, "0.5.0");
+  assert.equal(metadata.designKit.lastObservedMaterializerVersion, "0.4.0");
+  assert.deepEqual(metadata.designKit.expectedMaterialization, {
+    masters: 300,
+    responsiveInstances: 900,
+    componentSets: 138,
+    editableVariants: 2588,
+    editablePatternSets: 72,
+    editablePatternVariants: 1728,
+    rasterComparisonReferences: 72,
+  });
   assert.equal(
     metadata.designKit.externalMaterialization,
-    "not-run-founder-approval-required",
+    "previous-version-materialized-current-version-live-run-pending",
   );
   assert.ok(["pending", "complete"].includes(metadata.designKit.manualQa));
 

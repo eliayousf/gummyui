@@ -8,6 +8,7 @@ export default function ComponentsLayout({
     <>
       <link rel="stylesheet" href="/styles/gummy-form-controls.css" precedence="gummy-components" />
       <link rel="stylesheet" href="/styles/gummy-primitives.css" precedence="gummy-components" />
+      <link rel="stylesheet" href="/styles/gummy-radix-compat.css" precedence="gummy-components" />
       <link rel="stylesheet" href="/styles/component-inspector.css" precedence="gummy-components" />
       {children}
     </>

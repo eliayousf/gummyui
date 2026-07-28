@@ -15,14 +15,6 @@ import {
 import { GummyInput } from "./ui/GummyInput";
 import { GummySwitch } from "./ui/GummySwitch";
 import { GummyTab, GummyTabPanel, GummyTabs, GummyTabsList } from "./ui/GummyTabs";
-import {
-  GummyDropdownMenu,
-  GummyDropdownMenuItem,
-  GummyDropdownMenuPopup,
-  GummyDropdownMenuPortal,
-  GummyDropdownMenuPositioner,
-  GummyDropdownMenuTrigger,
-} from "./ui/GummyDropdownMenu";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 import { componentCount } from "../data/catalogue";
 import {
@@ -97,18 +89,14 @@ function HeroProduct() {
 function SortMenu() {
   const [sort, setSort] = React.useState("Newest");
   return (
-    <GummyDropdownMenu modal={false}>
-      <GummyDropdownMenuTrigger>Sort · {sort}</GummyDropdownMenuTrigger>
-      <GummyDropdownMenuPortal>
-        <GummyDropdownMenuPositioner align="end" sideOffset={4}>
-          <GummyDropdownMenuPopup aria-label="Sort projects">
-            {["Newest", "Oldest", "Most active"].map((item) => (
-              <GummyDropdownMenuItem key={item} selected={sort === item} onClick={() => setSort(item)}>{item}</GummyDropdownMenuItem>
-            ))}
-          </GummyDropdownMenuPopup>
-        </GummyDropdownMenuPositioner>
-      </GummyDropdownMenuPortal>
-    </GummyDropdownMenu>
+    <label className="dashboard-sort">
+      <span>Sort projects</span>
+      <select value={sort} onChange={(event) => setSort(event.target.value)}>
+        {["Newest", "Oldest", "Most active"].map((item) => (
+          <option key={item}>{item}</option>
+        ))}
+      </select>
+    </label>
   );
 }
 
@@ -162,18 +150,18 @@ function PlanCard({ pro = false }: { pro?: boolean }) {
         <GummyCardIcon aria-hidden="true"><span className="composition-pulse-icon">{pro ? "✦" : "○"}</span></GummyCardIcon>
         <div>
           <GummyCardTitle>{pro ? "Gummy UI Pro" : "Open source"}</GummyCardTitle>
-          <GummyCardDescription>{pro ? "Private products implemented locally; verification and release remain open." : "The complete component foundation, MIT licensed."}</GummyCardDescription>
+          <GummyCardDescription>{pro ? "Private products implemented locally; manual review and release remain open." : "The complete component foundation, MIT licensed."}</GummyCardDescription>
         </div>
       </GummyCardHeader>
       <GummyCardContent>
-        <div className="plan-card__price">{pro ? <><strong>Preview</strong><span>pricing follows founder review</span></> : <><strong>MIT</strong><span>licensed source</span></>}</div>
+        <div className="plan-card__price">{pro ? <><strong>From $49</strong><span>monthly · yearly · lifetime</span></> : <><strong>MIT</strong><span>licensed source</span></>}</div>
         <ul>
-          {(pro ? [`${proBlockCount} implemented original blocks`, `${proTemplateCount} implemented complete products`, `${proDesignKitDefinitionCount} implemented design-kit definitions`] : [`${componentCount} component categories`, "React and TypeScript source", "Light, dark, RTL, and Base UI"]).map((item) => <li key={item}>{item}</li>)}
+          {(pro ? [`${proBlockCount} implemented original blocks`, `${proTemplateCount} implemented complete products`, `${proDesignKitDefinitionCount} implemented design-kit definitions`] : [`${componentCount} component categories`, "React and TypeScript source", "Light, dark, RTL, Base UI, and Radix UI"]).map((item) => <li key={item}>{item}</li>)}
         </ul>
       </GummyCardContent>
       <GummyCardFooter>
-        <GummyButton variant={pro ? "primary" : "secondary"} size="small" onClick={() => { window.location.href = pro ? "/pro" : "/docs"; }}>
-          {pro ? "Review Pro status" : "Read installation"}
+        <GummyButton variant={pro ? "primary" : "secondary"} size="small" onClick={() => { window.location.href = pro ? "/pricing" : "/docs"; }}>
+          {pro ? "See Pro pricing" : "Read installation"}
         </GummyButton>
       </GummyCardFooter>
     </GummyCard>
@@ -188,7 +176,7 @@ export function CompositionShowcase() {
       <main id="showcase-main">
         <section className="showcase-hero" id="showcase">
           <div className="showcase-hero__copy">
-            <GummyBadge variant="primary" finish="translucent" motion="settle">Open source · React · Base UI</GummyBadge>
+            <GummyBadge variant="primary" finish="translucent" motion="settle">Open source · React · Base UI · Radix UI</GummyBadge>
             <p className="showcase-kicker">A tactile component system for serious products</p>
             <h1>Make vibe-coded products feel <em>deliberately designed.</em></h1>
             <p className="showcase-hero__lede">Gummy UI pairs clean SaaS structure with connected fruit-gel material, accessible behavior, and source you can actually edit.</p>
@@ -216,7 +204,7 @@ export function CompositionShowcase() {
         <section className="showcase-section showcase-section--plans" id="preview">
           <div className="showcase-section__heading">
             <div><p className="showcase-kicker">Open foundation, assembled outcomes</p><h2>Own the source. Move faster.</h2></div>
-            <p>Use the free system without a black-box dependency. Pro blocks, templates, and design-kit definitions are implemented privately; verification, protected release, entitlement, pricing, and publication remain open.</p>
+            <p>Use the free system without a black-box dependency. Pro pricing and commercial terms are approved; manual review, protected release, entitlement delivery and production publication remain open.</p>
           </div>
           <div className="plan-grid"><PlanCard /><PlanCard pro /></div>
         </section>

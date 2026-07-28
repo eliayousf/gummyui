@@ -19,11 +19,40 @@ export type ComponentDefinition = {
   registryName: string;
   registryUrl: string;
   installCommand: string;
+  radixRegistryName?: string;
+  radixRegistryUrl?: string;
+  radixInstallCommand?: string;
+  radixDependency?: string;
   semantics: string;
   keyboard: string;
   dependencies: readonly string[];
   status: "stable";
   license: "MIT";
+};
+
+const radixDependencyBySlug: Readonly<Record<string, string>> = {
+  accordion: "@radix-ui/react-accordion",
+  "alert-dialog": "@radix-ui/react-alert-dialog",
+  collapsible: "@radix-ui/react-collapsible",
+  "context-menu": "@radix-ui/react-context-menu",
+  dialog: "@radix-ui/react-dialog",
+  direction: "@radix-ui/react-direction",
+  drawer: "@radix-ui/react-dialog",
+  "dropdown-menu": "@radix-ui/react-dropdown-menu",
+  "hover-card": "@radix-ui/react-hover-card",
+  menubar: "@radix-ui/react-menubar",
+  "navigation-menu": "@radix-ui/react-navigation-menu",
+  popover: "@radix-ui/react-popover",
+  "scroll-area": "@radix-ui/react-scroll-area",
+  select: "@radix-ui/react-select",
+  sheet: "@radix-ui/react-dialog",
+  slider: "@radix-ui/react-slider",
+  sonner: "@radix-ui/react-toast",
+  switch: "@radix-ui/react-switch",
+  tabs: "@radix-ui/react-tabs",
+  toggle: "@radix-ui/react-toggle",
+  "toggle-group": "@radix-ui/react-toggle-group",
+  tooltip: "@radix-ui/react-tooltip",
 };
 
 function component(
@@ -38,6 +67,13 @@ function component(
 ): ComponentDefinition {
   const registryName = `gummy-${slug}`;
   const registryUrl = `https://gummyui.dev/r/${registryName}.json`;
+  const radixDependency = radixDependencyBySlug[slug];
+  const radixRegistryName = radixDependency
+    ? `gummy-radix-${slug}`
+    : undefined;
+  const radixRegistryUrl = radixRegistryName
+    ? `https://gummyui.dev/r/${radixRegistryName}.json`
+    : undefined;
   return {
     name,
     slug,
@@ -47,6 +83,14 @@ function component(
     registryName,
     registryUrl,
     installCommand: `npx shadcn@latest add ${registryUrl}`,
+    ...(radixRegistryName && radixRegistryUrl
+      ? {
+          radixRegistryName,
+          radixRegistryUrl,
+          radixInstallCommand: `npx shadcn@latest add ${radixRegistryUrl}`,
+          radixDependency,
+        }
+      : {}),
     semantics,
     keyboard,
     dependencies,

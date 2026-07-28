@@ -74,12 +74,12 @@ export function SiteFooter() {
         <Link href="/security">Security</Link>
         <Link href="/support">Support</Link>
         <Link href="/sign-in">{accountPublicCopy.publicNavigation.footer}</Link>
-        <Link href="/contact">Contact status</Link>
-        <Link href="/refund">Refund status</Link>
-        <Link href="/commercial-license">Pro licence status</Link>
+        <Link href="/contact">Contact</Link>
+        <Link href="/refund">Refund policy</Link>
+        <Link href="/commercial-license">Pro licence</Link>
         <Link href="/design-kit">Design kit status</Link>
         <Link href="/privacy">Privacy</Link>
-        <Link href="/terms">Terms status</Link>
+        <Link href="/terms">Terms</Link>
         <Link href="/license">MIT licence</Link>
       </nav>
     </footer>

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-direction",
+  "type": "registry:ui",
+  "title": "Gummy Direction · Radix UI",
+  "description": "Gummy Direction behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-direction@1.1.4"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyDirection.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { DirectionProvider } from \"@radix-ui/react-direction\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport type GummyDirectionProps = React.HTMLAttributes<HTMLDivElement> & {\n  direction: \"ltr\" | \"rtl\";\n};\n\nexport const GummyDirection = React.forwardRef<HTMLDivElement, GummyDirectionProps>(\n  function GummyDirection({ direction, className, children, ...props }, ref) {\n    return (\n      <div\n        {...props}\n        ref={ref}\n        dir={direction}\n        className={joinClassNames(\"gummy-direction\", className)}\n        data-direction={direction}\n      >\n        <DirectionProvider dir={direction}>{children}</DirectionProvider>\n      </div>\n    );\n  },\n);\n\nGummyDirection.displayName = \"GummyDirection\";\n"
+    }
+  ]
+}

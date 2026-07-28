@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-slider",
+  "type": "registry:ui",
+  "title": "Gummy Slider · Radix UI",
+  "description": "Gummy Slider behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-slider@1.4.7"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummySlider.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as Slider from \"@radix-ui/react-slider\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nconst SliderValueContext = React.createContext<readonly number[]>([]);\n\ntype RadixSliderProps = React.ComponentPropsWithoutRef<typeof Slider.Root>;\n\nexport type GummySliderProps = Omit<\n  RadixSliderProps,\n  \"value\" | \"defaultValue\" | \"onValueChange\"\n> & {\n  value?: number | number[];\n  defaultValue?: number | number[];\n  onValueChange?: (value: number | number[]) => void;\n};\n\nexport function GummySlider({\n  className,\n  value,\n  defaultValue = 0,\n  onValueChange,\n  children,\n  ...props\n}: GummySliderProps) {\n  const isRange = Array.isArray(value ?? defaultValue);\n  const normalise = (input: number | number[] | undefined) =>\n    Array.isArray(input) ? input : [input ?? 0];\n  const controlledValue = value === undefined ? undefined : normalise(value);\n  const [internalValue, setInternalValue] = React.useState(() =>\n    normalise(value ?? defaultValue),\n  );\n  const currentValue = controlledValue ?? internalValue;\n  function handleValueChange(nextValue: number[]) {\n    if (controlledValue === undefined) setInternalValue(nextValue);\n    onValueChange?.(isRange ? nextValue : (nextValue[0] ?? 0));\n  }\n  return (\n    <SliderValueContext.Provider value={currentValue}>\n      <Slider.Root\n        {...props}\n        value={controlledValue}\n        defaultValue={controlledValue === undefined ? normalise(defaultValue) : undefined}\n        onValueChange={handleValueChange}\n        className={joinClassNames(\"gummy-slider\", className)}\n      >\n        {children}\n      </Slider.Root>\n    </SliderValueContext.Provider>\n  );\n}\n\nexport const GummySliderLabel = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(function GummySliderLabel({ className, ...props }, ref) {\n  return <div {...props} ref={ref} className={joinClassNames(\"gummy-slider__label\", className)} />;\n});\n\nexport const GummySliderValue = React.forwardRef<\n  HTMLOutputElement,\n  React.OutputHTMLAttributes<HTMLOutputElement>\n>(function GummySliderValue({ className, children, ...props }, ref) {\n  const values = React.useContext(SliderValueContext);\n  return (\n    <output\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-slider__value\", className)}\n    >\n      {children ?? values.join(\"–\")}\n    </output>\n  );\n});\n\nexport const GummySliderControl = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(function GummySliderControl({ className, children, ...props }, ref) {\n  return (\n    <div\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-slider__control\", className)}\n    >\n      <Slider.Track className=\"gummy-slider__track\">\n        <Slider.Range className=\"gummy-slider__indicator\" />\n      </Slider.Track>\n      {children}\n    </div>\n  );\n});\n\nexport const GummySliderThumb = React.forwardRef<\n  React.ElementRef<typeof Slider.Thumb>,\n  React.ComponentPropsWithoutRef<typeof Slider.Thumb>\n>(function GummySliderThumb({ className, ...props }, ref) {\n  return <Slider.Thumb {...props} ref={ref} className={joinClassNames(\"gummy-slider__thumb\", className)} />;\n});\n\nGummySliderLabel.displayName = \"GummySliderLabel\";\nGummySliderValue.displayName = \"GummySliderValue\";\nGummySliderControl.displayName = \"GummySliderControl\";\nGummySliderThumb.displayName = \"GummySliderThumb\";\n"
+    }
+  ]
+}

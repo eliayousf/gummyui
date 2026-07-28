@@ -39,12 +39,22 @@ type PublicProTemplate = {
 type PublicProDesignKit = {
   status: ProItemStatus;
   materializerVersion: string;
+  lastObservedMaterializerVersion: string;
   definitionCount: number;
   expectedMaterialization: {
     masters: number;
     responsiveInstances: number;
+    componentSets: number;
+    editableVariants: number;
+    editablePatternSets: number;
+    editablePatternVariants: number;
+    rasterComparisonReferences: number;
   };
-  externalMaterialization: "not-run-founder-approval-required" | "complete";
+  externalMaterialization:
+    | "not-run-founder-approval-required"
+    | "materialized-success"
+    | "previous-version-materialized-current-version-live-run-pending"
+    | "complete";
   manualQa: "pending" | "complete";
 };
 
@@ -88,6 +98,8 @@ export const proDesignKitDefinitionCount =
 export const proDesignKitStatus = publicProMetadata.designKit.status;
 export const proDesignKitMaterializerVersion =
   publicProMetadata.designKit.materializerVersion;
+export const proDesignKitLastObservedMaterializerVersion =
+  publicProMetadata.designKit.lastObservedMaterializerVersion;
 export const proDesignKitExpectedMaterialization =
   publicProMetadata.designKit.expectedMaterialization;
 export const proDesignKitExternalMaterialization =

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-toggle-group",
+  "type": "registry:ui",
+  "title": "Gummy Toggle Group · Radix UI",
+  "description": "Gummy Toggle Group behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-toggle-group@1.1.19"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyToggleGroup.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as ToggleGroup from \"@radix-ui/react-toggle-group\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\ntype RadixToggleGroupProps =\n  React.ComponentPropsWithoutRef<typeof ToggleGroup.Root>;\n\nexport type GummyToggleGroupProps = Omit<\n  RadixToggleGroupProps,\n  \"type\" | \"value\" | \"defaultValue\" | \"onValueChange\"\n> & {\n  label: string;\n  multiple?: boolean;\n  value?: string[];\n  defaultValue?: string[];\n  onValueChange?: (value: string[]) => void;\n};\n\nexport const GummyToggleGroup = React.forwardRef<\n  React.ElementRef<typeof ToggleGroup.Root>,\n  GummyToggleGroupProps\n>(function GummyToggleGroup(\n  {\n    label,\n    multiple = false,\n    className,\n    value,\n    defaultValue,\n    onValueChange,\n    ...props\n  },\n  ref,\n) {\n  const rootProps = multiple\n    ? {\n        ...props,\n        type: \"multiple\" as const,\n        value,\n        defaultValue,\n        onValueChange,\n      }\n    : {\n        ...props,\n        type: \"single\" as const,\n        value: value?.[0],\n        defaultValue: defaultValue?.[0],\n        onValueChange: (nextValue: string) =>\n          onValueChange?.(nextValue ? [nextValue] : []),\n      };\n  return (\n    <ToggleGroup.Root\n      {...rootProps}\n      ref={ref}\n      className={joinClassNames(\"gummy-toggle-group\", className)}\n      aria-label={label}\n    />\n  );\n});\n\nGummyToggleGroup.displayName = \"GummyToggleGroup\";\n\nexport type GummyToggleGroupItemProps =\n  React.ComponentPropsWithoutRef<typeof ToggleGroup.Item> & {\n    variant?: \"quiet\" | \"fruit\";\n  };\n\nexport const GummyToggleGroupItem = React.forwardRef<\n  React.ElementRef<typeof ToggleGroup.Item>,\n  GummyToggleGroupItemProps\n>(function GummyToggleGroupItem(\n  { variant = \"quiet\", className, children, ...props },\n  ref,\n) {\n  return (\n    <ToggleGroup.Item\n      {...props}\n      ref={ref}\n      className={joinClassNames(\n        \"gummy-toggle gummy-toggle-group__item\",\n        className,\n      )}\n      data-variant={variant}\n    >\n      <span className=\"gummy-toggle__pool\" aria-hidden=\"true\" />\n      <span className=\"gummy-toggle__content\">{children}</span>\n    </ToggleGroup.Item>\n  );\n});\n\nGummyToggleGroupItem.displayName = \"GummyToggleGroupItem\";\n"
+    }
+  ]
+}

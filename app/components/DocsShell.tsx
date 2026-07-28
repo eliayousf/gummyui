@@ -85,7 +85,7 @@ export function DocsShell() {
           <header className="docs-hero">
             <p className="showcase-kicker">Gummy UI documentation</p>
             <h1>Install source you can understand.</h1>
-            <p>The registry copies readable React, TypeScript, and CSS into your project. All {componentCount} public categories use native or Base UI behavior; Gummy UI owns material anatomy and motion.</p>
+            <p>The registry copies readable React, TypeScript, and CSS into your project. All {componentCount} public categories use native or Base UI behavior, with Radix UI counterparts for all 22 applicable families; Gummy UI owns material anatomy and motion.</p>
           </header>
 
           <section className="docs-section" id="installation">

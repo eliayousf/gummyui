@@ -25,7 +25,7 @@ export async function generateMetadata({
     title: `${block.name} Pro block status · Gummy UI`,
     description: `${block.purpose} Boundary-safe implementation and release status for ${block.name}.`,
     alternates: { canonical: `/blocks/${block.category}/${block.slug}` },
-    robots: { index: false, follow: true },
+    robots: { index: true, follow: true },
   };
 }
 

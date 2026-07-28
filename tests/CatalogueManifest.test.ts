@@ -42,15 +42,34 @@ describe("public catalogue manifest", () => {
     const registry = JSON.parse(
       await readFile(path.join(projectRoot, "registry.json"), "utf8"),
     ) as { items: Array<{ name: string; type: string }> };
+    const radixRegistry = JSON.parse(
+      await readFile(path.join(projectRoot, "registry-radix.json"), "utf8"),
+    ) as { items: Array<{ name: string; type: string }> };
     const registryNames = new Set(registry.items.map(({ name }) => name));
+    const radixRegistryNames = new Set(
+      radixRegistry.items.map(({ name }) => name),
+    );
+    let radixCounterpartCount = 0;
     for (const component of components) {
       await access(path.join(projectRoot, component.source));
       expect(registryNames.has(component.registryName)).toBe(true);
       expect(component.registryUrl).toBe(
         `https://gummyui.dev/r/${component.registryName}.json`,
       );
+      if (component.radixRegistryName) {
+        radixCounterpartCount += 1;
+        expect(radixRegistryNames.has(component.radixRegistryName)).toBe(true);
+        expect(component.radixRegistryUrl).toBe(
+          `https://gummyui.dev/r/${component.radixRegistryName}.json`,
+        );
+      }
     }
     expect(registry.items.filter(({ type }) => type === "registry:ui")).toHaveLength(57);
+    expect(radixCounterpartCount).toBe(22);
+    expect(components.find(({ slug }) => slug === "combobox")?.radixRegistryName)
+      .toBeUndefined();
+    expect(radixRegistry.items.filter(({ type }) => type === "registry:ui"))
+      .toHaveLength(22);
   });
 
   it("exposes only boundary-safe Pro aggregate status", () => {
@@ -59,13 +78,18 @@ describe("public catalogue manifest", () => {
     expect(proTemplateCount).toBe(6);
     expect(proDesignKitDefinitionCount).toBeGreaterThanOrEqual(300);
     expect(proDesignKitStatus).toBe("implemented");
-    expect(proDesignKitMaterializerVersion).toBe("0.2.0");
+    expect(proDesignKitMaterializerVersion).toBe("0.5.0");
     expect(proDesignKitExpectedMaterialization).toEqual({
       masters: 300,
       responsiveInstances: 900,
+      componentSets: 138,
+      editableVariants: 2588,
+      editablePatternSets: 72,
+      editablePatternVariants: 1728,
+      rasterComparisonReferences: 72,
     });
     expect(proDesignKitExternalMaterialization)
-      .toBe("not-run-founder-approval-required");
+      .toBe("previous-version-materialized-current-version-live-run-pending");
     expect(proDesignKitManualQa).toBe("pending");
     expect(proCatalogueStatus).toBe("implementation-in-progress");
     expect(proImplementedBlockCount).toBeGreaterThanOrEqual(80);

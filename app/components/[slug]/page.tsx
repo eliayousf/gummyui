@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComponentInspector } from "../../components/ComponentInspector";
+import { RadixComponentInspector } from "../../components/RadixComponentInspector";
 import { RegistrySourceViewer, CopyTextButton } from "../../components/RegistrySourceViewer";
 import { SiteFooter, SiteHeader } from "../../components/SiteChrome";
 import {
@@ -81,15 +82,33 @@ export default async function ComponentDetailPage({
             <p className="showcase-kicker">Install editable source</p>
             <h2 id="install-title">Add {component.name}</h2>
           </div>
-          <div className="component-install__command">
-            <code>{component.installCommand}</code>
-            <CopyTextButton value={component.installCommand} label="Copy command" />
+          <div className="component-install__options">
+            <div className="component-install__command">
+              <span>Base UI / canonical</span>
+              <code tabIndex={0}>{component.installCommand}</code>
+              <CopyTextButton value={component.installCommand} label="Copy command" />
+            </div>
+            {component.radixInstallCommand ? (
+              <div className="component-install__command">
+                <span>Radix UI counterpart</span>
+                <code tabIndex={0}>{component.radixInstallCommand}</code>
+                <CopyTextButton value={component.radixInstallCommand} label="Copy Radix command" />
+              </div>
+            ) : null}
+            {component.dependencies.length ? (
+              <p>
+                Canonical dependency: {component.dependencies.join(", ")}.
+                {component.radixDependency
+                  ? ` Radix counterpart: ${component.radixDependency}.`
+                  : component.slug === "combobox"
+                    ? " Combobox remains Base-only because Radix does not publish a Combobox primitive."
+                    : ""}
+                {" "}Registry dependencies are resolved automatically.
+              </p>
+            ) : (
+              <p>No package dependency beyond React. Shared Gummy material is resolved automatically.</p>
+            )}
           </div>
-          {component.dependencies.length ? (
-            <p>Dependencies: {component.dependencies.join(", ")}. Registry dependencies are resolved automatically.</p>
-          ) : (
-            <p>No package dependency beyond React. Shared Gummy material is resolved automatically.</p>
-          )}
         </section>
         <section className="component-contract" aria-labelledby="contract-title">
           <div className="component-detail__section-heading">
@@ -148,7 +167,7 @@ export default async function ComponentDetailPage({
                   ) : null}
                 </div>
               )) : (
-                <p>Each exported part accepts the underlying native or Base UI prop contract. Inspect the canonical source below for exact generic types.</p>
+                <p>Each exported part accepts the underlying native, Base UI, or documented Radix prop contract. Inspect the selected source below for exact generic types.</p>
               )}
             </article>
           </div>
@@ -177,16 +196,32 @@ export default async function ComponentDetailPage({
           <Link href="/components/lab">Open the live Component Lab <span aria-hidden="true">↗</span></Link>
         </section>
         <ComponentInspector slug={component.slug} componentName={component.name} />
+        {component.radixRegistryName ? (
+          <RadixComponentInspector
+            slug={component.slug}
+            componentName={component.name}
+          />
+        ) : null}
         <section className="component-source-section" aria-labelledby="source-title">
           <div className="component-detail__section-heading">
             <p className="showcase-kicker">Editable source</p>
             <h2 id="source-title">Read before you install</h2>
           </div>
+          <h3>Canonical Base UI or native source</h3>
           <RegistrySourceViewer registryName={component.registryName} />
+          {component.radixRegistryName ? (
+            <>
+              <h3>Radix UI counterpart</h3>
+              <RegistrySourceViewer registryName={component.radixRegistryName} />
+            </>
+          ) : null}
         </section>
         <nav className="component-detail__next" aria-label="Component catalogue">
           <Link href="/components">← Back to all components</Link>
           <a href={`/r/${component.registryName}.json`}>Registry JSON ↗</a>
+          {component.radixRegistryName ? (
+            <a href={`/r/${component.radixRegistryName}.json`}>Radix registry JSON ↗</a>
+          ) : null}
         </nav>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </main>

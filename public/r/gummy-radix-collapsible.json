@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-collapsible",
+  "type": "registry:ui",
+  "title": "Gummy Collapsible · Radix UI",
+  "description": "Gummy Collapsible behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-collapsible@1.1.20"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyCollapsible.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as Collapsible from \"@radix-ui/react-collapsible\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\nexport const GummyCollapsible = Collapsible.Root;\n\nexport const GummyCollapsibleTrigger = React.forwardRef<\n  React.ElementRef<typeof Collapsible.Trigger>,\n  React.ComponentPropsWithoutRef<typeof Collapsible.Trigger>\n>(function GummyCollapsibleTrigger({ className, children, ...props }, ref) {\n  return (\n    <Collapsible.Trigger\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-collapsible__trigger\", className)}\n    >\n      <span>{children}</span>\n      <span className=\"gummy-collapsible__indicator\" aria-hidden=\"true\">+</span>\n    </Collapsible.Trigger>\n  );\n});\n\nexport const GummyCollapsiblePanel = React.forwardRef<\n  React.ElementRef<typeof Collapsible.Content>,\n  React.ComponentPropsWithoutRef<typeof Collapsible.Content>\n>(function GummyCollapsiblePanel({ className, children, ...props }, ref) {\n  return (\n    <Collapsible.Content\n      {...props}\n      ref={ref}\n      className={joinClassNames(\"gummy-collapsible__panel\", className)}\n    >\n      <div className=\"gummy-collapsible__panel-content\">{children}</div>\n    </Collapsible.Content>\n  );\n});\n\nGummyCollapsibleTrigger.displayName = \"GummyCollapsibleTrigger\";\nGummyCollapsiblePanel.displayName = \"GummyCollapsiblePanel\";\n"
+    }
+  ]
+}

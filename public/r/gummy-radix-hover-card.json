@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-hover-card",
+  "type": "registry:ui",
+  "title": "Gummy Hover Card · Radix UI",
+  "description": "Gummy Hover Card behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-hover-card@1.1.23"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyHoverCard.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as HoverCard from \"@radix-ui/react-hover-card\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\ntype ContentProps = React.ComponentPropsWithoutRef<typeof HoverCard.Content>;\ntype PositioningProps = Pick<\n  ContentProps,\n  \"align\" | \"alignOffset\" | \"side\" | \"sideOffset\" | \"collisionPadding\"\n>;\nconst PositioningContext = React.createContext<PositioningProps>({});\n\nexport type GummyHoverCardProps =\n  React.ComponentPropsWithoutRef<typeof HoverCard.Root>;\nexport const GummyHoverCard = HoverCard.Root;\nexport const GummyHoverCardPortal = HoverCard.Portal;\n\nexport const GummyHoverCardTrigger = React.forwardRef<\n  React.ElementRef<typeof HoverCard.Trigger>,\n  React.ComponentPropsWithoutRef<typeof HoverCard.Trigger>\n>(function GummyHoverCardTrigger({ className, ...props }, ref) {\n  return <HoverCard.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-hover-card__trigger\", className)} />;\n});\n\nexport type GummyHoverCardPositionerProps =\n  React.PropsWithChildren<PositioningProps & { className?: string }>;\n\nexport function GummyHoverCardPositioner({\n  className,\n  children,\n  sideOffset = 10,\n  ...positioning\n}: GummyHoverCardPositionerProps) {\n  return (\n    <PositioningContext.Provider value={{ ...positioning, sideOffset }}>\n      <div className={joinClassNames(\"gummy-floating-positioner\", className)}>\n        {children}\n      </div>\n    </PositioningContext.Provider>\n  );\n}\n\nexport const GummyHoverCardPopup = React.forwardRef<\n  React.ElementRef<typeof HoverCard.Content>,\n  ContentProps\n>(function GummyHoverCardPopup({ className, children, ...props }, ref) {\n  const positioning = React.useContext(PositioningContext);\n  return (\n    <HoverCard.Content\n      {...positioning}\n      {...props}\n      ref={ref}\n      className={joinClassNames(\n        \"gummy-floating-popup gummy-hover-card__popup\",\n        className,\n      )}\n    >\n      <HoverCard.Arrow className=\"gummy-floating-popup__arrow\" />\n      {children}\n    </HoverCard.Content>\n  );\n});\n\nGummyHoverCardTrigger.displayName = \"GummyHoverCardTrigger\";\nGummyHoverCardPopup.displayName = \"GummyHoverCardPopup\";\n"
+    }
+  ]
+}

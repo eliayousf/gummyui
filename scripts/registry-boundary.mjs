@@ -3,6 +3,7 @@ import path from "node:path";
 
 const publicSourceRoots = [
   path.join("app", "components", "ui"),
+  path.join("app", "components", "radix"),
   path.join("app", "styles"),
 ];
 const publicTargetRoots = ["app", "components"];

@@ -1,0 +1,142 @@
+/*
+ * State aliases for the optional Radix UI implementation.
+ * The main Gummy material styles stay engine-neutral; this file maps Radix
+ * state attributes and motion variables onto the same visual contract.
+ */
+
+.gummy-switch[data-state="checked"] {
+  background:
+    linear-gradient(148deg, oklch(1 0 0 / 0.78) 1%, transparent 27%),
+    radial-gradient(ellipse at 32% 76%, var(--fruit-lime-core), transparent 55%),
+    color-mix(in oklch, var(--fruit-lime-light) 64%, var(--surface));
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.9),
+    inset 0 -5px 10px color-mix(in oklch, var(--fruit-lime-depth) 28%, transparent),
+    inset 0 0 0 1px color-mix(in oklch, var(--fruit-lime-rim) 45%, transparent);
+}
+
+.gummy-switch[data-state="checked"] .gummy-switch__pool {
+  right: 38px;
+  background: color-mix(in oklch, var(--fruit-lime-rim) 48%, transparent);
+  transform: scaleX(1.2) rotate(5deg);
+}
+
+.gummy-switch[data-state="checked"] .gummy-switch__thumb {
+  translate: 34px 0;
+  background:
+    radial-gradient(circle at 32% 25%, oklch(1 0 0 / 0.8) 0 8%, transparent 10%),
+    linear-gradient(145deg, var(--fruit-lime-light), var(--fruit-lime-core) 57%, var(--fruit-lime-rim));
+}
+
+.gummy-tabs__tab[data-state="active"] {
+  color: oklch(0.225 0.068 309);
+}
+
+.gummy-tabs__tab[data-state="active"]::after {
+  position: absolute;
+  inset: auto 14px 4px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--fruit-raspberry-core);
+  content: "";
+}
+
+.gummy-accordion__item[data-state="open"] {
+  border-color: color-mix(in oklch, var(--fruit-grape-rim) 46%, var(--line));
+  background:
+    radial-gradient(ellipse at 96% 0%, color-mix(in oklch, var(--fruit-grape-core) 18%, transparent), transparent 25%),
+    var(--surface-solid);
+}
+
+.gummy-accordion__item[data-state="open"] .gummy-accordion__indicator,
+.gummy-collapsible__trigger[data-state="open"] .gummy-collapsible__indicator {
+  transform: rotate(45deg);
+}
+
+.gummy-accordion__panel {
+  --accordion-panel-height: var(--radix-accordion-content-height);
+}
+
+.gummy-collapsible__panel {
+  --collapsible-panel-height: var(--radix-collapsible-content-height);
+}
+
+.gummy-accordion__panel[data-state="closed"],
+.gummy-collapsible__panel[data-state="closed"] {
+  height: 0;
+}
+
+.gummy-menu__popup[data-state="closed"],
+.gummy-compact-menu[data-state="closed"],
+.gummy-select__popup[data-state="closed"],
+.gummy-navigation-menu__popup[data-state="closed"],
+.gummy-floating-popup[data-state="closed"],
+.gummy-tooltip__popup[data-state="closed"] {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.96);
+}
+
+.gummy-dialog__backdrop[data-state="closed"],
+.gummy-overlay-backdrop[data-state="closed"] {
+  opacity: 0;
+}
+
+.gummy-dialog__popup:not(.gummy-dialog__popup--preview)[data-state="closed"],
+.gummy-overlay-popup[data-state="closed"],
+.gummy-drawer__popup[data-state="closed"] {
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+}
+
+.gummy-sheet__popup[data-side="right"][data-state="closed"] {
+  transform: translateX(100%);
+}
+
+.gummy-sheet__popup[data-side="left"][data-state="closed"] {
+  transform: translateX(-100%);
+}
+
+.gummy-sheet__popup[data-side="top"][data-state="closed"] {
+  transform: translateY(-100%);
+}
+
+.gummy-sheet__popup[data-side="bottom"][data-state="closed"] {
+  transform: translateY(100%);
+}
+
+.gummy-toast {
+  --toast-swipe-movement-x: var(--radix-toast-swipe-move-x, 0px);
+  --toast-swipe-movement-y: var(--radix-toast-swipe-move-y, 0px);
+}
+
+.gummy-toast[data-state="closed"] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.gummy-toast[data-swipe="move"] {
+  transform:
+    translateX(var(--radix-toast-swipe-move-x))
+    translateY(var(--radix-toast-swipe-move-y));
+}
+
+.gummy-toast[data-swipe="end"] {
+  transform: translateX(var(--radix-toast-swipe-end-x));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gummy-menu__popup,
+  .gummy-compact-menu,
+  .gummy-select__popup,
+  .gummy-floating-popup,
+  .gummy-tooltip__popup,
+  .gummy-dialog__backdrop,
+  .gummy-dialog__popup,
+  .gummy-overlay-backdrop,
+  .gummy-overlay-popup,
+  .gummy-drawer__popup,
+  .gummy-sheet__popup,
+  .gummy-toast {
+    transition-duration: 0.01ms !important;
+  }
+}

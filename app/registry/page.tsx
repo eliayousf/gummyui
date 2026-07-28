@@ -31,12 +31,22 @@ export default function RegistryPage() {
         </div>
       </section>
       <section>
-        <h2>Public payloads ({componentCount})</h2>
+        <h2>Public categories ({componentCount})</h2>
+        <p>
+          Base UI is canonical. Components with an official Radix primitive
+          also expose a separate Radix payload; choose one engine for that
+          component. Combobox is clearly Base-only.
+        </p>
         <ul className="public-page__link-list">
           {components.map((component) => (
             <li key={component.slug}>
               <Link href={`/components/${component.slug}`}>{component.name}</Link>
-              <a href={`/r/${component.registryName}.json`}>{component.registryName}.json</a>
+              <span>
+                <a href={`/r/${component.registryName}.json`}>Base</a>
+                {component.radixRegistryName ? (
+                  <> · <a href={`/r/${component.radixRegistryName}.json`}>Radix</a></>
+                ) : null}
+              </span>
             </li>
           ))}
         </ul>

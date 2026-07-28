@@ -60,7 +60,7 @@ describe("boundary-safe Pro discovery", () => {
       /gummyui-pro|\.tsx|releasePath|implementationEvidence|sourceReference|\/Users\//,
     );
     expect(metadata.alternates).toEqual({ canonical: "/blocks/about/origin-ribbon" });
-    expect(metadata.robots).toMatchObject({ index: false, follow: true });
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
   });
 
   it("provides source-free status and isolated image-preview routes for all six templates", async () => {
@@ -103,7 +103,7 @@ describe("boundary-safe Pro discovery", () => {
       noarchive: true,
     });
     expect(designKitMetadata.robots).toMatchObject({
-      index: false,
+      index: true,
       follow: true,
     });
     const robotRules = JSON.stringify(robots());
@@ -118,7 +118,7 @@ describe("boundary-safe Pro discovery", () => {
     }
     const sitemapUrls = new Set(sitemap().map(({ url }) => url));
     for (const route of ["/pro", "/blocks", "/templates", "/design-kit"]) {
-      expect(sitemapUrls.has(`https://gummyui.dev${route}`)).toBe(false);
+      expect(sitemapUrls.has(`https://gummyui.dev${route}`)).toBe(true);
     }
   });
 });

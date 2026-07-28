@@ -24,7 +24,7 @@ export async function generateMetadata({
     title: `${category.name} Gummy UI Pro blocks · Implementation status`,
     description: `Review boundary-safe implementation, state, preview, manual verification, protected release, entitlement, and purchase status for ${category.count} original ${category.name} compositions in Gummy UI Pro.`,
     alternates: { canonical: `/blocks/${category.slug}` },
-    robots: { index: false, follow: true },
+    robots: { index: true, follow: true },
   };
 }
 

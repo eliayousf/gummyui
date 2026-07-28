@@ -4,6 +4,7 @@ import {
   proDesignKitDefinitionCount,
   proDesignKitExpectedMaterialization,
   proDesignKitExternalMaterialization,
+  proDesignKitLastObservedMaterializerVersion,
   proDesignKitManualQa,
   proDesignKitMaterializerVersion,
 } from "../data/pro-catalogue";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Review the implementation, Figma materialization, manual review, export, checksum, protected delivery, backup, and release status of the Gummy UI Pro design kit.",
   alternates: { canonical: "/design-kit" },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export default function DesignKitPage() {
@@ -21,7 +22,7 @@ export default function DesignKitPage() {
     <PublicTextPage
       eyebrow={`Private Pro implementation · v${proDesignKitMaterializerVersion}`}
       title="The code-aligned local materializer is implemented, not released."
-      lede={`${proDesignKitDefinitionCount} source-aligned contracts and a deterministic no-network payload can create ${proDesignKitExpectedMaterialization.masters} masters and ${proDesignKitExpectedMaterialization.responsiveInstances} responsive instances. It has not been run in Figma or manually reviewed.`}
+      lede={`The deterministic v${proDesignKitMaterializerVersion} payload contains ${proDesignKitDefinitionCount} source-aligned contracts, ${proDesignKitExpectedMaterialization.componentSets} editable component sets and ${proDesignKitExpectedMaterialization.editableVariants.toLocaleString("en-US")} editable variants, including ${proDesignKitExpectedMaterialization.editablePatternVariants.toLocaleString("en-US")} pattern variants. Only v${proDesignKitLastObservedMaterializerVersion} has been run in the live file; current-version founder review and export remain pending.`}
     >
       <section>
         <h2>Release contract</h2>
@@ -29,7 +30,7 @@ export default function DesignKitPage() {
       </section>
       <section>
         <h2>Current boundary</h2>
-        <p>External materialization is <strong>{proDesignKitExternalMaterialization}</strong> and manual QA is <strong>{proDesignKitManualQa}</strong>. Editable design source belongs only in the private Pro repository. The public site may later publish reviewed screenshots and boundary-safe metadata, never the paid design file or reconstructable source.</p>
+        <p>External materialization is <strong>{proDesignKitExternalMaterialization}</strong> and manual QA is <strong>{proDesignKitManualQa}</strong>. Editable design source belongs only in the private Pro repository. The public site may later publish founder-reviewed screenshots and boundary-safe metadata, never the paid design file or reconstructable source.</p>
       </section>
     </PublicTextPage>
   );

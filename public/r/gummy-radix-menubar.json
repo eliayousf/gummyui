@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-menubar",
+  "type": "registry:ui",
+  "title": "Gummy Menubar · Radix UI",
+  "description": "Gummy Menubar behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-menubar@1.1.24"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyMenubar.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as Menubar from \"@radix-ui/react-menubar\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\ntype ContentProps = React.ComponentPropsWithoutRef<typeof Menubar.Content>;\ntype PositioningProps = Pick<\n  ContentProps,\n  \"align\" | \"alignOffset\" | \"side\" | \"sideOffset\" | \"collisionPadding\"\n>;\nconst PositioningContext = React.createContext<PositioningProps>({});\n\nexport const GummyMenubar = React.forwardRef<\n  React.ElementRef<typeof Menubar.Root>,\n  React.ComponentPropsWithoutRef<typeof Menubar.Root>\n>(function GummyMenubar({ className, ...props }, ref) {\n  return <Menubar.Root {...props} ref={ref} className={joinClassNames(\"gummy-menubar\", className)} />;\n});\n\nexport const GummyMenubarMenu = Menubar.Menu;\nexport const GummyMenubarPortal = Menubar.Portal;\n\nexport const GummyMenubarTrigger = React.forwardRef<\n  React.ElementRef<typeof Menubar.Trigger>,\n  React.ComponentPropsWithoutRef<typeof Menubar.Trigger>\n>(function GummyMenubarTrigger({ className, ...props }, ref) {\n  return <Menubar.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-menubar__trigger\", className)} />;\n});\n\nexport type GummyMenubarPositionerProps =\n  React.PropsWithChildren<PositioningProps & { className?: string }>;\n\nexport function GummyMenubarPositioner({\n  className,\n  children,\n  sideOffset = 8,\n  ...positioning\n}: GummyMenubarPositionerProps) {\n  return (\n    <PositioningContext.Provider value={{ ...positioning, sideOffset }}>\n      <div className={joinClassNames(\"gummy-menu-positioner\", className)}>\n        {children}\n      </div>\n    </PositioningContext.Provider>\n  );\n}\n\nexport const GummyMenubarPopup = React.forwardRef<\n  React.ElementRef<typeof Menubar.Content>,\n  ContentProps\n>(function GummyMenubarPopup({ className, ...props }, ref) {\n  const positioning = React.useContext(PositioningContext);\n  return <Menubar.Content {...positioning} {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu\", className)} />;\n});\n\nexport const GummyMenubarItem = React.forwardRef<\n  React.ElementRef<typeof Menubar.Item>,\n  React.ComponentPropsWithoutRef<typeof Menubar.Item>\n>(function GummyMenubarItem({ className, ...props }, ref) {\n  return <Menubar.Item {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu__item\", className)} />;\n});\n\nexport const GummyMenubarSeparator = React.forwardRef<\n  React.ElementRef<typeof Menubar.Separator>,\n  React.ComponentPropsWithoutRef<typeof Menubar.Separator>\n>(function GummyMenubarSeparator({ className, ...props }, ref) {\n  return <Menubar.Separator {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu__separator\", className)} />;\n});\n\nGummyMenubar.displayName = \"GummyMenubar\";\nGummyMenubarTrigger.displayName = \"GummyMenubarTrigger\";\nGummyMenubarPopup.displayName = \"GummyMenubarPopup\";\nGummyMenubarItem.displayName = \"GummyMenubarItem\";\nGummyMenubarSeparator.displayName = \"GummyMenubarSeparator\";\n"
+    }
+  ]
+}

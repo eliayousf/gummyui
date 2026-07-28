@@ -3681,13 +3681,19 @@
   ],
   "designKit": {
     "status": "implemented",
-    "materializerVersion": "0.2.0",
+    "materializerVersion": "0.5.0",
+    "lastObservedMaterializerVersion": "0.4.0",
     "definitionCount": 300,
     "expectedMaterialization": {
       "masters": 300,
-      "responsiveInstances": 900
+      "responsiveInstances": 900,
+      "componentSets": 138,
+      "editableVariants": 2588,
+      "editablePatternSets": 72,
+      "editablePatternVariants": 1728,
+      "rasterComparisonReferences": 72
     },
-    "externalMaterialization": "not-run-founder-approval-required",
+    "externalMaterialization": "previous-version-materialized-current-version-live-run-pending",
     "manualQa": "pending"
   }
 }

@@ -73,6 +73,7 @@ const routeStyleBudgets = {
   "frame-studio.css": 6_000,
   "gummy-form-controls.css": 40_000,
   "gummy-primitives.css": 80_000,
+  "gummy-radix-compat.css": 6_000,
 };
 const routeStyleDirectory = path.join(clientRoot, "styles");
 const routeStyleEvidence = [];

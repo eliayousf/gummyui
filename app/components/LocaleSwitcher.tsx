@@ -39,8 +39,8 @@ export function LocaleSwitcher({
           </Link>
         ))}
         <p>
-          {pendingLocales.length} more locales are awaiting human linguistic
-          review.
+          {pendingLocales.length} more locales are awaiting founder review and
+          publication.
         </p>
         <Link className="locale-switcher__status" href="/locales">
           Translation status

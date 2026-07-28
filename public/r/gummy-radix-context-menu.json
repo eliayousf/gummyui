@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gummy-radix-context-menu",
+  "type": "registry:ui",
+  "title": "Gummy Context Menu · Radix UI",
+  "description": "Gummy Context Menu behavior implemented with Radix UI.",
+  "registryDependencies": [
+    "https://gummyui.dev/r/gummy-base.json",
+    "https://gummyui.dev/r/gummy-core-styles.json",
+    "https://gummyui.dev/r/gummy-primitives-styles.json",
+    "https://gummyui.dev/r/gummy-radix-compat.json"
+  ],
+  "dependencies": [
+    "@radix-ui/react-context-menu@2.3.7"
+  ],
+  "files": [
+    {
+      "path": "components/ui/GummyContextMenu.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as ContextMenu from \"@radix-ui/react-context-menu\";\nimport * as React from \"react\";\n\nfunction joinClassNames(...values: Array<string | false | null | undefined>) {\n  return values.filter(Boolean).join(\" \");\n}\n\ntype ContentProps = React.ComponentPropsWithoutRef<typeof ContextMenu.Content>;\ntype PositioningProps = Pick<ContentProps, \"collisionPadding\">;\nconst PositioningContext = React.createContext<PositioningProps>({});\n\nexport const GummyContextMenu = ContextMenu.Root;\nexport const GummyContextMenuPortal = ContextMenu.Portal;\n\nexport const GummyContextMenuTrigger = React.forwardRef<\n  React.ElementRef<typeof ContextMenu.Trigger>,\n  React.ComponentPropsWithoutRef<typeof ContextMenu.Trigger>\n>(function GummyContextMenuTrigger({ className, ...props }, ref) {\n  return <ContextMenu.Trigger {...props} ref={ref} className={joinClassNames(\"gummy-context-menu__trigger\", className)} />;\n});\n\nexport type GummyContextMenuPositionerProps =\n  React.PropsWithChildren<PositioningProps & { className?: string }>;\n\nexport function GummyContextMenuPositioner({\n  className,\n  children,\n  ...positioning\n}: GummyContextMenuPositionerProps) {\n  return (\n    <PositioningContext.Provider value={positioning}>\n      <div className={joinClassNames(\"gummy-menu-positioner\", className)}>\n        {children}\n      </div>\n    </PositioningContext.Provider>\n  );\n}\n\nexport const GummyContextMenuPopup = React.forwardRef<\n  React.ElementRef<typeof ContextMenu.Content>,\n  ContentProps\n>(function GummyContextMenuPopup({ className, ...props }, ref) {\n  const positioning = React.useContext(PositioningContext);\n  return <ContextMenu.Content {...positioning} {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu\", className)} />;\n});\n\nexport const GummyContextMenuItem = React.forwardRef<\n  React.ElementRef<typeof ContextMenu.Item>,\n  React.ComponentPropsWithoutRef<typeof ContextMenu.Item>\n>(function GummyContextMenuItem({ className, ...props }, ref) {\n  return <ContextMenu.Item {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu__item\", className)} />;\n});\n\nexport const GummyContextMenuSeparator = React.forwardRef<\n  React.ElementRef<typeof ContextMenu.Separator>,\n  React.ComponentPropsWithoutRef<typeof ContextMenu.Separator>\n>(function GummyContextMenuSeparator({ className, ...props }, ref) {\n  return <ContextMenu.Separator {...props} ref={ref} className={joinClassNames(\"gummy-compact-menu__separator\", className)} />;\n});\n\nGummyContextMenuTrigger.displayName = \"GummyContextMenuTrigger\";\nGummyContextMenuPopup.displayName = \"GummyContextMenuPopup\";\nGummyContextMenuItem.displayName = \"GummyContextMenuItem\";\nGummyContextMenuSeparator.displayName = \"GummyContextMenuSeparator\";\n"
+    }
+  ]
+}

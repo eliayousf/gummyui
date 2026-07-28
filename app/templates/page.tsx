@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Pro template implementation status · Gummy UI",
   description: "Review boundary-safe implementation, build, preview, manual verification, protected release, entitlement, and publication status for six private Gummy UI Pro templates.",
   alternates: { canonical: "/templates" },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export default function TemplatesPage() {
