@@ -903,8 +903,13 @@ required score above 95 remains a production-origin launch gate with surviving
 warnings documented and owned.
 
 The consolidated founder decisions are captured and the public/private GitHub
-repositories exist. The single North Star remains at 0 of 8 production-verified
-steps because no production customer journey is live. Stripe Managed Payments
+repositories exist. The private launch commits are pushed to private `main`.
+The four public launch commits are backed up on the public
+`prelaunch-2026-07-28` tag while public `main` is deliberately held at its
+baseline: pushing `main` would trigger the linked Vercel project before its
+commercial Pro billing gate. Vercel currently has no Gummy UI deployment. The
+single North Star remains at 0 of 8 production-verified steps because no
+production customer journey is live. Stripe Managed Payments
 is live-account ready with three products, nine prices and
 `support@kreydlabs.com` configured. Its active `gummyui-production` destination
 listens for the exact 16 required event types at
