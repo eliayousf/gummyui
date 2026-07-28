@@ -1,6 +1,13 @@
 import { NextRequest } from "next/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+type MockHandleAuthOptions = {
+  onError?: (input: {
+    error: unknown;
+    request: NextRequest;
+  }) => Promise<Response> | Response;
+};
+
 const {
   CallbackError,
   handleAuth,
@@ -9,7 +16,9 @@ const {
   class MockCallbackError extends Error {}
   return {
     CallbackError: MockCallbackError,
-    handleAuth: vi.fn(() => vi.fn()),
+    handleAuth: vi.fn((_options?: MockHandleAuthOptions) => (
+      vi.fn(async (_request: NextRequest): Promise<Response | undefined> => undefined)
+    )),
     readWorkOSIdentityConfig: vi.fn(),
   };
 });
@@ -65,11 +74,11 @@ describe("WorkOS callback route", () => {
   });
 
   it("maps a rejected AuthKit callback to a hardened 400 response", async () => {
-    handleAuth.mockImplementationOnce((options) => async (request) => (
-      options.onError?.({
+    handleAuth.mockImplementationOnce((options) => (
+      vi.fn(async (request: NextRequest) => options?.onError?.({
         error: new CallbackError("OAuth state mismatch"),
         request,
-      })
+      }))
     ));
     const { GET } = await import("../app/auth/callback/route");
     const response = await GET(new NextRequest(
@@ -87,11 +96,11 @@ describe("WorkOS callback route", () => {
   });
 
   it("keeps unexpected callback failures distinct and retryable", async () => {
-    handleAuth.mockImplementationOnce((options) => async (request) => (
-      options.onError?.({
+    handleAuth.mockImplementationOnce((options) => (
+      vi.fn(async (request: NextRequest) => options?.onError?.({
         error: new Error("provider unavailable"),
         request,
-      })
+      }))
     ));
     const { GET } = await import("../app/auth/callback/route");
     const response = await GET(new NextRequest(
