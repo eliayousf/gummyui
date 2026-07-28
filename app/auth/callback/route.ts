@@ -1,4 +1,5 @@
 import {
+  CallbackError,
   getTokenClaims,
   getWorkOS,
   handleAuth,
@@ -15,6 +16,25 @@ import {
 } from "../../../lib/commerce/rate-limit";
 
 export const runtime = "nodejs";
+
+function authCallbackFailureResponse(error: unknown) {
+  const isInvalidCallback = error instanceof CallbackError;
+  return Response.json(
+    {
+      error: isInvalidCallback
+        ? "invalid_auth_callback"
+        : "service_unavailable",
+    },
+    {
+      status: isInvalidCallback ? 400 : 503,
+      headers: {
+        "cache-control": "private, no-store",
+        "x-content-type-options": "nosniff",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+      },
+    },
+  );
+}
 
 export async function GET(request: NextRequest) {
   const rateLimit = await enforceDistributedRateLimit({
@@ -64,6 +84,7 @@ export async function GET(request: NextRequest) {
   return handleAuth({
     baseURL: config.applicationOrigin,
     returnPathname: "/account",
+    onError: async ({ error }) => authCallbackFailureResponse(error),
     onSuccess: async ({
       user,
       accessToken,
