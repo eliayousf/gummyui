@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import packageJson from "../package.json";
 import nextConfig from "../next.config";
 import robots from "../app/robots";
 import sitemap from "../app/sitemap";
@@ -39,6 +40,12 @@ function expectIndexable(metadata: {
     follow: true,
   });
 }
+
+describe("production runtime contract", () => {
+  it("pins Vercel and local builds to the supported Node 22 major", () => {
+    expect(packageJson.engines.node).toBe(">=22.13.0 <23");
+  });
+});
 
 describe("native Next production headers", () => {
   it("matches the worker security policy and hardens every sensitive family", async () => {
