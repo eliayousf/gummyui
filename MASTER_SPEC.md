@@ -896,30 +896,32 @@ The production-origin homepage Lighthouse check completed on three cold mobile
 and three desktop runs. Median scores are 98 mobile performance and 100 desktop
 performance, with accessibility, best practices and SEO at 100 in both modes;
 one mobile run scored 93 performance. This satisfies the homepage-median check,
-not the separate full-coverage greater-than-95 gate. SquirrelScan 0.0.80
-completed a fresh full 457-URL crawl and scored 79/C, with 29,386 passed checks,
-1,353 warnings and 33 failures. Much of the loss is reconciled to
-pre-hydration or hidden-control modelling, cross-origin AuthKit attribution,
-Markdown/XML sitemap handling, intentional noindex routes, ignored Vercel
-cache evidence, aggregate site-wide byte weight and agent rules that do not
-recognise the live agent resources. The actionable overlong descriptions,
-title length, Select label-in-name mismatch and repeated registry-link names
-are corrected in the next source deployment. The large inspector chunk, CSP
+not the separate full-coverage greater-than-95 gate. After the source
+corrections were deployed, SquirrelScan 0.0.80 completed a fresh full 445-URL
+crawl and scored 81/B, with 28,466 passed checks, 1,288 warnings and 25
+failures. This improves on the 79/C baseline; security scored 98 with no
+security errors. Remaining loss is concentrated in hidden form-proxy modelling,
+aggregate site-wide byte weight/cache rules, thin-content heuristics and agent
+rules that do not recognise the live agent resources. Hydrated axe and
+accessibility-tree gates continue to pass. The large inspector chunk, CSP
 `unsafe-inline` and full-coverage 95+ gate remain explicit optimization,
 hardening and audit work. The detailed evidence is in
 `docs/audits/production-launch-verification-2026-07-28.md`.
 
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
-The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag,
-and public `main` is pushed at hardened production commit `aaea084`. Vercel
-deployment `dpl_27FBbiw6njemVys3Tp66jGDEVYtA` for that commit is Ready.
+The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
+The latest runtime-bearing public commit is `977012c`: source/audit corrections
+landed in `52fe463`, and `977012c` pins Vercel to Node 22. Vercel deployment
+`dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` for `977012c` is Ready; its build log proves
+the exact commit and the Node 24-to-22 runtime transition.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
 and public resolvers return the new records. HTTPS, all 362 sitemap URLs,
 canonical-host redirects, route/security headers, malformed authentication
-callbacks and fail-closed probes pass at `gummyui.dev`. GitHub Quality run
-`30362390307` passes for the exact commit. The single North Star remains at 0
+callbacks and fail-closed probes pass at `gummyui.dev`. GitHub Quality runs
+`30371961881` and `30373015318` pass for the deployed correction and exact
+Node 22 runtime-pin commits respectively. The single North Star remains at 0
 of 8 production-verified steps because no complete production customer journey
 is live.
 
@@ -936,10 +938,10 @@ remain fail closed.
 The Vercel project and domain attachment exist, and every planned Production
 environment value except the Stripe runtime key is installed. Vercel Pro is
 active; spend management is set to $1 with notifications and Pause Projects
-enabled. Deployment `dpl_27FBbiw6njemVys3Tp66jGDEVYtA` is Ready at
-`aaea084`; both custom domains are Valid, public DNS has converged, and the
-complete public-origin probe passes. The Stripe key and every commerce journey
-remain pending. A Convex production deployment has
+enabled. Deployment `dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` is Ready at
+`977012c` on Node 22; both custom domains are Valid, public DNS has converged,
+and the complete public-origin probe passes. The Stripe key and every commerce
+journey remain pending. A Convex production deployment has
 `CONVEX_SERVER_SECRET` and the production WorkOS deploy-time credentials set
 there. The current 25-table schema, indexes and functions are deployed; a
 post-deploy inspection confirmed all 25 tables are present and empty. Customer
@@ -986,8 +988,12 @@ Stack's UI shows backup, backup verification, privacy jobs and email outbox Up.
 The active production source accepts controlled ingestion with HTTP 202;
 the live tail retains multiple production events. Better Stack's controlled
 sample incident records both email delivery to and opening by
-`support@kreydlabs.com`. Genuine missing-heartbeat detection for a Gummy UI job
-remains unproved.
+`support@kreydlabs.com`. A controlled genuine missing-heartbeat drill then
+shortened only the email-outbox monitor window, detected the absent heartbeat,
+opened incident `994928414`, and recorded an email sent to
+`support@kreydlabs.com`. The production expectation was restored to five
+minutes with a five-minute grace period, a controlled recovery heartbeat
+returned 200, and the monitor returned Up.
 Backblaze B2 has two private encrypted EU buckets for releases and backups with
 separate scoped runtime and backup keys installed in Vercel. Fresh backup,
 independent operator-key verification and isolated restore now pass. Paid

@@ -7,9 +7,12 @@ release rollback are operational. A controlled support-path message has been
 sent through Gmail, and a separate controlled production-sender message was
 recorded sent and delivered by Resend, both without customer data. The named
 incident commander, backup owner,
-backup-job missing-heartbeat exercise and customer-update decision owner remain
-founder approvals before launch. Better Stack's controlled sample incident
-records email delivery to and opening by the approved support address.
+and customer-update decision owner remain founder approvals before launch.
+Better Stack's controlled sample incident records email delivery to and opening
+by the approved support address. A separate genuine missing-heartbeat drill on
+the email-outbox monitor opened an incident, sent the configured email alert,
+and returned Up after the production schedule was restored and a recovery
+heartbeat passed.
 
 ## Severity
 

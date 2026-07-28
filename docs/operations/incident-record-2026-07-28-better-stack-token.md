@@ -22,5 +22,5 @@ required before release. The corrected EU ingest-host allowlist is deployed,
 the active source accepts a controlled structured event with HTTP 202, the live
 tail retains production events and all four scheduled-job heartbeats are Up.
 Better Stack's sample incident records email delivery to and opening by the
-approved support address. A genuine missing-heartbeat exercise remains
-required before monitoring is fully closed.
+approved support address. A later genuine missing-heartbeat exercise is
+recorded separately and proves detection, support-email alerting and recovery.

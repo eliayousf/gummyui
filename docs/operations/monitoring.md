@@ -1,12 +1,12 @@
 # Monitoring and alerting — approval requirements
 
-Status: redacted structured application logging and Better Stack transport are
-deployed, but retained log inspection and alert delivery are not yet proven.
+Status: redacted structured application logging, retained-log inspection,
+Better Stack transport and controlled email alert delivery are proved.
 Four scheduled-job heartbeat adapters are deployed. Better Stack's free service
 has an uptime monitor, status page, one active production log source and four
 independent heartbeat monitors. The corresponding Vercel Production values are
-installed in Ready deployment `dpl_27FBbiw6njemVys3Tp66jGDEVYtA` at public
-commit `aaea084`. Both custom domains are Valid and the full external
+installed in Ready deployment `dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` at public
+runtime-bearing commit `977012c` on Node 22. Both custom domains are Valid and the full external
 HTTPS/route/fail-closed probe passes at `gummyui.dev`.
 
 On 28 July 2026 the backup, backup-verification, privacy and email-outbox
@@ -16,16 +16,19 @@ production source accepts controlled structured ingestion with HTTP 202, and
 the application's health and email-outbox routes emit bounded redacted records
 locally. The live tail retains multiple production events. Better Stack's
 controlled sample incident records an email sent to and opened by
-`support@kreydlabs.com`. A genuine missing-heartbeat test and alert receipt for
-one Gummy UI scheduled job remain launch gates.
+`support@kreydlabs.com`. A controlled genuine missing-heartbeat drill on the
+email-outbox monitor opened incident `994928414` and recorded an email sent to
+the approved support address. The production five-minute expectation and
+five-minute grace period were restored, a controlled recovery heartbeat
+returned 200, and the monitor returned Up.
 
 The EU two-label ingestion-host defect is corrected and deployed. Obsolete
 ingestion-only sources were retired. The contained token-rotation record is in
 `docs/operations/incident-record-2026-07-28-better-stack-token.md`; the cron
 and recovery-copy containment record is in
 `docs/operations/incident-record-2026-07-28-recovery-credentials.md`. The
-distributed rate limiter is implemented, but suspicious-decision logging and
-controlled alert receipts remain launch gates.
+distributed rate limiter is implemented, but suspicious-decision logging
+remains a launch gate.
 
 ## Required signals
 
