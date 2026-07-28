@@ -255,7 +255,11 @@ test("encodes required state, theme, touch, focus, motion, RTL, and responsive r
   assert.match(css, /@media \(max-width: 620px\)/);
   assert.match(css, /\.site-nav a:nth-child\(n\s*\+\s*5\)/);
   assert.match(css, /\.site-nav a:nth-child\(n\s*\+\s*3\)/);
-  assert.match(css, /min-width:\s*320px/);
+  assert.doesNotMatch(
+    globals,
+    /(?:html|body)\s*\{[^}]*min-width:\s*320px/s,
+    "The document root must not force 320px width because non-overlay scrollbars reduce the usable viewport in Linux Chrome.",
+  );
   assert.match(css, /pointer-events:\s*none/);
   assert.match(css, /\.gummy-field__control-shell/);
   assert.match(css, /\.gummy-textarea__pool/);

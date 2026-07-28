@@ -9,13 +9,11 @@
 }
 
 html {
-  min-width: 320px;
   background: var(--canvas);
   scroll-behavior: smooth;
 }
 
 body {
-  min-width: 320px;
   margin: 0;
   background:
     radial-gradient(circle at 8% 5%, oklch(0.86 0.14 7 / 0.28), transparent 25rem),
