@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "sourceLocale": "en",
-  "sourceRevision": "en-752ecc5b2364",
-  "sourceChecksum": "752ecc5b2364a44691dbb204ebc3817b84cfefeea181c65cb783ed78762b6451",
+  "sourceRevision": "en-a7f7748278cf",
+  "sourceChecksum": "a7f7748278cf1a0b2b05385b13e614808363ccd4e14a682eeb7fa6b9a64513fd",
   "generatedFrom": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -152,12 +152,12 @@
     "app/themes/page.tsx",
     "lib/commerce/account.ts"
   ],
-  "messageCount": 2922,
-  "translatableMessageCount": 2651,
+  "messageCount": 2925,
+  "translatableMessageCount": 2654,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 1882,
+    "static": 1885,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -16520,7 +16520,7 @@
       "id": "static.blocks.category.page.generate-metadata.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Review boundary-safe implementation, state, preview, manual verification, protected release, entitlement, and purchase status for {count} original {name} compositions in Gummy UI Pro.",
+      "source": "Review implementation and release status for {count} original {name} compositions in the private Gummy UI Pro catalogue.",
       "description": "Static property description copy in app/blocks/[category]/page.tsx, generate-metadata scope.",
       "translatable": true,
       "placeholders": [
@@ -16552,13 +16552,13 @@
       "sourceReferences": [
         "app/blocks/[category]/page.tsx:25"
       ],
-      "checksum": "623ad0260509902247aec958f5d0c2665d6857497d2681f418933229c8a62cf3"
+      "checksum": "a0e9ec06ceae57c1de76d8268c4e7123c3edbefed14d22940ae99f76d5261ba6"
     },
     {
       "id": "static.blocks.category.page.generate-metadata.property-title.01",
       "category": "static",
       "contentType": "plain",
-      "source": "{name} Gummy UI Pro blocks · Implementation status",
+      "source": "{name} Pro blocks · Gummy UI",
       "description": "Static property title copy in app/blocks/[category]/page.tsx, generate-metadata scope.",
       "translatable": true,
       "placeholders": [
@@ -16581,7 +16581,7 @@
       "sourceReferences": [
         "app/blocks/[category]/page.tsx:24"
       ],
-      "checksum": "c8c3e38ce61ec261c6bf3807fcc933c15cadbaeef1f7fe187a29ea6237c4bc57"
+      "checksum": "9a94cf4ebf63799707d4fe4550ee718a227cf47c5f9ba1e5a7dc522952bcd75b"
     },
     {
       "id": "static.blocks.category.page.pro-block-category-page.attribute-eyebrow.01",
@@ -19641,17 +19641,16 @@
       "id": "static.components.component-inspector.module.attribute-aria-label.06",
       "category": "static",
       "contentType": "plain",
-      "source": "Accent fruit",
+      "source": "Grape, accent fruit",
       "description": "Static attribute aria label copy in app/components/ComponentInspector.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/ComponentInspector.tsx:766",
-        "app/components/ComponentLab.tsx:1628",
-        "app/components/RadixComponentInspector.tsx:339"
+        "app/components/ComponentLab.tsx:1628"
       ],
-      "checksum": "ed8d8b9f7b578438d48c57c83a294345e324b1b8274e3144eb7122dc55886e32"
+      "checksum": "1e626c84e167874d8e361d53868cba9e235260f1b17bd411e71de1fa79bc4d81"
     },
     {
       "id": "static.components.component-inspector.module.attribute-aria-label.07",
@@ -33954,6 +33953,20 @@
       "checksum": "8a17ad0117578c3ca9e049f9dacc1fd31a80271f53b7796da46dade0d00693f1"
     },
     {
+      "id": "static.components.radix-component-inspector.module.attribute-aria-label.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Raspberry, accent fruit",
+      "description": "Static attribute aria label copy in app/components/RadixComponentInspector.tsx, module scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/components/RadixComponentInspector.tsx:339"
+      ],
+      "checksum": "0f904f46cbd134ca0354ba0de2a313301d45f2faf545a2a93e6ddfdbe48c2dc5"
+    },
+    {
       "id": "static.components.radix-component-inspector.module.attribute-aria-label.04",
       "category": "static",
       "contentType": "plain",
@@ -36959,7 +36972,7 @@
       "id": "static.design-kit.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Review the implementation, Figma materialization, manual review, export, checksum, protected delivery, backup, and release status of the Gummy UI Pro design kit.",
+      "source": "Review the implementation, Figma materialization, manual review, protected delivery, and release status of the Gummy UI Pro design kit.",
       "description": "Static property description copy in app/design-kit/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -36972,7 +36985,7 @@
       "sourceReferences": [
         "app/design-kit/page.tsx:15"
       ],
-      "checksum": "7d9b7684bd7e5a75e2db087f3043d48a38033c4b5f4d4ec0767bf6967ecf972b"
+      "checksum": "cf8f156e46842078b07de92f8d7a90c7414a69bbd3461b0465303cc8624c9b5f"
     },
     {
       "id": "static.design-kit.page.module.property-title.01",
@@ -46256,6 +46269,56 @@
       "checksum": "762e78f7d3cb8c24bfe4b129462e1da09b3e4c31c5b5ed13d74656134d855e6b"
     },
     {
+      "id": "static.registry.page.registry-page.attribute-aria-label.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Base registry for {name}",
+      "description": "Static attribute aria label copy in app/registry/page.tsx, registry-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "name",
+          "type": "string",
+          "example": "[component.name]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{name}",
+          "reason": "runtime-placeholder"
+        }
+      ],
+      "sourceReferences": [
+        "app/registry/page.tsx:47"
+      ],
+      "checksum": "971c9fe2b2e4e0336d72327891aa53279b36060f1260d7fd3cb21856dcf61ff3"
+    },
+    {
+      "id": "static.registry.page.registry-page.attribute-aria-label.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Radix registry for {name}",
+      "description": "Static attribute aria label copy in app/registry/page.tsx, registry-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "name",
+          "type": "string",
+          "example": "[component.name]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{name}",
+          "reason": "runtime-placeholder"
+        }
+      ],
+      "sourceReferences": [
+        "app/registry/page.tsx:56"
+      ],
+      "checksum": "3da8260fb86d9ba7204d4ea73fa405bf55c89682698a7a0f40df3f91e99a1441"
+    },
+    {
       "id": "static.registry.page.registry-page.attribute-eyebrow.01",
       "category": "static",
       "contentType": "plain",
@@ -46411,9 +46474,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:55"
+        "app/registry/page.tsx:68"
       ],
-      "checksum": "a623fc02d202334d3ca30227584f6225d99e44b5f3360480b5eabf94f0b0c94d"
+      "checksum": "c1b7d74dd3df57446a3b9157cf51e65e713e6c4b6cdbc3f1537bd0246a63bbd0"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h3.01",
@@ -46528,7 +46591,7 @@
       "id": "static.registry.page.registry-page.rich-li.01",
       "category": "static",
       "contentType": "rich-text",
-      "source": "<link1>{name}</link1> <span2> <a3>Base</a3> {value2} </span2>",
+      "source": "<link1>{name}</link1> <span2> <a3> Base </a3> {value2} </span2>",
       "description": "Static rich li copy in app/registry/page.tsx, registry-page scope.",
       "translatable": true,
       "placeholders": [
@@ -46540,7 +46603,7 @@
         {
           "name": "value2",
           "type": "string",
-          "example": "[component.radixRegistryName ? (\n                  <> · <a href={`/r/${component.radixRegistryName}.json`}>Radix</a></>\n                ) : null]"
+          "example": "[component.radixRegistryName ? (\n                  <>\n                    {\" · \"}\n                    <a\n                      href={`/r/${component.radixRegistryName}.json`}\n                      aria-label={`Radix registry for ${component.name}`}\n                    >\n                      Radix\n                    </a>\n                  </>\n                ) : null]"
         }
       ],
       "protectedSpans": [
@@ -46580,7 +46643,7 @@
       "sourceReferences": [
         "app/registry/page.tsx:42"
       ],
-      "checksum": "65b26c06270b0c233bd2dd3047e50f7eca4e0a6a88cbbec0b4d8c16da622837a"
+      "checksum": "9bf581ed4cb5e4cd9b1ba0c1b70a0e8ec4ba5403d0b26a71a9aa9a302a871499"
     },
     {
       "id": "static.registry.page.registry-page.rich-p.01",
@@ -46609,9 +46672,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:56"
+        "app/registry/page.tsx:69"
       ],
-      "checksum": "ebdfe57a97c364af75cb053ede5f28f772ca74db8e0d628bccfa47152dd64fbf"
+      "checksum": "9c120cbbfa007aa4451392c1ae0bb410eefd8ef75a8670c181238d01548f7a9b"
     },
     {
       "id": "static.rtl.page.module.property-description.01",
@@ -47529,7 +47592,7 @@
       "id": "static.templates.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
-      "source": "Review boundary-safe implementation, build, preview, manual verification, protected release, entitlement, and publication status for six private Gummy UI Pro templates.",
+      "source": "Review implementation, preview, manual verification, protected release, and publication status for six private Gummy UI Pro templates.",
       "description": "Static property description copy in app/templates/page.tsx, module scope.",
       "translatable": true,
       "placeholders": [],
@@ -47542,7 +47605,7 @@
       "sourceReferences": [
         "app/templates/page.tsx:14"
       ],
-      "checksum": "5a3949192d00c51f7907fd5152175765259ebbaae7a201481d045d63e2615fed"
+      "checksum": "4141cfd539117b5924e1e2dba8e4972c4b0700fb60b4c676b1feac89f21857ad"
     },
     {
       "id": "static.templates.page.module.property-title.01",

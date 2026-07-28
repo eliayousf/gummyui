@@ -162,8 +162,8 @@
     "app/themes/layout.tsx",
     "app/themes/page.tsx"
   ],
-  "candidateCount": 4199,
-  "coveredCandidateCount": 4199,
+  "candidateCount": 4201,
+  "coveredCandidateCount": 4201,
   "uncapturedCandidateCount": 0,
   "uncaptured": [],
   "fileCandidateCounts": {
@@ -294,7 +294,7 @@
     "app/privacy/page.tsx": 33,
     "app/pro/page.tsx": 20,
     "app/refund/page.tsx": 21,
-    "app/registry/page.tsx": 22,
+    "app/registry/page.tsx": 24,
     "app/rtl/layout.tsx": 0,
     "app/rtl/page.tsx": 18,
     "app/security/page.tsx": 17,
@@ -308,5 +308,5 @@
     "app/themes/layout.tsx": 0,
     "app/themes/page.tsx": 7
   },
-  "candidateChecksum": "2d89e8971e3295d1c452ceb3cc23855dd1be853f5a7607c9fd8459248c18ac0c"
+  "candidateChecksum": "d104d0046c65642f767175e1d6567d78c61421bf32dd83bc0262faf340367c91"
 }

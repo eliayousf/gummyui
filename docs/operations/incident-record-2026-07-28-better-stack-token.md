@@ -18,5 +18,9 @@ Containment was immediate:
 
 The final replacement token is not recorded in either repository, this incident
 record, screenshots, or retained command output. Repository secret scanning is
-required before release. The replacement source still needs deployed-origin
-ingestion and controlled alert-receipt proof before monitoring can pass.
+required before release. The corrected EU ingest-host allowlist is deployed,
+the active source accepts a controlled structured event with HTTP 202, the live
+tail retains production events and all four scheduled-job heartbeats are Up.
+Better Stack's sample incident records email delivery to and opening by the
+approved support address. A genuine missing-heartbeat exercise remains
+required before monitoring is fully closed.

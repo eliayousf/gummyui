@@ -11,7 +11,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Pro template implementation status · Gummy UI",
-  description: "Review boundary-safe implementation, build, preview, manual verification, protected release, entitlement, and publication status for six private Gummy UI Pro templates.",
+  description: "Review implementation, preview, manual verification, protected release, and publication status for six private Gummy UI Pro templates.",
   alternates: { canonical: "/templates" },
   robots: { index: true, follow: true },
 };

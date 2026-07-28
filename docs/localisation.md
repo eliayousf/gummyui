@@ -36,7 +36,7 @@ The deterministic source builder extracts stable records from:
 - an AST coverage audit for every in-scope TSX source plus the public Pro
   metadata and future structured showcase entries.
 
-The generated English source contains 2,922 records, of which 2,651 are
+The generated English source contains 2,925 records, of which 2,654 are
 translatable. Exact category and static-audit counts are generated and
 checksum-pinned rather than maintained as product claims.
 

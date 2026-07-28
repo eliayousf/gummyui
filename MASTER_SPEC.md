@@ -858,7 +858,7 @@ separately configured Stripe catalogue and live Vercel control plane remain
 fail closed for commerce.
 
 The localisation source is frozen reproducibly at revision
-`en-752ecc5b2364`: 2,922 records, of which 2,651 are translatable and 271 are
+`en-a7f7748278cf`: 2,925 records, of which 2,654 are translatable and 271 are
 protected. English is the only published language. All 19 private AI drafts
 pass checksum, ordering, completeness, placeholder and protected-span
 verification. Model replacement and provenance-recorded fallback repair
@@ -892,62 +892,74 @@ restoration remain pending. The actual paid-release builder therefore refuses
 to package the catalogue, and the public boundary and deployment contain no
 paid editable source.
 
-The first canonical production-origin Squirrel 0.0.38 surface crawl completed
-against `gummyui.dev`: 120 pages scored 87/B, with 25 failures and 512
-warnings. It did not satisfy full coverage because 243 sitemap URLs were not
-crawled. Its failures were 24 auditor-reported accessibility findings plus one
-TTFB finding; the existing axe and real-browser gates remain green, so each
-surviving discrepancy still needs source correction or explicit
-evidence-backed reconciliation. A checksum-verified current auditor surface
-crawl also completed and adds new agent-experience and cache-freshness rules;
-it is diagnostic, not a launch pass. The required full-coverage production
-score above 95 remains a launch gate, and no score is fabricated from partial
-coverage.
+The production-origin homepage Lighthouse check completed on three cold mobile
+and three desktop runs. Median scores are 98 mobile performance and 100 desktop
+performance, with accessibility, best practices and SEO at 100 in both modes;
+one mobile run scored 93 performance. This satisfies the homepage-median check,
+not the separate full-coverage greater-than-95 gate. SquirrelScan 0.0.80
+completed a fresh full 457-URL crawl and scored 79/C, with 29,386 passed checks,
+1,353 warnings and 33 failures. Much of the loss is reconciled to
+pre-hydration or hidden-control modelling, cross-origin AuthKit attribution,
+Markdown/XML sitemap handling, intentional noindex routes, ignored Vercel
+cache evidence, aggregate site-wide byte weight and agent rules that do not
+recognise the live agent resources. The actionable overlong descriptions,
+title length, Select label-in-name mismatch and repeated registry-link names
+are corrected in the next source deployment. The large inspector chunk, CSP
+`unsafe-inline` and full-coverage 95+ gate remain explicit optimization,
+hardening and audit work. The detailed evidence is in
+`docs/audits/production-launch-verification-2026-07-28.md`.
 
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag,
-and public `main` is pushed at responsive-fix commit `359a96d`. Vercel
-deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` for that commit is Ready.
+and public `main` is pushed at hardened production commit `aaea084`. Vercel
+deployment `dpl_27FBbiw6njemVys3Tp66jGDEVYtA` for that commit is Ready.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
-and public resolvers return the new records. HTTPS plus basic route and
-fail-closed probes pass at `gummyui.dev`. The single North Star remains at 0 of
-8 production-verified steps because no production customer journey is live.
+and public resolvers return the new records. HTTPS, all 362 sitemap URLs,
+canonical-host redirects, route/security headers, malformed authentication
+callbacks and fail-closed probes pass at `gummyui.dev`. GitHub Quality run
+`30362390307` passes for the exact commit. The single North Star remains at 0
+of 8 production-verified steps because no complete production customer journey
+is live.
 
 Stripe Managed Payments is live-account ready with three products, nine prices
 and `support@kreydlabs.com` configured. Its active `gummyui-production`
 destination listens for the exact 16 required event types at
 `https://gummyui.dev/api/webhooks/stripe`, and the signing secret is installed
-only in secure runtime/operator stores. Creation of the least-privilege
-restricted production runtime key is currently blocked by a generic Stripe
-Dashboard error. Deployed-origin signed delivery and sandbox/live journeys
-remain unproved; checkout and webhook flags remain fail closed.
+only in secure runtime/operator stores. The restricted-key form now has the
+required least-privilege permissions selected and stops at Stripe's explicit
+founder identity-verification dialog before issuance. Deployed-origin signed
+delivery and sandbox/live journeys remain unproved; checkout and webhook flags
+remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value except the Stripe runtime key is installed. Vercel Pro is
 active; spend management is set to $1 with notifications and Pause Projects
-enabled. Deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` is Ready at
-`359a96d`; both custom domains are Valid, public DNS has converged, and basic
-HTTPS, route and fail-closed probes pass. The Stripe key and every commerce
-journey remain pending. A Convex production deployment has
+enabled. Deployment `dpl_27FBbiw6njemVys3Tp66jGDEVYtA` is Ready at
+`aaea084`; both custom domains are Valid, public DNS has converged, and the
+complete public-origin probe passes. The Stripe key and every commerce journey
+remain pending. A Convex production deployment has
 `CONVEX_SERVER_SECRET` and the production WorkOS deploy-time credentials set
 there. The current 25-table schema, indexes and functions are deployed; a
 post-deploy inspection confirmed all 25 tables are present and empty. Customer
-journeys are not yet verified. The first production backup exported all 24
+journeys are not yet verified. The current production backup exported all 24
 durable tables, encrypted and authenticated every object, uploaded and read
-them back from B2, returned 200 and sent its success heartbeat; the subsequent
-latest-backup verification also returned 200. An isolated short-lived Convex
-restore target has the current schema and drill-only secrets. The restore proof
-is no longer blocked on obtaining write-only credentials: the scoped B2 backup
-credential, both backup cryptographic keys and the cron credential were rotated
-on 28 July 2026, installed for the next deployment and placed in a mode-0600
-operator recovery bundle outside both repositories. A deployment, fresh backup,
-isolated restore proof, superseded-key revocation and founder
-password-manager custody evidence remain required.
+them back from B2, returned 200 and sent its success heartbeat. The subsequent
+latest-backup verification returned 200. The mode-0600 operator recovery copy
+then independently authenticated and decrypted that exact latest backup. An
+isolated Convex target restored and reconciled all 24 tables successfully with
+zero production records. A controlled Vercel rollback switched the real origin
+to known-good deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, passed public
+health and authentication probes, and promoted the current deployment back
+successfully. Superseded B2-key revocation and founder password-manager custody
+remain required.
 
 WorkOS production AuthKit is enabled and its redirect, application, branding and
 webhook are configured; its production credentials are installed in Vercel.
+The production environment now enables Email + Password with the strong policy
+and six-digit Magic Auth; the prior SSO-only customer-facing configuration is
+removed.
 The real-origin `/auth/sign-in` route returns a 307 to WorkOS with the canonical
 `https://gummyui.dev/auth/callback` redirect URI, proving production
 authentication initiation without proving account creation or callback/JWT
@@ -956,31 +968,42 @@ Real staging journeys continue to pass for Google sign-in, account projection,
 organization creation/recovery, a controlled invitation, export/download,
 deletion/cancellation, sign-out and unpaid protected-download denial. Production
 callback, account/recovery and deployed Convex JWT-integration evidence remain
-pending.
+pending. The real production sign-up form is reached and filled with the
+approved support address, but its human CAPTCHA requires founder interaction
+before account creation and email-code evidence can continue.
 
 Resend has a verified `send.kreydlabs.com` domain, and its production API key,
-webhook and current sender/reply-to settings are installed in Vercel. Better
-Stack's free service has an uptime monitor, status page, log source and four
-scheduled-job heartbeats configured, with the corresponding Vercel values
-installed. A two-label EU ingestion-host allowlist defect was found and fixed
-locally; both obsolete ingestion-only sources were removed and a replacement
-source is configured for the next deployment. Backblaze B2 has two private
-encrypted EU buckets for releases and backups with separate scoped runtime and
-backup keys installed in Vercel. The first production backup and latest-backup
-verification succeeded, including B2 object readback and the backup success
-heartbeat. Better Stack live ingestion/UI receipts, alert delivery, paid
-delivery and isolated restore remain unproved.
+webhook and current sender/reply-to settings are installed in Vercel. A
+domain-scoped, sending-only one-use key sent a controlled message from the
+production sender to `support@kreydlabs.com`; Resend recorded both sent and
+delivered, after which the one-use key was deleted. The application outbox and
+signed Resend webhook still require a real account event. Better Stack's free
+service has an uptime monitor, status page, one active production log source
+and four scheduled-job heartbeats configured, with the corresponding Vercel
+values installed. The two-label EU ingestion-host allowlist correction is
+deployed. All four controlled production jobs returned 200 and Better
+Stack's UI shows backup, backup verification, privacy jobs and email outbox Up.
+The active production source accepts controlled ingestion with HTTP 202;
+the live tail retains multiple production events. Better Stack's controlled
+sample incident records both email delivery to and opening by
+`support@kreydlabs.com`. Genuine missing-heartbeat detection for a Gummy UI job
+remains unproved.
+Backblaze B2 has two private encrypted EU buckets for releases and backups with
+separate scoped runtime and backup keys installed in Vercel. Fresh backup,
+independent operator-key verification and isolated restore now pass. Paid
+delivery, superseded B2-key revocation and recovery-copy custody remain
+unproved.
 
 Current product gates also include running and visually reviewing the v0.5.0
 Figma materialisation of 138 sets and 2,588 variants, reviewing its 72 editable
 pattern sets against the 72 raster comparison references, completing founder
 rendered/localisation review, and promoting actual paid releases.
 
-The remaining work is implementation plus external execution: verify the
-deployed Convex/WorkOS integration at the real origin, resolve the Stripe
-restricted-key error, complete test-provider journeys, finish the exact sellable
-product and reviews, create immutable protected releases and backups, run the
-full production security/performance/discovery checks, complete the authorised
-real purchase and full refund, verify monitoring/restore/rollback, and close the
-greater-than-95 production audit gate. The project is not commercially launched
-until all eight North Star steps have evidence.
+The remaining work is dominated by founder-controlled gates: complete the
+WorkOS CAPTCHA/account/recovery/JWT journey, complete Stripe identity
+verification so the selected restricted key can be issued, run the private
+Figma materializer and visual reviews, approve localisation, revoke the
+superseded B2 key after reauthentication, and move the recovery bundle into the
+founder password manager. Then paid releases, signed webhook/email/customer
+journeys and the authorised real purchase/full refund can proceed. The project
+is not commercially launched until all eight North Star steps have evidence.

@@ -69,4 +69,12 @@ describe("component detail inspector", () => {
     expect(document.documentElement).toHaveAttribute("data-theme", "light");
     expect(document.querySelector('[data-component-preview="button"]')).toBeInTheDocument();
   });
+
+  it("keeps the Select accessible name aligned with its visible value", () => {
+    render(<ComponentInspector slug="select" componentName="Select" />);
+
+    expect(
+      screen.getByRole("combobox", { name: "Grape, accent fruit" }),
+    ).toHaveTextContent("Grape");
+  });
 });

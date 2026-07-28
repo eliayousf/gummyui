@@ -21,15 +21,22 @@ not copied into this repository.
 
 An isolated Convex development restore target has the current schema and backup
 functions with only distinct restore/export secrets and the `isolated-test`
-classification. On 28 July 2026 the scoped B2 backup credential, both backup
-cryptographic keys and the cron credential were rotated. The replacement values
-are installed for the next Vercel production deployment and a mode-0600
-operator recovery bundle exists outside both repositories. The superseded
-values remain usable only by the currently deployed immutable runtime until the
-replacement deployment and fresh-backup proof pass. A fresh backup under the
-rotated keys, the isolated restore proof, old-key revocation and founder
-password-manager custody evidence remain required before this control is marked
-fully production-proven.
+classification. On 28 July 2026 the scoped B2 credential, both backup
+cryptographic keys, their versioned identifiers and the cron credential were
+rotated and deployed. The replacement values are stored in a mode-0600 operator
+recovery bundle outside both repositories. The superseded cron value is proven
+rejected with 404 while the replacement returns a verified 200.
+
+A fresh production backup under the current keys exported, encrypted,
+authenticated, uploaded, read back and verified all 24 durable tables. The
+operator-held copy independently authenticated and decrypted that exact latest
+backup. The isolated target then restored all 24 tables in the fixed sequence,
+re-exported them and reconciled the manifest successfully; production was empty,
+so this proves the crypto, storage and restore sequence rather than
+representative account, team, entitlement or query semantics. Superseded
+B2-key revocation after dashboard
+reauthentication and founder password-manager custody/removal of the local
+recovery copy remain required before this control is marked fully complete.
 
 The backup format has two separate cryptographic controls:
 

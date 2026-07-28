@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Gummy UI Pro design kit status",
   description:
-    "Review the implementation, Figma materialization, manual review, export, checksum, protected delivery, backup, and release status of the Gummy UI Pro design kit.",
+    "Review the implementation, Figma materialization, manual review, protected delivery, and release status of the Gummy UI Pro design kit.",
   alternates: { canonical: "/design-kit" },
   robots: { index: true, follow: true },
 };

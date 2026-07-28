@@ -12,7 +12,7 @@ No target dictionary or unreviewed translation is tracked in this public
 repository. Every target locale remains absent from routing, hreflang, sitemap,
 search, and runtime dictionaries until the separate publication gate passes.
 
-The current public source is `en-752ecc5b2364`. The private workflow already
+The current public source is `en-a7f7748278cf`. The private workflow already
 contains complete prior-revision drafts and caches. Its generator reuses only
 exact source units whose text and approved model match, records the source
 revisions reused, and sends only new or changed units to the model. Do not
@@ -69,14 +69,14 @@ After the private current-revision draft and quality report exist:
 
 ```sh
 npm run localisation:private-review -- \
-  --draft ../gummyui-pro/localisation/drafts/en-752ecc5b2364/fr.draft.json \
-  --quality ../gummyui-pro/localisation/quality/en-752ecc5b2364/fr.quality.json
+  --draft ../gummyui-pro/localisation/drafts/en-a7f7748278cf/fr.draft.json \
+  --quality ../gummyui-pro/localisation/quality/en-a7f7748278cf/fr.quality.json
 ```
 
 The output is:
 
 ```text
-work/localisation-reviews/en-752ecc5b2364/fr.review.html
+work/localisation-reviews/en-a7f7748278cf/fr.review.html
 ```
 
 The renderer refuses a stale revision, altered draft checksum, missing,

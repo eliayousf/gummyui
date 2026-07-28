@@ -763,7 +763,7 @@ export const componentPreviewRenderers: Readonly<Record<string, PreviewRenderer>
       ]}
       defaultValue="Grape"
     >
-      <GummySelectTrigger aria-label="Accent fruit" />
+      <GummySelectTrigger aria-label="Grape, accent fruit" />
       <GummySelectPortal>
         <GummySelectPositioner>
           <GummySelectPopup>

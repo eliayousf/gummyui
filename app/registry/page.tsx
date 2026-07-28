@@ -42,9 +42,22 @@ export default function RegistryPage() {
             <li key={component.slug}>
               <Link href={`/components/${component.slug}`}>{component.name}</Link>
               <span>
-                <a href={`/r/${component.registryName}.json`}>Base</a>
+                <a
+                  href={`/r/${component.registryName}.json`}
+                  aria-label={`Base registry for ${component.name}`}
+                >
+                  Base
+                </a>
                 {component.radixRegistryName ? (
-                  <> · <a href={`/r/${component.radixRegistryName}.json`}>Radix</a></>
+                  <>
+                    {" · "}
+                    <a
+                      href={`/r/${component.radixRegistryName}.json`}
+                      aria-label={`Radix registry for ${component.name}`}
+                    >
+                      Radix
+                    </a>
+                  </>
                 ) : null}
               </span>
             </li>

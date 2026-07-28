@@ -336,7 +336,7 @@ const previewRenderers: Readonly<Record<string, PreviewRenderer>> = {
   ),
   select: () => (
     <GummySelect defaultValue="raspberry">
-      <GummySelectTrigger aria-label="Accent fruit" />
+      <GummySelectTrigger aria-label="Raspberry, accent fruit" />
       <GummySelectPortal>
         <GummySelectPositioner>
           <GummySelectPopup>

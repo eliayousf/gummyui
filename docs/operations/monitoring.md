@@ -1,32 +1,31 @@
 # Monitoring and alerting — approval requirements
 
-Status: redacted structured application logging, the optional Better Stack log
-transport and four scheduled-job heartbeat adapters are implemented locally.
-Better Stack's free service is configured with an uptime monitor, status page,
-log source and four independent heartbeat monitors, and the corresponding
-Vercel Production values are installed. Deployment
-`dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` is Ready at `359a96d`. Both custom
-domains are Valid, public DNS returns the new records, and basic external HTTPS,
-route and fail-closed probes pass at `gummyui.dev`. Better Stack log ingestion,
-heartbeat receipt, thresholds and controlled alert delivery are not yet fully
-proven. The production encrypted-backup route and its integrity-verification
-route both returned 200 on 28 July 2026; backup execution uploaded and read back
-all 24 durable-table objects and the backup success heartbeat returned 200. A
-scheduled email-outbox execution also emitted a redacted structured success
-record. Better Stack's UI now shows the backup, backup-verification and email
-outbox heartbeats as Up; the privacy heartbeat remains Pending because its
-controlled run has not occurred. A production investigation on 28 July 2026
-found that the EU ingestion host has two subdomain labels while the runtime
-allowlist accepted only one.
-The allowlist and regression tests are corrected locally, the obsolete
-ingestion-only source tokens were retired, and a replacement source credential
-is installed for the next Vercel deployment. The contained token-rotation
-record is in
-`docs/operations/incident-record-2026-07-28-better-stack-token.md`. Live
-ingestion, the pending privacy receipt, missing-heartbeat behavior and
-controlled alert delivery remain launch gates. The distributed rate limiter is
-implemented locally, but
-suspicious-decision logging and controlled alert receipts remain launch gates.
+Status: redacted structured application logging and Better Stack transport are
+deployed, but retained log inspection and alert delivery are not yet proven.
+Four scheduled-job heartbeat adapters are deployed. Better Stack's free service
+has an uptime monitor, status page, one active production log source and four
+independent heartbeat monitors. The corresponding Vercel Production values are
+installed in Ready deployment `dpl_27FBbiw6njemVys3Tp66jGDEVYtA` at public
+commit `aaea084`. Both custom domains are Valid and the full external
+HTTPS/route/fail-closed probe passes at `gummyui.dev`.
+
+On 28 July 2026 the backup, backup-verification, privacy and email-outbox
+production routes each returned 200 with private no-store/noindex responses.
+Better Stack's UI shows all four matching heartbeat monitors Up. The active
+production source accepts controlled structured ingestion with HTTP 202, and
+the application's health and email-outbox routes emit bounded redacted records
+locally. The live tail retains multiple production events. Better Stack's
+controlled sample incident records an email sent to and opened by
+`support@kreydlabs.com`. A genuine missing-heartbeat test and alert receipt for
+one Gummy UI scheduled job remain launch gates.
+
+The EU two-label ingestion-host defect is corrected and deployed. Obsolete
+ingestion-only sources were retired. The contained token-rotation record is in
+`docs/operations/incident-record-2026-07-28-better-stack-token.md`; the cron
+and recovery-copy containment record is in
+`docs/operations/incident-record-2026-07-28-recovery-credentials.md`. The
+distributed rate limiter is implemented, but suspicious-decision logging and
+controlled alert receipts remain launch gates.
 
 ## Required signals
 

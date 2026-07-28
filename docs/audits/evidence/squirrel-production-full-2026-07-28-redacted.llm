@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.80">
+<site url="https://gummyui.dev" crawled="457" date="2026-07-28T13:16:23.196Z"/>
+<score overall="79" grade="C">
+ <group name="SEO" score="84" errors="30" warnings="662"/>
+ <group name="Performance" score="62" errors="3" warnings="381"/>
+ <group name="Security" score="95" errors="0" warnings="3"/>
+ <group name="Agents" score="50" errors="0" warnings="300"/>
+ <cat name="Accessibility" score="82"/>
+ <cat name="Performance" score="62"/>
+ <cat name="Core SEO" score="91"/>
+ <cat name="Agent Experience" score="50"/>
+ <cat name="Content" score="43"/>
+ <cat name="Links" score="86"/>
+ <cat name="Crawlability" score="91"/>
+ <cat name="Security" score="94"/>
+ <cat name="E-E-A-T" score="100"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Images" score="100"/>
+ <cat name="Site Integrity" score="100"/>
+ <cat name="Legal Compliance" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="Structured Data" score="100"/>
+ <cat name="Social Media" score="100"/>
+ <cat name="URL Structure" score="100"/>
+</score>
+<summary passed="29386" warnings="1353" failed="33"/>
+<scan-scope origin="cli" crawled="457" max-pages="500" capped="false"/>
+<technologies first-scan="false" added="0" removed="0">
+ <tech name="React" cat="framework"/>
+ <tech name="Next.js" cat="framework"/>
+ <tech name="Vercel Edge Network" cat="cdn"/>
+ <tech name="Vercel" cat="hosting"/>
+ <tech name="Cloudflare" cat="cdn"/>
+</technologies>
+<issues>
+ <category name="Core SEO" group="seo" errors="1" warnings="50">
+  <rule id="core/meta-description" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/core/meta-description">
+   Missing meta description; Description too long; Description too short
+   Pages (5/33): /design-kit, /sign-in, /templates, /auth/sign-in, /blocks/about
+   Items (5/32):
+    - /blocks/about (Review boundary-safe implementation, state, previe (176 chars))
+    - /blocks/artificial-intelligence (Review boundary-safe implementation, state, previe (194 chars))
+    - /blocks/authentication (Review boundary-safe implementation, state, previe (185 chars))
+    - /blocks/bento-grids (Review boundary-safe implementation, state, previe (182 chars))
+    - /blocks/blogs (Review boundary-safe implementation, state, previe (176 chars))
+  </rule>
+  <rule id="core/twitter-cards" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/core/twitter-cards">
+   No Twitter card or Open Graph tags for Twitter sharing
+   Pages (1): /auth/sign-in
+  </rule>
+  <rule id="core/meta-title" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-title">
+   Title too short
+   Pages (1): /auth/sign-in
+   Items (1):
+    - /auth/sign-in (Sign in (7 chars))
+  </rule>
+  <rule id="core/canonical" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/canonical">
+   Missing canonical URL
+   Pages (3): /sign-in, /auth/sign-in, /components/lab
+  </rule>
+  <rule id="core/og-tags" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/og-tags">
+   Missing og:description; Missing og:image - social shares will lack imagery; Missing og:title
+   Pages (1): /auth/sign-in
+  </rule>
+  <rule id="core/robots-meta" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/robots-meta">
+   Page is set to noindex; Page is set to noindex and nofollow
+   Pages (5/8): /sign-in, /components/lab, /templates/boundary-ai/preview, /templates/current-desk/preview, /templates/field-notes-portfolio/preview
+  </rule>
+  <rule id="core/title-unique" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/title-unique">
+   1 duplicate title(s) affecting 4 pages
+   Pages (4): /components/pagination, /components/pagination?page=1, /components/pagination?page=2, /components/pagination?page=3
+   Items (1):
+    - pagination react component · gummy ui (&quot;pagination react component · gummy ui...&quot; (4 pages)) [pageCount: 4] (from: /components/pagination, /components/pagination?page=1, /components/pagination?page=2, /components/pagination?page=3)
+  </rule>
+  <rule id="core/favicon" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/favicon">
+   No favicon found
+   Pages (1): /auth/sign-in
+  </rule>
+ </category>
+ <category name="Accessibility" group="seo" errors="29" warnings="316">
+  <rule id="a11y/select-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/select-name">
+   1 select element(s) without accessible names
+   Pages (1): /components/select
+   Items (1):
+    - select
+  </rule>
+  <rule id="a11y/aria-hidden-focus" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-hidden-focus">
+   N focusable element(s) inside aria-hidden
+   Pages (5/6): /, /themes, /components/combobox, /components/lab, /components/select
+   Items (3):
+    - button
+    - input (self is focusable)
+    - select (self is focusable)
+  </rule>
+  <rule id="a11y/aria-input-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-input-field-name">
+   N input field(s) without accessible names
+   Pages (5/8): /, /themes, /components/combobox, /components/lab, /components/select
+   Items (5):
+    - button[role=&quot;radio&quot;]
+    - input[type=&quot;checkbox&quot;]
+    - input[type=&quot;range&quot;]
+    - input[type=&quot;text&quot;]
+    - select
+  </rule>
+  <rule id="a11y/aria-required-attr" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-required-attr">
+   1 element(s) missing required ARIA attributes
+   Pages (1): /components/slider
+   Items (1):
+    - span[role=&quot;slider&quot;]: missing aria-valuenow
+  </rule>
+  <rule id="a11y/aria-toggle-field-name" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/aria-toggle-field-name">
+   N toggle field(s) without accessible names
+   Pages (4): /, /themes, /components/lab, /components/switch
+   Items (1):
+    - checkbox
+  </rule>
+  <rule id="a11y/label-content-name-mismatch" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/label-content-name-mismatch">
+   N element(s) where visible text doesn&apos;t match accessible name
+   Pages (2): /components/lab, /components/select
+   Items (5/6):
+    - a: visible=&quot;gummy uicomponent la&quot; vs aria-label=&quot;gummy ui component l&quot;
+    - a: visible=&quot;project pulseweekly &quot; vs aria-label=&quot;open project pulse d&quot;
+    - a: visible=&quot;project pulseweekly &quot; vs aria-label=&quot;open project pulse d&quot;
+    - button: visible=&quot;grape&quot; vs aria-label=&quot;accent fruit&quot;
+    - button: visible=&quot;sort · newest&quot; vs aria-label=&quot;sort projects, curre&quot;
+  </rule>
+  <rule id="a11y/form-labels" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/form-labels">
+   N form input(s) without labels
+   Pages (5/7): /, /themes, /components/combobox, /components/lab, /components/select
+   Items (5/8):
+    - base-ui-_R_3gqnpfqbtb_-hidden-input
+    - base-ui-_R_5rgqnpfqbtbH2_
+    - base-ui-_R_al3inpfqbtb_-hidden-input
+    - base-ui-_R_fl3inpfqbtb_-hidden-input
+    - base-ui-_R_nikbinpfqbtbH2_
+  </rule>
+  <rule id="a11y/landmark-regions" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/landmark-regions">
+   No &lt;main&gt; landmark found
+   Pages (1): /auth/sign-in
+  </rule>
+  <rule id="a11y/color-contrast" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/color-contrast">
+   2 potential color contrast issue(s)
+   Pages (5/304): /, /accessibility, /blocks, /blog, /changelog
+   Items (4):
+    - Very light text color: 1 instance(s)
+    - Very light text color: 2 instance(s)
+    - White text (verify background): 1 instance(s)
+    - White text (verify background): 2 instance(s)
+  </rule>
+  <rule id="a11y/focus-visible" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/focus-visible">
+   outline:none found - ensure alternative focus styles exist
+   Pages (3): /components/menubar, /components/tabs, /components/toggle-group
+  </rule>
+  <rule id="a11y/form-field-multiple-labels" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/form-field-multiple-labels">
+   N input(s) with multiple labels
+   Pages (4): /docs, /components/checkbox, /components/lab, /components/radio-group
+   Items (5/24):
+    - docs-visibility (2 labels)
+    - gummy-checkbox-_R_3gqnpfqbtb_ (2 labels)
+    - gummy-checkbox-_R_5hcqnqbtb_ (2 labels)
+    - gummy-checkbox-_R_hhbinpfqbtb_ (2 labels)
+    - gummy-checkbox-_R_ihbinpfqbtb_ (2 labels)
+  </rule>
+  <rule id="a11y/landmark-one-main" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/landmark-one-main">
+   Page has no main landmark
+   Pages (1): /auth/sign-in
+  </rule>
+  <rule id="a11y/identical-links-same-purpose" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/identical-links-same-purpose">
+   2 link text(s) lead to different destinations
+   Pages (1): /registry
+   Items (2):
+    - &quot;base&quot; → 57 different URLs
+    - &quot;radix&quot; → 22 different URLs
+  </rule>
+  <rule id="a11y/skip-link" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/skip-link">
+   No bypass mechanism for repetitive content
+   Pages (1): /auth/sign-in
+  </rule>
+  <rule id="a11y/th-has-data-cells" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/th-has-data-cells">
+   1 &lt;th&gt; element(s) without associated data cells
+   Pages (1): /locales
+   Items (1):
+    - Language
+  </rule>
+ </category>
+ <category name="Crawlability" group="seo" errors="0" warnings="8">
+  <rule id="crawl/pagination" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/pagination">
+   Paginated page canonicalizes to non-paginated URL
+   Pages (3): /components/pagination?page=1, /components/pagination?page=2, /components/pagination?page=3
+  </rule>
+  <rule id="crawl/canonical-chain" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/canonical-chain">
+   Page redirects before content is served
+   Pages (1): /auth/sign-in
+   Items (1):
+    - /auth/sign-in (https://gummyui.dev/auth/sign-in (307) → https://api.workos.com/user_management/authorize?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;code_challenge=[REDACTED]&amp;code_challenge_method=S256&amp;provider=authkit&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;response_type=code&amp;screen_hint=sign-in&amp;state=[REDACTED] (302) → https://scholarly-microscope-30.authkit.app/bootstrap?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED]&amp;authorization_session_id=[REDACTED]&amp;screen_hint=sign-in (307) → https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED]&amp;authorization_session_id=[REDACTED] (200)) [finalUrl: https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED] chain: {&quot;sourceUrl&quot;:&quot;https://gummyui.dev/auth/sign-in&quot;,&quot;finalUrl&quot;:&quot;https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fca…]
+  </rule>
+  <rule id="crawl/redirect-chain" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/redirect-chain">
+   1 page(s) have redirect chains &gt;2 hops
+   Pages (1): /auth/sign-in
+   Items (1):
+    - /auth/sign-in (4 hops) [hops: 4, chain: /auth/sign-in (307) → /user_management/authorize (302) → /bootstrap (307) → / (200)]
+  </rule>
+  <rule id="crawl/sitemap-coverage" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-coverage">
+   9 indexable page(s) not in sitemap (3%); 70 sitemap URL(s) were not crawled
+   Pages (5/79): /changelog.xml, /sign-in, /auth/sign-in, /components/lab, /docs/markdown/catalogue.md
+   Items (5/79):
+    - /auth/sign-in
+    - /components/lab
+    - /sign-in
+    - /templates/boundary-ai/preview
+    - /templates/current-desk/preview
+  </rule>
+  <rule id="crawl/indexability-conflicts" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/indexability-conflicts">
+   8 page(s) allowed in robots.txt but have noindex
+  </rule>
+ </category>
+ <category name="Legal Compliance" group="security" errors="0" warnings="1">
+  <rule id="legal/subprocessor-disclosure" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/legal/subprocessor-disclosure">
+   No sub-processor / data-processing (DPA) disclosure found
+  </rule>
+ </category>
+ <category name="Agent Experience" group="ai" errors="0" warnings="301">
+  <rule id="ax/markdown-response" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/ax/markdown-response">
+   No Markdown response — consider honoring Accept: text/markdown or publishing a .md variant so agents get clean content
+  </rule>
+  <rule id="ax/token-weight" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/ax/token-weight">
+   Visible text is under 15% of the page HTML — agents pay token cost mostly for markup, scripts, and styles
+   Pages (5/300): /, /accessibility, /blocks, /blog, /changelog
+   Items (5/300):
+    - / (~6% of HTML is visible text (~10,329 est. tokens))
+    - /accessibility (~10% of HTML is visible text (~4,716 est. tokens))
+    - /auth/sign-in (~0% of HTML is visible text (~27,199 est. tokens))
+    - /blocks (~12% of HTML is visible text (~7,607 est. tokens))
+    - /blocks/about (~7% of HTML is visible text (~4,879 est. tokens))
+  </rule>
+ </category>
+ <category name="Security" group="security" errors="0" warnings="3">
+  <rule id="security/csp" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+   CSP allows &apos;unsafe-inline&apos;
+  </rule>
+  <rule id="security/form-captcha" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/form-captcha">
+   1 public form(s) without CAPTCHA
+   Pages (2): /auth/sign-in, /components/lab
+   Items (2):
+    - [action=&quot;javascript:throw new Error(&apos;React form unexpectedly submitted.&apos;)&quot;]
+    - form[0]
+  </rule>
+ </category>
+ <category name="Links" group="seo" errors="0" warnings="7">
+  <rule id="links/orphan-pages" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/orphan-pages">
+   1 orphan page(s) with &lt;2 incoming links
+   Pages (1): /auth/sign-in
+   Items (1):
+    - /auth/sign-in
+  </rule>
+  <rule id="links/internal-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/internal-links">
+   Too few internal links (0, min 1); Too many internal links (178, max 100)
+   Pages (2): /registry, /auth/sign-in
+   Items (2):
+    - /auth/sign-in (Too few internal links (0, min 1))
+    - /registry (Too many internal links (178, max 100))
+  </rule>
+  <rule id="links/redirect-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/redirect-chains">
+   1 link target(s) point to redirecting URLs; 1 page(s) redirect to another URL
+   Pages (2): /sign-in, /auth/sign-in
+   Items (2):
+    - /auth/sign-in (https://gummyui.dev/auth/sign-in (307) → https://api.workos.com/user_management/authorize?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;code_challenge=[REDACTED]&amp;code_challenge_method=S256&amp;provider=authkit&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;response_type=code&amp;screen_hint=sign-in&amp;state=[REDACTED] (302) → https://scholarly-microscope-30.authkit.app/bootstrap?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED]&amp;authorization_session_id=[REDACTED]&amp;screen_hint=sign-in (307) → https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED]&amp;authorization_session_id=[REDACTED] (200)) [targetUrl: https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED] chain: {&quot;sourceUrl&quot;:&quot;https://gummyui.dev/auth/sign-in&quot;,&quot;finalUrl&quot;:&quot;https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fca…] (from: /sign-in)
+    - /auth/sign-in (https://gummyui.dev/auth/sign-in (307) → https://api.workos.com/user_management/authorize?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;code_challenge=[REDACTED]&amp;code_challenge_method=S256&amp;provider=authkit&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;response_type=code&amp;screen_hint=sign-in&amp;state=[REDACTED] (302) → https://scholarly-microscope-30.authkit.app/bootstrap?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED]&amp;authorization_session_id=[REDACTED]&amp;screen_hint=sign-in (307) → https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED]&amp;authorization_session_id=[REDACTED] (200)) [targetUrl: https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fcallback&amp;state=[REDACTED] chain: {&quot;sourceUrl&quot;:&quot;https://gummyui.dev/auth/sign-in&quot;,&quot;finalUrl&quot;:&quot;https://scholarly-microscope-30.authkit.app/?client_id=client_01KYK4AB2D84JTDRPGG47CBC8W&amp;redirect_uri=https%3A%2F%2Fgummyui.dev%2Fauth%2Fca…]
+  </rule>
+  <rule id="links/dead-end-pages" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/dead-end-pages">
+   Page has no outgoing internal links (dead-end)
+   Pages (1): /auth/sign-in
+  </rule>
+  <rule id="links/weak-internal-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/weak-internal-links">
+   1 page(s) have only 1 internal link
+   Pages (1): /auth/sign-in
+   Items (1):
+    - /auth/sign-in
+  </rule>
+ </category>
+ <category name="Content" group="seo" errors="0" warnings="286">
+  <rule id="content/duplicate-title" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/duplicate-title">
+   1 duplicate title(s) found across 4 pages
+   Pages (4): /components/pagination, /components/pagination?page=1, /components/pagination?page=2, /components/pagination?page=3
+   Items (1):
+    - pagination react component · gummy ui (&quot;pagination react component · gummy ui...&quot; (4 pages)) [pageCount: 4] (from: /components/pagination, /components/pagination?page=1, /components/pagination?page=2, /components/pagination?page=3)
+  </rule>
+  <rule id="content/duplicate-description" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/duplicate-description">
+   1 duplicate description(s) found across 4 pages
+   Pages (4): /components/pagination, /components/pagination?page=1, /components/pagination?page=2, /components/pagination?page=3
+   Items (1):
+    - current-page navigation with previous, next, and ellipsis pa (&quot;current-page navigation with previous, n...&quot; (4 pages)) [pageCount: 4] (from: /components/pagination, /components/pagination?page=1, /components/pagination?page=2, /components/pagination?page=3)
+  </rule>
+  <rule id="content/keyword-stuffing" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+   N word(s) may be overused
+   Pages (5/25): /blocks, /blog, /changelog, /license, /locales
+   Items (5/31):
+    - behavior (&quot;behavior&quot; (3.1%)) [count: 13, density: 3.1026252983293556]
+    - blocks (&quot;blocks&quot; (5.4%)) [count: 22, density: 5.35279805352798]
+    - category (&quot;category&quot; (5.6%)) [count: 23, density: 5.59610705596107]
+    - chart (&quot;chart&quot; (4.3%)) [count: 12, density: 4.25531914893617]
+    - core (&quot;core&quot; (3.5%)) [count: 10, density: 3.546099290780142]
+  </rule>
+  <rule id="content/article-links" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/article-links">
+   short article has 0 external links (min 1)
+   Pages (5/18): /blog/building-light-and-dark-from-semantic-tokens, /blog/composing-data-interfaces-from-primitives, /blog/designing-ai-readable-component-docs, /blog/designing-the-gel-pop-language, /blog/documenting-meaningful-component-states
+   Items (5/18):
+    - /blog/building-light-and-dark-from-semantic-tokens (short article has 0 external links (min 1))
+    - /blog/composing-data-interfaces-from-primitives (short article has 0 external links (min 1))
+    - /blog/designing-ai-readable-component-docs (short article has 0 external links (min 1))
+    - /blog/designing-the-gel-pop-language (short article has 0 external links (min 1))
+    - /blog/documenting-meaningful-component-states (short article has 0 external links (min 1))
+  </rule>
+  <rule id="content/word-count" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/word-count">
+   Thin content: N words (min N)
+   Pages (5/241): /, /accessibility, /changelog, /community, /contact
+   Items (5/241):
+    - / (Thin content: 249 words (min 300))
+    - /accessibility (Thin content: 202 words (min 300))
+    - /auth/sign-in (Thin content: 6 words (min 300))
+    - /blocks/about (Thin content: 110 words (min 300))
+    - /blocks/about/milestone-current (Thin content: 123 words (min 300))
+  </rule>
+ </category>
+ <category name="Performance" group="performance" errors="3" warnings="381">
+  <rule id="perf/js-file-size" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/js-file-size">
+   2 JS file(s) exceed 250.0 KB
+   Pages (5/61): /components/accordion, /components/alert, /components/alert-dialog, /components/aspect-ratio, /components/avatar
+   Items (2):
+    - /_next/static/chunks/1wy6ho0og6umf.js?dpl=dpl_4gtdJxYu6qGTkjTbVctxwJ74BZaj [sizeBytes: 480371, size: 469.1 KB, status: 200, contentType: application/javascript; charset=utf-8] (from: /components/lab)
+    - /_next/static/chunks/3zyd6i58xw-51.js?dpl=dpl_4gtdJxYu6qGTkjTbVctxwJ74BZaj [sizeBytes: 480371, size: 469.1 KB, status: 200, contentType: application/javascript; charset=utf-8] (from: /components/accordion, /components/alert, /components/alert-dialog, /components/aspect-ratio, /components/avatar; +55 more)
+  </rule>
+  <rule id="perf/lcp-hints" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lcp-hints">
+   2 likely-LCP images loaded without preload
+   Pages (1): /components/lab
+   Items (1):
+    - /components/lab (2 likely-LCP images loaded without preload)
+  </rule>
+  <rule id="perf/ttfb" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/ttfb">
+   Very slow server response (1004ms); Slow server response (Nms)
+   Pages (4): /rtl, /security, /docs/troubleshooting, /blocks/testimonials/support-experience
+   Items (4):
+    - /security (Very slow server response (1004ms))
+    - /blocks/testimonials/support-experience (Slow server response (779ms))
+    - /docs/troubleshooting (Slow server response (600ms))
+    - /rtl (Slow server response (820ms))
+  </rule>
+  <rule id="perf/dom-size" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/dom-size">
+   Large DOM (2633 nodes)
+   Pages (1): /components/lab
+   Items (1):
+    - /components/lab (Large DOM (2633 nodes))
+  </rule>
+  <rule id="perf/render-blocking" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/render-blocking">
+   N render-blocking resources
+   Pages (5/63): /components, /themes, /components/accordion, /components/alert, /components/alert-dialog
+   Items (5/8):
+    - /_next/static/chunks/0cz1d0mv5g_q7.js?dpl=dpl_4gtdJxYu6qGTkjTbVctxwJ74BZaj
+    - /_next/static/chunks/3idpicee860nv.css?dpl=dpl_4gtdJxYu6qGTkjTbVctxwJ74BZaj
+    - /styles/component-inspector.css
+    - /styles/component-lab.css
+    - /styles/gummy-core-components.css
+  </rule>
+  <rule id="perf/total-byte-weight" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/total-byte-weight">
+   Total tracked resources: 8077KB (very heavy)
+  </rule>
+  <rule id="perf/bad-caching" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/perf/bad-caching">
+   304/304 pages lack a caching freshness lifetime
+   Pages (5): /, /accessibility, /blocks, /auth/sign-in, /blocks/about
+  </rule>
+  <rule id="perf/critical-request-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/critical-request-chains">
+   N critical request chain(s) found
+   Pages (5/304): /, /accessibility, /blocks, /blog, /changelog
+   Items (5/13):
+    - CSS: /_next/static/chunks/3idpicee860nv.css?dpl=dpl_4gtdJxYu6qGTkjTbVctxwJ74BZaj
+    - CSS: /_next/static/css/03df099520412744.css
+    - CSS: /_next/static/css/dedb41b2cee06beb.css
+    - CSS: /styles/component-inspector.css
+    - CSS: /styles/component-lab.css
+  </rule>
+  <rule id="perf/lazy-above-fold" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lazy-above-fold">
+   1 above-fold image(s) with lazy loading
+   Pages (1): /components/lab
+   Items (1):
+    - /gummy-card-pocket-frame-imagegen-02.webp?dpl=dpl_4gtdJxYu6qGTkjTbVctxwJ74BZaj
+  </rule>
+  <rule id="perf/unminified-js" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/unminified-js">
+   N JavaScript file(s) appear unminified
+   Pages (5/6): /auth/sign-in, /components/badge, /components/button, /components/input, /components/label
+   Items (1):
+    - inline script (11.4KB, ~0.7KB savings) [reason: excessive whitespace]
+  </rule>
+  <rule id="perf/unminified-css" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/unminified-css">
+   1 CSS file(s) appear unminified
+   Pages (1): /auth/sign-in
+   Items (1):
+    - inline style (11.1KB, ~1.4KB savings) [reason: high newlines (3.0%), excessive whitespace (18.8%), formatted code blocks]
+  </rule>
+ </category>
+</issues>
+</audit>

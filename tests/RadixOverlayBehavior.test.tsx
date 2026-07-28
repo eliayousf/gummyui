@@ -103,7 +103,9 @@ describe("Radix overlay and menu behavior", () => {
     cleanup();
 
     renderPreview("select", "Select");
-    await user.click(screen.getByRole("combobox", { name: "Accent fruit" }));
+    await user.click(screen.getByRole("combobox", {
+      name: "Raspberry, accent fruit",
+    }));
     expect(await screen.findByRole("listbox")).toBeVisible();
     expect(screen.getByRole("option", { name: "Grape" })).toBeVisible();
     cleanup();

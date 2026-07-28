@@ -1,7 +1,15 @@
 # Incident response — pre-production runbook
 
-Status: procedure drafted; production owner, alert destinations, service
-credentials, and communication channels are not yet approved or operational.
+Status: procedure implemented and exercised for contained Better Stack, cron
+and backup-recovery credential events. Production provider credentials,
+`support@kreydlabs.com`, uptime monitoring, structured logs, backup/restore and
+release rollback are operational. A controlled support-path message has been
+sent through Gmail, and a separate controlled production-sender message was
+recorded sent and delivered by Resend, both without customer data. The named
+incident commander, backup owner,
+backup-job missing-heartbeat exercise and customer-update decision owner remain
+founder approvals before launch. Better Stack's controlled sample incident
+records email delivery to and opening by the approved support address.
 
 ## Severity
 
@@ -17,8 +25,8 @@ credentials, and communication channels are not yet approved or operational.
 1. Record detection time, reporter, affected environment, observable symptoms,
    and the evidence source without copying secrets or customer data into public
    systems.
-2. Assign the founder-approved incident commander. This role is currently
-   unassigned and must be approved before production launch.
+2. Assign the founder-approved incident commander. No durable named owner is
+   recorded yet.
 3. Contain the affected surface: disable the narrow route or integration,
    revoke exposed credentials, invalidate signed links or sessions, and stop
    unsafe releases. Do not destroy logs or evidence.

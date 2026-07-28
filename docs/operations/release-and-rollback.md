@@ -1,19 +1,23 @@
 # Release and rollback — pre-production runbook
 
-Status: local procedure drafted. A Vercel project and domain attachment exist,
-and every planned Production environment value except the Stripe runtime key is
-installed, including provisioned WorkOS, Resend, Better Stack and Backblaze
-connections. Commerce flags remain fail closed. The current Convex production
-schema, indexes and functions are deployed and its 25 tables are confirmed
-empty. Vercel Pro is active with spend management set to $1, notifications and
-Pause Projects enabled. Deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52` is
-Ready at public commit `359a96d`. Vercel marks both custom domains Valid,
-public DNS returns the new Namecheap records, and HTTPS plus basic route and
-fail-closed probes pass at `gummyui.dev`. The Stripe key, full real-origin
-acceptance gate, release ownership and a controlled rollback proof remain
-pending. The first production database backup and latest-backup verification
-both completed successfully, but isolated restore and saved-version rollback
-are not yet proven.
+Status: the Vercel release and rollback procedure has been exercised at the real
+origin. Every planned Production environment value except the Stripe runtime
+key is installed, including provisioned WorkOS, Resend, Better Stack and
+Backblaze connections. Commerce flags remain fail closed. The current Convex
+production schema, indexes and functions are deployed and its 25 tables are
+confirmed empty. Vercel Pro is active with spend management set to $1,
+notifications and Pause Projects enabled. Deployment
+`dpl_27FBbiw6njemVys3Tp66jGDEVYtA` is Ready at public commit `aaea084`.
+Vercel marks both custom domains Valid, public DNS returns the Namecheap
+records, and the complete origin probe passes at `gummyui.dev`.
+
+The controlled rollback switched production to recorded known-good deployment
+`dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, verified the homepage, LLM index, health
+contract and authentication initiation, and promoted the current deployment
+back. Post-promotion homepage, agent guide and health probes passed. A fresh
+backup, independent operator-key verification and isolated restore also pass.
+The Stripe key, paid-release ownership and complete customer acceptance gate
+remain pending.
 
 ## Public release gate
 
