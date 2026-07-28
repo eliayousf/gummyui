@@ -5,11 +5,14 @@ durable Convex commerce tables, immutable B2 retention settings, latest-backup
 verification, and a fail-closed isolated restore-proof runner. The live schema
 has a 25th table, `rateLimitWindows`, which contains ephemeral HMAC-derived
 abuse-control state and is deliberately excluded from backup and restore.
-The Convex production deployment exists and its server secret is set, but the
-current backup code/schema and runtime environment are not yet deployed or
-verified there. Production B2 resources, key custody, scheduled backup
-evidence, and a completed provider restore drill must still be recorded before
-this control is marked production-proven.
+The Convex production deployment has its server secret and production WorkOS
+deploy-time credentials. The current 25-table schema, indexes and functions are
+deployed, and a post-deploy inspection confirmed all 25 tables are present and
+empty. A separate private encrypted EU B2 backup bucket and scoped backup key
+are provisioned, and the corresponding Vercel Production values are installed.
+No scheduled production backup or provider restore drill has completed.
+Key-custody evidence, a real committed backup and an isolated restore proof must
+still be recorded before this control is marked production-proven.
 
 The backup format has two separate cryptographic controls:
 

@@ -1,10 +1,13 @@
 # Release and rollback — pre-production runbook
 
-Status: local procedure drafted. A Vercel project, domain attachment and part
-of the production environment are configured, with commerce flags fail closed.
-Vercel Pro activation, remaining environment values, Namecheap DNS cutover,
-the first production deployment, real-origin verification, release ownership
-and a controlled rollback proof remain pending.
+Status: local procedure drafted. A Vercel project and domain attachment exist,
+and every planned Production environment value except the Stripe runtime key is
+installed, including provisioned WorkOS, Resend, Better Stack and Backblaze
+connections. Commerce flags remain fail closed. The current Convex production
+schema, indexes and functions are deployed and its 25 tables are confirmed
+empty. The founder-controlled Vercel card and Pro activation, Stripe key,
+Namecheap DNS cutover, first Vercel production deployment, real-origin
+verification, release ownership and a controlled rollback proof remain pending.
 
 ## Public release gate
 

@@ -909,38 +909,54 @@ The four public launch commits are backed up on the public
 baseline: pushing `main` would trigger the linked Vercel project before its
 commercial Pro billing gate. Vercel currently has no Gummy UI deployment. The
 single North Star remains at 0 of 8 production-verified steps because no
-production customer journey is live. Stripe Managed Payments
-is live-account ready with three products, nine prices and
-`support@kreydlabs.com` configured. Its active `gummyui-production` destination
-listens for the exact 16 required event types at
-`https://gummyui.dev/api/webhooks/stripe`, and the signing secret is installed
-only in secure runtime/operator stores. The application runtime still lacks
-its restricted production key, deployed-origin signed-delivery evidence and
-completed sandbox or live journeys; checkout and webhook flags remain fail
-closed. A Vercel
-project, domain attachment and part of the production environment are
-configured, but Vercel Pro activation, Namecheap DNS cutover, the production
-deployment and origin verification remain pending. A Convex production
-deployment exists and `CONVEX_SERVER_SECRET` is set there, but the current
-code/schema, remaining application environment and production journeys are not
-deployed or verified. A WorkOS team and non-production AuthKit environment are
-now provisioned; real staging journeys pass for Google sign-in, account
-projection, organization creation/recovery, a controlled invitation,
-export/download, deletion/cancellation, sign-out and unpaid protected-download
-denial. Production AuthKit still requires a founder-entered billing method, so
-this staging evidence does not advance the production North Star. Current
-product gates also include running and visually
-reviewing the v0.5.0 Figma materialisation of 138 sets and 2,588 variants,
-reviewing its 72 editable pattern sets against the 72 raster comparison
-references, completing founder rendered/localisation review, and promoting
-actual paid releases.
+production customer journey is live.
 
-The remaining work is implementation plus external execution: finish the
-fail-closed production runtime and provider connections within the approved
-limit, complete test-provider journeys, finish the exact sellable product and
-reviews, create immutable protected releases and backups, cut over DNS and
-deploy `gummyui.dev`, run production security/performance/discovery checks,
-complete the authorised real purchase and full refund, verify
-monitoring/restore/rollback, and close the greater-than-95 production audit
-gate. The project is not commercially launched until all eight North Star steps
-have evidence.
+Stripe Managed Payments is live-account ready with three products, nine prices
+and `support@kreydlabs.com` configured. Its active `gummyui-production`
+destination listens for the exact 16 required event types at
+`https://gummyui.dev/api/webhooks/stripe`, and the signing secret is installed
+only in secure runtime/operator stores. Creation of the least-privilege
+restricted production runtime key is currently blocked by a generic Stripe
+Dashboard error. Deployed-origin signed delivery and sandbox/live journeys
+remain unproved; checkout and webhook flags remain fail closed.
+
+The Vercel project and domain attachment exist, and every planned Production
+environment value except the Stripe runtime key is installed. The
+founder-controlled card and Pro activation, Stripe key, Namecheap DNS cutover,
+first production deployment and origin verification remain pending. A Convex
+production deployment has `CONVEX_SERVER_SECRET` and the production WorkOS
+deploy-time credentials set there. The current 25-table schema, indexes and
+functions are deployed; a post-deploy inspection confirmed all 25 tables are
+present and empty. Customer journeys and backup/restore behavior are not yet
+verified.
+
+WorkOS production AuthKit is enabled and its redirect, application, branding and
+webhook are configured; its production credentials are installed in Vercel.
+Real staging journeys continue to pass for Google sign-in, account projection,
+organization creation/recovery, a controlled invitation, export/download,
+deletion/cancellation, sign-out and unpaid protected-download denial. Production
+origin and deployed Convex JWT-integration evidence remain pending.
+
+Resend has a verified `send.kreydlabs.com` domain, and its production API key,
+webhook and current sender/reply-to settings are installed in Vercel. Better
+Stack's free service has an uptime monitor, status page, log source and four
+scheduled-job heartbeats configured, with the corresponding Vercel values
+installed. Backblaze B2 has two private encrypted EU buckets for releases and
+backups with separate scoped runtime and backup keys installed in Vercel. None
+of these control-plane facts proves deployed email, alerts, paid delivery,
+backup or restore.
+
+Current product gates also include running and visually reviewing the v0.5.0
+Figma materialisation of 138 sets and 2,588 variants, reviewing its 72 editable
+pattern sets against the 72 raster comparison references, completing founder
+rendered/localisation review, and promoting actual paid releases.
+
+The remaining work is implementation plus external execution: activate Vercel
+Pro, verify the deployed Convex/WorkOS integration at the production origin,
+resolve the Stripe restricted-key error, complete test-provider
+journeys, finish the exact sellable product and reviews, create immutable
+protected releases and backups, cut over DNS and deploy `gummyui.dev`, run
+production security/performance/discovery checks, complete the authorised real
+purchase and full refund, verify monitoring/restore/rollback, and close the
+greater-than-95 production audit gate. The project is not commercially launched
+until all eight North Star steps have evidence.

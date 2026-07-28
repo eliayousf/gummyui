@@ -11,7 +11,9 @@ This is staging evidence only. It does not pass a production North Star step.
 - `convex.json` owns the localhost and production redirect, homepage and CORS
   contracts. Development credentials are injected only into ignored local
   environment state; no credential is committed.
-- Production AuthKit remains blocked until a billing method is added in WorkOS.
+- At the time of this staging run, production AuthKit was blocked on the WorkOS
+  billing method. It has since been enabled and configured; production-origin
+  identity journeys remain unproved until deployment.
 - Customer checkout and every production webhook remain fail closed.
 
 ## Browser journey
