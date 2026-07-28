@@ -922,12 +922,12 @@ The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
 The current runtime-bearing public commit is
-`c4d0d7847ef1701392bf430f96cc8fccf0eb000e`; Vercel deployment
-`dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7` is Ready and its build log proves that
-exact commit on Node 22. Its GitHub Quality run `30375378972` failed only
-because the generated English localisation corpus was stale after legitimate
-copy changes. The corrected source revision is now regenerated and locally
-verified; a superseding pushed commit and green exact-commit CI remain required.
+`14dab3225f3d26f3d2d500c761ff88b8e6b5c593`; Vercel deployment
+`dpl_2mKL17pLwZgPnoiFJGoeRPjUFPJ1` is Ready and its build log proves that
+exact commit on Node 22. GitHub Quality run `30382855800` passes the complete
+exact-commit launch gate. This supersedes `c4d0d78`, whose only CI failure was
+the stale generated English localisation corpus after legitimate copy changes;
+the current `en-ebd18dc4a542` corpus is regenerated and reproducible.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
 and public resolvers return the new records. HTTPS, all 292 current HTML
@@ -952,11 +952,15 @@ remain fail closed.
 The Vercel project and domain attachment exist, and every planned Production
 environment value except the Stripe runtime key is installed. Vercel Pro is
 active; spend management is set to $1 with notifications and Pause Projects
-enabled. Deployment `dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7` is Ready at
-`c4d0d7847ef1701392bf430f96cc8fccf0eb000e` on Node 22; both custom
+enabled. Deployment `dpl_2mKL17pLwZgPnoiFJGoeRPjUFPJ1` is Ready at
+`14dab3225f3d26f3d2d500c761ff88b8e6b5c593` on Node 22; both custom
 domains are Valid, public DNS has converged,
 and the complete public-origin probe passes. The Stripe key and every commerce
-journey remain pending. A Convex production deployment has
+journey remain pending. A current-production browser matrix passes Chrome 150,
+Firefox 144 and WebKit 2311 at mobile and desktop viewports across the homepage,
+Button detail, pricing and RTL routes with no overflow, console or page errors.
+All three engines also load the deferred interactive Button preview and editable
+source successfully. A Convex production deployment has
 `CONVEX_SERVER_SECRET` and the production WorkOS deploy-time credentials set
 there. The current 25-table schema, indexes and functions are deployed; a
 post-deploy inspection confirmed all 25 tables are present and empty. Customer

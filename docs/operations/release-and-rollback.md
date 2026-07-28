@@ -7,8 +7,9 @@ Backblaze connections. Commerce flags remain fail closed. The current Convex
 production schema, indexes and functions are deployed and its 25 tables are
 confirmed empty. Vercel Pro is active with spend management set to $1,
 notifications and Pause Projects enabled. Deployment
-`dpl_3wAAVz7UQx6fVE3szd55zwgXgBW7` is Ready at public runtime-bearing commit
-`c4d0d7847ef1701392bf430f96cc8fccf0eb000e` on Node 22. Vercel marks both
+`dpl_2mKL17pLwZgPnoiFJGoeRPjUFPJ1` is Ready at public runtime-bearing commit
+`14dab3225f3d26f3d2d500c761ff88b8e6b5c593` on Node 22. GitHub Quality
+run `30382855800` passes the complete exact-commit launch gate. Vercel marks both
 custom domains Valid, public DNS
 returns the Namecheap records, and the complete origin probe passes at
 `gummyui.dev`.
