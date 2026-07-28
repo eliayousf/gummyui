@@ -7,15 +7,16 @@ plus the Node 22 runtime pin in
 `977012c3500e5293ec711407f736c567289b022f`, the payload-deferment release
 `c4d0d7847ef1701392bf430f96cc8fccf0eb000e`, the reconciled launch candidate
 `14dab3225f3d26f3d2d500c761ff88b8e6b5c593`, and the callback-hardening
-release `e7859e261b4ddaa11dc77e92d3d77aa98cd5dfea`. The current deployed
-head is `7211e363092a014a86ca45f3fa8f0b6f5814f4e2` in Vercel deployment
-`dpl_DFpZ86uTmF8842A8nakhdCWnoP8z`; its build log proves the exact commit and
+release `e7859e261b4ddaa11dc77e92d3d77aa98cd5dfea`. Typed-test follow-up
+`7211e363092a014a86ca45f3fa8f0b6f5814f4e2` is proved by Vercel deployment
+`dpl_DFpZ86uTmF8842A8nakhdCWnoP8z`; its build log records the exact head and
 a Node 22 build. GitHub Quality run `30386937076` passes the complete
 exact-commit launch gate. This supersedes
 `c4d0d78`, whose only CI failure was the generated English localisation corpus
 being stale after legitimate copy changes. This is production evidence for
 the public application, not evidence that commerce is enabled or that a
-customer purchase has completed.
+customer purchase has completed. Later documentation-only releases preserve
+this application runtime and do not supersede its runtime proof.
 
 ## Origin and discovery
 
@@ -53,7 +54,7 @@ boundary gates.
 
 ## Current release origin and browser matrix
 
-Vercel deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready and owns the
+Runtime-proof Vercel deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready and owns the
 apex, `www`, Vercel alias and canonical project aliases. Its build log records
 commit `7211e36`, Node 22, zero dependency vulnerabilities, 322 generated
 static pages and a completed deployment.

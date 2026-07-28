@@ -6,7 +6,7 @@ key is installed, including provisioned WorkOS, Resend, Better Stack and
 Backblaze connections. Commerce flags remain fail closed. The current Convex
 production schema, indexes and functions are deployed and its 25 tables are
 confirmed empty. Vercel Pro is active with spend management set to $1,
-notifications and Pause Projects enabled. Deployment
+notifications and Pause Projects enabled. Runtime-proof deployment
 `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready at public head
 `7211e363092a014a86ca45f3fa8f0b6f5814f4e2` on Node 22. GitHub Quality
 run `30386937076` passes the complete exact-commit launch gate. Vercel marks both

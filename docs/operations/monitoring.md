@@ -5,7 +5,7 @@ Better Stack transport and controlled email alert delivery are proved.
 Four scheduled-job heartbeat adapters are deployed. Better Stack's free service
 has an uptime monitor, status page, one active production log source and four
 independent heartbeat monitors. The corresponding Vercel Production values are
-installed in Ready deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` at public
+installed in runtime-proof deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` at public
 head `7211e363092a014a86ca45f3fa8f0b6f5814f4e2` on
 Node 22. Both custom domains are Valid and the full external
 HTTPS/route/fail-closed probe passes at `gummyui.dev`.
