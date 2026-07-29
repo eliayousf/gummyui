@@ -4,6 +4,10 @@ import { commercialPlans } from "../app/data/commercial";
 import {
   runStripeProductionReadiness,
 } from "../scripts/stripe-production-readiness";
+import {
+  StripeProductionReadinessError,
+  verifyStripeProductionReadiness,
+} from "../lib/commerce/stripe-production-readiness";
 
 const restrictedKey = `rk_live_${"a".repeat(24)}`;
 
@@ -76,6 +80,32 @@ describe("Stripe production readiness operator", () => {
         }),
       },
     })).rejects.toThrow("Unable to verify Stripe price");
+  });
+
+  it("classifies provider denial without exposing its diagnostic", async () => {
+    for (const [providerError, expectedCode] of [
+      [{ code: "resource_missing" }, "price_resource_missing"],
+      [{ type: "StripePermissionError" }, "price_permission_denied"],
+      [{ statusCode: 403 }, "price_permission_denied"],
+      [{ statusCode: 500 }, "price_read_failed"],
+    ] as const) {
+      let failure: unknown;
+      try {
+        await verifyStripeProductionReadiness({
+          environment: readyEnvironment(),
+          prices: {
+            retrieve: vi.fn(async () => {
+              throw providerError;
+            }),
+          },
+        });
+      } catch (error) {
+        failure = error;
+      }
+      expect(failure).toBeInstanceOf(StripeProductionReadinessError);
+      expect((failure as StripeProductionReadinessError).code)
+        .toBe(expectedCode);
+    }
   });
 });
 

@@ -25,6 +25,8 @@ export type StripeReadinessFailureCode =
   | "checkout_enabled"
   | "price_configuration_invalid"
   | "price_configuration_duplicate"
+  | "price_permission_denied"
+  | "price_resource_missing"
   | "price_read_failed"
   | "price_contract_mismatch"
   | "billing_contract_mismatch"
@@ -99,9 +101,9 @@ export async function verifyStripeProductionReadiness(
     let price: Stripe.Price;
     try {
       price = await prices.retrieve(priceId);
-    } catch {
+    } catch (error) {
       throw new StripeProductionReadinessError(
-        "price_read_failed",
+        classifyPriceReadFailure(error),
         `Unable to verify Stripe price for ${plan.id}`,
       );
     }
@@ -162,6 +164,25 @@ function assertPriceMatchesPlan(
       `Stripe billing mode does not match ${plan.id}`,
     );
   }
+}
+
+function classifyPriceReadFailure(
+  error: unknown,
+): "price_permission_denied" | "price_resource_missing" | "price_read_failed" {
+  if (!error || typeof error !== "object") return "price_read_failed";
+  const record = error as {
+    code?: unknown;
+    statusCode?: unknown;
+    type?: unknown;
+  };
+  if (record.code === "resource_missing") return "price_resource_missing";
+  if (
+    record.type === "StripePermissionError"
+    || record.statusCode === 403
+  ) {
+    return "price_permission_denied";
+  }
+  return "price_read_failed";
 }
 
 export function stripeReadinessFailureCode(
