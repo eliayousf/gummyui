@@ -45,10 +45,10 @@ export default function LocalesPage() {
             <tbody>
               {locales.map((locale) => (
                 <tr key={locale.code}>
-                  <th lang={locale.code} scope="row">
+                  <td lang={locale.code} role="rowheader">
                     <span dir={locale.direction}>{locale.nativeName}</span>
                     <small>{locale.englishName}</small>
-                  </th>
+                  </td>
                   <td><code>{locale.code}</code></td>
                   <td><code>{locale.direction}</code></td>
                   <td>

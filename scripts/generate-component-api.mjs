@@ -10,6 +10,7 @@ const outputPath = path.join(
   "data",
   "component-api.generated.json",
 );
+const typePrinter = ts.createPrinter({ removeComments: true });
 
 function isExported(node) {
   return node.modifiers?.some(
@@ -21,6 +22,12 @@ function cleanTypeText(value) {
   return value.replace(/\s+/g, " ").trim();
 }
 
+function printTypeNode(node, sourceFile) {
+  return cleanTypeText(
+    typePrinter.printNode(ts.EmitHint.Unspecified, node, sourceFile),
+  );
+}
+
 function propertyFromMember(member, sourceFile) {
   if (!ts.isPropertySignature(member) && !ts.isMethodSignature(member)) {
     return undefined;
@@ -28,7 +35,7 @@ function propertyFromMember(member, sourceFile) {
   const name = member.name?.getText(sourceFile);
   if (!name) return undefined;
   const type = member.type
-    ? cleanTypeText(member.type.getText(sourceFile))
+    ? printTypeNode(member.type, sourceFile)
     : ts.isMethodSignature(member)
       ? "method"
       : "unknown";
@@ -106,7 +113,7 @@ function inspectSource(sourceText, sourcePath) {
       types.push({
         name: statement.name.text,
         extends: statement.heritageClauses?.flatMap((clause) =>
-          clause.types.map((type) => cleanTypeText(type.getText(sourceFile))),
+          clause.types.map((type) => printTypeNode(type, sourceFile)),
         ) ?? [],
         props: ownProps,
       });
@@ -123,7 +130,7 @@ function inspectSource(sourceText, sourcePath) {
         name: statement.name.text,
         extends: ts.isTypeLiteralNode(statement.type)
           ? []
-          : [cleanTypeText(statement.type.getText(sourceFile))],
+          : [printTypeNode(statement.type, sourceFile)],
         props: ownProps,
       });
     }

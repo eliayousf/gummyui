@@ -143,6 +143,20 @@ describe("GummyTextarea", () => {
 });
 
 describe("GummyCheckbox", () => {
+  it("uses one explicit label while keeping help text descriptive", () => {
+    render(
+      <GummyCheckbox
+        label="Weekly digest"
+        description="Sent every Friday."
+      />,
+    );
+
+    const checkbox = screen.getByRole("checkbox", { name: "Weekly digest" });
+    expect((checkbox as HTMLInputElement).labels).toHaveLength(1);
+    expect(checkbox).not.toHaveAttribute("aria-labelledby");
+    expect(checkbox).toHaveAccessibleDescription("Sent every Friday.");
+  });
+
   it("toggles through pointer and keyboard input and reports accepted changes", async () => {
     const user = userEvent.setup();
     const onCheckedChange = vi.fn();
@@ -228,6 +242,26 @@ describe("GummyRadioGroup", () => {
       </GummyRadioGroup>
     );
   }
+
+  it("uses one explicit label per option while keeping help text descriptive", () => {
+    render(
+      <GummyRadioGroup label="Plan" name="plan">
+        <GummyRadioItem
+          value="starter"
+          label="Starter"
+          description="For one project."
+        />
+        <GummyRadioItem value="studio" label="Studio" />
+      </GummyRadioGroup>,
+    );
+
+    const starter = screen.getByRole("radio", { name: "Starter" });
+    const studio = screen.getByRole("radio", { name: "Studio" });
+    expect((starter as HTMLInputElement).labels).toHaveLength(1);
+    expect((studio as HTMLInputElement).labels).toHaveLength(1);
+    expect(starter).not.toHaveAttribute("aria-labelledby");
+    expect(starter).toHaveAccessibleDescription("For one project.");
+  });
 
   it("uses native group semantics and changes selection with pointer and arrows", async () => {
     const user = userEvent.setup();

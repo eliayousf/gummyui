@@ -28,6 +28,7 @@ import {
   proBlocks,
   proTemplates,
 } from "../app/data/pro-catalogue";
+import { componentApiRecords } from "../app/data/component-api";
 import {
   PUBLIC_PAGE_CACHE_CONTROL,
   SECURITY_HEADERS,
@@ -56,6 +57,16 @@ function expectNoindexFollow(metadata: {
 describe("production runtime contract", () => {
   it("pins Vercel and local builds to the supported Node 22 major", () => {
     expect(packageJson.engines.node).toBe(">=22.13.0 <23");
+  });
+
+  it("keeps rendered API summaries free of source comments", () => {
+    const renderedTypeSummaries = componentApiRecords.flatMap((record) =>
+      record.types.flatMap((type) => [
+        ...type.extends,
+        ...type.props.map((property) => property.type),
+      ]),
+    );
+    expect(renderedTypeSummaries.join("\n")).not.toMatch(/\/\*|\*\//);
   });
 });
 

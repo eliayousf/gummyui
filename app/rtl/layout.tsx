@@ -6,7 +6,7 @@ export default function RtlLayout({
 }>) {
   return (
     <>
-      <link rel="stylesheet" href="/styles/gummy-primitives.css" precedence="gummy-rtl" />
+      <link rel="stylesheet" href="/styles/rtl-components.css" precedence="gummy-rtl" />
       {children}
     </>
   );

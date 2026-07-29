@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { readFile } from "node:fs/promises";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { LocaleSwitcher } from "../app/components/LocaleSwitcher";
+import LocalesPage from "../app/locales/page";
 import {
   defaultLocaleCode,
   locales,
@@ -20,6 +21,8 @@ import { metadata as localesPageMetadata } from "../app/locales/page";
 import sitemap from "../app/sitemap";
 import { GET as getLlms } from "../app/llms.txt/route";
 import robots from "../app/robots";
+
+afterEach(cleanup);
 
 const benchmarkLocaleCodes = [
   "en",
@@ -174,6 +177,21 @@ describe("published-locale routing", () => {
 });
 
 describe("locale discoverability", () => {
+  it("keeps language cells as semantic row headers and data cells for each column", () => {
+    const { container } = render(<LocalesPage />);
+    const languageHeader = screen.getByRole("columnheader", {
+      name: "Language",
+    });
+    const rowHeaders = screen.getAllByRole("rowheader");
+
+    expect(languageHeader.tagName).toBe("TH");
+    expect(rowHeaders).toHaveLength(locales.length);
+    expect(rowHeaders.every((cell) => cell.tagName === "TD")).toBe(true);
+    expect(
+      container.querySelectorAll("tbody tr > td:first-child"),
+    ).toHaveLength(locales.length);
+  });
+
   it("emits hreflang equivalents for published pages only", () => {
     expect(localeAlternatesForPath("/components/button")).toEqual({
       en: "/components/button",

@@ -6,25 +6,26 @@ import RegistryPage from "../app/registry/page";
 afterEach(cleanup);
 
 describe("registry link accessible names", () => {
-  it("distinguishes repeated Base and Radix links by component", () => {
+  it("gives every Base payload a unique name without excessive page links", () => {
     render(<RegistryPage />);
 
     expect(
       screen.getByRole("link", { name: "Accordion Base registry" }),
     ).toHaveAttribute("href", "/r/gummy-accordion.json");
     expect(
-      screen.getByRole("link", { name: "Accordion Radix registry" }),
-    ).toHaveAttribute("href", "/r/gummy-radix-accordion.json");
+      screen.queryByRole("link", { name: "Accordion Radix registry" }),
+    ).not.toBeInTheDocument();
 
-    const registryLinks = screen
-      .getAllByRole("link")
+    const allLinks = screen.getAllByRole("link");
+    const registryLinks = allLinks
       .filter((link) => link.getAttribute("href")?.startsWith("/r/"));
     const accessibleNames = registryLinks.map((link) =>
       link.textContent?.trim(),
     );
 
-    expect(registryLinks.length).toBeGreaterThan(50);
+    expect(registryLinks).toHaveLength(57);
     expect(new Set(accessibleNames).size).toBe(registryLinks.length);
+    expect(allLinks.length).toBeLessThanOrEqual(100);
   });
 });
 

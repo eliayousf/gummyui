@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "sourceLocale": "en",
-  "sourceRevision": "en-ab1e85bd6250",
-  "sourceChecksum": "ab1e85bd6250c3c2d2f13805fccbd1dc954897c9e13aa679d774fec718c4e87b",
+  "sourceRevision": "en-8d9722d3d630",
+  "sourceChecksum": "8d9722d3d630a65325fd2c2f76ff61649b5004dc9aa80b7c73391cfccc5db7be",
   "generatedFrom": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -136,6 +136,7 @@
     "app/license/page.tsx",
     "app/locales/page.tsx",
     "app/mcp/page.tsx",
+    "app/not-found.tsx",
     "app/page.tsx",
     "app/pricing/page.tsx",
     "app/privacy/page.tsx",
@@ -157,12 +158,12 @@
     "app/themes/page.tsx",
     "lib/commerce/account.ts"
   ],
-  "messageCount": 3118,
-  "translatableMessageCount": 2840,
+  "messageCount": 3131,
+  "translatableMessageCount": 2853,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 2078,
+    "static": 2091,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -24846,11 +24847,11 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/ComponentLab.tsx:900",
-        "app/components/ui/GummyCheckbox.tsx:149",
+        "app/components/ui/GummyCheckbox.tsx:148",
         "app/components/ui/GummyInput.tsx:94",
         "app/components/ui/GummyRadioGroup.tsx:129"
       ],
-      "checksum": "de7015dfa0837f3e27dc5d0f99fcde7f695cbfa07f25ec35ccbff069c69a5981"
+      "checksum": "f413e9986db8a68990ff32f280159e1f76c82929e42d15ebbe32014ec9d85a5b"
     },
     {
       "id": "static.components.component-lab.component-lab.attribute-title.06",
@@ -24883,11 +24884,11 @@
         "app/components/ComponentLab.tsx:906",
         "app/components/ComponentLab.tsx:947",
         "app/components/ComponentLab.tsx:988",
-        "app/components/ui/GummyCheckbox.tsx:154",
+        "app/components/ui/GummyCheckbox.tsx:153",
         "app/components/ui/GummyInput.tsx:95",
         "app/components/ui/GummyRadioGroup.tsx:130"
       ],
-      "checksum": "ad902b1ea4a2f0f59cfd4e8f6bfe31c7a5c411d81b38dafa378e8910c585a6e0"
+      "checksum": "2f2891986791fec3073df2cdc1fc9bab4ddca1a9d075920f59c94d1de859b3a5"
     },
     {
       "id": "static.components.component-lab.component-lab.attribute-title.08",
@@ -36649,9 +36650,9 @@
       ],
       "sourceReferences": [
         "app/components/ThemeBuilder.tsx:424",
-        "app/registry/page.tsx:22"
+        "app/registry/page.tsx:21"
       ],
-      "checksum": "7e357336c590edcbb51a4431a2d397b653f9a72a1746d83d15cb4c86b2aa000c"
+      "checksum": "2e107cd139befbd69f20f5964e2e6938c827489a94c31b83d199f2a49701a5d1"
     },
     {
       "id": "static.components.theme-builder.theme-builder.jsx-gummy-button.02",
@@ -40828,6 +40829,199 @@
         "app/mcp/page.tsx:5"
       ],
       "checksum": "5b94d497344a2859d87e82073ea34d173e9d9b40db4d9d3f55809a189a003e4e"
+    },
+    {
+      "id": "static.not-found.module.property-description.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "The requested Gummy UI page could not be found. Continue to the public component catalogue, documentation, pricing, or support.",
+      "description": "Static property description copy in app/not-found.tsx, module scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/not-found.tsx:8"
+      ],
+      "checksum": "2e401559bda618549d15eb9d0882ee8a7adf6ea8da3369e3bb6e2fcb0101d214"
+    },
+    {
+      "id": "static.not-found.module.property-title.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Page not found · Gummy UI",
+      "description": "Static property title copy in app/not-found.tsx, module scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/not-found.tsx:6"
+      ],
+      "checksum": "d6ada84a728552afe8816805666487d28029db469505b5b20043438bb854c47c"
+    },
+    {
+      "id": "static.not-found.not-found-page.attribute-eyebrow.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "404 · Page not found",
+      "description": "Static attribute eyebrow copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/not-found.tsx:18"
+      ],
+      "checksum": "93b5e0030997153b1b37befa99bde7cfcea810871365f63db43392aaa292ed4c"
+    },
+    {
+      "id": "static.not-found.not-found-page.attribute-lede.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "The address may have changed or the link may be incomplete. Nothing has been charged and no account action has been taken.",
+      "description": "Static attribute lede copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/not-found.tsx:20"
+      ],
+      "checksum": "87924764ed57d986403f6c1b719d63531ff42dfe77f50373e809e068b2a86897"
+    },
+    {
+      "id": "static.not-found.not-found-page.attribute-title.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "This page is not here.",
+      "description": "Static attribute title copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/not-found.tsx:19"
+      ],
+      "checksum": "dea80191aa6c6ac63049896e1438748eacac187c0c779f4e326e8a9319d3c8dd"
+    },
+    {
+      "id": "static.not-found.not-found-page.jsx-h2.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Choose a verified route",
+      "description": "Static jsx h2 copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/not-found.tsx:23"
+      ],
+      "checksum": "3b6b4d603511f3b9d8671bf0052c54df133e3750e1e3e2778037d35c84f023e9"
+    },
+    {
+      "id": "static.not-found.not-found-page.jsx-h2.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Still stuck?",
+      "description": "Static jsx h2 copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/not-found.tsx:37"
+      ],
+      "checksum": "0940fd6b3c76bbbfeeec780fb63881de3831cdb61ef37ebd17f25867aaab9f4e"
+    },
+    {
+      "id": "static.not-found.not-found-page.jsx-p.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Browse the public component catalogue, read the documentation, or review Gummy UI Pro pricing and licence terms before purchasing.",
+      "description": "Static jsx p copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/not-found.tsx:25"
+      ],
+      "checksum": "f7233517941b92f1350a998f8a826aa38d1882058bcfecef4acf6e3a40449e65"
+    },
+    {
+      "id": "static.not-found.not-found-page.rich-p.01",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "<link1>Browse components</link1> · <link2>Read the docs</link2> · <link3>Review Gummy UI Pro</link3>",
+      "description": "Static rich p copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<link1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<link2>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link2>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<link3>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link3>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/not-found.tsx:28"
+      ],
+      "checksum": "c1de1f1a4dae86d184aa282e84e1febf2912d5aec3d41ab5bf68f2e2f23666e7"
+    },
+    {
+      "id": "static.not-found.not-found-page.rich-p.02",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Email <a1>support@kreydlabs.com</a1> with the address you expected to open. Never include passwords, recovery codes, payment details, or licence files.",
+      "description": "Static rich p copy in app/not-found.tsx, not-found-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<a1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</a1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/not-found.tsx:38"
+      ],
+      "checksum": "b38c044f3b0a0c42d351638767555d3695fbb977d9b75fce2dca3a279e33558e"
     },
     {
       "id": "static.pricing.page.module.property-description.01",
@@ -48621,9 +48815,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:8"
+        "app/registry/page.tsx:7"
       ],
-      "checksum": "1c0946cc8c4d99667fe8f1cb419c8af307bd453cb1e60619337621404825748f"
+      "checksum": "7b6c83531ac9798ebc204d396bd076e080fbe0c7ac73531671f5d98145fac360"
     },
     {
       "id": "static.registry.page.module.property-title.01",
@@ -48640,9 +48834,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:7"
+        "app/registry/page.tsx:6"
       ],
-      "checksum": "762e78f7d3cb8c24bfe4b129462e1da09b3e4c31c5b5ed13d74656134d855e6b"
+      "checksum": "0da4fe74f9515bb62bf862ba15f7c1b01eab013ca071257ce653ddd2c52f5935"
     },
     {
       "id": "static.registry.page.registry-page.attribute-eyebrow.01",
@@ -48654,9 +48848,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:15"
+        "app/registry/page.tsx:14"
       ],
-      "checksum": "bd79737b238f2137c5fb659694a196d38a1a1b3161d98e2d25646c434560c8c3"
+      "checksum": "28dad74c43407a9237314c925ae817dbd7ee6cf226cc234f263c962533c9998e"
     },
     {
       "id": "static.registry.page.registry-page.attribute-lede.01",
@@ -48668,9 +48862,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:17"
+        "app/registry/page.tsx:16"
       ],
-      "checksum": "07fa901d7937e6f75c3fef7f8c790195a64ba1a22baa991753ea074fd35eaa21"
+      "checksum": "b0d62040eb444c407762f9cfe62d79e8da54cd156b8dc00c126f9e42825f9a43"
     },
     {
       "id": "static.registry.page.registry-page.attribute-title.01",
@@ -48682,9 +48876,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:16"
+        "app/registry/page.tsx:15"
       ],
-      "checksum": "1c47b66a28cf59762770a24cfd7599853065dcc4ee8bbc263aac2f93f03bb833"
+      "checksum": "387097111efd29af129af2bbfe9a921ed92e5d64e60961b3fffe1dbcb827ba5d"
     },
     {
       "id": "static.registry.page.registry-page.jsx-code.02",
@@ -48701,9 +48895,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:27"
+        "app/registry/page.tsx:26"
       ],
-      "checksum": "6ebc1091b18d7b0e921ee9091076ac27fb411226591245d0551491be422c86f6"
+      "checksum": "55119440a1534a52ee877ff05ae986e10d532720bbde51cdf84eb20a40ce17c5"
     },
     {
       "id": "static.registry.page.registry-page.jsx-code.03",
@@ -48720,9 +48914,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:28"
+        "app/registry/page.tsx:27"
       ],
-      "checksum": "55046327d6b9274572e60d7f7d9d5727b622b31bbbe0fdcd35def06a25055601"
+      "checksum": "663892b94b053470701f719962b7ac2d5bb9066dc88812f4a616e3a39545ecf9"
     },
     {
       "id": "static.registry.page.registry-page.jsx-code.04",
@@ -48739,9 +48933,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:29"
+        "app/registry/page.tsx:28"
       ],
-      "checksum": "885c2a43819538bf678e795050c6cba49fd76dada3e87046486fb722eed72620"
+      "checksum": "07551677e6a8177194d7cbc5c8587bbc8c54ca09fc2f29a55ca742cb6a60c6c1"
     },
     {
       "id": "static.registry.page.registry-page.jsx-code.05",
@@ -48758,9 +48952,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:30"
+        "app/registry/page.tsx:29"
       ],
-      "checksum": "f8fb96f792285202cb832bb71d35033e63ef07326977d435144d55e7bb13babe"
+      "checksum": "ada8c0146edae2d7d06a7884e7efe87f5e0c66b225bf3a46eb1b75f2170057be"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h2.01",
@@ -48772,9 +48966,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:20"
+        "app/registry/page.tsx:19"
       ],
-      "checksum": "ca9e004f71be2f2bbbdcabb21b838bb241360cee16fa5a5a2446a302471e661a"
+      "checksum": "e4008711d29ad23fec2ad281fb09a86b2f613f04f13f2dc36a9faed04fbf561b"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h2.02",
@@ -48786,9 +48980,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:25"
+        "app/registry/page.tsx:24"
       ],
-      "checksum": "fa6879a26694cf0ede89899b1283d24b1197da57ba80bd817a5b18cd8afa7015"
+      "checksum": "e372daddd1c0bc6549dce32cb3d5e2276bb87f0c3dcb85fca9553456323a295d"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h2.03",
@@ -48800,9 +48994,23 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:66"
+        "app/registry/page.tsx:56"
       ],
-      "checksum": "9e4d0b8a91e3487203eacba838934c18d1fe79dfe23bf3a9eb7e5c036d369cf8"
+      "checksum": "2e0e33f7894ff547ea4ef64cef32022ed7779519d6eb4f327ff60a1d35ab5993"
+    },
+    {
+      "id": "static.registry.page.registry-page.jsx-h2.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Verify the installed result",
+      "description": "Static jsx h2 copy in app/registry/page.tsx, registry-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/registry/page.tsx:63"
+      ],
+      "checksum": "fc264428b81e34f59823a7c73be30fe0116c4ef208dd9b0b9b406680d6a90a5f"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h3.01",
@@ -48814,9 +49022,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:27"
+        "app/registry/page.tsx:26"
       ],
-      "checksum": "25d8dd83fcc3358e8c0df3cc48593aae38d1dacce99f086ad1a6891f2e460e9b"
+      "checksum": "d85ea303a6616fe7cc7d42c4cbfce7c9eea49b4ae5c98dbf605d2ff70eba7c13"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h3.02",
@@ -48828,9 +49036,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:28"
+        "app/registry/page.tsx:27"
       ],
-      "checksum": "be5ef111d5b53fae92d7fe270f0fcc4cf00eefdb506d1bda460b6f5ba70e921a"
+      "checksum": "391231ae2c2df462a7346e40bd82aeec965092da8010c5ea948d6df0dbe9dcdf"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h3.03",
@@ -48842,9 +49050,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:29"
+        "app/registry/page.tsx:28"
       ],
-      "checksum": "e55f102cd14568eca48e363cfd2930fab8374a472eb8d73373fe6c6e85ec67a4"
+      "checksum": "9d57292fc84c458a2f763652560a5a233cb48be8339d5f17d6f57081ee314a18"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h3.04",
@@ -48856,9 +49064,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:30"
+        "app/registry/page.tsx:29"
       ],
-      "checksum": "ea9b7d751025ebbc2e930e65b94520aba4aec3173c5b253592c31d0e6585a29d"
+      "checksum": "8135a44a2e3ff30e3b24a35ba5949509e8d83fa8b28875753ce37396640589ef"
     },
     {
       "id": "static.registry.page.registry-page.jsx-p.01",
@@ -48870,23 +49078,51 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:21"
+        "app/registry/page.tsx:20"
       ],
-      "checksum": "6840dce2a9dac163f3a9c4216bf93c40bf5391b84640abb1640e0832a1878a10"
+      "checksum": "f85d7457cecae23a5d305806cc250c578aafd41dce8159e7be2fbb96d0968d9d"
     },
     {
       "id": "static.registry.page.registry-page.jsx-p.02",
       "category": "static",
       "contentType": "plain",
-      "source": "Base UI is canonical. Components with an official Radix primitive also expose a separate Radix payload; choose one engine for that component. Combobox is clearly Base-only.",
+      "source": "Base UI is canonical, so every component has one direct install payload below. Component pages and the machine-readable index also expose separate Radix payloads where an official primitive exists; choose one engine for that component. Combobox is clearly Base-only.",
       "description": "Static jsx p copy in app/registry/page.tsx, registry-page scope.",
       "translatable": true,
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:36"
+        "app/registry/page.tsx:35"
       ],
-      "checksum": "20bfc70a384a7373166f7dbbd936f914a5400c808fe2dd1ca658239f36713fed"
+      "checksum": "6c0ff71ee1b0d418cbcfa4605c44b8bb345fd8ab82c308bc2947098d5743e645"
+    },
+    {
+      "id": "static.registry.page.registry-page.jsx-p.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Review every file the installer proposes before accepting it, then run your application&apos;s type, accessibility, and production-build checks. Keep the shared theme import singular, preserve visible labels and keyboard behavior, and test light, dark, reduced-motion, responsive, and RTL contexts that your product supports.",
+      "description": "Static jsx p copy in app/registry/page.tsx, registry-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/registry/page.tsx:65"
+      ],
+      "checksum": "eaaee229adfc2bb0ad685f776fe6ca29eab9c0e75bbbdd6e510baf1cb138aec6"
+    },
+    {
+      "id": "static.registry.page.registry-page.jsx-p.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Registry payloads are editable source, not a hosted runtime dependency. Updates never replace local changes automatically, so compare a newer payload deliberately and retain the application decisions that belong to your product.",
+      "description": "Static jsx p copy in app/registry/page.tsx, registry-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/registry/page.tsx:72"
+      ],
+      "checksum": "cca3c0094a3196835e2a1c58fc0563bb9979e760d7acb27c4fe49b32923d3ec2"
     },
     {
       "id": "static.registry.page.registry-page.rich-h2.01",
@@ -48909,15 +49145,15 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:34"
+        "app/registry/page.tsx:33"
       ],
-      "checksum": "6e1fcf599d1f2d305663ec18967f6f4deced7988575bbba139b9ad6c2e455080"
+      "checksum": "58e240dfd28d7b86e089f93ff6a57d707adfc31f54f1c72d01300a8c77b15f87"
     },
     {
       "id": "static.registry.page.registry-page.rich-li.01",
       "category": "static",
       "contentType": "rich-text",
-      "source": "<link1>{name}</link1> <span2> <a3> {name2} Base registry </a3> {value3} </span2>",
+      "source": "<strong1>{name}</strong1> <span2> <a3> {name2} Base registry </a3> </span2>",
       "description": "Static rich li copy in app/registry/page.tsx, registry-page scope.",
       "translatable": true,
       "placeholders": [
@@ -48930,11 +49166,6 @@
           "name": "name2",
           "type": "string",
           "example": "[component.name]"
-        },
-        {
-          "name": "value3",
-          "type": "string",
-          "example": "[component.radixRegistryName ? (\n                  <>\n                    {\" · \"}\n                    <a\n                      href={`/r/${component.radixRegistryName}.json`}\n                    >\n                      {component.name} Radix registry\n                    </a>\n                  </>\n                ) : null]"
         }
       ],
       "protectedSpans": [
@@ -48947,15 +49178,11 @@
           "reason": "runtime-placeholder"
         },
         {
-          "value": "{value3}",
-          "reason": "runtime-placeholder"
-        },
-        {
-          "value": "<link1>",
+          "value": "<strong1>",
           "reason": "rich-text-marker"
         },
         {
-          "value": "</link1>",
+          "value": "</strong1>",
           "reason": "rich-text-marker"
         },
         {
@@ -48978,13 +49205,13 @@
       "sourceReferences": [
         "app/registry/page.tsx:42"
       ],
-      "checksum": "e817d6096f0b4df0c6c281bcdbf897565f24c9fca9e0e039b2ee13c8229edd88"
+      "checksum": "38b0dd74cca1f2c9d2c18921530e290a4412854fb71cce03bc50d05016a531a8"
     },
     {
       "id": "static.registry.page.registry-page.rich-p.01",
       "category": "static",
       "contentType": "rich-text",
-      "source": "<a1>Open the catalogue API</a1> or read <a2>llms.txt</a2> for agent-friendly discovery.",
+      "source": "<a1>Open the catalogue API</a1> or read <code2>/llms.txt</code2> for agent-friendly discovery.",
       "description": "Static rich p copy in app/registry/page.tsx, registry-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -48998,18 +49225,18 @@
           "reason": "rich-text-marker"
         },
         {
-          "value": "<a2>",
+          "value": "<code2>",
           "reason": "rich-text-marker"
         },
         {
-          "value": "</a2>",
+          "value": "</code2>",
           "reason": "rich-text-marker"
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:67"
+        "app/registry/page.tsx:57"
       ],
-      "checksum": "3ab7d54bb6d8ed9b03c3076aff9a4b53a431fe5ba467b11af033e97878e19faf"
+      "checksum": "ea703d6680464a1461242b61d254701442614351183f36c0a46722b26ca98ba6"
     },
     {
       "id": "static.rtl.page.module.property-description.01",

@@ -87,6 +87,7 @@ const routeStyleBudgets = {
   "gummy-form-controls.css": 40_000,
   "gummy-primitives.css": 80_000,
   "gummy-radix-compat.css": 6_000,
+  "rtl-components.css": 6_000,
   "showcase-components.css": 55_000,
   "theme-builder-components.css": 36_000,
 };
@@ -122,8 +123,8 @@ for (const filename of labStudies) {
 }
 
 const ogBytes = (await stat(path.join(clientRoot, "og.png"))).size;
-if (ogBytes > 1_000_000) {
-  failures.push(`og.png is ${ogBytes} bytes; social-image budget is 1000000.`);
+if (ogBytes > 300_000) {
+  failures.push(`og.png is ${ogBytes} bytes; social-image budget is 300000.`);
 }
 
 if (failures.length) {
@@ -140,5 +141,5 @@ for (const item of routeStyleEvidence) {
   console.log(`- route CSS ${item.filename}: ${item.bytes}/${item.budget} bytes`);
 }
 console.log(
-  `Component Lab study images: ${studyBytes}/800000 bytes; social image: ${ogBytes}/1000000 bytes.`,
+  `Component Lab study images: ${studyBytes}/800000 bytes; social image: ${ogBytes}/300000 bytes.`,
 );

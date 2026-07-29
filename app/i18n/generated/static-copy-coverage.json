@@ -19,7 +19,7 @@
       "Coverage is an English source contract; it does not provide runtime translation, linguistic review, rendered locale QA, or publication evidence."
     ]
   },
-  "scannedFileCount": 144,
+  "scannedFileCount": 145,
   "scannedFiles": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -146,6 +146,7 @@
     "app/license/page.tsx",
     "app/locales/page.tsx",
     "app/mcp/page.tsx",
+    "app/not-found.tsx",
     "app/page.tsx",
     "app/pricing/page.tsx",
     "app/privacy/page.tsx",
@@ -166,8 +167,8 @@
     "app/themes/layout.tsx",
     "app/themes/page.tsx"
   ],
-  "candidateCount": 4375,
-  "coveredCandidateCount": 4375,
+  "candidateCount": 4388,
+  "coveredCandidateCount": 4388,
   "uncapturedCandidateCount": 0,
   "uncaptured": [],
   "fileCandidateCounts": {
@@ -296,12 +297,13 @@
     "app/license/page.tsx": 11,
     "app/locales/page.tsx": 20,
     "app/mcp/page.tsx": 31,
+    "app/not-found.tsx": 10,
     "app/page.tsx": 2,
     "app/pricing/page.tsx": 21,
     "app/privacy/page.tsx": 34,
     "app/pro/page.tsx": 25,
     "app/refund/page.tsx": 21,
-    "app/registry/page.tsx": 22,
+    "app/registry/page.tsx": 25,
     "app/rtl/layout.tsx": 0,
     "app/rtl/page.tsx": 24,
     "app/security/page.tsx": 20,
@@ -316,5 +318,5 @@
     "app/themes/layout.tsx": 0,
     "app/themes/page.tsx": 9
   },
-  "candidateChecksum": "cc80b264860dde2ae3c6e3c32d94c76eb5af6d5a5cb7c0bc876e762547779425"
+  "candidateChecksum": "38dcfe7a7e21319539124a1100ecdf314f660614c44e9a678329910048016b87"
 }

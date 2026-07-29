@@ -1675,12 +1675,12 @@
   text-transform: uppercase;
 }
 
-.locale-status-table tbody th span,
-.locale-status-table tbody th small {
+.locale-status-table tbody [role="rowheader"] span,
+.locale-status-table tbody [role="rowheader"] small {
   display: block;
 }
 
-.locale-status-table tbody th small {
+.locale-status-table tbody [role="rowheader"] small {
   margin-top: 3px;
   color: var(--muted);
   font-weight: 500;

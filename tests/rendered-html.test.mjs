@@ -340,7 +340,8 @@ test("loads large component styles only on routes that render them", async () =>
   );
   assert.match(docs, /\/styles\/gummy-form-controls\.css/);
   assert.doesNotMatch(docs, /\/styles\/gummy-primitives\.css/);
-  assert.match(rtl, /\/styles\/gummy-primitives\.css/);
+  assert.match(rtl, /\/styles\/rtl-components\.css/);
+  assert.doesNotMatch(rtl, /\/styles\/gummy-primitives\.css/);
   assert.match(themes, /\/styles\/theme-builder-components\.css/);
   assert.doesNotMatch(
     themes,
@@ -385,6 +386,44 @@ test("keeps the Theme Builder stylesheet limited to its four component families"
   assert.ok(
     Buffer.byteLength(css, "utf8") <= 36_000,
     "Theme Builder component CSS exceeded its route budget.",
+  );
+});
+
+test("keeps the RTL stylesheet limited to its three rendered component families", async () => {
+  const css = await readFile(
+    new URL("../public/styles/rtl-components.css", import.meta.url),
+    "utf8",
+  );
+
+  for (const selector of [
+    ".gummy-direction",
+    ".gummy-slider",
+    ".gummy-pagination",
+  ]) {
+    assert.match(css, new RegExp(selector.replace(".", String.raw`\.`)));
+  }
+  for (const excludedSelector of [
+    ".gummy-accordion",
+    ".gummy-breadcrumb",
+    ".gummy-carousel",
+    ".gummy-progress",
+    ".gummy-select",
+    ".gummy-table",
+  ]) {
+    assert.doesNotMatch(
+      css,
+      new RegExp(excludedSelector.replace(".", String.raw`\.`)),
+    );
+  }
+
+  assert.match(css, /\.gummy-slider__thumb:focus-visible/);
+  assert.match(
+    css,
+    /\[dir="rtl"\] \.gummy-pagination__link > \[aria-hidden="true"\]/,
+  );
+  assert.ok(
+    Buffer.byteLength(css, "utf8") <= 6_000,
+    "RTL component CSS exceeded its route budget.",
   );
 });
 

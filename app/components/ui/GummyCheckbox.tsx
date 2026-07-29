@@ -79,7 +79,7 @@ export const GummyCheckbox = React.forwardRef<
       data-invalid={Boolean(errorMessage) || undefined}
       data-indeterminate={indeterminate || undefined}
     >
-      <label className="gummy-checkbox__label" htmlFor={id}>
+      <div className="gummy-checkbox__label">
         <span className="gummy-checkbox__target">
           <input
             {...inputProps}
@@ -95,7 +95,6 @@ export const GummyCheckbox = React.forwardRef<
             required={required}
             aria-readonly={readOnly || undefined}
             aria-checked={indeterminate ? "mixed" : undefined}
-            aria-labelledby={titleId}
             aria-describedby={joinIds(ariaDescribedBy, descriptionId, errorId)}
             aria-invalid={ariaInvalid ?? (errorMessage ? true : undefined)}
             onClick={(event) => {
@@ -142,7 +141,7 @@ export const GummyCheckbox = React.forwardRef<
           </span>
         </span>
         <span className="gummy-checkbox__copy">
-          <span className="gummy-checkbox__title" id={titleId}>
+          <label className="gummy-checkbox__title" id={titleId} htmlFor={id}>
             {label}
             {required ? (
               <span className="gummy-checkbox__required" aria-hidden="true">
@@ -154,7 +153,7 @@ export const GummyCheckbox = React.forwardRef<
                 Read only
               </span>
             ) : null}
-          </span>
+          </label>
           {description ? (
             <span className="gummy-checkbox__description" id={descriptionId}>
               {description}
@@ -171,7 +170,7 @@ export const GummyCheckbox = React.forwardRef<
             </span>
           ) : null}
         </span>
-      </label>
+      </div>
     </div>
   );
 });

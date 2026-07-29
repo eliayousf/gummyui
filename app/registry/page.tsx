@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PublicTextPage } from "../components/PublicTextPage";
 import { componentCount, components } from "../data/catalogue";
 
@@ -33,30 +32,21 @@ export default function RegistryPage() {
       <section>
         <h2>Public categories ({componentCount})</h2>
         <p>
-          Base UI is canonical. Components with an official Radix primitive
-          also expose a separate Radix payload; choose one engine for that
-          component. Combobox is clearly Base-only.
+          Base UI is canonical, so every component has one direct install
+          payload below. Component pages and the machine-readable index also
+          expose separate Radix payloads where an official primitive exists;
+          choose one engine for that component. Combobox is clearly Base-only.
         </p>
         <ul className="public-page__link-list">
           {components.map((component) => (
             <li key={component.slug}>
-              <Link href={`/components/${component.slug}`}>{component.name}</Link>
+              <strong>{component.name}</strong>
               <span>
                 <a
                   href={`/r/${component.registryName}.json`}
                 >
                   {component.name} Base registry
                 </a>
-                {component.radixRegistryName ? (
-                  <>
-                    {" · "}
-                    <a
-                      href={`/r/${component.radixRegistryName}.json`}
-                    >
-                      {component.name} Radix registry
-                    </a>
-                  </>
-                ) : null}
               </span>
             </li>
           ))}
@@ -64,7 +54,26 @@ export default function RegistryPage() {
       </section>
       <section>
         <h2>Machine-readable index</h2>
-        <p><a href="/api/catalogue">Open the catalogue API</a> or read <a href="/llms.txt">llms.txt</a> for agent-friendly discovery.</p>
+        <p>
+          <a href="/api/catalogue">Open the catalogue API</a> or read{" "}
+          <code>/llms.txt</code> for agent-friendly discovery.
+        </p>
+      </section>
+      <section>
+        <h2>Verify the installed result</h2>
+        <p>
+          Review every file the installer proposes before accepting it, then
+          run your application&apos;s type, accessibility, and production-build
+          checks. Keep the shared theme import singular, preserve visible
+          labels and keyboard behavior, and test light, dark, reduced-motion,
+          responsive, and RTL contexts that your product supports.
+        </p>
+        <p>
+          Registry payloads are editable source, not a hosted runtime
+          dependency. Updates never replace local changes automatically, so
+          compare a newer payload deliberately and retain the application
+          decisions that belong to your product.
+        </p>
       </section>
     </PublicTextPage>
   );

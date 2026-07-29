@@ -209,11 +209,10 @@ export const GummyRadioItem = React.forwardRef<
   }
 
   return (
-    <label
+    <div
       className="gummy-radio-item"
       data-disabled={disabled || undefined}
       data-read-only={context.readOnly || undefined}
-      htmlFor={id}
     >
       <span className="gummy-radio-item__target">
         <input
@@ -227,7 +226,6 @@ export const GummyRadioItem = React.forwardRef<
           checked={context.value === value}
           disabled={disabled}
           required={itemRequired ?? context.required}
-          aria-labelledby={titleId}
           aria-describedby={joinIds(
             ariaDescribedBy,
             context.describedBy,
@@ -284,14 +282,16 @@ export const GummyRadioItem = React.forwardRef<
         </span>
       </span>
       <span className="gummy-radio-item__copy">
-        <span className="gummy-radio-item__title" id={titleId}>{label}</span>
+        <label className="gummy-radio-item__title" id={titleId} htmlFor={id}>
+          {label}
+        </label>
         {description ? (
           <span className="gummy-radio-item__description" id={descriptionId}>
             {description}
           </span>
         ) : null}
       </span>
-    </label>
+    </div>
   );
 });
 

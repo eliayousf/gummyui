@@ -49,6 +49,11 @@ const themeBuilderPrimitiveSelectors = [
 const themeBuilderPrimitiveKeyframePrefixes = [
   "gummy-progress-",
 ];
+const rtlComponentSelectors = [
+  ".gummy-direction",
+  ".gummy-slider",
+  ".gummy-pagination",
+];
 
 function splitSelectorList(selectorList) {
   const selectors = [];
@@ -228,6 +233,28 @@ ${themeBuilderPrimitiveRoot.toString().trim()}
 `,
 );
 
+const rtlRoot = postcss.parse(primitivesSource, {
+  from: primitivesSourcePath,
+});
+filterComponentStyles(rtlRoot, {
+  componentSelectors: rtlComponentSelectors,
+  keyframePrefixes: [],
+});
+await syncPublicStylesheet(
+  "rtl-components.css",
+  `/*
+ * Generated from the canonical Direction, Slider, and Pagination rules for
+ * /rtl. The complete primitive library remains available to documentation and
+ * registry consumers, but is intentionally not loaded by this focused route.
+ * Do not edit this public copy.
+ */
+
+@layer gummy-rtl-components {
+${rtlRoot.toString().trim()}
+}
+`,
+);
+
 const componentDocsSections = await Promise.all(
   componentDocsStylesheetNames.map(async (name) => {
     const source = await readFile(
@@ -251,5 +278,5 @@ ${componentDocsSections.join("\n\n")}
 );
 
 console.log(
-  `${checkOnly ? "Verified" : "Built"} ${stylesheetNames.length + 4} route-scoped public stylesheets.`,
+  `${checkOnly ? "Verified" : "Built"} ${stylesheetNames.length + 5} route-scoped public stylesheets.`,
 );
