@@ -9,10 +9,12 @@ import {
 
 const readiness = vi.hoisted(() => ({
   emit: vi.fn(async () => undefined),
+  failureCode: vi.fn(() => "provider_unavailable"),
   verify: vi.fn(),
 }));
 
 vi.mock("../lib/commerce/stripe-production-readiness", () => ({
+  stripeReadinessFailureCode: readiness.failureCode,
   verifyStripeProductionReadiness: readiness.verify,
 }));
 vi.mock("../lib/commerce/operational-logging", () => ({
@@ -35,6 +37,7 @@ describe("Stripe production readiness cron", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    readiness.failureCode.mockReturnValue("provider_unavailable");
     process.env.CRON_SECRET = secret;
     readiness.verify.mockResolvedValue({
       status: "ready",
@@ -90,6 +93,18 @@ describe("Stripe production readiness cron", () => {
       outcome: "failure",
       attributes: { reason: "provider_unavailable" },
     });
+  });
+
+  it("records only an allowlisted configuration failure code", async () => {
+    readiness.verify.mockRejectedValueOnce(new Error("sensitive detail"));
+    readiness.failureCode.mockReturnValueOnce("restricted_key_unavailable");
+    const response = await GET(request());
+    expect(response.status).toBe(503);
+    expect(readiness.emit).toHaveBeenCalledWith(
+      expect.objectContaining({
+        attributes: { reason: "restricted_key_unavailable" },
+      }),
+    );
   });
 });
 

@@ -20,6 +20,29 @@ interface ReadinessDependencies {
   prices?: StripePriceReader;
 }
 
+export type StripeReadinessFailureCode =
+  | "restricted_key_unavailable"
+  | "checkout_enabled"
+  | "price_configuration_invalid"
+  | "price_configuration_duplicate"
+  | "price_read_failed"
+  | "price_contract_mismatch"
+  | "billing_contract_mismatch"
+  | "provider_unavailable";
+
+export class StripeProductionReadinessError extends Error {
+  constructor(
+    readonly code: Exclude<
+      StripeReadinessFailureCode,
+      "provider_unavailable"
+    >,
+    message: string,
+  ) {
+    super(message);
+    this.name = "StripeProductionReadinessError";
+  }
+}
+
 const RESTRICTED_LIVE_KEY = /^rk_live_[A-Za-z0-9]{24,}$/;
 const PRICE_ID = /^price_[A-Za-z0-9]+$/;
 
@@ -30,10 +53,16 @@ export async function verifyStripeProductionReadiness(
   const restrictedKey = environment.STRIPE_RESTRICTED_KEY?.trim();
 
   if (!restrictedKey || !RESTRICTED_LIVE_KEY.test(restrictedKey)) {
-    throw new Error("Production restricted Stripe key is unavailable");
+    throw new StripeProductionReadinessError(
+      "restricted_key_unavailable",
+      "Production restricted Stripe key is unavailable",
+    );
   }
   if (environment.STRIPE_CHECKOUT_ENABLED === "true") {
-    throw new Error("Checkout must remain disabled during readiness proof");
+    throw new StripeProductionReadinessError(
+      "checkout_enabled",
+      "Checkout must remain disabled during readiness proof",
+    );
   }
 
   const prices = dependencies.prices ?? new Stripe(restrictedKey, {
@@ -51,10 +80,16 @@ export async function verifyStripeProductionReadiness(
     const environmentKey = priceEnvironmentKey(plan);
     const priceId = environment[environmentKey]?.trim();
     if (!priceId || !PRICE_ID.test(priceId)) {
-      throw new Error(`Invalid configured Stripe price for ${plan.id}`);
+      throw new StripeProductionReadinessError(
+        "price_configuration_invalid",
+        `Invalid configured Stripe price for ${plan.id}`,
+      );
     }
     if (configuredPrices.has(priceId)) {
-      throw new Error("Configured Stripe prices must be unique");
+      throw new StripeProductionReadinessError(
+        "price_configuration_duplicate",
+        "Configured Stripe prices must be unique",
+      );
     }
     configuredPrices.add(priceId);
     configuredPlans.push({ plan, priceId });
@@ -65,7 +100,10 @@ export async function verifyStripeProductionReadiness(
     try {
       price = await prices.retrieve(priceId);
     } catch {
-      throw new Error(`Unable to verify Stripe price for ${plan.id}`);
+      throw new StripeProductionReadinessError(
+        "price_read_failed",
+        `Unable to verify Stripe price for ${plan.id}`,
+      );
     }
     assertPriceMatchesPlan(price, plan, priceId);
   }
@@ -100,7 +138,10 @@ function assertPriceMatchesPlan(
     || price.currency.toLowerCase() !== "usd"
     || price.unit_amount !== expectedAmount
   ) {
-    throw new Error(`Stripe price does not match ${plan.id}`);
+    throw new StripeProductionReadinessError(
+      "price_contract_mismatch",
+      `Stripe price does not match ${plan.id}`,
+    );
   }
   if (expectedRecurringInterval) {
     if (
@@ -108,11 +149,25 @@ function assertPriceMatchesPlan(
       || price.recurring?.interval !== expectedRecurringInterval
       || price.recurring.interval_count !== 1
     ) {
-      throw new Error(`Stripe billing interval does not match ${plan.id}`);
+      throw new StripeProductionReadinessError(
+        "billing_contract_mismatch",
+        `Stripe billing interval does not match ${plan.id}`,
+      );
     }
     return;
   }
   if (price.type !== "one_time" || price.recurring !== null) {
-    throw new Error(`Stripe billing mode does not match ${plan.id}`);
+    throw new StripeProductionReadinessError(
+      "billing_contract_mismatch",
+      `Stripe billing mode does not match ${plan.id}`,
+    );
   }
+}
+
+export function stripeReadinessFailureCode(
+  error: unknown,
+): StripeReadinessFailureCode {
+  return error instanceof StripeProductionReadinessError
+    ? error.code
+    : "provider_unavailable";
 }

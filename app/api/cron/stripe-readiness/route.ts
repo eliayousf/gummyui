@@ -1,4 +1,5 @@
 import {
+  stripeReadinessFailureCode,
   verifyStripeProductionReadiness,
 } from "../../../../lib/commerce/stripe-production-readiness";
 import {
@@ -45,12 +46,12 @@ export async function GET(request: Request) {
       { ok: true, ...result },
       { status: 200, headers: PRIVATE_HEADERS },
     );
-  } catch {
+  } catch (error) {
     await emitOperationalEvent({
       name: "stripe.production.readiness",
       severity: "error",
       outcome: "failure",
-      attributes: { reason: "provider_unavailable" },
+      attributes: { reason: stripeReadinessFailureCode(error) },
     });
     return Response.json(
       { error: "provider_unavailable" },
