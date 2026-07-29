@@ -339,9 +339,51 @@ test("loads large component styles only on routes that render them", async () =>
   assert.match(docs, /\/styles\/gummy-form-controls\.css/);
   assert.doesNotMatch(docs, /\/styles\/gummy-primitives\.css/);
   assert.match(rtl, /\/styles\/gummy-primitives\.css/);
-  assert.match(themes, /\/styles\/gummy-core-components\.css/);
-  assert.match(themes, /\/styles\/gummy-primitives\.css/);
+  assert.match(themes, /\/styles\/theme-builder-components\.css/);
+  assert.doesNotMatch(
+    themes,
+    /\/styles\/(?:gummy-core-components|gummy-primitives)\.css/,
+  );
   assert.match(studio, /\/styles\/frame-studio\.css/);
+});
+
+test("keeps the Theme Builder stylesheet limited to its four component families", async () => {
+  const css = await readFile(
+    new URL("../public/styles/theme-builder-components.css", import.meta.url),
+    "utf8",
+  );
+
+  for (const selector of [
+    ".gummy-badge",
+    ".gummy-card",
+    ".gummy-switch",
+    ".gummy-progress",
+  ]) {
+    assert.match(css, new RegExp(selector.replace(".", String.raw`\.`)));
+  }
+  for (const excludedSelector of [
+    ".gummy-input",
+    ".gummy-tabs",
+    ".gummy-menu",
+    ".gummy-dialog",
+    ".gummy-separator",
+    ".gummy-table",
+  ]) {
+    assert.doesNotMatch(
+      css,
+      new RegExp(excludedSelector.replace(".", String.raw`\.`)),
+    );
+  }
+
+  assert.match(css, /:root\[data-theme="dark"\] \.gummy-card/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(css, /@keyframes gummy-badge-settle/);
+  assert.match(css, /@keyframes gummy-card-svg-focus/);
+  assert.match(css, /@keyframes gummy-progress-tide/);
+  assert.ok(
+    Buffer.byteLength(css, "utf8") <= 36_000,
+    "Theme Builder component CSS exceeded its route budget.",
+  );
 });
 
 test("builds a shadcn-compatible registry payload for every Stage 3 component", async () => {

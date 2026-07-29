@@ -81,6 +81,7 @@ const routeStyleBudgets = {
   "gummy-primitives.css": 80_000,
   "gummy-radix-compat.css": 6_000,
   "showcase-components.css": 55_000,
+  "theme-builder-components.css": 36_000,
 };
 const routeStyleDirectory = path.join(clientRoot, "styles");
 const routeStyleEvidence = [];

@@ -33,6 +33,22 @@ const showcaseKeyframePrefixes = [
   "gummy-card-",
   "gummy-tabs-",
 ];
+const themeBuilderCoreSelectors = [
+  ".gummy-badge",
+  ".gummy-card",
+  ".gummy-switch",
+];
+const themeBuilderCoreKeyframePrefixes = [
+  "gummy-badge-",
+  "gummy-card-",
+  "gummy-switch-",
+];
+const themeBuilderPrimitiveSelectors = [
+  ".gummy-progress",
+];
+const themeBuilderPrimitiveKeyframePrefixes = [
+  "gummy-progress-",
+];
 
 function splitSelectorList(selectorList) {
   const selectors = [];
@@ -65,14 +81,21 @@ function splitSelectorList(selectorList) {
   return selectors;
 }
 
-function filterShowcaseStyles(container) {
+function filterComponentStyles(
+  container,
+  {
+    componentSelectors,
+    keyframePrefixes,
+  },
+) {
   container.each((node) => {
     if (node.type === "rule") {
       const selectors = splitSelectorList(node.selector).filter((selector) =>
         !selector.startsWith("button:focus-visible:not(")
           && !selector.startsWith("input:focus-visible:not(")
           && !selector.startsWith("a:focus-visible:not(")
-          && showcaseComponentSelectors.some((componentSelector) => selector.includes(componentSelector)),
+          && componentSelectors.some((componentSelector) =>
+            selector.includes(componentSelector)),
       );
       if (!selectors.length) {
         node.remove();
@@ -84,7 +107,7 @@ function filterShowcaseStyles(container) {
 
     if (node.type === "atrule") {
       if (node.name === "keyframes" || node.name.endsWith("keyframes")) {
-        if (!showcaseKeyframePrefixes.some((prefix) => node.params.startsWith(prefix))) {
+        if (!keyframePrefixes.some((prefix) => node.params.startsWith(prefix))) {
           node.remove();
         }
         return;
@@ -93,7 +116,10 @@ function filterShowcaseStyles(container) {
         node.remove();
         return;
       }
-      filterShowcaseStyles(node);
+      filterComponentStyles(node, {
+        componentSelectors,
+        keyframePrefixes,
+      });
       if (!node.nodes.length) node.remove();
       return;
     }
@@ -144,7 +170,10 @@ ${coreSource.trim()}
 const showcaseRoot = postcss.parse(coreSource, {
   from: coreSourcePath,
 });
-filterShowcaseStyles(showcaseRoot);
+filterComponentStyles(showcaseRoot, {
+  componentSelectors: showcaseComponentSelectors,
+  keyframePrefixes: showcaseKeyframePrefixes,
+});
 await syncPublicStylesheet(
   "showcase-components.css",
   `/*
@@ -155,6 +184,46 @@ await syncPublicStylesheet(
 
 @layer gummy-showcase-components {
 ${showcaseRoot.toString().trim()}
+}
+`,
+);
+
+const themeBuilderCoreRoot = postcss.parse(coreSource, {
+  from: coreSourcePath,
+});
+filterComponentStyles(themeBuilderCoreRoot, {
+  componentSelectors: themeBuilderCoreSelectors,
+  keyframePrefixes: themeBuilderCoreKeyframePrefixes,
+});
+const primitivesSourcePath = path.join(
+  repositoryRoot,
+  "app",
+  "styles",
+  "gummy-primitives.css",
+);
+const primitivesSource = await readFile(primitivesSourcePath, "utf8");
+const themeBuilderPrimitiveRoot = postcss.parse(primitivesSource, {
+  from: primitivesSourcePath,
+});
+filterComponentStyles(themeBuilderPrimitiveRoot, {
+  componentSelectors: themeBuilderPrimitiveSelectors,
+  keyframePrefixes: themeBuilderPrimitiveKeyframePrefixes,
+});
+await syncPublicStylesheet(
+  "theme-builder-components.css",
+  `/*
+ * Generated from the canonical Badge, Card, Switch, and Progress rules for
+ * /themes. Full component libraries remain available to documentation and
+ * registry consumers, but are intentionally not loaded by the Theme Builder.
+ * Do not edit this public copy.
+ */
+
+@layer gummy-theme-builder-components {
+/* app/styles/gummy-core-components.css */
+${themeBuilderCoreRoot.toString().trim()}
+
+/* app/styles/gummy-primitives.css */
+${themeBuilderPrimitiveRoot.toString().trim()}
 }
 `,
 );
@@ -182,5 +251,5 @@ ${componentDocsSections.join("\n\n")}
 );
 
 console.log(
-  `${checkOnly ? "Verified" : "Built"} ${stylesheetNames.length + 3} route-scoped public stylesheets.`,
+  `${checkOnly ? "Verified" : "Built"} ${stylesheetNames.length + 4} route-scoped public stylesheets.`,
 );

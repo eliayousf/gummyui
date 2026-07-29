@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-css-tags -- React 19 stylesheet precedence keeps primitive theme examples route-scoped in Vinext. */
+/* eslint-disable @next/next/no-css-tags -- React 19 stylesheet precedence keeps Theme Builder component styles route-scoped in Vinext. */
 export default function ThemesLayout({
   children,
 }: Readonly<{
@@ -6,8 +6,7 @@ export default function ThemesLayout({
 }>) {
   return (
     <>
-      <link rel="stylesheet" href="/styles/gummy-core-components.css" precedence="gummy-themes" />
-      <link rel="stylesheet" href="/styles/gummy-primitives.css" precedence="gummy-themes" />
+      <link rel="stylesheet" href="/styles/theme-builder-components.css" precedence="gummy-themes" />
       {children}
     </>
   );
