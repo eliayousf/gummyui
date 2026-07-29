@@ -841,8 +841,125 @@ if (articles.length !== 18) {
   throw new Error(`Expected exactly 18 launch articles; received ${articles.length}.`);
 }
 
+type ArticleSlug = (typeof articles)[number]["slug"];
+
+const articleReferences = {
+  "designing-the-gel-pop-language": [
+    {
+      href: "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      label: "W3C: Understanding Success Criterion 1.4.3 — Contrast (Minimum)",
+    },
+  ],
+  "semantics-before-surface": [
+    {
+      href: "https://html.spec.whatwg.org/multipage/forms.html",
+      label: "WHATWG HTML Living Standard: Forms",
+    },
+  ],
+  "reading-a-gummy-registry-item": [
+    {
+      href: "https://ui.shadcn.com/docs/registry/registry-item-json",
+      label: "shadcn/ui: registry-item.json schema",
+    },
+  ],
+  "one-catalogue-fifty-seven-components": [
+    {
+      href: "https://json-schema.org/understanding-json-schema/",
+      label: "JSON Schema: Understanding JSON Schema",
+    },
+  ],
+  "documenting-meaningful-component-states": [
+    {
+      href: "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/",
+      label: "WAI-ARIA Authoring Practices: Developing a Keyboard Interface",
+    },
+  ],
+  "keyboard-contracts-for-overlays": [
+    {
+      href: "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+      label: "WAI-ARIA Authoring Practices: Modal Dialog Pattern",
+    },
+  ],
+  "native-forms-with-visible-context": [
+    {
+      href: "https://html.spec.whatwg.org/multipage/forms.html",
+      label: "WHATWG HTML Living Standard: Forms",
+    },
+  ],
+  "rtl-is-behavior-not-a-mirror": [
+    {
+      href: "https://www.w3.org/International/questions/qa-html-dir",
+      label: "W3C Internationalization: Structural markup and right-to-left text",
+    },
+  ],
+  "reduced-motion-without-lost-state": [
+    {
+      href: "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html",
+      label: "W3C: Understanding Success Criterion 2.3.3 — Animation from Interactions",
+    },
+  ],
+  "building-light-and-dark-from-semantic-tokens": [
+    {
+      href: "https://www.designtokens.org/tr/drafts/format/",
+      label: "Design Tokens Community Group: Format Module",
+    },
+  ],
+  "responsive-components-start-with-content": [
+    {
+      href: "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+      label: "W3C: Understanding Success Criterion 1.4.10 — Reflow",
+    },
+  ],
+  "using-the-component-lab-as-evidence": [
+    {
+      href: "https://storybook.js.org/docs/writing-tests",
+      label: "Storybook: Testing user interfaces",
+    },
+  ],
+  "testing-accessibility-in-layers": [
+    {
+      href: "https://www.w3.org/WAI/test-evaluate/",
+      label: "W3C Web Accessibility Initiative: Test and Evaluate",
+    },
+  ],
+  "composing-data-interfaces-from-primitives": [
+    {
+      href: "https://www.w3.org/WAI/tutorials/tables/",
+      label: "W3C Web Accessibility Initiative: Tables Tutorial",
+    },
+  ],
+  "interactive-cards-need-real-elements": [
+    {
+      href: "https://html.spec.whatwg.org/multipage/dom.html#interactive-content",
+      label: "WHATWG HTML Living Standard: Interactive content",
+    },
+  ],
+  "designing-ai-readable-component-docs": [
+    {
+      href: "https://llmstxt.org/",
+      label: "llms.txt proposal and specification",
+    },
+  ],
+  "keeping-public-and-pro-source-separate": [
+    {
+      href: "https://spdx.org/licenses/MIT.html",
+      label: "SPDX: MIT License",
+    },
+  ],
+  "honest-product-status-by-design": [
+    {
+      href: "https://www.gov.uk/service-manual/service-assessments/how-service-assessments-work",
+      label: "GOV.UK Service Manual: How service assessments work",
+    },
+  ],
+} as const satisfies Record<ArticleSlug, readonly ArticleLink[]>;
+
 export function getArticle(slug: string): Article | undefined {
   return articles.find((article) => article.slug === slug);
+}
+
+export function getArticleReferences(slug: string): readonly ArticleLink[] {
+  return articleReferences[slug as ArticleSlug] ?? [];
 }
 
 export function articleUrl(article: Pick<Article, "slug">): string {

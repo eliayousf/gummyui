@@ -164,8 +164,8 @@
     "app/themes/layout.tsx",
     "app/themes/page.tsx"
   ],
-  "candidateCount": 4213,
-  "coveredCandidateCount": 4213,
+  "candidateCount": 4215,
+  "coveredCandidateCount": 4215,
   "uncapturedCandidateCount": 0,
   "uncaptured": [],
   "fileCandidateCounts": {
@@ -173,7 +173,7 @@
     "app/blocks/[category]/[slug]/page.tsx": 14,
     "app/blocks/[category]/page.tsx": 8,
     "app/blocks/page.tsx": 10,
-    "app/blog/[slug]/page.tsx": 11,
+    "app/blog/[slug]/page.tsx": 13,
     "app/blog/page.tsx": 10,
     "app/changelog/page.tsx": 7,
     "app/commercial-license/page.tsx": 34,
@@ -312,5 +312,5 @@
     "app/themes/layout.tsx": 0,
     "app/themes/page.tsx": 7
   },
-  "candidateChecksum": "00a27182f948bb33bb461800bd6f6c3811e51c8827a98562eda2ed963c3bd2d5"
+  "candidateChecksum": "e32a752ba0997af865b72c506ec76667139d427c309492c23b61f6ff3c89d577"
 }

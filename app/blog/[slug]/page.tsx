@@ -7,6 +7,7 @@ import {
   articles,
   formatArticleDate,
   getArticle,
+  getArticleReferences,
   siteUrl,
 } from "../../data/articles";
 
@@ -65,6 +66,7 @@ export default async function BlogArticlePage({
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) notFound();
+  const references = getArticleReferences(article.slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -90,6 +92,7 @@ export default async function BlogArticlePage({
       },
     },
     image: `${siteUrl}/og.png`,
+    citation: references.map(({ href }) => href),
     isPartOf: {
       "@type": "Blog",
       name: "Gummy UI articles",
@@ -141,6 +144,21 @@ export default async function BlogArticlePage({
                 ))}
               </section>
             ))}
+            <section aria-labelledby="references-title">
+              <h2 id="references-title">Primary references</h2>
+              <p>
+                This article draws on the following public standard, specification,
+                or authoritative implementation guidance.
+              </p>
+              <ul className="public-page__link-list">
+                {references.map((reference) => (
+                  <li key={reference.href}>
+                    <a href={reference.href}>{reference.label}</a>
+                    <span aria-hidden="true">↗</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
             <section aria-labelledby="continue-title">
               <h2 id="continue-title">Continue with the implementation</h2>
               <ul className="public-page__link-list">

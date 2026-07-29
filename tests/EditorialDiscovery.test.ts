@@ -5,6 +5,7 @@ import {
   articleUrl,
   articles,
   getArticle,
+  getArticleReferences,
 } from "../app/data/articles";
 import {
   generateMetadata,
@@ -45,6 +46,10 @@ describe("launch editorial manifest", () => {
       );
       expect(article.links.length).toBeGreaterThanOrEqual(3);
       expect(article.links.every(({ href }) => href.startsWith("/"))).toBe(true);
+      const references = getArticleReferences(article.slug);
+      expect(references).toHaveLength(1);
+      expect(references[0]?.href).toMatch(/^https:\/\//);
+      expect(references[0]?.label.length).toBeGreaterThanOrEqual(10);
       expect(getArticle(article.slug)).toBe(article);
     }
   });
@@ -84,6 +89,8 @@ describe("launch editorial manifest", () => {
     expect(source).toMatch(/<time dateTime=/);
     expect(source).toMatch(/<nav aria-label="Breadcrumb">/);
     expect(source).toMatch(/"@type": "Article"/);
+    expect(source).toMatch(/citation: references\.map/);
+    expect(source).toMatch(/<h2 id="references-title">Primary references<\/h2>/);
     expect(source).toMatch(/type="application\/ld\+json"/);
   });
 });

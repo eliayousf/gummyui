@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "sourceLocale": "en",
-  "sourceRevision": "en-ebd18dc4a542",
-  "sourceChecksum": "ebd18dc4a54232276b515f5a4060b672d7cd2ac0fd1f1d9552a87c84a9f1d8ca",
+  "sourceRevision": "en-f385e0bf031b",
+  "sourceChecksum": "f385e0bf031b7f8b6b1033aef33a099df229feafcfb59547d69650564baff593",
   "generatedFrom": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -154,12 +154,12 @@
     "app/themes/page.tsx",
     "lib/commerce/account.ts"
   ],
-  "messageCount": 2933,
-  "translatableMessageCount": 2662,
+  "messageCount": 2935,
+  "translatableMessageCount": 2664,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 1893,
+    "static": 1895,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -7710,12 +7710,12 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:130",
+        "app/blog/[slug]/page.tsx:133",
         "app/components/[slug]/page.tsx:65",
         "app/components/ComponentInspectorRuntime.tsx:431",
         "app/data/catalogue.ts"
       ],
-      "checksum": "b60f89cfda2c59216d4362efc1e909e58946bfb08a0f19603c91a0b150ba7370"
+      "checksum": "298444c95f37d46f0bd900e7068bce5e96725f3481133440c93ce6b49b795e1b"
     },
     {
       "id": "catalogue.component.breadcrumb.semantics",
@@ -13719,11 +13719,11 @@
         }
       ],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:47",
+        "app/blog/[slug]/page.tsx:48",
         "app/layout.tsx",
         "app/layout.tsx:38"
       ],
-      "checksum": "7934a22e189c7ef7ed3114b8e5bb009a790bc64edbdf31defb856981b248d722"
+      "checksum": "ff1680afe3612252826635df09015769557c48b6e0c8b6f75985fc46ace5e759"
     },
     {
       "id": "core.metadata.site-description",
@@ -13787,12 +13787,12 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:131",
+        "app/blog/[slug]/page.tsx:134",
         "app/components/SiteChrome.tsx",
         "app/components/SiteChrome.tsx:30",
         "app/components/SiteChrome.tsx:67"
       ],
-      "checksum": "d6b14d478dcf90a0f9c5fd2eee5335c2774f5eb3a81ff8b13cbd70f75d59b112"
+      "checksum": "24a99292d651aeafac9ae5c2dffe1b4f6ba5f7c9852edc7fc5bc4e3cc1dba14c"
     },
     {
       "id": "core.navigation.community",
@@ -17406,9 +17406,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:114"
+        "app/blog/[slug]/page.tsx:117"
       ],
-      "checksum": "d22ea068f2a183197429dff655f9916d22a4564451482e40003d8b4bfabea96b"
+      "checksum": "5806721641959cbb1c72db021f8e83a7300bcf5acef0100cb8e11b2586cebabb"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.jsx-a.01",
@@ -17420,12 +17420,26 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:103"
+        "app/blog/[slug]/page.tsx:106"
       ],
-      "checksum": "507174527b6160d2feb87b910d2e743121bd30038af39f08dd9982edd5eb7aa8"
+      "checksum": "00d418e9f7fda126071c42970edea862bd2dc89015726017000633a62acd7146"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.jsx-h2.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Primary references",
+      "description": "Static jsx h2 copy in app/blog/[slug]/page.tsx, blog-article-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/blog/[slug]/page.tsx:148"
+      ],
+      "checksum": "e6c00e9939c4eda134e02f784c9db217f6d52cc909d2ccb239dee7ca85bdfa03"
+    },
+    {
+      "id": "static.blog.slug.page.blog-article-page.jsx-h2.02",
       "category": "static",
       "contentType": "plain",
       "source": "Continue with the implementation",
@@ -17434,9 +17448,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:145"
+        "app/blog/[slug]/page.tsx:163"
       ],
-      "checksum": "814bbed4d9a54d128883be12efcc813e20d2bb9f39ebc873f61e881a526cba21"
+      "checksum": "7dc49b9e2a759802688fd4c91b6a12deb88ce8f90c2aa7553f0f05e4d894277f"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.jsx-p.01",
@@ -17448,9 +17462,23 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:116"
+        "app/blog/[slug]/page.tsx:119"
       ],
-      "checksum": "79aaa94f896320e3384d57eeffb9f38b67ad2450a2625821f6d0ddbb27aeb557"
+      "checksum": "648201ba38d4a9a36b444ee39158e2b68f437b6b93c970ae25d3f99a0c9adc1e"
+    },
+    {
+      "id": "static.blog.slug.page.blog-article-page.jsx-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "This article draws on the following public standard, specification, or authoritative implementation guidance.",
+      "description": "Static jsx p copy in app/blog/[slug]/page.tsx, blog-article-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/blog/[slug]/page.tsx:150"
+      ],
+      "checksum": "ad02db2e8015a866fe2fd4db4864fb5df093455891e608198ebe154b85c8ae5a"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.property-name.01",
@@ -17467,14 +17495,14 @@
         }
       ],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:85",
+        "app/blog/[slug]/page.tsx:87",
         "app/components/[slug]/page.tsx:58",
         "app/components/GelPopProof.tsx:561",
         "app/components/SiteChrome.tsx:53",
         "app/layout.tsx:35",
         "app/layout.tsx:42"
       ],
-      "checksum": "ffaeff8a3f243f25d7fbe8d38b2e384f1236d5c596b3408ee188f910518e6479"
+      "checksum": "a2fc9662de5d3393ada2f77575c6c2f906b847883a3b194b8c6b32b08c00887a"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.property-name.02",
@@ -17491,9 +17519,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:95"
+        "app/blog/[slug]/page.tsx:98"
       ],
-      "checksum": "b9ced5f966e84cc754764c52a5b28e1f6454dc907afc74850e6c693bb6557b8d"
+      "checksum": "dabb138fa02b26866d533f057888c2a366b6d5e0c52f206d3faff86ee5d4b676"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.rich-p.01",
@@ -17518,9 +17546,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:154"
+        "app/blog/[slug]/page.tsx:172"
       ],
-      "checksum": "abcaba54a64d98c0921654122d064c2281126f25804ad6fb54c72041d8ef38f9"
+      "checksum": "99c6b2d083a7f45509ca6e09e4f4567c5a90ff9fcae5201884ae23beedb9a1e9"
     },
     {
       "id": "static.blog.slug.page.generate-metadata.property-title.01",
@@ -17547,9 +17575,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blog/[slug]/page.tsx:27"
+        "app/blog/[slug]/page.tsx:28"
       ],
-      "checksum": "d9299e1c128a3191b8fa158c43a7287cb6d21450574b7752dd9f2df199eb4df4"
+      "checksum": "08d60ce2644dd1adf28aed096cef06be2d7154c93c7a14d964d22a2fb402a418"
     },
     {
       "id": "static.changelog.page.changelog-page.attribute-eyebrow.01",
@@ -39153,7 +39181,7 @@
       "id": "static.privacy.page.privacy-page.jsx-h2.03",
       "category": "static",
       "contentType": "plain",
-      "source": "3. Providers",
+      "source": "3. Service providers and subprocessors",
       "description": "Static jsx h2 copy in app/privacy/page.tsx, privacy-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -39161,7 +39189,7 @@
       "sourceReferences": [
         "app/privacy/page.tsx:38"
       ],
-      "checksum": "41bbf79c0c7c38c5caace44035b05d8686fb654abc49f5a14bd4785863e9da8e"
+      "checksum": "31df56f34161d7580dd1b6dc71367eb3ffb3d39b28c778f46edae8c34b7f4567"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-h2.04",
@@ -39326,7 +39354,7 @@
       "id": "static.privacy.page.privacy-page.jsx-p.03",
       "category": "static",
       "contentType": "plain",
-      "source": "Gummy UI uses Vercel for hosting, WorkOS for sign-in and organisation access, Stripe Managed Payments for checkout, payment and tax support, Convex for application data and backend transactions, Resend for product email, Better Stack for monitoring, and Backblaze B2 for encrypted off-provider backups. Customer-facing payment and paid-download features remain unavailable until their complete production journeys pass.",
+      "source": "Gummy UI uses the following service providers and subprocessors: Vercel for hosting; WorkOS for sign-in and organisation access; Stripe Managed Payments for checkout, payment and tax support; Convex for application data and backend transactions; Resend for product email; Better Stack for monitoring; and Backblaze B2 for encrypted off-provider backups. They process only the data needed to provide those services under their applicable data-processing terms. Stripe and Link are separately responsible for the payment and transaction-support data described above. Customer-facing payment and paid-download features remain unavailable until their complete production journeys pass.",
       "description": "Static jsx p copy in app/privacy/page.tsx, privacy-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -39339,7 +39367,7 @@
       "sourceReferences": [
         "app/privacy/page.tsx:39"
       ],
-      "checksum": "e9f1af81141bf776cda563a53deee83fa6d40b2c17cc922a550436a144e16af1"
+      "checksum": "927b442ec8404247b94a2da2ae90ff33b985d7714f4453419ed75e8d73239afb"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-p.04",
