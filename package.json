@@ -50,6 +50,7 @@
     "backup:restore:proof": "node --conditions=react-server --import tsx scripts/backup-restore-proof.ts",
     "backup:restore:query-proof": "node --conditions=react-server --import tsx scripts/isolated-restore-query-proof.ts",
     "release:operator": "node --import tsx scripts/protected-release-operator.ts",
+    "stripe:production:readiness": "node --import tsx scripts/stripe-production-readiness.ts",
     "convex:dev": "convex dev",
     "convex:check": "convex dev --once"
   },
