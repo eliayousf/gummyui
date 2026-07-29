@@ -1,6 +1,9 @@
 "use client";
 
+/* eslint-disable @next/next/no-css-tags -- React 19 holds the preview Suspense boundary until its route stylesheets load. */
+
 import * as React from "react";
+import type { ComponentPreviewStylesheet } from "../data/component-preview-styles";
 
 const RadixComponentInspectorRuntime = React.lazy(async () => {
   const loadedModule = await import("./RadixComponentInspectorRuntime");
@@ -10,9 +13,11 @@ const RadixComponentInspectorRuntime = React.lazy(async () => {
 export function RadixComponentInspector({
   slug,
   componentName,
+  previewStylesheet,
 }: {
   slug: string;
   componentName: string;
+  previewStylesheet: ComponentPreviewStylesheet;
 }) {
   const [requested, setRequested] = React.useState(false);
 
@@ -45,6 +50,16 @@ export function RadixComponentInspector({
         </div>
       }
     >
+      <link
+        rel="stylesheet"
+        href={previewStylesheet}
+        precedence="gummy-component-preview"
+      />
+      <link
+        rel="stylesheet"
+        href="/styles/gummy-radix-compat.css"
+        precedence="gummy-component-preview"
+      />
       <RadixComponentInspectorRuntime
         slug={slug}
         componentName={componentName}

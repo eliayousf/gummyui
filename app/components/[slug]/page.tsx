@@ -11,6 +11,7 @@ import {
   getComponent,
 } from "../../data/catalogue";
 import { getComponentApi } from "../../data/component-api";
+import { getComponentPreviewStylesheet } from "../../data/component-preview-styles";
 
 export function generateStaticParams() {
   return components.map(({ slug }) => ({ slug }));
@@ -46,6 +47,7 @@ export default async function ComponentDetailPage({
   if (!component) notFound();
   const api = getComponentApi(component.slug);
   if (!api) notFound();
+  const previewStylesheet = getComponentPreviewStylesheet(component.slug);
   const group = catalogueGroups.find(({ id }) => id === component.group)!;
   const jsonLd = {
     "@context": "https://schema.org",
@@ -195,11 +197,16 @@ export default async function ComponentDetailPage({
           </p>
           <Link href="/components/lab">Open the live Component Lab <span aria-hidden="true">↗</span></Link>
         </section>
-        <ComponentInspector slug={component.slug} componentName={component.name} />
+        <ComponentInspector
+          slug={component.slug}
+          componentName={component.name}
+          previewStylesheet={previewStylesheet}
+        />
         {component.radixRegistryName ? (
           <RadixComponentInspector
             slug={component.slug}
             componentName={component.name}
+            previewStylesheet={previewStylesheet!}
           />
         ) : null}
         <section className="component-source-section" aria-labelledby="source-title">

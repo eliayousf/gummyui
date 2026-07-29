@@ -301,6 +301,7 @@ test("loads large component styles only on routes that render them", async () =>
   const [
     homeResponse,
     componentsResponse,
+    componentDetailResponse,
     labResponse,
     docsResponse,
     rtlResponse,
@@ -309,15 +310,17 @@ test("loads large component styles only on routes that render them", async () =>
   ] = await Promise.all([
     render("/"),
     render("/components"),
+    render("/components/accordion"),
     render("/components/lab"),
     render("/docs"),
     render("/rtl"),
     render("/studio"),
     render("/themes"),
   ]);
-  const [home, components, lab, docs, rtl, studio, themes] = await Promise.all([
+  const [home, components, componentDetail, lab, docs, rtl, studio, themes] = await Promise.all([
     homeResponse.text(),
     componentsResponse.text(),
+    componentDetailResponse.text(),
     labResponse.text(),
     docsResponse.text(),
     rtlResponse.text(),
@@ -328,12 +331,20 @@ test("loads large component styles only on routes that render them", async () =>
   assert.doesNotMatch(home, /\/styles\/gummy-(?:form-controls|primitives)\.css/);
   assert.match(home, /\/styles\/showcase-components\.css/);
   assert.doesNotMatch(home, /\/styles\/(?:gummy-core-components|component-lab)\.css/);
-  assert.match(components, /\/styles\/component-docs\.css/);
   assert.doesNotMatch(
     components,
-    /\/styles\/(?:gummy-core-components|gummy-form-controls|gummy-primitives|component-inspector)\.css/,
+    /\/styles\/(?:component-docs|gummy-core-components|gummy-form-controls|gummy-primitives|component-inspector)\.css/,
   );
   assert.doesNotMatch(components, /\/styles\/component-lab\.css/);
+  assert.match(
+    componentDetail,
+    /<link\b[^>]*\bhref="\/styles\/component-inspector\.css"/,
+  );
+  assert.match(componentDetail, /Load interactive preview/);
+  assert.doesNotMatch(
+    componentDetail,
+    /<link\b[^>]*\bhref="\/styles\/(?:component-docs|gummy-core-components|gummy-form-controls|gummy-primitives|gummy-radix-compat)\.css"/,
+  );
   assert.match(lab, /\/styles\/component-docs\.css/);
   assert.match(lab, /\/styles\/component-lab\.css/);
   assert.match(docs, /\/styles\/gummy-form-controls\.css/);

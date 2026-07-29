@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function ComponentLabPage() {
   return (
     <>
+      <link rel="stylesheet" href="/styles/component-docs.css" precedence="gummy-components" />
       <link rel="stylesheet" href="/styles/component-lab.css" precedence="gummy-component-lab" />
       <ComponentLab />
     </>

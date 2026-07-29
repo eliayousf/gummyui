@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import type { ComponentPreviewStylesheet } from "../data/component-preview-styles";
 
 const ComponentInspectorRuntime = React.lazy(async () => {
   const loadedModule = await import("./ComponentInspectorRuntime");
@@ -10,9 +11,11 @@ const ComponentInspectorRuntime = React.lazy(async () => {
 export function ComponentInspector({
   slug,
   componentName,
+  previewStylesheet,
 }: {
   slug: string;
   componentName: string;
+  previewStylesheet: ComponentPreviewStylesheet | null;
 }) {
   const [requested, setRequested] = React.useState(false);
 
@@ -47,6 +50,13 @@ export function ComponentInspector({
         </div>
       }
     >
+      {previewStylesheet ? (
+        <link
+          rel="stylesheet"
+          href={previewStylesheet}
+          precedence="gummy-component-preview"
+        />
+      ) : null}
       <ComponentInspectorRuntime
         slug={slug}
         componentName={componentName}
