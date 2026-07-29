@@ -41,7 +41,7 @@ export default function robots(): MetadataRoute.Robots {
         "/checkout",
         "/checkout/",
         "/downloads/",
-        "/components/lab",
+        "/components/lab$",
         "/preview/private/",
         "/templates/*/preview",
       ],

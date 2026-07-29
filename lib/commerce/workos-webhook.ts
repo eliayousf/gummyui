@@ -58,7 +58,6 @@ export type WorkOSWebhookProjection =
       organizationId: string;
       accountId: AccountId;
       workspaceId: WorkspaceId;
-      workspaceLabel: string;
       role: WorkspaceRole;
       membershipStatus: "invited" | "active" | "suspended" | "revoked";
     }
@@ -198,11 +197,6 @@ export async function normalizeWorkOSEvent(
         organizationId,
         accountId: workOSAccountId(userId),
         workspaceId: workOSOrganizationWorkspaceId(organizationId),
-        workspaceLabel: requireText(
-          event.data.organizationName,
-          "WorkOS organization name",
-          160,
-        ),
         role: normalizeWorkOSRole(event.data.role.slug),
         membershipStatus: deleted
           ? "revoked"

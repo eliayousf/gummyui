@@ -202,6 +202,8 @@ describe("commercial and Pro discovery contract", () => {
       expect(disallowed.has(route)).toBe(false);
       expect(disallowed.has(`${route}/`)).toBe(false);
     }
+    expect(disallowed.has("/components/lab$")).toBe(true);
+    expect(disallowed.has("/components/lab")).toBe(false);
 
     const sitemapPaths = new Set(
       sitemap().map(({ url }) => new URL(url).pathname),

@@ -244,7 +244,6 @@ function membershipEvent(
       object: "organization_membership",
       userId: "user_123456789",
       organizationId: "org_123456789",
-      organizationName: "Design team",
       status,
       role: { slug: "admin" },
       roles: [{ slug: "admin" }],
