@@ -13,10 +13,14 @@ release `e7859e261b4ddaa11dc77e92d3d77aa98cd5dfea`. Typed-test follow-up
 a Node 22 build. GitHub Quality run `30386937076` passes the complete
 exact-commit launch gate. This supersedes
 `c4d0d78`, whose only CI failure was the generated English localisation corpus
-being stale after legitimate copy changes. This is production evidence for
-the public application, not evidence that commerce is enabled or that a
-customer purchase has completed. Later documentation-only releases preserve
-this application runtime and do not supersede its runtime proof.
+being stale after legitimate copy changes. The current protected-release
+change `98483e353ad9323602bdfe9aa7d90dd37c7c15e6` and documentation
+follow-up `c9feeba856bc9380b401c6be3df5b11987501a0a` pass GitHub Quality run
+`30407698983`. Ready production deployment
+`dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` was built from a clean checkout at the
+latter head after Convex and WorkOS credential rotation. This is production
+evidence for the public application, not evidence that commerce is enabled or
+that a customer purchase has completed.
 
 ## Origin and discovery
 
@@ -54,10 +58,17 @@ boundary gates.
 
 ## Current release origin and browser matrix
 
-Runtime-proof Vercel deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` is Ready and owns the
-apex, `www`, Vercel alias and canonical project aliases. Its build log records
-commit `7211e36`, Node 22, zero dependency vulnerabilities, 322 generated
-static pages and a completed deployment.
+Credential-rotation Vercel deployment `dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` is
+Ready and owned the apex, `www`, Vercel alias and canonical project aliases
+when verified. It was
+uploaded from a clean checkout at exact public head
+`c9feeba856bc9380b401c6be3df5b11987501a0a`; its Node 22 build audited 683
+packages with zero vulnerabilities and generated 322 static pages. GitHub
+Quality run `30407698983` independently passes that exact head. Prior
+runtime-proof Vercel deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z` remains
+historical evidence: its build log records commit `7211e36`, Node 22, zero
+dependency vulnerabilities, 322 generated static pages and a completed
+deployment.
 
 A fresh real-origin probe found all 292 current HTML sitemap URLs at HTTP 200.
 The homepage and health route returned 200; HSTS, CSP, MIME-sniffing,
@@ -75,6 +86,21 @@ interactive preview and editable source; each replaced its load control and
 rendered the expected controls/code without runtime errors. These are
 automated browser checks, not a claim of founder visual or named screen-reader
 approval.
+
+The credential-rotation deployment's focused probe returns 200 health with
+commerce mode `disabled` and readiness `not_required`. Unsigned Stripe and
+WorkOS webhook requests return fail-closed 503 responses, the disabled Resend
+webhook returns 404, and anonymous download-grant creation returns the
+indistinguishable private 404. `/auth/sign-in` returns 307 to the replacement
+WorkOS client without leaking query values into this record. The replacement
+WorkOS environment has the exact callback/homepage, apex and `www` CORS
+origins, 30-day maximum sessions, 5-minute access tokens, a 2-day inactivity
+timeout, all four authentication-email classes, the Gummy UI display identity
+and `support@kreydlabs.com`. Its webhook is enabled for the 13 implemented
+identity, organization, membership and invitation events while the application
+processing flag remains false. WorkOS support is handling revocation of an
+orphaned, unused platform-managed key that neither Convex nor the WorkOS
+dashboard exposes for self-service deletion.
 
 ## Lighthouse
 

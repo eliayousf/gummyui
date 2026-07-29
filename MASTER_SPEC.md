@@ -933,15 +933,15 @@ The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
 The latest application-runtime change is
-`e7859e261b4ddaa11dc77e92d3d77aa98cd5dfea`; typed-test follow-up
-`7211e363092a014a86ca45f3fa8f0b6f5814f4e2` is proved by Ready Vercel
-deployment `dpl_DFpZ86uTmF8842A8nakhdCWnoP8z`, whose build log records that
-exact head on Node 22. GitHub Quality run `30386937076` passes the complete
-exact-commit launch gate. This supersedes `c4d0d78`, whose only CI failure was
-the stale generated English localisation corpus after legitimate copy changes;
-the current `en-ebd18dc4a542` corpus is regenerated and reproducible.
-Subsequent documentation-only releases preserve this application runtime and
-do not supersede its runtime proof.
+`98483e353ad9323602bdfe9aa7d90dd37c7c15e6`; documentation follow-up
+`c9feeba856bc9380b401c6be3df5b11987501a0a` is the exact public head proved
+by GitHub Quality run `30407698983`. That run passed the complete launch gate
+in 9 minutes 59 seconds. Ready production deployment
+`dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` was built from a clean checkout at that
+head on Node 22 after the Convex server secret, WorkOS environment credentials
+and WorkOS webhook signing secret were rotated. It owns the apex, `www` and
+canonical Vercel aliases. Earlier deployment and CI identifiers remain below
+as historical evidence rather than the current release.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
 and public resolvers return the new records. HTTPS, all 292 current HTML
@@ -973,13 +973,16 @@ journeys remain unproved; checkout and webhook flags remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value is installed. Vercel Pro is active; spend management is set
-to $1 with notifications and Pause Projects enabled. After the managed Stripe
-resource was restricted and rotated, Ready deployment
-`dpl_HmDWC8MZomdq3ZMB2MtK2VJHGdCL` rebuilt exact public head
-`1401963129eb9236c0b973451a20fcc1f2d81cf9` on Node 22 with the protected
-credential and serves both custom-domain aliases. Public health remains 200 and
-reports commerce disabled. Credential validity, least-privilege replacement
-and every commerce journey remain pending. A current-production browser matrix passes Chrome 150,
+to $1 with notifications and Pause Projects enabled. The current
+credential-rotation release `dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` rebuilt clean
+public head `c9feeba856bc9380b401c6be3df5b11987501a0a` on Node 22 with the
+protected Stripe credential, replacement WorkOS environment and rotated
+Convex server secret. It serves both custom-domain aliases. Public health
+remains 200 and reports commerce disabled; unsigned Stripe and WorkOS
+webhooks return 503, the disabled Resend webhook returns 404, and an anonymous
+download-grant request returns an indistinguishable 404. Credential validity,
+least-privilege Stripe replacement and every commerce journey remain pending.
+A current-production browser matrix passes Chrome 150,
 Firefox 144 and WebKit 2311 at mobile and desktop viewports across the homepage,
 Button detail, pricing and RTL routes with no overflow, console or page errors.
 All three engines also load the deferred interactive Button preview and editable
@@ -1004,15 +1007,25 @@ health and authentication probes, and promoted deployment
 revocation and founder password-manager custody
 remain required.
 
-WorkOS production AuthKit is enabled and its redirect, application, branding and
-webhook are configured; its production credentials are installed in Vercel.
-The production environment now enables Email + Password with the strong policy
-and six-digit Magic Auth; the prior SSO-only customer-facing configuration is
-removed.
-The real-origin `/auth/sign-in` route returns a 307 to WorkOS with the canonical
-`https://gummyui.dev/auth/callback` redirect URI, proving production
-authentication initiation without proving account creation or callback/JWT
-completion.
+WorkOS production AuthKit is enabled in replacement environment
+`environment_01KYNGX9WSHKMGFT7BYTW41PBE`; its application, exact callback,
+homepage, apex/`www` CORS origins, sign-in endpoint, default sign-out redirect,
+branding and 13-event webhook are configured. Its rotated credentials and
+signing secret are installed in Vercel, and the matching deploy-time
+credentials are installed in Convex production. Email + Password uses a
+10-character, zxcvbn-3, breached-password-rejecting policy; six-digit Magic
+Auth and all four lifecycle email classes are enabled. Maximum session length
+is 30 days, access tokens last 5 minutes and inactivity timeout is 2 days.
+WorkOS and Stripe both expose `support@kreydlabs.com` as the relevant customer
+support address. The unused manually generated WorkOS key ending `DWW8` was
+expired immediately. An older orphaned Convex-managed environment has no
+customer data or app traffic, but its platform-managed key cannot be revoked
+through either dashboard; WorkOS support has received a no-secret request to
+revoke that key and delete the environment.
+The real-origin `/auth/sign-in` route returns a 307 to the replacement WorkOS
+client with the canonical `https://gummyui.dev/auth/callback` redirect URI,
+proving production authentication initiation without proving account creation
+or callback/JWT completion.
 Real staging journeys continue to pass for Google sign-in, account projection,
 organization creation/recovery, a controlled invitation, export/download,
 deletion/cancellation, sign-out and unpaid protected-download denial. Production
@@ -1059,7 +1072,8 @@ pattern sets against the 72 raster comparison references, completing founder
 rendered/localisation review, and promoting actual paid releases.
 
 The remaining work is dominated by founder-controlled gates: complete the
-WorkOS CAPTCHA/account/recovery/JWT journey, complete Stripe identity
+WorkOS CAPTCHA/account/recovery/JWT journey, receive WorkOS's confirmation that
+the orphaned platform-managed key was revoked, complete Stripe identity
 verification so the installed full-scope managed key can be replaced by the
 selected restricted key, run the private Figma materializer and visual reviews,
 approve localisation, revoke the superseded B2 key after reauthentication, and

@@ -10,9 +10,11 @@ restricted key. Commerce flags remain fail closed. The current Convex
 production schema, indexes and functions are deployed and its 25 tables are
 confirmed empty. Vercel Pro is active with spend management set to $1,
 notifications and Pause Projects enabled. Ready deployment
-`dpl_HmDWC8MZomdq3ZMB2MtK2VJHGdCL` rebuilt exact public head
-`1401963129eb9236c0b973451a20fcc1f2d81cf9` on Node 22 with the rotated
-protected credential. Vercel marks both custom domains Valid, public DNS
+`dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` was built from a clean checkout at exact
+public head `c9feeba856bc9380b401c6be3df5b11987501a0a` on Node 22 with the
+protected Stripe credential, rotated Convex server secret and replacement
+WorkOS environment. GitHub Quality run `30407698983` passes that exact head.
+Vercel marks both custom domains Valid, public DNS
 returns the Namecheap records, and the complete origin probe passes at
 `gummyui.dev`.
 
