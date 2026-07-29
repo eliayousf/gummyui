@@ -31,6 +31,26 @@ export default function CommunitySubmitPage() {
         <p>Showcase inclusion will not be a certification of accessibility, security, compatibility, performance, commercial success, or endorsement. Any factual claim must be independently evidenced and narrowly attributed.</p>
       </section>
       <section>
+        <h2>How review will work</h2>
+        <p>
+          When intake opens, a reviewer will first confirm that the destination
+          is public and safe to inspect, then check the submitter’s relationship
+          to it and the scope of publication permission. Copy will be edited
+          only for clarity and factual restraint. If a screenshot is proposed,
+          the reviewer will check ownership, visible personal data, third-party
+          marks, and whether the image still represents the live destination.
+          Nothing is published merely because a form was submitted.
+        </p>
+        <p>
+          Accepted entries will receive a final record containing the approved
+          name, description, URL, media, permission evidence, and review date.
+          Rejected or incomplete material should not be retained longer than
+          needed to close the review. An owner can later request correction or
+          removal through the monitored support route; a change in product
+          ownership or destination may trigger a fresh permission check.
+        </p>
+      </section>
+      <section>
         <h2>Submission status</h2>
         <p>Submissions are not yet accepted because there is no approved, monitored intake address or named response owner. This avoids collecting personal data into an unattended channel.</p>
         <p><Link href="/support">Review the current support status</Link> or return to the <Link href="/community">showcase</Link>.</p>

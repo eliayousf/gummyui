@@ -35,6 +35,27 @@ export default function SecurityPage() {
         <h2>Commercial infrastructure</h2>
         <p>Vercel serves the production origin; WorkOS, Convex, Resend, Better Stack and Backblaze B2 are configured behind it. Stripe products, prices and signed webhooks exist, but checkout stays disabled while its least-privilege runtime key and the protected paid release remain gated. Configuration alone is not treated as evidence of a complete customer journey.</p>
       </section>
+      <section>
+        <h2>Customer-facing safeguards</h2>
+        <p>
+          Account, billing, download, export, and deletion routes must authorize
+          each request on the server and return conservative unavailable
+          responses when a dependency or entitlement cannot be proven. Payment
+          webhooks require provider signatures and replay-resistant processing;
+          download links require a current licence and short expiry. Refund and
+          membership changes must update access from durable records, not from
+          a browser-visible success message.
+        </p>
+        <p>
+          Logs and alerts should carry request identifiers, event types, and
+          safe operational context without recording credentials, payment
+          details, protected source, or unnecessary customer data. Encrypted
+          backups need tested restoration, and deployments need a rehearsed
+          rollback path. Those controls remain launch evidence requirements,
+          even when individual provider dashboards report healthy
+          configuration.
+        </p>
+      </section>
     </PublicTextPage>
   );
 }

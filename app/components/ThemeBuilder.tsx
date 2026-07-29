@@ -6,7 +6,7 @@ import { GummyBadge } from "./ui/GummyBadge";
 import { GummyButton } from "./ui/GummyButton";
 import { GummyCard, GummyCardContent, GummyCardDescription, GummyCardFooter, GummyCardHeader, GummyCardTitle } from "./ui/GummyCard";
 import { GummyProgress } from "./ui/GummyProgress";
-import { GummySwitch } from "./ui/GummySwitch";
+import { StandaloneSwitchSpecimen } from "../../lib/presentation/StandaloneSwitchSpecimen";
 
 type ThemeMode = "light" | "dark";
 type Pattern = "none" | "dots" | "grid" | "waves";
@@ -391,7 +391,7 @@ export function ThemeBuilder() {
         <div className="theme-builder__preview-status">
           <GummyBadge variant="success" dot motion="none">Ready</GummyBadge>
           <GummyBadge variant="warning" motion="none">Review</GummyBadge>
-          <GummySwitch label="Weekly digest" defaultChecked />
+          <StandaloneSwitchSpecimen label="Weekly digest" defaultChecked />
         </div>
         <GummyCard>
           <GummyCardHeader>

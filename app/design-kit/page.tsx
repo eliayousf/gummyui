@@ -32,6 +32,39 @@ export default function DesignKitPage() {
         <h2>Current boundary</h2>
         <p>External materialization is <strong>{proDesignKitExternalMaterialization}</strong> and manual QA is <strong>{proDesignKitManualQa}</strong>. Editable design source belongs only in the private Pro repository. The public site may later publish founder-reviewed screenshots and boundary-safe metadata, never the paid design file or reconstructable source.</p>
       </section>
+      <section>
+        <h2>What code-aligned means</h2>
+        <p>
+          The materializer translates maintained component, state, token, and
+          pattern definitions into editable Figma structures. Names and
+          properties are designed to make implementation discussions traceable,
+          but a generated design node is not automatically proof that the React
+          component, browser rendering, or product content is correct. Design
+          and code remain separate artefacts with separate review evidence.
+        </p>
+        <p>
+          Teams should use the kit to explore flows, responsive intent, theme
+          choices, and component composition before handing decisions to
+          implementation. They still need to supply real copy, imagery, data
+          states, authorization rules, and product-specific accessibility
+          requirements. Detaching or renaming components may be useful in a
+          consuming file, but it also ends any simple correspondence with later
+          source-aligned updates.
+        </p>
+      </section>
+      <section>
+        <h2>Why release remains gated</h2>
+        <p>
+          The current payload must be run in the approved live Figma file, then
+          inspected for variant integrity, variable binding, auto layout,
+          responsive instances, dark themes, direction, text overflow, and
+          editing ergonomics. A clean export must be restored independently and
+          compared with the reviewed file before a protected archive can be
+          versioned. Until that evidence exists, the figures above describe an
+          implemented local contract rather than a downloadable customer
+          product.
+        </p>
+      </section>
     </PublicTextPage>
   );
 }

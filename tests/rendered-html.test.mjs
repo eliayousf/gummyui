@@ -33,7 +33,7 @@ test("server-renders the Stage 1C product composition", async () => {
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
 
-test("keeps the searchable catalogue and complete canonical Component Lab on their dedicated routes", async () => {
+test("keeps the searchable catalogue and production Component Lab index on dedicated routes", async () => {
   const [catalogueResponse, labResponse] = await Promise.all([
     render("/components"),
     render("/components/lab"),
@@ -46,26 +46,11 @@ test("keeps the searchable catalogue and complete canonical Component Lab on the
   assert.match(catalogueHtml, /57 open-source React component categories/);
   assert.match(catalogueHtml, /Browse components/);
   assert.match(catalogueHtml, /\/components\/calendar/);
-  for (const label of [
-    "Gummy Label",
-    "Gummy Field",
-    "Gummy Textarea",
-    "Gummy Checkbox",
-    "Gummy Radio Group",
-    "Gummy Native Select",
-    "Gummy Input",
-    "Gummy Badge",
-    "Gummy Card",
-    "Gummy Switch",
-    "Gummy Tabs",
-    "Gummy Dropdown Menu",
-    "Gummy Dialog",
-    "Canonical Button",
-  ]) {
-    assert.match(html, new RegExp(label));
-  }
-  assert.match(html, /A calm, realistic form/);
-  assert.match(html, /gummy-stage3-form-controls-imagegen-01\.webp/);
+  assert.match(html, /data-production-component-lab="deferred"/);
+  assert.match(html, /Inspect one real component at a time/);
+  assert.match(html, /Browse all 57 components/);
+  assert.match(html, /\/components\/accordion/);
+  assert.doesNotMatch(html, /gummy-stage3-form-controls-imagegen-01\.webp/);
 });
 
 test("keeps all canonical components independent from the composition and Lab pages", async () => {
@@ -112,7 +97,11 @@ test("keeps all canonical components independent from the composition and Lab pa
   assert.match(page, /import \{ CompositionShowcase \}/);
   assert.match(cataloguePage, /import \{ CatalogueSearch \}/);
   assert.doesNotMatch(cataloguePage, /ComponentLab/);
-  assert.match(labPage, /import \{ ComponentLab \}/);
+  assert.doesNotMatch(
+    labPage,
+    /from "\.\.\/ComponentLab"|component-docs\.css|component-lab\.css/,
+  );
+  assert.match(lab, /export function ComponentLab/);
   assert.doesNotMatch(page, /function Gummy|<button|<input/);
   for (const name of [
     "GummyButton",
@@ -345,8 +334,10 @@ test("loads large component styles only on routes that render them", async () =>
     componentDetail,
     /<link\b[^>]*\bhref="\/styles\/(?:component-docs|gummy-core-components|gummy-form-controls|gummy-primitives|gummy-radix-compat)\.css"/,
   );
-  assert.match(lab, /\/styles\/component-docs\.css/);
-  assert.match(lab, /\/styles\/component-lab\.css/);
+  assert.doesNotMatch(
+    lab,
+    /<link\b[^>]*\bhref="\/styles\/(?:component-docs|component-lab)\.css"/,
+  );
   assert.match(docs, /\/styles\/gummy-form-controls\.css/);
   assert.doesNotMatch(docs, /\/styles\/gummy-primitives\.css/);
   assert.match(rtl, /\/styles\/gummy-primitives\.css/);

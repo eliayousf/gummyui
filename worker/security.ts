@@ -24,6 +24,9 @@ export const SECURITY_HEADERS = {
 export const STRICT_TRANSPORT_SECURITY =
   "max-age=63072000; includeSubDomains; preload";
 
+export const PUBLIC_PAGE_CACHE_CONTROL =
+  "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400";
+
 export const SENSITIVE_PATH_PATTERN =
   /^\/(?:api|auth|sign-in|account|checkout|downloads)(?:\/|$)/;
 
@@ -65,7 +68,7 @@ export function withSecurityHeaders(requestUrl: string, response: Response): Res
     ) {
       hardened.headers.set(
         "Cache-Control",
-        "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
+        PUBLIC_PAGE_CACHE_CONTROL,
       );
     }
   }

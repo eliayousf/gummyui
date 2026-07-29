@@ -124,7 +124,7 @@ export const accountPublicCopy = {
   signIn: {
     metadataTitle: "Secure account sign-in · Gummy UI",
     metadataDescription:
-      "Sign in to Gummy UI through the server-verified customer account flow.",
+      "Use Gummy UI's server-verified sign-in flow to access available account, workspace, team, privacy, purchase, licence, billing, and download services.",
     eyebrow: "Account access",
     title: "Secure customer sign-in.",
     lede:

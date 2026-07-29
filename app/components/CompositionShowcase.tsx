@@ -13,9 +13,9 @@ import {
   GummyCardTitle,
 } from "./ui/GummyCard";
 import { GummyInput } from "./ui/GummyInput";
-import { GummySwitch } from "./ui/GummySwitch";
 import { GummyTab, GummyTabPanel, GummyTabs, GummyTabsList } from "./ui/GummyTabs";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
+import { StandaloneSwitchSpecimen } from "../../lib/presentation/StandaloneSwitchSpecimen";
 import { componentCount } from "../data/catalogue";
 import {
   proBlockCount,
@@ -131,7 +131,7 @@ function DashboardComposition() {
             </GummyCardHeader>
             <GummyCardContent>
               <div className="rhythm-list">
-                <div><span>Weekly digest</span><GummySwitch label="Weekly digest" defaultChecked /></div>
+                <div><span>Weekly digest</span><StandaloneSwitchSpecimen label="Weekly digest" defaultChecked /></div>
                 <div><span>Launch review</span><GummyBadge variant="warning" motion="none">Tomorrow</GummyBadge></div>
                 <div><span>Design system</span><GummyBadge variant="success" dot motion="none">Ready</GummyBadge></div>
               </div>
@@ -196,7 +196,9 @@ export function CompositionShowcase() {
         <section className="showcase-section showcase-section--dashboard" id="dashboard">
           <div className="showcase-section__heading">
             <div><p className="showcase-kicker">Composition proof 01</p><h2>Distinctive at product density.</h2></div>
-            <p>The material creates hierarchy around real content. Reading planes stay calm; connected reservoirs and responsive motion carry the character.</p>
+            <p>
+              The material creates hierarchy around real content. Reading planes stay calm; connected reservoirs and responsive motion carry the character. When evaluating Gummy UI, start with the workflow your customers repeat: navigation, search, status, selection, and a primary action. Replace the sample copy with realistic labels, then verify keyboard order, focus, narrow screens, RTL, dark mode, and reduced motion. The source stays in your repository, so teams can tune tokens and layout without wrapping product logic in a visual runtime. Component detail pages document the anatomy and behavior contract behind each specimen. Install only the categories a screen needs, keep application state outside presentation components, and review upgrades as ordinary source changes in version control before releasing them to customers.
+            </p>
           </div>
           <DashboardComposition />
         </section>

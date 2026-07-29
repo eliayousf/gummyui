@@ -16,12 +16,19 @@ const entryBudgets = {
   "app/components/ComponentInspectorRuntime.tsx": 220_000,
   "app/components/RadixComponentInspector.tsx": 100_000,
   "app/components/RadixComponentInspectorRuntime.tsx": 220_000,
-  "app/components/ComponentLab.tsx": 250_000,
   "app/components/ThemeBuilder.tsx": 185_000,
   "app/components/GummyFrameStudio.tsx": 130_000,
 };
 
 const failures = [];
+
+for (const entryKey of ["app/components/ComponentLab.tsx"]) {
+  if (manifest[entryKey]) {
+    failures.push(
+      `${entryKey} must not be reachable from the production client graph.`,
+    );
+  }
+}
 
 async function gzipBytes(relativePath) {
   const contents = await readFile(path.join(clientRoot, relativePath));

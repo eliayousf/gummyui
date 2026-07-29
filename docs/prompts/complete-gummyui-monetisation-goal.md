@@ -138,9 +138,9 @@ scratch.
   refresh, authenticated unpaid download denial and two real privacy emails
   pass. Recovery, a second-identity invitation, final deletion and commerce
   remain open.
-- English revision `en-bdc6f9cc0a42` contains 3,041 records, of which 2,763 are
+- English revision `en-ab1e85bd6250` contains 3,118 records, of which 2,840 are
   translatable. The last complete 19-locale private draft and review cycle is
-  checksum-bound to superseded revision `en-e5d133b48e13`; the current
+  checksum-bound to superseded revision `en-bdc6f9cc0a42`; the current
   revision therefore remains fail closed pending private regeneration,
   rendered QA and founder review.
 - The cross-repository local readiness check passes 18 of 18 evidence groups.

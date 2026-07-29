@@ -1,5 +1,5 @@
 import { spawn } from "node:child_process";
-import { access } from "node:fs/promises";
+import { access, stat } from "node:fs/promises";
 import { request } from "node:http";
 import { createServer } from "node:net";
 import path from "node:path";
@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const nextBinary = path.join(root, "node_modules", "next", "dist", "bin", "next");
+const PUBLIC_PAGE_CACHE_CONTROL =
+  "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400";
 
 const expectedSecurityHeaders = {
   "content-security-policy": [
@@ -34,12 +36,20 @@ const expectedSecurityHeaders = {
 
 const publicRoutes = [
   "/",
+  "/blocks/about",
+  "/blog/designing-the-gel-pop-language",
+  "/components/accordion",
+  "/components/lab",
   "/pricing",
   "/commercial-license",
   "/refund",
   "/terms",
   "/privacy",
   "/subprocessors",
+  "/templates/relay-forge",
+  "/styles/component-inspector.css",
+  "/r/gummy-button.json",
+  "/gummy-card-pocket-frame-imagegen-02.webp",
   "/robots.txt",
   "/sitemap.xml",
 ];
@@ -50,6 +60,8 @@ const sensitiveRoutes = [
   "/checkout",
   "/downloads/not-a-grant",
   "/api/health",
+  "/api/webhooks/stripe",
+  "/api/cron/backup",
 ];
 
 const requiredSitemapPaths = [
@@ -200,7 +212,70 @@ try {
     const response = await fetch(`${origin}${route}`, { redirect: "manual" });
     invariant(response.status === 200, `${route} returned ${response.status}.`);
     verifySecurityHeaders(route, response);
+    invariant(
+      response.headers.get("cache-control") === PUBLIC_PAGE_CACHE_CONTROL,
+      `${route} did not return public freshness.`,
+    );
   }
+
+  const componentLabResponse = await fetch(`${origin}/components/lab`);
+  const componentLabHtml = await componentLabResponse.text();
+  invariant(
+    componentLabResponse.headers.get("cache-control")
+      === PUBLIC_PAGE_CACHE_CONTROL,
+    "/components/lab did not return public freshness.",
+  );
+  invariant(
+    componentLabHtml.includes('data-production-component-lab="deferred"'),
+    "/components/lab did not render the production-safe review index.",
+  );
+  invariant(
+    !componentLabHtml.includes("/styles/component-docs.css")
+      && !componentLabHtml.includes("/styles/component-lab.css"),
+    "/components/lab retained full workbench styles in production.",
+  );
+  const componentLabHtmlBytes = Buffer.byteLength(componentLabHtml);
+  const componentLabDomNodes =
+    (componentLabHtml.match(/<[a-z][^>]*>/giu) ?? []).length;
+  invariant(
+    componentLabHtmlBytes <= 30_000,
+    "/components/lab exceeded its 30 KB production HTML budget.",
+  );
+  invariant(
+    componentLabDomNodes <= 250,
+    "/components/lab exceeded its 250-node production DOM budget.",
+  );
+  invariant(
+    !/<img\b/iu.test(componentLabHtml),
+    "/components/lab retained full-workbench images in production.",
+  );
+  const componentLabScripts = [
+    ...componentLabHtml.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/giu),
+  ].map((match) => match[1]);
+  const componentLabScriptSizes = [];
+  for (const scriptUrl of componentLabScripts) {
+    const pathname = new URL(scriptUrl, origin).pathname;
+    if (!pathname.startsWith("/_next/")) continue;
+    const scriptPath = path.join(root, ".next", pathname.slice("/_next/".length));
+    const details = await stat(scriptPath);
+    componentLabScriptSizes.push(details.size);
+    invariant(
+      details.size <= 250_000,
+      `/components/lab references oversized script ${pathname} (${details.size} bytes).`,
+    );
+  }
+  const immutableScriptUrl = componentLabScripts.find((scriptUrl) =>
+    new URL(scriptUrl, origin).pathname.startsWith("/_next/static/"),
+  );
+  invariant(immutableScriptUrl, "/components/lab emitted no immutable Next script.");
+  const immutableScriptResponse = await fetch(
+    new URL(immutableScriptUrl, origin),
+  );
+  invariant(
+    immutableScriptResponse.headers.get("cache-control")
+      === "public, max-age=31536000, immutable",
+    "Next fingerprinted scripts lost immutable caching.",
+  );
 
   for (const route of sensitiveRoutes) {
     const response = await fetch(`${origin}${route}`, { redirect: "manual" });
@@ -305,7 +380,16 @@ try {
   console.log(JSON.stringify({
     nativeNextProduction: "passed",
     publicRoutes: publicRoutes.length,
+    publicCacheControl: PUBLIC_PAGE_CACHE_CONTROL,
     sensitiveRoutes: sensitiveRoutes.length,
+    sensitiveCacheControl: "private, no-store",
+    componentLab: {
+      htmlBytes: componentLabHtmlBytes,
+      domNodes: componentLabDomNodes,
+      images: 0,
+      fullWorkbenchStylesheets: 0,
+      largestScriptBytes: Math.max(...componentLabScriptSizes),
+    },
     securityHeaders: Object.keys(expectedSecurityHeaders).length,
     sitemapRequiredPaths: requiredSitemapPaths.length,
     alternateHostRedirects: 2,

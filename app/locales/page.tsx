@@ -76,6 +76,26 @@ export default function LocalesPage() {
         </ol>
         <p>The repository workflow and release evidence requirements are documented in <a href="/docs/markdown/guides/localisation.md">the localisation review guide</a>.</p>
       </section>
+      <section>
+        <h2>How fail-closed language routing works</h2>
+        <p>
+          Draft dictionaries are review artefacts, not public locales. A
+          pending language has no customer-facing route, switcher destination,
+          search index entry, sitemap alternate, or availability claim. This
+          prevents an incomplete draft from silently mixing with English or
+          exposing untranslated navigation, legal, support, licence, pricing,
+          and account language as though the experience were finished.
+        </p>
+        <p>
+          When a locale is approved, its route must use one complete versioned
+          dictionary and the correct document language and direction. Dates,
+          numbers, currencies, names, keyboard input, validation, transactional
+          email, and externally hosted identity or payment surfaces also need
+          review; translating page paragraphs alone is insufficient. If a
+          release later loses integrity, routing should fall back to the
+          canonical English page rather than publish a partial mixture.
+        </p>
+      </section>
     </PublicTextPage>
   );
 }

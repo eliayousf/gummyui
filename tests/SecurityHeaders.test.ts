@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { withSecurityHeaders } from "../worker/security";
+import {
+  PUBLIC_PAGE_CACHE_CONTROL,
+  withSecurityHeaders,
+} from "../worker/security";
 
 describe("production response security headers", () => {
   it("adds the public-site browser protections", () => {
@@ -73,7 +76,8 @@ describe("production response security headers", () => {
       }),
     );
 
-    expect(html.headers.get("Cache-Control")).toContain("s-maxage=300");
+    expect(html.headers.get("Cache-Control")).toBe(PUBLIC_PAGE_CACHE_CONTROL);
+    expect(html.headers.get("Cache-Control")).toContain("max-age=300");
     expect(asset.headers.get("Cache-Control")).toBe(
       "public, max-age=31536000, immutable",
     );

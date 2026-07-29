@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!template) return {};
   return {
     title: `${template.name} isolated preview status · Gummy UI`,
-    description: `Source-free preview publication status for the private ${template.name} Pro template.`,
+    description: `Review source-free preview and publication status for ${template.name}, while private editable and compiled Gummy UI Pro template source stays protected.`,
     alternates: { canonical: `/templates/${template.slug}/preview` },
     robots: { index: false, follow: false, noarchive: true },
   };

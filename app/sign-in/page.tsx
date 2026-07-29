@@ -8,6 +8,7 @@ const copy = accountPublicCopy.signIn;
 export const metadata: Metadata = {
   title: copy.metadataTitle,
   description: copy.metadataDescription,
+  alternates: { canonical: "/sign-in" },
   robots: {
     index: false,
     follow: false,
@@ -26,7 +27,7 @@ export default function SignInPage() {
       <section>
         <h2>{copy.sections[0].title}</h2>
         <p>{copy.sections[0].body}</p>
-        <Link href="/auth/sign-in">{copy.sections[0].action}</Link>
+        <Link href="/auth/sign-in" prefetch={false} rel="nofollow">{copy.sections[0].action}</Link>
       </section>
       <section>
         <h2>{copy.sections[1].title}</h2>

@@ -19,6 +19,20 @@ export default function ThemesPage() {
       <section>
         <h2>Theme contract</h2>
         <p>Semantic canvas, surface, ink, line, focus, and status roles remain stable. Fruit families provide material identity, while components derive their light, rim, depth, and shadow values from the shared system.</p>
+        <h3>Review before export</h3>
+        <p>
+          Start with semantic roles, not isolated swatches: canvas and ink must
+          support long-form reading, focus must remain unmistakable, and status
+          colours must work alongside text or icons. Compare both colour modes
+          with realistic labels, validation, disabled controls, dense cards,
+          charts, and keyboard focus. Then check narrow screens, 200% zoom,
+          RTL, forced colours, and reduced motion before copying the CSS into a
+          product. A shared builder URL records a design direction; it is not a
+          substitute for testing the actual content and component states your
+          customers will use. Save one shared URL as the review baseline,
+          compare the exported token diff in version control, and record why
+          any semantic role changed before shipping the theme.
+        </p>
       </section>
     </PublicTextPage>
   );

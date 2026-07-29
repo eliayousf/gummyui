@@ -43,6 +43,46 @@ export default function RtlPage() {
           <li>Keep verification codes and other inherently LTR data in an explicit inner boundary.</li>
         </ul>
       </section>
+      <section>
+        <h2>Direction is more than mirrored spacing</h2>
+        <p>
+          A right-to-left page needs the correct document direction so inline
+          start and end, text alignment, scroll position, disclosure motion,
+          and directional keyboard behavior share one context. Individual
+          strings still keep their own Unicode direction, which matters for
+          mixed Arabic or Hebrew text containing URLs, email addresses, code,
+          prices, dates, and identifiers. Isolate those values rather than
+          forcing the whole interface back to left-to-right.
+        </p>
+        <p>
+          Product teams should review the meaning of icons instead of applying
+          a blanket horizontal flip. Back and forward arrows usually follow
+          reading direction; media playback, check marks, clocks, and brand
+          marks generally do not. Charts and timelines need a decision based on
+          the data model. Visual movement, focus order, DOM order, and spoken
+          reading order must remain coherent after that decision.
+        </p>
+      </section>
+      <section>
+        <h2>What to verify before publishing an RTL locale</h2>
+        <p>
+          Exercise navigation, overlays, tables, forms, validation, calendars,
+          sliders, pagination, carousels, breadcrumbs, and mixed-direction
+          account data with native readers. Test keyboard arrows, home and end,
+          zoom, narrow screens, dark mode, reduced motion, forced colours, and
+          long translated labels. Transactional email and hosted identity or
+          payment screens need the same scrutiny as the main site.
+        </p>
+        <p>
+          Gummy UI’s logical styles and direction-aware components provide a
+          foundation, not certification of a consuming application. English is
+          currently the only published site language. Persian, Hebrew, and
+          Arabic remain fail-closed until their complete dictionaries, rendered
+          pages, terminology, metadata, bidirectional behavior, and
+          founder-review records pass the publication gates described on the
+          language-status page.
+        </p>
+      </section>
     </PublicTextPage>
   );
 }

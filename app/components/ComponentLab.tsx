@@ -610,11 +610,11 @@ function CardWorkbench() {
       </form>
       <div className="workbench__stage">
         {interaction === "link" ? (
-          <GummyCardLink {...sharedProps} href="#card-review-gate" aria-label="Open Project pulse details">
+          <GummyCardLink {...sharedProps} href="#card-review-gate">
             {cardBody}
           </GummyCardLink>
         ) : interaction === "button" ? (
-          <GummyCardButton {...sharedProps} aria-label="Select Project pulse" onClick={() => setActivations((count) => count + 1)}>
+          <GummyCardButton {...sharedProps} onClick={() => setActivations((count) => count + 1)}>
             {cardBody}
           </GummyCardButton>
         ) : (
@@ -689,7 +689,7 @@ function DropdownDemo({ defaultOpen = false }: { defaultOpen?: boolean }) {
 
   return (
     <GummyDropdownMenu open={defaultOpen ? true : undefined} modal={false}>
-      <GummyDropdownMenuTrigger aria-label={`Sort projects, currently ${sort}`}>
+      <GummyDropdownMenuTrigger>
         Sort · {sort}
       </GummyDropdownMenuTrigger>
       <GummyDropdownMenuPortal>
@@ -728,8 +728,12 @@ function DialogPreviewContents() {
       <h3 className="gummy-dialog__title">Archive project?</h3>
       <p className="gummy-dialog__description">You can restore it later. Your current collaborators will lose access until then.</p>
       <div className="gummy-dialog__actions">
-        <GummyButton tabIndex={-1} size="small" variant="secondary">Keep project</GummyButton>
-        <GummyButton tabIndex={-1} size="small">Archive</GummyButton>
+        <span className="gummy-button" data-size="small" data-variant="secondary" data-finish="gel">
+          <span className="gummy-button__body"><span className="gummy-button__content"><span>Keep project</span></span></span>
+        </span>
+        <span className="gummy-button" data-size="small" data-variant="primary" data-finish="gel">
+          <span className="gummy-button__body"><span className="gummy-button__content"><span>Archive</span></span></span>
+        </span>
       </div>
     </>
   );
@@ -847,7 +851,7 @@ export function ComponentLab() {
       <a className="skip-link" href="#main-content">Skip to component specimens</a>
 
       <header className="lab-header">
-        <a href="#main-content" className="lab-brand" aria-label="Gummy UI Component Lab home">
+        <a href="#main-content" className="lab-brand">
           <span className="lab-brand__mark" aria-hidden="true">g</span>
           <span>Gummy UI</span>
           <span className="lab-brand__tag">Component Lab</span>
@@ -1347,7 +1351,7 @@ export function ComponentLab() {
               <GummySlider defaultValue={62}>
                 <GummySliderLabel>Frame padding</GummySliderLabel>
                 <GummySliderValue>{([value]) => `${value}px`}</GummySliderValue>
-                <GummySliderControl><GummySliderThumb /></GummySliderControl>
+                <GummySliderControl><GummySliderThumb aria-label="Frame padding" /></GummySliderControl>
               </GummySlider>
               <GummySlider defaultValue={[20, 78]}>
                 <GummySliderLabel>Contrast range</GummySliderLabel>
@@ -1795,11 +1799,11 @@ export function ComponentLab() {
             </div>
             <div className="card-specimen">
               <span>Selected · article</span>
-              <GummyCard className="card-demo" selected aria-label="Selected Project pulse card"><ProjectCardBody /></GummyCard>
+              <GummyCard className="card-demo" selected><ProjectCardBody /></GummyCard>
             </div>
             <div className="card-specimen">
               <span>Interactive focus · link</span>
-              <GummyCardLink className="card-demo gummy-card--preview-focus" href="#card-review-gate" aria-label="Open Project pulse details"><ProjectCardBody /></GummyCardLink>
+              <GummyCardLink className="card-demo gummy-card--preview-focus" href="#card-review-gate"><ProjectCardBody /></GummyCardLink>
             </div>
             <div className="card-specimen card-specimen--wide">
               <span>Dense content · responsive</span>

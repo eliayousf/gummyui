@@ -42,6 +42,39 @@ export default function ProPage() {
         <p>Individual, Team and Organization monthly, yearly and lifetime prices, seats, update access, commercial-use rights, refund policy, support target and selling entity are approved and documented. <Link href="/pricing">Review pricing</Link> or read the <Link href="/commercial-license">commercial licence</Link>.</p>
         <p>Checkout remains closed until founder manual QA and Figma design review/export, versioned release packaging, Stripe entitlement delivery and production verification pass. No waiting-list submission is active.</p>
       </section>
+      <section>
+        <h2>What a customer release must contain</h2>
+        <p>
+          A purchasable version will include the paid source and documentation
+          promised for the entitled offer, packaged as an immutable archive
+          with a version, manifest, and checksum. The archive must be built from
+          the reviewed private commit, inspected for secrets and public/private
+          boundary mistakes, restored from protected storage, and downloaded
+          through an expiring server-authorized route. Public previews can help
+          evaluate the product, but they are never the delivery mechanism.
+        </p>
+        <p>
+          The account area must derive access from verified payment and licence
+          records rather than a browser flag. It must handle successful and
+          failed payment, renewal, cancellation, refund, team membership,
+          invitation, export, and deletion consistently. Transactional email,
+          support, monitoring, backup, restore, and rollback evidence are part
+          of the release gate because receiving source is only one part of a
+          dependable purchase.
+        </p>
+      </section>
+      <section>
+        <h2>What you can evaluate today</h2>
+        <p>
+          The source-free catalogue lets prospective customers inspect the
+          intended categories, composition names, product routes, requirements,
+          implementation status, and design-kit scope without opening the paid
+          repository. Status language is deliberately conservative. No current
+          page, disabled checkout control, or implemented count should be
+          interpreted as an offer to buy, a promise of a release date, or proof
+          that a manual review has passed.
+        </p>
+      </section>
     </PublicTextPage>
   );
 }

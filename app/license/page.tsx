@@ -41,6 +41,26 @@ SOFTWARE.`}</code></pre>
         <h2>Pro boundary</h2>
         <p>Paid blocks, templates and design-kit files are proprietary and use the separate <Link href="/commercial-license">Gummy UI Pro commercial licence</Link>. Buying Pro does not change the MIT terms for public component source.</p>
       </section>
+      <section>
+        <h2>What this means in a product</h2>
+        <p>
+          You may install, inspect, change, combine, publish, and distribute the
+          public component source, including in commercial software, subject to
+          the notice requirement in the licence above. Keep a copy of the MIT
+          notice with substantial portions of that source. Gummy UI does not
+          require a runtime account, per-seat payment, attribution in the
+          product interface, or permission to modify the public components.
+        </p>
+        <p>
+          Your application, brand assets, copy, dependencies, and modifications
+          may have additional obligations that this licence does not resolve.
+          The software is supplied without warranty, and consuming teams remain
+          responsible for testing their particular build, content, security,
+          accessibility, and legal requirements. Registry access is a delivery
+          convenience; the licence attaches to the copied public source, not to
+          continued availability of this website.
+        </p>
+      </section>
     </PublicTextPage>
   );
 }

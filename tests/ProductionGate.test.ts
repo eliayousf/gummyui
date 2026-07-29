@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import packageJson from "../package.json";
-import nextConfig from "../next.config";
+import nextConfig, { publicCacheableNextPaths } from "../next.config";
 import robots from "../app/robots";
 import sitemap from "../app/sitemap";
 import { metadata as blocksMetadata } from "../app/blocks/page";
@@ -29,6 +29,7 @@ import {
   proTemplates,
 } from "../app/data/pro-catalogue";
 import {
+  PUBLIC_PAGE_CACHE_CONTROL,
   SECURITY_HEADERS,
   SENSITIVE_PATH_PATTERN,
   STRICT_TRANSPORT_SECURITY,
@@ -72,6 +73,14 @@ describe("native Next production headers", () => {
       ...SECURITY_HEADERS,
       "Strict-Transport-Security": STRICT_TRANSPORT_SECURITY,
     });
+
+    for (const source of publicCacheableNextPaths) {
+      const route = routes?.find((candidate) => candidate.source === source);
+      expect(route?.headers).toContainEqual({
+        key: "Cache-Control",
+        value: PUBLIC_PAGE_CACHE_CONTROL,
+      });
+    }
 
     for (const source of [
       "/api/:path*",

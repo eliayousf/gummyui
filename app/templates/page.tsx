@@ -36,6 +36,43 @@ export default function TemplatesPage() {
           ))}
         </div>
       </section>
+      <section>
+        <h2>Choose by product structure, not decoration</h2>
+        <p>
+          Each template describes a different information architecture,
+          customer task, and operating model. Start with the routes and states
+          your product genuinely needs, then compare its content hierarchy,
+          navigation depth, data density, and conversion path with the public
+          brief. A matching colour palette is not evidence that a template fits
+          the product. Teams should expect to replace every demonstration name,
+          claim, image, metric, integration, and policy reference with reviewed
+          material from their own source of truth.
+        </p>
+        <p>
+          The route contracts expose enough information to plan integration
+          without revealing paid implementation. Inspect whether the proposed
+          pages cover the real customer journey, where authentication or
+          permission boundaries occur, and how loading, empty, error, success,
+          offline, and denied states will be supplied by the application. The
+          finished product remains responsible for its data model, server
+          authorization, analytics consent, legal copy, support operation, and
+          production monitoring.
+        </p>
+      </section>
+      <section>
+        <h2>What the status does—and does not—prove</h2>
+        <p>
+          An implemented record means the private repository contains the
+          declared responsive source and automated evidence. It is not a
+          customer release. Before any template can be sold or downloaded, its
+          complete states must pass manual browser, keyboard, zoom,
+          assistive-technology, dark-mode, reduced-motion, and RTL review. A
+          versioned archive must then pass boundary inspection, receive
+          checksums, enter protected storage, and be retrievable only through a
+          current server-side entitlement. Until those gates are recorded, the
+          public pages remain status reports rather than purchase promises.
+        </p>
+      </section>
     </PublicTextPage>
   );
 }
