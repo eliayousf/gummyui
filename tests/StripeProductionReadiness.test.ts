@@ -87,6 +87,16 @@ describe("Stripe production readiness operator", () => {
       [{ code: "resource_missing" }, "price_resource_missing"],
       [{ type: "StripePermissionError" }, "price_permission_denied"],
       [{ statusCode: 403 }, "price_permission_denied"],
+      [
+        {
+          raw: {
+            statusCode: 401,
+            type: "invalid_request_error",
+          },
+          type: "StripeAuthenticationError",
+        },
+        "restricted_key_rejected",
+      ],
       [{ statusCode: 500 }, "price_read_failed"],
     ] as const) {
       let failure: unknown;

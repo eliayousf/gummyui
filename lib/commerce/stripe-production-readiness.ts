@@ -22,6 +22,7 @@ interface ReadinessDependencies {
 
 export type StripeReadinessFailureCode =
   | "restricted_key_unavailable"
+  | "restricted_key_rejected"
   | "checkout_enabled"
   | "price_configuration_invalid"
   | "price_configuration_duplicate"
@@ -168,17 +169,35 @@ function assertPriceMatchesPlan(
 
 function classifyPriceReadFailure(
   error: unknown,
-): "price_permission_denied" | "price_resource_missing" | "price_read_failed" {
+):
+  | "restricted_key_rejected"
+  | "price_permission_denied"
+  | "price_resource_missing"
+  | "price_read_failed" {
   if (!error || typeof error !== "object") return "price_read_failed";
   const record = error as {
     code?: unknown;
+    raw?: unknown;
     statusCode?: unknown;
     type?: unknown;
   };
-  if (record.code === "resource_missing") return "price_resource_missing";
+  const raw = record.raw && typeof record.raw === "object"
+    ? record.raw as {
+      code?: unknown;
+      statusCode?: unknown;
+      type?: unknown;
+    }
+    : undefined;
+  const code = record.code ?? raw?.code;
+  const statusCode = record.statusCode ?? raw?.statusCode;
+  const type = record.type ?? raw?.type;
+  if (type === "StripeAuthenticationError" || statusCode === 401) {
+    return "restricted_key_rejected";
+  }
+  if (code === "resource_missing") return "price_resource_missing";
   if (
-    record.type === "StripePermissionError"
-    || record.statusCode === 403
+    type === "StripePermissionError"
+    || statusCode === 403
   ) {
     return "price_permission_denied";
   }
