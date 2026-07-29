@@ -118,21 +118,27 @@ scratch.
   intentionally ephemeral distributed-rate-limit table, Stripe
   checkout/webhook lifecycle, durable email, privacy, refund and chargeback
   handling pass locally. The current 25-table schema/functions are deployed to
-  production, and a real encrypted 24-table backup plus latest-backup
-  verification succeeded. An isolated target restored and reconciled all 24
-  durable tables with zero records; this proves crypto, storage and sequencing
-  for an empty system, not representative customer-data recovery. Customer
-  journeys and representative restore remain unverified.
+  production. The latest encrypted production backup independently verified
+  all 24 durable tables and 26 records, and a new empty isolated target restored
+  and protected-re-exported the same counts with `rateLimitWindows` empty.
+  After the WorkOS membership retry, a current backup independently verified
+  all 24 durable tables and 28 records; the preceding 26-record backup remains
+  the restore proof. Production was export-only throughout both operations.
 - Stripe Managed Payments is live-account ready with three products, nine
   prices and `support@kreydlabs.com` configured. The application runtime still
   lacks its restricted production key and verified production webhook, and no
   sandbox or live revenue-loop journey has been completed; checkout and webhook
   flags remain fail closed.
-- The Vercel-targeted production build passes across 320 generated and dynamic
+- The Vercel-targeted production build passes across 322 generated and dynamic
   routes. Vercel Pro is active, Namecheap DNS has converged, HTTPS and custom
   domains are valid, and `gummyui.dev` serves the pushed public commit with
   commerce still fail closed.
-- English revision `en-ebd18dc4a542` contains 2,933 records. All 19 private AI
+- Production hosted sign-up/callback, profile/workspace projection, team
+  switching, data export/download, deletion request/cancellation, session
+  refresh, authenticated unpaid download denial and two real privacy emails
+  pass. Recovery, a second-identity invitation, final deletion and commerce
+  remain open.
+- English revision `en-f385e0bf031b` contains 2,935 records. All 19 private AI
   drafts pass structural and automated quality checks with zero high-severity
   flags and have checksum-bound founder-review screens; every locale remains
   fail closed pending rendered QA and founder review.

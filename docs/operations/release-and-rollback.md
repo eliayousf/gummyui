@@ -7,13 +7,12 @@ connection. The Stripe resource is restricted to Production and its initial
 credential was rotated, but Stripe identifies the resulting secret as a
 full-scope managed Standard key rather than the prepared least-privilege
 restricted key. Commerce flags remain fail closed. The current Convex
-production schema, indexes and functions are deployed and its 25 tables are
-confirmed empty. Vercel Pro is active with spend management set to $1,
-notifications and Pause Projects enabled. Ready deployment
-`dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` was built from a clean checkout at exact
-public head `c9feeba856bc9380b401c6be3df5b11987501a0a` on Node 22 with the
+production schema, indexes and functions are deployed. Vercel Pro is active
+with spend management set to $1, notifications and Pause Projects enabled.
+Ready deployment `dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb` was built from exact
+public head `e6861f544e3c86ee71b2bcdd21c57beee1d2651b` on Node 22 with the
 protected Stripe credential, rotated Convex server secret and replacement
-WorkOS environment. GitHub Quality run `30407698983` passes that exact head.
+WorkOS environment. GitHub Quality run `30453896180` passes that exact head.
 Vercel marks both custom domains Valid, public DNS
 returns the Namecheap records, and the complete origin probe passes at
 `gummyui.dev`.
@@ -22,8 +21,14 @@ The controlled rollback switched production to recorded known-good deployment
 `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, verified the homepage, LLM index, health
 contract and authentication initiation, and promoted the then-current audited
 deployment `dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` (`977012c`) back.
-Post-promotion homepage, agent guide and health probes passed. A fresh
-backup, independent operator-key verification and isolated restore also pass.
+Post-promotion homepage, agent guide and health probes passed. A later fresh
+non-empty backup independently verified and restored all 24 durable tables and
+26 production records into a new empty isolated target; the protected
+post-restore export matched and `rateLimitWindows` remained empty.
+After the WorkOS membership retry, current backup
+`20260729T125815872Z-36a3348ed93148cfad2fa6e193d8023a` independently verified
+the updated 24-table/28-record production state. The preceding 26-record
+backup remains the restore proof and production was export-only throughout.
 Stripe credential runtime exercise and least-privilege replacement,
 paid-release ownership and the complete customer acceptance gate remain
 pending.

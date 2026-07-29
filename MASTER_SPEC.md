@@ -858,14 +858,16 @@ separately configured Stripe catalogue and live Vercel control plane remain
 fail closed for commerce.
 
 The localisation source is frozen reproducibly at revision
-`en-ebd18dc4a542`: 2,933 records, of which 2,662 are translatable and 271 are
+`en-f385e0bf031b`: 2,935 records, of which 2,664 are translatable and 271 are
 protected. English is the only published language. All 19 private AI drafts
 pass checksum, ordering, completeness, placeholder and protected-span
-verification. Model replacement and provenance-recorded fallback repair
-reduced every automated quality report to zero high-severity flags, and all 19
-checksum-bound founder-review screens exist. Every locale remains fail closed
-pending rendered QA and founder review; no unreviewed AI translation is
-represented as final or as professionally translated.
+verification. The current refresh reused 3,278 of 3,284 exact source units per
+locale, translated only six new unique units and proved all 2,920 unchanged
+message translations byte-identical. Every automated quality report has zero
+high-severity flags, and all 19 checksum-bound founder-review screens exist.
+Every locale remains fail closed pending rendered QA and founder review; no
+unreviewed AI translation is represented as final or as professionally
+translated.
 
 The private `gummyui-pro` repository contains exactly 158 original implemented
 blocks across 22 categories, six original implemented templates, and 300
@@ -913,10 +915,22 @@ Base UI switch proxy reported across two pages while the hydrated axe and
 accessibility-tree gates pass. The remaining two are scanner-wide aggregate
 site-weight and HTML-cache models that do not match per-route payload or Vercel
 CDN evidence. CSP inline allowances, the raw component documentation
-stylesheet, `/themes` render-blocking resources, article sourcing and explicit
-subprocessor disclosure remain genuine improvement work. The full-coverage
+stylesheet and `/themes` render-blocking resources remain genuine improvement
+work; the next tranche resolves article sourcing and explicit subprocessor
+disclosure. The full-coverage
 95+ gate remains open. The detailed evidence and exact reconciliation are in
 `docs/audits/production-launch-verification-2026-07-28.md`.
+
+Public head `e6861f544e3c86ee71b2bcdd21c57beee1d2651b` adds one
+authoritative primary reference to each of the 18 articles, exposes those
+references visibly and in Article JSON-LD, and names the production service
+providers as subprocessors. SquirrelScan 0.0.80 audit `41bcc736` then crawled
+376 URLs and scored 85/B with 28,143 checks passed, 1,134 warnings and 10
+failures. Core SEO, crawlability, E-E-A-T, legal compliance, links and seven
+other categories score 100; security scores 97. The
+remaining aggregate losses are accessibility 87, performance 67, content 52
+and Agent Experience 50. The score improved by one point but is still not the
+required result above 95.
 
 The deployed safe audit tranche avoids treating crawler false positives as
 product defects: component pages defer the all-family Base and Radix preview
@@ -932,16 +946,15 @@ the authoritative result to 84/B without misrepresenting it as the required
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
-The latest application-runtime change is
-`98483e353ad9323602bdfe9aa7d90dd37c7c15e6`; documentation follow-up
-`c9feeba856bc9380b401c6be3df5b11987501a0a` is the exact public head proved
-by GitHub Quality run `30407698983`. That run passed the complete launch gate
-in 9 minutes 59 seconds. Ready production deployment
-`dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` was built from a clean checkout at that
-head on Node 22 after the Convex server secret, WorkOS environment credentials
-and WorkOS webhook signing secret were rotated. It owns the apex, `www` and
-canonical Vercel aliases. Earlier deployment and CI identifiers remain below
-as historical evidence rather than the current release.
+The latest public application head is
+`e6861f544e3c86ee71b2bcdd21c57beee1d2651b`; GitHub Quality run
+`30453896180` passed its complete launch gate. Ready production deployment
+`dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb` was built from that head on Node 22 and
+owns the apex, `www` and canonical Vercel aliases. It contains the real-payload
+WorkOS membership fix, exact `/components/lab$` crawler rule and strengthened
+editorial/legal trust signals. Earlier
+deployment and CI identifiers remain below as historical evidence rather than
+the current release.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
 and public resolvers return the new records. HTTPS, all 292 current HTML
@@ -967,39 +980,45 @@ no access policy, so it has full account API scope rather than the intended
 least-privilege scope. It is installed as a protected Vercel Production value
 but has not yet been exercised by a deployed commerce route. The separately
 prepared restricted-key form has the required least-privilege permissions
-selected and still stops at Stripe's explicit founder identity-verification
-dialog before issuance. Deployed-origin signed delivery and sandbox/live
+selected. Stripe's email verification has passed and the form now waits for
+the founder's six-digit authenticator-app code before issuance. Deployed-origin
+signed delivery and sandbox/live
 journeys remain unproved; checkout and webhook flags remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value is installed. Vercel Pro is active; spend management is set
-to $1 with notifications and Pause Projects enabled. The current
-credential-rotation release `dpl_Cc41SdA8BSeg1XGMDmdPQv2Jhe5c` rebuilt clean
-public head `c9feeba856bc9380b401c6be3df5b11987501a0a` on Node 22 with the
-protected Stripe credential, replacement WorkOS environment and rotated
-Convex server secret. It serves both custom-domain aliases. Public health
-remains 200 and reports commerce disabled; unsigned Stripe and WorkOS
-webhooks return 503, the disabled Resend webhook returns 404, and an anonymous
-download-grant request returns an indistinguishable 404. Credential validity,
-least-privilege Stripe replacement and every commerce journey remain pending.
+to $1 with notifications and Pause Projects enabled. The current release
+`dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb` serves both custom-domain aliases from
+clean public head `e6861f5`. Public health remains 200 and reports commerce
+disabled. WorkOS and Resend webhook processing are enabled and fail closed for
+unsigned input; Stripe checkout and webhook processing remain disabled, and an
+anonymous download-grant request returns an indistinguishable 404.
+Least-privilege Stripe replacement and every complete commerce journey remain
+pending.
 A current-production browser matrix passes Chrome 150,
 Firefox 144 and WebKit 2311 at mobile and desktop viewports across the homepage,
 Button detail, pricing and RTL routes with no overflow, console or page errors.
 All three engines also load the deferred interactive Button preview and editable
 source successfully. A Convex production deployment has
 `CONVEX_SERVER_SECRET` and the production WorkOS deploy-time credentials set
-there. The current 25-table schema, indexes and functions are deployed; a
-post-deploy inspection confirmed all 25 tables are present and empty. Customer
-journeys are not yet verified. The current production backup exported all 24
-durable tables, encrypted and authenticated every object, uploaded and read
-them back from B2, returned 200 and sent its success heartbeat. The subsequent
-latest-backup verification returned 200. The mode-0600 operator recovery copy
-then independently authenticated and decrypted that exact latest backup. An
-isolated Convex target restored and reconciled all 24 tables successfully with
-zero production records. A subsequent isolated synthetic drill proved
-representative account, team, licence, entitlement, one-use and expired
-download, full-refund revocation and audit queries without calling external
-providers. A controlled Vercel rollback of the then-current audited
+there. The current 25-table schema, indexes and functions are deployed.
+Production now contains the first controlled account/privacy records rather
+than an empty database. Backup
+`20260729T123911183Z-2b453beb402d4f6d818aafde6ecf6f7d` exported all 24
+durable tables and 26 records, encrypted and authenticated every object,
+uploaded and read them back from B2, and passed the independent latest-backup
+verification path with identical counts. A new empty isolated Convex target
+then restored and reconciled all 24 tables and 26 records; its protected
+re-export matched the source and left the excluded `rateLimitWindows` table
+empty. After the WorkOS membership retry, current backup
+`20260729T125815872Z-36a3348ed93148cfad2fa6e193d8023a` captured all 24 durable
+tables and 28 records and passed both creation-time and independent latest
+readback verification. The earlier 24-table/26-record backup remains the
+restore proof. Production was export-only throughout both operations. A prior isolated
+synthetic drill separately proved representative account, team, licence,
+entitlement, one-use and expired download, full-refund revocation and audit
+queries without calling external providers. A controlled Vercel rollback of
+the then-current audited
 `977012c` release switched the real origin
 to known-good deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, passed public
 health and authentication probes, and promoted deployment
@@ -1022,24 +1041,28 @@ expired immediately. An older orphaned Convex-managed environment has no
 customer data or app traffic, but its platform-managed key cannot be revoked
 through either dashboard; WorkOS support has received a no-secret request to
 revoke that key and delete the environment.
-The real-origin `/auth/sign-in` route returns a 307 to the replacement WorkOS
-client with the canonical `https://gummyui.dev/auth/callback` redirect URI,
-proving production authentication initiation without proving account creation
-or callback/JWT completion.
-Real staging journeys continue to pass for Google sign-in, account projection,
-organization creation/recovery, a controlled invitation, export/download,
-deletion/cancellation, sign-out and unpaid protected-download denial. Production
-callback, account/recovery and deployed Convex JWT-integration evidence remain
-pending. The real production sign-up form is reached and filled with the
-approved support address, but its human CAPTCHA requires founder interaction
-before account creation and email-code evidence can continue.
+The real-origin hosted sign-up and canonical callback now pass. The resulting
+production session projected one active profile, two active workspaces and the
+matching owner/admin memberships into Convex. The account UI proved workspace
+creation/switching, ready export plus authenticated download, a deletion
+request plus cancellation, access-token refresh and authenticated unpaid
+download denial. Signed `user.created`, `user.updated` and
+`organization.created` events were delivered and applied. The first
+`organization_membership.created` delivery exposed that WorkOS omits an
+organization name from this event; public head `2fb2b6b` removes the unused
+requirement and deploys a real-payload regression fixture. WorkOS retried the
+same signed event at 13:56 BST; its dashboard records Delivered and the
+matching Vercel request on deployment
+`dpl_CYKTU6sq1uWWt57EZTe8dTbxAcsu` returned HTTP 200. Production recovery,
+final deletion and a second-identity invitation acceptance remain pending.
 
 Resend has a verified `send.kreydlabs.com` domain, and its production API key,
 webhook and current sender/reply-to settings are installed in Vercel. A
 domain-scoped, sending-only one-use key sent a controlled message from the
 production sender to `support@kreydlabs.com`; Resend recorded both sent and
-delivered, after which the one-use key was deleted. The application outbox and
-signed Resend webhook still require a real account event. Better Stack's free
+delivered, after which the one-use key was deleted. Real export and deletion
+events then produced two application outbox messages; Resend and the signed
+production webhook recorded both as delivered. Better Stack's free
 service has an uptime monitor, status page, one active production log source
 and four scheduled-job heartbeats configured, with the corresponding Vercel
 values installed. The two-label EU ingestion-host allowlist correction is
@@ -1069,15 +1092,22 @@ and recovery-copy custody remain unproved.
 Current product gates also include running and visually reviewing the v0.5.0
 Figma materialisation of 138 sets and 2,588 variants, reviewing its 72 editable
 pattern sets against the 72 raster comparison references, completing founder
-rendered/localisation review, and promoting actual paid releases.
+rendered/localisation review, and promoting actual paid releases. The live
+Starter file still exposes the expected generated page structure, but its
+remote agent-call allowance is exhausted and the recorded decision does not
+authorize a paid Figma seat. The exact no-network Desktop materializer remains
+the approved route. Private release packaging now additionally fails closed
+unless an approved, restored and checksum-bound editable `.fig` export is
+present.
 
 The remaining work is dominated by founder-controlled gates: complete the
-WorkOS CAPTCHA/account/recovery/JWT journey, receive WorkOS's confirmation that
-the orphaned platform-managed key was revoked, complete Stripe identity
-verification so the installed full-scope managed key can be replaced by the
-selected restricted key, run the private Figma materializer and visual reviews,
-approve localisation, revoke the superseded B2 key after reauthentication, and
-move the recovery bundle into the founder password manager. Then paid releases,
+production recovery and second-identity invitation journeys, receive WorkOS's
+confirmation that the orphaned platform-managed key was revoked, complete
+Stripe identity verification so the installed full-scope managed key can be
+replaced by the staged restricted key, run the private Figma materializer and
+visual reviews, approve localisation, revoke the superseded B2 key after
+reauthentication, and move the recovery bundle into the founder password
+manager. Then paid releases,
 signed webhook/email/customer journeys and the authorised real purchase/full
 refund can proceed. The project is not commercially launched until all eight
 North Star steps have evidence.
