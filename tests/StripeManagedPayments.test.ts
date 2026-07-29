@@ -230,6 +230,28 @@ describe("Stripe Managed Payments checkout boundary", () => {
     });
   });
 
+  it("prefers the least-privilege restricted key over a managed secret key", () => {
+    expect(
+      readStripeManagedPaymentsConfig({
+        STRIPE_RESTRICTED_KEY: restrictedStripeKey,
+        STRIPE_SECRET_KEY: `sk_live_${"b".repeat(24)}`,
+        GUMMYUI_ORIGIN: "https://gummyui.dev",
+        STRIPE_PRICE_INDIVIDUAL_MONTHLY: "price_IndividualMonthly",
+        STRIPE_PRICE_INDIVIDUAL_YEARLY: "price_IndividualYearly",
+        STRIPE_PRICE_INDIVIDUAL_LIFETIME: "price_IndividualLifetime",
+        STRIPE_PRICE_TEAM_MONTHLY: "price_TeamMonthly",
+        STRIPE_PRICE_TEAM_YEARLY: "price_TeamYearly",
+        STRIPE_PRICE_TEAM_LIFETIME: "price_TeamLifetime",
+        STRIPE_PRICE_ORGANIZATION_MONTHLY: "price_OrganizationMonthly",
+        STRIPE_PRICE_ORGANIZATION_YEARLY: "price_OrganizationYearly",
+        STRIPE_PRICE_ORGANIZATION_LIFETIME: "price_OrganizationLifetime",
+      }),
+    ).toEqual({
+      ...config,
+      secretKey: restrictedStripeKey,
+    });
+  });
+
   it("accepts secret and least-privilege restricted server-key shapes", () => {
     for (const prefix of [
       "sk_test_",

@@ -122,7 +122,8 @@ interface StripeWebhookVerifier {
 export function readStripeManagedPaymentsConfig(
   environment: Readonly<Record<string, string | undefined>> = process.env,
 ): StripeManagedPaymentsConfig | null {
-  const secretKey = environment.STRIPE_SECRET_KEY?.trim();
+  const secretKey = environment.STRIPE_RESTRICTED_KEY?.trim()
+    || environment.STRIPE_SECRET_KEY?.trim();
   const applicationOrigin = environment.GUMMYUI_ORIGIN?.trim();
   if (!secretKey || !applicationOrigin) {
     return null;
