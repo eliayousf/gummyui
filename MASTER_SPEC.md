@@ -827,10 +827,11 @@ canonical edition. The complete 22-counterpart Radix edition additionally
 passes clean shadcn installation, type checking and production builds in
 independent Next.js and Vite npm consumers. Component detail pages expose both
 install commands, both editable sources and real interactive Radix previews.
-The public gate includes 474 Vitest tests, all 57 canonical preview axe checks,
-22 Radix counterpart axe checks, Radix overlay/menu behavior, localisation and
-boundary tests, production rendering, artifact leakage, dependency/licence and
-secret scans, and enforced gzip/image/style budgets. A production-build Chrome
+The public gate includes 523 Vitest tests across 98 files, 93 explicit axe
+tests across 14 files, all 57 canonical preview axe checks, 22 Radix
+counterpart axe checks, Radix overlay/menu behavior, localisation and boundary
+tests, production rendering, artifact leakage, dependency/licence and secret
+scans, and enforced gzip/image/style budgets. A production-build Chrome
 harness passes 32 public routes, 15 sensitive routes, two protected endpoints,
 320-pixel reflow, dark/light, RTL, reduced motion, keyboard traversal, four
 accessibility trees, and seven axe scenarios with zero violations, overflow,
@@ -858,14 +859,12 @@ separately configured Stripe catalogue and live Vercel control plane remain
 fail closed for commerce.
 
 The localisation source is frozen reproducibly at revision
-`en-f385e0bf031b`: 2,935 records, of which 2,664 are translatable and 271 are
-protected. English is the only published language. All 19 private AI drafts
-pass checksum, ordering, completeness, placeholder and protected-span
-verification. The current refresh reused 3,278 of 3,284 exact source units per
-locale, translated only six new unique units and proved all 2,920 unchanged
-message translations byte-identical. Every automated quality report has zero
-high-severity flags, and all 19 checksum-bound founder-review screens exist.
-Every locale remains fail closed pending rendered QA and founder review; no
+`en-9ce8e64d3a09`: 3,132 records, of which 2,854 are translatable and 278 are
+protected. English is the only published language. The last complete
+19-locale private draft, automated-quality and founder-review-screen cycle is
+checksum-bound to superseded revision `en-ab1e85bd6250`; no draft from that
+cycle can satisfy the current source gate. Every locale remains fail closed
+pending the final private regeneration, rendered QA and founder review; no
 unreviewed AI translation is represented as final or as professionally
 translated.
 
@@ -894,72 +893,58 @@ restoration remain pending. The actual paid-release builder therefore refuses
 to package the catalogue, and the public boundary and deployment contain no
 paid editable source.
 
-The original production-origin homepage Lighthouse check completed on three
-cold mobile and three desktop runs. Its median scores were 98 mobile
-performance and 100 desktop performance, with accessibility, best practices
-and SEO at 100 in both modes. A fresh sequential check of the current release
-first recorded mobile performance scores of 94, 92 and 94 (median 94). After
-the managed-credential redeployment, three new storage-isolated mobile checks
-scored 93, 99 and 99 (median 99); accessibility, best practices and SEO stayed
-at 100 and CLS stayed zero. The homepage mobile target above 95 is therefore
-met, while the slower 93 tail remains recorded and no field-performance claim
-is made. The separate full-coverage greater-than-95 gate remains open. After
-the source corrections and safe payload-deferment tranche were deployed,
-SquirrelScan
-0.0.80 completed an initial 83/B full crawl. A fresh uncapped full refresh
-against managed-credential deployment
-`dpl_HmDWC8MZomdq3ZMB2MtK2VJHGdCL` then scored 84/B across 375 discovered
-URLs, with 28,005 passed checks, 1,150 warnings and 10 failures. SEO scored 90,
-security 98, and the audit ID is `86fcae87`. Eight failures are the same hidden
-Base UI switch proxy reported across two pages while the hydrated axe and
-accessibility-tree gates pass. The remaining two are scanner-wide aggregate
-site-weight and HTML-cache models that do not match per-route payload or Vercel
-CDN evidence. CSP inline allowances, the raw component documentation
-stylesheet and `/themes` render-blocking resources remain genuine improvement
-work; the next tranche resolves article sourcing and explicit subprocessor
-disclosure. The full-coverage
-95+ gate remains open. The detailed evidence and exact reconciliation are in
-`docs/audits/production-launch-verification-2026-07-28.md`.
+The current production-origin Lighthouse 13.4.1 audit meets the above-95
+website-audit gate. Mobile scores are 98 performance, 100 accessibility, 100
+best practices and 100 SEO, with 1.6-second FCP, 2.4-second LCP, zero blocking
+time and zero CLS. Desktop scores are 100 in all four categories, with
+0.3-second FCP, 0.5-second LCP, zero blocking time and zero CLS. These are
+controlled lab results, not a claim about field Core Web Vitals.
 
-Public head `e6861f544e3c86ee71b2bcdd21c57beee1d2651b` adds one
-authoritative primary reference to each of the 18 articles, exposes those
-references visibly and in Article JSON-LD, and names the production service
-providers as subprocessors. SquirrelScan 0.0.80 audit `41bcc736` then crawled
-376 URLs and scored 85/B with 28,143 checks passed, 1,134 warnings and 10
-failures. Core SEO, crawlability, E-E-A-T, legal compliance, links and seven
-other categories score 100; security scores 97. The
-remaining aggregate losses are accessibility 87, performance 67, content 52
-and Agent Experience 50. The score improved by one point but is still not the
-required result above 95.
+The complementary SquirrelScan 0.0.80 full-coverage crawl audits 219 discovered
+resources against all 135 indexable sitemap URLs. The warmed authoritative
+refresh scores 93/A with 13,441 passes, 283 warnings and zero failures. SEO is
+100; Accessibility, Core SEO, crawlability, E-E-A-T, internationalisation,
+images, site integrity, legal compliance, links, mobile, structured data,
+social media and URL structure all score 100. Its remaining deductions are
+78 performance, 50 Agent Experience, 92 content and 97 security. They are
+limited to a site-wide aggregate that counts about 2.45 MB of repeated inline
+Next App Router Flight data, required stylesheet request chains, the same
+Flight payloads falling below the scanner's text-to-HTML ratio, technical
+vocabulary in catalogue tables, and the inline style/script allowance required
+by this statically cached App Router build. Earlier lower-scoring scans remain
+preserved in `docs/audits/production-launch-verification-2026-07-28.md`.
 
-The deployed safe audit tranche avoids treating crawler false positives as
-product defects: component pages defer the all-family Base and Radix preview
-runtimes until the reader requests interaction, defer registry JSON until the
-reader requests source, and generate their five route-scoped stylesheets as one
-ordered documentation bundle. Pagination specimens use fragment-only targets;
-non-HTML RSS/Markdown resources remain public but leave the SEO sitemap; all
-block-category metadata meets meaningful length bounds; and the Open Graph
-image is losslessly reduced by 21.7%. The managed-credential refresh improves
-the authoritative result to 84/B without misrepresenting it as the required
-95+ result.
+The deployed remediation is substantive rather than audit suppression:
+component preview runtimes and source payloads are interaction-deferred,
+documentation styles are route-scoped, `/rtl` loads a generated 4,596-byte
+three-family stylesheet instead of the 71,149-byte full primitives sheet, the
+1,200×630 Open Graph image is reduced from 668,843 to 246,742 bytes, generated
+API type summaries omit source comments, all indexable pages contain at least
+300 meaningful words, the registry exposes exactly 100 internal links, and the
+branded not-found page removes framework-fallback contrast ambiguity. Public
+accessibility, crawler, cache, security and repository-boundary gates all pass.
 
 The consolidated founder decisions are captured and the public/private GitHub
-repositories exist. The private launch commits are pushed to private `main`.
+repositories exist. The private launch commits are pushed to private `main`;
+the current private head is
+`7c6fa8e9e90d0c37880b44e8b01d350f8a4297b6`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
 The latest public application head is
-`e6861f544e3c86ee71b2bcdd21c57beee1d2651b`; GitHub Quality run
-`30453896180` passed its complete launch gate. Audited application deployment
-`dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb` was built from that head on Node 22 and
-was promoted to the apex, `www` and canonical Vercel aliases. It contains the real-payload
-WorkOS membership fix, exact `/components/lab$` crawler rule and strengthened
-editorial/legal trust signals. Later status-only commits do not change that
-application bundle. Earlier
+`8924e41c39f293da994905ba4ddfa2496a9143b6`; GitHub Quality run
+`30499672718` passed its complete launch gate. Application deployment
+`dpl_GoUmtgRfESFUEErvvd3s1xvUmZWK` was built from that head on Node 22, is
+Ready and is promoted to the apex, `www` and canonical Vercel aliases. It
+contains the real-payload WorkOS membership fix, exact
+`/components/lab$` crawler rule, route-scoped component-preview styles,
+consolidated unreleased-Pro discovery, a bounded subprocessor directory,
+strengthened editorial/legal trust signals, the residual accessibility and
+content corrections, and the final safe performance reductions. Earlier
 deployment and CI identifiers remain below as historical evidence rather than
 the current release.
 Namecheap points the apex to `216.150.1.1` and `www` to
 `4b8d541dfcd6e48a.vercel-dns-017.com`; Vercel marks both custom domains Valid
-and public resolvers return the new records. HTTPS, all 292 current HTML
-sitemap URLs,
+and public resolvers return the new records. HTTPS, all 135 current sitemap
+URLs,
 canonical-host redirects, route/security headers, malformed authentication
 callbacks and fail-closed probes pass at `gummyui.dev`. Earlier GitHub Quality runs
 `30371961881` and `30373015318` pass for the deployed correction and exact
@@ -975,23 +960,28 @@ only in secure runtime/operator stores. Vercel's Stripe Marketplace integration
 now imports the existing live account as managed resource
 `stripe-live-gummy-ui`; it is connected only to the `gummyui` Production
 environment, the resource-level environment policy is Production-only, and the
-initial credentials were rotated after that restriction was applied. Stripe
-labels the resulting runtime credential as a managed Standard secret key with
-no access policy, so it has full account API scope rather than the intended
-least-privilege scope. It is installed as a protected Vercel Production value
-but has not yet been exercised by a deployed commerce route. The separately
-prepared restricted-key form has the required least-privilege permissions
-selected. Stripe's email verification has passed and the form now waits for
-the founder's six-digit authenticator-app code before issuance. Deployed-origin
-signed delivery and sandbox/live
-journeys remain unproved; checkout and webhook flags remain fail closed.
+initial credentials were rotated after that restriction was applied. The nine
+protected Vercel Production price values now exactly match the verified live
+catalogue. The application prefers `STRIPE_RESTRICTED_KEY` over the managed
+Standard secret and its protected production-readiness route verifies all nine
+provider-authoritative prices before commerce can be enabled. The current
+Vercel restricted value is an expired predecessor, and the deployed readiness
+route therefore classifies Stripe's HTTP 401 safely as
+`restricted_key_rejected` without exposing credential material. Stripe retains
+one named replacement restricted key,
+`gummyui-production-runtime-v3`, with the required Prices Read permission.
+Rotating it to obtain a fresh one-time value is paused at Stripe's
+founder-controlled email-verification link; the newest link is open in the
+authenticated in-app Gmail session. The managed full-scope key remains
+installed but unused until the restricted route is proved. Deployed-origin
+signed delivery and sandbox/live journeys remain unproved; checkout and webhook
+flags remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value is installed. Vercel Pro is active; spend management is set
 to $1 with notifications and Pause Projects enabled. The current application
-bundle was first served by audited release `dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb`
-from clean application head `e6861f5`; later status-only deployments preserve
-that bundle. Public health remains 200 and reports commerce
+bundle is served by Ready release `dpl_GoUmtgRfESFUEErvvd3s1xvUmZWK`
+from clean application head `8924e41`. Public health remains 200 and reports commerce
 disabled. WorkOS and Resend webhook processing are enabled and fail closed for
 unsigned input; Stripe checkout and webhook processing remain disabled, and an
 anonymous download-grant request returns an indistinguishable 404.
@@ -1091,6 +1081,21 @@ atomic unused-grant revocation. No real paid archive, B2 object or production
 release record has been created. Paid delivery, superseded B2-key revocation
 and recovery-copy custody remain unproved.
 
+The current private localisation cycle is checksum-bound to public English
+revision `en-9ce8e64d3a09` at full public commit
+`8924e41c39f293da994905ba4ddfa2496a9143b6`: 3,132 records, 2,854
+translatable records and 278 protected records. All 19 private AI drafts pass
+checksum, ordering, completeness, placeholder and protected-span validation;
+all 19 automated quality reports have zero high-severity findings. The refresh
+reused 3,637/3,641 unique units per locale, translated only four, and preserves
+all 3,078 source-unchanged translations byte-identically in all 19 locales.
+The loopback-only founder review hub contains 19 current screens. No founder
+approval or rendered-QA record exists for this cycle, so publication remains
+correctly fail closed at 0/19 eligible. Superseded `en-8d9722d3d630`,
+`en-ab1e85bd6250`, `en-bdc6f9cc0a42`, `en-e5d133b48e13` and
+`en-f385e0bf031b` cycles remain preserved as historical evidence and cannot
+satisfy the current importer.
+
 Current product gates also include running and visually reviewing the v0.5.0
 Figma materialisation of 138 sets and 2,588 variants, reviewing its 72 editable
 pattern sets against the 72 raster comparison references, completing founder
@@ -1105,11 +1110,11 @@ present.
 The remaining work is dominated by founder-controlled gates: complete the
 production recovery and second-identity invitation journeys, receive WorkOS's
 confirmation that the orphaned platform-managed key was revoked, complete
-Stripe identity verification so the installed full-scope managed key can be
-replaced by the staged restricted key, run the private Figma materializer and
-visual reviews, approve localisation, revoke the superseded B2 key after
-reauthentication, and move the recovery bundle into the founder password
-manager. Then paid releases,
+the newest Stripe email verification so the deployed expired restricted value
+can be replaced and production readiness proved, run the private Figma
+materializer and visual reviews, approve localisation, revoke the superseded B2
+key after reauthentication, and move the recovery bundle into the founder
+password manager. Then paid releases,
 signed webhook/email/customer journeys and the authorised real purchase/full
 refund can proceed. The project is not commercially launched until all eight
 North Star steps have evidence.
