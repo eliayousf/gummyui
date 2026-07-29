@@ -62,6 +62,10 @@ const publicRoutes = [
   "/mcp",
 ];
 
+const legacyNoindexRoutes = new Map([
+  ["/blocks/about/origin-ribbon", "/blocks/about"],
+]);
+
 const sensitiveRoutes = [
   "/sign-in",
   "/checkout",
@@ -993,6 +997,13 @@ function evaluateChecks(evidence) {
       || route.page.document.hasHorizontalOverflow
       || route.page.headerGeometry.collisions.length > 0,
   );
+  const legacyNoindexFailures = evidence.routes.filter((route) => {
+    const canonicalPath = legacyNoindexRoutes.get(route.route);
+    if (!canonicalPath) return false;
+    return !route.page.robots?.includes("noindex")
+      || route.page.robots?.includes("nofollow")
+      || route.page.canonical !== `https://gummyui.dev${canonicalPath}`;
+  });
   const endpointFailures = evidence.sensitiveEndpoints.filter(
     (endpoint) =>
       endpoint.response.status !== endpoint.expectedStatus
@@ -1042,6 +1053,7 @@ function evaluateChecks(evidence) {
   return {
     passed:
       routeFailures.length === 0
+      && legacyNoindexFailures.length === 0
       && sensitiveFailures.length === 0
       && endpointFailures.length === 0
       && axeFailures.length === 0
@@ -1053,6 +1065,9 @@ function evaluateChecks(evidence) {
       && !darkModeFailure
       && evidence.runtimeErrors.length === 0,
     routeFailures: routeFailures.map((failure) => failure.route),
+    legacyNoindexFailures: legacyNoindexFailures.map(
+      (failure) => failure.route,
+    ),
     sensitiveFailures: sensitiveFailures.map((failure) => failure.route),
     endpointFailures: endpointFailures.map((failure) => `${failure.method} ${failure.route}`),
     axeFailures: axeFailures.map((failure) => failure.route),

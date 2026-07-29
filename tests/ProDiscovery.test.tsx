@@ -17,7 +17,9 @@ import ProTemplatePreviewPage, {
 } from "../app/templates/[slug]/preview/page";
 import { metadata as designKitMetadata } from "../app/design-kit/page";
 import {
+  isProBlockDiscoverable,
   proBlockCount,
+  proBlocks,
   proCategoryCount,
   proTemplateCount,
 } from "../app/data/pro-catalogue";
@@ -25,7 +27,7 @@ import robots from "../app/robots";
 import sitemap from "../app/sitemap";
 
 describe("boundary-safe Pro discovery", () => {
-  it("provides one category and source-free detail route for every manifest block", async () => {
+  it("consolidates unreleased block discovery while preserving every source-free detail route", async () => {
     const categoryParams = generateCategoryParams();
     const blockParams = generateBlockParams();
 
@@ -55,12 +57,50 @@ describe("boundary-safe Pro discovery", () => {
     });
 
     expect(categoryHtml).toContain("Origin ribbon");
+    expect(categoryHtml).toContain(
+      "Original company, product, process, and mission narratives.",
+    );
+    expect(categoryHtml).toContain("Declared dependencies");
+    expect(categoryHtml).toContain("Required review");
+    expect(categoryHtml).toContain('id="origin-ribbon"');
+    expect(categoryHtml).not.toContain(
+      'href="/blocks/about/origin-ribbon"',
+    );
     expect(blockHtml).toContain("No public preview is published");
+    expect(blockHtml).toContain('href="/blocks/about#origin-ribbon"');
     expect(blockHtml).not.toMatch(
       /gummyui-pro|\.tsx|releasePath|implementationEvidence|sourceReference|\/Users\//,
     );
-    expect(metadata.alternates).toEqual({ canonical: "/blocks/about/origin-ribbon" });
-    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.alternates).toEqual({ canonical: "/blocks/about" });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
+
+    const sitemapUrls = new Set(sitemap().map(({ url }) => url));
+    expect(
+      sitemapUrls.has("https://gummyui.dev/blocks/about/origin-ribbon"),
+    ).toBe(false);
+  });
+
+  it("requires both release readiness and a reviewed public preview for discovery", () => {
+    expect(
+      isProBlockDiscoverable({
+        status: "release-ready",
+        preview: "previews/pro-block.webp",
+      }),
+    ).toBe(true);
+    expect(
+      isProBlockDiscoverable({
+        status: "release-ready",
+      }),
+    ).toBe(false);
+    expect(
+      isProBlockDiscoverable({
+        status: "verified",
+        preview: "previews/pro-block.webp",
+      }),
+    ).toBe(false);
+    expect(proBlocks.every((block) => !isProBlockDiscoverable(block))).toBe(
+      true,
+    );
   });
 
   it("provides source-free status and isolated image-preview routes for all six templates", async () => {

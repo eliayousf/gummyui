@@ -138,7 +138,7 @@ scratch.
   refresh, authenticated unpaid download denial and two real privacy emails
   pass. Recovery, a second-identity invitation, final deletion and commerce
   remain open.
-- English revision `en-f385e0bf031b` contains 2,935 records. All 19 private AI
+- English revision `en-e5d133b48e13` contains 2,942 records. All 19 private AI
   drafts pass structural and automated quality checks with zero high-severity
   flags and have checksum-bound founder-review screens; every locale remains
   fail closed pending rendered QA and founder review.

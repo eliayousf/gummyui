@@ -22,6 +22,7 @@ import {
 } from "../app/templates/[slug]/page";
 import { metadata as termsMetadata } from "../app/terms/page";
 import {
+  isProBlockDiscoverable,
   proBlockCategories,
   proBlocks,
   proTemplates,
@@ -37,6 +38,15 @@ function expectIndexable(metadata: {
 }) {
   expect(metadata.robots).toMatchObject({
     index: true,
+    follow: true,
+  });
+}
+
+function expectNoindexFollow(metadata: {
+  robots?: unknown;
+}) {
+  expect(metadata.robots).toMatchObject({
+    index: false,
     follow: true,
   });
 }
@@ -131,7 +141,7 @@ describe("commercial and Pro discovery contract", () => {
     }
   });
 
-  it("keeps all source-free Pro detail pages indexable", async () => {
+  it("indexes category and template discovery while consolidating unreleased block details", async () => {
     const category = proBlockCategories[0];
     const block = proBlocks[0];
     const template = proTemplates[0];
@@ -144,14 +154,16 @@ describe("commercial and Pro discovery contract", () => {
         params: Promise.resolve({ category: category.slug }),
       }),
     );
-    expectIndexable(
-      await generateBlockMetadata({
-        params: Promise.resolve({
-          category: block.category,
-          slug: block.slug,
-        }),
+    const blockMetadata = await generateBlockMetadata({
+      params: Promise.resolve({
+        category: block.category,
+        slug: block.slug,
       }),
-    );
+    });
+    expectNoindexFollow(blockMetadata);
+    expect(blockMetadata.alternates).toEqual({
+      canonical: `/blocks/${block.category}`,
+    });
     expectIndexable(
       await generateTemplateMetadata({
         params: Promise.resolve({ slug: template.slug }),
@@ -235,7 +247,7 @@ describe("commercial and Pro discovery contract", () => {
     for (const block of proBlocks) {
       expect(
         sitemapPaths.has(`/blocks/${block.category}/${block.slug}`),
-      ).toBe(true);
+      ).toBe(isProBlockDiscoverable(block));
     }
     for (const template of proTemplates) {
       expect(sitemapPaths.has(`/templates/${template.slug}`)).toBe(true);

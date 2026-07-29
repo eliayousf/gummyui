@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "algorithm": "SHA-256",
-  "generatedAt": "2026-07-29T12:52:48.203Z",
+  "generatedAt": "2026-07-29T21:42:16.665Z",
   "entries": [
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/README.md",
@@ -10,13 +10,13 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/account-fail-closed-mobile.png",
-      "bytes": 112143,
-      "sha256": "1780b2f380452ef12ef969a8546f33de0931c2fe8b94e070d3cfc65c559c94f6"
+      "bytes": 117127,
+      "sha256": "9b6e052daf4948901eafa1defa95aa8adc1bf8bb252da1d50999055452514641"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/browser-production-2026-07-27.json",
-      "bytes": 531556,
-      "sha256": "78c1c1b1be9b4b0db6b5d878c391822f68cef7fab7f2e90f82b0a8674b1f9cea"
+      "bytes": 532278,
+      "sha256": "d45928c0479abaf440f462dda83c393bbb0562e00cd70347916bcb90b30b86cf"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/component-200-percent-equivalent-reflow.png",
@@ -30,18 +30,18 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
-      "bytes": 525270,
-      "sha256": "8de31e15131cf8470d5584a937d8cd745d959ba7149d346541beb08ed3956c7e"
+      "bytes": 525304,
+      "sha256": "4f25cfc81a1b0eeecce2cc1aa07f33f5ce203401b4535c362e74c7ad56e52990"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
-      "bytes": 515181,
-      "sha256": "859d923e6da8433358173705496728239c4197173863ac92a312ea31b41c07f7"
+      "bytes": 515083,
+      "sha256": "f6779c37b58c3f823e05586409a2cba54ae6e262911181ab089d3037cb674841"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
-      "bytes": 233302,
-      "sha256": "dd861c0b066afd45415cd154a65c48c3a533e52b28654280013a99c29181ac32"
+      "bytes": 233329,
+      "sha256": "37f3bfbe47c14555a27c4d26ea36a606455b620af06c310e9bd234cb9e39b2e6"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/rtl-mobile.png",

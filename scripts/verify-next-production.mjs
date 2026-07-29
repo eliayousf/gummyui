@@ -67,6 +67,7 @@ const forbiddenSitemapPaths = [
   "/sign-in",
   "/account",
   "/checkout",
+  "/blocks/about/origin-ribbon",
   "/templates/relay-forge/preview",
 ];
 
@@ -252,6 +253,22 @@ try {
   invariant(
     /<meta\s+name="robots"\s+content="[^"]*noindex/iu.test(signInHtml),
     "/sign-in did not emit a noindex document directive.",
+  );
+
+  const legacyBlockHtml = await (
+    await fetch(`${origin}/blocks/about/origin-ribbon`)
+  ).text();
+  invariant(
+    legacyBlockHtml.includes(
+      '<link rel="canonical" href="https://gummyui.dev/blocks/about"/>',
+    ),
+    "Legacy block detail did not canonicalize to consolidated category discovery.",
+  );
+  invariant(
+    /<meta\s+name="robots"\s+content="[^"]*noindex[^"]*follow/iu.test(
+      legacyBlockHtml,
+    ),
+    "Legacy block detail did not emit the noindex,follow document directive.",
   );
 
   const robots = await (await fetch(`${origin}/robots.txt`)).text();

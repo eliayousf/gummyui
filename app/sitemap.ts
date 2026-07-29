@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { articles } from "./data/articles";
 import { components } from "./data/catalogue";
 import {
+  isProBlockDiscoverable,
   proBlockCategories,
   proBlocks,
   proTemplates,
@@ -76,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ),
       },
     })),
-    ...proBlocks.map((block) => ({
+    ...proBlocks.filter(isProBlockDiscoverable).map((block) => ({
       url: `${baseUrl}/blocks/${block.category}/${block.slug}`,
       lastModified: new Date("2026-07-28"),
       changeFrequency: "monthly" as const,

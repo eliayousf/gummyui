@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "sourceLocale": "en",
-  "sourceRevision": "en-f385e0bf031b",
-  "sourceChecksum": "f385e0bf031b7f8b6b1033aef33a099df229feafcfb59547d69650564baff593",
+  "sourceRevision": "en-e5d133b48e13",
+  "sourceChecksum": "e5d133b48e1305d9d18ce9c3f4d1947f8da1ad3faba52f3e3f35332e452ec709",
   "generatedFrom": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -154,12 +154,12 @@
     "app/themes/page.tsx",
     "lib/commerce/account.ts"
   ],
-  "messageCount": 2935,
-  "translatableMessageCount": 2664,
+  "messageCount": 2942,
+  "translatableMessageCount": 2671,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 1895,
+    "static": 1902,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -16552,9 +16552,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:25"
+        "app/blocks/[category]/page.tsx:26"
       ],
-      "checksum": "86a0271ad6a9de25d247401cea562cae229b34f3673b1c7f3cf49b2d96681394"
+      "checksum": "13b883ddfefc04db856cf41c37bc49eae21163916aa09bc254d7e0e8cb3bd09f"
     },
     {
       "id": "static.blocks.category.page.generate-metadata.property-title.01",
@@ -16581,9 +16581,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:24"
+        "app/blocks/[category]/page.tsx:25"
       ],
-      "checksum": "ba7738259ffff639e3d82b29659c66f8d269b8a8f562b0b46033a15de8df6099"
+      "checksum": "310acf2a74bfb1133f90643fa6b2039696a8c297d72c1c18c0dc1436ffe09349"
     },
     {
       "id": "static.blocks.category.page.pro-block-category-page.attribute-eyebrow.01",
@@ -16606,9 +16606,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:43"
+        "app/blocks/[category]/page.tsx:51"
       ],
-      "checksum": "0f5d861c87681413856a45cf3f0e75a1f3a6a48be1b69565ee19a23a477178b6"
+      "checksum": "d79e059a51cff19b61a794d29012b50316ac8596fac47169887d86f8ccdcb2f5"
     },
     {
       "id": "static.blocks.category.page.pro-block-category-page.attribute-lede.01",
@@ -16631,9 +16631,37 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:45"
+        "app/blocks/[category]/page.tsx:53"
       ],
-      "checksum": "0a02d2c071a88f4e513eb323c14bf4fc4be2d8cb0ad55f4957e9e419eb106f28"
+      "checksum": "1dd5a19bc0b38d167b9c0e4d20973dff357d807266a89f5e80add9f9084af2ae"
+    },
+    {
+      "id": "static.blocks.category.page.pro-block-category-page.jsx-dt.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Purpose",
+      "description": "Static jsx dt copy in app/blocks/[category]/page.tsx, pro-block-category-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/blocks/[category]/page.tsx:90"
+      ],
+      "checksum": "7d7b7887484f8a2d780a965d4f04fd467f12edc54560ec11b52d1d7707702edd"
+    },
+    {
+      "id": "static.blocks.category.page.pro-block-category-page.jsx-dt.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Declared dependencies",
+      "description": "Static jsx dt copy in app/blocks/[category]/page.tsx, pro-block-category-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/blocks/[category]/page.tsx:94"
+      ],
+      "checksum": "e5c7e18c52f1f90a831cd3894bd98cc5c733b5895a09577edaf1ede611154dfb"
     },
     {
       "id": "static.blocks.category.page.pro-block-category-page.jsx-h2.01",
@@ -16645,12 +16673,26 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:48"
+        "app/blocks/[category]/page.tsx:56"
       ],
-      "checksum": "24e04c5501c9432e49286d2847105498a18779f62571472dade8156e6e4332b5"
+      "checksum": "b49c3f65f2b3048666bc80c8427b465f0c99cb0378d019970a911be30b154f2d"
     },
     {
       "id": "static.blocks.category.page.pro-block-category-page.jsx-h2.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Category contract",
+      "description": "Static jsx h2 copy in app/blocks/[category]/page.tsx, pro-block-category-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/blocks/[category]/page.tsx:87"
+      ],
+      "checksum": "d6f74467609487c202d27cbc2cfe1a7ec0acb44806d0ee583385bf0b6c95dc34"
+    },
+    {
+      "id": "static.blocks.category.page.pro-block-category-page.jsx-h2.03",
       "category": "static",
       "contentType": "plain",
       "source": "Boundary",
@@ -16659,9 +16701,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:61"
+        "app/blocks/[category]/page.tsx:104"
       ],
-      "checksum": "a9526cafb59eb3a386e2f851e8409e036e858698155b08ca89b655e0ee52b73e"
+      "checksum": "7c0ddf9f9fd17c923225eaeec5121d737498f09cd9ea8f80c0809da21d468724"
     },
     {
       "id": "static.blocks.category.page.pro-block-category-page.jsx-p.01",
@@ -16673,12 +16715,51 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:63"
+        "app/blocks/[category]/page.tsx:106"
       ],
-      "checksum": "69f83b7d6ee64b9c1b9fa2bcf9407c0707fe4bf5ff02cc1b226c13fb35afd466"
+      "checksum": "8bf593ad4e76487eb627acc0531ce3707d990725bc1db9a28f13646a7df0e9c4"
+    },
+    {
+      "id": "static.blocks.category.page.pro-block-category-page.rich-dd.01",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "None declared",
+      "description": "Static rich dd copy in app/blocks/[category]/page.tsx, pro-block-category-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/blocks/[category]/page.tsx:95"
+      ],
+      "checksum": "f11b05ed8fcf8dd2ce572ece0bb0adf9321978012902c818e68cecf90fb59a50"
     },
     {
       "id": "static.blocks.category.page.pro-block-category-page.rich-p.01",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "{value1} A dedicated detail becomes internally discoverable only after release readiness and a reviewed public preview.",
+      "description": "Static rich p copy in app/blocks/[category]/page.tsx, pro-block-category-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "value1",
+          "type": "string",
+          "example": "[statuses.length === 1\n            ? `All ${blocks.length} records currently carry ${statuses[0]} status.`\n            : `These ${blocks.length} records currently span ${statuses.join(\", \")} status.`]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{value1}",
+          "reason": "runtime-placeholder"
+        }
+      ],
+      "sourceReferences": [
+        "app/blocks/[category]/page.tsx:57"
+      ],
+      "checksum": "58de2ed0ddf1f2d6083cdcd0b698434c17e064c655300640647810e8a492b9b5"
+    },
+    {
+      "id": "static.blocks.category.page.pro-block-category-page.rich-p.02",
       "category": "static",
       "contentType": "rich-text",
       "source": "<link1>Return to all Pro block categories</link1>",
@@ -16696,9 +16777,77 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/page.tsx:68"
+        "app/blocks/[category]/page.tsx:111"
       ],
-      "checksum": "169c20a260bdb9e63eff808a8580a38a1e97d48b320514062d0a19407575e666"
+      "checksum": "ebef2b8e92a8e554112b8169b0329ff9e466df4f7e144a7ac7ecfcf27d43c42f"
+    },
+    {
+      "id": "static.blocks.category.page.pro-block-category-page.rich-variant-p.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "All {length} records currently carry {value2} status.",
+      "description": "Static rich variant p copy in app/blocks/[category]/page.tsx, pro-block-category-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "length",
+          "type": "string",
+          "example": "[blocks.length]"
+        },
+        {
+          "name": "value2",
+          "type": "string",
+          "example": "[statuses[0]]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{length}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "{value2}",
+          "reason": "runtime-placeholder"
+        }
+      ],
+      "sourceReferences": [
+        "app/blocks/[category]/page.tsx:59"
+      ],
+      "checksum": "ec81f31ba15b3033a06cf9b51c1bc89e4c0f602870bdeb2c3005c669cb515a21"
+    },
+    {
+      "id": "static.blocks.category.page.pro-block-category-page.rich-variant-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "These {length} records currently span {value2} status.",
+      "description": "Static rich variant p copy in app/blocks/[category]/page.tsx, pro-block-category-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "length",
+          "type": "string",
+          "example": "[blocks.length]"
+        },
+        {
+          "name": "value2",
+          "type": "string",
+          "example": "[statuses.join(\", \")]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{length}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "{value2}",
+          "reason": "runtime-placeholder"
+        }
+      ],
+      "sourceReferences": [
+        "app/blocks/[category]/page.tsx:60"
+      ],
+      "checksum": "40c0f747acc3a3bd7bc2988b48097a82bb692d9ecffcb135ebd09aedc2a392a4"
     },
     {
       "id": "static.blocks.category.slug.page.generate-metadata.property-description.01",
@@ -16730,9 +16879,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:26"
+        "app/blocks/[category]/[slug]/page.tsx:28"
       ],
-      "checksum": "efe2d4d34b9a627ccd0c3dc8f4cd72ccc83c03e8e43abe1c890f76dce811478d"
+      "checksum": "ac23e17b94ec67d82354c89a902e2388e48b8fdf35199dd25f0ff0cebb163ca8"
     },
     {
       "id": "static.blocks.category.slug.page.generate-metadata.property-title.01",
@@ -16759,9 +16908,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:25"
+        "app/blocks/[category]/[slug]/page.tsx:27"
       ],
-      "checksum": "a4764de87beccb04f07d220ee0ca511cf9f62b953117ccfa38c9d388d7195faf"
+      "checksum": "bbec85507fff3386332f576ad4fd91118a2decffdae5dcbd8f21f56a59844da4"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.attribute-alt.01",
@@ -16784,9 +16933,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:62"
+        "app/blocks/[category]/[slug]/page.tsx:68"
       ],
-      "checksum": "35d55b7eacb5623bb758a2c6cfdc6aab51ff8f17b0deb58890ccfa931653ec72"
+      "checksum": "8a7a123005ed65658a5829deb8a8b9877b0efa16a153c1a30ad32a8c8ab15e91"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.attribute-lede.01",
@@ -16809,9 +16958,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:46"
+        "app/blocks/[category]/[slug]/page.tsx:52"
       ],
-      "checksum": "76834197bde363dd3ed480d0f133cad16f37b21dfc53e41aae8afd8168daece6"
+      "checksum": "1b7186b4d3022e3df643a7a503ebbe576e2b8507837fb9000808e7f1fd19ea81"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-dt.01",
@@ -16823,10 +16972,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:51",
+        "app/blocks/[category]/[slug]/page.tsx:57",
         "app/components/ComponentLab.tsx:482"
       ],
-      "checksum": "3d13698ddeff9e1d6177ac7418297c9ccfc653cc2638611a5b2fec62110fc49a"
+      "checksum": "37d63ab7bf03695f2603954d4064286f7d3acddcd277260af8f8b7e97e131717"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-dt.02",
@@ -16838,9 +16987,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:52"
+        "app/blocks/[category]/[slug]/page.tsx:58"
       ],
-      "checksum": "83ac544ae1e3ac9e20532f3b081c3ae44e924573692132f6bee09b5c14ecb9d0"
+      "checksum": "907b9d31dc8d267157dc4c7f972b7199edcee14926c2b28d7b49efcf91847abe"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-dt.03",
@@ -16852,9 +17001,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:53"
+        "app/blocks/[category]/[slug]/page.tsx:59",
+        "app/blocks/[category]/page.tsx:98"
       ],
-      "checksum": "55571f6dfaf265f962dd3ffbe30d9fe192a8cb9885acd0521a6e625a44e9fc33"
+      "checksum": "5d627a04b87a547c8a620d67deb2c99ccba8e3f910444bb606704432ed916c49"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-h2.01",
@@ -16866,9 +17016,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:49"
+        "app/blocks/[category]/[slug]/page.tsx:55"
       ],
-      "checksum": "0bc4c5e51922b3f7aabd44351b84fe68dae90123b6a44940e837b54c24e8bee8"
+      "checksum": "4786e6717d6f31dd90a31074d5ddaca5f21bee4c047bf87ca82093ecb6687bdd"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-h2.02",
@@ -16880,9 +17030,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:57"
+        "app/blocks/[category]/[slug]/page.tsx:63"
       ],
-      "checksum": "e4944fcbfda853b7040889193e3a3b4164cc02d1adc3f145ca5fc5d7009fdd04"
+      "checksum": "37946f155678270c5006eee716365327b4f985df9a2bad49c49f615fc45b39c5"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-h2.03",
@@ -16894,10 +17044,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:81",
+        "app/blocks/[category]/[slug]/page.tsx:87",
         "app/templates/[slug]/page.tsx:66"
       ],
-      "checksum": "6d2dfa99bcebe754e76f084567b13398a6264d4e6d182b01191151d2ee55353b"
+      "checksum": "f2f7744ce348269a6dbaffb9f756f55f8e8b64fef7ee1ef93be76dbd9cd739a3"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-p.01",
@@ -16909,9 +17059,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:68"
+        "app/blocks/[category]/[slug]/page.tsx:74"
       ],
-      "checksum": "437a645330d85edce1b1e95e23a7f987a3e25e46b26d45085f7d82356b1e52c9"
+      "checksum": "5e5ff7fe61fbf388326208e4523b3d66ff0a35d3b4beddf8733fe1be9c46e45c"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.jsx-p.02",
@@ -16923,9 +17073,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:83"
+        "app/blocks/[category]/[slug]/page.tsx:89"
       ],
-      "checksum": "4e35a94237293c96a13f37079a9c96bc51c31422eb695177974581b24a7c2861"
+      "checksum": "ebf5857da70892426af430a498ff091c60e3c222a9502f383b89d25b79c974dd"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.rich-p.01",
@@ -16946,9 +17096,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:73"
+        "app/blocks/[category]/[slug]/page.tsx:79"
       ],
-      "checksum": "db1957c5aea220f6ac4844d8d20a56b7d2ec3b80beff42ce0e3053516dd581a9"
+      "checksum": "e3ead61521fc24fd0b410bc51f698714c25a99f00f0242224fb784bcd56c8a15"
     },
     {
       "id": "static.blocks.category.slug.page.pro-block-detail-page.rich-p.02",
@@ -16979,9 +17129,9 @@
         }
       ],
       "sourceReferences": [
-        "app/blocks/[category]/[slug]/page.tsx:88"
+        "app/blocks/[category]/[slug]/page.tsx:94"
       ],
-      "checksum": "322caa637ce8bcfe335953e20496e13086d3c2c0a0920d79dd06346cc886ea6e"
+      "checksum": "bfcb505c53c12a31f1782d385bf4a7f8d343d896d21cde711c21ed8265b7a9c3"
     },
     {
       "id": "static.blocks.page.blocks-page.attribute-eyebrow.01",

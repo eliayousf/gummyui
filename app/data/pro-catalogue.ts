@@ -130,6 +130,15 @@ export const proCatalogueStatus =
     ? "release-ready"
     : "implementation-in-progress";
 
+export function isProBlockDiscoverable(block: {
+  status: ProItemStatus;
+  preview?: string;
+}) {
+  return block.status === "release-ready"
+    && typeof block.preview === "string"
+    && block.preview.trim().length > 0;
+}
+
 export function getProBlockCategory(slug: string) {
   return proBlockCategories.find((category) => category.slug === slug);
 }

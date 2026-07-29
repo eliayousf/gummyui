@@ -6,6 +6,7 @@ import { PublicTextPage } from "../../../components/PublicTextPage";
 import {
   getProBlock,
   getProBlockCategory,
+  isProBlockDiscoverable,
   proBlocks,
 } from "../../../data/pro-catalogue";
 
@@ -21,11 +22,16 @@ export async function generateMetadata({
   const { category, slug } = await params;
   const block = getProBlock(category, slug);
   if (!block) return {};
+  const discoverable = isProBlockDiscoverable(block);
   return {
     title: `${block.name} Pro block status · Gummy UI`,
     description: `${block.purpose} Boundary-safe implementation and release status for ${block.name}.`,
-    alternates: { canonical: `/blocks/${block.category}/${block.slug}` },
-    robots: { index: true, follow: true },
+    alternates: {
+      canonical: discoverable
+        ? `/blocks/${block.category}/${block.slug}`
+        : `/blocks/${block.category}`,
+    },
+    robots: { index: discoverable, follow: true },
   };
 }
 
@@ -86,7 +92,7 @@ export default async function ProBlockDetailPage({
           service approval.
         </p>
         <p>
-          <Link href={`/blocks/${category.slug}`}>
+          <Link href={`/blocks/${category.slug}#${block.slug}`}>
             Return to {category.name}
           </Link>
         </p>
