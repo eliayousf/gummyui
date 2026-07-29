@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "sourceLocale": "en",
-  "sourceRevision": "en-8d9722d3d630",
-  "sourceChecksum": "8d9722d3d630a65325fd2c2f76ff61649b5004dc9aa80b7c73391cfccc5db7be",
+  "sourceRevision": "en-9ce8e64d3a09",
+  "sourceChecksum": "9ce8e64d3a09dd9e6a417500f95f731a630ee5dc8c09c11ed3566328ace50d4c",
   "generatedFrom": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -158,12 +158,12 @@
     "app/themes/page.tsx",
     "lib/commerce/account.ts"
   ],
-  "messageCount": 3131,
-  "translatableMessageCount": 2853,
+  "messageCount": 3132,
+  "translatableMessageCount": 2854,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 2091,
+    "static": 2092,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -6470,10 +6470,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:172",
+        "app/components/[slug]/page.tsx:184",
         "app/data/articles.ts"
       ],
-      "checksum": "570fc2c510af9397c2d4e8eb5416d9f2129c739678b2bc3651946c0ec03c21b3"
+      "checksum": "29c53116b8fe43f16f8fc05a0dd4df95d33dc0dfe11267bf73226d9c80152b7f"
     },
     {
       "id": "article.semantics-before-surface.updated-at",
@@ -7715,11 +7715,11 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/blog/[slug]/page.tsx:133",
-        "app/components/[slug]/page.tsx:121",
+        "app/components/[slug]/page.tsx:133",
         "app/components/ComponentInspectorRuntime.tsx:431",
         "app/data/catalogue.ts"
       ],
-      "checksum": "eb9571217a19593475040c061519cc23f69cf716a0d7ade9d4129489ac8fa7e8"
+      "checksum": "3775b62cb3775294882f5c12f881cd6d6be9e4678a2993fa69a04433236f9280"
     },
     {
       "id": "catalogue.component.breadcrumb.semantics",
@@ -13603,13 +13603,13 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:233",
+        "app/components/[slug]/page.tsx:245",
         "app/components/DocsShell.tsx:74",
         "app/components/SiteChrome.tsx",
         "app/components/SiteChrome.tsx:61",
         "app/docs/troubleshooting/page.tsx:22"
       ],
-      "checksum": "84081621988a63d8216935af3196dbbb5207b607559d7739918ae9610367103c"
+      "checksum": "6f4909f5df27c741dff5a95ab8dfa904b745ae213f5bfff07ed7af9f11cdb4ce"
     },
     {
       "id": "core.footer.vite",
@@ -17733,13 +17733,13 @@
       ],
       "sourceReferences": [
         "app/blog/[slug]/page.tsx:87",
-        "app/components/[slug]/page.tsx:114",
+        "app/components/[slug]/page.tsx:126",
         "app/components/GelPopProof.tsx:561",
         "app/components/SiteChrome.tsx:53",
         "app/layout.tsx:35",
         "app/layout.tsx:42"
       ],
-      "checksum": "bc730348c247e3e673ce0fc5ebd5816d9a4b4f106eb0e22ccb27a31bb844e950"
+      "checksum": "bab0c25effb5f164f2f8c0abfe3223b0b25c63b5c89c9709252c6316e288620c"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.property-name.02",
@@ -35576,9 +35576,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:289"
+        "app/components/[slug]/page.tsx:301"
       ],
-      "checksum": "b51cd479a565659274a517b6a4e5218d1ddbf2a106529d3ed8c5683d19cb2c4a"
+      "checksum": "1db924b71507b227efdbebf2b2a409a733e4b04f62dca6e23e602377e4fad76f"
     },
     {
       "id": "static.components.slug.page.component-detail-page.attribute-label.01",
@@ -35590,9 +35590,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:145"
+        "app/components/[slug]/page.tsx:157"
       ],
-      "checksum": "b0f7eb38474231ca6026f260842e015c36ec8e6ee082ed9b669cabe789e38a91"
+      "checksum": "f7c586bd07b7c0970fabbbbef29c781c8c3158384ee942747c3914831a53503d"
     },
     {
       "id": "static.components.slug.page.component-detail-page.attribute-label.02",
@@ -35604,9 +35604,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:151"
+        "app/components/[slug]/page.tsx:163"
       ],
-      "checksum": "2e2d97d676fd084a2fba695ab1c9460499008c22cf760bb0d5b220425dd1ff97"
+      "checksum": "9f193b205ca29a2d3abec0f5abb4da85d3ba94d9eda59dd936e273ddbb2bd009"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-a.01",
@@ -35618,9 +35618,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:118"
+        "app/components/[slug]/page.tsx:130"
       ],
-      "checksum": "7cd2d63dea07bf6ffc84b981783f8c44f79961f2ae60257aaea4a488c4119d9b"
+      "checksum": "e59d0520aa90688aad94158867a94ad3ae07929632fdc4d36c010fae93204529"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-a.02",
@@ -35632,9 +35632,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:291"
+        "app/components/[slug]/page.tsx:303"
       ],
-      "checksum": "3ca40eaec36369c76de6fbeda48b0ff1072a158259f9af25a935ec1fdca794ce"
+      "checksum": "7860b2a097bc18672c6ed068ffa21a547b6c18d622c22d87776c9b3153185b1e"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-a.03",
@@ -35646,9 +35646,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:293"
+        "app/components/[slug]/page.tsx:305"
       ],
-      "checksum": "ce5947b2fe831a48e17ff73db74d7b443aaa535bb65e070cff108eb3367392d4"
+      "checksum": "fc412d365b2539ecfedfda7be386f4f70fcb2afa2ffce7352ef6978c99d6afdd"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.02",
@@ -35660,9 +35660,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:195"
+        "app/components/[slug]/page.tsx:207"
       ],
-      "checksum": "bac9154c32b60859ac5c8eb09688c8204d5571ba4bbeaeaa9e45a506c7e30c2d"
+      "checksum": "d73c3eada400332ec68b7f12b01004f62d00a9b72e8eb38a4f07a762668efd84"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.03",
@@ -35674,9 +35674,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:234"
+        "app/components/[slug]/page.tsx:246"
       ],
-      "checksum": "7ad0741aafb72b66c9682e843a47b5839e6426ee4d334e382f127d56170bc63d"
+      "checksum": "e805107d4ed4272939f2432ad05d225531964456d8ff4b65eb734f5d37e9640f"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.04",
@@ -35688,9 +35688,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:255"
+        "app/components/[slug]/page.tsx:267"
       ],
-      "checksum": "2b65102e19e9cf49ca1c3eb2b5dc53b9aaf0f54dac8410240c327781f9128e5c"
+      "checksum": "17a1ecf527e217ce14c166e7812d120e257830e390651257f8363f68ede913e5"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.05",
@@ -35702,9 +35702,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:278"
+        "app/components/[slug]/page.tsx:290"
       ],
-      "checksum": "d07f93505f469fc9b3d7dfc76661f5b9f05e2fc3abf2a584d7285b258fcf8167"
+      "checksum": "e44513fcca01eb1948d7d6b132698421f6c3d6940164387bcaa8e5b9fa965685"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.01",
@@ -35716,9 +35716,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:177"
+        "app/components/[slug]/page.tsx:189"
       ],
-      "checksum": "17fb47ff9b7980a2f8a08972746d8c843a2ca897c94ce6ed5679a2312a986a38"
+      "checksum": "866b64c86e0fee0109f1ac46edd62cef21cd58f52b6bbf8ce9f7050a8896a04f"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.02",
@@ -35730,9 +35730,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:182"
+        "app/components/[slug]/page.tsx:194"
       ],
-      "checksum": "e9312ba6f320693910e103188b5802c139e548d388e0216366f2b64054972038"
+      "checksum": "69fb28b8916f48accdf9e70c1d6bfa9d80efe7b461d552a72bafd97e0445ffd2"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.03",
@@ -35744,9 +35744,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:187"
+        "app/components/[slug]/page.tsx:199"
       ],
-      "checksum": "10747e8a4331ccf947fb0dfb061a5e5cb3fd6466482002fe0ec1b3319799b3b7"
+      "checksum": "9642e6c6d0df88be78b2d038ca36a4e342e127bb9d6b2eec1773168f32e3db9a"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.04",
@@ -35758,9 +35758,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:199"
+        "app/components/[slug]/page.tsx:211"
       ],
-      "checksum": "4cf5b36299ee14d51eaeadb8ad9f1a9fa6bc5743c641966530ff77e558df3698"
+      "checksum": "f6382009a38f235f75b23aa77a8edf347a8c7d95039137de2cf1b863d639eb39"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.05",
@@ -35772,9 +35772,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:207"
+        "app/components/[slug]/page.tsx:219"
       ],
-      "checksum": "f9a864a66845d054d6b0953385d0824b04fb12d47c333a9bf2d555dba4821e2e"
+      "checksum": "427374f47c37cbecc4997e99f809a84f09ccce109e034485ac77b28f42d35cf3"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.06",
@@ -35786,9 +35786,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:280"
+        "app/components/[slug]/page.tsx:292"
       ],
-      "checksum": "ac11c3c55de80406ae5cf30210dff7500ca2823aa4a8d16e09d87fa51cbd473f"
+      "checksum": "d4bde765c0227c59f4ddcd9c1d8415f3de3a803a2e307b5542b8150ecf6a9d4c"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-li.01",
@@ -35800,9 +35800,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:237"
+        "app/components/[slug]/page.tsx:249"
       ],
-      "checksum": "aa06e43093336c84e4b47d99b0705dcb095a0d857173655200e7a3072c43fc7b"
+      "checksum": "f1bd86c2ee960d5e6ed8321d0eae0a61c3fa3e7c515b63cb54c91e798e2c2d9c"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-li.02",
@@ -35814,9 +35814,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:240"
+        "app/components/[slug]/page.tsx:252"
       ],
-      "checksum": "e55d3248910ec1585bb889120932d80fa0c15259cb26a0260b1bf39f73498e29"
+      "checksum": "eb3fb6c62a2d07e26307d40703c6a9fca94903bb7d74ed45574e9ebc9ccb35e2"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-link.01",
@@ -35828,9 +35828,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:290"
+        "app/components/[slug]/page.tsx:302"
       ],
-      "checksum": "f098b53777253aaff9c508e4646fd9b51875640731f79163915c32d79f57cf13"
+      "checksum": "a35313901a24b16e01ca2c58af4fe636851e8a44d79187a79b55e7016c3edb04"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.01",
@@ -35842,9 +35842,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:138"
+        "app/components/[slug]/page.tsx:150"
       ],
-      "checksum": "3feb1be55069723140441868df1e61ddf2c5b0b70a854e506a588fbf42c9d241"
+      "checksum": "051d4166b1688c489eb0f5bc36debb85aa2c5de9acdeb79182fc7931febb60fe"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.02",
@@ -35856,9 +35856,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:165"
+        "app/components/[slug]/page.tsx:177"
       ],
-      "checksum": "1e7e0101351cd07a388fb74f032ba5d68832f002ea7c8b8665a091698d0d42d1"
+      "checksum": "204f97ca70bed4ecfdd581aa36055e937b153b138b07c9af31657931bd3b6e08"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.03",
@@ -35870,9 +35870,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:171"
+        "app/components/[slug]/page.tsx:183"
       ],
-      "checksum": "2b68fdc4a931fe97923073be9725eaf54e2e35be1abf1c2bc23269e1af2123e2"
+      "checksum": "df6b987d9c00737740a308ac0a1f2f9ee0bfd51480dae76fa9cbbe62105726a0"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.04",
@@ -35884,9 +35884,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:188"
+        "app/components/[slug]/page.tsx:200"
       ],
-      "checksum": "6775745952eb6beb5c4715793dfcc2b0025c03b2603376dada24eb03512f7e23"
+      "checksum": "9dd3e3d98076fa03a0fba6bcd8a26c8162bebe4d774b69c9dfafca6575b0ba85"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.05",
@@ -35898,9 +35898,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:194"
+        "app/components/[slug]/page.tsx:206"
       ],
-      "checksum": "ec8342aab4877c2f3fd6a927911441351afce260b4276c69200aab207ed44075"
+      "checksum": "0291ff4c145847369eccec59917410fc6f53a27d5cc2986fa2aa2bdcd9869b64"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.06",
@@ -35912,9 +35912,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:200"
+        "app/components/[slug]/page.tsx:212"
       ],
-      "checksum": "5cffec1a6ebfaad845ea08bb46b83b7969667348ad5c9df71b1ae7bb1cc0f6f7"
+      "checksum": "0ff227dd7a4689d48cdf28956ee8ef4a62e2e1f6cabc60d83314a990f16fa36a"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.07",
@@ -35926,9 +35926,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:226"
+        "app/components/[slug]/page.tsx:238"
       ],
-      "checksum": "7e8e701a71e7810a12142f6398c9d8506efaba6199d25a66ab2205bab4a2c158"
+      "checksum": "6c4cabe77cbb25815414cdc46dc2b09bfc61812091483d0791cddfae7c9dda56"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.09",
@@ -35940,9 +35940,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:246"
+        "app/components/[slug]/page.tsx:258"
       ],
-      "checksum": "ea7d839fc312df35ec9bd87d597edfb0b0c5e68633d2a751d89f65ce9ac59c30"
+      "checksum": "d1615281b3adf0387e007ec312d5d830316e7398f02b1caf52a685ddde7030fa"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.10",
@@ -35954,9 +35954,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:254"
+        "app/components/[slug]/page.tsx:266"
       ],
-      "checksum": "e2e185e340b090891b6c21feafab0c7380816665e6310cc6f1f966983535c812"
+      "checksum": "2a7b28c6e64b32178de6c1e5e9aa5fb39f9bc2d7a8b835c99143d920c8ac9144"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.11",
@@ -35968,9 +35968,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:258"
+        "app/components/[slug]/page.tsx:270"
       ],
-      "checksum": "3cdb9ba293cdf8745adfba40fec0b85a9834ab4e43b0d555a22fcf0d9be52bc0"
+      "checksum": "d4de5d289ed7e1742079ad33394066375de87733fef2c386bd60dcda46628e20"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.12",
@@ -35982,9 +35982,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:277"
+        "app/components/[slug]/page.tsx:289"
       ],
-      "checksum": "b801eb85717c148eebf3426f064d363ab81f53c045b2f1ecdfc170b2965e9511"
+      "checksum": "3e9cd4e7388685fcdb2cb552154b5f6d01327bbdb26046feca545c7e046798ee"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.01",
@@ -35996,9 +35996,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:143"
+        "app/components/[slug]/page.tsx:155"
       ],
-      "checksum": "67574babc25e6a7cf4c9cf236a1239f0b49c9de15fb0d484cf7f6be4622b7ee3"
+      "checksum": "c2239cb707f85cb098d2ba7c0cafe21e814181311e07e744b5dd98adf634730d"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.02",
@@ -36010,12 +36010,12 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:149",
-        "app/components/[slug]/page.tsx:284",
+        "app/components/[slug]/page.tsx:161",
+        "app/components/[slug]/page.tsx:296",
         "app/components/RadixComponentInspector.tsx:31",
         "app/components/RadixComponentInspectorRuntime.tsx:429"
       ],
-      "checksum": "27903c71f0a4137a0428d0ea73918537e974373113cc32bf8b1041f7b1d45aff"
+      "checksum": "ab67668134f45ff0a2d4bfa121bf1befebc3e3d69ce9c35a0d64bc18d62a3810"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.03",
@@ -36027,11 +36027,11 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:176",
+        "app/components/[slug]/page.tsx:188",
         "app/components/GelPopProof.tsx:157",
         "app/components/lab/page.tsx:44"
       ],
-      "checksum": "df7c4ae4889b5bffe956c6a71f5e42d99f231959438da6f65e38adb333d9c998"
+      "checksum": "0b3d81d03ff676da86c222464e50c6911ec93348b8dc55211cfeadae1c0dc351"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.04",
@@ -36043,11 +36043,11 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:181",
+        "app/components/[slug]/page.tsx:193",
         "app/components/GelPopProof.tsx:171",
         "app/components/lab/page.tsx:49"
       ],
-      "checksum": "aa470ec02f3c9bb85ef4bd936e7fdafe19fd0ca7228c823bd557b22291bb7105"
+      "checksum": "f3a56901410b8bce04099ae25ec63ace2f22f20babd600bd776a464e4d8442cf"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.05",
@@ -36059,11 +36059,11 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:186",
+        "app/components/[slug]/page.tsx:198",
         "app/components/GelPopProof.tsx:194",
         "app/components/lab/page.tsx:54"
       ],
-      "checksum": "f704c2f5cd1491ee3ee31b1fc4b8b3dac7e03034afeab050cdb046eda384470f"
+      "checksum": "226bce4eba9a84898cadd9183f7a670b444a04095f67d5e29fae6844f688ab6a"
     },
     {
       "id": "static.components.slug.page.component-detail-page.property-name.01",
@@ -36086,9 +36086,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:109"
+        "app/components/[slug]/page.tsx:121"
       ],
-      "checksum": "5fdf6bce0bd2045d4eb774cc0b4fbce3c89f8920c3e69d9bb4dce85b8dac87d9"
+      "checksum": "eb43ec95345bc865b37896375bcfbff96541d53373365bb3c97ac4cbd153355e"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-h2.01",
@@ -36111,9 +36111,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:139"
+        "app/components/[slug]/page.tsx:151"
       ],
-      "checksum": "6c37d4ff49d228cb7f4392928ad93f9f882640e370ca93a5b88aae255b5dc74c"
+      "checksum": "d74a5ab4be3866b9617eb936d05b461308914f9acd94c6f0032436340dd7ef80"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-h2.02",
@@ -36136,9 +36136,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:247"
+        "app/components/[slug]/page.tsx:259"
       ],
-      "checksum": "7e8a91d6ded4d3af3b6fa74f36f445846e5ae87ea129d67b487b04afc77dd887"
+      "checksum": "539fbf6d82bab7718338b9cdee91dfe3de48e4647f7d04683ec3105d51297ece"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.01",
@@ -36159,9 +36159,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:123"
+        "app/components/[slug]/page.tsx:135"
       ],
-      "checksum": "97cff8d46a225810c40e81a9512739b0297b73f056fabd4b8614fed0f2cf9001"
+      "checksum": "1a684a31a74eaa6058ab6cdceb9d53cef6293268887af147136397fff9a1f3a2"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.02",
@@ -36192,9 +36192,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:203"
+        "app/components/[slug]/page.tsx:215"
       ],
-      "checksum": "4aad211398b6024d9f62705731ed89813da0fa81db4188bc1641c63d4b2157f5"
+      "checksum": "9bea9db8d7230b6c038d7624e4105b728a5ba687304352a82c685d3bc9e3faa9"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.03",
@@ -36217,9 +36217,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:238"
+        "app/components/[slug]/page.tsx:250"
       ],
-      "checksum": "a516329662830730ec1d1eba738abb324fcc61fc79eda43a7b90771704544c9b"
+      "checksum": "fcad6deda82e7557f4cdab729a1cb29d3029a21305f7011479fe7f2568e0f07d"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.04",
@@ -36242,9 +36242,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:239"
+        "app/components/[slug]/page.tsx:251"
       ],
-      "checksum": "92acd313a1a37c00d1851907c81060a7574966aa278c8faeee04e8ee621229ef"
+      "checksum": "b36294525cda74d6f7eeb2c2b77000e8545345548d96796642393c459391a3a2"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-link.01",
@@ -36265,9 +36265,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:261"
+        "app/components/[slug]/page.tsx:273"
       ],
-      "checksum": "bb766bf1d3e7fb398c87709a9ef1d24c0cd2eb6531b3a031732e2bc171d4ed8d"
+      "checksum": "cd40cf2f60063a433477b0a435ad3f484452cfba6be76f97d9e761f1db140d66"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-p.01",
@@ -36290,9 +36290,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:130"
+        "app/components/[slug]/page.tsx:142"
       ],
-      "checksum": "fda55c74cf87f5738ca5064a2b3d2f998a03f9a0f5352ef8d1f35007c5b493bd"
+      "checksum": "2b700a61068727bb3eb603eb8a28ccaec2f5c3a4a0d5f336a601d93f341b3605"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-p.02",
@@ -36324,9 +36324,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:155"
+        "app/components/[slug]/page.tsx:167"
       ],
-      "checksum": "6d5c802898c24fb74b023b5e5bf758a2f5fd62a84a37f3f8ff9a1a9defe30fea"
+      "checksum": "96969ee31760d8abc6b89a47518284d5733755fcef185ef967c05712974e0f57"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-p.03",
@@ -36365,9 +36365,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:212"
+        "app/components/[slug]/page.tsx:224"
       ],
-      "checksum": "fffaf130722e0cb523fe1c2e3d75517d0055584f412399c29c08a452efd49dc4"
+      "checksum": "547f92291cf7c866620dd578ec2ed40b981a59af438c45f60819b51d4b350823"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-variant-p.01",
@@ -36390,9 +36390,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:158"
+        "app/components/[slug]/page.tsx:170"
       ],
-      "checksum": "1504b56c2e2c8af7fab943dc813aa3dc70f19506491e9ac4ea9b3ec557eb4583"
+      "checksum": "2284a0eadec1dd9d7204f3a6233674093b945dfc8238deb2d5d0a34b58d32824"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-variant-p.02",
@@ -36404,9 +36404,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:160"
+        "app/components/[slug]/page.tsx:172"
       ],
-      "checksum": "52f527746cde58fc62e8a4e83e706215e5702f6c0a6b4de5ed990cf732d3a72c"
+      "checksum": "54551c2e8cd8ac8c756e596795ffaa1cab8c624f33ecd0192bc2082d9f79440c"
     },
     {
       "id": "static.components.slug.page.generate-metadata.property-title.01",
@@ -36433,9 +36433,23 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:84"
+        "app/components/[slug]/page.tsx:96"
       ],
-      "checksum": "bba9dfaafa534509546c34376b94017f496a87b2560086fff9d46b0d98e12548"
+      "checksum": "dab66730593948e05e4b4102cd892d2c10176021ff0b56c9f2e1ebe697fa2c85"
+    },
+    {
+      "id": "static.components.slug.page.module.property-label.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Use a label to give a form control a persistent, programmatic name that remains visible while someone enters or reviews a value. Keep requirement and status text adjacent without duplicating the accessible name, and connect supplementary guidance through a description. Clicking the text should focus or toggle the intended control. Test repeated fields, dynamically generated identifiers, error summaries, long translations, nested groups, high zoom, and assistive-technology output before composing custom layouts.",
+      "description": "Static property label copy in app/components/[slug]/page.tsx, module scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/components/[slug]/page.tsx:52"
+      ],
+      "checksum": "d2dcf7dbc1ad6c41c2d4a925628fb8e5858c6503b86a8c6245827e3935d701b9"
     },
     {
       "id": "static.components.theme-builder.theme-builder.attribute-aria-label.01",

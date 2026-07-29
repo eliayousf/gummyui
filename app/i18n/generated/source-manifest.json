@@ -2,15 +2,15 @@
   "schemaVersion": "1.0",
   "generator": "scripts/localisation-build.mjs",
   "sourceLocale": "en",
-  "sourceRevision": "en-8d9722d3d630",
-  "sourceChecksum": "8d9722d3d630a65325fd2c2f76ff61649b5004dc9aa80b7c73391cfccc5db7be",
+  "sourceRevision": "en-9ce8e64d3a09",
+  "sourceChecksum": "9ce8e64d3a09dd9e6a417500f95f731a630ee5dc8c09c11ed3566328ace50d4c",
   "status": "english-source-ready-private-ai-drafts-unpublished",
-  "messageCount": 3131,
-  "translatableMessageCount": 2853,
+  "messageCount": 3132,
+  "translatableMessageCount": 2854,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 2091,
+    "static": 2092,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -67,7 +67,7 @@
     },
     {
       "path": "app/components/[slug]/page.tsx",
-      "sha256": "02876445910af68c90573ad696c9cd5c321ab479fec37e8a9e21676c658c3980"
+      "sha256": "022c3bd792730e0f9ec2d7521c7b965879fe74797c0be00f84874519a768213c"
     },
     {
       "path": "app/components/CatalogueSearch.tsx",
@@ -579,7 +579,7 @@
     },
     {
       "path": "app/rtl/layout.tsx",
-      "sha256": "db59e995a8c8fe2dd24079da525fcd9c7253818ee00d782d7f645182666d2292"
+      "sha256": "9fb191fe782b65ebd8f7d46cd266d52e109a36f48be2b9500658a09d94109d31"
     },
     {
       "path": "app/rtl/page.tsx",
@@ -637,15 +637,15 @@
   "outputs": {
     "englishSource": {
       "path": "app/i18n/generated/en.source.json",
-      "sha256": "6391d585d2b5771dfa2ab2bab99dc282955312331f7dfaca56319a2cdf7bdf3d"
+      "sha256": "82003f71694b1c15c46d3c865eb9fece6719181ba34b45862d1551c00ea3435e"
     },
     "localeManifest": {
       "path": "app/i18n/generated/locale-manifest.json",
-      "sha256": "13063df8add083389c20862bc80274a3d32ae70ca6403b02e51196c2714264eb"
+      "sha256": "93fe464dba2025a9526f3d8e4b54e7db50496cbbc30ddbf291ccba077696850f"
     },
     "reviewHandoff": {
       "path": "app/i18n/generated/review-handoff.json",
-      "sha256": "334ca9eacf224abfcfe19dae9003111f2ccb9ab85efaf132cbe5949bdd2c5cf2"
+      "sha256": "edc6b2e7b93ceb9415890b5ea95f47c84783c551ae3558b86fdd5a95760c3238"
     },
     "messageSchema": {
       "path": "app/i18n/generated/message-bundle.schema.json",
@@ -657,7 +657,7 @@
     },
     "staticCoverageAudit": {
       "path": "app/i18n/generated/static-copy-coverage.json",
-      "sha256": "a1dcdcc998e8651130f1b2e3130e543b1caaaeda0eee6e8879b2413021b3a16a"
+      "sha256": "062c909bc7dcc83863c4edb9e94ef273dd83bbcfbc158d87f0d6b4ace1376166"
     }
   },
   "blockers": [
