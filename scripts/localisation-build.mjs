@@ -33,6 +33,7 @@ const structuredSourcePaths = [
   "app/data/component-api.generated.json",
   "app/data/locales.ts",
   "app/data/markdown-docs.ts",
+  "app/data/subprocessors.ts",
   "app/layout.tsx",
   "app/page.tsx",
   "lib/commerce/account.ts",
@@ -328,12 +329,14 @@ const [
   articleData,
   changelogData,
   localeData,
+  providerData,
   accountData,
 ] = await Promise.all([
   importTypeScript("app/data/catalogue.ts"),
   importTypeScript("app/data/articles.ts"),
   importTypeScript("app/data/changelog.ts"),
   importTypeScript("app/data/locales.ts"),
+  importTypeScript("app/data/subprocessors.ts"),
   importTypeScript("lib/commerce/account.ts"),
 ]);
 const markdownData = await loadMarkdownData(catalogue);
@@ -384,6 +387,33 @@ function addAccountCopy(value, pathParts, descriptionPrefix) {
 }
 
 addAccountCopy(accountData.accountPublicCopy, ["public"], "Public and gated");
+
+for (const provider of providerData.serviceProviders) {
+  const providerId = kebabCase(provider.name);
+  addMessage({
+    id: `static.data.subprocessors.${providerId}.name`,
+    category: "static",
+    contentType: "identifier",
+    source: provider.name,
+    description: "Protected production-provider display name.",
+    translatable: false,
+    sourceReferences: ["app/data/subprocessors.ts"],
+    protectedSpans: [{ value: provider.name, reason: "provider-name" }],
+  });
+  for (const [field, source] of [
+    ["service", provider.service],
+    ["data-context", provider.dataContext],
+    ["role", provider.role],
+  ]) {
+    addMessage({
+      id: `static.data.subprocessors.${providerId}.${field}`,
+      category: "static",
+      source,
+      description: `${provider.name} ${field} disclosure.`,
+      sourceReferences: ["app/data/subprocessors.ts"],
+    });
+  }
+}
 
 for (const item of accountData.accountNavigation) {
   addMessage({

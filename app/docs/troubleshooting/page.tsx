@@ -29,6 +29,22 @@ export default function TroubleshootingPage() {
           <p>{copy}</p>
         </section>
       ))}
+      <section>
+        <h2>Use a repeatable diagnostic sequence</h2>
+        <ol>
+          <li>Open the registry URL from the component contract and confirm the response names the expected item.</li>
+          <li>Inspect the installed file paths and imports. Check that the TypeScript alias, bundler alias and <code>components.json</code> agree.</li>
+          <li>Confirm the shared theme loads before the component stylesheet and that application overrides load after both.</li>
+          <li>Reproduce the problem with the smallest component state in a clean route. Remove surrounding layout and providers one at a time rather than changing the installed semantics.</li>
+          <li>Run type checking and the production build, then verify keyboard, focus, zoom, direction and reduced-motion behavior in the browser where the issue occurs.</li>
+        </ol>
+        <p>Compare behavior with the published component contract rather than trying to match a screenshot pixel for pixel. Fonts, application tokens and viewport conditions can change appearance without changing the required interaction.</p>
+      </section>
+      <section>
+        <h2>Prepare a useful support report</h2>
+        <p>Include the exact registry URL, installed item name, framework and version, package manager, browser, relevant assistive technology, reproduction steps, expected behavior and actual behavior. Paste the smallest safe error excerpt. Remove access tokens, environment variables, customer data, proprietary source and full build logs that may contain local paths or secrets.</p>
+        <p>If the clean reproduction still fails, send those details through the <a href="/support">support route</a>. If the clean version works, add your application layers back until the responsible alias, provider, stylesheet or override is identified.</p>
+      </section>
     </PublicTextPage>
   );
 }

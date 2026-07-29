@@ -44,18 +44,16 @@ export default function RegistryPage() {
               <span>
                 <a
                   href={`/r/${component.registryName}.json`}
-                  aria-label={`Base registry for ${component.name}`}
                 >
-                  Base
+                  {component.name} Base registry
                 </a>
                 {component.radixRegistryName ? (
                   <>
                     {" · "}
                     <a
                       href={`/r/${component.radixRegistryName}.json`}
-                      aria-label={`Radix registry for ${component.name}`}
                     >
-                      Radix
+                      {component.name} Radix registry
                     </a>
                   </>
                 ) : null}

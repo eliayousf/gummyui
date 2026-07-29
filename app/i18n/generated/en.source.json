@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
   "sourceLocale": "en",
-  "sourceRevision": "en-e5d133b48e13",
-  "sourceChecksum": "e5d133b48e1305d9d18ce9c3f4d1947f8da1ad3faba52f3e3f35332e452ec709",
+  "sourceRevision": "en-bdc6f9cc0a42",
+  "sourceChecksum": "bdc6f9cc0a42f349f446f8800c44d18ab63fd33610738c055dfd10dc1cf5433e",
   "generatedFrom": [
     "app/accessibility/page.tsx",
     "app/blocks/[category]/[slug]/page.tsx",
@@ -14,6 +14,7 @@
     "app/commercial-license/page.tsx",
     "app/community/page.tsx",
     "app/community/submit/page.tsx",
+    "app/components/[slug]/layout.tsx",
     "app/components/[slug]/page.tsx",
     "app/components/CatalogueSearch.tsx",
     "app/components/CheckoutButton.tsx",
@@ -123,6 +124,7 @@
     "app/data/markdown-docs.ts",
     "app/data/pro-catalogue.public.json",
     "app/data/showcase.ts",
+    "app/data/subprocessors.ts",
     "app/design-kit/page.tsx",
     "app/docs/editor-setup/page.tsx",
     "app/docs/layout.tsx",
@@ -145,6 +147,7 @@
     "app/security/page.tsx",
     "app/studio/layout.tsx",
     "app/studio/page.tsx",
+    "app/subprocessors/page.tsx",
     "app/support/page.tsx",
     "app/templates/[slug]/page.tsx",
     "app/templates/[slug]/preview/page.tsx",
@@ -154,12 +157,12 @@
     "app/themes/page.tsx",
     "lib/commerce/account.ts"
   ],
-  "messageCount": 2942,
-  "translatableMessageCount": 2671,
+  "messageCount": 3041,
+  "translatableMessageCount": 2763,
   "categoryCounts": {
     "core": 44,
     "account": 105,
-    "static": 1902,
+    "static": 2001,
     "catalogue": 356,
     "article": 360,
     "guide": 139,
@@ -6466,10 +6469,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:116",
+        "app/components/[slug]/page.tsx:118",
         "app/data/articles.ts"
       ],
-      "checksum": "8bcb0d9837a62f9d77be1ae583db3ca61b275e4b0e6dc8f1f4ace0de68a15ff5"
+      "checksum": "332cf556c26dc15046da9badfa8b2bb8fb7a915b47bcc943160dc9c81eb45e38"
     },
     {
       "id": "article.semantics-before-surface.updated-at",
@@ -7711,11 +7714,11 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/blog/[slug]/page.tsx:133",
-        "app/components/[slug]/page.tsx:65",
+        "app/components/[slug]/page.tsx:67",
         "app/components/ComponentInspectorRuntime.tsx:431",
         "app/data/catalogue.ts"
       ],
-      "checksum": "298444c95f37d46f0bd900e7068bce5e96725f3481133440c93ce6b49b795e1b"
+      "checksum": "bec0629ce9a60b992210d49119fde765297bd58667253f9cbd58ec378fb602fc"
     },
     {
       "id": "catalogue.component.breadcrumb.semantics",
@@ -13422,9 +13425,9 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:84"
+        "app/components/SiteChrome.tsx:85"
       ],
-      "checksum": "c97e3875e765f8ff28b28433029d947d0a3756ff83a0c4012da30c7f948f1110"
+      "checksum": "fd8885e6c6c607564877bf1f6c86ebf147572749db436701105f7aba1292797a"
     },
     {
       "id": "core.footer.navigation-label",
@@ -13467,9 +13470,10 @@
       "protectedSpans": [],
       "sourceReferences": [
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:82"
+        "app/components/SiteChrome.tsx:82",
+        "app/contact/page.tsx:42"
       ],
-      "checksum": "314adee26854edce2dd2873de2667aec6e2fcfca3b5f2ff3324ca472f5b1f6c0"
+      "checksum": "c2673d98aba45f0095c58b2c403377159186b9ca0547380cec33fa3f9d70c97b"
     },
     {
       "id": "core.footer.pro-licence-status",
@@ -13554,9 +13558,10 @@
       "sourceReferences": [
         "app/components/ComponentLab.tsx:1082",
         "app/components/SiteChrome.tsx",
-        "app/components/SiteChrome.tsx:75"
+        "app/components/SiteChrome.tsx:75",
+        "app/contact/page.tsx:46"
       ],
-      "checksum": "0613dacca961488d4606bcfc5158f2866ca9ae7252f4e30f38cbaffac2ecf879"
+      "checksum": "c7dc2cb9e77f18020a212bdbc7eaf77aae33bd54a1e2dc1bab6ed9e8e897aa3d"
     },
     {
       "id": "core.footer.support",
@@ -13597,13 +13602,13 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:177",
+        "app/components/[slug]/page.tsx:179",
         "app/components/DocsShell.tsx:74",
         "app/components/SiteChrome.tsx",
         "app/components/SiteChrome.tsx:61",
         "app/docs/troubleshooting/page.tsx:22"
       ],
-      "checksum": "2425e4ff4c8d39f5256049344ede4e79fe388c0be5b06fdf8e5c7fc64a87b20d"
+      "checksum": "88d79d51e28d805bf589817a90b86f26e0e458374359d72cb89f7bf727b058b9"
     },
     {
       "id": "core.footer.vite",
@@ -16353,7 +16358,7 @@
       "id": "static.accessibility.page.accessibility-page.jsx-h2.03",
       "category": "static",
       "contentType": "plain",
-      "source": "Report a barrier",
+      "source": "How to review an installed component",
       "description": "Static jsx h2 copy in app/accessibility/page.tsx, accessibility-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -16361,7 +16366,21 @@
       "sourceReferences": [
         "app/accessibility/page.tsx:33"
       ],
-      "checksum": "4453830399fd3be4606e4b1ec94b1e1af15224284b85eed1392f5b66e71139a6"
+      "checksum": "7211ac2ebbabec206c6214e048371771d3556bb052fcb2bee7ca76cf240db32f"
+    },
+    {
+      "id": "static.accessibility.page.accessibility-page.jsx-h2.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Report a barrier",
+      "description": "Static jsx h2 copy in app/accessibility/page.tsx, accessibility-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/accessibility/page.tsx:39"
+      ],
+      "checksum": "9537dcde175e42d72c358de5cac699f3fb13557843cea5835156a68cc167a57b"
     },
     {
       "id": "static.accessibility.page.accessibility-page.jsx-li.01",
@@ -16448,6 +16467,48 @@
       "checksum": "1f491848bdeb0f28bee1a1632cb7c5503b43093dc32ee54ac66ce5744d4f7dee"
     },
     {
+      "id": "static.accessibility.page.accessibility-page.jsx-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Begin with the task a person must complete, not the component&apos;s appearance. Confirm that names, roles, descriptions, headings, labels and error relationships still make sense when the component is read in document order. Then complete every action with a keyboard, checking focus entry, movement, activation, dismissal and restoration. Managed composites such as menus and tabs should follow their documented key contract; ordinary controls should retain native browser behavior.",
+      "description": "Static jsx p copy in app/accessibility/page.tsx, accessibility-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/accessibility/page.tsx:34"
+      ],
+      "checksum": "512439f2b7dbbfd54beb44c91058bfb3de5f64dbcc761f10d6766427d34f6630"
+    },
+    {
+      "id": "static.accessibility.page.accessibility-page.jsx-p.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Repeat the task at 200% zoom and a narrow viewport, in light and dark themes, with a right-to-left boundary, and with reduced motion enabled. Check that content reflows without hiding actions, focus remains visible, status is not conveyed by colour alone, and animation is removed or simplified where motion is not essential.",
+      "description": "Static jsx p copy in app/accessibility/page.tsx, accessibility-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/accessibility/page.tsx:35"
+      ],
+      "checksum": "71f702ecda83037214eccee32c7d510a2efc3d62f0bbaf1f087689db288d490c"
+    },
+    {
+      "id": "static.accessibility.page.accessibility-page.jsx-p.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Automated tests can find missing names, invalid relationships and some contrast failures, but they cannot prove that instructions are understandable or that a workflow is usable. Record the browser, assistive technology, viewport and exact task with each manual result so a future release can reproduce it.",
+      "description": "Static jsx p copy in app/accessibility/page.tsx, accessibility-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/accessibility/page.tsx:36"
+      ],
+      "checksum": "8437e2fb233252dc738e544fc540c4c8d8fef511b391bb60d08f86031537c9eb"
+    },
+    {
       "id": "static.accessibility.page.accessibility-page.rich-p.01",
       "category": "static",
       "contentType": "rich-text",
@@ -16476,9 +16537,9 @@
         }
       ],
       "sourceReferences": [
-        "app/accessibility/page.tsx:34"
+        "app/accessibility/page.tsx:40"
       ],
-      "checksum": "8855ba7516f414676538c4f673212605ac6a10964446514a89cf0308cba3c46f"
+      "checksum": "6410c6d8c4a55ba4d2f47839e66738f65bc609746dc2372ab1215de8b2b5ddb6"
     },
     {
       "id": "static.accessibility.page.module.property-description.01",
@@ -17646,13 +17707,13 @@
       ],
       "sourceReferences": [
         "app/blog/[slug]/page.tsx:87",
-        "app/components/[slug]/page.tsx:58",
+        "app/components/[slug]/page.tsx:60",
         "app/components/GelPopProof.tsx:561",
         "app/components/SiteChrome.tsx:53",
         "app/layout.tsx:35",
         "app/layout.tsx:42"
       ],
-      "checksum": "a2fc9662de5d3393ada2f77575c6c2f906b847883a3b194b8c6b32b08c00887a"
+      "checksum": "42b17b8cdabd3aa6aa45bc0dec0fcb8c5e43e576b0c8406fa4b34a5f52073aff"
     },
     {
       "id": "static.blog.slug.page.blog-article-page.property-name.02",
@@ -22203,9 +22264,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/ComponentInspector.tsx:36"
+        "app/components/ComponentInspector.tsx:39"
       ],
-      "checksum": "7533d00b60ced812c5f995c1cfb84d4559804dbc44745589914a79f4cea415bb"
+      "checksum": "f3dd3cea67a9d72b9eef1ffe0495c8afd1befbc904b2e155888bd679865885a8"
     },
     {
       "id": "static.components.component-inspector.component-inspector.jsx-div.01",
@@ -22217,9 +22278,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/ComponentInspector.tsx:46"
+        "app/components/ComponentInspector.tsx:49"
       ],
-      "checksum": "daa3b49956174b5238f6cf3288378c2df48973cb4fa837ec26eaceb554c31d5e"
+      "checksum": "59be532086c7e9a78883cacf9cd6e750b051140e2c463c870c732973d1e55967"
     },
     {
       "id": "static.components.component-inspector.component-inspector.jsx-p.01",
@@ -22231,10 +22292,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/ComponentInspector.tsx:27",
+        "app/components/ComponentInspector.tsx:30",
         "app/components/ComponentInspectorRuntime.tsx:938"
       ],
-      "checksum": "6e3f0aa9d2ee7a080c61712b21f1984b9dbf0520e981bb3d85ee397365bb1fee"
+      "checksum": "eddb213f602e94aa2f01081e94966f953ee5ffa4f6abe2a9a9da189ab7a271a0"
     },
     {
       "id": "static.components.component-inspector.component-inspector.jsx-p.02",
@@ -22246,9 +22307,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/ComponentInspector.tsx:31"
+        "app/components/ComponentInspector.tsx:34"
       ],
-      "checksum": "644a256e1b277a73001919514c31a01a8f514e96cb75b4342f98451eef14d58c"
+      "checksum": "4ba8911243133c353adcdc116f0ffdd28b8ef45671e2542b72ad9653d7a9fd7b"
     },
     {
       "id": "static.components.component-inspector.component-inspector.rich-h2.01",
@@ -22271,10 +22332,10 @@
         }
       ],
       "sourceReferences": [
-        "app/components/ComponentInspector.tsx:28",
+        "app/components/ComponentInspector.tsx:31",
         "app/components/ComponentInspectorRuntime.tsx:939"
       ],
-      "checksum": "3782161aa4c7735be8649dd4846bb7004a15e88881c1ccaeaf44faaaeacda8da"
+      "checksum": "1332960a301b14de3bcdadaafa806abf469f2e3a22489eec9f304945e5e4766a"
     },
     {
       "id": "static.components.component-lab.badge-workbench.jsx-gummy-badge.01",
@@ -23643,9 +23704,9 @@
       "sourceReferences": [
         "app/components/ComponentLab.tsx:1735",
         "app/components/ComponentLab.tsx:929",
-        "app/contact/page.tsx:25"
+        "app/contact/page.tsx:26"
       ],
-      "checksum": "2144de85fa576fb49044ed9530a4c347f4220510baa250e165db23606f640c40"
+      "checksum": "b359e614e6e8febbde5f21e2fdb4cf5b1e08a124084cca2be24507885373fbdd"
     },
     {
       "id": "static.components.component-lab.component-lab.attribute-label.05",
@@ -34710,9 +34771,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/RadixComponentInspector.tsx:34"
+        "app/components/RadixComponentInspector.tsx:39"
       ],
-      "checksum": "ff2b13832223160ab75885ddfeba26dfa6442a303c211f718b3b3791133850f9"
+      "checksum": "1f96b06c902c6d429f1e2e7ae28500de68092049d3f1373ac975d8247a96703d"
     },
     {
       "id": "static.components.radix-component-inspector.radix-component-inspector.jsx-div.01",
@@ -34724,9 +34785,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/RadixComponentInspector.tsx:44"
+        "app/components/RadixComponentInspector.tsx:49"
       ],
-      "checksum": "26d32b02f2b40a34a25396849468400faafddcb53e1d75874f5a631d0272927e"
+      "checksum": "e321d219d0635450429fadd12e7a95d3132853b7511e7562a6e17c2a2749f206"
     },
     {
       "id": "static.components.radix-component-inspector.radix-component-inspector.jsx-p.02",
@@ -34738,9 +34799,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/RadixComponentInspector.tsx:30"
+        "app/components/RadixComponentInspector.tsx:35"
       ],
-      "checksum": "a9e3dd87ce8b3a978951b5b3087eef2bbae1f31776bd0d10ad021b94391a36e2"
+      "checksum": "763be04ca8439198f2e4f7916521909fcf7a5b113af70dbc065b3f3c2a6a4805"
     },
     {
       "id": "static.components.radix-component-inspector.radix-component-inspector.rich-h2.01",
@@ -34763,10 +34824,10 @@
         }
       ],
       "sourceReferences": [
-        "app/components/RadixComponentInspector.tsx:27",
+        "app/components/RadixComponentInspector.tsx:32",
         "app/components/RadixComponentInspectorRuntime.tsx:430"
       ],
-      "checksum": "bf2e9d73dc1022438176cceeb7f6b9cf8acd47fd22d88a0b5bddd380494d3f55"
+      "checksum": "14ff0eec98a8f5ab936f10ec5f026efaaba3da1427ce1f723c7abfca853f7cc4"
     },
     {
       "id": "static.components.radix.gummy-dropdown-menu.module.jsx-span.01",
@@ -34944,7 +35005,7 @@
       "id": "static.components.site-chrome.site-footer.jsx-link.24",
       "category": "static",
       "contentType": "plain",
-      "source": "Terms",
+      "source": "Subprocessors",
       "description": "Static jsx Link copy in app/components/SiteChrome.tsx, site-footer scope.",
       "translatable": true,
       "placeholders": [],
@@ -34952,7 +35013,21 @@
       "sourceReferences": [
         "app/components/SiteChrome.tsx:83"
       ],
-      "checksum": "6eb1e02519eef077c0822df47914d63cb45ea8be677a4a00eca56eb89a9cc60a"
+      "checksum": "b31e13116006be41cb207d85d877e26acc2fa813e1948741b22ded592d8a17e7"
+    },
+    {
+      "id": "static.components.site-chrome.site-footer.jsx-link.25",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Terms",
+      "description": "Static jsx Link copy in app/components/SiteChrome.tsx, site-footer scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/components/SiteChrome.tsx:84"
+      ],
+      "checksum": "2769d095666c215d1e491dc86d63a3073af806456e6287607487d0c680fe0837"
     },
     {
       "id": "static.components.site-chrome.site-footer.jsx-span.01",
@@ -35044,9 +35119,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:219"
+        "app/components/[slug]/page.tsx:226"
       ],
-      "checksum": "d4c6201bce221f7fba923c68710dc630f00bc450baab8c63dd4a3ae11baabbb9"
+      "checksum": "2d2967bfa6237689f8f57a9e79511583207a6d151c65503966af670e6d492104"
     },
     {
       "id": "static.components.slug.page.component-detail-page.attribute-label.01",
@@ -35058,9 +35133,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:89"
+        "app/components/[slug]/page.tsx:91"
       ],
-      "checksum": "8ed8fc6a26df8be79e2b6c2edc0e9a42485527bf8648e1f7443e532e9164232b"
+      "checksum": "72ab29385cc904eee045d22ec19434215bcb6ae5eb2e049a707f80237b2ca141"
     },
     {
       "id": "static.components.slug.page.component-detail-page.attribute-label.02",
@@ -35072,9 +35147,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:95"
+        "app/components/[slug]/page.tsx:97"
       ],
-      "checksum": "c2f5fd008f5d615316367b062ab97d14a8b4d300157e4184b2ca7950e86c782f"
+      "checksum": "4e3936c154e1cc50f15a1104c9b7a745337d6a492ccfba9de4c98e3ceb1e5fd0"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-a.01",
@@ -35086,9 +35161,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:62"
+        "app/components/[slug]/page.tsx:64"
       ],
-      "checksum": "6712647172402dc898f2ef9d7254deb91db887281738b6e98c9ac897c16a384c"
+      "checksum": "c04ca1559260f8e01f0b4fc3bfd7004683ab8ea0cb637968d2030dec291570a0"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-a.02",
@@ -35100,9 +35175,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:221"
+        "app/components/[slug]/page.tsx:228"
       ],
-      "checksum": "b67176c6ffac00fa86708038bdffea8c68903ba5e61522b3b09caf1445a9e4b1"
+      "checksum": "3c030d70050b0e49131a67077ad29bc1e559a0686edfa6b1a16bff5475c157f4"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-a.03",
@@ -35114,9 +35189,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:223"
+        "app/components/[slug]/page.tsx:230"
       ],
-      "checksum": "b33c0effa427f7095914909baf7c89e74c5e883b061c07d9ca2e7102df323ace"
+      "checksum": "bd1ef7253645b3c632fb449d294012c987f5325228f02f837587b6fbf81e9010"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.02",
@@ -35128,9 +35203,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:139"
+        "app/components/[slug]/page.tsx:141"
       ],
-      "checksum": "a8f60094e68cd1863b22b680726fa027f215768b30e81915affe41692693aa5d"
+      "checksum": "8b83dacbf5ade784fa5fe8917732cf7d96a278af7eb66218917eaf0ffe4e2c4f"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.03",
@@ -35142,9 +35217,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:178"
+        "app/components/[slug]/page.tsx:180"
       ],
-      "checksum": "db476483b72ba11bff17068d818b564e6683dc4d4cea5d99c02c6ef29c8ba526"
+      "checksum": "4131818db573b43cffdcaead6a46f02202412b47dcdd85604d2bc6f01317f82d"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.04",
@@ -35156,9 +35231,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:190"
+        "app/components/[slug]/page.tsx:192"
       ],
-      "checksum": "3e46538bfff5283ebffe772d5092c86ec594ebdab709339184b3488ec38d9cd8"
+      "checksum": "6800d587e38e629c9790f6ecbdcf06b91849cb262d1bf9817dcef26a6f444e03"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h2.05",
@@ -35170,9 +35245,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:208"
+        "app/components/[slug]/page.tsx:215"
       ],
-      "checksum": "074c2e7199c2eecad45d74c24e4d8a998d766962c5c67053f489a86868faf99b"
+      "checksum": "596bf34f3b6de747979320989596d6da0d7e08fafa7272ae489c2d985ae1835b"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.01",
@@ -35184,9 +35259,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:121"
+        "app/components/[slug]/page.tsx:123"
       ],
-      "checksum": "db13078d52147d8cab91e9c8c967ed59e95c1f2f2370f9bc76f8dfb31cbb5de5"
+      "checksum": "baea75a84ec2438d7eb49d4cd17e21cbc9de5a3ab85c9c689163fb6fb29b4d39"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.02",
@@ -35198,9 +35273,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:126"
+        "app/components/[slug]/page.tsx:128"
       ],
-      "checksum": "38773dc95724385cc7341dca2fec121f484f10fff88daab13573b497ae5bdca5"
+      "checksum": "dc1aa2635b7e7d8a0b5fb1028b829a0b1f06662919b7f38695d87b9a40462514"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.03",
@@ -35212,9 +35287,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:131"
+        "app/components/[slug]/page.tsx:133"
       ],
-      "checksum": "cbc7555b76e25f402257d29f6dfd4ba2eafcb47875f64f76760aebb7f5675d9a"
+      "checksum": "94c607561a27c0c145a46ac5e150ab166fce56707b8390b7afda2db3262143d1"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.04",
@@ -35226,9 +35301,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:143"
+        "app/components/[slug]/page.tsx:145"
       ],
-      "checksum": "f29c6ae6a181200440f285bf2fcb91cdafcf252608c2d0db2b651531d1f4b8cc"
+      "checksum": "978376a5cb6d5e86950aeccc16c6cd84aab903198863e7b1a42fcae15960e859"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.05",
@@ -35240,9 +35315,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:151"
+        "app/components/[slug]/page.tsx:153"
       ],
-      "checksum": "1fd92f1db0030658b205145600c663feb4b452c0b4c8e2f258761af5e97dd455"
+      "checksum": "56b2810b7d4d474c792b815f56e34d715bb3ba0eb0cd0a9bd70c6712e2c4cff1"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-h3.06",
@@ -35254,9 +35329,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:210"
+        "app/components/[slug]/page.tsx:217"
       ],
-      "checksum": "0f49d436a3eb2881bc9381967b3495ff8cf76d64411dcfa798af5e3a27782c74"
+      "checksum": "ffd8254668d30b8c6cf3019d70622ff96c3c18c182a6e88150c89b750b0293d9"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-li.01",
@@ -35268,9 +35343,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:181"
+        "app/components/[slug]/page.tsx:183"
       ],
-      "checksum": "f8a25bb3b06bb18e3583af41bc799be763dfd9ac8605038ee9ec6addd735326a"
+      "checksum": "296c2b3d107431155780a4c1d5817bd98df3ead2f5d5c485671b60952b9f34a0"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-li.02",
@@ -35282,9 +35357,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:184"
+        "app/components/[slug]/page.tsx:186"
       ],
-      "checksum": "c232f552128d357fd6c1d7514aafbba74674cda02e2f2c9bdc00a853de9adff2"
+      "checksum": "2d89d0237d7c5fdf40958b1a1a2413431e0820bebd0daaacaff1c053da026e34"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-link.01",
@@ -35296,9 +35371,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:220"
+        "app/components/[slug]/page.tsx:227"
       ],
-      "checksum": "703551560a15015a883238c274cb11dd97e88084f54e000db2843b91517dd386"
+      "checksum": "0268fbf9a9eed2f2874b603b268f3df9bf0fba43ed0435dd4d4696db99dd6112"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.01",
@@ -35310,9 +35385,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:82"
+        "app/components/[slug]/page.tsx:84"
       ],
-      "checksum": "c0ab78f29c375be509b1fa15d244f07ac64e306a1a86fca9b9e494d4b27b8865"
+      "checksum": "5b672f5f0f1c28572b777849d221b1f01c7d10f372ede56f38a2afc90278f4cd"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.02",
@@ -35324,9 +35399,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:109"
+        "app/components/[slug]/page.tsx:111"
       ],
-      "checksum": "3c76bf79f9fc5da9acfd2ef4c43e9eb5ea5e4ac8864fc32699f445c8109e0f1e"
+      "checksum": "8ce595193134a1bd8c02caab99d01a630c86216906aed8cee68e1ef44b31b9b5"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.03",
@@ -35338,9 +35413,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:115"
+        "app/components/[slug]/page.tsx:117"
       ],
-      "checksum": "d0a35aef903ddea591b76e249808f9e017dfe443aae68d54ea0461828ab7c1e0"
+      "checksum": "acb2bcbefa020aa2b3e302fd6921e11ad23e0cf507b1d6dad77dfa3f618d7c5b"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.04",
@@ -35352,9 +35427,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:132"
+        "app/components/[slug]/page.tsx:134"
       ],
-      "checksum": "73e3b6b5916ed7927efbf48ecf96b49c4b30ab850d8eafe4c9615a18753b33cd"
+      "checksum": "653634f203d927d48900c690ea6a79d7295d1f56225929ccac7147dfff20a4a0"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.05",
@@ -35366,9 +35441,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:138"
+        "app/components/[slug]/page.tsx:140"
       ],
-      "checksum": "95213e850ffc9189470389b924467ef606a6213dffd20591fffbecaf1abf5022"
+      "checksum": "29e489a40b5090da085f6aecfe71a67be5498b3075c433484a5726fc0424d1af"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.06",
@@ -35380,9 +35455,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:144"
+        "app/components/[slug]/page.tsx:146"
       ],
-      "checksum": "18b26958651181ae091e2e705170ff73a927bea2d2c6323d2405ddee95a1e2cd"
+      "checksum": "4caf54c79de0bfa45b6c28aef98b17242aef3d8cbb3d3451c2ac33c07fa20f77"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.07",
@@ -35394,9 +35469,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:170"
+        "app/components/[slug]/page.tsx:172"
       ],
-      "checksum": "d42765cfc6e8318e67f04891efb2b4e39759bb081c1b02615c13e8a5d3dd7ceb"
+      "checksum": "7c22b3966481d8c8a276072d6a4760adc36d448c972d0afc8fdb68703f9913c6"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.09",
@@ -35408,9 +35483,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:189"
+        "app/components/[slug]/page.tsx:191"
       ],
-      "checksum": "f442580cf2b8c475bf4ff4736c54078b92554ec5ec0d39696cfdd72c8e87ea99"
+      "checksum": "c3c02b3fc1c58547e17f32f19b9287f0363750ae306dfc9a0d2826ec7c658c7a"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.10",
@@ -35422,9 +35497,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:193"
+        "app/components/[slug]/page.tsx:195"
       ],
-      "checksum": "3a0b9c41549cb3bfd371ba1e3766e36e46703ac44e30ba2fd543ca8bff1f6f6b"
+      "checksum": "5a10553b18744127928cacb8ca4b9a9197cd6d357f46f1e3b07b9748220a4da2"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-p.11",
@@ -35436,9 +35511,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:207"
+        "app/components/[slug]/page.tsx:214"
       ],
-      "checksum": "201463ce00ea5f23cccf74a68792b3d5c06c86c45be24c8c4a84d148ac7f1523"
+      "checksum": "3c5d0b1b6c609b377d9ed4c6fb438b89b1550e91f6eb89e6c7c1e5c96d6b3f79"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.01",
@@ -35450,9 +35525,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:87"
+        "app/components/[slug]/page.tsx:89"
       ],
-      "checksum": "026a83d540fa40bc783362cdf171af406334fc330a40499bc47e79add1fb20fa"
+      "checksum": "3133edf487069b4f4e73751c120c335f99cae2c7dec0139e194d346c6f0e15b0"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.02",
@@ -35464,12 +35539,12 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:214",
-        "app/components/[slug]/page.tsx:93",
-        "app/components/RadixComponentInspector.tsx:26",
+        "app/components/[slug]/page.tsx:221",
+        "app/components/[slug]/page.tsx:95",
+        "app/components/RadixComponentInspector.tsx:31",
         "app/components/RadixComponentInspectorRuntime.tsx:429"
       ],
-      "checksum": "07386952cdbed228fa0cd8fe25b3c053f827c645dd555fd9a4e2f6b23273b4c0"
+      "checksum": "e03be6c64d5d93cbcc5914153655e698445c9274c06afa460351fc5f5650b96a"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.03",
@@ -35481,10 +35556,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:120",
+        "app/components/[slug]/page.tsx:122",
         "app/components/GelPopProof.tsx:157"
       ],
-      "checksum": "44f456ac20a92ee90b84ddcce7c875573376dbf7bc23a19240e75de70b3c53c6"
+      "checksum": "775742a1fd5df033c5b7e1a85684e1205066ca55f7a64416bf98ddece5ea00d4"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.04",
@@ -35496,10 +35571,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:125",
+        "app/components/[slug]/page.tsx:127",
         "app/components/GelPopProof.tsx:171"
       ],
-      "checksum": "d99775b36a8ea2149fa99159b9edb561eae0ec364549a29081ddedd4a52c5457"
+      "checksum": "4ba1b521abddaefdabddd287564c041e37b782ee5b1954c1c42338c528f6cd35"
     },
     {
       "id": "static.components.slug.page.component-detail-page.jsx-span.05",
@@ -35511,10 +35586,10 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:130",
+        "app/components/[slug]/page.tsx:132",
         "app/components/GelPopProof.tsx:194"
       ],
-      "checksum": "e303e36183b30973e06a04b290a3ac49628370de370888f89ee7b39ce5ed3911"
+      "checksum": "c7d5f46a804324368b3416cb4a81322281f6efaadc57c67ae2b96c1ffff49241"
     },
     {
       "id": "static.components.slug.page.component-detail-page.property-name.01",
@@ -35537,9 +35612,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:53"
+        "app/components/[slug]/page.tsx:55"
       ],
-      "checksum": "37822b5efe4187a4c1f72433714d0edd2c41fa2225a556519bd8ba93dc6d9333"
+      "checksum": "eab2163d605e3adf1e670d86cab82574ef494121d5c78f7e2d5d6d2f56b3c1c5"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-h2.01",
@@ -35562,9 +35637,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:83"
+        "app/components/[slug]/page.tsx:85"
       ],
-      "checksum": "e43354549a8e75608ded48032b822fb4ed29647ffe315e5d6c1ca57809bc2993"
+      "checksum": "eb668e2017da26e9a754c93502e6806aa20d25d379d3448d5ab4daeb9016f110"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.01",
@@ -35585,9 +35660,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:67"
+        "app/components/[slug]/page.tsx:69"
       ],
-      "checksum": "f6de07959fc21e9f789dfe965c33aeda1951a94fd5d8581137e0a43616499962"
+      "checksum": "9775b4a125f5132188cb9ee9eeb858d3675a07018d447e7a59fea87f5d285a85"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.02",
@@ -35618,9 +35693,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:147"
+        "app/components/[slug]/page.tsx:149"
       ],
-      "checksum": "b39787f36e5e87ab660e55875627cb8fea198f520074ef9f9ba1ec288667d3cc"
+      "checksum": "357fda3a9ce6d3d9d8ac330b992e5cd6f2657d82ef982704e996580fd92e6b40"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.03",
@@ -35643,9 +35718,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:182"
+        "app/components/[slug]/page.tsx:184"
       ],
-      "checksum": "ea09da9e037818ba1d0ab4c2ebea5b27dab2e71fb141eaa17884188f30079c7d"
+      "checksum": "97218e69e6f73613ed9d95956b405ed2dceef185248656ce855477db02326e8f"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-li.04",
@@ -35668,9 +35743,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:183"
+        "app/components/[slug]/page.tsx:185"
       ],
-      "checksum": "8237444e8545ff92091ed5d9de556f7f70599d9cdf138ca622e1695edb7634a1"
+      "checksum": "aadaa87f5e1651313b7c9fad43be3a8619b00935505fdb784333da473000eecc"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-link.01",
@@ -35691,9 +35766,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:196"
+        "app/components/[slug]/page.tsx:198"
       ],
-      "checksum": "3e07e535eac7cd6184ef7731bb22c476286587ad7f9600906d30490b802fff7c"
+      "checksum": "d2b1a3845f9da7836034d0f88d64f0f85d5ce9b89f71ba811a0079e074aa160f"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-p.01",
@@ -35716,9 +35791,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:74"
+        "app/components/[slug]/page.tsx:76"
       ],
-      "checksum": "bb27562c5876cb55611fa94da06834d1a066e0b8d1f2c18d865f342b67ac1ba0"
+      "checksum": "62eaf3a823d959f3c8955e23f5d2517f97fd059cbe508472b89e139fa59c7b20"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-p.02",
@@ -35750,9 +35825,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:99"
+        "app/components/[slug]/page.tsx:101"
       ],
-      "checksum": "e57bc81a5de68210f97c987a310463eede430860e59d8c4a6ef5f1c77f5b0e3c"
+      "checksum": "f612da2f09d8e607a5d6866b72c1e68e51b7c448561dc167a3b0da8616ffdd41"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-p.03",
@@ -35791,9 +35866,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:156"
+        "app/components/[slug]/page.tsx:158"
       ],
-      "checksum": "e4d9671aac9471b10cc3f5da110655acdf5e5c3d3073be106077300745a856f8"
+      "checksum": "5e8e96911dfd11a5e66afd51eb81812705c800b60c1750abcdfce8580d91b273"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-variant-p.01",
@@ -35816,9 +35891,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:102"
+        "app/components/[slug]/page.tsx:104"
       ],
-      "checksum": "ac969108870eb23f12f393b6b720be4d85ce49fdcf5ff846257773bf639f484b"
+      "checksum": "abe2ce2ccf017de36038a9c84f3ad824e75f50bf4c66f637f73d0376fe8cf7e6"
     },
     {
       "id": "static.components.slug.page.component-detail-page.rich-variant-p.02",
@@ -35830,9 +35905,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:104"
+        "app/components/[slug]/page.tsx:106"
       ],
-      "checksum": "4d6aa73c5a1dd9495eca800280e9ebb39cb6eed9dfa87b2dc47bdd820e5dc451"
+      "checksum": "5cb6d6fd6205f8198c0dcee52e52d542c78ce141ac056fb7488529fdc8deef05"
     },
     {
       "id": "static.components.slug.page.generate-metadata.property-title.01",
@@ -35859,9 +35934,9 @@
         }
       ],
       "sourceReferences": [
-        "app/components/[slug]/page.tsx:30"
+        "app/components/[slug]/page.tsx:31"
       ],
-      "checksum": "fb78ba99dc48ec749a5ab26b3da9a3720d1fac87c5fcff683acb050010628899"
+      "checksum": "3279cf1106ef043c1227728c722718e01dddc14dd4fd5158cd2380fb271e3b5e"
     },
     {
       "id": "static.components.theme-builder.theme-builder.attribute-aria-label.01",
@@ -36833,9 +36908,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/contact/page.tsx:15"
+        "app/contact/page.tsx:16"
       ],
-      "checksum": "09010891a3c02ae146be50899eb2f35bf5b0e08aacb9087c48ebd949bd4c7d3e"
+      "checksum": "7f0ea9378fba59ef7f7d49494e9ee1f0ed04d61b9345a3ea2625983d7f9a63fc"
     },
     {
       "id": "static.contact.page.contact-page.attribute-lede.01",
@@ -36858,9 +36933,9 @@
         }
       ],
       "sourceReferences": [
-        "app/contact/page.tsx:17"
+        "app/contact/page.tsx:18"
       ],
-      "checksum": "7c3d19fa3fe73bbb58816d535b2df67dfbd75bc674f60917d1528c9b47016c0e"
+      "checksum": "19cf520d026e0afd85588e97bb18ae741245004817a42d45bf3e4841508cc7e4"
     },
     {
       "id": "static.contact.page.contact-page.attribute-title.01",
@@ -36877,9 +36952,9 @@
         }
       ],
       "sourceReferences": [
-        "app/contact/page.tsx:16"
+        "app/contact/page.tsx:17"
       ],
-      "checksum": "a82f445f7a15411ac09b7740894e889ad0ccf00ca9c888d2c2aad0ecd91a79de"
+      "checksum": "94be8b88b1de472db8ef336e2eb2f27610b924fae6a75a3e3a3c1e862ea1a6e9"
     },
     {
       "id": "static.contact.page.contact-page.jsx-h2.01",
@@ -36891,9 +36966,121 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/contact/page.tsx:20"
+        "app/contact/page.tsx:21"
       ],
-      "checksum": "7832bb569699b9ba8db324d739893f5fa024af106d5f7bb488a2097ceabf3954"
+      "checksum": "8723fe87cd5d2908f0f56fde1ace8311a0679fdf35c3993baafb68259cc9a81e"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-h2.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Route your request",
+      "description": "Static jsx h2 copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:31"
+      ],
+      "checksum": "21857713f88287789bdae0cd20ddd7f5bc011e06cca1fdf16d50bfb25ed48a6f"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-h2.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "What to expect",
+      "description": "Static jsx h2 copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:52"
+      ],
+      "checksum": "fc7225e504fbe7018b68b909514627e0d85510df1cb02293fd1734bfea2adde7"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-h3.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Product support",
+      "description": "Static jsx h3 copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:34"
+      ],
+      "checksum": "f636374b0cd5ec64be620ad007689ac1fac53b48aec849a1a635695ca19e6976"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-h3.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Billing, refund or licence",
+      "description": "Static jsx h3 copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:38"
+      ],
+      "checksum": "c1042a2f214477e36e01c640a8ed60393c953966506f4760adf32cb365d06842"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-p.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Name the registry item, framework, package manager and browser. Include the exact command, expected result and smallest reproduction that does not contain customer data or secrets.",
+      "description": "Static jsx p copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:35"
+      ],
+      "checksum": "81b80f280b0d31ebee7b55cba942fac44dc49762d771f16475fbafba16d9e26c"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Include the order or invoice identifier and the account email, but no card details. State whether the question concerns access, a team seat, cancellation, renewal, refund eligibility or permitted use.",
+      "description": "Static jsx p copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:39"
+      ],
+      "checksum": "3fb7fe62598eb7e5db7617d1933ed5a6bd286b5f829079eb7de094f7310eaafd"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-p.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "State the right you want to exercise and the account or order email involved. We may ask for proportionate evidence before disclosing, correcting, exporting or deleting personal data.",
+      "description": "Static jsx p copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:43"
+      ],
+      "checksum": "fcc2b55e6ad12e3f8038127c8937ee0b57e7efe4ba78a3df1429b1bc0a89ef97"
+    },
+    {
+      "id": "static.contact.page.contact-page.jsx-p.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Keep the original email thread when adding evidence or asking for an update. That preserves the request history and reduces unnecessary identity checks. If the account email is unavailable, explain that constraint without sending identity documents until a proportionate verification route is agreed.",
+      "description": "Static jsx p copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/contact/page.tsx:54"
+      ],
+      "checksum": "0df35401cf84e4e61e8500bde8c2579756f22a07dcc2b85422a8c6a38de1ab40"
     },
     {
       "id": "static.contact.page.contact-page.rich-p.01",
@@ -36946,9 +37133,9 @@
         }
       ],
       "sourceReferences": [
-        "app/contact/page.tsx:22"
+        "app/contact/page.tsx:23"
       ],
-      "checksum": "8f1bbaf7747032be1f9c7da6e8c0a99a6411b773ac4a43002f1522b52aa2f269"
+      "checksum": "c7e1823cf2229f55119a270e52fa167beee48bfa438d128b9a5891c7459bbac1"
     },
     {
       "id": "static.contact.page.contact-page.rich-p.02",
@@ -36998,9 +37185,9 @@
         }
       ],
       "sourceReferences": [
-        "app/contact/page.tsx:26"
+        "app/contact/page.tsx:27"
       ],
-      "checksum": "c08af492ab3a8659633d67a3d030308573861581af0cf83e91beafde7320de8c"
+      "checksum": "03abc423982e0b3603692b33845cd0982e18d4355a89aa1b4ab508edb1aa94c0"
     },
     {
       "id": "static.contact.page.contact-page.rich-p.03",
@@ -37021,9 +37208,104 @@
         }
       ],
       "sourceReferences": [
-        "app/contact/page.tsx:27"
+        "app/contact/page.tsx:28"
       ],
-      "checksum": "6903fc6ab982764cd982ad9a0ade1cfc8d41962136801fa4e4e34c58f3feb985"
+      "checksum": "bd3297fded80af851068bbea153520fefaa9a41528d85a9dd2e3b36ef4911d9f"
+    },
+    {
+      "id": "static.contact.page.contact-page.rich-p.04",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Use the subject <strong1>Security report</strong1>. Describe the affected URL, impact and safe reproduction steps without accessing another person&apos;s data or sending exploit code before a secure route is agreed.",
+      "description": "Static rich p copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<strong1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</strong1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/contact/page.tsx:47"
+      ],
+      "checksum": "93404458e3bcb1d7e654342f1ca7850dcfdeb22900333ad14b98b7840e536620"
+    },
+    {
+      "id": "static.contact.page.contact-page.rich-p.05",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "We aim to send the first human reply within {supportfirstresponse}. This is a target, not an SLA, and resolution time depends on the request and the evidence available. Messages received outside UK business days are reviewed on the next business day.",
+      "description": "Static rich p copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "supportfirstresponse",
+          "type": "string",
+          "example": "[commercialPolicy.supportFirstResponse]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{supportfirstresponse}",
+          "reason": "runtime-placeholder"
+        }
+      ],
+      "sourceReferences": [
+        "app/contact/page.tsx:53"
+      ],
+      "checksum": "83f1760f086bcc105229f1dd338173c6c7581af2186cf3235f3f84669b93b093"
+    },
+    {
+      "id": "static.contact.page.contact-page.rich-p.06",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Product questions can often be resolved faster through the <link1>support guide</link1> and <link2>troubleshooting checklist</link2>. Privacy rights, retention and identity checks are explained in the <link3>privacy notice</link3>; vulnerability-reporting boundaries are on the <link4>security page</link4>.",
+      "description": "Static rich p copy in app/contact/page.tsx, contact-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<link1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<link2>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link2>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<link3>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link3>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<link4>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link4>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/contact/page.tsx:55"
+      ],
+      "checksum": "9ac23aea468beb754c28657154f6f3dd42f75f99f8f15e2622bdc49bceefcb28"
     },
     {
       "id": "static.contact.page.module.property-description.01",
@@ -37040,9 +37322,9 @@
         }
       ],
       "sourceReferences": [
-        "app/contact/page.tsx:8"
+        "app/contact/page.tsx:9"
       ],
-      "checksum": "d759b98e884b007e307fdb6e417ebfb5a9897fa49d3c8b50d75d355230514495"
+      "checksum": "a4a141e99a4348f440729633bf0b34c1580e034e0a46e1aaab11d66d4da87f94"
     },
     {
       "id": "static.contact.page.module.property-title.01",
@@ -37059,9 +37341,441 @@
         }
       ],
       "sourceReferences": [
-        "app/contact/page.tsx:6"
+        "app/contact/page.tsx:7"
       ],
-      "checksum": "c1e0cade508b63045460414818b8c98a632e8c86c939323d67c0de6cd747c571"
+      "checksum": "d5586028bec6178ecdfcc3ad55a75fadeccf3992bc576ac00b7a6f41ed4efb81"
+    },
+    {
+      "id": "static.data.subprocessors.backblaze-b2.data-context",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Encrypted backup objects containing the application records covered by the backup schedule.",
+      "description": "Backblaze B2 data-context disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "90214d04d11248f6c735eed30201ca1d20aee5d23449e87aaf19ec94075045b5"
+    },
+    {
+      "id": "static.data.subprocessors.backblaze-b2.name",
+      "category": "static",
+      "contentType": "identifier",
+      "source": "Backblaze B2",
+      "description": "Protected production-provider display name.",
+      "translatable": false,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Backblaze B2",
+          "reason": "provider-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "f3460561faf19a46d1aa3bdc57e7914b6045f7d7fdb1b9d0437279465f19ec0f"
+    },
+    {
+      "id": "static.data.subprocessors.backblaze-b2.role",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Service provider and processor for backup operations.",
+      "description": "Backblaze B2 role disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "0d46d6a351aa7518141c11d1f5d1dc0784a5bf9dfacfc873cd90d05dce44c4c3"
+    },
+    {
+      "id": "static.data.subprocessors.backblaze-b2.service",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Encrypted off-provider backups and restore verification.",
+      "description": "Backblaze B2 service disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "4a1e5f7c5a30ac1068639a3d0f5ad26d17929cd11a0cda2c65326f8d19a3942b"
+    },
+    {
+      "id": "static.data.subprocessors.better-stack.data-context",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Health checks, route and response status, timestamps, errors and privacy-minimised diagnostic events.",
+      "description": "Better Stack data-context disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "81d26da4d5d2f4a1d7dd83fd63bab442326dec486020ed67929f800d122c75d6"
+    },
+    {
+      "id": "static.data.subprocessors.better-stack.name",
+      "category": "static",
+      "contentType": "identifier",
+      "source": "Better Stack",
+      "description": "Protected production-provider display name.",
+      "translatable": false,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Better Stack",
+          "reason": "provider-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "461e3650f01d1ad61c173ed2d483fd5bcd2c023bafc129c90e754ec3b2944af9"
+    },
+    {
+      "id": "static.data.subprocessors.better-stack.role",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Service provider and processor for reliability operations.",
+      "description": "Better Stack role disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "ac1571f563dccb1c201dd8fbb31908b6f652d6ee001b332c1b8fa4e07000dd71"
+    },
+    {
+      "id": "static.data.subprocessors.better-stack.service",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Availability monitoring, incident alerting and operational log review.",
+      "description": "Better Stack service disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "77bec624bfc29938551ba16d83c4ced0fdc7aaeb1954d1af211c86f43259dbaa"
+    },
+    {
+      "id": "static.data.subprocessors.convex.data-context",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Account and workspace references, entitlement state, licence records, download history and operational events.",
+      "description": "Convex data-context disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "899cf723a9500e9281c5c8040f26715231d19e09e6d35f1be40b50e6f44f5963"
+    },
+    {
+      "id": "static.data.subprocessors.convex.name",
+      "category": "static",
+      "contentType": "identifier",
+      "source": "Convex",
+      "description": "Protected production-provider display name.",
+      "translatable": false,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Convex",
+          "reason": "provider-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "c82ac7a0d45eb2ff84f806c7f0f5351c5914220264a74174a2a91bb1333402e7"
+    },
+    {
+      "id": "static.data.subprocessors.convex.role",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Service provider and processor for application operations.",
+      "description": "Convex role disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "4136a97114ca8442ad5350bb79325b8db853c4f2a2b05b4673fdd0fa2f57d01e"
+    },
+    {
+      "id": "static.data.subprocessors.convex.service",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Application data, backend functions and transactional product state.",
+      "description": "Convex service disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "d672f6f2e7f8e59e51cd526f8cef169f30bc78a62c2e886422446496607ea08b"
+    },
+    {
+      "id": "static.data.subprocessors.resend.data-context",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Recipient email address, message type, delivery state and provider message reference.",
+      "description": "Resend data-context disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "a356c3956788b2115cae17d9b247cea4f5f165c396d839e583733e59aebf85ae"
+    },
+    {
+      "id": "static.data.subprocessors.resend.name",
+      "category": "static",
+      "contentType": "identifier",
+      "source": "Resend",
+      "description": "Protected production-provider display name.",
+      "translatable": false,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Resend",
+          "reason": "provider-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "ae92cdf8ba752d86ef207af54b6baf8e8e97652aae5f7f1d5e470bd4f63768cf"
+    },
+    {
+      "id": "static.data.subprocessors.resend.role",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Service provider and processor for email operations.",
+      "description": "Resend role disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "a026b9d4dd3a17904e6503b7f80fc58636dfc144d3c06c6f98b930dbf4aa46ec"
+    },
+    {
+      "id": "static.data.subprocessors.resend.service",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Transactional product, account, security and support email delivery.",
+      "description": "Resend service disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "bb6b234cee1425ca05a53c3e370b6831662cb245956a4bddb4ca6a655998bb0f"
+    },
+    {
+      "id": "static.data.subprocessors.stripe-managed-payments.data-context",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Customer and order references, product, amount, currency, tax, payment and refund state. Gummy UI does not store full card details.",
+      "description": "Stripe Managed Payments data-context disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "aade318d4982acfd2f2eda6251179dc4068b729bc5df27c6362b1f5aefe803f3"
+    },
+    {
+      "id": "static.data.subprocessors.stripe-managed-payments.name",
+      "category": "static",
+      "contentType": "identifier",
+      "source": "Stripe Managed Payments",
+      "description": "Protected production-provider display name.",
+      "translatable": false,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Stripe Managed Payments",
+          "reason": "provider-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "1a9e9a2155513380092d3cb28a730d4bd2854b935f50dc7136af888028bba9a1"
+    },
+    {
+      "id": "static.data.subprocessors.stripe-managed-payments.role",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Managed Payments provider; Stripe and Link are separately responsible for payment and transaction-support data as described in the privacy notice.",
+      "description": "Stripe Managed Payments role disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "2c32e28734299b86324dc783489251583b99c4cdacef9bcdd9e231498db9f33b"
+    },
+    {
+      "id": "static.data.subprocessors.stripe-managed-payments.service",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Checkout, payment, tax support, invoices, refunds and transaction support.",
+      "description": "Stripe Managed Payments service disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "f4a9ea91f8b718446dc753c329dbfcdb5e8922769def68fd91935a779bffcd46"
+    },
+    {
+      "id": "static.data.subprocessors.vercel.data-context",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Website requests, IP address, browser and device metadata, request timing, route and operational logs.",
+      "description": "Vercel data-context disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "e1a21592760669a1538058ef49a7cd82588a0901c626b35ba775642a29cc269f"
+    },
+    {
+      "id": "static.data.subprocessors.vercel.name",
+      "category": "static",
+      "contentType": "identifier",
+      "source": "Vercel",
+      "description": "Protected production-provider display name.",
+      "translatable": false,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Vercel",
+          "reason": "provider-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "c625c6fe3486a275e6caa3d8eb00c9f78c9a77181a05a6a7ebe1e8ec1686b20d"
+    },
+    {
+      "id": "static.data.subprocessors.vercel.role",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Service provider and processor for hosting operations.",
+      "description": "Vercel role disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "d0645a15e602c157ea17ccffeba6a78813033122ae5ff8910efaec9f7e64f58c"
+    },
+    {
+      "id": "static.data.subprocessors.vercel.service",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Production hosting, edge delivery, deployment and request handling.",
+      "description": "Vercel service disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "89060276375ad506890cc8540dcbdf1c252893ea9bbe464457cda476349680cc"
+    },
+    {
+      "id": "static.data.subprocessors.work-os.data-context",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Name, email address, identity-provider identifier, session and security state, workspace and role.",
+      "description": "WorkOS data-context disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "eead1a41fbeff78483cd3b8566788ffb7d26b2717c1d8273cab74451080104b5"
+    },
+    {
+      "id": "static.data.subprocessors.work-os.name",
+      "category": "static",
+      "contentType": "identifier",
+      "source": "WorkOS",
+      "description": "Protected production-provider display name.",
+      "translatable": false,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "WorkOS",
+          "reason": "provider-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "509ec308e0e6847cdea8dbcf5caef065c77f49f80bada005c3f6d5838a8f42ad"
+    },
+    {
+      "id": "static.data.subprocessors.work-os.role",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Service provider and processor for identity operations.",
+      "description": "WorkOS role disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "b6508a4f8414dabe1cc7b884f1f0d5f50cf228050603b8bae7f5c9bfa0f0c7d5"
+    },
+    {
+      "id": "static.data.subprocessors.work-os.service",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Authentication, account recovery, sessions, organisations and invitations.",
+      "description": "WorkOS service disclosure.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/data/subprocessors.ts"
+      ],
+      "checksum": "ffd82da74120fc3756c1cce540e9b9faf71b236c9c80d7623eda490592734806"
     },
     {
       "id": "static.design-kit.page.design-kit-page.attribute-eyebrow.01",
@@ -37376,7 +38090,7 @@
       "id": "static.docs.editor-setup.page.editor-setup-page.jsx-h2.03",
       "category": "static",
       "contentType": "plain",
-      "source": "MCP status",
+      "source": "Choose the authoritative surface",
       "description": "Static jsx h2 copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
       "translatable": true,
       "placeholders": [],
@@ -37384,7 +38098,49 @@
       "sourceReferences": [
         "app/docs/editor-setup/page.tsx:31"
       ],
-      "checksum": "4d7d6b3e50c379b94308c368e89a3d3e7e5152c31d0058859b74e8850e42d8db"
+      "checksum": "2b020f953c6fc4de309fd3c7d2a8f711020dd83d1117ad77b0415720b09610b2"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.jsx-h2.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Keep edits reviewable",
+      "description": "Static jsx h2 copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:36"
+      ],
+      "checksum": "81896ef346f4e56738a0b62509ec5bd029893cb23cc31ab000197acd03a5d7fa"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.jsx-h2.05",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Limit tool access",
+      "description": "Static jsx h2 copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:41"
+      ],
+      "checksum": "bd3abd0bd1a2859b628560bd051b47bfa80ab0774414c54e72e9b73783aa6b08"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.jsx-h2.06",
+      "category": "static",
+      "contentType": "plain",
+      "source": "MCP status",
+      "description": "Static jsx h2 copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:45"
+      ],
+      "checksum": "05147eeaee41e76ec26a219ea14627fbfd14844a29c66440ed549a3bfb726e8a"
     },
     {
       "id": "static.docs.editor-setup.page.editor-setup-page.jsx-li.01",
@@ -37418,15 +38174,71 @@
       "id": "static.docs.editor-setup.page.editor-setup-page.jsx-p.01",
       "category": "static",
       "contentType": "plain",
+      "source": "Ask an agent to cite the component slug and registry URL it used, list the files it changed, and leave the project&apos;s dependency versions under the project&apos;s control. It should not invent a Pro URL, a paid release name, an entitlement, or private source that is absent from the public contract.",
+      "description": "Static jsx p copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:33"
+      ],
+      "checksum": "7f852eceab04c1bd4aa6a90b104143c35d63b0cd32de817f5fa337b3e5b3f815"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.jsx-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Install one dependency group at a time, inspect the diff, and run focused checks before broad composition. Treat generated source as ordinary application code: preserve accessible names, keyboard handling, refs and direction-aware behavior when editing it. Keep the shared theme import in one known global entry so an editor does not mask missing styles with preview-only CSS.",
+      "description": "Static jsx p copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:37"
+      ],
+      "checksum": "4209599d555bc9f4d4e23f5f4c9ee33fcccab1c77ae383c55f4bf7a592038ef5"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.jsx-p.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "When updating an already edited component, compare the incoming registry files with the committed local version. Reapply only intentional customisations, record the source version in the change, and rerun type, behavior, accessibility and production-build checks.",
+      "description": "Static jsx p copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:38"
+      ],
+      "checksum": "e2fe7c613d2428fa8533a9ab7c1488c6b61e858b1fd7c7161b38fc91a2589523"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.jsx-p.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "An editor needs read access to the public documentation and permission to change only the consumer repository. It does not need production credentials, billing data, account recovery material or access to private release storage to install a free component. Review terminal commands and file changes before allowing a tool to publish, deploy or overwrite a locally modified file.",
+      "description": "Static jsx p copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:42"
+      ],
+      "checksum": "950ba0f22762167c63931ec593d4d5e203b31b2b3fadd6976f3219881dbc5f3f"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.jsx-p.05",
+      "category": "static",
+      "contentType": "plain",
       "source": "The public HTTP discovery surfaces are implemented. A hosted MCP transport is not advertised as live until authentication, rate limits, monitoring, and production deployment are approved and verified.",
       "description": "Static jsx p copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
       "translatable": true,
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/docs/editor-setup/page.tsx:32"
+        "app/docs/editor-setup/page.tsx:46"
       ],
-      "checksum": "8cf7281946aac04ea051dd6169d426d8a2fa35aaa6f2c4a84d0dea16f5c8d1e3"
+      "checksum": "ca5fcacbdeecb9e9977b8b0a9b6360e63458e3b7637d5f63ccb96447ea6820d8"
     },
     {
       "id": "static.docs.editor-setup.page.editor-setup-page.rich-li.01",
@@ -37504,6 +38316,29 @@
         "app/docs/editor-setup/page.tsx:28"
       ],
       "checksum": "787fbe77eebc05255618aee9723ec9ae87a3069ef8e830d697ceba13b8b1edf1"
+    },
+    {
+      "id": "static.docs.editor-setup.page.editor-setup-page.rich-p.02",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Use <code1>/llms.txt</code1> to discover public entry points, the Markdown contract to understand behavior, the catalogue JSON to resolve identifiers, and the registry response to install files. A generated answer, search excerpt or source-viewer preview is not a substitute for the exact registry URL recorded by those surfaces.",
+      "description": "Static rich p copy in app/docs/editor-setup/page.tsx, editor-setup-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<code1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</code1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/docs/editor-setup/page.tsx:32"
+      ],
+      "checksum": "974445c3f10a0c940ebd6abc91caff46ae251366a30d4e3036826fa6ea666744"
     },
     {
       "id": "static.docs.editor-setup.page.module.property-description.01",
@@ -37690,16 +38525,58 @@
       "id": "static.docs.nextjs.page.next-js-guide-page.jsx-h2.03",
       "category": "static",
       "contentType": "plain",
+      "source": "Prepare the consumer project",
+      "description": "Static jsx h2 copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:27"
+      ],
+      "checksum": "3d30691829a55af36573f79360e71bbc211a30fa97461219784087126bb58155"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.jsx-h2.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Compose across server and client boundaries",
+      "description": "Static jsx h2 copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:32"
+      ],
+      "checksum": "d8d4cfc9a9c3e317f377dea09108474492535853f3f7795c1721dc3129177477"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.jsx-h2.05",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Update safely",
+      "description": "Static jsx h2 copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:37"
+      ],
+      "checksum": "6b03a30a39435585967a1eb388c5990677b63f76ee6f5ed2b6bf93fcde5e923a"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.jsx-h2.06",
+      "category": "static",
+      "contentType": "plain",
       "source": "Verify",
       "description": "Static jsx h2 copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
       "translatable": true,
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/docs/nextjs/page.tsx:27",
-        "app/docs/vite/page.tsx:27"
+        "app/docs/nextjs/page.tsx:41",
+        "app/docs/vite/page.tsx:41"
       ],
-      "checksum": "7d5467705b82f7cd232a15390d74764af927dd136f156136876f44373acfc8ec"
+      "checksum": "e4357387c381c70ac42fd5f8c20adb241efeb66a644920a563d58fc75258196d"
     },
     {
       "id": "static.docs.nextjs.page.next-js-guide-page.jsx-p.01",
@@ -37719,6 +38596,48 @@
       "id": "static.docs.nextjs.page.next-js-guide-page.jsx-p.02",
       "category": "static",
       "contentType": "plain",
+      "source": "A Server Component may render a client component and pass serialisable content or configuration into it. Keep data fetching, authentication checks and sensitive server work outside the installed UI source. If you wrap a Gummy component, preserve its label relationships, keyboard behavior, forwarded ref and focus handling rather than replacing them with click-only containers.",
+      "description": "Static jsx p copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:33"
+      ],
+      "checksum": "f4f8466db953c5a5d2dceaf3b88ec7e0ade732d178d24bef2c69134773c71a15"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.jsx-p.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "After composition, exercise the real route—not only an isolated preview. Check loading, empty, error and disabled states, then navigate away and back to catch hydration, focus-restoration or layout problems.",
+      "description": "Static jsx p copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:34"
+      ],
+      "checksum": "d10cd4acb91e060c0b8730cac0c0c4f2ddd750eeadcf8764e3b442aca7b74b48"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.jsx-p.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Registry installation writes editable files, so a later install can conflict with changes you made locally. Review the proposed diff before accepting an overwrite. Carry intentional local changes forward, re-run the component&apos;s behavior contract, and commit the installed source with the application so production does not depend on a network fetch.",
+      "description": "Static jsx p copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:38"
+      ],
+      "checksum": "265b5eaff30100ab38c6cb976d79abc5eefe13c8373dea812e2afd2f81c9b102"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.jsx-p.05",
+      "category": "static",
+      "contentType": "plain",
       "source": "Run your project&apos;s TypeScript, lint, behavior, accessibility, and production-build checks after installation. Gummy UI&apos;s release gate performs the independent typecheck and build in a fresh temporary Next.js consumer.",
       "description": "Static jsx p copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
       "translatable": true,
@@ -37730,9 +38649,9 @@
         }
       ],
       "sourceReferences": [
-        "app/docs/nextjs/page.tsx:28"
+        "app/docs/nextjs/page.tsx:42"
       ],
-      "checksum": "226a50a83976ab647e1dffb20038836f2d0064c508ad84462f08740f7c81c168"
+      "checksum": "228a8ccaabf1f3369ce0dd52789b6142b7627b4767a148f607ce498a46b53e0d"
     },
     {
       "id": "static.docs.nextjs.page.next-js-guide-page.rich-p.01",
@@ -37772,6 +38691,60 @@
         "app/docs/nextjs/page.tsx:20"
       ],
       "checksum": "fe2d8ab43751e0fdba1c412a13bcc8abba921220c4406c307eafbfe4380c68f1"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.rich-p.02",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Check <code1>components.json</code1> before installing. Its component and utility aliases must resolve inside the application, and its CSS entry should identify the stylesheet that owns application-wide styles. If your project uses a <code2>src</code2> directory, keep the alias and registry destination aligned with that layout rather than moving generated files after every install.",
+      "description": "Static rich p copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<code1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</code1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<code2>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</code2>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:28"
+      ],
+      "checksum": "7115e99483dcc815a4a867f49ec0904196906aea51ad2e98cac9ec1433d0b964"
+    },
+    {
+      "id": "static.docs.nextjs.page.next-js-guide-page.rich-p.03",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "The shared Gummy theme defines material tokens and environmental behavior; the component stylesheet defines only that component&apos;s presentation. Load each generated stylesheet once in a stable global entry. Do not import CSS from <code1>gummyui.dev</code1> at runtime, because the installed files are the versioned source your project owns.",
+      "description": "Static rich p copy in app/docs/nextjs/page.tsx, next-js-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<code1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</code1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/docs/nextjs/page.tsx:29"
+      ],
+      "checksum": "152ddc6198a006018f7eaee8d7812d120117e2b280b40a94175672d085892778"
     },
     {
       "id": "static.docs.page.module.property-description.01",
@@ -37878,6 +38851,164 @@
       "checksum": "7423a749158e510a1a3fea7bf54bb578f997a4b50c039eae1fa691eb66a5801a"
     },
     {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-h2.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Use a repeatable diagnostic sequence",
+      "description": "Static jsx h2 copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:33"
+      ],
+      "checksum": "0ca67db253c7c7bbaa66eab168e94e1dac634b13f7fc804918458b67d224af59"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-h2.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Prepare a useful support report",
+      "description": "Static jsx h2 copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:44"
+      ],
+      "checksum": "460ba9bf1d80c5fc0a88a7fc91b9ac7a6a83ae139eb28df5807d8784f2561f39"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-li.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Open the registry URL from the component contract and confirm the response names the expected item.",
+      "description": "Static jsx li copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:35"
+      ],
+      "checksum": "ce9f949d6d1e2c0cd96767b7e3065b67e99e322638737098b295b9663127a55f"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-li.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Confirm the shared theme loads before the component stylesheet and that application overrides load after both.",
+      "description": "Static jsx li copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:37"
+      ],
+      "checksum": "f50ce5fbfd953a1087fe0bb343291e033901edce108b4d06a02f2c032e36c0fb"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-li.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Reproduce the problem with the smallest component state in a clean route. Remove surrounding layout and providers one at a time rather than changing the installed semantics.",
+      "description": "Static jsx li copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:38"
+      ],
+      "checksum": "abe97e19bd7a710f9d6360af1aa59b475223a31c1a6d77c6421e82049a5581f5"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-li.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Run type checking and the production build, then verify keyboard, focus, zoom, direction and reduced-motion behavior in the browser where the issue occurs.",
+      "description": "Static jsx li copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:39"
+      ],
+      "checksum": "df8dc9268aeb787c586647129096de1bf469de571ee61a45d2c0d2cff0a010ee"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-p.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Compare behavior with the published component contract rather than trying to match a screenshot pixel for pixel. Fonts, application tokens and viewport conditions can change appearance without changing the required interaction.",
+      "description": "Static jsx p copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:41"
+      ],
+      "checksum": "a312d6dbf5d475d26cedab1a55fc38026d767a44c1de5492f586f286f4866b86"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.jsx-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Include the exact registry URL, installed item name, framework and version, package manager, browser, relevant assistive technology, reproduction steps, expected behavior and actual behavior. Paste the smallest safe error excerpt. Remove access tokens, environment variables, customer data, proprietary source and full build logs that may contain local paths or secrets.",
+      "description": "Static jsx p copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:45"
+      ],
+      "checksum": "72787d68b8b7162a07838f624696a621319477e96d5880e73e8170701e2c6f77"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.rich-li.01",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Inspect the installed file paths and imports. Check that the TypeScript alias, bundler alias and <code1>components.json</code1> agree.",
+      "description": "Static rich li copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<code1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</code1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:36"
+      ],
+      "checksum": "1c59283789e31cc90d9f2add373da6f0806a416dbeff8b3ee599a24c8b4eae7c"
+    },
+    {
+      "id": "static.docs.troubleshooting.page.troubleshooting-page.rich-p.01",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "If the clean reproduction still fails, send those details through the <a1>support route</a1>. If the clean version works, add your application layers back until the responsible alias, provider, stylesheet or override is identified.",
+      "description": "Static rich p copy in app/docs/troubleshooting/page.tsx, troubleshooting-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<a1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</a1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/docs/troubleshooting/page.tsx:46"
+      ],
+      "checksum": "7a368dd528e7acc31c2ae68a63c5693fdf3446749e3a839bcd33fbd1b820b063"
+    },
+    {
       "id": "static.docs.vite.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
@@ -37958,7 +39089,105 @@
       "checksum": "4246dedf6e96da2d2361c952e0d4e6505ffe320e924750bfe85264cedde2a5a5"
     },
     {
+      "id": "static.docs.vite.page.vite-guide-page.jsx-h2.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Align the three paths",
+      "description": "Static jsx h2 copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:27"
+      ],
+      "checksum": "4bb815a96229a338c5a83553611783af44022cc45592d7864c688bd4517bdd92"
+    },
+    {
+      "id": "static.docs.vite.page.vite-guide-page.jsx-h2.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Load styles in a stable order",
+      "description": "Static jsx h2 copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:32"
+      ],
+      "checksum": "13364c7e7ecd677c7987fdd47b6cb2f81e01950d906e712d262e3b8f127f790d"
+    },
+    {
+      "id": "static.docs.vite.page.vite-guide-page.jsx-h2.05",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Integrate and update",
+      "description": "Static jsx h2 copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:37"
+      ],
+      "checksum": "f91f4e9b798728265e73fc2765f843536a5750095e8062a507d3507e2ecb0cd0"
+    },
+    {
       "id": "static.docs.vite.page.vite-guide-page.jsx-p.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Keep generated UI source inside the repository and import it locally. The registry endpoint is an installation input, not a browser runtime dependency, so a deployed application should continue to render if the catalogue site is unavailable.",
+      "description": "Static jsx p copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:29"
+      ],
+      "checksum": "9da7896936a711cb64eb727d84a7b8c74a8aec090cb1b6f94ebaac6f2ac106c1"
+    },
+    {
+      "id": "static.docs.vite.page.vite-guide-page.jsx-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Import the shared theme before the component stylesheet and application overrides. Loading the shared file more than once can make cascade order difficult to reason about; importing it from one root CSS entry makes light, dark, direction and reduced-motion behavior consistent across routes.",
+      "description": "Static jsx p copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:33"
+      ],
+      "checksum": "f69e43484da420e3d5068cd4e4346020fbdbdfa5512efb7a8a2deb3b87df0a25"
+    },
+    {
+      "id": "static.docs.vite.page.vite-guide-page.jsx-p.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "If the component appears structurally correct but visually plain, inspect the built CSS request and computed custom properties before changing the component. If only one state is wrong, look for an application selector with greater specificity or a later source order.",
+      "description": "Static jsx p copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:34"
+      ],
+      "checksum": "93e79d3131c105f4e64b03c7f82fe3408591c0a2c3972a5526e389ba9aca13af"
+    },
+    {
+      "id": "static.docs.vite.page.vite-guide-page.jsx-p.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Render the installed component through the application&apos;s normal React root and providers. Preserve native labels, refs and keyboard events when wrapping it. For an update, inspect the registry diff before replacing editable source, retain intentional local modifications, and rerun the documented behavior checks instead of judging compatibility from a screenshot.",
+      "description": "Static jsx p copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:38"
+      ],
+      "checksum": "d33369a69945578a097380ca4813177517d0534b9a551d8e2b9cf8dff285f060"
+    },
+    {
+      "id": "static.docs.vite.page.vite-guide-page.jsx-p.05",
       "category": "static",
       "contentType": "plain",
       "source": "Run strict type checking and a production Vite build. The committed clean fixture repeats both checks after a real shadcn installation in an isolated temporary project.",
@@ -37967,9 +39196,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/docs/vite/page.tsx:28"
+        "app/docs/vite/page.tsx:42"
       ],
-      "checksum": "b049803a47d6a6e037f3869e426287a1f18a7f08cae5de3f70099190b7e685a7"
+      "checksum": "b7689ea3c5467551bb7715c9e5114923aad7f3243fd97b96b6b346650358cf26"
     },
     {
       "id": "static.docs.vite.page.vite-guide-page.rich-p.01",
@@ -38040,6 +39269,37 @@
         "app/docs/vite/page.tsx:24"
       ],
       "checksum": "fdddfaeb860d7bc0939dd33a015a4c4871dc4b37d76fc60b316b718dda321849"
+    },
+    {
+      "id": "static.docs.vite.page.vite-guide-page.rich-p.03",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "The alias in the application TypeScript configuration, the resolver alias in <code1>vite.config</code1>, and the aliases in <code2>components.json</code2> must describe the same source directory. Test the alias from both application code and a test file: an editor can appear satisfied while the production bundler or test runner uses a different resolver.",
+      "description": "Static rich p copy in app/docs/vite/page.tsx, vite-guide-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<code1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</code1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<code2>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</code2>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/docs/vite/page.tsx:28"
+      ],
+      "checksum": "050cfdeab060dd208a03f2b82bd054f56ac8fab811b78f12667ca674a8a6b3db"
     },
     {
       "id": "static.home.page.module.property-description.01",
@@ -39351,9 +40611,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:43"
+        "app/privacy/page.tsx:44"
       ],
-      "checksum": "4fc061738012b9e113944a9e279feeff3babf0953a700615bbc528e300fd614d"
+      "checksum": "ca77fbb518c735cf17826fbe3154b9b463d86c6588e534f7614b4df8f1542038"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-h2.05",
@@ -39365,9 +40625,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:55"
+        "app/privacy/page.tsx:56"
       ],
-      "checksum": "dc00cce63716cb465cc62704f140ad11cc98474343544bf33aff53820be4d32b"
+      "checksum": "b4c6213582ab92e5baa7514543279fe0ec72fe639ed14584a495eca8043e410a"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-h2.06",
@@ -39379,9 +40639,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:60"
+        "app/privacy/page.tsx:61"
       ],
-      "checksum": "75a1e3353d5e619b55b3d215b1ce26058312f8013925c8e0c7f0d62568c46d2d"
+      "checksum": "da0c01b2db881e22b98d5e95f7684fe37b02fe6dd2d700eff1e1dbf21709877c"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-li.01",
@@ -39393,9 +40653,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:45"
+        "app/privacy/page.tsx:46"
       ],
-      "checksum": "18c62acea44112e3444bac49b80c436fad067ca8db13db707fea47b692635835"
+      "checksum": "e20606f4d291422360b965b884bac6aad9c7d439ab85566da7a7df4ba6788612"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-li.02",
@@ -39407,9 +40667,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:46"
+        "app/privacy/page.tsx:47"
       ],
-      "checksum": "b8325decf4297a68a9ae112451e42fec7a442036b7c0145f8c8d62e8324fffbc"
+      "checksum": "d004e3063142fc7424226cbe28ba15bfea18a99f0a708c19994ff37b96770b91"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-li.03",
@@ -39421,9 +40681,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:47"
+        "app/privacy/page.tsx:48"
       ],
-      "checksum": "c26cae7a3c89a459ce2473006e6854cc00c72ae4a5cd58423acaa10095ba1a00"
+      "checksum": "f0eaf0ca2fb3b7e35f57b49629ee9773f679acb155ca9fdd9d0d6af4d8defd38"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-li.04",
@@ -39435,9 +40695,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:48"
+        "app/privacy/page.tsx:49"
       ],
-      "checksum": "0d65c90260ad12de9a2caf4363c09ccf9a352f54dabc810cf5a19fe725b83095"
+      "checksum": "e1c7c703350d7fb80cadf4fd6b294874a635b082ed6ec102e2c525c033677867"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-li.05",
@@ -39449,9 +40709,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:49"
+        "app/privacy/page.tsx:50"
       ],
-      "checksum": "45bc95c2548b5593f19726913d881c5c281fbcbd49231ff04cd60a5b616bc442"
+      "checksum": "0860815049d0f09302dbdd942a45b2b181fbce6acd1ddfa83e817865d52640a3"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-li.06",
@@ -39463,9 +40723,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:50"
+        "app/privacy/page.tsx:51"
       ],
-      "checksum": "abfc0a79837a9adfe9d9b042f22665dfe72fb7cdea959e80c66e4903c816a52c"
+      "checksum": "96edd6917650e34d1c4cee6a7438535598dfabf7021011909c8c1b6be4476aeb"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-p.01",
@@ -39543,9 +40803,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:52"
+        "app/privacy/page.tsx:53"
       ],
-      "checksum": "cfb3ccfd656072b2f6226b1339c4851e041e09f874c153c3d7ccb5f36b21b0f6"
+      "checksum": "e4a6dd09efb3d219056dcf8b63224b7f0f8b25bde2dc6436f34a8717af5a31f0"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-p.06",
@@ -39557,9 +40817,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:56"
+        "app/privacy/page.tsx:57"
       ],
-      "checksum": "2dc3de815803173466390e2f761273add86c80a1dab13d2fd055a1e09e80366b"
+      "checksum": "43cc151a3f2da87794ecb444a8a4ace6797619f3cd9b5b95df5d4937bf19a213"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-p.07",
@@ -39571,9 +40831,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:61"
+        "app/privacy/page.tsx:62"
       ],
-      "checksum": "34e350d0660ca78d6653122d9a6992d2b0100503d539fbb5be102d3e52bf042d"
+      "checksum": "b452587f5271d54e41b24568cb546a93e3060aabc700cd0116ec198305041789"
     },
     {
       "id": "static.privacy.page.privacy-page.jsx-p.08",
@@ -39585,9 +40845,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/privacy/page.tsx:63"
+        "app/privacy/page.tsx:64"
       ],
-      "checksum": "d8ecc0cc620e7ecf4c470290bfdf253f16557313019c90a3539eb4a5ec47c64f"
+      "checksum": "9dc15db2c6a3f567e70c7cfa7ef89569efbd83f1f86f61a911bc7378ab0ad4d5"
     },
     {
       "id": "static.privacy.page.privacy-page.rich-li.01",
@@ -39768,6 +41028,29 @@
       "id": "static.privacy.page.privacy-page.rich-p.02",
       "category": "static",
       "contentType": "rich-text",
+      "source": "The current purpose, data context and role for each provider are listed in the <link1>service-provider and subprocessor directory</link1>.",
+      "description": "Static rich p copy in app/privacy/page.tsx, privacy-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<link1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/privacy/page.tsx:41"
+      ],
+      "checksum": "fac65ff513099445cc237902b8a55e20a3f010ed56d0e6e3b113e6358614fb34"
+    },
+    {
+      "id": "static.privacy.page.privacy-page.rich-p.03",
+      "category": "static",
+      "contentType": "rich-text",
       "source": "Email <a1>{supportemail}</a1>. We may need proportionate information to confirm identity. You may also complain to the UK Information Commissioner&apos;s Office at <a2>ico.org.uk</a2>.",
       "description": "Static rich p copy in app/privacy/page.tsx, privacy-page scope.",
       "translatable": true,
@@ -39801,12 +41084,12 @@
         }
       ],
       "sourceReferences": [
-        "app/privacy/page.tsx:57"
+        "app/privacy/page.tsx:58"
       ],
-      "checksum": "244481a23f170367e3f4326894730879befe0a32350011c3a1c8a30f324a860f"
+      "checksum": "7a6284af96ed8970520e929d89a54e3183367afeb8a88f3cd105abdcde48da17"
     },
     {
-      "id": "static.privacy.page.privacy-page.rich-p.03",
+      "id": "static.privacy.page.privacy-page.rich-p.04",
       "category": "static",
       "contentType": "rich-text",
       "source": "We use access controls, encryption in transit, restricted provider credentials, audit records and encrypted backups. No system is completely secure; report concerns through the <link1>security page</link1>.",
@@ -39824,9 +41107,9 @@
         }
       ],
       "sourceReferences": [
-        "app/privacy/page.tsx:62"
+        "app/privacy/page.tsx:63"
       ],
-      "checksum": "612418cb0836905a4a9553e06f7a367cc586d509e37e53da90c9689e77d4717c"
+      "checksum": "93c4eff6445876b1cfc334a0525840eed13130d95f4cc7cb80b04d78df992775"
     },
     {
       "id": "static.pro-metadata.block.block-about-01.dependencies.01",
@@ -46565,56 +47848,6 @@
       "checksum": "762e78f7d3cb8c24bfe4b129462e1da09b3e4c31c5b5ed13d74656134d855e6b"
     },
     {
-      "id": "static.registry.page.registry-page.attribute-aria-label.01",
-      "category": "static",
-      "contentType": "plain",
-      "source": "Base registry for {name}",
-      "description": "Static attribute aria label copy in app/registry/page.tsx, registry-page scope.",
-      "translatable": true,
-      "placeholders": [
-        {
-          "name": "name",
-          "type": "string",
-          "example": "[component.name]"
-        }
-      ],
-      "protectedSpans": [
-        {
-          "value": "{name}",
-          "reason": "runtime-placeholder"
-        }
-      ],
-      "sourceReferences": [
-        "app/registry/page.tsx:47"
-      ],
-      "checksum": "971c9fe2b2e4e0336d72327891aa53279b36060f1260d7fd3cb21856dcf61ff3"
-    },
-    {
-      "id": "static.registry.page.registry-page.attribute-aria-label.02",
-      "category": "static",
-      "contentType": "plain",
-      "source": "Radix registry for {name}",
-      "description": "Static attribute aria label copy in app/registry/page.tsx, registry-page scope.",
-      "translatable": true,
-      "placeholders": [
-        {
-          "name": "name",
-          "type": "string",
-          "example": "[component.name]"
-        }
-      ],
-      "protectedSpans": [
-        {
-          "value": "{name}",
-          "reason": "runtime-placeholder"
-        }
-      ],
-      "sourceReferences": [
-        "app/registry/page.tsx:56"
-      ],
-      "checksum": "3da8260fb86d9ba7204d4ea73fa405bf55c89682698a7a0f40df3f91e99a1441"
-    },
-    {
       "id": "static.registry.page.registry-page.attribute-eyebrow.01",
       "category": "static",
       "contentType": "plain",
@@ -46770,9 +48003,9 @@
       "placeholders": [],
       "protectedSpans": [],
       "sourceReferences": [
-        "app/registry/page.tsx:68"
+        "app/registry/page.tsx:66"
       ],
-      "checksum": "c1b7d74dd3df57446a3b9157cf51e65e713e6c4b6cdbc3f1537bd0246a63bbd0"
+      "checksum": "9e4d0b8a91e3487203eacba838934c18d1fe79dfe23bf3a9eb7e5c036d369cf8"
     },
     {
       "id": "static.registry.page.registry-page.jsx-h3.01",
@@ -46887,7 +48120,7 @@
       "id": "static.registry.page.registry-page.rich-li.01",
       "category": "static",
       "contentType": "rich-text",
-      "source": "<link1>{name}</link1> <span2> <a3> Base </a3> {value2} </span2>",
+      "source": "<link1>{name}</link1> <span2> <a3> {name2} Base registry </a3> {value3} </span2>",
       "description": "Static rich li copy in app/registry/page.tsx, registry-page scope.",
       "translatable": true,
       "placeholders": [
@@ -46897,9 +48130,14 @@
           "example": "[component.name]"
         },
         {
-          "name": "value2",
+          "name": "name2",
           "type": "string",
-          "example": "[component.radixRegistryName ? (\n                  <>\n                    {\" · \"}\n                    <a\n                      href={`/r/${component.radixRegistryName}.json`}\n                      aria-label={`Radix registry for ${component.name}`}\n                    >\n                      Radix\n                    </a>\n                  </>\n                ) : null]"
+          "example": "[component.name]"
+        },
+        {
+          "name": "value3",
+          "type": "string",
+          "example": "[component.radixRegistryName ? (\n                  <>\n                    {\" · \"}\n                    <a\n                      href={`/r/${component.radixRegistryName}.json`}\n                    >\n                      {component.name} Radix registry\n                    </a>\n                  </>\n                ) : null]"
         }
       ],
       "protectedSpans": [
@@ -46908,7 +48146,11 @@
           "reason": "runtime-placeholder"
         },
         {
-          "value": "{value2}",
+          "value": "{name2}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "{value3}",
           "reason": "runtime-placeholder"
         },
         {
@@ -46939,7 +48181,7 @@
       "sourceReferences": [
         "app/registry/page.tsx:42"
       ],
-      "checksum": "9bf581ed4cb5e4cd9b1ba0c1b70a0e8ec4ba5403d0b26a71a9aa9a302a871499"
+      "checksum": "e817d6096f0b4df0c6c281bcdbf897565f24c9fca9e0e039b2ee13c8229edd88"
     },
     {
       "id": "static.registry.page.registry-page.rich-p.01",
@@ -46968,9 +48210,9 @@
         }
       ],
       "sourceReferences": [
-        "app/registry/page.tsx:69"
+        "app/registry/page.tsx:67"
       ],
-      "checksum": "9c120cbbfa007aa4451392c1ae0bb410eefd8ef75a8670c181238d01548f7a9b"
+      "checksum": "3ab7d54bb6d8ed9b03c3076aff9a4b53a431fe5ba467b11af033e97878e19faf"
     },
     {
       "id": "static.rtl.page.module.property-description.01",
@@ -47576,6 +48818,378 @@
       "checksum": "0342c9d8073aed5e62fb826df9e65a39788382a3c05fe577416d8a634aeb7406"
     },
     {
+      "id": "static.subprocessors.page.module.property-description.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Review the production providers Gummy UI uses for hosting, identity, application data, email, monitoring, encrypted backups and Managed Payments.",
+      "description": "Static property description copy in app/subprocessors/page.tsx, module scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:10"
+      ],
+      "checksum": "11a229fff5cc618484070e980d7963ca2dfe12bdf354c6765a23d416462e5c36"
+    },
+    {
+      "id": "static.subprocessors.page.module.property-title.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Gummy UI service-provider and subprocessor directory",
+      "description": "Static property title copy in app/subprocessors/page.tsx, module scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:8"
+      ],
+      "checksum": "43e13147c14076bed1015de3d9896c79a1ef6359986402b92ca9818b4df33e73"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.attribute-eyebrow.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Provider directory · privacy terms effective {effectivedate}",
+      "description": "Static attribute eyebrow copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "effectivedate",
+          "type": "string",
+          "example": "[commercialFacts.effectiveDate]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{effectivedate}",
+          "reason": "runtime-placeholder"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:18"
+      ],
+      "checksum": "9e2b917fce1711d058328f9cb65ad93f9552ec1fe0575d5a68c3e48c04cafd43"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.attribute-lede.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "{legalname}, trading as {tradingname}, uses the services below to operate Gummy UI. This service-provider and subprocessor directory supplements the privacy notice; it does not expand the data collected or change the role a provider has under its applicable terms.",
+      "description": "Static attribute lede copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "legalname",
+          "type": "string",
+          "example": "[commercialFacts.legalName]"
+        },
+        {
+          "name": "tradingname",
+          "type": "string",
+          "example": "[commercialFacts.tradingName]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{legalname}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "{tradingname}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:20"
+      ],
+      "checksum": "a3f502069bef04ab2c5d880352b92327fc8e662a19b13d0e97aded49c9e9f2dd"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.attribute-title.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Production providers, named and bounded.",
+      "description": "Static attribute title copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:19"
+      ],
+      "checksum": "5155b94b34ae9bb3125e46ac9d1f49133a367dbd17758f5382c7e6db4149c0ab"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.jsx-h2.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Current service-provider and subprocessor directory",
+      "description": "Static jsx h2 copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:23"
+      ],
+      "checksum": "bf72003eb0cf6ce907aa5ec1289dd7b412dc810e6f78c6aaf1104536dd676be1"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.jsx-h2.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "International processing and safeguards",
+      "description": "Static jsx h2 copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:42"
+      ],
+      "checksum": "33abaad398e44ca8db0a0d9e0843b4f9f35dce53b16cb0f14cabafb455826d79"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.jsx-h2.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Changes to this directory",
+      "description": "Static jsx h2 copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:62"
+      ],
+      "checksum": "34d4a6be957f1a35b8a0ba79c25053b8efef7207198d5bedff234e5c3a19e4c5"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.jsx-p.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Each provider receives only the data needed for its stated service. Gummy UI&apos;s service instructions do not authorise advertising, sale of customer data, or product development unrelated to providing the contracted service.",
+      "description": "Static jsx p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:25"
+      ],
+      "checksum": "559cdd673137121b59a03da2ec55bac4f8b0aaeba7f10499659d771785c4c85c"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.jsx-p.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "A provider may process data outside the United Kingdom when its service requires it. Where applicable, Gummy UI relies on a UK adequacy regulation or recognised contractual safeguards supplied through the provider&apos;s data-processing terms. The exact route depends on the provider, service and data involved; this page does not claim that every record follows one location or transfer path.",
+      "description": "Static jsx p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "Gummy UI",
+          "reason": "product-name"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:44"
+      ],
+      "checksum": "adaf69b25a737372c4168b4f1af99a11f0dcadf7e6774dd7b4212fef105d5f8b"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.jsx-p.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "The directory is updated before a new production provider begins processing customer data for a materially new purpose. Important changes will also be reflected in the privacy notice and brought to account holders&apos; attention where required. Removing a provider from active use does not shorten financial, security, legal-hold or backup retention already described in the privacy notice.",
+      "description": "Static jsx p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:64"
+      ],
+      "checksum": "8c7945680852411a864954eee9e969222fc5c706c4e5553088f94b9abe49c865"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.rich-p.01",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "<strong1>Service:</strong1> {service}",
+      "description": "Static rich p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "service",
+          "type": "string",
+          "example": "[provider.service]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{service}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "<strong1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</strong1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:34"
+      ],
+      "checksum": "c070fe259a4538070c63ec33d8664383da2239fa8df58c3414ad2e3c47d89073"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.rich-p.02",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "<strong1>Data context:</strong1> {datacontext}",
+      "description": "Static rich p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "datacontext",
+          "type": "string",
+          "example": "[provider.dataContext]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{datacontext}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "<strong1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</strong1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:35"
+      ],
+      "checksum": "48df3eca99330fe6dfb7fe0cc4b475ce93fb4009d9c51138094b4b1139904bfa"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.rich-p.03",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "<strong1>Role:</strong1> {role}",
+      "description": "Static rich p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "role",
+          "type": "string",
+          "example": "[provider.role]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{role}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "<strong1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</strong1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:36"
+      ],
+      "checksum": "fb91c9666278563cdbd4be30aa13954ba7a11594667978c77d4a40269a53376d"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.rich-p.04",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Requests for further information about an applicable transfer safeguard or provider data-processing agreement can be sent to <a1> {supportemail} </a1>. Contractual material may be subject to confidentiality, but we will respond with the information we can lawfully provide about the processing.",
+      "description": "Static rich p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [
+        {
+          "name": "supportemail",
+          "type": "string",
+          "example": "[commercialFacts.supportEmail]"
+        }
+      ],
+      "protectedSpans": [
+        {
+          "value": "{supportemail}",
+          "reason": "runtime-placeholder"
+        },
+        {
+          "value": "<a1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</a1>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:51"
+      ],
+      "checksum": "308cce1c3691331544d203bfcfc786bea86a020a3321efaeecedda7da6133901"
+    },
+    {
+      "id": "static.subprocessors.page.subprocessors-page.rich-p.05",
+      "category": "static",
+      "contentType": "rich-text",
+      "source": "Checkout and paid-file delivery remain unavailable until their full production journeys pass. Listing Stripe here records the configured provider boundary; it is not evidence that customer payments are currently accepted. Read the <link1>privacy notice</link1> for purposes, retention and rights, or the <link2>security page</link2> for reporting guidance.",
+      "description": "Static rich p copy in app/subprocessors/page.tsx, subprocessors-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [
+        {
+          "value": "<link1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link1>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "<link2>",
+          "reason": "rich-text-marker"
+        },
+        {
+          "value": "</link2>",
+          "reason": "rich-text-marker"
+        }
+      ],
+      "sourceReferences": [
+        "app/subprocessors/page.tsx:71"
+      ],
+      "checksum": "f110022da97ff903369778e0629c4746f69c7152a7f57e67319c54c5fa41b2e8"
+    },
+    {
       "id": "static.support.page.module.property-description.01",
       "category": "static",
       "contentType": "plain",
@@ -47698,6 +49312,20 @@
       "checksum": "feb3f93662b7c05be3fad315ce17849fd36ef5471f3c4b513f12a709327eb2f6"
     },
     {
+      "id": "static.support.page.support-page.jsx-h2.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "How a request is handled",
+      "description": "Static jsx h2 copy in app/support/page.tsx, support-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/support/page.tsx:39"
+      ],
+      "checksum": "0cbf670dd748c0888c7ad477abd5f76bed3681b63b7852bc560433a2d8aacd70"
+    },
+    {
       "id": "static.support.page.support-page.jsx-h3.02",
       "category": "static",
       "contentType": "plain",
@@ -47710,6 +49338,62 @@
         "app/support/page.tsx:24"
       ],
       "checksum": "5e66f0f249f08bf90b847f7d3d0a870233779d275c360c77f7c5ebf02b73167f"
+    },
+    {
+      "id": "static.support.page.support-page.jsx-li.01",
+      "category": "static",
+      "contentType": "plain",
+      "source": "We classify the request as product support, account access, billing, privacy, security or licensing so it follows the correct process.",
+      "description": "Static jsx li copy in app/support/page.tsx, support-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/support/page.tsx:41"
+      ],
+      "checksum": "dbaaf6075d3cb52ca7573ba2b8e070ee48d09fb765e2eef1fd7e6c31d8f64fe8"
+    },
+    {
+      "id": "static.support.page.support-page.jsx-li.02",
+      "category": "static",
+      "contentType": "plain",
+      "source": "For a product defect, we reproduce the smallest reported case against the named registry item and environment. A public URL or minimal code sample is more useful than a screenshot alone.",
+      "description": "Static jsx li copy in app/support/page.tsx, support-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/support/page.tsx:42"
+      ],
+      "checksum": "0da1cc807ad50792752b23b464b57006ab0aabccdfc509b885296948857d7a78"
+    },
+    {
+      "id": "static.support.page.support-page.jsx-li.03",
+      "category": "static",
+      "contentType": "plain",
+      "source": "For an account, order or refund question, we verify only the identifiers needed to find the record. Support will not ask for a password, recovery code or full payment-card number.",
+      "description": "Static jsx li copy in app/support/page.tsx, support-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/support/page.tsx:43"
+      ],
+      "checksum": "40660e447204bcd103b021ccce6daf4626391e59cc5d5adee513407a15bb5cc1"
+    },
+    {
+      "id": "static.support.page.support-page.jsx-li.04",
+      "category": "static",
+      "contentType": "plain",
+      "source": "We reply with a documented fix, workaround, status or request for specific missing evidence. Confirmed public-component defects can be tracked in the public repository; private account and billing details stay in email.",
+      "description": "Static jsx li copy in app/support/page.tsx, support-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/support/page.tsx:44"
+      ],
+      "checksum": "8fc4a9a047ac7da13f8259f4572c267cef06f23323039be6daea40a81179f81e"
     },
     {
       "id": "static.support.page.support-page.jsx-link.01",
@@ -47794,6 +49478,20 @@
         "app/support/page.tsx:35"
       ],
       "checksum": "77f0bd18d57ef8fbc53f0313b1ecb6ccb6884d77ccdb1c58b54f5e2c0c2c69ad"
+    },
+    {
+      "id": "static.support.page.support-page.jsx-p.05",
+      "category": "static",
+      "contentType": "plain",
+      "source": "Remove customer data, secret values and proprietary application code from reproductions. If an attachment is necessary, describe it first and wait for a safe route. The response target measures the first human reply, not a guaranteed resolution time.",
+      "description": "Static jsx p copy in app/support/page.tsx, support-page scope.",
+      "translatable": true,
+      "placeholders": [],
+      "protectedSpans": [],
+      "sourceReferences": [
+        "app/support/page.tsx:46"
+      ],
+      "checksum": "6a3ed4c07764a490d813f5102d38a6ae0f3cea60eb3f845ac61ab66c2f815f85"
     },
     {
       "id": "static.support.page.support-page.rich-p.01",

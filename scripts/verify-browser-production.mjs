@@ -54,6 +54,7 @@ const publicRoutes = [
   "/support",
   "/contact",
   "/privacy",
+  "/subprocessors",
   "/terms",
   "/license",
   "/commercial-license",

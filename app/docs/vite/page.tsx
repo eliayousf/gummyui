@@ -24,6 +24,20 @@ export default function ViteGuidePage() {
         <p>Keep the <code>@/*</code> TypeScript alias and matching Vite resolution aligned with <code>components.json</code>. This lets the registry place public UI source predictably without reaching back into this website.</p>
       </section>
       <section>
+        <h2>Align the three paths</h2>
+        <p>The alias in the application TypeScript configuration, the resolver alias in <code>vite.config</code>, and the aliases in <code>components.json</code> must describe the same source directory. Test the alias from both application code and a test file: an editor can appear satisfied while the production bundler or test runner uses a different resolver.</p>
+        <p>Keep generated UI source inside the repository and import it locally. The registry endpoint is an installation input, not a browser runtime dependency, so a deployed application should continue to render if the catalogue site is unavailable.</p>
+      </section>
+      <section>
+        <h2>Load styles in a stable order</h2>
+        <p>Import the shared theme before the component stylesheet and application overrides. Loading the shared file more than once can make cascade order difficult to reason about; importing it from one root CSS entry makes light, dark, direction and reduced-motion behavior consistent across routes.</p>
+        <p>If the component appears structurally correct but visually plain, inspect the built CSS request and computed custom properties before changing the component. If only one state is wrong, look for an application selector with greater specificity or a later source order.</p>
+      </section>
+      <section>
+        <h2>Integrate and update</h2>
+        <p>Render the installed component through the application&apos;s normal React root and providers. Preserve native labels, refs and keyboard events when wrapping it. For an update, inspect the registry diff before replacing editable source, retain intentional local modifications, and rerun the documented behavior checks instead of judging compatibility from a screenshot.</p>
+      </section>
+      <section>
         <h2>Verify</h2>
         <p>Run strict type checking and a production Vite build. The committed clean fixture repeats both checks after a real shadcn installation in an isolated temporary project.</p>
       </section>

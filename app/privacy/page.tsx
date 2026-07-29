@@ -38,6 +38,7 @@ export default function PrivacyPage() {
         <h2>3. Service providers and subprocessors</h2>
         <p>Gummy UI uses the following service providers and subprocessors: Vercel for hosting; WorkOS for sign-in and organisation access; Stripe Managed Payments for checkout, payment and tax support; Convex for application data and backend transactions; Resend for product email; Better Stack for monitoring; and Backblaze B2 for encrypted off-provider backups. They process only the data needed to provide those services under their applicable data-processing terms. Stripe and Link are separately responsible for the payment and transaction-support data described above. Customer-facing payment and paid-download features remain unavailable until their complete production journeys pass.</p>
         <p>Providers may process data outside the United Kingdom. Where required, we rely on an adequacy regulation or recognised contractual safeguards supplied by the provider. You may request more information using the privacy contact above.</p>
+        <p>The current purpose, data context and role for each provider are listed in the <Link href="/subprocessors">service-provider and subprocessor directory</Link>.</p>
       </section>
       <section>
         <h2>4. Retention</h2>

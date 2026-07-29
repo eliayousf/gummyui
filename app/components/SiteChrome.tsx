@@ -80,6 +80,7 @@ export function SiteFooter() {
         <Link href="/commercial-license">Pro licence</Link>
         <Link href="/design-kit">Design kit status</Link>
         <Link href="/privacy">Privacy</Link>
+        <Link href="/subprocessors">Subprocessors</Link>
         <Link href="/terms">Terms</Link>
         <Link href="/license">MIT licence</Link>
       </nav>

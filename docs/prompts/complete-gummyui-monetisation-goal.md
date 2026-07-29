@@ -129,7 +129,7 @@ scratch.
   lacks its restricted production key and verified production webhook, and no
   sandbox or live revenue-loop journey has been completed; checkout and webhook
   flags remain fail closed.
-- The Vercel-targeted production build passes across 322 generated and dynamic
+- The Vercel-targeted production build passes across 323 generated and dynamic
   routes. Vercel Pro is active, Namecheap DNS has converged, HTTPS and custom
   domains are valid, and `gummyui.dev` serves the pushed public commit with
   commerce still fail closed.
@@ -138,10 +138,11 @@ scratch.
   refresh, authenticated unpaid download denial and two real privacy emails
   pass. Recovery, a second-identity invitation, final deletion and commerce
   remain open.
-- English revision `en-e5d133b48e13` contains 2,942 records. All 19 private AI
-  drafts pass structural and automated quality checks with zero high-severity
-  flags and have checksum-bound founder-review screens; every locale remains
-  fail closed pending rendered QA and founder review.
+- English revision `en-bdc6f9cc0a42` contains 3,041 records, of which 2,763 are
+  translatable. The last complete 19-locale private draft and review cycle is
+  checksum-bound to superseded revision `en-e5d133b48e13`; the current
+  revision therefore remains fail closed pending private regeneration,
+  rendered QA and founder review.
 - The cross-repository local readiness check passes 18 of 18 evidence groups.
   The North Star remains 0 of 8 because no production journey has been proved.
 

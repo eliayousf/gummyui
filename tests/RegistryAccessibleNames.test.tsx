@@ -10,11 +10,21 @@ describe("registry link accessible names", () => {
     render(<RegistryPage />);
 
     expect(
-      screen.getByRole("link", { name: "Base registry for Accordion" }),
+      screen.getByRole("link", { name: "Accordion Base registry" }),
     ).toHaveAttribute("href", "/r/gummy-accordion.json");
     expect(
-      screen.getByRole("link", { name: "Radix registry for Accordion" }),
+      screen.getByRole("link", { name: "Accordion Radix registry" }),
     ).toHaveAttribute("href", "/r/gummy-radix-accordion.json");
+
+    const registryLinks = screen
+      .getAllByRole("link")
+      .filter((link) => link.getAttribute("href")?.startsWith("/r/"));
+    const accessibleNames = registryLinks.map((link) =>
+      link.textContent?.trim(),
+    );
+
+    expect(registryLinks.length).toBeGreaterThan(50);
+    expect(new Set(accessibleNames).size).toBe(registryLinks.length);
   });
 });
 

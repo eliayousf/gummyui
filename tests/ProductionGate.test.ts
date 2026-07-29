@@ -16,6 +16,7 @@ import { metadata as pricingMetadata } from "../app/pricing/page";
 import { metadata as privacyMetadata } from "../app/privacy/page";
 import { metadata as proMetadata } from "../app/pro/page";
 import { metadata as refundMetadata } from "../app/refund/page";
+import { metadata as subprocessorsMetadata } from "../app/subprocessors/page";
 import { metadata as templatesMetadata } from "../app/templates/page";
 import {
   generateMetadata as generateTemplateMetadata,
@@ -136,6 +137,7 @@ describe("commercial and Pro discovery contract", () => {
       refundMetadata,
       termsMetadata,
       privacyMetadata,
+      subprocessorsMetadata,
     ]) {
       expectIndexable(metadata);
     }
@@ -209,6 +211,7 @@ describe("commercial and Pro discovery contract", () => {
       "/refund",
       "/terms",
       "/privacy",
+      "/subprocessors",
     ]) {
       expect(allowed.has(route) || allowed.has(`${route}/`)).toBe(true);
       expect(disallowed.has(route)).toBe(false);
@@ -238,6 +241,7 @@ describe("commercial and Pro discovery contract", () => {
       "/refund",
       "/terms",
       "/privacy",
+      "/subprocessors",
     ]) {
       expect(sitemapPaths.has(route)).toBe(true);
     }

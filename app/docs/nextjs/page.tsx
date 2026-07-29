@@ -24,6 +24,20 @@ export default function NextJsGuidePage() {
         <p>Interactive registry source declares its own client boundary where needed. Keep Server Components as the default in your application and move only stateful composition behind a client boundary.</p>
       </section>
       <section>
+        <h2>Prepare the consumer project</h2>
+        <p>Check <code>components.json</code> before installing. Its component and utility aliases must resolve inside the application, and its CSS entry should identify the stylesheet that owns application-wide styles. If your project uses a <code>src</code> directory, keep the alias and registry destination aligned with that layout rather than moving generated files after every install.</p>
+        <p>The shared Gummy theme defines material tokens and environmental behavior; the component stylesheet defines only that component&apos;s presentation. Load each generated stylesheet once in a stable global entry. Do not import CSS from <code>gummyui.dev</code> at runtime, because the installed files are the versioned source your project owns.</p>
+      </section>
+      <section>
+        <h2>Compose across server and client boundaries</h2>
+        <p>A Server Component may render a client component and pass serialisable content or configuration into it. Keep data fetching, authentication checks and sensitive server work outside the installed UI source. If you wrap a Gummy component, preserve its label relationships, keyboard behavior, forwarded ref and focus handling rather than replacing them with click-only containers.</p>
+        <p>After composition, exercise the real route—not only an isolated preview. Check loading, empty, error and disabled states, then navigate away and back to catch hydration, focus-restoration or layout problems.</p>
+      </section>
+      <section>
+        <h2>Update safely</h2>
+        <p>Registry installation writes editable files, so a later install can conflict with changes you made locally. Review the proposed diff before accepting an overwrite. Carry intentional local changes forward, re-run the component&apos;s behavior contract, and commit the installed source with the application so production does not depend on a network fetch.</p>
+      </section>
+      <section>
         <h2>Verify</h2>
         <p>Run your project&apos;s TypeScript, lint, behavior, accessibility, and production-build checks after installation. Gummy UI&apos;s release gate performs the independent typecheck and build in a fresh temporary Next.js consumer.</p>
       </section>

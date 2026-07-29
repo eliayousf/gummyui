@@ -39,6 +39,7 @@ const publicRoutes = [
   "/refund",
   "/terms",
   "/privacy",
+  "/subprocessors",
   "/robots.txt",
   "/sitemap.xml",
 ];
@@ -57,6 +58,7 @@ const requiredSitemapPaths = [
   "/refund",
   "/terms",
   "/privacy",
+  "/subprocessors",
   "/pro",
   "/blocks",
   "/templates",
@@ -244,6 +246,7 @@ try {
     "/refund",
     "/terms",
     "/privacy",
+    "/subprocessors",
   ]) {
     const html = await (await fetch(`${origin}${route}`)).text();
     verifyIndexableHtml(route, html);

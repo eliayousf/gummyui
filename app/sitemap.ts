@@ -44,11 +44,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/changelog",
     "/blog",
     "/privacy",
+    "/subprocessors",
   ];
   return [
     ...staticRoutes.map((route) => ({
       url: `${baseUrl}${route || "/"}`,
-      lastModified: new Date("2026-07-26"),
+      lastModified: new Date(
+        route === "/subprocessors" ? "2026-07-29" : "2026-07-26",
+      ),
       changeFrequency: route === "" ? "weekly" as const : "monthly" as const,
       priority: route === "" ? 1 : route === "/components" ? 0.9 : 0.7,
       alternates: {
