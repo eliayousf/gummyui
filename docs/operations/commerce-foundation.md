@@ -11,7 +11,7 @@ current Convex production code/schema is deployed, and Vercel Pro is active
 with $1 spend management, notifications and Pause Projects enabled. This is not
 customer-journey evidence: production-origin WorkOS callback/JWT integration,
 a least-privilege Stripe runtime key and every complete production customer
-journey remain gated. Current deployment
+journey remain gated. Audited application deployment
 `dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb` is Ready from clean public head
 `e6861f544e3c86ee71b2bcdd21c57beee1d2651b`, both custom domains are Valid,
 the full public-origin probe passes, and Stripe checkout/webhook flags remain

@@ -948,11 +948,12 @@ repositories exist. The private launch commits are pushed to private `main`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
 The latest public application head is
 `e6861f544e3c86ee71b2bcdd21c57beee1d2651b`; GitHub Quality run
-`30453896180` passed its complete launch gate. Ready production deployment
+`30453896180` passed its complete launch gate. Audited application deployment
 `dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb` was built from that head on Node 22 and
-owns the apex, `www` and canonical Vercel aliases. It contains the real-payload
+was promoted to the apex, `www` and canonical Vercel aliases. It contains the real-payload
 WorkOS membership fix, exact `/components/lab$` crawler rule and strengthened
-editorial/legal trust signals. Earlier
+editorial/legal trust signals. Later status-only commits do not change that
+application bundle. Earlier
 deployment and CI identifiers remain below as historical evidence rather than
 the current release.
 Namecheap points the apex to `216.150.1.1` and `www` to
@@ -987,9 +988,10 @@ journeys remain unproved; checkout and webhook flags remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value is installed. Vercel Pro is active; spend management is set
-to $1 with notifications and Pause Projects enabled. The current release
-`dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb` serves both custom-domain aliases from
-clean public head `e6861f5`. Public health remains 200 and reports commerce
+to $1 with notifications and Pause Projects enabled. The current application
+bundle was first served by audited release `dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb`
+from clean application head `e6861f5`; later status-only deployments preserve
+that bundle. Public health remains 200 and reports commerce
 disabled. WorkOS and Resend webhook processing are enabled and fail closed for
 unsigned input; Stripe checkout and webhook processing remain disabled, and an
 anonymous download-grant request returns an indistinguishable 404.

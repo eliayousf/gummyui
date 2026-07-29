@@ -13,10 +13,11 @@ The runtime used for the account and webhook verification was Vercel deployment
 `2fb2b6bf704509b7688832c6a35dd109b688a99c`. GitHub Quality run `30451901159` passed the
 complete launch gate for that exact commit.
 
-The current public runtime is deployment
+The latest application-changing runtime audited is deployment
 `dpl_Gnv4Akeu31WcguSzUXBTCxHYivxb`, built from commit
-`e6861f544e3c86ee71b2bcdd21c57beee1d2651b`. It is Ready, owns the canonical
-apex and `www` aliases, and its GitHub Quality run `30453896180` passes.
+`e6861f544e3c86ee71b2bcdd21c57beee1d2651b`. It is Ready; that application
+bundle was promoted to the apex and `www` aliases, and its GitHub Quality run
+`30453896180` passes. Later status-only deployments preserve that bundle.
 
 ## Real account and privacy journeys
 
