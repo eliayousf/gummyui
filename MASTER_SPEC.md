@@ -926,9 +926,10 @@ branded not-found page removes framework-fallback contrast ambiguity. Public
 accessibility, crawler, cache, security and repository-boundary gates all pass.
 
 The consolidated founder decisions are captured and the public/private GitHub
-repositories exist. The private launch commits are pushed to private `main`;
-the current private head is
-`96df110336f246f80c3b4ae4265d152e9fb98c40`.
+repositories exist. The latest audited private implementation head is
+`96df110336f246f80c3b4ae4265d152e9fb98c40`; private operations-only evidence
+commit `65ed3bcab65b1c6001226f4b441bf4231a60bed9` reconciles the subsequent
+provider gates.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
 The latest audited public application commit before this operations-only
 evidence update is
@@ -938,6 +939,13 @@ evidence update is
 Vercel aliases. Vercel does not
 expose a source SHA for the deployment, so this record preserves the observed
 chronology without asserting an unavailable provider-side exact binding. The
+redacted Backblaze and WorkOS evidence is committed at public
+`dcf71fd8ba295fab7c586311c28d8d554c82622e`. Its GitHub Quality run
+`30578846508` passed, and operations-only deployment
+`dpl_37iEucvtFmnmR1MEKStcstVpr376` became Ready on every production alias.
+Post-deployment health remained OK with commerce disabled; the protected Stripe
+readiness probe still returned the restricted live credential, disabled
+checkout and all nine prices verified.
 deployed application contains the real-payload WorkOS membership fix, exact
 `/components/lab$` crawler rule, route-scoped component-preview styles,
 consolidated unreleased-Pro discovery, a bounded subprocessor directory,

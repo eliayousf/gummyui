@@ -14,6 +14,11 @@ a customer, charge, entitlement, paid release, or production checkout.
 - Public commit `465c2a5`, GitHub Quality run `30569564603` and Ready production
   deployment `dpl_FSpKw5Aa8H3fXA9jqnHDk83Yjf4f` are the latest audited
   source, CI and live-provider sequence before this operations-only update.
+- Operations-only provider-evidence commit `dcf71fd` passed GitHub Quality run
+  `30578846508`. Deployment `dpl_37iEucvtFmnmR1MEKStcstVpr376` became Ready on
+  every production alias; health remained OK with commerce disabled, and the
+  protected Stripe readiness probe still selected the restricted live
+  credential, reported checkout disabled and verified all nine prices.
 - The replacement WorkOS production environment remains configured. Previously
   proved signed identity and membership deliveries remain valid.
 - Resend still records all three controlled application messages as Delivered,
