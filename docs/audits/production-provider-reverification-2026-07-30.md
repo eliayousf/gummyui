@@ -40,18 +40,20 @@ a customer, charge, entitlement, paid release, or production checkout.
   an isolated CLI profile, read its scoped bucket and enumerated all 200 current
   objects. The release-read key remains present. Evidence contains no key ID,
   object name or reusable credential.
-- The authenticated production account accepted an invitation for the
-  controlled support identity and reported that WorkOS sent it securely. There
-  was no pre-existing invitation. Acceptance and the matching membership
-  projection remain pending.
+- The authenticated production account sent an invitation to the controlled
+  support identity and WorkOS recorded the invitation email as Delivered. The
+  recipient accepted it and WorkOS showed two active production users. After
+  two transient HTTP 503 attempts, WorkOS's scheduled signed
+  `invitation.accepted` retry was Delivered at 22:29 BST. Gummy UI then rendered
+  the invitation as Accepted and Convex rendered two active members with the
+  expected admin/member roles.
 
 ## Still open
 
 - The older WorkOS environment and its platform-managed, non-expiring Convex
   credential are still present. WorkOS support has not confirmed revocation or
   deletion.
-- WorkOS account recovery, final deletion and acceptance of the now-pending
-  controlled second-identity invitation remain open.
+- WorkOS account recovery and final deletion remain open.
 - Convex dashboard access requires a fresh founder sign-in before superseded
   isolated deployments can be confirmed and removed.
 - The mode-0600 Backblaze recovery bundle still needs founder-approved vault

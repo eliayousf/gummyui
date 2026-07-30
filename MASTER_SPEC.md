@@ -1117,11 +1117,14 @@ requirement and deploys a real-payload regression fixture. WorkOS retried the
 same signed event at 13:56 BST; its dashboard records Delivered and the
 matching Vercel request on deployment
 `dpl_CYKTU6sq1uWWt57EZTe8dTbxAcsu` returned HTTP 200. Production recovery,
-final deletion and a second-identity invitation acceptance remain pending. On
-30 July the authenticated production application accepted an invitation for
-the controlled support identity and reported that WorkOS had sent it securely;
-no invitation was previously pending. Recipient acceptance and the matching
-membership projection remain open.
+and final deletion remain pending. On 30 July the authenticated production
+application sent an invitation to the controlled support identity. WorkOS
+recorded the invitation email as Delivered, the recipient accepted it, and
+WorkOS showed two active production users. The initial signed
+`invitation.accepted` deliveries returned HTTP 503, then the scheduled 22:29
+BST retry was Delivered. The production application subsequently rendered the
+invitation as Accepted and Convex rendered two active workspace members with
+the expected admin/member roles.
 
 Resend has a verified `send.kreydlabs.com` domain, and its production API key,
 webhook and current sender/reply-to settings are installed in Vercel. A
@@ -1189,10 +1192,10 @@ after a repeatable renderer crash; the audited recovery file is the current
 source. Private release packaging fails closed unless the restored editable
 `.fig` export is explicitly approved and staged.
 
-Remaining founder-controlled gates include production recovery,
-second-identity invitation acceptance, WorkOS orphan-key confirmation, private
-Figma visual review and export approval, localisation approval,
-isolated-environment cleanup, and recovery-bundle custody.
+Remaining founder-controlled gates include production recovery and final
+deletion, WorkOS orphan-key confirmation, private Figma visual review and
+export approval, localisation approval, isolated-environment cleanup, and
+recovery-bundle custody.
 Paid releases, provider-delivered Stripe production lifecycle events,
 transactional purchase/licence/refund email, and the authorised production
 purchase/full refund journey remain pending. Existing WorkOS and Resend
