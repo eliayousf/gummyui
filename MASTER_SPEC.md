@@ -172,7 +172,7 @@ of the following product surfaces exist and work together:
 | Marketing site            | A product-specific home page, clear navigation, interactive real-component proof, benefits, catalogue previews, authentic evidence, calls to action, and complete footer navigation                                  |
 | Content and community     | At least 18 substantial original launch articles, changelog with RSS, community showcase and submission flow, support/community destination, and contribution governance                                             |
 | Localisation              | Internationalisation architecture, locale selector, translated metadata and content, hreflang and locale sitemaps, plus correct RTL behaviour for Arabic, Persian and Hebrew                                         |
-| Commerce                  | Honest Free/Solo/Team/Organisation comparison, approved billing periods and prices, secure checkout, tax/invoice handling, cancellation and refund paths, and no misleading scarcity or savings claims               |
+| Commerce                  | Honest Free/Individual/Team/Organization comparison, approved billing periods and prices, secure checkout, tax/invoice handling, cancellation and refund paths, and no misleading scarcity or savings claims         |
 | Accounts and entitlements | Google, GitHub and email-link sign-in or an approved equivalent; account, purchases, licences, downloads, billing and team/workspace access; expiring signed downloads and auditable entitlement changes             |
 | Trust and legal           | Public privacy, terms, commercial licence, refund, support and contact information; consent and data-rights flows; no fabricated testimonials, customers, usage counts, discounts, or performance claims             |
 | Growth and discovery      | Crawlable semantic pages, unique metadata, canonicals, structured data, Open Graph/X images, robots and segmented sitemaps, useful internal links, authorship, dates, analytics and consent-aware funnel measurement |
@@ -650,7 +650,7 @@ Exit criteria:
 Outputs:
 
 - founder-approved pricing architecture and commercial licence;
-- Free, Solo, Team and Organisation comparison across seats, permitted use,
+- Free, Individual, Team and Organization comparison across seats, permitted use,
   support, updates and included products;
 - secure checkout, billing portal, authentication, account recovery,
   workspaces, memberships and invitations;
@@ -925,14 +925,15 @@ accessibility, crawler, cache, security and repository-boundary gates all pass.
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`;
 the current private head is
-`7c6fa8e9e90d0c37880b44e8b01d350f8a4297b6`.
+`cb83961ca9361bda8b258b64bceff2c8541eb09f`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
-The latest public application head is
-`8924e41c39f293da994905ba4ddfa2496a9143b6`; GitHub Quality run
-`30499672718` passed its complete launch gate. Application deployment
-`dpl_GoUmtgRfESFUEErvvd3s1xvUmZWK` was built from that head on Node 22, is
-Ready and is promoted to the apex, `www` and canonical Vercel aliases. It
-contains the real-payload WorkOS membership fix, exact
+The latest committed public `main` before the current Stripe sandbox evidence
+work is `b49c7f2b82e0be8b2551ad12fa6bbde05a228d15`; GitHub Quality run
+`30550414312` passed its complete launch gate. A newer Ready production
+deployment is promoted to the apex, `www` and canonical Vercel aliases, but
+Vercel does not expose a source SHA for that deployment, so this record does
+not assert an unverifiable exact binding. The deployed application contains
+the real-payload WorkOS membership fix, exact
 `/components/lab$` crawler rule, route-scoped component-preview styles,
 consolidated unreleased-Pro discovery, a bounded subprocessor directory,
 strengthened editorial/legal trust signals, the residual accessibility and
@@ -979,16 +980,36 @@ protected cron invocation at
 `verifiedPrices: 9`. The managed full-scope key remains installed as a Vercel
 Marketplace resource but is no longer selected by the application. Stripe
 webhook processing is enabled and fails closed with HTTP 400 for an unsigned
-production-origin request. Stripe test mode now also contains a dedicated
-least-privilege restricted runtime key, separate standard operator key, three
-sandbox-only products and nine sandbox-only prices; the restricted key
-provider-authoritatively verified every amount, currency and interval. A real
-two-session sandbox prepare created one monthly subscription Checkout and one
-lifetime-payment Checkout without printing their protected URLs. Stripe
-Managed Payments rejected the first attempt because it does not permit
-`custom_text`; no session or charge was created in that attempt, the
-unsupported parameter was removed, and a regression test preserves the
-explicit pre-checkout immediate-supply/cancellation consent plus metadata.
+production-origin request. Stripe test mode has a dedicated least-privilege
+runtime key, separate operator key, three test-only products and nine verified
+test-only prices. On 30 July 2026, synthetic customers completed genuine
+Managed Payments Checkout sessions for Individual Monthly and Individual
+Lifetime. The application projected both genuine test
+`checkout.session.completed` events through its loopback signature-verification
+path into the isolated Convex target and attested exactly two purchases, six
+licences, six entitlements, six seats and protected-release authorization. The
+monthly subscription was subsequently cancelled and the lifetime payment
+received a succeeded full-amount test refund; the corresponding subscription
+and refund events were projected, and final attestation proved monthly access
+expired, lifetime access and seats revoked, and no open protected-download
+grant remained.
+
+A separate Managed Payments test-clock customer then completed an Individual
+Monthly Checkout. Four genuine Stripe test events were projected: purchase, a
+naturally generated paid `subscription_cycle` invoice, the next naturally
+generated failed-payment invoice, and cancellation. Isolated Convex attestation
+observed access transition from active to renewed, suspended and expired, with
+exactly one purchase, three licences, three entitlements, three seats, one paid
+renewal and one failed invoice. The test clock and protected continuation were
+removed after successful reconciliation.
+
+These are sandbox-only results. Event objects were retrieved from Stripe test
+mode and passed through application signature verification with a dedicated
+loopback signing secret; they do not prove provider delivery through the
+deployed production webhook destination. They also do not prove production
+email, tax/local-currency handling, a real paid release, live money or a
+production customer. Production checkout remains disabled and the North Star
+remains 0 of 8.
 
 A fresh dedicated `gummyui-sandbox` Convex project and EU development
 deployment were provisioned rather than reusing an unreachable or non-empty
@@ -1001,25 +1022,23 @@ attestation backed by that Convex deployment, compares its target fingerprint,
 requires sandbox-namespaced identities, validates both Stripe keys before
 marking the lifecycle single-attempt, reserves prepare state before provider
 mutation, and requires a succeeded full refund plus zero active licences or
-downloads. The real readiness call passes isolation, identity, both-key and
-price checks and stops safely at `sandbox_checkout_completion_required`; its
-continuation remains unmarked and both hosted checkouts remain unpaid.
-A provider-signed deployed-origin delivery, completed hosted sandbox payments,
-the sandbox lifecycle and the live journey remain unproved; checkout remains
-fail closed.
+downloads. The real readiness call, both hosted sandbox purchases, the
+refund/access reconciliation and the separate natural test-clock lifecycle now
+pass. A provider-signed deployed-origin delivery and the live journey remain
+unproved; checkout remains fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value is installed. Vercel Pro is active; spend management is set
-to $1 with notifications and Pause Projects enabled. The current application
-bundle is served by Ready release `dpl_AeqPYQCpA84ncX3f2YoKvWmSVhaT`
-from public head `7684dab` (application source remains audited at `8924e41`).
-GitHub Quality run `30541763000` passes the complete production launch gate on
-that exact documentation head.
+to $1 with notifications and Pause Projects enabled. A Ready release serves the
+current application bundle. The exact deployment-to-source binding is not
+provider-exposed, so the older deployment and CI identifiers are retained only
+as historical evidence rather than described as current.
 Public health remains 200 and reports commerce disabled. WorkOS, Resend and
 Stripe webhook processing are enabled and fail closed for unsigned input;
 Stripe checkout remains disabled, and an anonymous download-grant request
 returns an indistinguishable 404.
-Every complete commerce journey remains pending.
+Every complete production commerce journey remains pending; the isolated
+Stripe sandbox purchase/refund and test-clock subscription journeys now pass.
 A current-production browser matrix passes Chrome 150,
 Firefox 144 and WebKit 2311 at mobile and desktop viewports across the homepage,
 Button detail, pricing and RTL routes with no overflow, console or page errors.
@@ -1060,6 +1079,10 @@ credentials are installed in Convex production. Email + Password uses a
 10-character, zxcvbn-3, breached-password-rejecting policy; six-digit Magic
 Auth and all four lifecycle email classes are enabled. Maximum session length
 is 30 days, access tokens last 5 minutes and inactivity timeout is 2 days.
+Dashboard inspection on 30 July reconfirmed the production homepage and
+callback. The separate Convex CLI message that set a localhost homepage was
+traced to `gummyui-sandbox`, its development deployment and its WorkOS staging
+key; it did not mutate this production environment.
 WorkOS and Stripe both expose `support@kreydlabs.com` as the relevant customer
 support address. The unused manually generated WorkOS key ending `DWW8` was
 expired immediately. An older orphaned Convex-managed environment has no
@@ -1140,15 +1163,14 @@ the approved route. Private release packaging now additionally fails closed
 unless an approved, restored and checksum-bound editable `.fig` export is
 present.
 
-The remaining work is dominated by founder-controlled gates: complete the two
-hosted Stripe sandbox Checkout screens already prepared, complete production
-recovery and second-identity invitation journeys, receive WorkOS's confirmation
-that the orphaned platform-managed key was revoked, run the private Figma
-materializer and visual reviews, approve localisation, revoke the superseded B2
-key after reauthentication, and move the recovery bundle into the founder
-password manager. The live restricted Stripe key is already rotated exactly
-once, installed and provider-authoritatively verified; it is frozen unless
-compromise requires another rotation. Then paid releases,
-signed webhook/email/customer journeys and the authorised real purchase/full
-refund can proceed. The project is not commercially launched until all eight
-North Star steps have evidence.
+Remaining founder-controlled gates include production recovery,
+second-identity invitation acceptance, WorkOS orphan-key confirmation, private
+Figma materialisation and visual review, localisation approval, superseded
+B2-key revocation, and recovery-bundle custody. Paid releases,
+provider-delivered production webhook events, transactional
+purchase/licence/refund email, and the authorised production purchase/full
+refund journey remain pending. The live restricted Stripe key is already
+rotated exactly once, installed and provider-authoritatively verified; it is
+frozen unless compromise requires another rotation. Checkout must stay
+disabled until those gates pass. The project is not commercially launched
+until all eight North Star steps have evidence.

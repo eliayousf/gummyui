@@ -14,7 +14,7 @@ import type {
 import { ProviderUnavailableError } from "./providers";
 
 export const STRIPE_MANAGED_PAYMENTS_API_VERSION =
-  "2026-03-04.preview" as const;
+  "2026-06-24.dahlia" as const;
 
 const STRIPE_SERVER_API_KEY =
   /^(?:sk|rk)_(?:test|live)_[A-Za-z0-9][A-Za-z0-9_-]{5,}$/u;

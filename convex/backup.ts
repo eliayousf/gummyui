@@ -21,6 +21,9 @@ const sandboxAccountId =
 const sandboxWorkspaceId =
   /^workspace:(?:sandbox|restore-query-proof-)[A-Za-z0-9._:-]{4,240}$/u;
 const sandboxCheckoutId = /^cs_test_[A-Za-z0-9_]{4,240}$/u;
+const sandboxTestClockRunId = /^gummyui-clock-[a-f0-9]{32}$/u;
+const stripeCustomerId = /^cus_[A-Za-z0-9_]{6,240}$/u;
+const stripeSubscriptionId = /^sub_[A-Za-z0-9_]{6,240}$/u;
 const paidProductRefs = [
   "gummy-ui-pro-blocks",
   "gummy-ui-pro-templates",
@@ -489,6 +492,503 @@ export const stripeSandboxAttestation = queryGeneric({
       ...(args.phase === "access-granted"
         ? { accessGranted: true as const }
         : { accessRevoked: true as const }),
+    };
+  },
+});
+
+export const seedStripeTestClockSubscription = mutationGeneric({
+  args: {
+    restoreSecret: v.string(),
+    runId: v.string(),
+    accountId: v.string(),
+    workspaceId: v.string(),
+    stripeCustomerId: v.string(),
+    stripeSubscriptionId: v.string(),
+    currentPeriodStartsAt: v.number(),
+    currentPeriodEndsAt: v.number(),
+    providerOccurredAt: v.number(),
+  },
+  returns: v.any(),
+  handler: async (ctx, args) => {
+    assertRestoreAllowed(args.restoreSecret);
+    if (
+      !sandboxTestClockRunId.test(args.runId)
+      || !sandboxAccountId.test(args.accountId)
+      || !sandboxWorkspaceId.test(args.workspaceId)
+      || !stripeCustomerId.test(args.stripeCustomerId)
+      || !stripeSubscriptionId.test(args.stripeSubscriptionId)
+      || !Number.isSafeInteger(args.currentPeriodStartsAt)
+      || !Number.isSafeInteger(args.currentPeriodEndsAt)
+      || args.currentPeriodStartsAt <= 0
+      || args.currentPeriodEndsAt <= args.currentPeriodStartsAt
+      || !Number.isSafeInteger(args.providerOccurredAt)
+      || args.providerOccurredAt <= 0
+    ) {
+      throw new Error("Stripe test-clock seed is unavailable");
+    }
+
+    const subscriptionRecordId =
+      `subscription:stripe:${args.stripeSubscriptionId}`;
+    const existingSubscription = await ctx.db
+      .query("subscriptions")
+      .withIndex("by_custom_id", (q) =>
+        q.eq("id", subscriptionRecordId))
+      .unique();
+    if (existingSubscription) {
+      const existingLicences = await ctx.db
+        .query("licences")
+        .withIndex("by_subscription", (q) =>
+          q.eq("subscriptionId", subscriptionRecordId))
+        .collect();
+      if (
+        existingSubscription.id !== subscriptionRecordId
+        || existingSubscription.billingProvider !== "stripe"
+        || existingSubscription.providerSubscriptionId
+          !== args.stripeSubscriptionId
+        || existingSubscription.accountId !== args.accountId
+        || existingSubscription.workspaceId !== args.workspaceId
+        || existingSubscription.planRef !== "individual-monthly"
+        || existingLicences.length !== paidProductRefs.length
+      ) {
+        throw new Error("Stripe test-clock seed is unavailable");
+      }
+      return {
+        targetClass: "isolated-test",
+        seeded: true,
+        duplicate: true,
+      };
+    }
+
+    const [account, workspace, billingCustomer] = await Promise.all([
+      ctx.db
+        .query("accounts")
+        .withIndex("by_custom_id", (q) => q.eq("id", args.accountId))
+        .unique(),
+      ctx.db
+        .query("workspaces")
+        .withIndex("by_custom_id", (q) => q.eq("id", args.workspaceId))
+        .unique(),
+      ctx.db
+        .query("billingCustomers")
+        .withIndex("by_custom_id", (q) =>
+          q.eq(
+            "id",
+            `billing-customer:stripe:${args.stripeCustomerId}`,
+          ))
+        .unique(),
+    ]);
+    if (account || workspace || billingCustomer) {
+      throw new Error("Stripe test-clock seed is unavailable");
+    }
+
+    const now = Date.now();
+    await ctx.db.insert("accounts", {
+      id: args.accountId,
+      identityProvider: "stripe-test-clock",
+      identitySubject: args.runId,
+      emailHash: null,
+      status: "active",
+      deactivatedAt: null,
+      createdAt: now,
+      updatedAt: now,
+    });
+    await ctx.db.insert("workspaces", {
+      id: args.workspaceId,
+      identityProvider: null,
+      providerOrganizationId: null,
+      name: "Stripe test-clock workspace",
+      status: "active",
+      createdAt: now,
+      updatedAt: now,
+    });
+    await ctx.db.insert("memberships", {
+      id: `membership:test-clock:${args.runId}`,
+      workspaceId: args.workspaceId,
+      accountId: args.accountId,
+      providerMembershipId: null,
+      role: "owner",
+      status: "active",
+      currentSince: now,
+      revokedAt: null,
+      createdAt: now,
+      updatedAt: now,
+    });
+    await ctx.db.insert("billingCustomers", {
+      id: `billing-customer:stripe:${args.stripeCustomerId}`,
+      workspaceId: args.workspaceId,
+      accountId: args.accountId,
+      billingProvider: "stripe",
+      providerCustomerId: args.stripeCustomerId,
+      status: "active",
+      providerOccurredAt: args.providerOccurredAt,
+      createdAt: now,
+      updatedAt: now,
+    });
+    await ctx.db.insert("subscriptions", {
+      id: subscriptionRecordId,
+      billingProvider: "stripe",
+      providerSubscriptionId: args.stripeSubscriptionId,
+      workspaceId: args.workspaceId,
+      accountId: args.accountId,
+      planRef: "individual-monthly",
+      status: "active",
+      currentPeriodStartsAt: args.currentPeriodStartsAt,
+      currentPeriodEndsAt: args.currentPeriodEndsAt,
+      cancelAtPeriodEnd: false,
+      canceledAt: null,
+      providerOccurredAt: args.providerOccurredAt,
+      createdAt: now,
+      updatedAt: now,
+    });
+
+    for (const productRef of paidProductRefs) {
+      const licenceId =
+        `licence:stripe-test-clock:${args.runId}:${productRef}`;
+      await ctx.db.insert("licences", {
+        id: licenceId,
+        workspaceId: args.workspaceId,
+        purchaseId: null,
+        subscriptionId: subscriptionRecordId,
+        productRef,
+        status: "active",
+        startsAt: args.currentPeriodStartsAt,
+        expiresAt: args.currentPeriodEndsAt,
+        updatesUntil: args.currentPeriodEndsAt,
+        seatLimit: 1,
+        createdAt: now,
+        updatedAt: now,
+      });
+      await ctx.db.insert("entitlements", {
+        id: `entitlement:stripe-test-clock:${args.runId}:${productRef}`,
+        workspaceId: args.workspaceId,
+        accountId: args.accountId,
+        licenceId,
+        productRef,
+        status: "active",
+        validFrom: args.currentPeriodStartsAt,
+        validUntil: args.currentPeriodEndsAt,
+        updatesUntil: args.currentPeriodEndsAt,
+        sourceEventId: null,
+        createdAt: now,
+        updatedAt: now,
+      });
+      await ctx.db.insert("licenceSeats", {
+        id: `licence-seat:stripe-test-clock:${args.runId}:${productRef}`,
+        licenceId,
+        accountId: args.accountId,
+        status: "active",
+        assignedAt: now,
+        revokedAt: null,
+        createdAt: now,
+        updatedAt: now,
+      });
+    }
+
+    return {
+      targetClass: "isolated-test",
+      seeded: true,
+      duplicate: false,
+    };
+  },
+});
+
+export const attestStripeTestClockSubscription = queryGeneric({
+  args: {
+    restoreSecret: v.string(),
+    runId: v.string(),
+    accountId: v.string(),
+    workspaceId: v.string(),
+    stripeSubscriptionId: v.string(),
+    phase: v.union(
+      v.literal("seeded"),
+      v.literal("renewed"),
+      v.literal("payment-failed"),
+      v.literal("canceled"),
+    ),
+  },
+  returns: v.any(),
+  handler: async (ctx, args) => {
+    assertRestoreAllowed(args.restoreSecret);
+    if (
+      !sandboxTestClockRunId.test(args.runId)
+      || !sandboxAccountId.test(args.accountId)
+      || !sandboxWorkspaceId.test(args.workspaceId)
+      || !stripeSubscriptionId.test(args.stripeSubscriptionId)
+    ) {
+      throw new Error("Stripe test-clock attestation is unavailable");
+    }
+    const subscriptionRecordId =
+      `subscription:stripe:${args.stripeSubscriptionId}`;
+    const [account, workspace, subscription, licences, invoices] =
+      await Promise.all([
+        ctx.db
+          .query("accounts")
+          .withIndex("by_custom_id", (q) => q.eq("id", args.accountId))
+          .unique(),
+        ctx.db
+          .query("workspaces")
+          .withIndex("by_custom_id", (q) => q.eq("id", args.workspaceId))
+          .unique(),
+        ctx.db
+          .query("subscriptions")
+          .withIndex("by_custom_id", (q) =>
+            q.eq("id", subscriptionRecordId))
+          .unique(),
+        ctx.db
+          .query("licences")
+          .withIndex("by_subscription", (q) =>
+            q.eq("subscriptionId", subscriptionRecordId))
+          .collect(),
+        ctx.db
+          .query("invoices")
+          .withIndex("by_subscription", (q) =>
+            q.eq("subscriptionId", subscriptionRecordId))
+          .collect(),
+      ]);
+    const expectedSubscriptionStatus = args.phase === "payment-failed"
+      ? "past_due"
+      : args.phase === "canceled"
+        ? "canceled"
+        : "active";
+    const expectedAccessStatus = args.phase === "payment-failed"
+      ? "suspended"
+      : args.phase === "canceled"
+        ? "expired"
+        : "active";
+    if (
+      account?.status !== "active"
+      || workspace?.status !== "active"
+      || subscription?.billingProvider !== "stripe"
+      || subscription.providerSubscriptionId !== args.stripeSubscriptionId
+      || subscription.accountId !== args.accountId
+      || subscription.workspaceId !== args.workspaceId
+      || subscription.planRef !== "individual-monthly"
+      || subscription.status !== expectedSubscriptionStatus
+      || licences.length !== paidProductRefs.length
+      || licences.some((licence) =>
+        licence.status !== expectedAccessStatus
+        || licence.workspaceId !== args.workspaceId
+        || !paidProductRefs.includes(
+          licence.productRef as typeof paidProductRefs[number],
+        ))
+    ) {
+      throw new Error("Stripe test-clock attestation is unavailable");
+    }
+
+    for (const licence of licences) {
+      const [entitlements, seats] = await Promise.all([
+        ctx.db
+          .query("entitlements")
+          .withIndex("by_licence", (q) =>
+            q.eq("licenceId", licence.id))
+          .collect(),
+        ctx.db
+          .query("licenceSeats")
+          .withIndex("by_licence", (q) =>
+            q.eq("licenceId", licence.id))
+          .collect(),
+      ]);
+      if (
+        entitlements.length !== 1
+        || entitlements[0].status !== expectedAccessStatus
+        || entitlements[0].accountId !== args.accountId
+        || seats.length !== 1
+        || seats[0].status !== "active"
+        || seats[0].accountId !== args.accountId
+      ) {
+        throw new Error("Stripe test-clock attestation is unavailable");
+      }
+    }
+
+    const paidInvoices = invoices.filter((invoice) =>
+      invoice.status === "paid");
+    const openInvoices = invoices.filter((invoice) =>
+      invoice.status === "open");
+    const expectedPaid = args.phase === "seeded" ? 0 : 1;
+    const expectedOpen =
+      args.phase === "payment-failed" || args.phase === "canceled" ? 1 : 0;
+    if (
+      invoices.length !== expectedPaid + expectedOpen
+      || paidInvoices.length !== expectedPaid
+      || openInvoices.length !== expectedOpen
+      || invoices.some((invoice) =>
+        invoice.billingProvider !== "stripe"
+        || invoice.currency !== "USD"
+        || invoice.totalMinor !== 4_900)
+    ) {
+      throw new Error("Stripe test-clock attestation is unavailable");
+    }
+
+    return {
+      targetClass: "isolated-test",
+      phase: args.phase,
+      exactLicenceCount: licences.length,
+      exactEntitlementCount: licences.length,
+      exactSeatCount: licences.length,
+      paidRenewalCount: paidInvoices.length,
+      failedInvoiceCount: openInvoices.length,
+      accessStatus: expectedAccessStatus,
+      attested: true,
+    };
+  },
+});
+
+export const attestStripeTestClockCheckout = queryGeneric({
+  args: {
+    restoreSecret: v.string(),
+    accountId: v.string(),
+    workspaceId: v.string(),
+    checkoutSessionId: v.string(),
+    phase: v.union(
+      v.literal("checkout-active"),
+      v.literal("renewal-paid"),
+      v.literal("payment-failed"),
+      v.literal("canceled"),
+    ),
+  },
+  returns: v.any(),
+  handler: async (ctx, args) => {
+    assertRestoreAllowed(args.restoreSecret);
+    if (
+      !sandboxAccountId.test(args.accountId)
+      || !sandboxWorkspaceId.test(args.workspaceId)
+      || !sandboxCheckoutId.test(args.checkoutSessionId)
+    ) {
+      throw new Error("Stripe test-clock checkout attestation is unavailable");
+    }
+    const purchaseId = `purchase:stripe:${args.checkoutSessionId}`;
+    const purchase = await ctx.db
+      .query("purchases")
+      .withIndex("by_custom_id", (q) => q.eq("id", purchaseId))
+      .unique();
+    const licences = await ctx.db
+      .query("licences")
+      .withIndex("by_purchase", (q) => q.eq("purchaseId", purchaseId))
+      .collect();
+    const expectedAccessStatus = args.phase === "payment-failed"
+      ? "suspended"
+      : args.phase === "canceled"
+        ? "expired"
+        : "active";
+    const subscriptionIds = new Set(
+      licences.map((licence) => licence.subscriptionId),
+    );
+    if (
+      purchase?.billingProvider !== "stripe"
+      || purchase.providerPurchaseId !== args.checkoutSessionId
+      || purchase.accountId !== args.accountId
+      || purchase.workspaceId !== args.workspaceId
+      || purchase.productRef !== "individual-monthly"
+      || purchase.status !== "completed"
+      || licences.length !== paidProductRefs.length
+      || subscriptionIds.size !== 1
+      || [...subscriptionIds][0] == null
+      || licences.some((licence) =>
+        licence.status !== expectedAccessStatus
+        || licence.workspaceId !== args.workspaceId
+        || !paidProductRefs.includes(
+          licence.productRef as typeof paidProductRefs[number],
+        ))
+    ) {
+      throw new Error("Stripe test-clock checkout attestation is unavailable");
+    }
+    const subscriptionId = [...subscriptionIds][0]!;
+    const subscription = await ctx.db
+      .query("subscriptions")
+      .withIndex("by_custom_id", (q) => q.eq("id", subscriptionId))
+      .unique();
+    const expectedSubscriptionStatus = args.phase === "payment-failed"
+      ? "past_due"
+      : args.phase === "canceled"
+        ? "canceled"
+        : "active";
+    if (
+      subscription?.workspaceId !== args.workspaceId
+      || subscription.accountId !== args.accountId
+      || subscription.planRef !== "individual-monthly"
+      || subscription.status !== expectedSubscriptionStatus
+    ) {
+      throw new Error("Stripe test-clock checkout attestation is unavailable");
+    }
+
+    let openGrantCount = 0;
+    for (const licence of licences) {
+      const [entitlements, seats] = await Promise.all([
+        ctx.db
+          .query("entitlements")
+          .withIndex("by_licence", (q) =>
+            q.eq("licenceId", licence.id))
+          .collect(),
+        ctx.db
+          .query("licenceSeats")
+          .withIndex("by_licence", (q) =>
+            q.eq("licenceId", licence.id))
+          .collect(),
+      ]);
+      if (
+        entitlements.length !== 1
+        || entitlements[0].status !== expectedAccessStatus
+        || entitlements[0].accountId !== args.accountId
+        || seats.length !== 1
+        || seats[0].status !== "active"
+        || seats[0].accountId !== args.accountId
+      ) {
+        throw new Error(
+          "Stripe test-clock checkout attestation is unavailable",
+        );
+      }
+      const grants = await ctx.db
+        .query("downloadGrants")
+        .withIndex("by_entitlement", (q) =>
+          q.eq("entitlementId", entitlements[0].id))
+        .collect();
+      const now = Date.now();
+      openGrantCount += grants.filter((grant) =>
+        grant.consumedAt === null
+        && grant.revokedAt === null
+        && grant.expiresAt > now).length;
+    }
+
+    const invoices = await ctx.db
+      .query("invoices")
+      .withIndex("by_subscription", (q) =>
+        q.eq("subscriptionId", subscriptionId))
+      .collect();
+    const paidInvoices = invoices.filter((invoice) =>
+      invoice.status === "paid");
+    const openInvoices = invoices.filter((invoice) =>
+      invoice.status === "open");
+    const expectedPaid = args.phase === "checkout-active" ? 0 : 1;
+    const expectedOpen =
+      args.phase === "payment-failed" || args.phase === "canceled" ? 1 : 0;
+    if (
+      invoices.length !== expectedPaid + expectedOpen
+      || paidInvoices.length !== expectedPaid
+      || openInvoices.length !== expectedOpen
+      || invoices.some((invoice) =>
+        invoice.billingProvider !== "stripe"
+        || invoice.currency !== "USD"
+        || invoice.totalMinor < 4_900)
+      || (
+        (args.phase === "payment-failed" || args.phase === "canceled")
+        && openGrantCount !== 0
+      )
+    ) {
+      throw new Error("Stripe test-clock checkout attestation is unavailable");
+    }
+
+    return {
+      targetClass: "isolated-test",
+      phase: args.phase,
+      exactPurchaseCount: 1,
+      exactLicenceCount: licences.length,
+      exactEntitlementCount: licences.length,
+      exactSeatCount: licences.length,
+      paidRenewalCount: paidInvoices.length,
+      failedInvoiceCount: openInvoices.length,
+      openGrantCount,
+      accessStatus: expectedAccessStatus,
+      attested: true,
     };
   },
 });

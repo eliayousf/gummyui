@@ -125,10 +125,12 @@ scratch.
   all 24 durable tables and 28 records; the preceding 26-record backup remains
   the restore proof. Production was export-only throughout both operations.
 - Stripe Managed Payments is live-account ready with three products, nine
-  prices and `support@kreydlabs.com` configured. The application runtime still
-  lacks its restricted production key and verified production webhook, and no
-  sandbox or live revenue-loop journey has been completed; checkout and webhook
-  flags remain fail closed.
+  prices and `support@kreydlabs.com` configured. The restricted production key
+  and 16-event production webhook destination are installed; checkout remains
+  disabled. Isolated Managed Payments sandbox journeys now prove two-offer
+  purchase/cancellation/full-refund access reconciliation plus a natural
+  test-clock renewal, failed renewal and cancellation. Provider-delivered
+  production webhook evidence and every live revenue-loop journey remain open.
 - The Vercel-targeted production build passes across 323 generated and dynamic
   routes. Vercel Pro is active, Namecheap DNS has converged, HTTPS and custom
   domains are valid, and `gummyui.dev` serves the pushed public commit with

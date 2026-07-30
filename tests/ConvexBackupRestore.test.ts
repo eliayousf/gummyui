@@ -499,6 +499,155 @@ describe("Convex isolated restore target", () => {
       exactSeatCount: 6,
     });
   });
+
+  it("seeds and attests an isolated real-event test-clock lifecycle", async () => {
+    const test = convexTest(schema, modules);
+    const runId = `gummyui-clock-${"a".repeat(32)}`;
+    const accountId = "account:sandbox-test-clock-proof";
+    const workspaceId = "workspace:sandbox-test-clock-proof";
+    const stripeCustomerId = "cus_TestClockProof";
+    const stripeSubscriptionId = "sub_TestClockProof";
+    const startsAt = 1_800_000_000_000;
+    const endsAt = 1_802_678_400_000;
+    const seedInput = {
+      restoreSecret: RESTORE_SECRET,
+      runId,
+      accountId,
+      workspaceId,
+      stripeCustomerId,
+      stripeSubscriptionId,
+      currentPeriodStartsAt: startsAt,
+      currentPeriodEndsAt: endsAt,
+      providerOccurredAt: startsAt,
+    };
+
+    await expect(test.mutation(
+      anyApi.backup.seedStripeTestClockSubscription,
+      seedInput,
+    )).resolves.toMatchObject({
+      targetClass: "isolated-test",
+      seeded: true,
+      duplicate: false,
+    });
+    await expect(test.mutation(
+      anyApi.backup.seedStripeTestClockSubscription,
+      seedInput,
+    )).resolves.toMatchObject({
+      seeded: true,
+      duplicate: true,
+    });
+
+    const attest = (phase: string) => test.query(
+      anyApi.backup.attestStripeTestClockSubscription,
+      {
+        restoreSecret: RESTORE_SECRET,
+        runId,
+        accountId,
+        workspaceId,
+        stripeSubscriptionId,
+        phase,
+      },
+    );
+    await expect(attest("seeded")).resolves.toMatchObject({
+      attested: true,
+      accessStatus: "active",
+      paidRenewalCount: 0,
+      failedInvoiceCount: 0,
+      exactLicenceCount: 3,
+    });
+
+    const apply = (input: Record<string, unknown>) => test.mutation(
+      anyApi.commerce.execute,
+      {
+        serverSecret: SERVER_SECRET,
+        operation: "stripe.lifecycle.apply",
+        input,
+      },
+    );
+    const lifecycleBase = {
+      accountId,
+      workspaceId,
+      planId: "individual-monthly",
+      stripeSubscriptionId,
+      stripeCustomerId,
+      cancelAtPeriodEnd: false,
+      canceledAt: null,
+      receivedAt: 1_803_000_000_100,
+    };
+    await expect(apply({
+      ...lifecycleBase,
+      kind: "invoice",
+      providerEventId: "evt_test_clock_paid",
+      providerEventType: "invoice.paid",
+      providerOccurredAt: 1_803_000_000_000,
+      payloadHash: "c".repeat(64),
+      subscriptionStatus: "active",
+      accessStatus: "active",
+      currentPeriodStartsAt: endsAt,
+      currentPeriodEndsAt: 1_805_356_800_000,
+      stripeInvoiceId: "in_test_clock_paid",
+      stripePaymentIntentId: "pi_test_clock_paid",
+      invoiceStatus: "paid",
+      currency: "USD",
+      totalMinor: 4_900,
+      issuedAt: 1_803_000_000_000,
+      paidAt: 1_803_000_000_000,
+    })).resolves.toBe("applied");
+    await expect(attest("renewed")).resolves.toMatchObject({
+      attested: true,
+      accessStatus: "active",
+      paidRenewalCount: 1,
+      failedInvoiceCount: 0,
+    });
+
+    await expect(apply({
+      ...lifecycleBase,
+      kind: "invoice",
+      providerEventId: "evt_test_clock_failed",
+      providerEventType: "invoice.payment_failed",
+      providerOccurredAt: 1_806_000_000_000,
+      receivedAt: 1_806_000_000_100,
+      payloadHash: "d".repeat(64),
+      subscriptionStatus: "past_due",
+      accessStatus: "suspended",
+      currentPeriodStartsAt: 1_805_356_800_000,
+      currentPeriodEndsAt: 1_808_035_200_000,
+      stripeInvoiceId: "in_test_clock_failed",
+      stripePaymentIntentId: "pi_test_clock_failed",
+      invoiceStatus: "open",
+      currency: "USD",
+      totalMinor: 4_900,
+      issuedAt: 1_806_000_000_000,
+      paidAt: null,
+    })).resolves.toBe("applied");
+    await expect(attest("payment-failed")).resolves.toMatchObject({
+      attested: true,
+      accessStatus: "suspended",
+      paidRenewalCount: 1,
+      failedInvoiceCount: 1,
+    });
+
+    await expect(apply({
+      ...lifecycleBase,
+      kind: "subscription",
+      providerEventId: "evt_test_clock_canceled",
+      providerEventType: "customer.subscription.deleted",
+      providerOccurredAt: 1_809_000_000_000,
+      receivedAt: 1_809_000_000_100,
+      payloadHash: "e".repeat(64),
+      subscriptionStatus: "canceled",
+      accessStatus: "expired",
+      currentPeriodStartsAt: 1_805_356_800_000,
+      currentPeriodEndsAt: 1_808_035_200_000,
+      canceledAt: 1_809_000_000_000,
+    })).resolves.toBe("applied");
+    await expect(attest("canceled")).resolves.toMatchObject({
+      attested: true,
+      accessStatus: "expired",
+      paidRenewalCount: 1,
+      failedInvoiceCount: 1,
+    });
+  });
 });
 
 function restoreEnvironment(key: string, value: string | undefined): void {

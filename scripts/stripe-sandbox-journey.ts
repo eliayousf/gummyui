@@ -23,7 +23,7 @@ import {
 import type { AccountId, WorkspaceId } from "../lib/commerce/model";
 
 const EXECUTION_CONFIRMATION = "RUN_GUMMYUI_STRIPE_SANDBOX_JOURNEY";
-const STATE_SCHEMA_VERSION = 3;
+const STATE_SCHEMA_VERSION = 6;
 const DEFAULT_STATE_PATH = "work/stripe-sandbox/journey.json";
 const EVENT_WAIT_TIMEOUT_MS = 90_000;
 const EVENT_POLL_INTERVAL_MS = 1_000;
@@ -38,7 +38,12 @@ const SANDBOX_ACCOUNT_ID =
 const SANDBOX_WORKSPACE_ID =
   /^workspace:(?:sandbox|restore-query-proof-)[A-Za-z0-9._:-]{4,240}$/u;
 
-type JourneyOperation = "prepare" | "resume";
+type JourneyOperation =
+  | "prepare"
+  | "resume"
+  | "recover-anchor-no-invoice"
+  | "repair-invoice-create-rejected"
+  | "finish-managed-lifecycle";
 
 export interface StripeSandboxJourneyConfig {
   runtimeKey: string;
@@ -59,8 +64,12 @@ interface CheckoutContinuation {
 }
 
 export interface StripeSandboxJourneyState {
-  schemaVersion: 2 | 3;
-  phase?: "ready";
+  schemaVersion: 2 | 3 | 4 | 5 | 6;
+  phase?:
+    | "ready"
+    | "purchases-attested"
+    | "repair-attempted"
+    | "managed-lifecycle-attempted";
   runId: string;
   createdAt: number;
   applicationOrigin: string;
@@ -68,10 +77,13 @@ export interface StripeSandboxJourneyState {
   workspaceId: string;
   checkouts: [CheckoutContinuation, CheckoutContinuation];
   resumeAttemptedAt: number | null;
+  recoveryAttemptedAt?: number | null;
+  repairAttemptedAt?: number | null;
+  managedFinishAttemptedAt?: number | null;
 }
 
 interface StripeSandboxPreparingState {
-  schemaVersion: 3;
+  schemaVersion: 6;
   phase: "preparing";
   runId: string;
   createdAt: number;
@@ -80,6 +92,9 @@ interface StripeSandboxPreparingState {
   workspaceId: string;
   checkouts: [];
   resumeAttemptedAt: null;
+  recoveryAttemptedAt: null;
+  repairAttemptedAt: null;
+  managedFinishAttemptedAt: null;
 }
 
 type StripeSandboxStoredState =
@@ -94,14 +109,20 @@ interface RedactedJourneyEvidence {
   checkoutsCreated?: number;
   checkoutModes?: readonly ["subscription", "payment"];
   realEventsProjected?: number;
-  lifecycle?: readonly [
-    "purchase",
-    "billing_anchor_reset_invoice",
-    "failed_payment",
-    "cancellation",
-    "refund",
-  ];
+  lifecycle?: readonly (
+    | "purchase"
+    | "subscription_invoice_paid"
+    | "failed_payment"
+    | "cancellation"
+    | "refund"
+  )[];
   mutatingResumeRetryable?: false;
+  mutatingRecoveryRetryable?: false;
+  mutatingRepairRetryable?: false;
+  mutatingManagedFinishRetryable?: false;
+  purchaseEventsPreviouslyAttested?: 2;
+  recovery?: "anchor-no-invoice" | "invoice-create-rejected";
+  renewalEvidence?: "separate-test-clock-required";
   isolatedConvexAttested?: true;
   accessRevocationVerified?: true;
   accessGrantVerified?: true;
@@ -127,6 +148,22 @@ export interface StripeSandboxJourneyProvider {
     hooks: {
       afterPurchasesProjected(): Promise<void>;
     },
+  ): Promise<{
+    realEventsProjected: number;
+  }>;
+  validateForAnchorRecovery?(
+    config: StripeSandboxJourneyConfig,
+    state: StripeSandboxJourneyState,
+  ): Promise<void>;
+  recoverAnchorNoInvoice?(
+    config: StripeSandboxJourneyConfig,
+    state: StripeSandboxJourneyState,
+  ): Promise<{
+    realEventsProjected: number;
+  }>;
+  finishManagedLifecycle?(
+    config: StripeSandboxJourneyConfig,
+    state: StripeSandboxJourneyState,
   ): Promise<{
     realEventsProjected: number;
   }>;
@@ -178,6 +215,9 @@ export async function runStripeSandboxJourney(
         "signed-sandbox-webhook-projection",
       ],
       mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      mutatingRepairRetryable: false,
+      mutatingManagedFinishRetryable: false,
     }));
     return;
   }
@@ -215,6 +255,9 @@ export async function runStripeSandboxJourney(
       workspaceId: config.workspaceId,
       checkouts: [],
       resumeAttemptedAt: null,
+      recoveryAttemptedAt: null,
+      repairAttemptedAt: null,
+      managedFinishAttemptedAt: null,
     };
     assertPreparingStateMatchesConfig(preparingState, config);
     await stateStore.create(statePath, preparingState);
@@ -234,6 +277,9 @@ export async function runStripeSandboxJourney(
       workspaceId: config.workspaceId,
       checkouts: prepared.checkouts,
       resumeAttemptedAt: null,
+      recoveryAttemptedAt: null,
+      repairAttemptedAt: null,
+      managedFinishAttemptedAt: null,
     };
     assertStateMatchesConfig(state, config);
     await stateStore.replace(statePath, state);
@@ -247,7 +293,7 @@ export async function runStripeSandboxJourney(
       isolatedConvexAttested: true,
       continuationState: relative(process.cwd(), statePath),
     };
-  } else {
+  } else if (parsed.operation === "resume") {
     const state = await stateStore.read(statePath);
     assertStateMatchesConfig(state, config);
     if (state.resumeAttemptedAt !== null) {
@@ -284,7 +330,7 @@ export async function runStripeSandboxJourney(
         accessGrantAttested = true;
       },
     });
-    if (!accessGrantAttested || result.realEventsProjected !== 7) {
+    if (!accessGrantAttested || result.realEventsProjected !== 5) {
       throw new StripeSandboxJourneyError(
         "sandbox_journey_evidence_incomplete",
       );
@@ -303,12 +349,264 @@ export async function runStripeSandboxJourney(
       realEventsProjected: result.realEventsProjected,
       lifecycle: [
         "purchase",
-        "billing_anchor_reset_invoice",
+        "cancellation",
+        "refund",
+      ],
+      renewalEvidence: "separate-test-clock-required",
+      mutatingResumeRetryable: false,
+      isolatedConvexAttested: true,
+      accessGrantVerified: true,
+      accessRevocationVerified: true,
+      continuationRemoved: true,
+    };
+  } else if (parsed.operation === "recover-anchor-no-invoice") {
+    const state = await stateStore.read(statePath);
+    assertStateMatchesConfig(state, config);
+    if (
+      state.schemaVersion !== 3
+      || state.phase !== "ready"
+      || state.resumeAttemptedAt === null
+      || state.recoveryAttemptedAt != null
+    ) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_anchor_recovery_state_invalid",
+      );
+    }
+    const checkoutSessionIds = state.checkouts.map(
+      (checkout) => checkout.sessionId,
+    ) as [string, string];
+    await attestApplication(
+      config,
+      "identity",
+      attestationChallenge(state.runId, "recover-identity"),
+    );
+    await provider.validateForResume(config, state);
+    await attestApplication(
+      config,
+      "access-granted",
+      attestationChallenge(state.runId, "recover-access-granted"),
+      checkoutSessionIds,
+    );
+    if (
+      !provider.validateForAnchorRecovery
+      || !provider.recoverAnchorNoInvoice
+    ) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_anchor_recovery_provider_unavailable",
+      );
+    }
+    await provider.validateForAnchorRecovery(config, state);
+    const recoveryState: StripeSandboxJourneyState = {
+      ...state,
+      schemaVersion: STATE_SCHEMA_VERSION,
+      phase: "purchases-attested",
+      recoveryAttemptedAt: now(),
+      repairAttemptedAt: null,
+      managedFinishAttemptedAt: null,
+    };
+    assertStateMatchesConfig(recoveryState, config);
+    await stateStore.replace(statePath, recoveryState);
+    const result = await provider.recoverAnchorNoInvoice(
+      config,
+      recoveryState,
+    );
+    if (result.realEventsProjected !== 5) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_journey_evidence_incomplete",
+      );
+    }
+    await attestApplication(
+      config,
+      "access-revoked",
+      attestationChallenge(state.runId, "recover-access-revoked"),
+      checkoutSessionIds,
+    );
+    await stateStore.remove(statePath);
+    evidence = {
+      mode: "executed",
+      operation: "recover-anchor-no-invoice",
+      sandboxOnly: true,
+      realEventsProjected: result.realEventsProjected,
+      purchaseEventsPreviouslyAttested: 2,
+      lifecycle: [
+        "purchase",
+        "subscription_invoice_paid",
         "failed_payment",
         "cancellation",
         "refund",
       ],
+      recovery: "anchor-no-invoice",
       mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      isolatedConvexAttested: true,
+      accessGrantVerified: true,
+      accessRevocationVerified: true,
+      continuationRemoved: true,
+    };
+  } else if (parsed.operation === "repair-invoice-create-rejected") {
+    const state = await stateStore.read(statePath);
+    assertStateMatchesConfig(state, config);
+    if (
+      state.schemaVersion !== 4
+      || state.phase !== "purchases-attested"
+      || state.resumeAttemptedAt === null
+      || state.recoveryAttemptedAt == null
+      || state.repairAttemptedAt != null
+    ) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_invoice_repair_state_invalid",
+      );
+    }
+    const checkoutSessionIds = state.checkouts.map(
+      (checkout) => checkout.sessionId,
+    ) as [string, string];
+    await attestApplication(
+      config,
+      "identity",
+      attestationChallenge(state.runId, "repair-identity"),
+    );
+    await provider.validateForResume(config, state);
+    await attestApplication(
+      config,
+      "access-granted",
+      attestationChallenge(state.runId, "repair-access-granted"),
+      checkoutSessionIds,
+    );
+    if (
+      !provider.validateForAnchorRecovery
+      || !provider.recoverAnchorNoInvoice
+    ) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_invoice_repair_provider_unavailable",
+      );
+    }
+    await provider.validateForAnchorRecovery(config, state);
+    const repairState: StripeSandboxJourneyState = {
+      ...state,
+      schemaVersion: STATE_SCHEMA_VERSION,
+      phase: "repair-attempted",
+      repairAttemptedAt: now(),
+      managedFinishAttemptedAt: null,
+    };
+    assertStateMatchesConfig(repairState, config);
+    await stateStore.replace(statePath, repairState);
+    const result = await provider.recoverAnchorNoInvoice(
+      config,
+      repairState,
+    );
+    if (result.realEventsProjected !== 5) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_journey_evidence_incomplete",
+      );
+    }
+    await attestApplication(
+      config,
+      "access-revoked",
+      attestationChallenge(state.runId, "repair-access-revoked"),
+      checkoutSessionIds,
+    );
+    await stateStore.remove(statePath);
+    evidence = {
+      mode: "executed",
+      operation: "repair-invoice-create-rejected",
+      sandboxOnly: true,
+      realEventsProjected: result.realEventsProjected,
+      purchaseEventsPreviouslyAttested: 2,
+      lifecycle: [
+        "purchase",
+        "subscription_invoice_paid",
+        "failed_payment",
+        "cancellation",
+        "refund",
+      ],
+      recovery: "invoice-create-rejected",
+      mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      mutatingRepairRetryable: false,
+      isolatedConvexAttested: true,
+      accessGrantVerified: true,
+      accessRevocationVerified: true,
+      continuationRemoved: true,
+    };
+  } else {
+    const state = await stateStore.read(statePath);
+    assertStateMatchesConfig(state, config);
+    if (
+      (state.schemaVersion !== 5 && state.schemaVersion !== 6)
+      || state.phase !== "repair-attempted"
+      || state.resumeAttemptedAt === null
+      || state.recoveryAttemptedAt == null
+      || state.repairAttemptedAt == null
+      || state.managedFinishAttemptedAt != null
+    ) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_managed_finish_state_invalid",
+      );
+    }
+    const checkoutSessionIds = state.checkouts.map(
+      (checkout) => checkout.sessionId,
+    ) as [string, string];
+    await attestApplication(
+      config,
+      "identity",
+      attestationChallenge(state.runId, "managed-finish-identity"),
+    );
+    await provider.validateForResume(config, state);
+    await attestApplication(
+      config,
+      "access-granted",
+      attestationChallenge(state.runId, "managed-finish-access-granted"),
+      checkoutSessionIds,
+    );
+    if (
+      !provider.validateForAnchorRecovery
+      || !provider.finishManagedLifecycle
+    ) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_managed_finish_provider_unavailable",
+      );
+    }
+    await provider.validateForAnchorRecovery(config, state);
+    const finishState: StripeSandboxJourneyState = {
+      ...state,
+      schemaVersion: STATE_SCHEMA_VERSION,
+      phase: "managed-lifecycle-attempted",
+      managedFinishAttemptedAt: now(),
+    };
+    assertStateMatchesConfig(finishState, config);
+    await stateStore.replace(statePath, finishState);
+    const result = await provider.finishManagedLifecycle(
+      config,
+      finishState,
+    );
+    if (result.realEventsProjected !== 3) {
+      throw new StripeSandboxJourneyError(
+        "sandbox_journey_evidence_incomplete",
+      );
+    }
+    await attestApplication(
+      config,
+      "access-revoked",
+      attestationChallenge(state.runId, "managed-finish-access-revoked"),
+      checkoutSessionIds,
+    );
+    await stateStore.remove(statePath);
+    evidence = {
+      mode: "executed",
+      operation: "finish-managed-lifecycle",
+      sandboxOnly: true,
+      realEventsProjected: result.realEventsProjected,
+      purchaseEventsPreviouslyAttested: 2,
+      lifecycle: [
+        "purchase",
+        "cancellation",
+        "refund",
+      ],
+      renewalEvidence: "separate-test-clock-required",
+      mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      mutatingRepairRetryable: false,
+      mutatingManagedFinishRetryable: false,
       isolatedConvexAttested: true,
       accessGrantVerified: true,
       accessRevocationVerified: true,
@@ -481,7 +779,13 @@ function parseArguments(argv: string[]): {
   statePath: string;
 } {
   const operation = argv[0];
-  if (operation !== "prepare" && operation !== "resume") {
+  if (
+    operation !== "prepare"
+    && operation !== "resume"
+    && operation !== "recover-anchor-no-invoice"
+    && operation !== "repair-invoice-create-rejected"
+    && operation !== "finish-managed-lifecycle"
+  ) {
     throw new StripeSandboxJourneyError("sandbox_journey_usage_invalid");
   }
   let execute = false;
@@ -533,6 +837,30 @@ function assertStateMatchesConfig(
     !(
       (state.schemaVersion === 2 && state.phase === undefined)
       || (state.schemaVersion === 3 && state.phase === "ready")
+      || (
+        state.schemaVersion === 4
+        && (
+          state.phase === "ready"
+          || state.phase === "purchases-attested"
+        )
+      )
+      || (
+        state.schemaVersion === 5
+        && (
+          state.phase === "ready"
+          || state.phase === "purchases-attested"
+          || state.phase === "repair-attempted"
+        )
+      )
+      || (
+        state.schemaVersion === 6
+        && (
+          state.phase === "ready"
+          || state.phase === "purchases-attested"
+          || state.phase === "repair-attempted"
+          || state.phase === "managed-lifecycle-attempted"
+        )
+      )
     )
     || state.applicationOrigin !== config.applicationOrigin
     || !SANDBOX_ACCOUNT_ID.test(state.accountId)
@@ -547,6 +875,50 @@ function assertStateMatchesConfig(
       && (
         !Number.isSafeInteger(state.resumeAttemptedAt)
         || state.resumeAttemptedAt < state.createdAt
+      )
+    )
+    || (
+      state.recoveryAttemptedAt != null
+      && (
+        (
+          state.schemaVersion !== 4
+          && state.schemaVersion !== 5
+          && state.schemaVersion !== 6
+        )
+        || (
+          state.phase !== "purchases-attested"
+          && state.phase !== "repair-attempted"
+          && state.phase !== "managed-lifecycle-attempted"
+        )
+        || state.resumeAttemptedAt === null
+        || !Number.isSafeInteger(state.recoveryAttemptedAt)
+        || state.recoveryAttemptedAt < state.resumeAttemptedAt
+      )
+    )
+    || (
+      state.repairAttemptedAt != null
+      && (
+        (
+          state.schemaVersion !== 5
+          && state.schemaVersion !== 6
+        )
+        || (
+          state.phase !== "repair-attempted"
+          && state.phase !== "managed-lifecycle-attempted"
+        )
+        || state.recoveryAttemptedAt == null
+        || !Number.isSafeInteger(state.repairAttemptedAt)
+        || state.repairAttemptedAt < state.recoveryAttemptedAt
+      )
+    )
+    || (
+      state.managedFinishAttemptedAt != null
+      && (
+        state.schemaVersion !== 6
+        || state.phase !== "managed-lifecycle-attempted"
+        || state.repairAttemptedAt == null
+        || !Number.isSafeInteger(state.managedFinishAttemptedAt)
+        || state.managedFinishAttemptedAt < state.repairAttemptedAt
       )
     )
     || state.checkouts.length !== 2
@@ -577,6 +949,9 @@ function assertPreparingStateMatchesConfig(
     || state.createdAt <= 0
     || state.checkouts.length !== 0
     || state.resumeAttemptedAt !== null
+    || state.recoveryAttemptedAt !== null
+    || state.repairAttemptedAt !== null
+    || state.managedFinishAttemptedAt !== null
   ) {
     throw new StripeSandboxJourneyError("sandbox_state_invalid");
   }
@@ -623,7 +998,7 @@ const fileStateStore: StripeSandboxStateStore = {
       throw new StripeSandboxJourneyError("sandbox_state_invalid");
     }
     const state = value as StripeSandboxStoredState;
-    if (state.schemaVersion === 3 && state.phase === "preparing") {
+    if (state.phase === "preparing") {
       throw new StripeSandboxJourneyError("sandbox_prepare_incomplete");
     }
     return state as StripeSandboxJourneyState;
@@ -861,6 +1236,286 @@ export class RealStripeSandboxJourneyProvider
     }
   }
 
+  async validateForAnchorRecovery(
+    config: StripeSandboxJourneyConfig,
+    state: StripeSandboxJourneyState,
+  ): Promise<void> {
+    try {
+      const operator = this.stripeFactory(config.operatorKey);
+      await loadAnchorRecoveryContext(operator, config, state);
+    } catch (error) {
+      throw safeProviderError(
+        error,
+        "sandbox_anchor_recovery_validation_failed",
+      );
+    }
+  }
+
+  async recoverAnchorNoInvoice(
+    config: StripeSandboxJourneyConfig,
+    state: StripeSandboxJourneyState,
+  ): Promise<{ realEventsProjected: number }> {
+    try {
+      const operator = this.stripeFactory(config.operatorKey);
+      const context = await loadAnchorRecoveryContext(
+        operator,
+        config,
+        state,
+      );
+      const projectedEvents: Stripe.Event[] = [];
+      const project = async (event: Stripe.Event) => {
+        await projectSandboxEvent(
+          config,
+          event,
+          this.fetchImplementation,
+          this.webhookFetchTimeoutMs,
+        );
+        projectedEvents.push(event);
+      };
+
+      const paidInvoice = await createControlledSubscriptionInvoice({
+        stripe: operator,
+        config,
+        state,
+        context,
+        leg: "paid",
+        paymentMethodId: context.goodPaymentMethodId,
+      });
+      const paidMarker = nowSeconds(this.now);
+      await payControlledInvoice(
+        operator,
+        paidInvoice.id,
+        context.goodPaymentMethodId,
+        state.runId,
+        "paid",
+      );
+      await project(await waitForEvent(
+        operator,
+        ["invoice.paid"],
+        paidInvoice.id,
+        paidMarker,
+        undefined,
+        this.eventWaitOptions(),
+      ));
+
+      const failedMethod = await operator.paymentMethods.create({
+        type: "card",
+        card: { token: "tok_chargeDeclined" },
+        metadata: {
+          gummyui_sandbox_run_id: state.runId,
+          gummyui_sandbox_step: "failed-payment",
+        },
+      }, idempotencyOptions(state.runId, "failed-payment-method"));
+      if (failedMethod.livemode) {
+        throw new StripeSandboxJourneyError(
+          "live_sandbox_resource_refused",
+        );
+      }
+      await operator.paymentMethods.attach(
+        failedMethod.id,
+        { customer: context.customerId },
+        idempotencyOptions(state.runId, "failed-payment-attach"),
+      );
+      await operator.subscriptions.update(
+        context.subscriptionId,
+        { default_payment_method: failedMethod.id },
+        idempotencyOptions(state.runId, "failed-payment-default"),
+      );
+
+      const failedInvoice = await createControlledSubscriptionInvoice({
+        stripe: operator,
+        config,
+        state,
+        context,
+        leg: "failed",
+        paymentMethodId: failedMethod.id,
+      });
+      const failureMarker = nowSeconds(this.now);
+      await attemptDeclinedInvoicePayment(
+        operator,
+        failedInvoice.id,
+        failedMethod.id,
+        state.runId,
+      );
+      await project(await waitForEvent(
+        operator,
+        ["invoice.payment_failed"],
+        failedInvoice.id,
+        failureMarker,
+        undefined,
+        this.eventWaitOptions(),
+      ));
+
+      const scheduledCancellationMarker = nowSeconds(this.now);
+      await operator.subscriptions.update(
+        context.subscriptionId,
+        { cancel_at_period_end: true },
+        idempotencyOptions(state.runId, "schedule-cancellation"),
+      );
+      await project(await waitForEvent(
+        operator,
+        ["customer.subscription.updated"],
+        context.subscriptionId,
+        scheduledCancellationMarker,
+        (event) => {
+          const value = event.data.object as Stripe.Subscription;
+          return value.cancel_at_period_end === true;
+        },
+        this.eventWaitOptions(),
+      ));
+      const cancellationMarker = nowSeconds(this.now);
+      await operator.subscriptions.cancel(
+        context.subscriptionId,
+        {},
+        idempotencyOptions(state.runId, "cancel-subscription"),
+      );
+      await project(await waitForEvent(
+        operator,
+        ["customer.subscription.deleted"],
+        context.subscriptionId,
+        cancellationMarker,
+        undefined,
+        this.eventWaitOptions(),
+      ));
+
+      const refundMarker = nowSeconds(this.now);
+      const refund = await operator.refunds.create({
+        payment_intent: context.lifetimePaymentIntentId,
+        metadata: {
+          gummyui_sandbox_run_id: state.runId,
+          gummyui_sandbox_step: "lifetime-refund",
+        },
+      }, idempotencyOptions(state.runId, "lifetime-refund"));
+      if (
+        refund.status !== "succeeded"
+        || context.lifetime.amount_total == null
+        || refund.amount !== context.lifetime.amount_total
+        || refund.currency.toLowerCase()
+          !== context.lifetime.currency?.toLowerCase()
+      ) {
+        throw new StripeSandboxJourneyError(
+          "sandbox_full_refund_not_succeeded",
+        );
+      }
+      await project(await waitForEvent(
+        operator,
+        ["refund.created"],
+        refund.id,
+        refundMarker,
+        undefined,
+        this.eventWaitOptions(),
+      ));
+
+      try {
+        await operator.paymentMethods.detach(
+          failedMethod.id,
+          {},
+          idempotencyOptions(state.runId, "failed-payment-detach"),
+        );
+      } catch {
+        // The exact lifecycle has completed. Cleanup remains best effort.
+      }
+      return { realEventsProjected: projectedEvents.length };
+    } catch (error) {
+      throw safeProviderError(
+        error,
+        "sandbox_anchor_recovery_provider_failed",
+      );
+    }
+  }
+
+  async finishManagedLifecycle(
+    config: StripeSandboxJourneyConfig,
+    state: StripeSandboxJourneyState,
+  ): Promise<{ realEventsProjected: number }> {
+    try {
+      const operator = this.stripeFactory(config.operatorKey);
+      const context = await loadAnchorRecoveryContext(
+        operator,
+        config,
+        state,
+      );
+      const projectedEvents: Stripe.Event[] = [];
+      const project = async (event: Stripe.Event) => {
+        await projectSandboxEvent(
+          config,
+          event,
+          this.fetchImplementation,
+          this.webhookFetchTimeoutMs,
+        );
+        projectedEvents.push(event);
+      };
+
+      const scheduledCancellationMarker = nowSeconds(this.now);
+      await operator.subscriptions.update(
+        context.subscriptionId,
+        { cancel_at_period_end: true },
+        idempotencyOptions(state.runId, "schedule-cancellation"),
+      );
+      await project(await waitForEvent(
+        operator,
+        ["customer.subscription.updated"],
+        context.subscriptionId,
+        scheduledCancellationMarker,
+        (event) => {
+          const value = event.data.object as Stripe.Subscription;
+          return value.cancel_at_period_end === true;
+        },
+        this.eventWaitOptions(),
+      ));
+
+      const cancellationMarker = nowSeconds(this.now);
+      await operator.subscriptions.cancel(
+        context.subscriptionId,
+        {},
+        idempotencyOptions(state.runId, "cancel-subscription"),
+      );
+      await project(await waitForEvent(
+        operator,
+        ["customer.subscription.deleted"],
+        context.subscriptionId,
+        cancellationMarker,
+        undefined,
+        this.eventWaitOptions(),
+      ));
+
+      const refundMarker = nowSeconds(this.now);
+      const refund = await operator.refunds.create({
+        payment_intent: context.lifetimePaymentIntentId,
+        metadata: {
+          gummyui_sandbox_run_id: state.runId,
+          gummyui_sandbox_step: "lifetime-refund",
+        },
+      }, idempotencyOptions(state.runId, "lifetime-refund"));
+      if (
+        refund.status !== "succeeded"
+        || context.lifetime.amount_total == null
+        || refund.amount !== context.lifetime.amount_total
+        || refund.currency.toLowerCase()
+          !== context.lifetime.currency?.toLowerCase()
+      ) {
+        throw new StripeSandboxJourneyError(
+          "sandbox_full_refund_not_succeeded",
+        );
+      }
+      await project(await waitForEvent(
+        operator,
+        ["refund.created"],
+        refund.id,
+        refundMarker,
+        undefined,
+        this.eventWaitOptions(),
+      ));
+
+      return { realEventsProjected: projectedEvents.length };
+    } catch (error) {
+      throw safeProviderError(
+        error,
+        "sandbox_managed_finish_provider_failed",
+      );
+    }
+  }
+
   async resume(
     config: StripeSandboxJourneyConfig,
     state: StripeSandboxJourneyState,
@@ -913,90 +1568,17 @@ export class RealStripeSandboxJourneyProvider
         monthly.subscription,
         "sandbox_subscription_unavailable",
       );
-      const subscriptionMarker = nowSeconds(this.now);
-      const initialInvoiceId = expandableId(
-        monthly.subscription && typeof monthly.subscription === "object"
-          ? monthly.subscription.latest_invoice
-          : null,
-        "sandbox_initial_invoice_unavailable",
+      const lifetimePaymentIntentId = expandableId(
+        lifetime.payment_intent,
+        "sandbox_payment_intent_unavailable",
       );
-      const renewedSubscription = await operator.subscriptions.update(
-        subscriptionId,
-        {
-          billing_cycle_anchor: "now",
-          expand: ["latest_invoice"],
-          proration_behavior: "none",
-        },
-      );
-      const renewalInvoiceId = expandableId(
-        renewedSubscription.latest_invoice,
-        "sandbox_renewal_invoice_unavailable",
-      );
-      if (renewalInvoiceId === initialInvoiceId) {
-        throw new StripeSandboxJourneyError(
-          "sandbox_renewal_invoice_unavailable",
-        );
-      }
-      await project(await waitForEvent(
-        operator,
-        ["invoice.paid"],
-        renewalInvoiceId,
-        subscriptionMarker,
-        undefined,
-        this.eventWaitOptions(),
-      ));
-
-      const customerId = expandableId(
-        monthly.customer,
-        "sandbox_customer_unavailable",
-      );
-      const failedMethod = await operator.paymentMethods.create({
-        type: "card",
-        card: { token: "tok_chargeDeclined" },
-        metadata: { gummyui_sandbox_run_id: state.runId },
-      });
-      if (failedMethod.livemode) {
-        throw new StripeSandboxJourneyError(
-          "live_sandbox_resource_refused",
-        );
-      }
-      await operator.paymentMethods.attach(failedMethod.id, {
-        customer: customerId,
-      });
-      await operator.subscriptions.update(subscriptionId, {
-        default_payment_method: failedMethod.id,
-      });
-      const failureMarker = nowSeconds(this.now);
-      const failedSubscription = await operator.subscriptions.update(
-        subscriptionId,
-        {
-          billing_cycle_anchor: "now",
-          expand: ["latest_invoice"],
-          proration_behavior: "none",
-        },
-      );
-      const failedInvoiceId = expandableId(
-        failedSubscription.latest_invoice,
-        "sandbox_failed_invoice_unavailable",
-      );
-      if (failedInvoiceId === renewalInvoiceId) {
-        throw new StripeSandboxJourneyError(
-          "sandbox_failed_invoice_unavailable",
-        );
-      }
-      await project(await waitForEvent(
-        operator,
-        ["invoice.payment_failed"],
-        failedInvoiceId,
-        failureMarker,
-        undefined,
-        this.eventWaitOptions(),
-      ));
 
       const scheduledCancellationMarker = nowSeconds(this.now);
-      await operator.subscriptions.update(subscriptionId, {
-        cancel_at_period_end: true,
-      });
+      await operator.subscriptions.update(
+        subscriptionId,
+        { cancel_at_period_end: true },
+        idempotencyOptions(state.runId, "schedule-cancellation"),
+      );
       await project(await waitForEvent(
         operator,
         ["customer.subscription.updated"],
@@ -1009,7 +1591,11 @@ export class RealStripeSandboxJourneyProvider
         this.eventWaitOptions(),
       ));
       const cancellationMarker = nowSeconds(this.now);
-      await operator.subscriptions.cancel(subscriptionId);
+      await operator.subscriptions.cancel(
+        subscriptionId,
+        {},
+        idempotencyOptions(state.runId, "cancel-subscription"),
+      );
       await project(await waitForEvent(
         operator,
         ["customer.subscription.deleted"],
@@ -1019,15 +1605,14 @@ export class RealStripeSandboxJourneyProvider
         this.eventWaitOptions(),
       ));
 
-      const paymentIntentId = expandableId(
-        lifetime.payment_intent,
-        "sandbox_payment_intent_unavailable",
-      );
       const refundMarker = nowSeconds(this.now);
       const refund = await operator.refunds.create({
-        payment_intent: paymentIntentId,
-        metadata: { gummyui_sandbox_run_id: state.runId },
-      });
+        payment_intent: lifetimePaymentIntentId,
+        metadata: {
+          gummyui_sandbox_run_id: state.runId,
+          gummyui_sandbox_step: "lifetime-refund",
+        },
+      }, idempotencyOptions(state.runId, "lifetime-refund"));
       if (
         refund.status !== "succeeded"
         || lifetime.amount_total == null
@@ -1046,13 +1631,6 @@ export class RealStripeSandboxJourneyProvider
         undefined,
         this.eventWaitOptions(),
       ));
-
-      try {
-        await operator.paymentMethods.detach(failedMethod.id);
-      } catch {
-        // The journey has already completed. Cleanup remains best effort and
-        // intentionally does not turn a verified projection into a retry.
-      }
       return { realEventsProjected: projectedEvents.length };
     } catch (error) {
       throw safeProviderError(error, "sandbox_resume_provider_failed");
@@ -1066,6 +1644,382 @@ export class RealStripeSandboxJourneyProvider
       timeoutMs: this.eventWaitTimeoutMs,
     };
   }
+}
+
+interface AnchorRecoveryContext {
+  monthly: Stripe.Checkout.Session;
+  lifetime: Stripe.Checkout.Session;
+  subscriptionId: string;
+  customerId: string;
+  goodPaymentMethodId: string;
+  lifetimePaymentIntentId: string;
+  initialInvoiceId: string;
+}
+
+async function loadAnchorRecoveryContext(
+  stripe: Stripe,
+  config: StripeSandboxJourneyConfig,
+  state: StripeSandboxJourneyState,
+): Promise<AnchorRecoveryContext> {
+  await verifySandboxPrices(stripe, config.priceIds);
+  const retriever = new StripeCheckoutSessionRetriever(
+    stripe.checkout.sessions,
+  );
+  const monthly = await retriever.retrieve(state.checkouts[0].sessionId);
+  const lifetime = await retriever.retrieve(state.checkouts[1].sessionId);
+  assertCompletedSandboxCheckout(monthly, "individual-monthly");
+  assertCompletedSandboxCheckout(lifetime, "individual-lifetime");
+  const subscriptionId = expandableId(
+    monthly.subscription,
+    "sandbox_subscription_unavailable",
+  );
+  const customerId = expandableId(
+    monthly.customer,
+    "sandbox_customer_unavailable",
+  );
+  if (
+    expandableId(
+      lifetime.customer,
+      "sandbox_customer_unavailable",
+    ) === customerId
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_anchor_recovery_customer_invalid",
+    );
+  }
+  const subscription = await stripe.subscriptions.retrieve(
+    subscriptionId,
+    { expand: ["latest_invoice"] },
+  );
+  const item = subscription.items.data[0];
+  const itemPriceId = typeof item?.price === "string"
+    ? item.price
+    : item?.price?.id;
+  const subscriptionCustomerId = expandableId(
+    subscription.customer,
+    "sandbox_customer_unavailable",
+  );
+  if (
+    subscription.livemode
+    || subscription.status !== "active"
+    || subscription.cancel_at_period_end
+    || subscription.canceled_at !== null
+    || subscriptionCustomerId !== customerId
+    || subscription.metadata?.commercial_offer_ref !== "individual-monthly"
+    || subscription.metadata?.account_id !== state.accountId
+    || subscription.metadata?.workspace_id !== state.workspaceId
+    || subscription.items.data.length !== 1
+    || item?.quantity !== 1
+    || itemPriceId !== config.priceIds["individual-monthly"]
+    || !Number.isSafeInteger(item.current_period_start)
+    || !Number.isSafeInteger(item.current_period_end)
+    || item.current_period_start <= subscription.created
+    || item.current_period_end <= item.current_period_start
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_anchor_recovery_subscription_invalid",
+    );
+  }
+  const initialInvoiceId = expandableId(
+    subscription.latest_invoice,
+    "sandbox_initial_invoice_unavailable",
+  );
+  const invoices = await stripe.invoices.list({
+    subscription: subscriptionId,
+    limit: 100,
+  });
+  if (
+    invoices.has_more
+    || invoices.data.length !== 1
+    || invoices.data[0].id !== initialInvoiceId
+    || invoices.data[0].livemode
+    || invoices.data[0].status !== "paid"
+    || invoices.data[0].billing_reason !== "subscription_create"
+    || expandableId(
+      invoices.data[0].customer,
+      "sandbox_customer_unavailable",
+    ) !== customerId
+    || invoiceSubscriptionId(invoices.data[0]) !== subscriptionId
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_anchor_recovery_invoice_state_invalid",
+    );
+  }
+  const goodPaymentMethodId = expandableId(
+    subscription.default_payment_method,
+    "sandbox_payment_method_unavailable",
+  );
+  const lifetimePaymentIntentId = expandableId(
+    lifetime.payment_intent,
+    "sandbox_payment_intent_unavailable",
+  );
+  const lifetimePaymentIntent = await stripe.paymentIntents.retrieve(
+    lifetimePaymentIntentId,
+  );
+  if (
+    lifetimePaymentIntent.livemode
+    || lifetimePaymentIntent.status !== "succeeded"
+    || lifetimePaymentIntent.amount_received !== lifetime.amount_total
+    || lifetimePaymentIntent.currency.toLowerCase()
+      !== lifetime.currency?.toLowerCase()
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_anchor_recovery_lifetime_invalid",
+    );
+  }
+  const refunds = await stripe.refunds.list({
+    payment_intent: lifetimePaymentIntentId,
+    limit: 100,
+  });
+  if (refunds.has_more || refunds.data.length !== 0) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_anchor_recovery_refund_state_invalid",
+    );
+  }
+  const paymentMethods = await stripe.paymentMethods.list({
+    customer: customerId,
+    type: "card",
+    limit: 100,
+  });
+  if (
+    paymentMethods.has_more
+    || paymentMethods.data.some((paymentMethod) =>
+      paymentMethod.livemode
+      || paymentMethod.metadata?.gummyui_sandbox_run_id === state.runId)
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_anchor_recovery_payment_method_state_invalid",
+    );
+  }
+  const laterEvents = await stripe.events.list({
+    created: { gte: Math.floor(state.createdAt / 1_000) - 5 },
+    types: [
+      "customer.subscription.updated",
+      "customer.subscription.deleted",
+      "invoice.payment_failed",
+      "refund.created",
+    ],
+    limit: 100,
+  });
+  if (
+    laterEvents.has_more
+    || laterEvents.data.some((event) => {
+      if (event.livemode) return true;
+      if (
+        event.type === "customer.subscription.updated"
+        && containsIdentifier(event.data.object, subscriptionId)
+      ) {
+        return (
+          event.data.object as Stripe.Subscription
+        ).cancel_at_period_end === true;
+      }
+      return (
+        containsIdentifier(event.data.object, subscriptionId)
+        || containsIdentifier(event.data.object, lifetimePaymentIntentId)
+        || containsIdentifier(event.data.object, state.runId)
+      );
+    })
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_anchor_recovery_lifecycle_already_advanced",
+    );
+  }
+  return {
+    monthly,
+    lifetime,
+    subscriptionId,
+    customerId,
+    goodPaymentMethodId,
+    lifetimePaymentIntentId,
+    initialInvoiceId,
+  };
+}
+
+async function createControlledSubscriptionInvoice(input: {
+  stripe: Stripe;
+  config: StripeSandboxJourneyConfig;
+  state: StripeSandboxJourneyState;
+  context: AnchorRecoveryContext;
+  leg: "paid" | "failed";
+  paymentMethodId: string;
+}): Promise<Stripe.Invoice> {
+  const metadata = {
+    gummyui_sandbox_run_id: input.state.runId,
+    gummyui_sandbox_step: `${input.leg}-subscription-invoice`,
+  };
+  const invoice = await input.stripe.invoices.create({
+    customer: input.context.customerId,
+    subscription: input.context.subscriptionId,
+    default_payment_method: input.paymentMethodId,
+    collection_method: "charge_automatically",
+    auto_advance: false,
+    metadata,
+  }, idempotencyOptions(
+    input.state.runId,
+    `${input.leg}-invoice-create`,
+  ));
+  if (
+    invoice.livemode
+    || invoice.status !== "draft"
+    || expandableId(
+      invoice.customer,
+      "sandbox_customer_unavailable",
+    ) !== input.context.customerId
+    || invoiceSubscriptionId(invoice) !== input.context.subscriptionId
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_controlled_invoice_invalid",
+    );
+  }
+  const item = await input.stripe.invoiceItems.create({
+    customer: input.context.customerId,
+    subscription: input.context.subscriptionId,
+    invoice: invoice.id,
+    pricing: {
+      price: input.config.priceIds["individual-monthly"],
+    },
+    quantity: 1,
+    metadata,
+  }, idempotencyOptions(
+    input.state.runId,
+    `${input.leg}-invoice-item`,
+  ));
+  if (
+    item.livemode
+    || expandableId(
+      item.customer,
+      "sandbox_customer_unavailable",
+    ) !== input.context.customerId
+    || expandableId(
+      item.invoice,
+      "sandbox_invoice_unavailable",
+    ) !== invoice.id
+    || item.amount !== 4_900
+    || item.currency.toLowerCase() !== "usd"
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_controlled_invoice_item_invalid",
+    );
+  }
+  const finalized = await input.stripe.invoices.finalizeInvoice(
+    invoice.id,
+    { auto_advance: false },
+    idempotencyOptions(
+      input.state.runId,
+      `${input.leg}-invoice-finalize`,
+    ),
+  );
+  if (
+    finalized.livemode
+    || finalized.status !== "open"
+    || finalized.amount_due <= 0
+    || expandableId(
+      finalized.customer,
+      "sandbox_customer_unavailable",
+    ) !== input.context.customerId
+    || invoiceSubscriptionId(finalized)
+      !== input.context.subscriptionId
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_controlled_invoice_invalid",
+    );
+  }
+  return finalized;
+}
+
+async function payControlledInvoice(
+  stripe: Stripe,
+  invoiceId: string,
+  paymentMethodId: string,
+  runId: string,
+  leg: "paid",
+): Promise<void> {
+  const paid = await stripe.invoices.pay(
+    invoiceId,
+    { payment_method: paymentMethodId },
+    idempotencyOptions(runId, `${leg}-invoice-pay`),
+  );
+  if (
+    paid.livemode
+    || paid.status !== "paid"
+    || paid.amount_paid <= 0
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_controlled_invoice_payment_invalid",
+    );
+  }
+}
+
+async function attemptDeclinedInvoicePayment(
+  stripe: Stripe,
+  invoiceId: string,
+  paymentMethodId: string,
+  runId: string,
+): Promise<void> {
+  try {
+    const result = await stripe.invoices.pay(
+      invoiceId,
+      { payment_method: paymentMethodId },
+      idempotencyOptions(runId, "failed-invoice-pay"),
+    );
+    if (result.status !== "open") {
+      throw new StripeSandboxJourneyError(
+        "sandbox_declined_invoice_payment_invalid",
+      );
+    }
+  } catch (error) {
+    if (!isExpectedCardDecline(error)) throw error;
+  }
+  const invoice = await stripe.invoices.retrieve(invoiceId);
+  if (
+    invoice.livemode
+    || invoice.status !== "open"
+    || invoice.attempted !== true
+    || invoice.amount_due <= 0
+  ) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_declined_invoice_payment_invalid",
+    );
+  }
+}
+
+function isExpectedCardDecline(error: unknown): boolean {
+  if (!error || typeof error !== "object") return false;
+  const value = error as {
+    type?: unknown;
+    code?: unknown;
+    decline_code?: unknown;
+  };
+  return (
+    value.type === "StripeCardError"
+    && value.code === "card_declined"
+    && typeof value.decline_code === "string"
+  );
+}
+
+function invoiceSubscriptionId(invoice: Stripe.Invoice): string {
+  const parent = invoice.parent as {
+    subscription_details?: {
+      subscription?: string | { id: string } | null;
+    } | null;
+  } | null;
+  return expandableId(
+    parent?.subscription_details?.subscription ?? null,
+    "sandbox_subscription_unavailable",
+  );
+}
+
+function idempotencyOptions(
+  runId: string,
+  step: string,
+): Stripe.RequestOptions {
+  const idempotencyKey = `gummyui:${runId}:${step}`;
+  if (idempotencyKey.length > 255) {
+    throw new StripeSandboxJourneyError(
+      "sandbox_idempotency_key_invalid",
+    );
+  }
+  return { idempotencyKey };
 }
 
 function stripeClient(key: string): Stripe {
@@ -1175,6 +2129,7 @@ export async function projectSandboxEvent(
   event: Stripe.Event,
   fetchImplementation: typeof fetch = fetch,
   fetchTimeoutMs: number = WEBHOOK_FETCH_TIMEOUT_MS,
+  acceptedStatuses: readonly ("applied" | "duplicate")[] = ["applied"],
 ): Promise<void> {
   if (event.livemode) {
     throw new StripeSandboxJourneyError("live_sandbox_event_refused");
@@ -1221,7 +2176,8 @@ export async function projectSandboxEvent(
     !body
     || typeof body !== "object"
     || (body as { received?: unknown }).received !== true
-    || (body as { status?: unknown }).status !== "applied"
+    || !acceptedStatuses.some((status) =>
+      status === (body as { status?: unknown }).status)
   ) {
     throw new StripeSandboxJourneyError(
       "sandbox_webhook_projection_not_applied",

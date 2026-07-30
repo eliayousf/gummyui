@@ -50,7 +50,7 @@ gitignored continuation file under
 
 Checkout readiness and both runtime/operator account visibility are repeatable
 and occur before the mutating stage. Immediately before the first lifecycle
-mutation, the CLI atomically upgrades or writes the schema-v3 continuation
+mutation, the CLI atomically upgrades or writes the schema-v6 continuation
 record with `resumeAttemptedAt`.
 
 After that marker is written, `resume` is intentionally single-attempt. Any
@@ -60,7 +60,7 @@ the retained state or webhook deduplication as retry proof. Inspect the local
 logs and Stripe test request log, clean up the synthetic test resources, remove
 the marked continuation file, and start a fresh run.
 
-`prepare` first reserves a private schema-v3 `preparing` record containing the
+`prepare` first reserves a private schema-v6 `preparing` record containing the
 stable run ID and timestamp. Stripe receives stable idempotency keys derived
 from that run ID. A provider or process failure retains the reservation, so a
 blind retry cannot create another pair. Inspect and discard or recover any
@@ -130,7 +130,7 @@ npm run stripe:sandbox:journey -- prepare --execute
 
 1. proves the loopback app is connected to the expected isolated Convex target
    and seeded synthetic identity;
-2. reserves the schema-v3 continuation state before provider mutation;
+2. reserves the schema-v6 continuation state before provider mutation;
 3. retrieves and validates all nine prices through the restricted runtime key;
 4. creates one monthly subscription Checkout and one lifetime-payment Checkout
    through the application's `StripeManagedPaymentsService`;
@@ -146,7 +146,7 @@ or durable logs.
 Calling `resume` while a Checkout is incomplete stops during the repeatable
 readiness check, before `resumeAttemptedAt` is written.
 
-## Stage 2: single-attempt lifecycle projection
+## Stage 2: single-attempt purchase, cancellation and refund
 
 After both hosted test checkouts show success:
 
@@ -163,35 +163,99 @@ npm run stripe:sandbox:journey -- resume --execute
 4. projects both real `checkout.session.completed` events and immediately
    proves the exact checkout-linked purchases, six licences, six entitlements,
    six seats and protected-release authorization on the isolated target;
-5. resets the monthly subscription billing anchor and projects the resulting
-   paid invoice;
-6. attaches Stripe's declined test payment token, resets the anchor again, and
-   projects the resulting `invoice.payment_failed` event;
-7. schedules and completes cancellation, projecting the subscription update
+5. schedules and completes cancellation, projecting the subscription update
    and deletion;
-8. requires a succeeded, full-amount lifetime refund and projects
+6. requires a succeeded, full-amount lifetime refund and projects
    `refund.created`;
-9. queries the same isolated Convex target by the two exact Checkout Session IDs
+7. queries the same isolated Convex target by the two exact Checkout Session IDs
    and proves the monthly access expired, lifetime access and seats were
    revoked, and no open protected-download grant remains;
-10. removes the continuation file only after all seven first-pass projections
+8. removes the continuation file only after all five first-pass projections
    return `status: "applied"` and access revocation is attested.
 
-The billing-anchor reset is an accelerated test invoice exercise. It is not a
-scheduled renewal and must not be recorded as renewal evidence.
+This two-offer command deliberately does not manufacture renewal invoices.
+Stripe Managed Payments rejects direct subscription invoice creation and
+default-payment-method changes. Natural renewal and failed-payment evidence
+belongs to the separate test-clock journey below.
+
+## Historical incident recovery operations
+
+The schema-v6 parser retains three single-use, state-latched recovery operations
+for the 30 July 2026 sandbox incident:
+
+```sh
+npm run stripe:sandbox:journey -- recover-anchor-no-invoice --execute
+npm run stripe:sandbox:journey -- repair-invoice-create-rejected --execute
+npm run stripe:sandbox:journey -- finish-managed-lifecycle --execute
+```
+
+They are not normal journey steps and cannot start from a fresh continuation.
+The first operation was created after a billing-anchor reset advanced the
+subscription without producing a renewal invoice. The second was created after
+the controlled-invoice repair was rejected because Managed Payments
+subscriptions do not permit direct invoice creation. Neither failed approach
+created a charge or counts as renewal evidence. The final operation was allowed
+only from the exact latched incident state; it completed cancellation and the
+full test refund, attested access revocation and removed the continuation.
+
+Do not replay these operations, loosen their state predicates or treat their
+presence as a generic retry mechanism.
+
+## Natural renewal and failure with a Stripe test clock
+
+Use the same isolated loopback application, operator environment and protected
+state directory:
+
+```sh
+npm run stripe:sandbox:test-clock -- prepare
+npm run stripe:sandbox:test-clock -- resume
+npm run stripe:sandbox:test-clock -- prepare --execute
+```
+
+`prepare --execute` creates a fresh Stripe test clock, synthetic customer and
+one genuine Managed Payments Individual Monthly Checkout. Its URL exists only
+in the mode-0600 protected continuation. Complete that Checkout with Stripe's
+official test card and synthetic customer data, then run:
+
+```sh
+npm run stripe:sandbox:test-clock -- resume --execute
+```
+
+The resumable schema-v2 journal persists every target before advancing the
+clock and records observed/finalized invoice IDs before projection. `resume`:
+
+1. projects the exact Checkout event and attests active access;
+2. advances to the next natural billing cycle, waits for Stripe to finalize and
+   pay the `subscription_cycle` invoice, projects it and attests renewed access;
+3. proves the provider state contains exactly the initial and renewal invoices,
+   no later failure/cancellation, the expected saved Checkout card and no
+   customer-level fallback;
+4. detaches that synthetic saved card, journals the next cycle and advances it;
+5. waits for the natural attempted, unpaid, open cycle invoice, projects the
+   exact `invoice.payment_failed` event and attests suspended access;
+6. journals and cancels the subscription, projects the deletion and attests
+   expired access; and
+7. deletes the test clock and continuation only after reconciliation.
+
+Projection replay accepts Stripe/Convex `duplicate` only in this journaled
+test-clock path and always follows it with authoritative state attestation.
+Ordinary sandbox projection remains first-apply-only.
+
+On 30 July 2026 this path completed with four genuine Stripe test events and
+access states `active`, `renewed`, `suspended` and `expired`.
 
 ## Evidence and limits
 
 Successful CLI output is redacted sandbox evidence, not production evidence:
 
-- Stripe's hosted Checkout requires a human test-mode interaction between
+- Stripe's hosted Checkout requires a controlled test-mode interaction between
   `prepare` and `resume`.
 - Signed projection uses real Stripe test Event objects and a dedicated local
   signing secret. It proves first-pass signature validation and application
   projection; it does not prove delivery from a Stripe webhook destination.
-- If Managed Payments rejects operator-side subscription or PaymentIntent
-  mutation, the harness fails closed and the fixtures must be recreated.
-- The failed-payment leg depends on Stripe's `tok_chargeDeclined` test token.
+- Managed Payments renewal and failed-payment proof comes only from natural
+  test-clock cycles. The harness does not call unsupported direct invoice or
+  subscription payment-method mutation APIs.
 - The refund is a real test-mode full refund only. No production charge,
   customer, entitlement, email, or money is involved.
 - This command does not provision prices, create webhook destinations, seed

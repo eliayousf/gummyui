@@ -59,6 +59,9 @@ describe("Stripe sandbox journey safety boundary", () => {
         "signed-sandbox-webhook-projection",
       ],
       mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      mutatingRepairRetryable: false,
+      mutatingManagedFinishRetryable: false,
     }));
   });
 
@@ -392,20 +395,67 @@ describe("real Stripe sandbox provider boundaries", () => {
       }),
       event("evt_refund", "refund.created", { id: "re_sandbox" }),
     ] as Stripe.Event[];
-    const subscriptionUpdates = vi.fn()
-      .mockResolvedValueOnce({ latest_invoice: "in_renewal" })
-      .mockResolvedValueOnce({ id: "sub_sandbox" })
-      .mockResolvedValueOnce({ latest_invoice: "in_failed" })
-      .mockResolvedValueOnce({
-        id: "sub_sandbox",
-        cancel_at_period_end: true,
+    const subscriptionUpdates = vi.fn(async (
+      _id: string,
+      params: { cancel_at_period_end?: boolean },
+    ) => ({
+      id: "sub_sandbox",
+      cancel_at_period_end: params.cancel_at_period_end ?? false,
+    }));
+    const invoice = (
+      id: string,
+      status: "draft" | "open" | "paid",
+      attempted = status !== "draft",
+    ) => ({
+      id,
+      livemode: false,
+      status,
+      attempted,
+      amount_due: 4_900,
+      amount_paid: status === "paid" ? 4_900 : 0,
+      customer: "cus_sandbox",
+      parent: {
+        subscription_details: { subscription: "sub_sandbox" },
+      },
+    });
+    const createInvoice = vi.fn()
+      .mockResolvedValueOnce(invoice("in_renewal", "draft"))
+      .mockResolvedValueOnce(invoice("in_failed", "draft"));
+    const payInvoice = vi.fn()
+      .mockResolvedValueOnce(invoice("in_renewal", "paid"))
+      .mockRejectedValueOnce({
+        type: "StripeCardError",
+        code: "card_declined",
+        decline_code: "generic_decline",
       });
     const detach = vi.fn(async () => ({ id: "pm_declined" }));
     const operator = {
       events: { list: vi.fn(async () => ({ data: events })) },
       subscriptions: {
+        retrieve: vi.fn(async () => ({
+          id: "sub_sandbox",
+          latest_invoice: "in_initial",
+          default_payment_method: "pm_good",
+        })),
         update: subscriptionUpdates,
         cancel: vi.fn(async () => ({ id: "sub_sandbox" })),
+      },
+      invoices: {
+        create: createInvoice,
+        finalizeInvoice: vi.fn(async (id: string) => invoice(id, "open")),
+        pay: payInvoice,
+        retrieve: vi.fn(async (id: string) =>
+          invoice(id, "open", true)),
+      },
+      invoiceItems: {
+        create: vi.fn(async (params: { invoice: string }) => ({
+          id: `ii_${params.invoice}`,
+          livemode: false,
+          customer: "cus_sandbox",
+          invoice: params.invoice,
+          amount: 4_900,
+          currency: "usd",
+        })),
       },
       paymentMethods: {
         create: vi.fn(async () => ({
@@ -448,22 +498,28 @@ describe("real Stripe sandbox provider boundaries", () => {
       config,
       continuationState(),
       { afterPurchasesProjected },
-    )).resolves.toEqual({ realEventsProjected: 7 });
-    expect(subscriptionUpdates).toHaveBeenNthCalledWith(
-      1,
+    )).resolves.toEqual({ realEventsProjected: 5 });
+    expect(subscriptionUpdates).toHaveBeenCalledWith(
       "sub_sandbox",
-      expect.objectContaining({ billing_cycle_anchor: "now" }),
+      { cancel_at_period_end: true },
+      expect.objectContaining({ idempotencyKey: expect.any(String) }),
     );
-    expect(subscriptionUpdates).toHaveBeenNthCalledWith(
-      2,
+    expect(subscriptionUpdates.mock.calls.some((call) =>
+      "billing_cycle_anchor" in (call[1] as Record<string, unknown>),
+    )).toBe(false);
+    expect(subscriptionUpdates.mock.calls.some((call) =>
+      "default_payment_method" in (call[1] as Record<string, unknown>),
+    )).toBe(false);
+    expect(operator.subscriptions.cancel).toHaveBeenCalledWith(
       "sub_sandbox",
-      { default_payment_method: "pm_declined" },
+      {},
+      expect.objectContaining({ idempotencyKey: expect.any(String) }),
     );
-    expect(operator.subscriptions.cancel).toHaveBeenCalledWith("sub_sandbox");
     expect(operator.refunds.create).toHaveBeenCalledWith(
       expect.objectContaining({ payment_intent: "pi_sandbox" }),
+      expect.objectContaining({ idempotencyKey: expect.any(String) }),
     );
-    expect(fetchImplementation).toHaveBeenCalledTimes(7);
+    expect(fetchImplementation).toHaveBeenCalledTimes(5);
     expect(afterPurchasesProjected).toHaveBeenCalledTimes(1);
     expect(
       fetchImplementationMock.mock.invocationCallOrder[1],
@@ -471,7 +527,421 @@ describe("real Stripe sandbox provider boundaries", () => {
     expect(
       afterPurchasesProjected.mock.invocationCallOrder[0],
     ).toBeLessThan(subscriptionUpdates.mock.invocationCallOrder[0]);
-    expect(detach).toHaveBeenCalledWith("pm_declined");
+    expect(detach).not.toHaveBeenCalled();
+  });
+
+  it("strictly recovers the five post-purchase events with subscription-linked invoices", async () => {
+    const config = readStripeSandboxJourneyConfig(readyEnvironment());
+    const state = failedAnchorState();
+    const monthly = completedSession("cs_test_monthly", true);
+    const lifetime = completedSession("cs_test_lifetime", false);
+    const retrieveSession = vi.fn(async (id: string) =>
+      id === monthly.id ? monthly : lifetime);
+    const retrievePrice = vi.fn(async (priceId: string) => {
+      const plan = commercialPlans.find((candidate) =>
+        config.priceIds[candidate.id] === priceId)!;
+      return {
+        id: priceId,
+        active: true,
+        currency: "usd",
+        livemode: false,
+        type: plan.billingInterval === "lifetime"
+          ? "one_time"
+          : "recurring",
+        unit_amount: plan.priceUsd * 100,
+        recurring: plan.billingInterval === "lifetime"
+          ? null
+          : { interval: plan.billingInterval, interval_count: 1 },
+      };
+    });
+    const subscription = {
+      id: "sub_sandbox",
+      object: "subscription",
+      livemode: false,
+      status: "active",
+      cancel_at_period_end: false,
+      canceled_at: null,
+      created: 1_700_000_000,
+      customer: "cus_sandbox",
+      default_payment_method: "pm_good",
+      latest_invoice: "in_initial",
+      metadata: {
+        account_id: state.accountId,
+        workspace_id: state.workspaceId,
+        commercial_offer_ref: "individual-monthly",
+      },
+      items: {
+        data: [{
+          id: "si_sandbox",
+          quantity: 1,
+          price: {
+            id: config.priceIds["individual-monthly"],
+          },
+          current_period_start: 1_700_000_100,
+          current_period_end: 1_702_678_500,
+        }],
+      },
+    } as unknown as Stripe.Subscription;
+    const invoice = (
+      id: string,
+      status: "draft" | "open" | "paid",
+      attempted = status !== "draft",
+    ) => ({
+      id,
+      object: "invoice",
+      livemode: false,
+      status,
+      attempted,
+      amount_due: 4_900,
+      amount_paid: status === "paid" ? 4_900 : 0,
+      currency: "usd",
+      customer: "cus_sandbox",
+      billing_reason: id === "in_initial"
+        ? "subscription_create"
+        : "manual",
+      parent: {
+        type: "subscription_details",
+        subscription_details: { subscription: "sub_sandbox" },
+      },
+    }) as unknown as Stripe.Invoice;
+    const eventsByType = new Map<string, Stripe.Event>([
+      [
+        "invoice.paid",
+        event("evt_paid", "invoice.paid", { id: "in_paid" }),
+      ],
+      [
+        "invoice.payment_failed",
+        event("evt_failed", "invoice.payment_failed", {
+          id: "in_failed",
+        }),
+      ],
+      [
+        "customer.subscription.updated",
+        event("evt_scheduled", "customer.subscription.updated", {
+          id: "sub_sandbox",
+          cancel_at_period_end: true,
+        }),
+      ],
+      [
+        "customer.subscription.deleted",
+        event("evt_deleted", "customer.subscription.deleted", {
+          id: "sub_sandbox",
+        }),
+      ],
+      [
+        "refund.created",
+        event("evt_refund", "refund.created", {
+          id: "re_sandbox",
+        }),
+      ],
+    ]);
+    const listEvents = vi.fn(async (params: {
+      types: string[];
+    }) => {
+      if (params.types.length > 1) {
+        return { data: [], has_more: false };
+      }
+      return {
+        data: [eventsByType.get(params.types[0])!],
+        has_more: false,
+      };
+    });
+    const createInvoice = vi.fn()
+      .mockResolvedValueOnce(invoice("in_paid", "draft"))
+      .mockResolvedValueOnce(invoice("in_failed", "draft"));
+    const createInvoiceItem = vi.fn(async (params: {
+      invoice: string;
+    }) => ({
+      id: `ii_${params.invoice}`,
+      object: "invoiceitem",
+      livemode: false,
+      customer: "cus_sandbox",
+      invoice: params.invoice,
+      amount: 4_900,
+      currency: "usd",
+    }));
+    const finalizeInvoice = vi.fn(async (id: string) =>
+      invoice(id, "open"));
+    const payInvoice = vi.fn()
+      .mockResolvedValueOnce(invoice("in_paid", "paid"))
+      .mockRejectedValueOnce({
+        type: "StripeCardError",
+        code: "card_declined",
+        decline_code: "generic_decline",
+      });
+    const retrieveInvoice = vi.fn(async (id: string) =>
+      invoice(id, "open", true));
+    const subscriptionUpdates = vi.fn(async (
+      _id: string,
+      params: { cancel_at_period_end?: boolean },
+    ) => ({
+      ...subscription,
+      cancel_at_period_end: params.cancel_at_period_end ?? false,
+    }));
+    const detach = vi.fn(async () => ({ id: "pm_declined" }));
+    const operator = {
+      prices: { retrieve: retrievePrice },
+      checkout: { sessions: { retrieve: retrieveSession } },
+      subscriptions: {
+        retrieve: vi.fn(async () => subscription),
+        update: subscriptionUpdates,
+        cancel: vi.fn(async () => ({
+          ...subscription,
+          status: "canceled",
+        })),
+      },
+      invoices: {
+        list: vi.fn(async () => ({
+          data: [invoice("in_initial", "paid")],
+          has_more: false,
+        })),
+        create: createInvoice,
+        finalizeInvoice,
+        pay: payInvoice,
+        retrieve: retrieveInvoice,
+      },
+      invoiceItems: { create: createInvoiceItem },
+      paymentIntents: {
+        retrieve: vi.fn(async () => ({
+          id: "pi_sandbox",
+          livemode: false,
+          status: "succeeded",
+          amount_received: 89_900,
+          currency: "usd",
+        })),
+      },
+      refunds: {
+        list: vi.fn(async () => ({ data: [], has_more: false })),
+        create: vi.fn(async () => ({
+          id: "re_sandbox",
+          status: "succeeded",
+          amount: 89_900,
+          currency: "usd",
+        })),
+      },
+      paymentMethods: {
+        list: vi.fn(async () => ({
+          data: [{
+            id: "pm_good",
+            livemode: false,
+            metadata: {},
+          }],
+          has_more: false,
+        })),
+        create: vi.fn(async () => ({
+          id: "pm_declined",
+          livemode: false,
+        })),
+        attach: vi.fn(async () => ({ id: "pm_declined" })),
+        detach,
+      },
+      events: { list: listEvents },
+    };
+    const stripeFactory = vi.fn(() => operator as unknown as Stripe);
+    const fetchImplementationMock = vi.fn(async () =>
+      Response.json({ received: true, status: "applied" }));
+    const provider = new RealStripeSandboxJourneyProvider({
+      stripeFactory,
+      fetchImplementation: fetchImplementationMock as typeof fetch,
+      now: () => 1_800_000_000_000,
+      sleep: vi.fn(async () => undefined),
+      eventWaitTimeoutMs: 10,
+      webhookFetchTimeoutMs: 10,
+    });
+
+    await expect(
+      provider.validateForAnchorRecovery(config, state),
+    ).resolves.toBeUndefined();
+    await expect(
+      provider.recoverAnchorNoInvoice(config, state),
+    ).resolves.toEqual({ realEventsProjected: 5 });
+
+    expect(createInvoice).toHaveBeenCalledTimes(2);
+    expect(createInvoice.mock.calls[0][0]).toMatchObject({
+      subscription: "sub_sandbox",
+      auto_advance: false,
+    });
+    expect(createInvoice.mock.calls[0][0]).not.toHaveProperty(
+      "pending_invoice_items_behavior",
+    );
+    expect(createInvoiceItem).toHaveBeenCalledTimes(2);
+    expect(finalizeInvoice).toHaveBeenCalledTimes(2);
+    expect(payInvoice).toHaveBeenCalledTimes(2);
+    expect(subscriptionUpdates).toHaveBeenCalledWith(
+      "sub_sandbox",
+      { default_payment_method: "pm_declined" },
+      expect.objectContaining({
+        idempotencyKey: expect.stringContaining("failed-payment-default"),
+      }),
+    );
+    expect(operator.subscriptions.cancel).toHaveBeenCalledTimes(1);
+    expect(operator.refunds.create).toHaveBeenCalledWith(
+      expect.objectContaining({ payment_intent: "pi_sandbox" }),
+      expect.objectContaining({
+        idempotencyKey: expect.stringContaining("lifetime-refund"),
+      }),
+    );
+    expect(fetchImplementationMock).toHaveBeenCalledTimes(5);
+    expect(detach).toHaveBeenCalledTimes(1);
+    const mutationKeys = [
+      ...createInvoice.mock.calls,
+      ...createInvoiceItem.mock.calls,
+      ...finalizeInvoice.mock.calls,
+      ...payInvoice.mock.calls,
+    ].map((call) => (
+      call.at(-1) as { idempotencyKey: string }
+    ).idempotencyKey);
+    expect(new Set(mutationKeys).size).toBe(mutationKeys.length);
+    expect(mutationKeys.every((key) => key.length <= 255)).toBe(true);
+  });
+
+  it("refuses anchor recovery when the subscription invoice set is not exact", async () => {
+    const config = readStripeSandboxJourneyConfig(readyEnvironment());
+    const state = failedAnchorState();
+    const monthly = completedSession("cs_test_monthly", true);
+    const lifetime = completedSession("cs_test_lifetime", false);
+    const createInvoice = vi.fn();
+    const operator = {
+      prices: {
+        retrieve: vi.fn(async (priceId: string) => {
+          const plan = commercialPlans.find((candidate) =>
+            config.priceIds[candidate.id] === priceId)!;
+          return {
+            id: priceId,
+            active: true,
+            currency: "usd",
+            livemode: false,
+            type: plan.billingInterval === "lifetime"
+              ? "one_time"
+              : "recurring",
+            unit_amount: plan.priceUsd * 100,
+            recurring: plan.billingInterval === "lifetime"
+              ? null
+              : { interval: plan.billingInterval, interval_count: 1 },
+          };
+        }),
+      },
+      checkout: {
+        sessions: {
+          retrieve: vi.fn(async (id: string) =>
+            id === monthly.id ? monthly : lifetime),
+        },
+      },
+      subscriptions: {
+        retrieve: vi.fn(async () => ({
+          id: "sub_sandbox",
+          livemode: false,
+          status: "active",
+          cancel_at_period_end: false,
+          canceled_at: null,
+          created: 1_700_000_000,
+          customer: "cus_sandbox",
+          default_payment_method: "pm_good",
+          latest_invoice: "in_initial",
+          metadata: {
+            account_id: state.accountId,
+            workspace_id: state.workspaceId,
+            commercial_offer_ref: "individual-monthly",
+          },
+          items: {
+            data: [{
+              quantity: 1,
+              price: {
+                id: config.priceIds["individual-monthly"],
+              },
+              current_period_start: 1_700_000_100,
+              current_period_end: 1_702_678_500,
+            }],
+          },
+        })),
+      },
+      invoices: {
+        list: vi.fn(async () => ({
+          data: [],
+          has_more: true,
+        })),
+        create: createInvoice,
+      },
+    };
+    const provider = new RealStripeSandboxJourneyProvider({
+      stripeFactory: vi.fn(() => operator as unknown as Stripe),
+    });
+
+    await expect(
+      provider.validateForAnchorRecovery(config, state),
+    ).rejects.toMatchObject({
+      code: "sandbox_anchor_recovery_invoice_state_invalid",
+    });
+    expect(createInvoice).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    [
+      "live-subscription",
+      "sandbox_anchor_recovery_subscription_invalid",
+    ],
+    [
+      "wrong-metadata",
+      "sandbox_anchor_recovery_subscription_invalid",
+    ],
+    [
+      "existing-refund",
+      "sandbox_anchor_recovery_refund_state_invalid",
+    ],
+    [
+      "run-payment-method",
+      "sandbox_anchor_recovery_payment_method_state_invalid",
+    ],
+    [
+      "later-cancellation",
+      "sandbox_anchor_recovery_lifecycle_already_advanced",
+    ],
+  ] as const)(
+    "rejects unsafe %s recovery state before any mutation",
+    async (variant, code) => {
+      const fixture = anchorRecoveryPreflightFixture(variant);
+      await expect(
+        fixture.provider.validateForAnchorRecovery(
+          fixture.config,
+          fixture.state,
+        ),
+      ).rejects.toMatchObject({ code });
+      expect(fixture.createInvoice).not.toHaveBeenCalled();
+    },
+  );
+
+  it("finishes the real Managed Payments cancellation and refund path without invoices", async () => {
+    const fixture = anchorRecoveryPreflightFixture("valid");
+
+    await expect(
+      fixture.provider.finishManagedLifecycle(
+        fixture.config,
+        fixture.state,
+      ),
+    ).resolves.toEqual({ realEventsProjected: 3 });
+
+    expect(fixture.createInvoice).not.toHaveBeenCalled();
+    expect(fixture.updateSubscription).toHaveBeenCalledWith(
+      "sub_sandbox",
+      { cancel_at_period_end: true },
+      expect.objectContaining({
+        idempotencyKey: expect.stringContaining("schedule-cancellation"),
+      }),
+    );
+    expect(fixture.cancelSubscription).toHaveBeenCalledWith(
+      "sub_sandbox",
+      {},
+      expect.objectContaining({
+        idempotencyKey: expect.stringContaining("cancel-subscription"),
+      }),
+    );
+    expect(fixture.createRefund).toHaveBeenCalledWith(
+      expect.objectContaining({ payment_intent: "pi_sandbox" }),
+      expect.objectContaining({
+        idempotencyKey: expect.stringContaining("lifetime-refund"),
+      }),
+    );
+    expect(fixture.fetchImplementation).toHaveBeenCalledTimes(3);
   });
 });
 
@@ -497,18 +967,19 @@ describe("Stripe sandbox journey orchestration", () => {
     expect(stateStore.create).toHaveBeenCalledWith(
       expect.stringMatching(/work\/stripe-sandbox\/journey\.json$/),
       expect.objectContaining({
-        schemaVersion: 3,
+        schemaVersion: 6,
         phase: "preparing",
         runId: "gummyui-sandbox-runidentifier123456",
         createdAt: 1_800_000_000_000,
         resumeAttemptedAt: null,
+        recoveryAttemptedAt: null,
         checkouts: [],
       }),
     );
     expect(stateStore.replace).toHaveBeenCalledWith(
       expect.stringMatching(/work\/stripe-sandbox\/journey\.json$/),
       expect.objectContaining({
-        schemaVersion: 3,
+        schemaVersion: 6,
         phase: "ready",
         checkouts: expect.arrayContaining([
           expect.objectContaining({ planId: "individual-monthly" }),
@@ -605,14 +1076,13 @@ describe("Stripe sandbox journey orchestration", () => {
       mode: "executed",
       operation: "resume",
       sandboxOnly: true,
-      realEventsProjected: 7,
+      realEventsProjected: 5,
       lifecycle: [
         "purchase",
-        "billing_anchor_reset_invoice",
-        "failed_payment",
         "cancellation",
         "refund",
       ],
+      renewalEvidence: "separate-test-clock-required",
       mutatingResumeRetryable: false,
       isolatedConvexAttested: true,
       accessGrantVerified: true,
@@ -678,7 +1148,7 @@ describe("Stripe sandbox journey orchestration", () => {
 
   it("retains continuation state when lifecycle evidence is incomplete", async () => {
     const provider = fakeProvider();
-    provider.resume.mockResolvedValueOnce({ realEventsProjected: 6 });
+    provider.resume.mockResolvedValueOnce({ realEventsProjected: 4 });
     const stateStore = fakeStateStore(continuationState());
 
     await expect(runStripeSandboxJourney({
@@ -697,7 +1167,7 @@ describe("Stripe sandbox journey orchestration", () => {
   it("refuses evidence when a provider omits the access-grant hook", async () => {
     const provider = fakeProvider();
     provider.resume.mockImplementationOnce(async () => ({
-      realEventsProjected: 7,
+      realEventsProjected: 5,
     }));
     const stateStore = fakeStateStore(continuationState());
 
@@ -711,6 +1181,410 @@ describe("Stripe sandbox journey orchestration", () => {
       code: "sandbox_journey_evidence_incomplete",
     });
     expect(stateStore.remove).not.toHaveBeenCalled();
+  });
+
+  it("recovers only the five remaining events after exact purchase access is attested", async () => {
+    const provider = fakeProvider();
+    const state = failedAnchorState();
+    const stateStore = fakeStateStore(state);
+    const attestApplication = fakeAttestation();
+    const output = vi.fn();
+
+    await runStripeSandboxJourney({
+      argv: ["recover-anchor-no-invoice", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication,
+      now: () => 1_700_000_200_000,
+      writeOutput: output,
+    });
+
+    expect(provider.resume).not.toHaveBeenCalled();
+    expect(provider.validateForResume).toHaveBeenCalledWith(
+      expect.any(Object),
+      state,
+    );
+    expect(provider.validateForAnchorRecovery).toHaveBeenCalledWith(
+      expect.any(Object),
+      state,
+    );
+    expect(stateStore.replace).toHaveBeenCalledWith(
+      expect.stringMatching(/work\/stripe-sandbox\/journey\.json$/),
+      expect.objectContaining({
+        schemaVersion: 6,
+        phase: "purchases-attested",
+        resumeAttemptedAt: 1_700_000_100_000,
+        recoveryAttemptedAt: 1_700_000_200_000,
+      }),
+    );
+    expect(provider.recoverAnchorNoInvoice).toHaveBeenCalledWith(
+      expect.any(Object),
+      expect.objectContaining({
+        schemaVersion: 6,
+        phase: "purchases-attested",
+      }),
+    );
+    expect(attestApplication.mock.calls.map((call) => call[1])).toEqual([
+      "identity",
+      "access-granted",
+      "access-revoked",
+    ]);
+    expect(
+      provider.validateForAnchorRecovery.mock.invocationCallOrder[0],
+    ).toBeLessThan(stateStore.replace.mock.invocationCallOrder[0]);
+    expect(
+      stateStore.replace.mock.invocationCallOrder[0],
+    ).toBeLessThan(provider.recoverAnchorNoInvoice.mock.invocationCallOrder[0]);
+    expect(stateStore.remove).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(output.mock.calls[0][0] as string)).toEqual({
+      mode: "executed",
+      operation: "recover-anchor-no-invoice",
+      sandboxOnly: true,
+      realEventsProjected: 5,
+      purchaseEventsPreviouslyAttested: 2,
+      lifecycle: [
+        "purchase",
+        "subscription_invoice_paid",
+        "failed_payment",
+        "cancellation",
+        "refund",
+      ],
+      recovery: "anchor-no-invoice",
+      mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      isolatedConvexAttested: true,
+      accessGrantVerified: true,
+      accessRevocationVerified: true,
+      continuationRemoved: true,
+    });
+  });
+
+  it("performs no recovery mutation when exact preflight fails", async () => {
+    const provider = fakeProvider();
+    provider.validateForAnchorRecovery.mockRejectedValueOnce(
+      new StripeSandboxJourneyError(
+        "sandbox_anchor_recovery_invoice_state_invalid",
+      ),
+    );
+    const stateStore = fakeStateStore(failedAnchorState());
+
+    await expect(runStripeSandboxJourney({
+      argv: ["recover-anchor-no-invoice", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+    })).rejects.toMatchObject({
+      code: "sandbox_anchor_recovery_invoice_state_invalid",
+    });
+    expect(stateStore.replace).not.toHaveBeenCalled();
+    expect(provider.recoverAnchorNoInvoice).not.toHaveBeenCalled();
+    expect(stateStore.remove).not.toHaveBeenCalled();
+  });
+
+  it("latches an incomplete recovery and refuses every replay", async () => {
+    const provider = fakeProvider();
+    provider.recoverAnchorNoInvoice.mockResolvedValueOnce({
+      realEventsProjected: 4,
+    });
+    const stateStore = fakeStateStore(failedAnchorState());
+
+    await expect(runStripeSandboxJourney({
+      argv: ["recover-anchor-no-invoice", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+      now: () => 1_700_000_200_000,
+    })).rejects.toMatchObject({
+      code: "sandbox_journey_evidence_incomplete",
+    });
+    expect(stateStore.replace).toHaveBeenCalledTimes(1);
+    expect(stateStore.remove).not.toHaveBeenCalled();
+
+    await expect(runStripeSandboxJourney({
+      argv: ["recover-anchor-no-invoice", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+      now: () => 1_700_000_300_000,
+    })).rejects.toMatchObject({
+      code: "sandbox_anchor_recovery_state_invalid",
+    });
+    expect(provider.recoverAnchorNoInvoice).toHaveBeenCalledTimes(1);
+  });
+
+  it("repairs only the rejected invoice-create attempt after exact preflight", async () => {
+    const provider = fakeProvider();
+    const state = rejectedInvoiceCreateState();
+    const stateStore = fakeStateStore(state);
+    const attestApplication = fakeAttestation();
+    const output = vi.fn();
+
+    await runStripeSandboxJourney({
+      argv: ["repair-invoice-create-rejected", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication,
+      now: () => 1_700_000_300_000,
+      writeOutput: output,
+    });
+
+    expect(provider.resume).not.toHaveBeenCalled();
+    expect(provider.validateForResume).toHaveBeenCalledWith(
+      expect.any(Object),
+      state,
+    );
+    expect(provider.validateForAnchorRecovery).toHaveBeenCalledWith(
+      expect.any(Object),
+      state,
+    );
+    expect(stateStore.replace).toHaveBeenCalledWith(
+      expect.stringMatching(/work\/stripe-sandbox\/journey\.json$/),
+      expect.objectContaining({
+        schemaVersion: 6,
+        phase: "repair-attempted",
+        resumeAttemptedAt: 1_700_000_100_000,
+        recoveryAttemptedAt: 1_700_000_200_000,
+        repairAttemptedAt: 1_700_000_300_000,
+      }),
+    );
+    expect(provider.recoverAnchorNoInvoice).toHaveBeenCalledWith(
+      expect.any(Object),
+      expect.objectContaining({
+        schemaVersion: 6,
+        phase: "repair-attempted",
+      }),
+    );
+    expect(attestApplication.mock.calls.map((call) => call[1])).toEqual([
+      "identity",
+      "access-granted",
+      "access-revoked",
+    ]);
+    expect(
+      provider.validateForAnchorRecovery.mock.invocationCallOrder[0],
+    ).toBeLessThan(stateStore.replace.mock.invocationCallOrder[0]);
+    expect(
+      stateStore.replace.mock.invocationCallOrder[0],
+    ).toBeLessThan(provider.recoverAnchorNoInvoice.mock.invocationCallOrder[0]);
+    expect(stateStore.remove).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(output.mock.calls[0][0] as string)).toEqual({
+      mode: "executed",
+      operation: "repair-invoice-create-rejected",
+      sandboxOnly: true,
+      realEventsProjected: 5,
+      purchaseEventsPreviouslyAttested: 2,
+      lifecycle: [
+        "purchase",
+        "subscription_invoice_paid",
+        "failed_payment",
+        "cancellation",
+        "refund",
+      ],
+      recovery: "invoice-create-rejected",
+      mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      mutatingRepairRetryable: false,
+      isolatedConvexAttested: true,
+      accessGrantVerified: true,
+      accessRevocationVerified: true,
+      continuationRemoved: true,
+    });
+  });
+
+  it("performs no repair mutation when the exact provider preflight fails", async () => {
+    const provider = fakeProvider();
+    provider.validateForAnchorRecovery.mockRejectedValueOnce(
+      new StripeSandboxJourneyError(
+        "sandbox_anchor_recovery_invoice_state_invalid",
+      ),
+    );
+    const stateStore = fakeStateStore(rejectedInvoiceCreateState());
+
+    await expect(runStripeSandboxJourney({
+      argv: ["repair-invoice-create-rejected", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+    })).rejects.toMatchObject({
+      code: "sandbox_anchor_recovery_invoice_state_invalid",
+    });
+    expect(stateStore.replace).not.toHaveBeenCalled();
+    expect(provider.recoverAnchorNoInvoice).not.toHaveBeenCalled();
+    expect(stateStore.remove).not.toHaveBeenCalled();
+  });
+
+  it("latches an incomplete invoice-create repair and refuses replay", async () => {
+    const provider = fakeProvider();
+    provider.recoverAnchorNoInvoice.mockResolvedValueOnce({
+      realEventsProjected: 4,
+    });
+    const stateStore = fakeStateStore(rejectedInvoiceCreateState());
+
+    await expect(runStripeSandboxJourney({
+      argv: ["repair-invoice-create-rejected", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+      now: () => 1_700_000_300_000,
+    })).rejects.toMatchObject({
+      code: "sandbox_journey_evidence_incomplete",
+    });
+    expect(stateStore.replace).toHaveBeenCalledTimes(1);
+    expect(stateStore.remove).not.toHaveBeenCalled();
+
+    await expect(runStripeSandboxJourney({
+      argv: ["repair-invoice-create-rejected", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+      now: () => 1_700_000_400_000,
+    })).rejects.toMatchObject({
+      code: "sandbox_invoice_repair_state_invalid",
+    });
+    expect(provider.recoverAnchorNoInvoice).toHaveBeenCalledTimes(1);
+  });
+
+  it("finishes only cancellation and refund after Managed Payments rejects invoices", async () => {
+    const provider = fakeProvider();
+    const state = managedInvoiceUnsupportedState();
+    const stateStore = fakeStateStore(state);
+    const attestApplication = fakeAttestation();
+    const output = vi.fn();
+
+    await runStripeSandboxJourney({
+      argv: ["finish-managed-lifecycle", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication,
+      now: () => 1_700_000_400_000,
+      writeOutput: output,
+    });
+
+    expect(provider.resume).not.toHaveBeenCalled();
+    expect(provider.recoverAnchorNoInvoice).not.toHaveBeenCalled();
+    expect(provider.validateForResume).toHaveBeenCalledWith(
+      expect.any(Object),
+      state,
+    );
+    expect(provider.validateForAnchorRecovery).toHaveBeenCalledWith(
+      expect.any(Object),
+      state,
+    );
+    expect(stateStore.replace).toHaveBeenCalledWith(
+      expect.stringMatching(/work\/stripe-sandbox\/journey\.json$/),
+      expect.objectContaining({
+        schemaVersion: 6,
+        phase: "managed-lifecycle-attempted",
+        resumeAttemptedAt: 1_700_000_100_000,
+        recoveryAttemptedAt: 1_700_000_200_000,
+        repairAttemptedAt: 1_700_000_300_000,
+        managedFinishAttemptedAt: 1_700_000_400_000,
+      }),
+    );
+    expect(provider.finishManagedLifecycle).toHaveBeenCalledWith(
+      expect.any(Object),
+      expect.objectContaining({
+        schemaVersion: 6,
+        phase: "managed-lifecycle-attempted",
+      }),
+    );
+    expect(attestApplication.mock.calls.map((call) => call[1])).toEqual([
+      "identity",
+      "access-granted",
+      "access-revoked",
+    ]);
+    expect(
+      provider.validateForAnchorRecovery.mock.invocationCallOrder[0],
+    ).toBeLessThan(stateStore.replace.mock.invocationCallOrder[0]);
+    expect(
+      stateStore.replace.mock.invocationCallOrder[0],
+    ).toBeLessThan(provider.finishManagedLifecycle.mock.invocationCallOrder[0]);
+    expect(stateStore.remove).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(output.mock.calls[0][0] as string)).toEqual({
+      mode: "executed",
+      operation: "finish-managed-lifecycle",
+      sandboxOnly: true,
+      realEventsProjected: 3,
+      purchaseEventsPreviouslyAttested: 2,
+      lifecycle: [
+        "purchase",
+        "cancellation",
+        "refund",
+      ],
+      renewalEvidence: "separate-test-clock-required",
+      mutatingResumeRetryable: false,
+      mutatingRecoveryRetryable: false,
+      mutatingRepairRetryable: false,
+      mutatingManagedFinishRetryable: false,
+      isolatedConvexAttested: true,
+      accessGrantVerified: true,
+      accessRevocationVerified: true,
+      continuationRemoved: true,
+    });
+  });
+
+  it("performs no managed finish mutation when exact preflight fails", async () => {
+    const provider = fakeProvider();
+    provider.validateForAnchorRecovery.mockRejectedValueOnce(
+      new StripeSandboxJourneyError(
+        "sandbox_anchor_recovery_invoice_state_invalid",
+      ),
+    );
+    const stateStore = fakeStateStore(managedInvoiceUnsupportedState());
+
+    await expect(runStripeSandboxJourney({
+      argv: ["finish-managed-lifecycle", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+    })).rejects.toMatchObject({
+      code: "sandbox_anchor_recovery_invoice_state_invalid",
+    });
+    expect(stateStore.replace).not.toHaveBeenCalled();
+    expect(provider.finishManagedLifecycle).not.toHaveBeenCalled();
+    expect(stateStore.remove).not.toHaveBeenCalled();
+  });
+
+  it("latches an incomplete managed finish and refuses replay", async () => {
+    const provider = fakeProvider();
+    provider.finishManagedLifecycle.mockResolvedValueOnce({
+      realEventsProjected: 2,
+    });
+    const stateStore = fakeStateStore(managedInvoiceUnsupportedState());
+
+    await expect(runStripeSandboxJourney({
+      argv: ["finish-managed-lifecycle", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+      now: () => 1_700_000_400_000,
+    })).rejects.toMatchObject({
+      code: "sandbox_journey_evidence_incomplete",
+    });
+    expect(stateStore.replace).toHaveBeenCalledTimes(1);
+    expect(stateStore.remove).not.toHaveBeenCalled();
+
+    await expect(runStripeSandboxJourney({
+      argv: ["finish-managed-lifecycle", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+      now: () => 1_700_000_500_000,
+    })).rejects.toMatchObject({
+      code: "sandbox_managed_finish_state_invalid",
+    });
+    expect(provider.finishManagedLifecycle).toHaveBeenCalledTimes(1);
   });
 
   it.each([
@@ -729,6 +1603,41 @@ describe("Stripe sandbox journey orchestration", () => {
       stateStore: fakeStateStore(),
       attestApplication: fakeAttestation(),
     })).rejects.toMatchObject({ code: "sandbox_state_path_refused" });
+  });
+
+  it("recognizes and refuses an interrupted schema-5 preparation journal", async () => {
+    const statePath =
+      `work/stripe-sandbox/journey-preparing-${process.pid}-${Date.now()}.json`;
+    const absoluteStatePath = resolve(statePath);
+    const provider = fakeProvider();
+    provider.prepare.mockRejectedValueOnce(
+      new StripeSandboxJourneyError("sandbox_prepare_provider_failed"),
+    );
+    await rm(absoluteStatePath, { force: true });
+
+    try {
+      await expect(runStripeSandboxJourney({
+        argv: ["prepare", "--execute", "--state", statePath],
+        environment: readyEnvironment(),
+        provider,
+        attestApplication: fakeAttestation(),
+        now: () => 1_800_000_000_000,
+        randomId: () => "interruptedpreparation",
+      })).rejects.toMatchObject({
+        code: "sandbox_prepare_provider_failed",
+      });
+
+      await expect(runStripeSandboxJourney({
+        argv: ["resume", "--execute", "--state", statePath],
+        environment: readyEnvironment(),
+        provider: fakeProvider(),
+        attestApplication: fakeAttestation(),
+      })).rejects.toMatchObject({
+        code: "sandbox_prepare_incomplete",
+      });
+    } finally {
+      await rm(absoluteStatePath, { force: true });
+    }
   });
 
   it("protects real continuation storage and refuses a symlink", async () => {
@@ -834,6 +1743,36 @@ function continuationState(): StripeSandboxJourneyState {
   };
 }
 
+function failedAnchorState(): StripeSandboxJourneyState {
+  return {
+    ...continuationState(),
+    schemaVersion: 3,
+    phase: "ready",
+    resumeAttemptedAt: 1_700_000_100_000,
+    recoveryAttemptedAt: null,
+  };
+}
+
+function rejectedInvoiceCreateState(): StripeSandboxJourneyState {
+  return {
+    ...failedAnchorState(),
+    schemaVersion: 4,
+    phase: "purchases-attested",
+    recoveryAttemptedAt: 1_700_000_200_000,
+    repairAttemptedAt: null,
+  };
+}
+
+function managedInvoiceUnsupportedState(): StripeSandboxJourneyState {
+  return {
+    ...rejectedInvoiceCreateState(),
+    schemaVersion: 5,
+    phase: "repair-attempted",
+    repairAttemptedAt: 1_700_000_300_000,
+    managedFinishAttemptedAt: null,
+  };
+}
+
 function completedSession(
   id: string,
   monthly: boolean,
@@ -846,7 +1785,7 @@ function completedSession(
     payment_status: "paid",
     amount_total: monthly ? 4_900 : 89_900,
     currency: "usd",
-    customer: "cus_sandbox",
+    customer: monthly ? "cus_sandbox" : "cus_lifetime",
     payment_intent: monthly ? null : "pi_sandbox",
     subscription: monthly
       ? {
@@ -878,6 +1817,196 @@ function event(
   } as unknown as Stripe.Event;
 }
 
+function anchorRecoveryPreflightFixture(
+  variant:
+    | "valid"
+    | "live-subscription"
+    | "wrong-metadata"
+    | "existing-refund"
+    | "run-payment-method"
+    | "later-cancellation",
+) {
+  const config = readStripeSandboxJourneyConfig(readyEnvironment());
+  const state = failedAnchorState();
+  const monthly = completedSession("cs_test_monthly", true);
+  const lifetime = completedSession("cs_test_lifetime", false);
+  const subscription = {
+    id: "sub_sandbox",
+    livemode: variant === "live-subscription",
+    status: "active",
+    cancel_at_period_end: false,
+    canceled_at: null,
+    created: 1_700_000_000,
+    customer: "cus_sandbox",
+    default_payment_method: "pm_good",
+    latest_invoice: "in_initial",
+    metadata: {
+      account_id: state.accountId,
+      workspace_id: variant === "wrong-metadata"
+        ? "workspace:sandbox-wrong"
+        : state.workspaceId,
+      commercial_offer_ref: "individual-monthly",
+    },
+    items: {
+      data: [{
+        quantity: 1,
+        price: { id: config.priceIds["individual-monthly"] },
+        current_period_start: 1_700_000_100,
+        current_period_end: 1_702_678_500,
+      }],
+    },
+  };
+  const initialInvoice = {
+    id: "in_initial",
+    livemode: false,
+    status: "paid",
+    billing_reason: "subscription_create",
+    customer: "cus_sandbox",
+    parent: {
+      subscription_details: { subscription: "sub_sandbox" },
+    },
+  };
+  const createInvoice = vi.fn();
+  const updateSubscription = vi.fn(async (
+    _id: string,
+    params: { cancel_at_period_end?: boolean },
+  ) => ({
+    ...subscription,
+    cancel_at_period_end: params.cancel_at_period_end ?? false,
+  }));
+  const cancelSubscription = vi.fn(async () => ({
+    ...subscription,
+    status: "canceled",
+  }));
+  const createRefund = vi.fn(async () => ({
+    id: "re_sandbox",
+    status: "succeeded",
+    amount: 89_900,
+    currency: "usd",
+  }));
+  const lifecycleEvents = new Map<string, Stripe.Event>([
+    [
+      "customer.subscription.updated",
+      event("evt_scheduled", "customer.subscription.updated", {
+        id: "sub_sandbox",
+        cancel_at_period_end: true,
+      }),
+    ],
+    [
+      "customer.subscription.deleted",
+      event("evt_deleted", "customer.subscription.deleted", {
+        id: "sub_sandbox",
+      }),
+    ],
+    [
+      "refund.created",
+      event("evt_refund", "refund.created", {
+        id: "re_sandbox",
+      }),
+    ],
+  ]);
+  const operator = {
+    prices: {
+      retrieve: vi.fn(async (priceId: string) => {
+        const plan = commercialPlans.find((candidate) =>
+          config.priceIds[candidate.id] === priceId)!;
+        return {
+          id: priceId,
+          active: true,
+          currency: "usd",
+          livemode: false,
+          type: plan.billingInterval === "lifetime"
+            ? "one_time"
+            : "recurring",
+          unit_amount: plan.priceUsd * 100,
+          recurring: plan.billingInterval === "lifetime"
+            ? null
+            : { interval: plan.billingInterval, interval_count: 1 },
+        };
+      }),
+    },
+    checkout: {
+      sessions: {
+        retrieve: vi.fn(async (id: string) =>
+          id === monthly.id ? monthly : lifetime),
+      },
+    },
+    subscriptions: {
+      retrieve: vi.fn(async () => subscription),
+      update: updateSubscription,
+      cancel: cancelSubscription,
+    },
+    invoices: {
+      list: vi.fn(async () => ({
+        data: [initialInvoice],
+        has_more: false,
+      })),
+      create: createInvoice,
+    },
+    paymentIntents: {
+      retrieve: vi.fn(async () => ({
+        id: "pi_sandbox",
+        livemode: false,
+        status: "succeeded",
+        amount_received: 89_900,
+        currency: "usd",
+      })),
+    },
+    refunds: {
+      list: vi.fn(async () => ({
+        data: variant === "existing-refund"
+          ? [{ id: "re_existing" }]
+          : [],
+        has_more: false,
+      })),
+      create: createRefund,
+    },
+    paymentMethods: {
+      list: vi.fn(async () => ({
+        data: [{
+          id: "pm_good",
+          livemode: false,
+          metadata: variant === "run-payment-method"
+            ? { gummyui_sandbox_run_id: state.runId }
+            : {},
+        }],
+        has_more: false,
+      })),
+    },
+    events: {
+      list: vi.fn(async (params: { types: string[] }) => ({
+        data: params.types.length > 1
+          ? (
+              variant === "later-cancellation"
+                ? [lifecycleEvents.get("customer.subscription.updated")!]
+                : []
+            )
+          : [lifecycleEvents.get(params.types[0])!],
+        has_more: false,
+      })),
+    },
+  };
+  const fetchImplementation = vi.fn(async () =>
+    Response.json({ received: true, status: "applied" }));
+  return {
+    config,
+    state,
+    createInvoice,
+    updateSubscription,
+    cancelSubscription,
+    createRefund,
+    fetchImplementation,
+    provider: new RealStripeSandboxJourneyProvider({
+      stripeFactory: vi.fn(() => operator as unknown as Stripe),
+      fetchImplementation: fetchImplementation as typeof fetch,
+      now: () => 1_800_000_000_000,
+      sleep: vi.fn(async () => undefined),
+      eventWaitTimeoutMs: 10,
+      webhookFetchTimeoutMs: 10,
+    }),
+  };
+}
+
 function fakeProvider() {
   return {
     prepare: vi.fn(async () => ({
@@ -891,8 +2020,15 @@ function fakeProvider() {
       hooks: { afterPurchasesProjected(): Promise<void> },
     ) => {
       await hooks.afterPurchasesProjected();
-      return { realEventsProjected: 7 };
+      return { realEventsProjected: 5 };
     }),
+    validateForAnchorRecovery: vi.fn(async () => undefined),
+    recoverAnchorNoInvoice: vi.fn(async () => ({
+      realEventsProjected: 5,
+    })),
+    finishManagedLifecycle: vi.fn(async () => ({
+      realEventsProjected: 3,
+    })),
   } satisfies StripeSandboxJourneyProvider;
 }
 

@@ -928,6 +928,7 @@ describe("Stripe subscription and invoice lifecycle projection", () => {
       object: "invoice",
       created: 1_831_536_000,
       effective_at: 1_831_536_000,
+      billing_reason: "subscription_cycle",
       currency: "usd",
       total: 78_900,
       status: paid ? "paid" : "open",
@@ -1035,6 +1036,27 @@ describe("Stripe subscription and invoice lifecycle projection", () => {
       accessStatus: "suspended",
       paidAt: null,
     });
+  });
+
+  it("does not classify an initial or manual invoice as a renewal", () => {
+    for (const billingReason of [
+      "subscription_create",
+      "manual",
+      "subscription_update",
+    ] as const) {
+      const value = {
+        ...invoice("invoice.paid"),
+        billing_reason: billingReason,
+      } as Stripe.Invoice;
+      expect(buildStripeLifecycleProjection({
+        event: lifecycleEvent("invoice.paid", value),
+        invoice: value,
+        invoicePaymentIntentId: "pi_test_initial",
+        payloadHash: "9".repeat(64),
+        receivedAt: 1_831_536_001_500,
+        priceIds: config.priceIds,
+      })).toBeNull();
+    }
   });
 
   it("rejects an unexpanded invoice subscription and a tampered recurring price", () => {

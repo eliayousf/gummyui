@@ -52,6 +52,7 @@
     "release:operator": "node --import tsx scripts/protected-release-operator.ts",
     "stripe:production:readiness": "node --import tsx scripts/stripe-production-readiness.ts",
     "stripe:sandbox:journey": "node --conditions=react-server --import tsx scripts/stripe-sandbox-journey.ts",
+    "stripe:sandbox:test-clock": "node --conditions=react-server --import tsx scripts/stripe-test-clock-journey.ts",
     "convex:dev": "convex dev",
     "convex:check": "convex dev --once"
   },

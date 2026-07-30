@@ -80,7 +80,7 @@ const plansById = new Map<CommercialPlanId, CommercialPlan>(
 
 export function buildStripeLifecycleProjection(
   input: StripeLifecycleInput,
-): StripeLifecycleProjection {
+): StripeLifecycleProjection | null {
   if (input.event.aggregateType === "subscription") {
     const subscription = input.event.payload.data
       .object as Stripe.Subscription;
@@ -117,6 +117,9 @@ export function buildStripeLifecycleProjection(
     )
   ) {
     throw new Error("Stripe invoice event identity is invalid");
+  }
+  if (invoice.billing_reason !== "subscription_cycle") {
+    return null;
   }
   const subscription = expandedInvoiceSubscription(invoice);
   const subscriptionState = buildSubscriptionState(

@@ -108,7 +108,9 @@ export async function POST(request: Request) {
         receivedAt,
         priceIds: stripeConfig.priceIds,
       });
-      return new ConvexStripeLifecycleStore().apply(projection);
+      return projection
+        ? new ConvexStripeLifecycleStore().apply(projection)
+        : "ignored";
     }
 
     async function applyAdjustmentProjection() {

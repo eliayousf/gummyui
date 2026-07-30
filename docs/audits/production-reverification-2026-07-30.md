@@ -65,3 +65,13 @@ Fresh independent checks confirmed:
 The production-verified revenue loop remains 0 of 8 until the founder-controlled
 review, sandbox Checkout, protected-release and live purchase/refund gates are
 completed.
+
+## Subsequent sandbox evidence
+
+Later on 30 July, the isolated Managed Payments sandbox gates completed:
+Monthly and Lifetime purchase/cancellation/full-refund access reconciliation
+passed, and a separate Stripe test clock proved a natural paid renewal, natural
+failed renewal, cancellation, and active/renewed/suspended/expired access
+states. This does not alter the production crawl result above or the North Star:
+production checkout remains disabled and the production-verified loop remains
+0 of 8.

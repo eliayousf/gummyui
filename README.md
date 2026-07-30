@@ -82,8 +82,8 @@ The local catalogue covers all 57 launch component categories across nine
 dependency groups. Every category has public React source, Component Lab
 coverage, a documented accessibility contract, and source-derived API/anatomy
 guidance. The registry is verified in clean Next.js and Vite consumers across
-npm, pnpm, Yarn, and Bun. The `gummyui.dev` commands above become public only
-after the explicit repository-publication and production-deployment gate.
+npm, pnpm, Yarn, and Bun. The `gummyui.dev` commands above are public on the
+deployed production origin.
 
 Run the complete local verification gate with:
 
