@@ -138,9 +138,9 @@ development deployment.
 ## Still required before paid launch
 
 1. Preserve the passing Lighthouse production audits (mobile performance 98;
-   accessibility, best practices and SEO 100; desktop all 100) and continue
-   reducing the warmed full-crawler's remaining heuristic-only warnings from
-   its current 93/A, zero-failure result.
+   accessibility, best practices and SEO 100; desktop all 100) and the fresh
+   219-resource SquirrelScan result of 97/A with 12,428 passes, 154 owned
+   warnings and zero failures.
 2. Complete account recovery, final deletion and a second-identity invitation
    while preserving the already-set `CONVEX_SERVER_SECRET`.
 3. Preserve the frozen restricted Stripe runtime key and its successful

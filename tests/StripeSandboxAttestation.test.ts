@@ -67,16 +67,13 @@ describe("Stripe sandbox application attestation", () => {
     const config = readStripeSandboxAttestationConfig(readyEnvironment());
     expect(config).not.toBeNull();
     const probe = {
-      restoreStatus: vi.fn(async () => ({
+      attest: vi.fn(async () => ({
         targetClass: "isolated-test",
         schemaVersion: "2026-07-27",
         tableCount: 24,
+        phase: "identity",
+        identityReady: true,
       })),
-      accountSection: vi.fn(async () => [
-        { status: "active" },
-        { status: "active" },
-        { status: "active" },
-      ]),
     };
 
     await expect(attestStripeSandboxApplication(config!, {
@@ -91,35 +88,41 @@ describe("Stripe sandbox application attestation", () => {
     });
   });
 
-  it("requires both licences and protected downloads to be revoked", async () => {
+  it("requires exact access grant and revocation evidence", async () => {
     const config = readStripeSandboxAttestationConfig(readyEnvironment())!;
     const probe = {
-      restoreStatus: vi.fn(async () => ({
+      attest: vi.fn(async (
+        input: { phase: "identity" | "access-granted" | "access-revoked" },
+      ) => ({
         targetClass: "isolated-test",
         schemaVersion: "2026-07-27",
         tableCount: 24,
+        phase: input.phase,
+        identityReady: true,
+        exactPurchaseCount: 2,
+        exactLicenceCount: 6,
+        exactEntitlementCount: 6,
+        exactSeatCount: 6,
+        openGrantCount: 0,
+        protectedReleaseAvailable: true,
+        protectedReleaseAuthorized: input.phase === "access-granted",
+        accessGranted: input.phase === "access-granted",
+        accessRevoked: input.phase === "access-revoked",
       })),
-      accountSection: vi.fn(async ({ route }: { route: string }) => {
-        if (route === "security") return [{}, {}, {}];
-        if (route === "purchases") {
-          return [{
-            id: "purchase:stripe:cs_test_monthly",
-            detail: "Completed · 30 Jul 2026",
-          }, {
-            id: "purchase:stripe:cs_test_lifetime",
-            detail: "Refunded · 30 Jul 2026",
-          }];
-        }
-        if (route === "licences") {
-          return [{ value: "Refunded", status: "revoked" }];
-        }
-        if (route === "downloads") return [];
-        return [];
-      }),
     };
 
     await expect(attestStripeSandboxApplication(config, {
       challenge: "b".repeat(64),
+      phase: "access-granted",
+      accountId: "account:sandbox-test",
+      workspaceId: "workspace:sandbox-test",
+      checkoutSessionIds: ["cs_test_monthly", "cs_test_lifetime"],
+    }, probe)).resolves.toMatchObject({
+      accessGranted: true,
+    });
+
+    await expect(attestStripeSandboxApplication(config, {
+      challenge: "c".repeat(64),
       phase: "access-revoked",
       accountId: "account:sandbox-test",
       workspaceId: "workspace:sandbox-test",
@@ -128,29 +131,55 @@ describe("Stripe sandbox application attestation", () => {
       accessRevoked: true,
     });
 
-    probe.accountSection.mockImplementation(async ({ route }) => {
-      if (route === "security") return [{}, {}, {}];
-      if (route === "purchases") {
-        return [{
-          id: "purchase:stripe:cs_test_monthly",
-          detail: "Completed · 30 Jul 2026",
-        }, {
-          id: "purchase:stripe:cs_test_lifetime",
-          detail: "Refunded · 30 Jul 2026",
-        }];
-      }
-      if (route === "licences") {
-        return [{ value: "Active", status: "active" }];
-      }
-      return [];
+    probe.attest.mockResolvedValueOnce({
+      targetClass: "isolated-test",
+      schemaVersion: "2026-07-27",
+      tableCount: 24,
+      phase: "access-revoked",
+      identityReady: true,
+      exactPurchaseCount: 2,
+      exactLicenceCount: 6,
+      exactEntitlementCount: 6,
+      exactSeatCount: 6,
+      openGrantCount: 1,
+      protectedReleaseAvailable: true,
+      protectedReleaseAuthorized: false,
+      accessGranted: false,
+      accessRevoked: true,
     });
     await expect(attestStripeSandboxApplication(config, {
-      challenge: "c".repeat(64),
+      challenge: "d".repeat(64),
       phase: "access-revoked",
       accountId: "account:sandbox-test",
       workspaceId: "workspace:sandbox-test",
       checkoutSessionIds: ["cs_test_monthly", "cs_test_lifetime"],
     }, probe)).rejects.toThrow("access was not revoked");
+  });
+
+  it("rejects an oversized streamed body even with a false length header", async () => {
+    const previous = Object.fromEntries(
+      Object.keys(readyEnvironment()).map((key) => [key, process.env[key]]),
+    );
+    Object.assign(process.env, readyEnvironment());
+    try {
+      const response = await attestationPost(new Request(
+        "http://127.0.0.1:3000/api/internal/stripe-sandbox-attestation",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "content-length": "1",
+          },
+          body: JSON.stringify({ padding: "x".repeat(4_096) }),
+        },
+      ));
+      expect(response.status).toBe(400);
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
   });
 });
 

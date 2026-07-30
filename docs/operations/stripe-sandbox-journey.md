@@ -8,9 +8,11 @@ The procedure has two stages because Stripe Checkout is a hosted customer
 interaction. The CLI creates genuine test Checkout Sessions, but a person must
 complete Stripe's hosted payment and consent screens.
 
-The harness never reads production Stripe key or price variable names. It emits
-only redacted counts and fixed status labels. Checkout URLs and identifiers are
-written only to a gitignored continuation file under
+The harness does not require or fall back to production Stripe credentials or
+prices. It compares an ordinary webhook secret, when present, only to prevent
+reuse as the dedicated sandbox signing secret. It emits only redacted counts
+and fixed status labels. Checkout URLs and identifiers are written only to a
+gitignored continuation file under
 `work/stripe-sandbox/`, with directory mode `0700` and file mode `0600`.
 
 ## Safety contract
@@ -158,7 +160,9 @@ npm run stripe:sandbox:journey -- resume --execute
 2. revalidates all prices and both completed, paid Checkout Sessions through
    both the restricted runtime and standard test operator keys;
 3. atomically records that the non-retryable mutation attempt has started;
-4. projects both real `checkout.session.completed` events;
+4. projects both real `checkout.session.completed` events and immediately
+   proves the exact checkout-linked purchases, six licences, six entitlements,
+   six seats and protected-release authorization on the isolated target;
 5. resets the monthly subscription billing anchor and projects the resulting
    paid invoice;
 6. attaches Stripe's declined test payment token, resets the anchor again, and
@@ -167,8 +171,9 @@ npm run stripe:sandbox:journey -- resume --execute
    and deletion;
 8. requires a succeeded, full-amount lifetime refund and projects
    `refund.created`;
-9. queries the same isolated Convex target through the loopback app and proves
-   no active licence or protected download remains;
+9. queries the same isolated Convex target by the two exact Checkout Session IDs
+   and proves the monthly access expired, lifetime access and seats were
+   revoked, and no open protected-download grant remains;
 10. removes the continuation file only after all seven first-pass projections
    return `status: "applied"` and access revocation is attested.
 

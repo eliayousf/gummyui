@@ -104,6 +104,7 @@ interface RedactedJourneyEvidence {
   mutatingResumeRetryable?: false;
   isolatedConvexAttested?: true;
   accessRevocationVerified?: true;
+  accessGrantVerified?: true;
   continuationState?: string;
   continuationRemoved?: boolean;
 }
@@ -123,6 +124,9 @@ export interface StripeSandboxJourneyProvider {
   resume(
     config: StripeSandboxJourneyConfig,
     state: StripeSandboxJourneyState,
+    hooks: {
+      afterPurchasesProjected(): Promise<void>;
+    },
   ): Promise<{
     realEventsProjected: number;
   }>;
@@ -265,8 +269,22 @@ export async function runStripeSandboxJourney(
     };
     assertStateMatchesConfig(startedState, config);
     await stateStore.replace(statePath, startedState);
-    const result = await provider.resume(config, startedState);
-    if (result.realEventsProjected !== 7) {
+    const checkoutSessionIds = state.checkouts.map(
+      (checkout) => checkout.sessionId,
+    ) as [string, string];
+    let accessGrantAttested = false;
+    const result = await provider.resume(config, startedState, {
+      afterPurchasesProjected: async () => {
+        await attestApplication(
+          config,
+          "access-granted",
+          attestationChallenge(state.runId, "resume-access-granted"),
+          checkoutSessionIds,
+        );
+        accessGrantAttested = true;
+      },
+    });
+    if (!accessGrantAttested || result.realEventsProjected !== 7) {
       throw new StripeSandboxJourneyError(
         "sandbox_journey_evidence_incomplete",
       );
@@ -275,7 +293,7 @@ export async function runStripeSandboxJourney(
       config,
       "access-revoked",
       attestationChallenge(state.runId, "resume-access-revoked"),
-      state.checkouts.map((checkout) => checkout.sessionId) as [string, string],
+      checkoutSessionIds,
     );
     await stateStore.remove(statePath);
     evidence = {
@@ -292,6 +310,7 @@ export async function runStripeSandboxJourney(
       ],
       mutatingResumeRetryable: false,
       isolatedConvexAttested: true,
+      accessGrantVerified: true,
       accessRevocationVerified: true,
       continuationRemoved: true,
     };
@@ -447,7 +466,7 @@ function safeApplicationOrigin(
     || hostname === "[::1]";
   if (
     !loopback
-    || (url.protocol !== "http:" && url.protocol !== "https:")
+    || url.protocol !== "http:"
   ) {
     throw new StripeSandboxJourneyError(
       "non_loopback_sandbox_origin_refused",
@@ -845,6 +864,9 @@ export class RealStripeSandboxJourneyProvider
   async resume(
     config: StripeSandboxJourneyConfig,
     state: StripeSandboxJourneyState,
+    hooks: {
+      afterPurchasesProjected(): Promise<void>;
+    },
   ): Promise<{ realEventsProjected: number }> {
     try {
       const runtime = this.stripeFactory(config.runtimeKey);
@@ -885,6 +907,7 @@ export class RealStripeSandboxJourneyProvider
         undefined,
         this.eventWaitOptions(),
       ));
+      await hooks.afterPurchasesProjected();
 
       const subscriptionId = expandableId(
         monthly.subscription,
@@ -1208,7 +1231,7 @@ export async function projectSandboxEvent(
 
 export async function attestSandboxApplication(
   config: StripeSandboxJourneyConfig,
-  phase: "identity" | "access-revoked",
+  phase: "identity" | "access-granted" | "access-revoked",
   challenge: string,
   checkoutSessionIds?: [string, string],
   fetchImplementation: typeof fetch = fetch,
@@ -1261,6 +1284,7 @@ export async function attestSandboxApplication(
     || value.targetClass !== "isolated-test"
     || value.targetFingerprint !== config.convexTargetFingerprint
     || value.identityReady !== true
+    || (phase === "access-granted" && value.accessGranted !== true)
     || (phase === "access-revoked" && value.accessRevoked !== true)
   ) {
     throw new StripeSandboxJourneyError(

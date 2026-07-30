@@ -23,13 +23,9 @@ export async function POST(request: Request): Promise<Response> {
   }
   if (!config) return privateJson({ error: "not_found" }, 404);
 
-  const contentLength = Number(request.headers.get("content-length"));
-  if (Number.isFinite(contentLength) && contentLength > 4_096) {
-    return privateJson({ error: "invalid_request" }, 400);
-  }
   let input: StripeSandboxAttestationInput;
   try {
-    input = await request.json() as StripeSandboxAttestationInput;
+    input = await readBoundedJson(request) as StripeSandboxAttestationInput;
   } catch {
     return privateJson({ error: "invalid_request" }, 400);
   }
@@ -41,6 +37,35 @@ export async function POST(request: Request): Promise<Response> {
   } catch {
     return privateJson({ error: "attestation_unavailable" }, 503);
   }
+}
+
+async function readBoundedJson(request: Request): Promise<unknown> {
+  if (!request.body) throw new Error("Missing request body");
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let byteLength = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      byteLength += value.byteLength;
+      if (byteLength > 4_096) {
+        await reader.cancel();
+        throw new Error("Request body is too large");
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  if (byteLength === 0) throw new Error("Missing request body");
+  const body = new Uint8Array(byteLength);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(body));
 }
 
 function privateJson(body: unknown, status: number): Response {

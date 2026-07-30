@@ -17,7 +17,10 @@ export interface StripeSandboxAttestationConfig {
   restoreSecret: string;
 }
 
-export type StripeSandboxAttestationPhase = "identity" | "access-revoked";
+export type StripeSandboxAttestationPhase =
+  | "identity"
+  | "access-granted"
+  | "access-revoked";
 
 export interface StripeSandboxAttestationInput {
   challenge: string;
@@ -28,12 +31,12 @@ export interface StripeSandboxAttestationInput {
 }
 
 interface StripeSandboxAttestationProbe {
-  restoreStatus(restoreSecret: string): Promise<unknown>;
-  accountSection(input: {
-    serverSecret: string;
-    route: string;
+  attest(input: {
+    restoreSecret: string;
+    phase: StripeSandboxAttestationPhase;
     accountId: string;
     workspaceId: string;
+    checkoutSessionIds?: [string, string];
   }): Promise<unknown>;
 }
 
@@ -103,69 +106,28 @@ export async function attestStripeSandboxApplication(
   targetClass: "isolated-test";
   targetFingerprint: string;
   identityReady: true;
+  accessGranted?: true;
   accessRevoked?: true;
 }> {
   assertInput(input);
-  const status = asRecord(await probe.restoreStatus(config.restoreSecret));
+  const status = asRecord(await probe.attest({
+    restoreSecret: config.restoreSecret,
+    phase: input.phase,
+    accountId: input.accountId,
+    workspaceId: input.workspaceId,
+    ...(input.checkoutSessionIds
+      ? { checkoutSessionIds: input.checkoutSessionIds }
+      : {}),
+  }));
   if (
     status.targetClass !== "isolated-test"
     || typeof status.schemaVersion !== "string"
     || typeof status.tableCount !== "number"
     || status.tableCount < 20
+    || status.identityReady !== true
+    || status.phase !== input.phase
   ) {
     throw new Error("Stripe sandbox Convex target is not isolated");
-  }
-
-  const access = {
-    serverSecret: config.targetServerSecret,
-    accountId: input.accountId,
-    workspaceId: input.workspaceId,
-  };
-  const security = await probe.accountSection({
-    ...access,
-    route: "security",
-  });
-  if (!Array.isArray(security) || security.length < 3) {
-    throw new Error("Stripe sandbox identity is unavailable");
-  }
-
-  if (input.phase === "access-revoked") {
-    const [purchases, licences, downloads] = await Promise.all([
-      probe.accountSection({ ...access, route: "purchases" }),
-      probe.accountSection({ ...access, route: "licences" }),
-      probe.accountSection({ ...access, route: "downloads" }),
-    ]);
-    const expectedPurchases = input.checkoutSessionIds!.map(
-      (checkoutSessionId) => `purchase:stripe:${checkoutSessionId}`,
-    );
-    const purchaseRows = Array.isArray(purchases)
-      ? purchases.map(asRecord)
-      : [];
-    const lifetimePurchase = purchaseRows.find(
-      (entry) => entry.id === expectedPurchases[1],
-    );
-    if (
-      !expectedPurchases.every((purchaseId) =>
-        purchaseRows.some((entry) => entry.id === purchaseId))
-      || typeof lifetimePurchase?.detail !== "string"
-      || !lifetimePurchase.detail.startsWith("Refunded ·")
-      || !Array.isArray(licences)
-      || licences.length === 0
-      || licences.some((entry) =>
-        asRecord(entry).value === "Active"
-        || asRecord(entry).status === "active")
-      || !Array.isArray(downloads)
-      || downloads.length !== 0
-    ) {
-      throw new Error("Stripe sandbox access was not revoked");
-    }
-    return {
-      challenge: input.challenge,
-      targetClass: "isolated-test",
-      targetFingerprint: config.targetFingerprint,
-      identityReady: true,
-      accessRevoked: true,
-    };
   }
 
   return {
@@ -173,6 +135,27 @@ export async function attestStripeSandboxApplication(
     targetClass: "isolated-test",
     targetFingerprint: config.targetFingerprint,
     identityReady: true,
+    ...(input.phase === "access-granted"
+      ? status.accessGranted === true
+        && status.exactPurchaseCount === 2
+        && status.exactLicenceCount === 6
+        && status.exactEntitlementCount === 6
+        && status.exactSeatCount === 6
+        && status.protectedReleaseAvailable === true
+        && status.protectedReleaseAuthorized === true
+          ? { accessGranted: true as const }
+          : failAttestation("Stripe sandbox access was not granted")
+      : {}),
+    ...(input.phase === "access-revoked"
+      ? status.accessRevoked === true
+        && status.exactPurchaseCount === 2
+        && status.exactLicenceCount === 6
+        && status.exactEntitlementCount === 6
+        && status.exactSeatCount === 6
+        && status.openGrantCount === 0
+          ? { accessRevoked: true as const }
+          : failAttestation("Stripe sandbox access was not revoked")
+      : {}),
   };
 }
 
@@ -193,7 +176,7 @@ function assertInput(input: StripeSandboxAttestationInput): void {
         /^cs_test_[A-Za-z0-9_]+$/u.test(value));
   if (
     !CHALLENGE.test(input.challenge)
-    || !["identity", "access-revoked"].includes(input.phase)
+    || !["identity", "access-granted", "access-revoked"].includes(input.phase)
     || !isStripeSandboxIdentity(input.accountId, input.workspaceId)
     || !checkoutSessionIdsValid
   ) {
@@ -206,23 +189,13 @@ function convexProbe(
 ): StripeSandboxAttestationProbe {
   const client = new ConvexHttpClient(config.targetUrl, { logger: false });
   return {
-    restoreStatus: (restoreSecret) =>
-      client.query(anyApi.backup.restoreStatus, { restoreSecret }),
-    accountSection: (input) =>
-      client.mutation(anyApi.commerce.execute, {
-        serverSecret: input.serverSecret,
-        operation: "account.section",
-        input: {
-          route: input.route,
-          access: {
-            accountId: input.accountId,
-            workspaceId: input.workspaceId,
-            role: "owner",
-          },
-          now: Date.now(),
-        },
-      }),
+    attest: (input) =>
+      client.query(anyApi.backup.stripeSandboxAttestation, input),
   };
+}
+
+function failAttestation(message: string): never {
+  throw new Error(message);
 }
 
 function normalizeLoopbackOrigin(value: string | undefined): string | null {

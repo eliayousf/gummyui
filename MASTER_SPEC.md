@@ -732,7 +732,7 @@ Exit criteria:
       cannot index previews, account routes, APIs or paid source.
 - [ ] Every locale passes functional, metadata, overflow and RTL checks; no
       unreviewed AI translation is represented as final.
-- [ ] Full-coverage website audit score exceeds 95, with all errors fixed and
+- [x] Full-coverage website audit score exceeds 95, with all errors fixed and
       every remaining warning documented with evidence and an owner.
 - [ ] Core user journeys pass automated end-to-end checks on desktop and mobile;
       accessibility checks have no critical or serious violations; manual keyboard
@@ -900,19 +900,17 @@ time and zero CLS. Desktop scores are 100 in all four categories, with
 0.3-second FCP, 0.5-second LCP, zero blocking time and zero CLS. These are
 controlled lab results, not a claim about field Core Web Vitals.
 
-The complementary SquirrelScan 0.0.80 full-coverage crawl audits 219 discovered
-resources against all 135 indexable sitemap URLs. The warmed authoritative
-refresh scores 93/A with 13,441 passes, 283 warnings and zero failures. SEO is
-100; Accessibility, Core SEO, crawlability, E-E-A-T, internationalisation,
-images, site integrity, legal compliance, links, mobile, structured data,
-social media and URL structure all score 100. Its remaining deductions are
-78 performance, 50 Agent Experience, 92 content and 97 security. They are
-limited to a site-wide aggregate that counts about 2.45 MB of repeated inline
-Next App Router Flight data, required stylesheet request chains, the same
-Flight payloads falling below the scanner's text-to-HTML ratio, technical
-vocabulary in catalogue tables, and the inline style/script allowance required
-by this statically cached App Router build. Earlier lower-scoring scans remain
-preserved in `docs/audits/production-launch-verification-2026-07-28.md`.
+The complementary fresh SquirrelScan 0.0.38 full-coverage crawl audits 219
+pages/resources across all 135 indexable sitemap URLs. It scores 97/A with
+12,428 passes, 154 warnings and zero failures. Accessibility, Core SEO,
+crawlability, E-E-A-T, internationalisation, images, legal compliance, links,
+mobile, structured data, social media and URL structure score 100; content is
+99, performance 97 and security 94. The remaining warnings are owned CSP and
+HTTP-redirect observations, content-density heuristics, two isolated crawler
+TTFB samples and eight route-scoped critical request chains. Their evidence,
+disposition and owners are recorded in
+`docs/audits/production-reverification-2026-07-30.md`; earlier scans remain in
+`docs/audits/production-launch-verification-2026-07-28.md`.
 
 The deployed remediation is substantive rather than audit suppression:
 component preview runtimes and source payloads are interaction-deferred,

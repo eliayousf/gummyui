@@ -130,7 +130,7 @@ describe("Stripe sandbox journey safety boundary", () => {
     }
   });
 
-  it("permits only canonical loopback hosts", () => {
+  it("permits only canonical HTTP loopback hosts", () => {
     expect(
       readStripeSandboxJourneyConfig(readyEnvironment())
         .applicationOrigin,
@@ -138,7 +138,6 @@ describe("Stripe sandbox journey safety boundary", () => {
 
     for (const origin of [
       "http://localhost:3000",
-      "https://localhost:3000",
       "http://[::1]:3000",
     ]) {
       expect(readStripeSandboxJourneyConfig({
@@ -149,6 +148,12 @@ describe("Stripe sandbox journey safety boundary", () => {
     expect(() => readStripeSandboxJourneyConfig({
       ...readyEnvironment(),
       STRIPE_SANDBOX_APP_ORIGIN: "https://gummyui-sandbox.example.test",
+    })).toThrowError(expect.objectContaining({
+      code: "non_loopback_sandbox_origin_refused",
+    }));
+    expect(() => readStripeSandboxJourneyConfig({
+      ...readyEnvironment(),
+      STRIPE_SANDBOX_APP_ORIGIN: "https://localhost:3000",
     })).toThrowError(expect.objectContaining({
       code: "non_loopback_sandbox_origin_refused",
     }));
@@ -426,8 +431,9 @@ describe("real Stripe sandbox provider boundaries", () => {
             checkout: { sessions: { retrieve: retrieveSession } },
           } as unknown as Stripe
         : operator as unknown as Stripe);
-    const fetchImplementation = vi.fn(async () =>
-      Response.json({ received: true, status: "applied" })) as typeof fetch;
+    const fetchImplementationMock = vi.fn(async () =>
+      Response.json({ received: true, status: "applied" }));
+    const fetchImplementation = fetchImplementationMock as typeof fetch;
     const provider = new RealStripeSandboxJourneyProvider({
       stripeFactory,
       fetchImplementation,
@@ -437,9 +443,11 @@ describe("real Stripe sandbox provider boundaries", () => {
       webhookFetchTimeoutMs: 10,
     });
 
+    const afterPurchasesProjected = vi.fn(async () => undefined);
     await expect(provider.resume(
       config,
       continuationState(),
+      { afterPurchasesProjected },
     )).resolves.toEqual({ realEventsProjected: 7 });
     expect(subscriptionUpdates).toHaveBeenNthCalledWith(
       1,
@@ -456,6 +464,13 @@ describe("real Stripe sandbox provider boundaries", () => {
       expect.objectContaining({ payment_intent: "pi_sandbox" }),
     );
     expect(fetchImplementation).toHaveBeenCalledTimes(7);
+    expect(afterPurchasesProjected).toHaveBeenCalledTimes(1);
+    expect(
+      fetchImplementationMock.mock.invocationCallOrder[1],
+    ).toBeLessThan(afterPurchasesProjected.mock.invocationCallOrder[0]);
+    expect(
+      afterPurchasesProjected.mock.invocationCallOrder[0],
+    ).toBeLessThan(subscriptionUpdates.mock.invocationCallOrder[0]);
     expect(detach).toHaveBeenCalledWith("pm_declined");
   });
 });
@@ -466,12 +481,13 @@ describe("Stripe sandbox journey orchestration", () => {
     const stateStore = fakeStateStore();
     const output = vi.fn();
 
+    const attestApplication = fakeAttestation();
     await runStripeSandboxJourney({
       argv: ["prepare", "--execute"],
       environment: readyEnvironment(),
       provider,
       stateStore,
-      attestApplication: fakeAttestation(),
+      attestApplication,
       now: () => 1_800_000_000_000,
       randomId: () => "runidentifier123456",
       writeOutput: output,
@@ -544,13 +560,14 @@ describe("Stripe sandbox journey orchestration", () => {
     const state = continuationState();
     const stateStore = fakeStateStore(state);
     const output = vi.fn();
+    const attestApplication = fakeAttestation();
 
     await runStripeSandboxJourney({
       argv: ["resume", "--execute"],
       environment: readyEnvironment(),
       provider,
       stateStore,
-      attestApplication: fakeAttestation(),
+      attestApplication,
       now: () => 1_800_000_100_000,
       writeOutput: output,
     });
@@ -574,7 +591,15 @@ describe("Stripe sandbox journey orchestration", () => {
       expect.objectContaining({
         resumeAttemptedAt: 1_800_000_100_000,
       }),
+      expect.objectContaining({
+        afterPurchasesProjected: expect.any(Function),
+      }),
     );
+    expect(attestApplication.mock.calls.map((call) => call[1])).toEqual([
+      "identity",
+      "access-granted",
+      "access-revoked",
+    ]);
     expect(stateStore.remove).toHaveBeenCalledTimes(1);
     expect(JSON.parse(output.mock.calls[0][0] as string)).toEqual({
       mode: "executed",
@@ -590,6 +615,7 @@ describe("Stripe sandbox journey orchestration", () => {
       ],
       mutatingResumeRetryable: false,
       isolatedConvexAttested: true,
+      accessGrantVerified: true,
       accessRevocationVerified: true,
       continuationRemoved: true,
     });
@@ -666,6 +692,25 @@ describe("Stripe sandbox journey orchestration", () => {
     });
     expect(stateStore.remove).not.toHaveBeenCalled();
     expect(stateStore.replace).toHaveBeenCalledTimes(1);
+  });
+
+  it("refuses evidence when a provider omits the access-grant hook", async () => {
+    const provider = fakeProvider();
+    provider.resume.mockImplementationOnce(async () => ({
+      realEventsProjected: 7,
+    }));
+    const stateStore = fakeStateStore(continuationState());
+
+    await expect(runStripeSandboxJourney({
+      argv: ["resume", "--execute"],
+      environment: readyEnvironment(),
+      provider,
+      stateStore,
+      attestApplication: fakeAttestation(),
+    })).rejects.toMatchObject({
+      code: "sandbox_journey_evidence_incomplete",
+    });
+    expect(stateStore.remove).not.toHaveBeenCalled();
   });
 
   it.each([
@@ -840,12 +885,21 @@ function fakeProvider() {
       checkouts: continuationState().checkouts,
     })),
     validateForResume: vi.fn(async () => undefined),
-    resume: vi.fn(async () => ({ realEventsProjected: 7 })),
+    resume: vi.fn(async (
+      _config,
+      _state,
+      hooks: { afterPurchasesProjected(): Promise<void> },
+    ) => {
+      await hooks.afterPurchasesProjected();
+      return { realEventsProjected: 7 };
+    }),
   } satisfies StripeSandboxJourneyProvider;
 }
 
 function fakeAttestation() {
-  return vi.fn(async () => undefined);
+  const attestation = vi.fn<typeof attestSandboxApplication>();
+  attestation.mockResolvedValue(undefined);
+  return attestation;
 }
 
 function fakeStateStore(state = continuationState()) {
