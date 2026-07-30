@@ -901,12 +901,12 @@ time and zero CLS. Desktop scores are 100 in all four categories, with
 controlled lab results, not a claim about field Core Web Vitals.
 
 The complementary fresh SquirrelScan 0.0.38 full-coverage crawl audits 219
-pages/resources across all 135 indexable sitemap URLs. It scores 97/A with
-12,428 passes, 154 warnings and zero failures. Accessibility, Core SEO,
+pages/resources across all 135 indexable sitemap URLs. It scores 96/A with
+12,420 passes, 162 warnings and zero failures. Accessibility, Core SEO,
 crawlability, E-E-A-T, internationalisation, images, legal compliance, links,
 mobile, structured data, social media and URL structure score 100; content is
-99, performance 97 and security 94. The remaining warnings are owned CSP and
-HTTP-redirect observations, content-density heuristics, two isolated crawler
+99, performance 96 and security 94. The remaining warnings are owned CSP and
+HTTP-redirect observations, content-density heuristics, ten isolated crawler
 TTFB samples and eight route-scoped critical request chains. Their evidence,
 disposition and owners are recorded in
 `docs/audits/production-reverification-2026-07-30.md`; earlier scans remain in

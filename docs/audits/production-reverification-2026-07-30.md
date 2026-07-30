@@ -16,7 +16,7 @@ squirrel audit https://gummyui.dev -C full --refresh --format llm
 
 The surface crawl audited 100 pages, scored 96/A, passed 9,138 checks, warned
 on 120 and failed none. The full crawl audited 219 pages/resources across all
-135 sitemap URLs, scored 97/A, passed 12,428 checks, warned on 154 and failed
+135 sitemap URLs, scored 96/A, passed 12,420 checks, warned on 162 and failed
 none.
 
 The authoritative full-crawl groups were:
@@ -25,7 +25,7 @@ The authoritative full-crawl groups were:
 | --- | ---: |
 | Accessibility, Core SEO, Crawlability, E-E-A-T, Internationalization, Images, Legal Compliance, Links, Mobile, Structured Data, Social Media and URL Structure | 100 |
 | Content | 99 |
-| Performance | 97 |
+| Performance | 96 |
 | Security | 94 |
 
 This satisfies the greater-than-95 full-coverage gate. It does not satisfy any
@@ -41,7 +41,7 @@ There were no errors or failed checks. Every warning remains owned:
 - Content owns keyword-density warnings on catalogue, pricing, licence, blog
   and locale pages and will reassess them during the next copy review. No
   indexability, structured-data or legal failure accompanies them.
-- Operations owns the two isolated 651–776 ms crawler TTFB samples and monitors
+- Operations owns the ten isolated 638–836 ms crawler TTFB samples and monitors
   the same origin through Better Stack. Engineering owns the eight reported
   critical request chains, which are the intentional route-scoped CSS and
   interaction bundles already covered by the passing Lighthouse and local
