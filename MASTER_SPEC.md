@@ -964,29 +964,34 @@ initial credentials were rotated after that restriction was applied. The nine
 protected Vercel Production price values now exactly match the verified live
 catalogue. The application prefers `STRIPE_RESTRICTED_KEY` over the managed
 Standard secret and its protected production-readiness route verifies all nine
-provider-authoritative prices before commerce can be enabled. The current
-Vercel restricted value is an expired predecessor, and the deployed readiness
-route therefore classifies Stripe's HTTP 401 safely as
-`restricted_key_rejected` without exposing credential material. Stripe retains
-one named replacement restricted key,
-`gummyui-production-runtime-v3`, with the required Prices Read permission.
-Rotating it to obtain a fresh one-time value is paused at Stripe's
-founder-controlled email-verification link; the newest link is open in the
-authenticated in-app Gmail session. The managed full-scope key remains
-installed but unused until the restricted route is proved. Deployed-origin
-signed delivery and sandbox/live journeys remain unproved; checkout and webhook
-flags remain fail closed.
+provider-authoritative prices before commerce can be enabled. On 30 July 2026
+the founder completed Stripe's email and authenticator checks, the named
+`gummyui-production-runtime-v3` key was rotated exactly once with a 60-minute
+predecessor overlap, and the one-time replacement was installed only as
+Vercel's sensitive Production `STRIPE_RESTRICTED_KEY`. The key has Prices Read,
+Checkout Sessions Write, and the required Subscriptions, Invoices, Charges and
+Refunds, Payment Disputes and Payment Intents read permissions; Stripe exposes
+no separate Invoice Payments permission. Ready Production deployment
+`dpl_KtuS7XqoxbX1ieRBVTNvUP8qMnGK` applies the replacement to
+`gummyui.dev`. Vercel's protected cron invocation at
+`2026-07-30T12:12:56.941Z` then emitted
+`stripe.production.readiness` with `outcome: success`,
+`credential: restricted-live`, `checkout: disabled` and
+`verifiedPrices: 9`. The managed full-scope key remains installed as a Vercel
+Marketplace resource but is no longer selected by the application. Deployed-
+origin signed delivery and sandbox/live journeys remain unproved; checkout and
+webhook flags remain fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value is installed. Vercel Pro is active; spend management is set
 to $1 with notifications and Pause Projects enabled. The current application
-bundle is served by Ready release `dpl_GoUmtgRfESFUEErvvd3s1xvUmZWK`
-from clean application head `8924e41`. Public health remains 200 and reports commerce
-disabled. WorkOS and Resend webhook processing are enabled and fail closed for
+bundle is served by Ready release `dpl_KtuS7XqoxbX1ieRBVTNvUP8qMnGK`
+from public head `fe9a80c` (application source remains audited at `8924e41`).
+Public health remains 200 and reports commerce disabled. WorkOS and Resend
+webhook processing are enabled and fail closed for
 unsigned input; Stripe checkout and webhook processing remain disabled, and an
 anonymous download-grant request returns an indistinguishable 404.
-Least-privilege Stripe replacement and every complete commerce journey remain
-pending.
+Every complete commerce journey remains pending.
 A current-production browser matrix passes Chrome 150,
 Firefox 144 and WebKit 2311 at mobile and desktop viewports across the homepage,
 Button detail, pricing and RTL routes with no overflow, console or page errors.
