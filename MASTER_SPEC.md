@@ -1079,7 +1079,12 @@ founder-authenticated Convex inspection confirmed the older synthetic target
 already absent and permanently deleted the separate expiring 26-document
 restore deployment. Production, current development and the dedicated Stripe
 sandbox were preserved; the ignored restore environment file was removed. A
-controlled Vercel rollback of the then-current audited
+fresh backup after the final-deletion request then verified 24 durable tables
+and 53 records through both the production verification route and an
+independent operator-held authenticated read-back. The privacy job returned
+HTTP 200 during the live cancellation window and preserved the active 6 August
+deadline and cancellation control. A controlled Vercel rollback of the
+then-current audited
 `977012c` release switched the real origin
 to known-good deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, passed public
 health and authentication probes, and promoted deployment
@@ -1107,7 +1112,9 @@ customer data or app traffic, but its platform-managed key cannot be revoked
 through either dashboard; WorkOS support has received a no-secret request to
 revoke that key and delete the environment. Direct dashboard inspection on 30
 July reconfirmed that the orphan environment and its Convex-managed,
-non-expiring credential still exist; no support confirmation has arrived.
+non-expiring credential still exist; no support confirmation has arrived. A
+no-secret follow-up was accepted through the authenticated support form and
+explicitly excluded the current replacement environment from any change.
 The real-origin hosted sign-up and canonical callback now pass. The resulting
 production session projected one active profile, two active workspaces and the
 matching owner/admin memberships into Convex. The account UI proved workspace
@@ -1120,11 +1127,13 @@ organization name from this event; public head `2fb2b6b` removes the unused
 requirement and deploys a real-payload regression fixture. WorkOS retried the
 same signed event at 13:56 BST; its dashboard records Delivered and the
 matching Vercel request on deployment
-`dpl_CYKTU6sq1uWWt57EZTe8dTbxAcsu` returned HTTP 200. Production recovery,
-and final deletion remain pending. On 30 July the authenticated production
-application sent an invitation to the controlled support identity. WorkOS
-recorded the invitation email as Delivered, the recipient accepted it, and
-WorkOS showed two active production users. The initial signed
+`dpl_CYKTU6sq1uWWt57EZTe8dTbxAcsu` returned HTTP 200. The earlier deletion
+cancellation proves recovery. After the controlled second identity became active, the founder
+account started a fresh verified deletion request whose real seven-day
+cancellation window ends on 6 August 2026. On 30 July the authenticated
+production application sent an invitation to the controlled support identity.
+WorkOS recorded the invitation email as Delivered, the recipient accepted it,
+and WorkOS showed two active production users. The initial signed
 `invitation.accepted` deliveries returned HTTP 503, then the scheduled 22:29
 BST retry was Delivered. The production application subsequently rendered the
 invitation as Accepted and Convex rendered two active workspace members with
@@ -1138,7 +1147,10 @@ delivered, after which the one-use key was deleted. Real export and deletion
 events then produced two application outbox messages; Resend and the signed
 production webhook recorded both as delivered. A fresh dashboard inspection on
 30 July still showed all three controlled messages Delivered and successful
-`email.delivered` webhook signals. Better Stack's free
+`email.delivered` webhook signals. The fresh final-deletion request then
+generated another application-owned status message; Resend recorded the
+expected sender, subject, topic tag, account link and a Delivered event at
+00:05 BST on 31 July. Better Stack's free
 service has an uptime monitor, status page, one active production log source
 and four scheduled-job heartbeats configured, with the corresponding Vercel
 values installed. The two-label EU ingestion-host allowlist correction is
