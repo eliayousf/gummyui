@@ -42,7 +42,11 @@ Containment and recovery:
 6. the isolated Convex target restored and reconciled all 24 tables with zero
    production records.
 
-The superseded Backblaze application key still requires dashboard revocation
-after founder reauthentication. Founder password-manager custody and removal of
-the local recovery copy also remain required.
-
+On 30 July the founder reauthenticated to Backblaze. The pre-rotation backup
+key was reconciled against the current runtime and recovery configurations and
+revoked without changing the surviving release-read or dated current-backup
+keys. The current backup key then reauthenticated through an isolated CLI
+profile, read its scoped bucket and enumerated all 200 current objects. No key
+ID, object name or reusable credential was retained in evidence. Founder
+password-manager custody and removal of the local recovery copy remain
+required.

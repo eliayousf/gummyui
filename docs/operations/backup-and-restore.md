@@ -36,10 +36,15 @@ fail-closed synthetic drill on the still-empty target proved account, team,
 licence, entitlement, release, one-use and expired download, full-refund
 revocation and audit-query semantics without invoking any outbound provider.
 Its redacted evidence is recorded in
-`docs/operations/isolated-restore-query-proof-2026-07-28.md`. Superseded B2-key
-revocation after dashboard
-reauthentication and founder password-manager custody/removal of the local
-recovery copy remain required before this control is marked fully complete.
+`docs/operations/isolated-restore-query-proof-2026-07-28.md`. On 30 July the
+founder reauthenticated to Backblaze, the exact pre-rotation backup key was
+reconciled against the current runtime and recovery configurations, and only
+that superseded key was revoked. The surviving dated credential subsequently
+reauthenticated through an isolated CLI profile, read its scoped bucket and
+enumerated all 200 current objects. No key ID, object name or reusable
+credential was retained. Founder password-manager custody and removal of the
+local recovery copy remain required before this control is marked fully
+complete.
 
 The backup format has two separate cryptographic controls:
 

@@ -11,6 +11,9 @@ a customer, charge, entitlement, paid release, or production checkout.
 - The protected production readiness invocation returned `ready`, selected the
   restricted live Stripe credential, verified all nine prices, and reported
   checkout disabled.
+- Public commit `465c2a5`, GitHub Quality run `30569564603` and Ready production
+  deployment `dpl_FSpKw5Aa8H3fXA9jqnHDk83Yjf4f` are the latest audited
+  source, CI and live-provider sequence before this operations-only update.
 - The replacement WorkOS production environment remains configured. Previously
   proved signed identity and membership deliveries remain valid.
 - Resend still records all three controlled application messages as Delivered,
@@ -25,17 +28,29 @@ a customer, charge, entitlement, paid release, or production checkout.
   clean package-manager/framework consumers, production rendering,
   vulnerability audit, and tracked-source plus production-artifact secret
   scanning.
+- Founder-authenticated Backblaze inspection exposed exactly the release-read,
+  current dated-backup and pre-rotation backup keys. Configuration
+  reconciliation identified only the pre-rotation key as superseded, and it was
+  revoked. The surviving dated-backup credential then reauthenticated through
+  an isolated CLI profile, read its scoped bucket and enumerated all 200 current
+  objects. The release-read key remains present. Evidence contains no key ID,
+  object name or reusable credential.
+- The authenticated production account accepted an invitation for the
+  controlled support identity and reported that WorkOS sent it securely. There
+  was no pre-existing invitation. Acceptance and the matching membership
+  projection remain pending.
 
 ## Still open
 
 - The older WorkOS environment and its platform-managed, non-expiring Convex
   credential are still present. WorkOS support has not confirmed revocation or
   deletion.
-- The surviving scoped Backblaze credential authenticates but cannot enumerate
-  application keys. Dashboard reauthentication is required before the
-  superseded key can be identified and revoked.
+- WorkOS account recovery, final deletion and acceptance of the now-pending
+  controlled second-identity invitation remain open.
 - Convex dashboard access requires a fresh founder sign-in before superseded
   isolated deployments can be confirmed and removed.
+- The mode-0600 Backblaze recovery bundle still needs founder-approved vault
+  custody followed by removal of the local recovery copy.
 - Figma founder visual review, approved export staging, and all 19 localisation
   approvals remain pending.
 - No protected Pro release has been approved, uploaded, or delivered.

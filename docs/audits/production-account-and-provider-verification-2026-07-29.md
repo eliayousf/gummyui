@@ -1,5 +1,9 @@
 # Production account and provider verification — 29 July 2026
 
+> Historical point-in-time record. The Backblaze key-revocation gate listed
+> below passed on 30 July; current provider status is recorded in
+> `production-provider-reverification-2026-07-30.md`.
+
 ## Status
 
 This record extends the 28 July launch audit with the first real account and

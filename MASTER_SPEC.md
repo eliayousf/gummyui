@@ -928,13 +928,14 @@ accessibility, crawler, cache, security and repository-boundary gates all pass.
 The consolidated founder decisions are captured and the public/private GitHub
 repositories exist. The private launch commits are pushed to private `main`;
 the current private head is
-`cb83961ca9361bda8b258b64bceff2c8541eb09f`.
+`96df110336f246f80c3b4ae4265d152e9fb98c40`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
-The current public application commit is
-`227c2b47f3015e7c177429ebb488a2eabaad1876`; GitHub Quality run
-`30560786302` passed its complete launch gate. Ready production deployment
-`dpl_71ifvhmBZYXXjJk3WUBvcyci1MX8` was created immediately after that push and
-is promoted to the apex, `www` and canonical Vercel aliases. Vercel does not
+The latest audited public application commit before this operations-only
+evidence update is
+`465c2a53c91bb78fb849d8729ba569bb6498a1d0`; GitHub Quality run
+`30569564603` passed its complete launch gate. Ready production deployment
+`dpl_FSpKw5Aa8H3fXA9jqnHDk83Yjf4f` is promoted to the apex, `www` and canonical
+Vercel aliases. Vercel does not
 expose a source SHA for the deployment, so this record preserves the observed
 chronology without asserting an unavailable provider-side exact binding. The
 deployed application contains the real-payload WorkOS membership fix, exact
@@ -1070,9 +1071,9 @@ the then-current audited
 `977012c` release switched the real origin
 to known-good deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, passed public
 health and authentication probes, and promoted deployment
-`dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` back successfully. Superseded B2-key
-revocation and founder password-manager custody
-remain required.
+`dpl_FPQy9sZw4t4fR156SnJfSUa2CZuf` back successfully. The superseded B2 key was
+revoked on 30 July; founder password-manager custody of the surviving recovery
+bundle remains required.
 
 WorkOS production AuthKit is enabled in replacement environment
 `environment_01KYNGX9WSHKMGFT7BYTW41PBE`; its application, exact callback,
@@ -1108,7 +1109,11 @@ requirement and deploys a real-payload regression fixture. WorkOS retried the
 same signed event at 13:56 BST; its dashboard records Delivered and the
 matching Vercel request on deployment
 `dpl_CYKTU6sq1uWWt57EZTe8dTbxAcsu` returned HTTP 200. Production recovery,
-final deletion and a second-identity invitation acceptance remain pending.
+final deletion and a second-identity invitation acceptance remain pending. On
+30 July the authenticated production application accepted an invitation for
+the controlled support identity and reported that WorkOS had sent it securely;
+no invitation was previously pending. Recipient acceptance and the matching
+membership projection remain open.
 
 Resend has a verified `send.kreydlabs.com` domain, and its production API key,
 webhook and current sender/reply-to settings are installed in Vercel. A
@@ -1135,18 +1140,21 @@ minutes with a five-minute grace period, a controlled recovery heartbeat
 returned 200, and the monitor returned Up.
 Backblaze B2 has two private encrypted EU buckets for releases and backups with
 separate scoped runtime and backup keys installed in Vercel. Fresh backup,
-independent operator-key verification and isolated restore now pass. The
-private repository now builds deterministic product-specific ZIPs outside both
-repositories and includes a fail-closed B2 publisher that proves Object Lock,
-conditional creation, retention, metadata and complete read-back bytes. The
-public runtime now includes secret-protected, idempotent Convex publication and
-withdrawal operations with exact archive-path validation, redacted audits and
-atomic unused-grant revocation. No real paid archive, B2 object or production
-release record has been created. Paid delivery, superseded B2-key revocation
-and recovery-copy custody remain unproved. The surviving scoped backup
-credential still authenticates but is not authorised to enumerate application
-keys, so it cannot verify or revoke the superseded credential; dashboard
-reauthentication remains required.
+independent operator-key verification and isolated restore now pass. On 30 July
+the founder reauthenticated to the dashboard, the pre-rotation backup key was
+reconciled against the current runtime and mode-0600 recovery configurations,
+and only that superseded key was revoked. The surviving dated backup credential
+then reauthenticated through an isolated CLI profile, read its scoped bucket and
+enumerated all 200 current backup objects. The release-read key also remains
+present. No key ID, object name or reusable credential was retained in evidence.
+The private repository now builds deterministic product-specific ZIPs outside
+both repositories and includes a fail-closed B2 publisher that proves Object
+Lock, conditional creation, retention, metadata and complete read-back bytes.
+The public runtime now includes secret-protected, idempotent Convex publication
+and withdrawal operations with exact archive-path validation, redacted audits
+and atomic unused-grant revocation. No real paid archive, B2 object or
+production release record has been created. Paid delivery and founder-approved
+recovery-copy custody remain unproved.
 
 The current private localisation cycle is checksum-bound to public English
 revision `en-9ce8e64d3a09` at full public commit
@@ -1175,8 +1183,8 @@ source. Private release packaging fails closed unless the restored editable
 
 Remaining founder-controlled gates include production recovery,
 second-identity invitation acceptance, WorkOS orphan-key confirmation, private
-Figma visual review and export approval, localisation approval, superseded
-B2-key revocation, isolated-environment cleanup, and recovery-bundle custody.
+Figma visual review and export approval, localisation approval,
+isolated-environment cleanup, and recovery-bundle custody.
 Paid releases, provider-delivered Stripe production lifecycle events,
 transactional purchase/licence/refund email, and the authorised production
 purchase/full refund journey remain pending. Existing WorkOS and Resend
