@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "algorithm": "SHA-256",
-  "generatedAt": "2026-07-29T21:42:16.665Z",
+  "generatedAt": "2026-07-30T18:09:13.122Z",
   "entries": [
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/README.md",
@@ -15,8 +15,8 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/browser-production-2026-07-27.json",
-      "bytes": 532278,
-      "sha256": "d45928c0479abaf440f462dda83c393bbb0562e00cd70347916bcb90b30b86cf"
+      "bytes": 540602,
+      "sha256": "1de9e91c35ff63cbdec0d14b0a0f8cba8ec0728c9609ec962d10a2f5d0ca0d55"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/component-200-percent-equivalent-reflow.png",
@@ -25,28 +25,28 @@
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/component-reduced-motion.png",
-      "bytes": 311891,
-      "sha256": "8e2aac628dd97bc912e405e4d6cac696a7b8cb9dc2da7750c61bb9b497bfa70e"
+      "bytes": 312749,
+      "sha256": "084744c78b284df68bc770b03c63c5a16efd7b9990721c34b3c0322dbfe941d5"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-dark.png",
-      "bytes": 525304,
-      "sha256": "4f25cfc81a1b0eeecce2cc1aa07f33f5ce203401b4535c362e74c7ad56e52990"
+      "bytes": 527676,
+      "sha256": "88e92ac58963c48682c671f0f8dbf64cda2c765cf88ae653a4c92d0c302e3949"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-desktop-light.png",
-      "bytes": 515083,
-      "sha256": "f6779c37b58c3f823e05586409a2cba54ae6e262911181ab089d3037cb674841"
+      "bytes": 517030,
+      "sha256": "7cf2ee60bdd299524ee791b4defb3be8b3d2c85479b3fd852edbcd1ca2332068"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/home-mobile-320.png",
-      "bytes": 233329,
-      "sha256": "37f3bfbe47c14555a27c4d26ea36a606455b620af06c310e9bd234cb9e39b2e6"
+      "bytes": 201777,
+      "sha256": "166fa6cd41a651d629293e83470eb588ddf6ade457ff428cc45d7feb13a0ae38"
     },
     {
       "file": "docs/audits/evidence/browser-production-2026-07-27/rtl-mobile.png",
-      "bytes": 137058,
-      "sha256": "cd6265d5819cb23814e40a55a5d4215ea403ba63e5ee94c8e0faf4bedb2c366f"
+      "bytes": 183243,
+      "sha256": "6a2662b288772ce238781e7936ce38e07be04545a40dd6b7a186f2ceea309de3"
     }
   ]
 }

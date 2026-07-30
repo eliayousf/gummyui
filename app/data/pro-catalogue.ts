@@ -54,6 +54,7 @@ type PublicProDesignKit = {
     | "not-run-founder-approval-required"
     | "materialized-success"
     | "previous-version-materialized-current-version-live-run-pending"
+    | "current-version-materialized-export-restored-founder-review-pending"
     | "complete";
   manualQa: "pending" | "complete";
 };

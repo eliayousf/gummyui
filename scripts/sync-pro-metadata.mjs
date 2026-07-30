@@ -74,7 +74,7 @@ export function validatePublicProMetadata(metadata) {
   assert.ok(allowedStatuses.has(metadata.designKit.status));
   assert.equal(metadata.designKit.definitionCount, metadata.counts.designKitDefinitions);
   assert.equal(metadata.designKit.materializerVersion, "0.5.0");
-  assert.equal(metadata.designKit.lastObservedMaterializerVersion, "0.4.0");
+  assert.equal(metadata.designKit.lastObservedMaterializerVersion, "0.5.0");
   assert.deepEqual(metadata.designKit.expectedMaterialization, {
     masters: 300,
     responsiveInstances: 900,
@@ -86,7 +86,7 @@ export function validatePublicProMetadata(metadata) {
   });
   assert.equal(
     metadata.designKit.externalMaterialization,
-    "previous-version-materialized-current-version-live-run-pending",
+    "current-version-materialized-export-restored-founder-review-pending",
   );
   assert.ok(["pending", "complete"].includes(metadata.designKit.manualQa));
 

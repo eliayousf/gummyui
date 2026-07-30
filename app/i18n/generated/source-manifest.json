@@ -495,7 +495,7 @@
     },
     {
       "path": "app/data/pro-catalogue.public.json",
-      "sha256": "b8bb3063e52d554bedd040c3c4744eb0a7190ce0feea6668690b8d6c263091f4"
+      "sha256": "2e909a5a1dc0249693c794499c6cdba9d7eb4bb5175346d19e31a3bdc4578c32"
     },
     {
       "path": "app/data/showcase.ts",

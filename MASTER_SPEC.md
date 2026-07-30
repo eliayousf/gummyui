@@ -860,11 +860,10 @@ fail closed for commerce.
 
 The localisation source is frozen reproducibly at revision
 `en-9ce8e64d3a09`: 3,132 records, of which 2,854 are translatable and 278 are
-protected. English is the only published language. The last complete
-19-locale private draft, automated-quality and founder-review-screen cycle is
-checksum-bound to superseded revision `en-ab1e85bd6250`; no draft from that
-cycle can satisfy the current source gate. Every locale remains fail closed
-pending the final private regeneration, rendered QA and founder review; no
+protected. English is the only published language. All 19 current private
+drafts, automated-quality reports and founder-review screens are checksum-bound
+to that revision and pass the automated gates with zero high-severity findings.
+Every locale remains fail closed pending rendered QA and founder approval; no
 unreviewed AI translation is represented as final or as professionally
 translated.
 
@@ -887,11 +886,14 @@ Every paid item remains honestly `implemented`, with manual QA `pending`; none
 is promoted to `verified` or `release-ready`. The previous v0.4.0 no-network
 design-kit materializer ran successfully in the founder-owned Figma Starter
 file and reported 300 masters plus 900 responsive instances. The current v0.5.0
-payload expands the expected editable result to 138 sets and 2,588 variants,
-but its live Figma Desktop run, founder/manual design review, export and archive
-restoration remain pending. The actual paid-release builder therefore refuses
-to package the catalogue, and the public boundary and deployment contain no
-paid editable source.
+payload ran idempotently in the approved recovery file and a read-only audit
+confirmed 138 sets, 2,588 editable variants, 72 editable pattern sets, 72
+separate raster references, 204 variables, 300 masters and 900 responsive
+instances. Its mode-0600 editable export restored into a separate Figma file
+and passed the same audit. Founder visual review and approved export staging
+remain pending. The actual paid-release builder therefore refuses to package
+the catalogue, and the public boundary and deployment contain no paid editable
+source.
 
 The current production-origin Lighthouse 13.4.1 audit meets the above-95
 website-audit gate. Mobile scores are 98 performance, 100 accessibility, 100
@@ -1090,7 +1092,9 @@ support address. The unused manually generated WorkOS key ending `DWW8` was
 expired immediately. An older orphaned Convex-managed environment has no
 customer data or app traffic, but its platform-managed key cannot be revoked
 through either dashboard; WorkOS support has received a no-secret request to
-revoke that key and delete the environment.
+revoke that key and delete the environment. Direct dashboard inspection on 30
+July reconfirmed that the orphan environment and its Convex-managed,
+non-expiring credential still exist; no support confirmation has arrived.
 The real-origin hosted sign-up and canonical callback now pass. The resulting
 production session projected one active profile, two active workspaces and the
 matching owner/admin memberships into Convex. The account UI proved workspace
@@ -1112,7 +1116,9 @@ domain-scoped, sending-only one-use key sent a controlled message from the
 production sender to `support@kreydlabs.com`; Resend recorded both sent and
 delivered, after which the one-use key was deleted. Real export and deletion
 events then produced two application outbox messages; Resend and the signed
-production webhook recorded both as delivered. Better Stack's free
+production webhook recorded both as delivered. A fresh dashboard inspection on
+30 July still showed all three controlled messages Delivered and successful
+`email.delivered` webhook signals. Better Stack's free
 service has an uptime monitor, status page, one active production log source
 and four scheduled-job heartbeats configured, with the corresponding Vercel
 values installed. The two-label EU ingestion-host allowlist correction is
@@ -1137,7 +1143,10 @@ public runtime now includes secret-protected, idempotent Convex publication and
 withdrawal operations with exact archive-path validation, redacted audits and
 atomic unused-grant revocation. No real paid archive, B2 object or production
 release record has been created. Paid delivery, superseded B2-key revocation
-and recovery-copy custody remain unproved.
+and recovery-copy custody remain unproved. The surviving scoped backup
+credential still authenticates but is not authorised to enumerate application
+keys, so it cannot verify or revoke the superseded credential; dashboard
+reauthentication remains required.
 
 The current private localisation cycle is checksum-bound to public English
 revision `en-9ce8e64d3a09` at full public commit
@@ -1154,24 +1163,25 @@ correctly fail closed at 0/19 eligible. Superseded `en-8d9722d3d630`,
 `en-f385e0bf031b` cycles remain preserved as historical evidence and cannot
 satisfy the current importer.
 
-Current product gates also include running and visually reviewing the v0.5.0
-Figma materialisation of 138 sets and 2,588 variants, reviewing its 72 editable
-pattern sets against the 72 raster comparison references, completing founder
-rendered/localisation review, and promoting actual paid releases. The live
-Starter file still exposes the expected generated page structure, but its
-remote agent-call allowance is exhausted and the recorded decision does not
-authorize a paid Figma seat. The exact no-network Desktop materializer remains
-the approved route. Private release packaging now additionally fails closed
-unless an approved, restored and checksum-bound editable `.fig` export is
-present.
+The v0.5.0 Figma materialisation, exact structural audit, editable export and
+separate-file restore are complete. Current product gates now include founder
+visual review of its 138 sets and 2,588 variants, comparison of its 72 editable
+pattern sets with the 72 raster references, approval of the checksum-bound
+export for protected staging, completion of rendered/localisation review, and
+promotion of actual paid releases. The original Starter file remains preserved
+after a repeatable renderer crash; the audited recovery file is the current
+source. Private release packaging fails closed unless the restored editable
+`.fig` export is explicitly approved and staged.
 
 Remaining founder-controlled gates include production recovery,
 second-identity invitation acceptance, WorkOS orphan-key confirmation, private
-Figma materialisation and visual review, localisation approval, superseded
-B2-key revocation, and recovery-bundle custody. Paid releases,
-provider-delivered production webhook events, transactional
-purchase/licence/refund email, and the authorised production purchase/full
-refund journey remain pending. The live restricted Stripe key is already
+Figma visual review and export approval, localisation approval, superseded
+B2-key revocation, isolated-environment cleanup, and recovery-bundle custody.
+Paid releases, provider-delivered Stripe production lifecycle events,
+transactional purchase/licence/refund email, and the authorised production
+purchase/full refund journey remain pending. Existing WorkOS and Resend
+provider-delivery evidence does not substitute for those commerce events. The
+live restricted Stripe key is already
 rotated exactly once, installed and provider-authoritatively verified; it is
 frozen unless compromise requires another rotation. Checkout must stay
 disabled until those gates pass. The project is not commercially launched

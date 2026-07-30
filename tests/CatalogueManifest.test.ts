@@ -89,7 +89,7 @@ describe("public catalogue manifest", () => {
       rasterComparisonReferences: 72,
     });
     expect(proDesignKitExternalMaterialization)
-      .toBe("previous-version-materialized-current-version-live-run-pending");
+      .toBe("current-version-materialized-export-restored-founder-review-pending");
     expect(proDesignKitManualQa).toBe("pending");
     expect(proCatalogueStatus).toBe("implementation-in-progress");
     expect(proImplementedBlockCount).toBeGreaterThanOrEqual(80);
