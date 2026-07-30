@@ -19,13 +19,13 @@ backup. Redacted Vercel function logs retain the 200 responses and structured
 completion records; object names, provider tokens and cryptographic material are
 not copied into this repository.
 
-An isolated Convex development restore target has the current schema and backup
-functions with only distinct restore/export secrets and the `isolated-test`
-classification. On 28 July 2026 the scoped B2 credential, both backup
-cryptographic keys, their versioned identifiers and the cron credential were
-rotated and deployed. The replacement values are stored in a mode-0600 operator
-recovery bundle outside both repositories. The superseded cron value is proven
-rejected with 404 while the replacement returns a verified 200.
+An isolated Convex development restore target was provisioned with the current
+schema and backup functions, distinct restore/export secrets and the
+`isolated-test` classification. On 28 July 2026 the scoped B2 credential, both
+backup cryptographic keys, their versioned identifiers and the cron credential
+were rotated and deployed. The replacement values are stored in a mode-0600
+operator recovery bundle outside both repositories. The superseded cron value
+is proven rejected with 404 while the replacement returns a verified 200.
 
 A fresh production backup under the current keys exported, encrypted,
 authenticated, uploaded, read back and verified all 24 durable tables. The
@@ -45,6 +45,15 @@ enumerated all 200 current objects. No key ID, object name or reusable
 credential was retained. Founder password-manager custody and removal of the
 local recovery copy remain required before this control is marked fully
 complete.
+
+On 30 July, founder-authenticated Convex reconciliation confirmed the older
+synthetic target was already absent. The separate fresh restore target was
+verified as the expiring non-production branch
+`dev/restore-proof-20260729-fresh`, containing the expected 26 restored
+documents and no files, and was permanently deleted. Production, current
+development and the dedicated Stripe sandbox were preserved. Dashboard search
+confirmed both isolated targets absent, and the ignored mode-0600
+`.env.restore-proof` file was removed.
 
 The backup format has two separate cryptographic controls:
 

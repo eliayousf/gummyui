@@ -47,6 +47,15 @@ a customer, charge, entitlement, paid release, or production checkout.
   `invitation.accepted` retry was Delivered at 22:29 BST. Gummy UI then rendered
   the invitation as Accepted and Convex rendered two active members with the
   expected admin/member roles.
+- Founder-authenticated Convex inspection reconciled the Gummy UI inventory.
+  Production `colorful-dove-699`, current development
+  `fantastic-cheetah-550`, and the dedicated `gummyui-sandbox` development
+  deployment remain. The completed 26-document, zero-file restore deployment
+  `outstanding-chickadee-79` was confirmed as
+  `dev/restore-proof-20260729-fresh` and permanently deleted. Dashboard search
+  then confirmed that both it and the older synthetic target
+  `grateful-pika-498` were absent. The ignored mode-0600 restore environment
+  file was removed after reconciliation.
 
 ## Still open
 
@@ -54,8 +63,6 @@ a customer, charge, entitlement, paid release, or production checkout.
   credential are still present. WorkOS support has not confirmed revocation or
   deletion.
 - WorkOS account recovery and final deletion remain open.
-- Convex dashboard access requires a fresh founder sign-in before superseded
-  isolated deployments can be confirmed and removed.
 - The mode-0600 Backblaze recovery bundle still needs founder-approved vault
   custody followed by removal of the local recovery copy.
 - Figma founder visual review, approved export staging, and all 19 localisation

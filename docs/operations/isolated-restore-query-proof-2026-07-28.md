@@ -43,6 +43,9 @@ an isolated restore. It does not prove a real B2 release archive, production
 customer identity, Stripe payment, Resend delivery or customer-facing signed
 download. Those gates remain closed.
 
-The isolated target now deliberately contains only the synthetic drill records
-and must be deleted through the Convex dashboard after founder authentication.
-It must never receive production routing or provider credentials.
+The isolated target deliberately contained only the synthetic drill records
+and never received production routing or provider credentials. On 30 July
+2026, founder-authenticated dashboard reconciliation confirmed that the target
+`grateful-pika-498` was already absent. The separate fresh 26-document restore
+deployment `outstanding-chickadee-79` was also permanently deleted after its
+branch, record count, file count and non-production status were verified.

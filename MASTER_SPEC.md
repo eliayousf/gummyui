@@ -1074,8 +1074,12 @@ readback verification. The earlier 24-table/26-record backup remains the
 restore proof. Production was export-only throughout both operations. A prior isolated
 synthetic drill separately proved representative account, team, licence,
 entitlement, one-use and expired download, full-refund revocation and audit
-queries without calling external providers. A controlled Vercel rollback of
-the then-current audited
+queries without calling external providers. On 30 July,
+founder-authenticated Convex inspection confirmed the older synthetic target
+already absent and permanently deleted the separate expiring 26-document
+restore deployment. Production, current development and the dedicated Stripe
+sandbox were preserved; the ignored restore environment file was removed. A
+controlled Vercel rollback of the then-current audited
 `977012c` release switched the real origin
 to known-good deployment `dpl_7HCcW6w9uQB8vhvTe4HcUzUtpy52`, passed public
 health and authentication probes, and promoted deployment
