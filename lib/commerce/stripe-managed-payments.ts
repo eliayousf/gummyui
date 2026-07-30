@@ -246,12 +246,6 @@ export class StripeManagedPaymentsService {
       managed_payments: { enabled: true },
       billing_address_collection: "auto",
       consent_collection: { terms_of_service: "required" },
-      custom_text: {
-        submit: {
-          message:
-            "Your immediate digital-supply request and cancellation acknowledgement were recorded before this checkout.",
-        },
-      },
       client_reference_id: request.workspaceId,
       metadata,
       success_url: buildReturnUrl(

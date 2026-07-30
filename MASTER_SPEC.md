@@ -972,25 +972,55 @@ Vercel's sensitive Production `STRIPE_RESTRICTED_KEY`. The key has Prices Read,
 Checkout Sessions Write, and the required Subscriptions, Invoices, Charges and
 Refunds, Payment Disputes and Payment Intents read permissions; Stripe exposes
 no separate Invoice Payments permission. Ready Production deployment
-`dpl_KtuS7XqoxbX1ieRBVTNvUP8qMnGK` applies the replacement to
-`gummyui.dev`. Vercel's protected cron invocation at
+`dpl_AeqPYQCpA84ncX3f2YoKvWmSVhaT` applies the replacement and the enabled
+Stripe webhook flag to `gummyui.dev` from public head `7684dab`. Vercel's
+protected cron invocation at
 `2026-07-30T12:12:56.941Z` then emitted
 `stripe.production.readiness` with `outcome: success`,
 `credential: restricted-live`, `checkout: disabled` and
 `verifiedPrices: 9`. The managed full-scope key remains installed as a Vercel
-Marketplace resource but is no longer selected by the application. Deployed-
-origin signed delivery and sandbox/live journeys remain unproved; checkout and
-webhook flags remain fail closed.
+Marketplace resource but is no longer selected by the application. Stripe
+webhook processing is enabled and fails closed with HTTP 400 for an unsigned
+production-origin request. Stripe test mode now also contains a dedicated
+least-privilege restricted runtime key, separate standard operator key, three
+sandbox-only products and nine sandbox-only prices; the restricted key
+provider-authoritatively verified every amount, currency and interval. A real
+two-session sandbox prepare created one monthly subscription Checkout and one
+lifetime-payment Checkout without printing their protected URLs. Stripe
+Managed Payments rejected the first attempt because it does not permit
+`custom_text`; no session or charge was created in that attempt, the
+unsupported parameter was removed, and a regression test preserves the
+explicit pre-checkout immediate-supply/cancellation consent plus metadata.
+
+A fresh dedicated `gummyui-sandbox` Convex project and EU development
+deployment were provisioned rather than reusing an unreachable or non-empty
+target. Its 24 durable tables were restored in the fixed empty-target sequence,
+the synthetic restore-query identity and protected-release fixture were
+seeded, and the existing query proof again demonstrated paid access, one-use
+grant consumption, replay/expiry denial and refund revocation without invoking
+external integrations. The Stripe harness now requires a nonce-bound loopback
+attestation backed by that Convex deployment, compares its target fingerprint,
+requires sandbox-namespaced identities, validates both Stripe keys before
+marking the lifecycle single-attempt, reserves prepare state before provider
+mutation, and requires a succeeded full refund plus zero active licences or
+downloads. The real readiness call passes isolation, identity, both-key and
+price checks and stops safely at `sandbox_checkout_completion_required`; its
+continuation remains unmarked and both hosted checkouts remain unpaid.
+A provider-signed deployed-origin delivery, completed hosted sandbox payments,
+the sandbox lifecycle and the live journey remain unproved; checkout remains
+fail closed.
 
 The Vercel project and domain attachment exist, and every planned Production
 environment value is installed. Vercel Pro is active; spend management is set
 to $1 with notifications and Pause Projects enabled. The current application
-bundle is served by Ready release `dpl_KtuS7XqoxbX1ieRBVTNvUP8qMnGK`
-from public head `fe9a80c` (application source remains audited at `8924e41`).
-Public health remains 200 and reports commerce disabled. WorkOS and Resend
-webhook processing are enabled and fail closed for
-unsigned input; Stripe checkout and webhook processing remain disabled, and an
-anonymous download-grant request returns an indistinguishable 404.
+bundle is served by Ready release `dpl_AeqPYQCpA84ncX3f2YoKvWmSVhaT`
+from public head `7684dab` (application source remains audited at `8924e41`).
+GitHub Quality run `30541763000` passes the complete production launch gate on
+that exact documentation head.
+Public health remains 200 and reports commerce disabled. WorkOS, Resend and
+Stripe webhook processing are enabled and fail closed for unsigned input;
+Stripe checkout remains disabled, and an anonymous download-grant request
+returns an indistinguishable 404.
 Every complete commerce journey remains pending.
 A current-production browser matrix passes Chrome 150,
 Firefox 144 and WebKit 2311 at mobile and desktop viewports across the homepage,
@@ -1112,14 +1142,15 @@ the approved route. Private release packaging now additionally fails closed
 unless an approved, restored and checksum-bound editable `.fig` export is
 present.
 
-The remaining work is dominated by founder-controlled gates: complete the
-production recovery and second-identity invitation journeys, receive WorkOS's
-confirmation that the orphaned platform-managed key was revoked, complete
-the newest Stripe email verification so the deployed expired restricted value
-can be replaced and production readiness proved, run the private Figma
+The remaining work is dominated by founder-controlled gates: complete the two
+hosted Stripe sandbox Checkout screens already prepared, complete production
+recovery and second-identity invitation journeys, receive WorkOS's confirmation
+that the orphaned platform-managed key was revoked, run the private Figma
 materializer and visual reviews, approve localisation, revoke the superseded B2
 key after reauthentication, and move the recovery bundle into the founder
-password manager. Then paid releases,
+password manager. The live restricted Stripe key is already rotated exactly
+once, installed and provider-authoritatively verified; it is frozen unless
+compromise requires another rotation. Then paid releases,
 signed webhook/email/customer journeys and the authorised real purchase/full
 refund can proceed. The project is not commercially launched until all eight
 North Star steps have evidence.

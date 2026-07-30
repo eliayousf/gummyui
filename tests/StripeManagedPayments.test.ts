@@ -96,6 +96,10 @@ describe("Stripe Managed Payments checkout boundary", () => {
     });
 
     expect(calls).toHaveLength(1);
+    // Stripe rejects custom_text when Managed Payments is enabled. The
+    // immediate-supply acknowledgement is captured before checkout and kept
+    // in provider metadata instead.
+    expect(calls[0].params).not.toHaveProperty("custom_text");
     expect(calls[0]).toMatchObject({
       params: {
         mode: "payment",
