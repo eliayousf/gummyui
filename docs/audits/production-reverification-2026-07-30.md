@@ -63,8 +63,8 @@ Fresh independent checks confirmed:
   projection.
 
 The production-verified revenue loop remains 0 of 8 until the founder-controlled
-review, sandbox Checkout, protected-release and live purchase/refund gates are
-completed.
+review, account, protected-release, provider-delivery and live
+purchase/refund gates are completed.
 
 ## Subsequent sandbox evidence
 
@@ -75,3 +75,27 @@ failed renewal, cancellation, and active/renewed/suspended/expired access
 states. This does not alter the production crawl result above or the North Star:
 production checkout remains disabled and the production-verified loop remains
 0 of 8.
+
+## Post-deployment full crawl
+
+After public application commit `227c2b4` was pushed, Ready production
+deployment `dpl_71ifvhmBZYXXjJk3WUBvcyci1MX8` was created and promoted to the
+apex aliases. Vercel does not expose that deployment's source SHA, so this
+records the observed chronology rather than asserting an unavailable
+provider-side exact binding. SquirrelScan 0.0.38 then ran another fresh,
+uncached full-coverage crawl. It again audited 219
+pages/resources across all 135 sitemap URLs and improved to 97/A, with 12,427
+passing checks, 155 warnings and zero failures. Performance improved to 97;
+content remained 99, security 94, and every other reported category remained
+100. The residual warning groups were the same owned CSP and HTTP-upgrade
+observations, content-density heuristics, three isolated 630–734 ms TTFB
+samples and eight route-scoped critical request chains. This re-proves the
+greater-than-95 production website gate without changing the 0-of-8 revenue
+loop.
+
+Lighthouse 13.4.1 then re-ran against the same apex release. Mobile scored 98
+performance and 100 for accessibility, best practices and SEO, with 1.6 s FCP,
+2.3 s LCP, 10 ms total blocking time and zero CLS. Desktop scored 100 in all
+four categories, with 0.4 s FCP, 0.6 s LCP, zero blocking time and zero CLS.
+These controlled lab results meet the above-95 gate; they are not field Core
+Web Vitals.

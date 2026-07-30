@@ -895,18 +895,19 @@ paid editable source.
 
 The current production-origin Lighthouse 13.4.1 audit meets the above-95
 website-audit gate. Mobile scores are 98 performance, 100 accessibility, 100
-best practices and 100 SEO, with 1.6-second FCP, 2.4-second LCP, zero blocking
+best practices and 100 SEO, with 1.6-second FCP, 2.3-second LCP, 10 ms blocking
 time and zero CLS. Desktop scores are 100 in all four categories, with
-0.3-second FCP, 0.5-second LCP, zero blocking time and zero CLS. These are
+0.4-second FCP, 0.6-second LCP, zero blocking time and zero CLS. These are
 controlled lab results, not a claim about field Core Web Vitals.
 
 The complementary fresh SquirrelScan 0.0.38 full-coverage crawl audits 219
-pages/resources across all 135 indexable sitemap URLs. It scores 96/A with
-12,420 passes, 162 warnings and zero failures. Accessibility, Core SEO,
+pages/resources across all 135 indexable sitemap URLs. The post-deployment
+fresh crawl scores 97/A with 12,427 passes, 155 warnings and zero failures.
+Accessibility, Core SEO,
 crawlability, E-E-A-T, internationalisation, images, legal compliance, links,
 mobile, structured data, social media and URL structure score 100; content is
-99, performance 96 and security 94. The remaining warnings are owned CSP and
-HTTP-redirect observations, content-density heuristics, ten isolated crawler
+99, performance 97 and security 94. The remaining warnings are owned CSP and
+HTTP-redirect observations, content-density heuristics, three isolated crawler
 TTFB samples and eight route-scoped critical request chains. Their evidence,
 disposition and owners are recorded in
 `docs/audits/production-reverification-2026-07-30.md`; earlier scans remain in
@@ -927,13 +928,14 @@ repositories exist. The private launch commits are pushed to private `main`;
 the current private head is
 `cb83961ca9361bda8b258b64bceff2c8541eb09f`.
 The public prelaunch state is preserved by the `prelaunch-2026-07-28.1` tag.
-The latest committed public `main` before the current Stripe sandbox evidence
-work is `b49c7f2b82e0be8b2551ad12fa6bbde05a228d15`; GitHub Quality run
-`30550414312` passed its complete launch gate. A newer Ready production
-deployment is promoted to the apex, `www` and canonical Vercel aliases, but
-Vercel does not expose a source SHA for that deployment, so this record does
-not assert an unverifiable exact binding. The deployed application contains
-the real-payload WorkOS membership fix, exact
+The current public application commit is
+`227c2b47f3015e7c177429ebb488a2eabaad1876`; GitHub Quality run
+`30560786302` passed its complete launch gate. Ready production deployment
+`dpl_71ifvhmBZYXXjJk3WUBvcyci1MX8` was created immediately after that push and
+is promoted to the apex, `www` and canonical Vercel aliases. Vercel does not
+expose a source SHA for the deployment, so this record preserves the observed
+chronology without asserting an unavailable provider-side exact binding. The
+deployed application contains the real-payload WorkOS membership fix, exact
 `/components/lab$` crawler rule, route-scoped component-preview styles,
 consolidated unreleased-Pro discovery, a bounded subprocessor directory,
 strengthened editorial/legal trust signals, the residual accessibility and
